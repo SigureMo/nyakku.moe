@@ -13,5 +13,6 @@
 ### 项目记录
 1. [MOOC_Downloading](Projects/[01_Py]MOOC_Downloading.md)
 ### 折腾记录
+1. [Termux](Try/[01]Termux.md)
 
 [return 0;](#s_note)
