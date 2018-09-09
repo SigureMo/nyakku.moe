@@ -32,4 +32,6 @@ A: 谁知道哪些地址可以指呀？已经知道的只有之前新建的变�
 # 参考
 1. [中国大学MOOC C语言程序设计进阶](https://www.icourse163.org/course/ZJU-200001#/info)
 
-[return 0;](../README.md)
+[goto S_Note;](../README.md)
+
+[return 0;](#c%20and%20pointer)

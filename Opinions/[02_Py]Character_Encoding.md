@@ -63,4 +63,6 @@ s.string.replace(u'\xa0',u' ')#s.string是待替换文本
 # 参考
 1. [廖雪峰 Python教程](https://www.liaoxuefeng.com/wiki/0014316089557264a6b348958f449949df42a6d3a2e542c000/001431664106267f12e9bef7ee14cf6a8776a479bdec9b9000)
 
-[return 0;](../README.md)
+[goto S_Note;](../README.md)
+
+[return 0;](#character%20encoding)
