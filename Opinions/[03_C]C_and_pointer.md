@@ -34,4 +34,4 @@ A: 谁知道哪些地址可以指呀？已经知道的只有之前新建的变�
 
 [goto S_Note;](../README.md)
 
-[return 0;](#c%20and%20pointer)
+[return 0;](#c-and-pointer)

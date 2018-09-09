@@ -61,4 +61,4 @@ print('his name is {}'.format(li.name))
 
 [goto S_Note;](../README.md)
 
-[return 0;](#everything%20is%20object)
+[return 0;](#everything-is-object)

@@ -65,4 +65,4 @@ s.string.replace(u'\xa0',u' ')#s.string是待替换文本
 
 [goto S_Note;](../README.md)
 
-[return 0;](#character%20encoding)
+[return 0;](#character-encoding)
