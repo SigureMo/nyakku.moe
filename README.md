@@ -13,8 +13,8 @@
 ### 项目记录
 1. [MOOC_Downloading](Projects/[01_Py]MOOC_Downloading.md)
 ### 折腾记录
-1. [Termux_and_ssh](Try/[01]Termux_and_ssh.md)
-2. [Settings for sublime.md](Try/[02]Settings_for_sublime.md)
+1. [Termux and ssh](Try/[01]Termux_and_ssh.md)
+2. [Settings for sublime](Try/[02]Settings_for_sublime.md)
 3. [Pip3](Try/[03]Pip3.md)
 4. [Chrome headless](Try/[04]Chrome_headless.md)
 
