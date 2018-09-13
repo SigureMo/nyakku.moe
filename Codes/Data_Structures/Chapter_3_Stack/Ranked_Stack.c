@@ -12,15 +12,6 @@ typedef struct{
 void Push(Stack PtrS, ElementType item); 
 ElementType Pop(Stack PtrS);
 
-int main(){
-	printf("1\n");
-	Node* PtrL = MakeEmpty();
-	Insert(3, 1, PtrL);
-	Insert(37, 1, PtrL);
-	printf("%d", Find(3, PtrL));
-	return 0;
-}
-
 void Push(Stack PtrS, ElementType item){
 	if (PtrS->Top == MAXSIZE-1){
 		printf("¶ÑÕ»Âú");
