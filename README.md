@@ -6,10 +6,11 @@
 2. [Character Encoding](Opinions/[02_Py]Character_Encoding.md)
 3. [C and pointer](Opinions/[03_C]C_and_pointer.md)
 ### 课堂云笔记
-1. [Data_Structures](http://note.youdao.com/noteshare?id=517e47a7bea2a34b666965f946dae424)
+1. [Data Structures](http://note.youdao.com/noteshare?id=517e47a7bea2a34b666965f946dae424)
 2. [Principles of computer composition](http://note.youdao.com/noteshare?id=2e2d1692e3be680cb1055c38be02ea14)
-3. [Network](http://note.youdao.com/noteshare?id=e2607b858b03589c60e7902ed4bb4b2c&sub=82966f60ad3fc32727bed24614875346)
-4. [机械设计基础](http://note.youdao.com/noteshare?id=668913de6e17aa86f15d8148136886d9&sub=530a579d6798d83f9fcfb74cb44ec77c)
+3. [Computer Network](http://note.youdao.com/noteshare?id=e2607b858b03589c60e7902ed4bb4b2c&sub=82966f60ad3fc32727bed24614875346)
+4. [Basis of Mechanical Designing](http://note.youdao.com/noteshare?id=668913de6e17aa86f15d8148136886d9&sub=530a579d6798d83f9fcfb74cb44ec77c)
+5. [PIC](http://note.youdao.com/noteshare?id=a90a9d5d0c6b12367df9e9f648512b19)
 ### 项目记录
 1. [MOOC_Downloading](Projects/[01_Py]MOOC_Downloading.md)
 ### 折腾记录
