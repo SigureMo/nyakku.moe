@@ -19,7 +19,7 @@
 |:green_heart:|`:green_heart:`|Fixing CI Build.|修复 CI 构建问题|
 |:arrow_down:|`:arrow_down:`|Downgrading dependencies.|降级依赖库|
 |:checkered_flag:|`:checkered_flag:`|Fixing something on Windows.|修复Windows下的问题|
-|:arow_up:|`:arow_up:`|Upgrading dependencies.|升级依赖库|
+|:arrow_up:|`:arrow_up:`|Upgrading dependencies.|升级依赖库|
 |:construction_worker:|`:construction_worker:`|Adding CI build system.|添加 CI 构建系统|
 |:wrench:|`:wrench:`|Changing configuraton files.|改变配置文件|
 |:hammer:|`:hammer:`|Heavy refactoring.|大重构|
