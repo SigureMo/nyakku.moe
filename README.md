@@ -18,5 +18,9 @@
 2. [Settings for sublime](Try/[02]Settings_for_sublime.md)
 3. [Pip3](Try/[03]Pip3.md)
 4. [Chrome headless](Try/[04]Chrome_headless.md)
+### 刷题
+1. [Data Structures](Codes/Data_Structures/) src : [PTA](https://pintia.cn/problem-sets)
+2. [PAT](Codes/PAT/) src : [PTA](https://pintia.cn/problem-sets)
+3. [MI OJ](Codes/MI_OJ/) src : [MI_OJ](https://code.mi.com/problem/list)
 
 [return 0;](#s_note)
