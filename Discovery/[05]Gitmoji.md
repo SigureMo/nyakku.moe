@@ -9,7 +9,7 @@
 |:sparkles:|`:sparkles:`|Introducing new features.|引入新功能|
 |:apple:|`:apple:`|Fixing something on macOS.|修复MacOS下的问题|
 |:memo:|`:memo:`|Writing docs.|写文档|
-|:rocket:|`rocket`|Deploying stuff.|部署新功能|
+|:rocket:|`:rocket:`|Deploying stuff.|部署新功能|
 |:white_check_mark:|`:white_check_mark:`|Adding tests.|添加测试用例|
 |:bookmark:|`:bookmark:`|Releasing / Version tags.|发版/版本标签|
 |:lock:|`:lock:`|Fixing security issues.|修复安全问题|
@@ -19,7 +19,7 @@
 |:green_heart:|`:green_heart:`|Fixing CI Build.|修复 CI 构建问题|
 |:arrow_down:|`:arrow_down:`|Downgrading dependencies.|降级依赖库|
 |:checkered_flag:|`:checkered_flag:`|Fixing something on Windows.|修复Windows下的问题|
-|:arow_up:|`:arow_up:`|Upgrading dependencies.|升级依赖库|
+|:arrow_up:|`:arrow_up:`|Upgrading dependencies.|升级依赖库|
 |:construction_worker:|`:construction_worker:`|Adding CI build system.|添加 CI 构建系统|
 |:wrench:|`:wrench:`|Changing configuraton files.|改变配置文件|
 |:hammer:|`:hammer:`|Heavy refactoring.|大重构|
