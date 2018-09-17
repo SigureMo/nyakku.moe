@@ -9,7 +9,7 @@
 |:sparkles:|`:sparkles:`|Introducing new features.|引入新功能|
 |:apple:|`:apple:`|Fixing something on macOS.|修复MacOS下的问题|
 |:memo:|`:memo:`|Writing docs.|写文档|
-|:rocket:|`rocket`|Deploying stuff.|部署新功能|
+|:rocket:|`:rocket:`|Deploying stuff.|部署新功能|
 |:white_check_mark:|`:white_check_mark:`|Adding tests.|添加测试用例|
 |:bookmark:|`:bookmark:`|Releasing / Version tags.|发版/版本标签|
 |:lock:|`:lock:`|Fixing security issues.|修复安全问题|
