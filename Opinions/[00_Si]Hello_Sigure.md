@@ -36,10 +36,10 @@
     - [ ] Data Structure
     - [ ] 计网
     - [ ] OS
+    - [ ] C++
     - [ ] English Grammar
     - [ ] English Words
 2. Winter vacation
-    - [ ] C++
     - [ ] Python_ AI Tensorflow
     - [ ] C_ 
     - [ ] Node.js_ Blog
