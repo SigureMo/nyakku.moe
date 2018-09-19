@@ -1,5 +1,5 @@
 /*
-# List Leaves 还要自己做queue 烦哦 用java做去了 
+# List Leaves
 Given a tree, you are supposed to list all the leaves in the order of top down, and left to right.
 ## Specification:
 IN
