@@ -5,6 +5,7 @@
 1. [Everything is object](Opinions/[01_Py]Everything_is_object.md)
 2. [Character Encoding](Opinions/[02_Py]Character_Encoding.md)
 3. [C and pointer](Opinions/[03_C]C_and_pointer.md)
+4. [Hardware](Opinions/[04_ML]Hardware.md)
 ### 课堂云笔记
 1. [Data Structures](http://note.youdao.com/noteshare?id=517e47a7bea2a34b666965f946dae424)
 2. [Principles of computer composition](http://note.youdao.com/noteshare?id=2e2d1692e3be680cb1055c38be02ea14)
