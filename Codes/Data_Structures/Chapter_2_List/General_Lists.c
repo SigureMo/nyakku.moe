@@ -24,4 +24,3 @@ int main(){
 	List PtrL;
 	return 0;
 }
-
