@@ -32,24 +32,24 @@
 
 大概两个月前，我已经浸淫在计算机专业名词大概半年了，花了半天时间了解了git和GitHub基本语法，由于已经对Linux基本操作熟悉了些，所以学习的较为轻松。
 
-很早便有搭建自己的博客的想法，但没有搭好便一直不想输出，以至于半年只有零零散散几篇总结。习惯了GitHub与Markdown写作后，上周末我索性利用GitHub搭建起来这个简单的Blog，emmmm 等我自己能搭建出来和 GitHub 相当的 View 之后再考虑迁移到服务器。
+很早便有搭建自己的博客的想法，但没有搭好便一直不想输出，以至于半年只有零零散散几篇总结。习惯了GitHub与Markdown写作后，上周末我索性利用GitHub搭建起来这个简单的Blog。虽然还是有着搭一个网页版的Blog的想法，但是想要达到GitHub一般的版本管理等功能还是有点难的，所以等我能做出来让自己满意的前端再说啦(￣▽￣)~*
 
 ## TODO
 1. This term
     - [ ] 组原
     - [ ] Data Structure
     - [ ] 计网
-    - [ ] OS
     - [ ] C++
     - [ ] Android
     - [ ] English Grammar
     - [ ] English Words
+    - [ ] Java_ Android
 2. Winter vacation
+    - [ ] OS
     - [ ] Python_ AI Tensorflow
     - [ ] C_ 
     - [ ] Node.js_ Blog
-    - [ ] Java_ Android
-    - [ ] PAT
+    - [ ] C++_ PAT
 
 # 修改记录
 1. 180207 Init
