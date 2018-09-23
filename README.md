@@ -15,6 +15,8 @@
 6. [C++](http://note.youdao.com/noteshare?id=1aa31e9bea16a7669c85746f671fb895)
 ### 项目记录
 1. [MOOC_Downloading](Projects/[01_Py]MOOC_Downloading.md)
+2. [open_163](Projects/[02_Py]open_163.md)
+3. [Baidu_Indexation](Projects/[03_Py]Baidu_Indexation.md)
 ### 折腾记录
 1. [Termux and ssh](Discovery/[01]Termux_and_ssh.md)
 2. [Settings for sublime](Discovery/[02]Settings_for_sublime.md)
@@ -22,11 +24,11 @@
 4. [Chrome headless](Discovery/[04]Chrome_headless.md)
 5. [Gitmoji](Discovery/[05]Gitmoji.md)
 ### 刷题
-Directory|Src
----|---
-[Data Structures](Codes/Data_Structures/)|[PTA](https://pintia.cn/problem-sets)
-[PAT](Codes/PAT/)|[PTA](https://pintia.cn/problem-sets)
-[MI OJ](Codes/MI_OJ/)|[MI_OJ](https://code.mi.com/problem/list)
-[LeetCode](Codes/LeetCode/)|[LeetCode](https://leetcode.com/problemset/all/)
+Num|Directory|Src
+---|---|---
+1|[Data Structures](Codes/Data_Structures/)|[PTA](https://pintia.cn/problem-sets)
+2|[PAT](Codes/PAT/)|[PTA](https://pintia.cn/problem-sets)
+3|[MI OJ](Codes/MI_OJ/)|[MI_OJ](https://code.mi.com/problem/list)
+4|[LeetCode](Codes/LeetCode/)|[LeetCode](https://leetcode.com/problemset/all/)
 
 [return 0;](#s_note)
