@@ -23,6 +23,9 @@
 3. [Pip3](Discovery/[03]Pip3.md)
 4. [Chrome headless](Discovery/[04]Chrome_headless.md)
 5. [Gitmoji](Discovery/[05]Gitmoji.md)
+6. [Harddisk](Discovery/[06]Harddisk.md)
+7. [Cmder](Discovery/[07]Cmder.md)
+
 ### 刷题
 Num|Directory|Src
 ---|---|---
