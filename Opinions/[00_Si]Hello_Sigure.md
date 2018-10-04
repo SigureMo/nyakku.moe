@@ -36,14 +36,16 @@
 
 ## TODO
 1. This term
-    - [ ] 组原
-    - [ ] Data Structure
-    - [ ] 计网
+    - [ ] PCC
+    - [ ] DS
+    - [ ] CN
     - [ ] C++
-    - [ ] Android
+    - [ ] PIC
     - [ ] English Grammar
     - [ ] English Words
     - [ ] Java_ Android
+    - [ ] 编译原理
+    - [ ] 汇编
 2. Winter vacation
     - [ ] OS
     - [ ] Python_ AI Tensorflow
