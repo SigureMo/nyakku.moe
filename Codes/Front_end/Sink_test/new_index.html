@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>时雨小栈 -Write my world,by code.</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link href="./images/Myheadpic.ico" rel="shortcut icon" />
+    <!-- 引入 Bootstrap -->
+    <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/4.1.0/css/bootstrap.min.css">
+    <!--引入zico字体图标-->
+    <link rel="stylesheet" href="css/zico.min.css" rel="stylesheet">
+    <!-- HTML5 Shiv 和 Respond.js 用于让 IE8 支持 HTML5元素和媒体查询 -->
+    <!-- 注意： 如果通过 file://  引入 Respond.js 文件，则该文件无法起效果 -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
+    <style type="text/css">
+        /*增加背景图片*/
+        .bg {
+            background-image: url("images/bg.jpg");
+            background-position: center 0;
+            background-repeat: no-repeat;
+            background-size:contain;
+            /*background-size: cover;*/
+            -webkit-background-size: cover;
+            -o-background-size: cover;
+            -moz-background-size: cover;
+            -ms-background-size: cover;
+        }
+        body{
+            cursor:url("./images/pointer/point.cur"), default!important;
+        }
+        a,button{
+            cursor:url("./images/pointer/link.cur"), default!important;
+        }
+        input{
+            cursor:url("./images/pointer/Text.cur"), default!important;
+        }
+        #about{
+            cursor:url("./images/pointer/help.cur"), default!important;
+        }
+    </style>
+</head>
+
+<body data-spy="scroll" data-target="#cardList" data-offset="0" class="scrollspy-example" id="top">
+<div class="bg">
+    <nav class="navbar navbar-expand-lg navbar-dark" style="background-color: rgba(0, 0, 0, 0.75);">
+        <div class="container">
+            <a class="navbar-brand" href="#"><img src="images/sigureink.ico" width="130px" /></a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExample07" aria-controls="navbarsExample07" aria-expanded="false" aria-label="Toggle navigation"> <span class="navbar-toggler-icon"></span> </button>
+            <div class="collapse navbar-collapse" id="navbarsExample07">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item active"> <a class="nav-link" href="#"><i class="zi zi_home"></i> Home</a> </li>
+                    <li class="nav-item"> <a class="nav-link" href="#"><i class="zi zi_tmDcu"></i> Blog</a> </li>
+                    <li class="nav-item"> <a class="nav-link disabled" href="#"><i class="zi zi_cloud"></i> Cloud</a> </li>
+                    <li class="nav-item"> <a class="nav-link disabled" href="#"><i class="zi zi_wrench"></i> Tools</a> </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle disabled" href="#" id="dropdown07" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <i class="zi zi_pencilalt"></i> Note
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="dropdown07">
+                            <a class="dropdown-item" href="#">学习笔记</a>
+                            <a class="dropdown-item" href="#">网址收录</a>
+                        </div>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle disabled" href="#" id="dropdown07" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <i class="zi zi_dhbt"></i> More
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="dropdown07">
+                            <a class="dropdown-item" href="#">Api</a>
+                            <a class="dropdown-item" href="#">Games</a>
+                            <a class="dropdown-item" href="#">Community</a>
+                        </div>
+                    </li>
+                </ul>
+                <form class="form-inline my-2 my-md-0">
+                    <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">
+                    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+                </form>
+                <ul class="navbar-nav my-2 my-md-0">
+                    <li class="nav-item"> <a class="nav-link" href="#" data-toggle="modal" data-target="#loginModal"><i class="zi zi_signinalt"></i> 登录</a> </li>
+                    <li class="nav-item"> <a class="nav-link" href="#" id="about"><i class="zi zi_users"></i> 关于</a> </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <!-- loginModal -->
+    <div class="modal fade" id="loginModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLongTitle">喵！居然被发现了！</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    登录功能将在11月开放，敬请期待……
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary">I know!</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--大块屏，文字居中，透明，无下边缘-->
+    <div class="jumbotron text-center"  style="background-color: rgba(0, 0, 0, 0.0); margin-bottom:0;">
+        <div class="container">
+            <h1 class="display-2 d-none d-md-block" style="color: white ;-webkit-text-stroke: 2px black;font-weight: bold; ">时雨_小栈</h1><!--较大设备显示-->
+            <h1 class="display-4 d-block d-md-none" style="color: white ;-webkit-text-stroke: 2px black;font-weight: bold; ">时雨_小栈</h1><!--中小设备显示-->
+            <!--<p  class="text-right"><strong>——一个小傻子的个人网站</strong></p>-->
+            <img src="images/Myheadpic.ico" class="rounded-circle mx-auto d-none d-md-block" alt="Cinque Terre">
+        </div>
+    </div>
+</div>
+<div class="container p-3">
+    <div class="row">
+        <!--文章主体-->
+        <div class="col-md-8">
+            <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+                <ol class="carousel-indicators">
+                    <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+                    <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+                    <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+                </ol>
+                <div class="carousel-inner">
+                    <div class="carousel-item active">
+                        <img class="d-block w-100 mh-25" src="images/timg%20(1).jpg" alt="First slide">
+                        <div class="carousel-caption d-none d-md-block">
+                            <h3>演示文章1</h3>
+                            <p>这篇文章讲述了</p>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <img class="d-block w-100 mh-25" src="images/timg%20(2).jpg" alt="Second slide">
+                        <div class="carousel-caption d-none d-md-block">
+                            <h3>演示文章2</h3>
+                            <p>这篇文章讲述了</p>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <img class="d-block w-100 mh-25" src="images/timg%20(3).jpg" alt="Third slide">
+                        <div class="carousel-caption d-none d-md-block">
+                            <h3>演示文章3</h3>
+                            <p>这篇文章……啥都没讲</p>
+                        </div>
+                    </div>
+                </div>
+                <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="sr-only">Previous</span>
+                </a>
+                <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="sr-only">Next</span>
+                </a>
+            </div>
+            <h1 class="text-center">文章标题</h1>
+            <h4 id="list-item-1">Item 1</h4>
+            <p>...<br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/></p>
+            <h4 id="list-item-2">Item 2</h4>
+            <p>...<br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/></p>
+            <h4 id="list-item-3">Item 3</h4>
+            <p>...<br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/></p>
+            <h4 id="list-item-4">Item 4</h4>
+            <p>...<br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/></p>
+        </div>
+        <!--个人卡片-->
+        <div class="col-md-4 d-none d-sm-block">
+            <div class="card border-primary shadow-lg" style="max-width: 20rem;" id="cardNav">
+                <div class="card-header">
+                    <ul class="nav nav-tabs card-header-tabs">
+                        <li class="nav-item">
+                            <a class="nav-link active" id="pills-title-tab" data-toggle="pill" href="#pills-title" role="tab" aria-controls="pills-title" aria-selected="true">
+                                文章概览
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link"id="pills-author-tab" data-toggle="pill" href="#pills-author" role="tab" aria-controls="pills-author" aria-selected="true">
+                                作者信息
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                <img class="card-img-top" src="images/bg.jpg" alt="Card image cap">
+                <div class="card-body text-primary tab-content" id="pills-tabContent">
+                    <div class="tab-pane fade show active" id="pills-title" role="tabpanel" aria-labelledby="pills-title-tab">
+                        <h5 class="card-title">Primary card title1</h5>
+                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                        <!--文章概览-->
+                        <div id="cardList" class="list-group">
+                            <a class="list-group-item list-group-item-action" href="#list-item-1">Item 1</a>
+                            <a class="list-group-item list-group-item-action" href="#list-item-2">Item2</a>
+                            <a class="list-group-item list-group-item-action" href="#list-item-3">Item 3</a>
+                            <a class="list-group-item list-group-item-action" href="#list-item-4">Item 4</a>
+                            <a class="list-group-item list-group-item-action" href="#top">返回顶部</a>
+                        </div>
+                    </div>
+                    <div class="tab-pane fade" id="pills-author" role="tabpanel" aria-labelledby="pills-author-tab">
+                        <!--个人信息-->
+                        <h5 class="card-title">Primary card title2</h5>
+                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="jumbotron text-center jumbotron-fluid hidden-xs-down" style="margin-bottom:0">
+    <p style="font-size:3px">©2018 Sigure_Mo. All rights reserved.</p>
+</div>
+
+<!-- jQuery文件。务必在bootstrap.min.js 之前引入 -->
+<script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+<!-- popper.min.js 用于弹窗、提示、下拉菜单 -->
+<script src="https://cdn.bootcss.com/popper.js/1.12.5/umd/popper.min.js"></script>
+<!-- 最新的 Bootstrap4 核心 JavaScript 文件 -->
+<script src="https://cdn.bootcss.com/bootstrap/4.1.0/js/bootstrap.min.js"></script>
+<!--背景画布效果-->
+<!--<script src="canvas-nest.js"></script>-->
+<!--侧边卡片-->
+<script type="text/javascript" src="js/sideNav.js"></script>
+
+
+</body>
+</html>
