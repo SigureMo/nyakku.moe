@@ -31,7 +31,8 @@ Num|Directory|Src
 ---|---|---
 1|[Data Structures](Codes/Data_Structures/)|[PTA](https://pintia.cn/problem-sets)
 2|[PAT](Codes/PAT/)|[PTA](https://pintia.cn/problem-sets)
-3|[MI OJ](Codes/MI_OJ/)|[MI_OJ](https://code.mi.com/problem/list)
-4|[LeetCode](Codes/LeetCode/)|[LeetCode](https://leetcode.com/problemset/all/)
+3|[100 days of algorithms](Codes/100_days_of_algorithms)|[Python 100天算法挑战](https://python123.io/index/topics/algorithm_100_days)
+4|[MI OJ](Codes/MI_OJ/)|[MI_OJ](https://code.mi.com/problem/list)
+5|[LeetCode](Codes/LeetCode/)|[LeetCode](https://leetcode.com/problemset/all/)
 
 [return 0;](#s_note)
