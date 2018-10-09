@@ -27,7 +27,7 @@ pwd=cd
 clear=cls
 ```
 
-# 修改记录
+# Amendant Record
 1. 181001 Add #1
 
 # Reference

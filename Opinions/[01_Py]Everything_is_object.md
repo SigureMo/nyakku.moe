@@ -51,11 +51,11 @@ print('his name is {}'.format(li.name))
 ### 1.5 Module? File?
 最后，我想了下我们平时写的代码又是在什么环境呢？很明显，我们写的文件就是一个个的module实例，我们随时可以在其他文件中用import进行调用。emmmmm居然连码的代码都是对象诶……Python还真是……一切皆对象。
 
-# 修改记录
+# Amendant Record
 1. 180407 Init
 2. 180909 Change #1
 
-# 参考
+# Reference
 1. [中国大学MOOC Python语言程序设计](https://www.icourse163.org/course/BIT-268001#/info)
 2. [廖雪峰 Python教程](https://www.liaoxuefeng.com/wiki/0014316089557264a6b348958f449949df42a6d3a2e542c000)
 
