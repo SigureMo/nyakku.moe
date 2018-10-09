@@ -33,7 +33,7 @@
 # Reference
 1. [百度指数之图像数字识别(2)](http://www.sohu.com/a/214025473_654419)
 
-# 修改记录
+# Amendant Record
 1. 180704 Init
 3. 180923 Add #1
 
