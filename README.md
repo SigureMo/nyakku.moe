@@ -35,4 +35,7 @@ Num|Directory|Src
 4|[MI OJ](Codes/MI_OJ/)|[MI_OJ](https://code.mi.com/problem/list)
 5|[LeetCode](Codes/LeetCode/)|[LeetCode](https://leetcode.com/problemset/all/)
 
+## Disclaimer
+[Disclaimer](Disclaimer.md)
+
 [return 0;](#s_note)
