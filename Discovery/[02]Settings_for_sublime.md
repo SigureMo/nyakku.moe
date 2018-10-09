@@ -17,13 +17,13 @@
 ```
 5. Alt+shift+2 分屏
 
-# 参考
+# Reference
 
 [sublime设置参考](https://www.cnblogs.com/zhaof/p/8126306.html)
 
 [linux 配置python3](https://www.cnblogs.com/unflynaomi/p/5704293.html)
 
-# 修改记录
+# Amendant Record
 1. 180421 Add #1
 
 [goto S_Note;](../README.md)
