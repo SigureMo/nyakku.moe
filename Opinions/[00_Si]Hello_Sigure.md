@@ -35,7 +35,7 @@
 很早便有搭建自己的博客的想法，但没有搭好便一直不想输出，以至于半年只有零零散散几篇总结。习惯了GitHub与Markdown写作后，上周末我索性利用GitHub搭建起来这个简单的Blog。虽然还是有着搭一个网页版的Blog的想法，但是想要达到GitHub一般的版本管理等功能还是有点难的，所以等我能做出来让自己满意的前端再说啦(￣▽￣)~*
 
 ## TODO
-1. This term
+1. This semester
     - [ ] PCC
     - [ ] DS
     - [ ] CN
@@ -53,7 +53,7 @@
     - [ ] Node.js_ Blog
     - [ ] C++_ PAT
 
-# 修改记录
+# Amendant Record
 1. 180207 Init
 2. 180916 Add #0 #1 #2 #3 #TODO
 

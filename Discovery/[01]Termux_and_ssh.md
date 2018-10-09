@@ -32,13 +32,13 @@ ln –s /data/data/com.termux/files/home/storage/shared/tencent/ TIMfile_recv TI
 ln –s /data/data/com.termux/files/home/storage/shared/tencent/MicroMsg/Download Wechat
 ```
 
-# 参考
+# Reference
 
 [Termux初设置参考](https://www.cnblogs.com/learnpy/p/7350905.html)
 
 [Termux初设置参考2](https://www.sfantree.com/termux_01/)
 
-# 修改记录
+# Amendant Record
 1. 180421 Add #1
 
 [goto S_Note;](../README.md)

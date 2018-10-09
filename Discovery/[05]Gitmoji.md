@@ -63,7 +63,7 @@
 |:alembic:|`:alembic:`|Experimenting new things|尝试新事物|
 |:mag:|`:mag:`|Improving SEO|搜索优化|
 
-# 修改记录
+# Amendant Record
 1. 180916 Add #1
 2. 180923 Update #1
 
