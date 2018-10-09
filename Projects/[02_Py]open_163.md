@@ -32,7 +32,7 @@
 # Reference
 1. [如何批量获取网易公开课Request Url?](https://segmentfault.com/q/1010000007225934)
 
-# 修改记录
+# Amendant Record
 1. 180827 Init
 3. 180923 Add #1
 
