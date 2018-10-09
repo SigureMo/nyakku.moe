@@ -3,7 +3,7 @@
 ## Table of contents
 ### 个人见解
 1. [Everything is object](Opinions/[01_Py]Everything_is_object.md)
-2. [Character Encoding](Opinions/[02_Py]Character_Encoding.md)
+2. [Encoding](Opinions/[02]Encoding.md)
 3. [C and pointer](Opinions/[03_C]C_and_pointer.md)
 4. [Hardware](Opinions/[04_ML]Hardware.md)
 ### 课堂云笔记
@@ -34,5 +34,8 @@ Num|Directory|Src
 3|[100 days of algorithms](Codes/100_days_of_algorithms)|[Python 100天算法挑战](https://python123.io/index/topics/algorithm_100_days)
 4|[MI OJ](Codes/MI_OJ/)|[MI_OJ](https://code.mi.com/problem/list)
 5|[LeetCode](Codes/LeetCode/)|[LeetCode](https://leetcode.com/problemset/all/)
+
+## Disclaimer
+[Disclaimer](Disclaimer.md)
 
 [return 0;](#s_note)
