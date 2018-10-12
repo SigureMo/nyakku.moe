@@ -1,6 +1,7 @@
 import requests,base64,urllib,json,time,os,pickle,xlwt,re
 from PIL import Image
 from PIL import ImageEnhance
+from config import Config
 
 #时间处理模块：
 def time_now():
@@ -22,10 +23,20 @@ def loginit():
 
 
 def post(url,data):
-    access_token ={'access_token':'24.d9583ece260671202a9883e1b44af669.2592000.1528435724.282335-11211570'}
+    #审核token
+    config=Config('config.txt','$')
+    try:
+        token=config.get('access_token')
+    except:
+        print('配置文件出问题，请重新配置')
+    #request
+    access_token ={'access_token':token}#'24.d9583ece260671202a9883e1b44af669.2592000.1528435724.282335-11211570'
     headers={'Content-Type':'application/x-www-form-urlencoded'}
     r=requests.post(url,params=access_token,headers=headers,data=data).content
-    return json.loads(r)
+    j=json.loads(r.decode('utf8'))
+    if j.get('error_code')==111:
+        print('30天试用期已过，请重新配置Access_token') 
+    return j
 
 def up_to_baidu(file):
     #提交
@@ -40,6 +51,7 @@ def up_to_baidu(file):
     else:
         print('发送失败')
         id=''
+    assert id!=0, 'I need id!'
     #获取返回
     while True:
         time.sleep(5)
@@ -128,7 +140,7 @@ def to_excel(enhance):
     
 
 def check(password):#密码校验
-    pd='****'
+    pd='0227'
     while password!=pd:
         password=input('密码错误，请重新输入密码：')
         if password==pd:
@@ -208,5 +220,8 @@ if __name__=='__main__':
 '''
 debug_output('1')
 input()
-'''
 
+'''
+'''
+debug_body('1')
+'''
