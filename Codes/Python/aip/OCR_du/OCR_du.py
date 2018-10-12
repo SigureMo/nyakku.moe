@@ -22,10 +22,9 @@ def loginit():
 
 
 def post(url,data):
-    access_token ='?access_token=24.d9583ece260671202a9883e1b44af669.2592000.1528435724.282335-11211570'
-    url+=access_token
+    access_token ={'access_token':'24.d9583ece260671202a9883e1b44af669.2592000.1528435724.282335-11211570'}
     headers={'Content-Type':'application/x-www-form-urlencoded'}
-    r=requests.post(url,headers=headers,data=data).content
+    r=requests.post(url,params=access_token,headers=headers,data=data).content
     return json.loads(r)
 
 def up_to_baidu(file):
@@ -66,8 +65,8 @@ def json2xls(json,name):
         else:
             sheetname='Temp'
     sheet=wb.add_sheet(sheetname)
-    num_qian=re.compile(r'-?(\d{1,3},)?(\d{3},)*(\d{3})(.(\d+))?')
-    num=re.compile(r'-?\d+(.(\d+))?$')
+    num_qian=re.compile(r'-?([1-9]\d{0,2})(,\d{3})*(\.(\d+))?$')
+    num=re.compile(r'-?([1-9]\d*)|0(\.(\d+))?$')
     try:
         for body in bodys:
             if num_qian.match(body.get('word')):
@@ -104,15 +103,19 @@ def to_excel(enhance):
             name=file[0]
             exname=file[1]
             if not os.path.exists(xlsOutput+os.sep+name+'.xls'):
+                print('已发现',name+exname,'开始审核……')
+                if not image_check(file):
+                    continue
+                print('审核完毕，',end='')
                 if enhance:
-                    print('已发现',name+exname,'正在增强处理……')
+                    print('开始增强处理……')
                     if image_enhance(file):
-                        json=up_to_baidu(temp+os.sep+name+'.jpg')
+                        json=up_to_baidu(temp+os.sep+name+'_en.jpg')
                     else:
-                        json=up_to_baidu(imageInput+os.sep+name+exname)
+                        json=up_to_baidu(temp+os.sep+name+exname)
                 else:
-                    print('已发现',name+exname,'准备提交……')
-                    json=up_to_baidu(imageInput+os.sep+name+exname)
+                    print('准备提交……')
+                    json=up_to_baidu(temp+os.sep+name+exname)
                 if json2xls(eval(json),name):
                     print('已成功保存'+name+'.xls，请在{}内寻找'.format(xlsOutput))
                 else:
@@ -122,23 +125,40 @@ def to_excel(enhance):
     else:
         print('未检测到图片文件（jpg、jpeg、png、bmp）')
 
+    
+
 def check(password):#密码校验
-    pd='0227'
+    pd='****'
     while password!=pd:
         password=input('密码错误，请重新输入密码：')
         if password==pd:
             break
     print('欢迎使用OCR_du！')
 
-def image_enhance(file):
+def image_check(file):
     try:
         im=Image.open(imageInput+os.sep+file[0]+file[1])
+        if os.path.getsize(imageInput+os.sep+file[0]+file[1])>4*1024*1024:
+            print('图像数据量过大，正在处理……')
+            while os.path.getsize(imageInput+os.sep+file[0]+file[1])>4*1024*1024:
+                im.resize(int(im.size[0]/2),int(im.size[1]/2))
+            print('处理完毕')
         if im.size[0]<15 or im.size[1]<15 or \
            im.size[0]>4096 or im.size[1]>4096:
             print('图片大小不符，正在处理……')
-            im.thumbnail((4000,int(im.size[1]/im.size[0]*4000)))
+            im.resize((4000,int(im.size[1]/im.size[0]*4000)))
+            print('处理完毕')
+        im.save(temp+os.sep+file[0]+'.jpg')
+        return True
+    except:
+        print('处理失败，请自行改变格式（具体格式详见readme）')
+        return False
+
+def image_enhance(file):
+    try:
+        im=Image.open(temp+os.sep+file[0]+file[1])
         om=ImageEnhance.Contrast(im)
-        om.enhance(10).save(temp+os.sep+file[0]+'.jpg')
+        om.enhance(10).save(temp+os.sep+file[0]+'_en.jpg')
         print('成功对图片进行增强处理，准备提交……')
         return True
     except:
@@ -155,12 +175,12 @@ def main():
     if not os.path.exists(xlsOutput):
         os.mkdir(xlsOutput)
     password=input('请输入密码：')
+    check(password)
     k=input('是否对图像进行增强处理？[y/n]')
     if k and k[0] in 'Nn':
         enhance=False
     else:
         enhance=True
-    check(password)
     to_excel(enhance)
     input('Press <Enter>')
 
@@ -172,11 +192,16 @@ xlsOutput='Output'
 if __name__=='__main__':
     main()
 
-'''def test():
-    if not os.path.exists(temp):
-        os.mkdir(temp)
+'''
+def test():
+    file=('123','.jpg')
+    im=Image.open(imageInput+os.sep+file[0]+file[1])
+    im.show()
+    om=ImageEnhance.Contrast(im)
+    om.enhance(10).save(temp+os.sep+file[0]+'.jpg')
+    input()
 
-test()'''
+test()
 
-
+'''
 
