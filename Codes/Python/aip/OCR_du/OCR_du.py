@@ -31,7 +31,7 @@ def up_to_baidu(file):
     #提交
     f = open(file, 'rb')
     img = base64.b64encode(f.read())
-    body = {"image": img}
+    body = {"image": img,'detect_direction': True}#增加自动检测图片朝向
     body = urllib.parse.urlencode({"image": img})
     tx=post('https://aip.baidubce.com/rest/2.0/solution/v1/form_ocr/request',body)
     if tx.get('result'):
@@ -54,6 +54,8 @@ def up_to_baidu(file):
 
 
 def json2xls(json,name):
+    with open(temp+os.sep+name+'.dat','wb') as f:
+        pickle.dump(json,f)
     wb=xlwt.Workbook()
     j=json.get('forms')[0]
     headers=j.get('header')
@@ -66,7 +68,7 @@ def json2xls(json,name):
             sheetname='Temp'
     sheet=wb.add_sheet(sheetname)
     num_qian=re.compile(r'-?([1-9]\d{0,2})(,\d{3})*(\.(\d+))?$')
-    num=re.compile(r'-?([1-9]\d*)|0(\.(\d+))?$')
+    num=re.compile(r'-?(([1-9]\d*)|0)(\.(\d+))?$')
     try:
         for body in bodys:
             if num_qian.match(body.get('word')):
@@ -79,8 +81,6 @@ def json2xls(json,name):
                 sheet.write(body.get('row')[0],body.get('column')[0],body.get('word'))
         flag=True
     except:
-        with open(temp+os.sep+name+'.dat','wb') as f:
-            pickle.dump(json,f)
         flag=False
     finally:
         wb.save(xlsOutput+os.sep+name+'.xls')
@@ -165,6 +165,19 @@ def image_enhance(file):
         print('处理失败，将提交原图片')
         return False
 
+def debug_body(name):
+    with open(temp+os.sep+name+'.dat','rb') as f:
+        json=pickle.load(f)
+    j=json.get('forms')[0]
+    bodys=j.get('body')
+    for body in bodys:
+        print(body)
+
+def debug_output(name):
+    with open(temp+os.sep+name+'.dat','rb') as f:
+        json=pickle.load(f)
+    json2xls(json,name)
+
 def main():
     '''if not os.path.exists('log.txt'):
         loginit()'''
@@ -177,10 +190,10 @@ def main():
     password=input('请输入密码：')
     check(password)
     k=input('是否对图像进行增强处理？[y/n]')
-    if k and k[0] in 'Nn':
-        enhance=False
-    else:
+    if k and k[0] in 'Yy':
         enhance=True
+    else:
+        enhance=False
     to_excel(enhance)
     input('Press <Enter>')
 
@@ -193,15 +206,7 @@ if __name__=='__main__':
     main()
 
 '''
-def test():
-    file=('123','.jpg')
-    im=Image.open(imageInput+os.sep+file[0]+file[1])
-    im.show()
-    om=ImageEnhance.Contrast(im)
-    om.enhance(10).save(temp+os.sep+file[0]+'.jpg')
-    input()
-
-test()
-
+debug_output('1')
+input()
 '''
 
