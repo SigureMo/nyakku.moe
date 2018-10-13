@@ -43,15 +43,16 @@
     - [ ] PIC
     - [ ] English Grammar
     - [ ] English Words
-    - [ ] Java_ Android
-    - [ ] 编译原理
-    - [ ] 汇编
+    - [ ] DeepLearning
+
 2. Winter vacation
+    - [ ] Java_ Android
     - [ ] OS
-    - [ ] Python_ AI Tensorflow
+    - [ ] Python_ 
     - [ ] C_ 
     - [ ] Node.js_ Blog
     - [ ] C++_ PAT
+    - [ ] Fundamentals of Compiling
 
 # Amendant Record
 1. 180207 Init
