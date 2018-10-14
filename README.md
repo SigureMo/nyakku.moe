@@ -13,6 +13,7 @@
 4. [Basis of Mechanical Designing](http://note.youdao.com/noteshare?id=668913de6e17aa86f15d8148136886d9&sub=530a579d6798d83f9fcfb74cb44ec77c)
 5. [PIC](http://note.youdao.com/noteshare?id=a90a9d5d0c6b12367df9e9f648512b19)
 6. [C++](http://note.youdao.com/noteshare?id=1aa31e9bea16a7669c85746f671fb895)
+7. [DeepLearning](http://note.youdao.com/noteshare?id=a8af33730d94e1077e70ad236b47e450)
 ### 项目记录
 1. [MOOC_Downloading](Projects/[01_Py]MOOC_Downloading.md)
 2. [open_163](Projects/[02_Py]open_163.md)
