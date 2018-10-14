@@ -72,7 +72,7 @@ def DFS(vertex):
     return flag
     
 def firstJump(port):
-    return port[0]**2 + port[1]**2 <= (15 + D)**2
+    return port[0]**2 + port[1]**2 <= (15/2 + D)**2
 
 def canJump(port1, port2):
     return (port1[0] - port2[0])**2 + (port1[1] - port2[1])**2 <= D**2
