@@ -39,7 +39,7 @@
     - [ ] PCC
     - [ ] DS
     - [ ] CN
-    - [ ] C++
+    - [x] C++
     - [ ] PIC
     - [ ] English Grammar
     - [ ] English Words
