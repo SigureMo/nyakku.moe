@@ -8,6 +8,7 @@ libs = {
     'matplotlib',
     'h5py',
     'numpy',
+    'sklearn',
     }
 
 for lib in libs:
