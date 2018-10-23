@@ -4,6 +4,7 @@ from testCases import *
 # import sklearn
 # import sklearn.datasets
 # import sklearn.linear_model
+import time
 from planar_utils import plot_decision_boundary, sigmoid, load_planar_dataset, load_extra_datasets
 
 '''
@@ -32,10 +33,10 @@ X, Y = load_planar_dataset()
 # 各种参数都放在下面了，想用直接改就好
 seed = 1017
 layer = 4
-num_iterations = 200000
+num_iterations = 500000
 learning_rate = 0.05
 g = ('None', 'ReLU', 'tanh', 'sigmoid')
-n = (X.shape[0], 10, 10, Y.shape[0])
+n = (X.shape[0], 50, 10, Y.shape[0])
 m = Y.shape[1]
 
 def activation(func):
@@ -183,6 +184,7 @@ def predict(parameters, X):
 
 parameters = initialize_parameters(n)
 
+start = time.time()
 for i in range(num_iterations):
     Y_, cache = forward_propagation(X, parameters)
     cost = compute_cost(Y_, Y, parameters)
@@ -192,7 +194,8 @@ for i in range(num_iterations):
     if (i+1) % 1000 == 0:
         print('第{}次循环，成本为：{}'.format(i+1, cost))
 
+end = time.time()
 predictions = predict(parameters, X)
-print ('准确率: %d' % float((np.dot(Y, predictions.T) + np.dot(1 - Y, 1 - predictions.T)) / float(Y.size) * 100) + '%')
+print ('准确率: {}%，耗时{:.2f}s' .format(float((np.dot(Y, predictions.T) + np.dot(1 - Y, 1 - predictions.T)) / float(Y.size) * 100), end - start))
 
 input('Successful')
