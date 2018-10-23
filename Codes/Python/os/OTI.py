@@ -9,6 +9,7 @@ libs = {
     'h5py',
     'numpy',
     'sklearn',
+    'pillow',
     }
 
 for lib in libs:
