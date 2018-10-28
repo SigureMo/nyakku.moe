@@ -14,6 +14,7 @@
 5. [PIC](http://note.youdao.com/noteshare?id=a90a9d5d0c6b12367df9e9f648512b19)
 6. [C++](http://note.youdao.com/noteshare?id=1aa31e9bea16a7669c85746f671fb895)
 7. [DeepLearning](http://note.youdao.com/noteshare?id=a8af33730d94e1077e70ad236b47e450)
+8. [Mathematical Modeling](http://note.youdao.com/noteshare?id=a590dbdcd10cc966d80b60d25e5a120f)
 ### 项目记录
 1. [MOOC_Downloading](Projects/[01_Py]MOOC_Downloading.md)
 2. [open_163](Projects/[02_Py]open_163.md)
