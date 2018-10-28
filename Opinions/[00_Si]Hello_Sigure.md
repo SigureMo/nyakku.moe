@@ -1,4 +1,4 @@
-# Hello Sigure  
+# Hello Sigure
 这是一个对各个阶段总结的Markdown啦
 ## 0 Who am I
 碌碌终日，没有目标，没有方向，偶尔沉浸Network，偶尔自习做做题，然而却不知道自己想做什么……  
@@ -43,7 +43,8 @@
     - [ ] PIC
     - [ ] English Grammar
     - [ ] English Words
-    - [ ] DeepLearning
+    - [ ] DL
+    - [ ] MM
 
 2. Winter vacation
     - [ ] Java_ Android
