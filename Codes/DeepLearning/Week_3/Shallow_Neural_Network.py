@@ -1,6 +1,6 @@
 import numpy as np
 import matplotlib.pyplot as plt
-from testCases import *
+# from testCases import *
 # import sklearn
 # import sklearn.datasets
 # import sklearn.linear_model
@@ -108,7 +108,7 @@ def initialize_parameters(n):
         }
     return parameters
 
-def forward_propagation(X, parameters, datasets = True):
+def forward_propagation(X, parameters):
     W = parameters['W']
     b = parameters['b']
     g = parameters['g']
@@ -119,10 +119,7 @@ def forward_propagation(X, parameters, datasets = True):
     for i in range(1, layer):
         Z_i = np.dot(W[i], A[i-1]) + b[i]
         A_i = g[i](Z_i)
-        if datasets:
-            assert A_i.shape == (n[i], m)
-        #else:
-        #    assert A_i.shape == (n[i], 1)
+        assert A_i.shape == (n[i], X.shape[1])
         A[i] = A_i
         Z[i] = Z_i
     cache = {
@@ -177,7 +174,7 @@ def update_parameters(parameters, grads, learning_rate=1.2):
     return parameters
 
 def predict(parameters, X):
-    Y_ , cache = forward_propagation(X, parameters, False)
+    Y_ , cache = forward_propagation(X, parameters)
     predictions = np.round(Y_)
 
     return predictions
