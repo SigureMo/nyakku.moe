@@ -11,6 +11,7 @@ class ChatEngine():
         self.sub_key = sub_key
         self.queue = queue.Queue()
         self.sep = sep
+        self.format = '{time}\n{mode}:{nickName}{sep}{message}'
         self.session = requests.Session()
 
     def set_channel(self, channel):
@@ -19,22 +20,31 @@ class ChatEngine():
     def set_sep(self, sep):
         self.sep = sep
 
-    def message_loop(self, print_res=False, log = False):
+    def message_loop(self, print_res=False, log = False, ignore = None):
         timetoken = 0
         while True:
             msgs, timetoken = self.subscribe(timetoken)
             if msgs:
                 for msg in msgs:
                     self.queue.put(msg)
+                    if self.sep in msg:
+                        nickName, msg = msg.split(self.sep)
+                    else:
+                        nickName = 'Manager'
+                    if nickName == ignore:
+                        continue
                     if print_res:
-                        print('Result:' + msg)
+                        print(self.format.format(
+                            time = time.strftime("%y-%m-%d %H:%M:%S", time.localtime()),
+                            mode = 'Result',
+                            nickName = nickName,
+                            sep = self.sep,
+                            message = msg,
+                            )
+                              )
                     if log:
-                        if self.sep in msg:
-                            nickName, msg = msg.split(self.sep)
-                        else:
-                            nickName = ' '
                         with open('log.csv', 'a', encoding = 'utf8', newline = '\r\n') as f:
-                            f.write(nickName + ',' + msg + '\n')
+                            f.write(','.join([time.strftime("%y-%m-%d %H:%M:%S", time.localtime()), nickName, msg]) + '\n')
 
     def publish(self, msg):
         signature = 0
@@ -71,14 +81,15 @@ if __name__ == '__main__':
     pub_key = 'pub-c-d899e684-d620-4ba5-843c-8e7589819236'
     sub_key = 'sub-c-c2e24f18-db8c-11e8-957e-be7a2fcdb3b6'
     channel = "Miao"
-    sep = ' said:'
+    sep = '+said:+'
     nickName = input('nickName:')
     chatEngine = ChatEngine(pub_key, sub_key)
     chatEngine.set_channel(channel)
     chatEngine.set_sep(sep)
-    messager = threading.Thread(target=chatEngine.message_loop, args=(True, False))
+    messager = threading.Thread(target=chatEngine.message_loop, args=(True, False, nickName))
     messager.setDaemon(True)
     messager.start()
     while True:
-        code, status, timetoken = chatEngine.publish(nickName + chatEngine.sep + input('Send:'))
-        time.sleep(0.1)
+        t = time.strftime("%y-%m-%d %H:%M:%S", time.localtime())
+        code, status, timetoken = chatEngine.publish(nickName + chatEngine.sep + input('{}\nSend:'.format(t)))
+        time.sleep(0.2)
