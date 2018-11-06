@@ -105,23 +105,25 @@ def img2set(root, resolution = (64, 64),step = 100):
             path = os.path.join(root, dirname)
             for imgname in os.list(path):
                 if
-'''    
-page = 10
+'''
+t = time.time()
+page = 30
 step = 5
 resolution = (64, 64)
-keyword = '狗'
+keyword = '猫'
 d = {'Cat': 1}
 name = 'Cat'
 root = 'D:/Pictures/Train_Set'
 formats = ['.jpg', '.png', '.jpeg', '.ico']
 print('开始获取链接')
-# urls = get_url(keyword, page, step)
+urls = get_url(keyword, page, step)
 print('\n链接获取完成')
 print('开始下载图片')
-# download(root, name, urls, step)
+download(root, name, urls, step)
 print('\n图片下载完成')
 print('开始处理图片')
 thumbnail(root, name, resolution, step)
 print('\n图片处理完成')
+print(time.time()-t)
 
 input('喵喵喵！')
