@@ -131,7 +131,7 @@ hs_err_pid*
 
 # Others
 # compiled
-.exe
+*.exe
 
 # text
-.txt
+*.txt
