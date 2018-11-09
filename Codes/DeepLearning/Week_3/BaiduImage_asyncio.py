@@ -68,7 +68,7 @@ def thumbnail(path: str, filename: str, target: str, resolution: tuple) -> None:
         region = region.convert('L')
         region.save(os.path.join(os.path.join(target, filename)))
     except:
-        print('图片{}无法处理'.format(filename))
+        print(f'图片{filename}无法处理')
     finally:
         try:
             im.close()
@@ -100,7 +100,7 @@ async def get_all_imgs(root: str, name: str, urls: str, resolution: tuple = (64,
     while True:
         async with sem:
             res = await urls.get()
-            if res == None:
+            if res is None:
                 print('Done!')
                 break
             cnt, url= res
