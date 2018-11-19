@@ -41,7 +41,7 @@ print('his name is {}'.format(li.name))
 
 我们理解class层次关系时完全可以这么想，实例继承了上层父类的所有可继承的能力。这里提到了可继承，是出于之前对__xxx与_xxx的一点疑问，__xxx是只有所在类可以调用，连子类（包括实例）都不能用，而_xxx是所在类及其子类（包括实例）均可调用。之前提到module也是一个class，有着未显式定义的方法，但是我们为什么可以直接操作turtle这样的库名呢？因为turtle就是一个module类的实例啊！我们保存在module文件里的语句函数都是绑定在该实例上的方法属性！之前有看到实例不可以调用所在类的__xxx方法，这个很容易理解，后来看到了一个库拒绝调用的方法属性是用_xxx就可以，现在再想想，当然会拒绝了，我们写的文件里怎么可能有module实例下的子类呢？实例下已经不可能有子类了呀。
 
-![[01_Py]Everything_is_object.png](../Images/[01_Py]Everything_is_object.png)
+![01_Everything_is_object.png](../Images/01_Everything_is_object.png)
 
 *（这里的最底层都是实例，虽然是使用集合形式去理解继承的关系，但由于只在多重继承才会出现与层次图的矛盾，所以只用层次图搭建了一个主框架）*
 
