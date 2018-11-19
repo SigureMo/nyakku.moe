@@ -36,8 +36,8 @@
 
 ## TODO
 1. This semester
-    - [ ] PCC
-    - [ ] DS
+    - [x] PCC
+    - [x] DS
     - [ ] CN
     - [x] C++
     - [ ] PIC
@@ -51,7 +51,9 @@
     - [ ] OS
     - [ ] Python_ 
     - [ ] C_ 
-    - [ ] Node.js_ Blog
+    - [ ] Node.js
+    - [ ] Front_end
+    - [ ] Vue.js
     - [ ] C++_ PAT
     - [ ] Fundamentals of Compiling
 
