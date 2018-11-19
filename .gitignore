@@ -135,3 +135,9 @@ hs_err_pid*
 
 # text
 *.txt
+
+# node_modules
+/node_modules/
+
+# vuepress
+/.vuepress/dist/

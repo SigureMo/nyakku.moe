@@ -15,15 +15,15 @@
 
 回到寝室我马上对手机端进行抓包，由于是在浏览器，直接将浏览器改成移动端模式。
 
-![[03_Py]Baidu_Indexation01.png](../Images/[03_Py]Baidu_Indexation01.png)  
+![03_Baidu_Indexation01.png](../Images/03_Baidu_Indexation01.png)  
 
 很容易就抓到了数据……可是是加密的呀，emmm搜一下试试，看看哪里利用这些数据了……
 
-![[03_Py]Baidu_Indexation02.png](../Images/[03_Py]Baidu_Indexation02.png)  
+![03_Baidu_Indexation02.png](../Images/03_Baidu_Indexation02.png)  
 
 唔，一搜就出来了，可以看出是利用了这里面的y.data创建了一个字典b（y.data的前半段映射到后半段……），至于这个y.data是啥嘛，再去找一个json就好啦，应该是很容易找到的：
 
-![[03_Py]Baidu_Indexation03.png](../Images/[03_Py]Baidu_Indexation03.png)  
+![03_Baidu_Indexation03.png](../Images/03_Baidu_Indexation03.png)  
 
 利用Python实现这样的解密过程，就可以获得原数据了，手机端看来还是很难做到电脑端那样复杂的加密过程……
 
