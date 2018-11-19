@@ -9,7 +9,7 @@
 
 最开始想做这个是因为嵩天老师的python课程突然开放了一个找彩蛋的活动（虽然活动都结束了还没更新），然后我就想做一个对课件一键爬取、解析并上传的脚本，但是……碰到了很多技术上的难题，耽搁了很久。因为想要全天运行，所以拟运行在自己的termux上，但也带来了很多问题。
 
-![[01_Py]MOOC_Downloading01.png](../Images/[01_Py]MOOC_Downloading01.png)
+![01_MOOC_Downloading01.png](../Images/01_MOOC_Downloading01.png)
 
 我的第一个方案是抓取电脑上下载时发送的request，但是因为找不到js动态加载的课件url而宣告失败。虽然把一个一个课件url都复制粘贴下来可能也行，但是那和直接下载的工作量几乎一样，根本没有实现自动化。第二个方案是使用selenium+phantomjs实现页面点击抓取课件url，但是测试几次就发现这种操作并不适合频繁切换页面的爬取（测试时候用的Chrome driver），而且我的虚拟硬盘用几次就满了……也许是我学的还是不好吧，两种方法都失败了确实有点心灰意冷，这个计划暂时搁置起来了。
 
@@ -29,11 +29,11 @@
 
 手机抓包的就不赘述了，随便baidu、Google都能找到教程。配置好之后打开MOOCAPP，点击下载自己想要下载的课件，fiddler中马上抓到一堆request，很容易可以找到刚刚点击下载时候发送的request：
 
-![[01_Py]MOOC_Downloading02.png](../Images/[01_Py]MOOC_Downloading02.png)
+![01_MOOC_Downloading02.png](../Images/01_MOOC_Downloading02.png)
 
 没错，就是上面的240号，就算不会找看着左面的视频小图标也能猜到是这个，在fiddler右侧选择inspectors-选项卡，然后在request部分选择webform、response部分选择json，以便查看发送和返回的数据：
 
-![[01_Py]MOOC_Downloading03.png](../Images/[01_Py]MOOC_Downloading03.png)
+![01_MOOC_Downloading03.png](../Images/01_MOOC_Downloading03.png)
 
 我们可以清楚地看到在请求视频资源时候发送了key和Xtask，先不要管他们从哪里来的，先模拟一下看看能不能下载：
 ```Python
@@ -48,7 +48,7 @@ with open(‘test.mp4’,’rb’) as f:
 
 很轻松嘛，我们的视频就这样下载下来了，key和Xtask但是都是从哪里得到的呢？如果你刚刚不止点击下载一个视频的话，不难发现每次点击后都发送了很多请求，而下载请求只是其中的最后一个，那么我们猜想下载请求是依赖前面请求的，试着点击下前面几个请求，你会发现其中有一个请求返回的就是key的值（在我这里就是239号），那么我们只需要模拟239号请求就好啦。
 
-![[01_Py]MOOC_Downloading04.png](../Images/[01_Py]MOOC_Downloading04.png)
+![01_MOOC_Downloading04.png](../Images/01_MOOC_Downloading04.png)
 
 等等！模拟239号的话还有一个未知的参数mob-token呀……唔，这个要怎么得到嘛。这个不难，再向前翻翻，不难发现，很多request中都带这个参数，而且值是一模一样的，既然这个值不是动态的，不如先复制下来，这个是怎么得来的以后再说，其实再仔细想想不难猜到这个值是登录用户的凭证。
 
@@ -63,24 +63,24 @@ k=json.loads(r).get("results").get("videoKey")
 ```
 很成功嘛，那么我们下载视频就差Xtask了，咦？这个怎么翻了半天也没找到，搜索也搜不到，不过我们可以试试分开搜，第一串数字不用搜了吧，很明显就是我们的课程号
 
-![[01_Py]MOOC_Downloading05.png](../Images/[01_Py]MOOC_Downloading05.png)
+![01_MOOC_Downloading05.png](../Images/01_MOOC_Downloading05.png)
 
 这个其实我刚开始也不知道，但是用电脑版打开某个课程之后会发现有两串数字是一直不变的，前面的那串就是课程号，后面的暂不知，那就叫他tid好了。咦？Xtask里前两串数字正好就是课程号和tid诶！那么我们只需要搜第三串数字好了。按Ctrl+F：
 
-![[01_Py]MOOC_Downloading06.png](../Images/[01_Py]MOOC_Downloading06.png)
+![01_MOOC_Downloading06.png](../Images/01_MOOC_Downloading06.png)
 
 噫！找到了！点开237号，会失望的发现这个request只是在发送了这串数字，获得了这个课件的信息而已，不过聊胜于无，至少知道课件信息从这里得到的嘛。貌似线索一下子全断了？不要灰心，再往前找找。咦？231号……返回的json里……
 
 哇！这居然是整个课程的所有信息！
 
-![[01_Py]MOOC_Downloading07.png](../Images/[01_Py]MOOC_Downloading07.png)
+![01_MOOC_Downloading07.png](../Images/01_MOOC_Downloading07.png)
 
 其实总会有这样的一个response的，不然视频请求里面的Xtask也是发不出去的，我当时以为测试request已经关掉fiddler了，又因为熄灯路由器没电已经不能重新抓包了，只留下了几个保存下来的文本文档进行分析，因为文档里的json是不可视的，所以只能一点一点测试，不过还好我运气好，第一个就测试到了。
 
 从这个json里面可以找到很多信息，比如tid其实是termid（本学期课程号，之前课程号是指该课程名字对应的号码，以后就叫courseid，简写cid），还有课程名、课程简介以及老师简介什么的，我们都可以先记下来，也许等会可以用到。
 
 
-![[01_Py]MOOC_Downloading08.png](../Images/[01_Py]MOOC_Downloading08.png)
+![01_MOOC_Downloading08.png](../Images/01_MOOC_Downloading08.png)
 
 上图是刚刚下载的那个课件的信息，id一项便是我们一直苦苦寻找的Xtask最后一串数字，下面各种url记录着不同清晰度的视频链接，所有需要的都！找！到！啦！我们试着把这个数据下载下来：
 ```Python
@@ -136,19 +136,19 @@ def getvideo(cid,tid,unitid,mob_token):
 
 和上次一样，我们在手机上点击下载想要的文档，回到fiddler查找最近抓到的包：
 
-![[01_Py]MOOC_Downloading09.png](../Images/[01_Py]MOOC_Downloading09.png)
+![01_MOOC_Downloading09.png](../Images/01_MOOC_Downloading09.png)
 
 很容易根据返回的数据量看出，282号就是实际下载的请求，让我们看下它发送的数据：
 
-![[01_Py]MOOC_Downloading10.png](../Images/[01_Py]MOOC_Downloading10.png)
+![01_MOOC_Downloading10.png](../Images/01_MOOC_Downloading10.png)
 
 ……什么鬼嘛，怎么一个都看不懂……别急别急，看不懂往前找嘛，咦？他的上一个请求里面返回了好多的关键数据，看看能不能找到什么有用的：
 
-![[01_Py]MOOC_Downloading11.png](../Images/[01_Py]MOOC_Downloading11.png)
+![01_MOOC_Downloading11.png](../Images/01_MOOC_Downloading11.png)
 
 咦，这个textOri gUrl貌似刚好把所有数据都包含了呀，什么NOSAccessKeyId、Expires、Signature全都已经包含在url了呀，而且282号是get方法：
 
-![[01_Py]MOOC_Downloading12.png](../Images/[01_Py]MOOC_Downloading12.png)
+![01_MOOC_Downloading12.png](../Images/01_MOOC_Downloading12.png)
 
 那么可以直接向这个textOri gUrl发送text就好啦（get时候的数据会直接显示在url中，相应地，在url中包含键值对也就相当于直接发送了数据），我们先试下是否可行吧：
 ```Python
@@ -161,17 +161,17 @@ with open('test.pdf','wb') as f:
     f.write(r.content)
 ```
 
-![[01_Py]MOOC_Downloading13.png](../Images/[01_Py]MOOC_Downloading13.png)
+![01_MOOC_Downloading13.png](../Images/01_MOOC_Downloading13.png)
 
 很好，很成功，这个pdf这么容易下的？不对，刚刚的关键是获得textOri gUrl，可是textOri gUrl又要怎么获得呢？我们再看下281号数据的header和webform：
 
-![[01_Py]MOOC_Downloading14.png](../Images/[01_Py]MOOC_Downloading14.png)
+![01_MOOC_Downloading14.png](../Images/01_MOOC_Downloading14.png)
 
-![[01_Py]MOOC_Downloading15.png](../Images/[01_Py]MOOC_Downloading15.png)
+![01_MOOC_Downloading15.png](../Images/01_MOOC_Downloading15.png)
 
 Headers等会再看，先看webform的参数。mob-token已经说过了，这是一个固定参数，暂时先直接复制过来就好；cid就是课程号，这个现在看已经很明了了；t是个什么呢，居然只有一位数，既然只有一位数那肯定不是什么关键的参数啦，关键的参数一位数是表示不清的；最后，unitid，有点熟悉啊，好像上次视频也用到这个了，上次视频的各种参数都是在课程总信息里面找的，我们再找下这个课程的总信息，这次我的就比较远了，但是你要坚信只要我们client发送了这个参数，server就一定曾经发过来这些参数，我在151号找到了它：
 
-![[01_Py]MOOC_Downloading16.png](../Images/[01_Py]MOOC_Downloading16.png)
+![01_MOOC_Downloading16.png](../Images/01_MOOC_Downloading16.png)
 
 还是熟悉的数据，很容易翻到这个课件的数据，也很容易找到了unitid，那只剩下t了呀，等等，这里的contentType=3？？？这大概就是我们要找的吧？那这个参数是什么呢？很容易猜到就是内容的类型（嗯……不会英文可以查有道），不信你再多下几个PDF就会发现t永远是3，这里对应的contentType也永远是3，那……没错，你已经猜到了，pdf（文档）对应的类型号就是3！那视频是什么呢，你可以全课程信息返回的json中其他课件信息，很容易得出结论：1：视频，3：文档，4：富文本，5：测验，6：讨论（2和7及以后暂未知，如果你发现了可以分享下）。好了，我们已经从这里面找到自己想要的东西了，下一步就是组合了：
 ```Python
@@ -202,17 +202,17 @@ def getpdf():
 
 很明显，我们手机上是下载不了附件的，我就不得不试着在电脑上下载。和之前一样，先点击一下然后分析抓到的包：
 
-![[01_Py]MOOC_Downloading17.png](../Images/[01_Py]MOOC_Downloading17.png)
+![01_MOOC_Downloading17.png](../Images/01_MOOC_Downloading17.png)
 
-![[01_Py]MOOC_Downloading18.png](../Images/[01_Py]MOOC_Downloading18.png)
+![01_MOOC_Downloading18.png](../Images/01_MOOC_Downloading18.png)
 
 有了刚刚下pdf的经验，很容易分析出这是下它时候的包，而且根据刚刚的经验，我们看看他的headers中的url是什么：
 
-![[01_Py]MOOC_Downloading19.png](../Images/[01_Py]MOOC_Downloading19.png)
+![01_MOOC_Downloading19.png](../Images/01_MOOC_Downloading19.png)
 
 这次和上次其实基本一样的，直接向这个url发送get就好了，不过这次我就先不写了，然后我们看下这些参数是怎么得来的，翻翻前后的返回json发现根本没有什么有关联的，难道线索就这样断了？当然不会，这里找不到，我们还有全课件信息呢，重新找到我的151号，翻开这个课件的信息：
 
-![[01_Py]MOOC_Downloading20.png](../Images/[01_Py]MOOC_Downloading20.png)
+![01_MOOC_Downloading20.png](../Images/01_MOOC_Downloading20.png)
 
 就是它，我们只需要它就够了，剩下的也没啥了，把代码组合一下就行：
 ```Python
