@@ -612,7 +612,7 @@ W = W - \alpha \frac{dW}{\sqrt{S_{dW}}}, b = b - \alpha \frac{db}{\sqrt{S_{db}}}
 
 #### 2.2.8 Adam optimization algorithm
 Adam优化算法，简单的说，这是一个结合了Momentum算法和RMSprop算法的算法，直接上算法，相信大家也明白
-$$
+```math
 Initialize:v_{dW} = 0, S_{dW} = 0, v_{db} = 0, S_{db} = 0
 
 v_{dW} = \beta_1v_{dW} + (1-\beta_1)dW, v_{db} = \beta_1v_{db} + (1-\beta_1)db
@@ -625,7 +625,7 @@ S_{dW}^{corrected} = \frac{S_{dW}}{(1-\beta_2^t)}, S_{db}^{corrected} = \frac{S_
 
 W = W - \alpha\frac{v_{dW}^{corrected}}{\sqrt{S_{dW}^{corrected}}+\varepsilon}, 
 b = b - \alpha\frac{v_{db}^{corrected}}{\sqrt{S_{db}^{corrected}}+\varepsilon}
-$$
+```
 * Adam通常是使用偏差修正的
 * Momentum和RMSprop的参数`$\beta$`是不一样的，故使用`$\beta_1$`和`$\beta_2$`以区分
 * 这是一种能够适用于不同神经网络的算法
