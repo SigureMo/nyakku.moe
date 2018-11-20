@@ -60,7 +60,3 @@
 # Amendant Record
 1. 180207 Init
 2. 180916 Add #0 #1 #2 #3 #TODO
-
-[goto S_Note;](../README.md)
-
-[return 0;](#hello-sigure)

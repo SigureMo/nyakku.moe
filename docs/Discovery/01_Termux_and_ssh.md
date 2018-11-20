@@ -40,7 +40,3 @@ ln –s /data/data/com.termux/files/home/storage/shared/tencent/MicroMsg/Downloa
 
 # Amendant Record
 1. 180421 Add #1
-
-[goto S_Note;](../README.md)
-
-[return 0;](#termux-and-ssh)

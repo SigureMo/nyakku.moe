@@ -36,7 +36,3 @@
 # Amendant Record
 1. 180704 Init
 3. 180923 Add #1
-
-[goto S_Note;](../README.md)
-
-[return 0;](#baidu_indexation)

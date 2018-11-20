@@ -33,7 +33,3 @@ clear=cls
 # Reference
 1. [Windows 命令行增强 cmder chocolatey 配置指南](https://www.jianshu.com/p/479d974078a7)
 2. [超爽的Windows终端Cmder](http://www.360doc.com/content/17/1122/07/1353678_706036759.shtml)
-
-[goto S_Note;](../README.md)
-
-[return 0;](#cmder)

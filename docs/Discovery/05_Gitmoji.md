@@ -71,7 +71,3 @@
 1. [程序员提交代码的 emoji 指南——原来表情文字不能乱用](https://www.h5jun.com/post/gitmoji.html)
 2. [Gitmoji](http://gitmoji.carloscuesta.me/)
 3. [用gitmoji来提交你的git commit吧](https://github.com/mytac/blogs/issues/2)
-
-[goto S_Note;](../README.md)
-
-[return 0;](#gitmoji)

@@ -34,7 +34,3 @@ ROM里确实存了程序，但是这些程序怎么调用呢？原来有一个�
 # Reference
 1. [中国大学MOOC 计算机组成原理（上）](https://www.icourse163.org/course/HIT-309001)
 2. 陈育斌老师选修课程
-
-[goto S_Note;](../README.md)
-
-[return 0;](#hardware)
