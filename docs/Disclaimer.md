@@ -7,7 +7,3 @@
 
 # Amendant Record
 1. 181009 Init
-
-[goto S_Note;](README.md)
-
-[return 0;](#disclaimer)

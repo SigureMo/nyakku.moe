@@ -25,7 +25,3 @@
 
 # Amendant Record
 1. 180421 Add #1
-
-[goto S_Note;](../README.md)
-
-[return 0;](#settings-for-sublime)
