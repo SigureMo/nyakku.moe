@@ -1,3 +1,4 @@
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.9.0/katex.min.css">
 # Template
 [[TOC]]
 ## QuickStart!
@@ -29,8 +30,15 @@
 
 暂无
 
-## 数学公式（KaTex）
-插件尝试中……
+## 数学公式($\KaTeX$)
+我们可以渲染公式例如：$x_i + y_i = z_i$和$\sum_{i=1}^n a_i=0$
+我们也可以单行渲染
+$$
+\sum_{i=1}^n a_i=0
+$$
+具体可参照[katex文档](http://www.intmath.com/cg5/katex-mathjax-comparison.php)和[katex支持的函数](https://github.com/Khan/KaTeX/wiki/Function-Support-in-KaTeX)以及[latex文档](https://math.meta.stackexchange.com/questions/5020/mathjax-basic-tutorial-and-quick-reference)
+
+
 
 ## Status  
 ***Studying...***  

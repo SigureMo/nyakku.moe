@@ -18,7 +18,14 @@ module.exports = {
     // markdown插件
     extendMarkdown: md => {
         md.set({ breaks: true })
+        // md.use(require('markdown-it-katex'))
         md.use(require('@iktakahiro/markdown-it-katex'))
+    },
+    markdown: {
+        // markdown-it-anchor 的选项
+        anchor: { permalink: false },
+        // markdown-it-toc 的选项
+        toc: { includeLevel: [1, 2, 3] },
     },
 
     // 插件 
@@ -59,7 +66,7 @@ module.exports = {
             ],
             '/Notes/': [
                 '',
-                'Deep Learning',
+                'Deep_Learning',
             ],
             '/Projects/': [
                 '',
