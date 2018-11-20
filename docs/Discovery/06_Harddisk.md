@@ -26,7 +26,3 @@ emmm，上面都摘自Reference，因为之前稍稍了解到4K对齐，所以�
 
 # Reference
 1. [Windows无法安装到GPT分区形式磁盘，怎么办？](https://jingyan.baidu.com/article/08b6a591c82df414a8092224.html)
-
-[goto S_Note;](../README.md)
-
-[return 0;](#harddisk)
