@@ -230,7 +230,3 @@ def getenclosure():
 1. 180610 Add #1
 2. 180613 Add #2
 3. 180909 Update #1 #2
-
-[goto S_Note;](../README.md)
-
-[return 0;](#mooc_downloading)

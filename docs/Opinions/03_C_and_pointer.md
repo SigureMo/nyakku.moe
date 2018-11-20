@@ -57,7 +57,3 @@ C语言最大的魅力就是可以直接操作内存了，当然，这也是它�
 2. [C++程序设计入门（上） - 北京邮电大学 - 网易云课堂](https://mooc.study.163.com/course/1000003015)
 3. [理解C++中引用的底层实现](https://blog.csdn.net/Mind_V/article/details/78619163)
 4. [C/C++编译的程序的内存分配](https://blog.csdn.net/zcyzsy/article/details/69788884)
-
-[goto S_Note;](../README.md)
-
-[return 0;](#c-and-pointer)

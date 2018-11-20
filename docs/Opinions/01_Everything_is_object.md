@@ -58,7 +58,3 @@ print('his name is {}'.format(li.name))
 # Reference
 1. [中国大学MOOC Python语言程序设计](https://www.icourse163.org/course/BIT-268001#/info)
 2. [廖雪峰 Python教程](https://www.liaoxuefeng.com/wiki/0014316089557264a6b348958f449949df42a6d3a2e542c000)
-
-[goto S_Note;](../README.md)
-
-[return 0;](#everything-is-object)

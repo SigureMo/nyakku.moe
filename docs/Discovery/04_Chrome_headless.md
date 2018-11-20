@@ -7,7 +7,3 @@
 
 # Amendant Record
 1. 180817 Add #1
-
-[goto S_Note;](../README.md)
-
-[return 0;](#chrome-headless)

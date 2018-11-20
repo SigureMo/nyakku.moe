@@ -87,7 +87,3 @@ Python里面的字符嘛，就是想用0和1表示整个字符空间，一方面
 # Reference
 1. [廖雪峰 Python教程](https://www.liaoxuefeng.com/wiki/0014316089557264a6b348958f449949df42a6d3a2e542c000/001431664106267f12e9bef7ee14cf6a8776a479bdec9b9000)  
 2. 《计算机科学导论（第三版）》 佛罗赞
-
-[goto S_Note;](../README.md)
-
-[return 0;](#encoding)
