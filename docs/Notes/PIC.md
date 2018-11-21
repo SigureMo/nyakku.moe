@@ -269,7 +269,7 @@ T0PS2~0|000~111|预分频器分频比1:2 ~ 1:256
         * T0PS2~0=101：分频系数1:64
         > 即 T0CON=00000101B=05H
 
-    * [TMR0.asm](https://github.com/SigureMo/S_Note/blob/master/Codes/PIC/TMR0.asm)
+    * [TMR0.asm](https://github.com/SigureMo/notev/blob/master/Codes/PIC/TMR0.asm)
 
 
 

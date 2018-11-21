@@ -344,7 +344,7 @@ ClassName (parameterList)
 2. Deep copy（需要自己写的）
 
 ### 3.5 Case Study
-[Stack](https://github.com/SigureMo/S_Note/tree/master/Codes/Data_Structures/Chapter_3_Stack/Stack.cpp)  
+[Stack](https://github.com/SigureMo/notev/tree/master/Codes/Data_Structures/Chapter_3_Stack/Stack.cpp)  
 
 ### 3.6 The C++ vector Class
 * Limitation of using array to store values: the array size is fixed in the class declaration.
@@ -359,7 +359,7 @@ ClassName (parameterList)
 +clear(): void
 +swap(v2: vector): void
 ```
-[Vector](https://github.com/SigureMo/S_Note/tree/master/Codes/C++/3.6_Vector.cpp)  
+[Vector](https://github.com/SigureMo/notev/tree/master/Codes/C++/3.6_Vector.cpp)  
 
 ### 3.7 More Programming Style Guidelines
 1. 运算符前后应有空格
@@ -446,24 +446,24 @@ cout << typeid(X).name() << endl;
 ![C++03](../Images/C++03.png?raw=true)
 
 ### 5.2 Write data to a file
-[File_Output.cpp](https://github.com/SigureMo/S_Note/tree/master/Codes/C++/5.2_File_Output.cpp)  
+[File_Output.cpp](https://github.com/SigureMo/notev/tree/master/Codes/C++/5.2_File_Output.cpp)  
 
 ### 5.3 Read data from a file
-[File_Input.cpp](https://github.com/SigureMo/S_Note/tree/master/Codes/C++/5.3_File_Input.cpp)  
+[File_Input.cpp](https://github.com/SigureMo/notev/tree/master/Codes/C++/5.3_File_Input.cpp)  
 
 ### 5.4 Formating Output
 #### 5.4.1 Format output to the console
-[Formating_Output.cpp](https://github.com/SigureMo/S_Note/tree/master/Codes/C++/5.4.1_Formating_Output.cpp)  
+[Formating_Output.cpp](https://github.com/SigureMo/notev/tree/master/Codes/C++/5.4.1_Formating_Output.cpp)  
 
 #### 5.4.2 getline
-[getline.cpp](https://github.com/SigureMo/S_Note/tree/master/Codes/C++/5.4.2_getline.cpp)  
+[getline.cpp](https://github.com/SigureMo/notev/tree/master/Codes/C++/5.4.2_getline.cpp)  
 
 #### 5.4.3 get and put
 get读入一个字符，put写入一个字符
 
 ### 5.5 File Open Mode & Testing File State
 #### 5.5.1 Combining Modes
-[Combining_Modes.cpp](https://github.com/SigureMo/S_Note/tree/master/Codes/C++/5.5.1_Combining_Modes.cpp)  
+[Combining_Modes.cpp](https://github.com/SigureMo/notev/tree/master/Codes/C++/5.5.1_Combining_Modes.cpp)  
 
 #### 5.5.2 Stream State Bit
 Function|Description
@@ -476,16 +476,16 @@ clear()|Clears all flags.
 
 ### 5.6 Binary IO
 #### 5.6.1 The write Function
-[File_Output_Binary.cpp](https://github.com/SigureMo/S_Note/tree/master/Codes/C++/5.6.1_File_Output_Binary.cpp)  
+[File_Output_Binary.cpp](https://github.com/SigureMo/notev/tree/master/Codes/C++/5.6.1_File_Output_Binary.cpp)  
 
 #### 5.6.2 Write Any Type
-[File_Output_Binary2.cpp](https://github.com/SigureMo/S_Note/tree/master/Codes/C++/5.6.2_File_Output_Binary2.cpp)  
+[File_Output_Binary2.cpp](https://github.com/SigureMo/notev/tree/master/Codes/C++/5.6.2_File_Output_Binary2.cpp)  
 
 #### 5.6.3 The read Function
-[File_Input_Binary.cpp](https://github.com/SigureMo/S_Note/tree/master/Codes/C++/5.6.3_File_Input_Binary.cpp)  
+[File_Input_Binary.cpp](https://github.com/SigureMo/notev/tree/master/Codes/C++/5.6.3_File_Input_Binary.cpp)  
 
 #### 5.6.4 Read Any Type
-[File_Input_Binary2.cpp](https://github.com/SigureMo/S_Note/tree/master/Codes/C++/5.6.4_File_Input_Binary2.cpp)  
+[File_Input_Binary2.cpp](https://github.com/SigureMo/notev/tree/master/Codes/C++/5.6.4_File_Input_Binary2.cpp)  
 
 ### 5.7 More on Binar IO
 Array and Object  
@@ -524,7 +524,7 @@ v[1] = 'b';
 ```
 
 #### 6.1.2 An Example
-[Operator_Overloading_example.cpp](https://github.com/SigureMo/S_Note/tree/master/Codes/C++/6.1_Operator_Overloading_example.cpp)  
+[Operator_Overloading_example.cpp](https://github.com/SigureMo/notev/tree/master/Codes/C++/6.1_Operator_Overloading_example.cpp)  
 
 #### 6.1.2 The operator vs function
 * 运算符可以看做是函数
@@ -549,7 +549,7 @@ v[1] = 'b';
 * Negative
 
 #### 6.2.3 Test Rational Class
-[6.2_Rational.cpp](https://github.com/SigureMo/S_Note/tree/master/Codes/C++/6.2_Rational.cpp)  
+[6.2_Rational.cpp](https://github.com/SigureMo/notev/tree/master/Codes/C++/6.2_Rational.cpp)  
 
 ### 6.3 Operator Function and Shorthand Operators Overloading
 #### 6.3.1 Operator Function

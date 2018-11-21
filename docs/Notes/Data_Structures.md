@@ -37,20 +37,20 @@
 1. 使用新表可以化插入为复制(时降空增)
 2. 排序后的更容易操作，不需要每次都全部搜索
 
-[Ranked_List](https://github.com/SigureMo/S_Note/tree/master/Codes/Data_Structures/Chapter_2_List/Ranked_List.c)
+[Ranked_List](https://github.com/SigureMo/notev/tree/master/Codes/Data_Structures/Chapter_2_List/Ranked_List.c)
 
 ### 2.2 链式表示（Linked_List）
 1. 求长度和按index查找明显变慢，但是删除和插入操作明显变简单
 2. 删除和插入要注意操作顺序
 
-[Linked_List](https://github.com/SigureMo/S_Note/tree/master/Codes/Data_Structures/Chapter_2_List/Linked_List.c)
+[Linked_List](https://github.com/SigureMo/notev/tree/master/Codes/Data_Structures/Chapter_2_List/Linked_List.c)
 
 #### 2.2.1 广义表（General_Lists）
 1. 广义表是线性表的推广
 2. 对于线性表而言，n个元素都是基本的单元素
 3. 广义表中，这些元素不仅可以是单元素也可以是另一个广义表
 
-[General_Lists](https://github.com/SigureMo/S_Note/tree/master/Codes/Data_Structures/Chapter_2_List/General_Lists.c)
+[General_Lists](https://github.com/SigureMo/notev/tree/master/Codes/Data_Structures/Chapter_2_List/General_Lists.c)
 
 #### 2.2.2 多重链表（Multiple_List）
 1. 多重链表中结点的**指针域会有多个**，如前面例子包含了Next和SubList两个指针域
@@ -74,17 +74,17 @@ Examples:
 
 ### 3.3 顺序存储
 
-[Ranked_Stack](https://github.com/SigureMo/S_Note/tree/master/Codes/Data_Structures/Chapter_3_Stack/Ranked_Stack.c)
+[Ranked_Stack](https://github.com/SigureMo/notev/tree/master/Codes/Data_Structures/Chapter_3_Stack/Ranked_Stack.c)
 
 > Extend  
 使用一个数组实现两个堆栈=>  
 一个栈底在左端，一个栈底在右端，可以充分利用数组空间  
-[Double_Stack](https://github.com/SigureMo/S_Note/tree/master/Codes/Data_Structures/Chapter_3_Stack/Double_Stack.c)
+[Double_Stack](https://github.com/SigureMo/notev/tree/master/Codes/Data_Structures/Chapter_3_Stack/Double_Stack.c)
 
 ### 3.4 链式存储
 如果使用链尾作为Top，则难以实现Pop操作，故Top应在链头
 
-[Linked_Stack](https://github.com/SigureMo/S_Note/tree/master/Codes/Data_Structures/Chapter_3_Stack/Linked_Stack.c)
+[Linked_Stack](https://github.com/SigureMo/notev/tree/master/Codes/Data_Structures/Chapter_3_Stack/Linked_Stack.c)
 
 ### 3.5 再探Example
 1. 从左到右读入**后缀表达式**的各项，遇到运算数则入栈，遇到运算符则pop适当个数运算数，结果入栈
@@ -112,7 +112,7 @@ Examples:
 1. 增加一个参数
 2. 将数组空余一个位置，使得队列减少一种状态
 
-[Seq_Queue](https://github.com/SigureMo/S_Note/tree/master/Codes/Data_Structures/Chapter_4_Queue/Seq_Queue.c)
+[Seq_Queue](https://github.com/SigureMo/notev/tree/master/Codes/Data_Structures/Chapter_4_Queue/Seq_Queue.c)
 
 ### 4.3 链式存储  
 同[Stack](#34-链式存储)，如若需要删除操作的Front在链尾则难以继续对新的链尾进行操作，故Front在链首，即：
@@ -130,7 +130,7 @@ graph TD
 ```
 
 ### 总结
-1. 对于链表，要看清是否有头结点，要善于利用front、rear指针和临时头结点对链表进行操作  [Merge_Linked_List](https://github.com/SigureMo/S_Note/tree/master/Codes/Data_Structures/Week_2/Merge_Linked_List.c)
+1. 对于链表，要看清是否有头结点，要善于利用front、rear指针和临时头结点对链表进行操作  [Merge_Linked_List](https://github.com/SigureMo/notev/tree/master/Codes/Data_Structures/Week_2/Merge_Linked_List.c)
 
 ## 5 串（String）
 ### 5.1 串类型的定义
@@ -266,11 +266,11 @@ Left Data Right
 
 > 三种遍历过程路程一样，只不过访问各结点时机不同
 
-[Binary_Tree](https://github.com/SigureMo/S_Note/tree/master/Codes/Data_Structures/Chapter_6_Tree/Binary_Tree.c)
+[Binary_Tree](https://github.com/SigureMo/notev/tree/master/Codes/Data_Structures/Chapter_6_Tree/Binary_Tree.c)
 
 ### 6.7 二叉树的非递归遍历  
 使用**堆栈**  
-[Binary_Tree_non_recursion](https://github.com/SigureMo/S_Note/tree/master/Codes/Data_Structures/Chapter_6_Tree/Binary_Tree_non_recursion.c)
+[Binary_Tree_non_recursion](https://github.com/SigureMo/notev/tree/master/Codes/Data_Structures/Chapter_6_Tree/Binary_Tree_non_recursion.c)
 
 ### 6.8 二叉树的层序遍历
 **线性化**
@@ -316,7 +316,7 @@ Left Data Right
 
 #### 6.12.2 集合的查找
 #### 6.12.3 集合的并运算
-[set](https://github.com/SigureMo/S_Note/tree/master/Codes/Data_Structures/Chapter_6_Tree/Set.c)  
+[set](https://github.com/SigureMo/notev/tree/master/Codes/Data_Structures/Chapter_6_Tree/Set.c)  
 
 ## 7 堆（Heap）
 ### 7.1 Basic operation of heap
@@ -332,7 +332,7 @@ Left Data Right
 #### 7.1.2 Insert of heap
 
 #### 7.1.3 Delete of heap
-[Max_Heap](https://github.com/SigureMo/S_Note/tree/master/Codes/Data_Structures/Chapter_7_Heap/Max_Heap.c)  
+[Max_Heap](https://github.com/SigureMo/notev/tree/master/Codes/Data_Structures/Chapter_7_Heap/Max_Heap.c)  
 
 #### 7.1.4 Create of heap
 * 如果从空堆不断插入的话，时间复杂度则为O(n)*O(logn)
@@ -360,7 +360,7 @@ Left Data Right
 * 左右分支：0、1
 * 字符只在叶结点上
 
-[Huffman_Tree](https://github.com/SigureMo/S_Note/tree/master/Codes/Data_Structures/Chapter_7_Heap/Huffman_Tree.c)  
+[Huffman_Tree](https://github.com/SigureMo/notev/tree/master/Codes/Data_Structures/Chapter_7_Heap/Huffman_Tree.c)  
 
 ## 8 图（Graph）
 ### 8.1 What's the graph?
@@ -377,12 +377,12 @@ Left Data Right
 #### 8.1.2 Adjacency matrix representation
 既然是图，那么就多来几张图吧( • ̀ω•́ )✧  
 ![Data_Structures03](../Images/Data_Structures03.png)  
-[Adjacency_Matrix.c](https://github.com/SigureMo/S_Note/tree/master/Codes/Data_Structures/Chapter_8_Graph/Adjacency_Matrix.c)  
+[Adjacency_Matrix.c](https://github.com/SigureMo/notev/tree/master/Codes/Data_Structures/Chapter_8_Graph/Adjacency_Matrix.c)  
 优点很明显呀，就是简单易操作，但是对于稀疏图来说就很浪费空间与时间了，于是就有了下面这种
 
 #### 8.1.3 Adjacency list representation
 ![Data_Structures04](../Images/Data_Structures04.png)  
-[Adjacency_List.c](https://github.com/SigureMo/S_Note/tree/master/Codes/Data_Structures/Chapter_8_Graph/Adjacency_List.c)  
+[Adjacency_List.c](https://github.com/SigureMo/notev/tree/master/Codes/Data_Structures/Chapter_8_Graph/Adjacency_List.c)  
 也就稀疏才合算啦，不然还是很浪费的，而且很多操作是很困难的，比如计算有向图的“入度”、检查任意一对顶点间是否存在边
 
 ### 8.2 Traversing graph
@@ -878,19 +878,19 @@ $d_i=i$|$d_i=\pm i^2$|$d_i=i\ast h_2(key)$
 1. [switch-case实现分段函数](https://blog.csdn.net/xiaochenxiaoren/article/details/53140436)
 
 ## Amendant Record
-180911 [Chapter_4_Queue](https://github.com/SigureMo/S_Note/tree/master/Codes/Data_Structures/Chapter_4_Queue) Finished  
-180913 [Week_2](https://github.com/SigureMo/S_Note/tree/master/Codes/Data_Structures/Week_2) Finished  
-180915 [Chapter_6_Tree(#6.1-#6.9)](https://github.com/SigureMo/S_Note/tree/master/Codes/Data_Structures/Chapter_6_Tree) Finished  
-180916 [Week_3](https://github.com/SigureMo/S_Note/tree/master/Codes/Data_Structures/Week_3) Finished  
+180911 [Chapter_4_Queue](https://github.com/SigureMo/notev/tree/master/Codes/Data_Structures/Chapter_4_Queue) Finished  
+180913 [Week_2](https://github.com/SigureMo/notev/tree/master/Codes/Data_Structures/Week_2) Finished  
+180915 [Chapter_6_Tree(#6.1-#6.9)](https://github.com/SigureMo/notev/tree/master/Codes/Data_Structures/Chapter_6_Tree) Finished  
+180916 [Week_3](https://github.com/SigureMo/notev/tree/master/Codes/Data_Structures/Week_3) Finished  
 180918 Chapter_5_String Finished  
-180922 [Chapter_6_Tree(#6.10-#6.11)](https://github.com/SigureMo/S_Note/tree/master/Codes/Data_Structures/Chapter_6_Tree) Finished  
-180923 [Week_4](https://github.com/SigureMo/S_Note/tree/master/Codes/Data_Structures/Week_4) Finished  
-180929 [PyDS_Linked_List](https://github.com/SigureMo/S_Note/tree/master/Codes/Data_Structures/Chapter_2_List) [PyDS_Heap](https://github.com/SigureMo/S_Note/tree/master/Codes/Data_Structures/Chapter_7_Heap) [Chapter_6_Tree](https://github.com/SigureMo/S_Note/tree/master/Codes/Data_Structures/Chapter_6_Tree) [Chapter_7_Heap](https://github.com/SigureMo/S_Note/tree/master/Codes/Data_Structures/Chapter_7_Heap) Finished  
-181004 [Week_5](https://github.com/SigureMo/S_Note/tree/master/Codes/Data_Structures/Week_5) Finished  
-181005 [Chapter_8_Graph(#8.1-#8.2)](https://github.com/SigureMo/S_Note/tree/master/Codes/Data_Structures/Chapter_8_Graph) Finished  
-181006 [Week_6](https://github.com/SigureMo/S_Note/tree/master/Codes/Data_Structures/Week_6) Finished  
+180922 [Chapter_6_Tree(#6.10-#6.11)](https://github.com/SigureMo/notev/tree/master/Codes/Data_Structures/Chapter_6_Tree) Finished  
+180923 [Week_4](https://github.com/SigureMo/notev/tree/master/Codes/Data_Structures/Week_4) Finished  
+180929 [PyDS_Linked_List](https://github.com/SigureMo/notev/tree/master/Codes/Data_Structures/Chapter_2_List) [PyDS_Heap](https://github.com/SigureMo/notev/tree/master/Codes/Data_Structures/Chapter_7_Heap) [Chapter_6_Tree](https://github.com/SigureMo/notev/tree/master/Codes/Data_Structures/Chapter_6_Tree) [Chapter_7_Heap](https://github.com/SigureMo/notev/tree/master/Codes/Data_Structures/Chapter_7_Heap) Finished  
+181004 [Week_5](https://github.com/SigureMo/notev/tree/master/Codes/Data_Structures/Week_5) Finished  
+181005 [Chapter_8_Graph(#8.1-#8.2)](https://github.com/SigureMo/notev/tree/master/Codes/Data_Structures/Chapter_8_Graph) Finished  
+181006 [Week_6](https://github.com/SigureMo/notev/tree/master/Codes/Data_Structures/Week_6) Finished  
 181010 Chapter_8_Graph(#8.3) Finished  
-181014 [Week_7](https://github.com/SigureMo/S_Note/tree/master/Codes/Data_Structures/Week_7)  Finished  
+181014 [Week_7](https://github.com/SigureMo/notev/tree/master/Codes/Data_Structures/Week_7)  Finished  
 181018 Chapter_8_Graph(#8.4-#8.6) Finished  
 181025 Chapter_9_Sort(#9.1-#9.4) Finished  
 181102 Chapter_9_Sort(#9.5-#9.8) Finished  
