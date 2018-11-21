@@ -62,10 +62,13 @@
 |:camera_flash:|`:camera_flash:`|Adding or updating snapshots|添加或更新快照|
 |:alembic:|`:alembic:`|Experimenting new things|尝试新事物|
 |:mag:|`:mag:`|Improving SEO|搜索优化|
+|:wheel_of_dharma:|`:wheel_of_dharma:`|Work about Kubernetes|Kubernetes相关工作|
+|:label:|`:label:`|Adding or updating types (Flow, TypesScript)|添加或更新类型声明(Flow、TypeScript)
 
 # Amendant Record
 1. 180916 Add #1
 2. 180923 Update #1
+3. 181120 Update #1
 
 # Reference
 1. [程序员提交代码的 emoji 指南——原来表情文字不能乱用](https://www.h5jun.com/post/gitmoji.html)
