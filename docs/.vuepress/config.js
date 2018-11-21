@@ -19,7 +19,8 @@ module.exports = {
     extendMarkdown: md => {
         md.set({ breaks: true })
         // md.use(require('markdown-it-katex'))
-        md.use(require('@iktakahiro/markdown-it-katex'))
+        md.use(require('@iktakahiro/markdown-it-katex'),
+        {"throwOnError" : false, "errorColor" : " #cc0000"})
     },
     markdown: {
         // markdown-it-anchor 的选项
@@ -47,15 +48,9 @@ module.exports = {
             { text: 'Opinions', link: '/Opinions/' },
             { text: 'Projects', link: '/Projects/' },
             { text: 'Discovery', link: '/Discovery/' },
-            { text: 'External', link: 'https://google.com' },
-            { text: 'Languages',
-            items: [
-                { text: 'Chinese', link: '/language/chinese' },
-                { text: 'English', link: '/language/english' },
-                { text: 'Japanese', link: '/language/japanese' },
-            ]},
             { text: 'About', link: '/About.html' },
         ],
+        sidebarDepth: 2,
         sidebar: {
             '/Opinions/': [
                 '',
@@ -66,7 +61,15 @@ module.exports = {
             ],
             '/Notes/': [
                 '',
+                'Data_Structures',
+                'Principles_of_Computer_Composition',
+                'Computer_Network',
+                'Basis_of_Mechanical_Designing',
+                'PIC',
+                'Cpp',
                 'Deep_Learning',
+                'Mathematical_Modeling',
+                'Principle_and_Application_of_Solid_Phase_Transition',
             ],
             '/Projects/': [
                 '',

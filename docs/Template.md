@@ -5,10 +5,12 @@
 ## QuickStart!
 本笔记使用了一些规范，为方便查阅，特在这里进行记录
 
+[vuepress官方文档](https://vuepress.vuejs.org/)
+
 ## 插入图片
 1. 使用相对路径
 ```md
-![<noteName><imgCnt>](../Images/<noteName><imgCnt>)
+![<noteName><imgCnt>](../Images/<noteName><imgCnt>.<ext>)
 ```
 
 2. 使用外部路径
@@ -67,8 +69,8 @@ $$
 
 ::: tip
 今后将使用其作为笔记状态标记，暂定以下规则：
-1. <Badge text="alpha" type="warn"/> <Badge text="0.10.1"/>为***studying***类的标记
-2. <Badge text="beta" type="warn"/> <Badge text="1.10.1"/>为***debugging***类
+1. <Badge text="alpha" type="warn"/> <Badge text="0.10.1"/>为**studying**类的标记
+2. <Badge text="beta" type="tip"/> <Badge text="1.10.1"/>为**debugging**类的标记
 :::
 
 ## Amendant Record
