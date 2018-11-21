@@ -1,7 +1,3 @@
----
-sidebarDepth: 2
----
-
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.9.0/katex.min.css">
 
 # Deep Learning <Badge text="alpha" type="warn"/> <Badge text="2.2.10"/>
@@ -643,8 +639,7 @@ $$
 
 
 
-## Status  
-***Studying...***  
+## Amendant Record
 181014 #1.1 Finished  
 181017 #1.2 Finished  
 181020 #1.3 Finished  
