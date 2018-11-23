@@ -70,6 +70,7 @@ module.exports = {
                 'Deep_Learning',
                 'Mathematical_Modeling',
                 'Principle_and_Application_of_Solid_Phase_Transition',
+                'Principle_of_Metal_Plastic_Working',
             ],
             '/Projects/': [
                 '',
