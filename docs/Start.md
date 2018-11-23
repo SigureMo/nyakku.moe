@@ -16,6 +16,7 @@
 7. [DeepLearning](Notes/Deep_Learning.md)
 8. [Mathematical Modeling](Notes/Mathematical_Modeling.md)
 9. [Principle and Application of Solid Phase Transition](Notes/Principle_and_Application_of_Solid_Phase_Transition.md)
+10. [Principle of Metal Plastic Working](Notes/Principle_of_Metal_Plastic_Working.md)
 ### 项目记录
 1. [MOOC_Downloading](Projects/01_MOOC_Downloading.md)
 2. [open_163](Projects/02_open_163.md)
