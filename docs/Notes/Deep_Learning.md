@@ -637,7 +637,16 @@ $$
 
 3. 对高维的实在是难以直观地去理解，不过我们对它们的理解正在不断发展……………………
 
-
+### 2.3 Hyperparameter tuning
+#### 2.3.1 Tuning process
+首先，我们先把我们要调整的各个超参数都列出来：
+* $\alpha$
+* $\beta$
+* $\beta1$, $\beta2$, $\varepsilon$
+* #$layers$
+* #$hidden\ units$
+* $learning\ rate\ decay$
+* $mini-batch\ size$
 
 ## Amendant Record
 181014 #1.1 Finished  
