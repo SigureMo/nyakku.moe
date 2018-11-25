@@ -34,6 +34,11 @@
 
 很早便有搭建自己的博客的想法，但没有搭好便一直不想输出，以至于半年只有零零散散几篇总结。习惯了GitHub与Markdown写作后，上周末我索性利用GitHub搭建起来这个简单的Blog。虽然还是有着搭一个网页版的Blog的想法，但是想要达到GitHub一般的版本管理等功能还是有点难的，所以等我能做出来让自己满意的前端再说啦(￣▽￣)~*
 
+## 4 vuepress
+前段时间受到有道云笔记服务器各种故障加上各种冲突文件导致正在写的笔记丢失的摧残，我毅然决然的开始寻找新的写笔记方式，最开始我在考虑了下[mavonEditor](https://github.com/hinesboy/mavonEditor)，但是我发现我根本不会用这个，感觉自己学的js像没学一样，但我从中得知了现如今vue的重要性
+
+之后我无意中发现了[vuepress](https://github.com/vuejs/vuepress)，在网上搜了些教程发现真的好少啊（后来知道原来这是Vue作者今年4月才写出来的），我索性一边看官方文档一边配置，总算做出来了个像样的笔记文档，从中也学习到了npm的使用，我也因此知道了自己对前端真的是啥都不会，所以我把Vue和JS重新加入了计划，准备有空花点时间学习
+
 ## TODO
 1. This semester
     - [x] PCC
@@ -44,19 +49,21 @@
     - [ ] English Grammar
     - [ ] English Words
     - [ ] DL
-    - [ ] MM
+    
 
 2. Winter vacation
-    - [ ] Java_ Android
+    - [ ] MM
+    - [ ] Front_end
     - [ ] OS
     - [ ] Python_ 
     - [ ] C_ 
     - [ ] Node.js
-    - [ ] Front_end
     - [ ] Vue.js
     - [ ] C++_ PAT
+    - [ ] Java_ Android
     - [ ] Fundamentals of Compiling
 
 # Amendant Record
 1. 180207 Init
 2. 180916 Add #0 #1 #2 #3 #TODO
+3. 181124 Add #4
