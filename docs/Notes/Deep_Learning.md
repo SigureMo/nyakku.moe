@@ -408,7 +408,7 @@ $x/=\sigma^2$
         $x$已经均一化 => $E(x_i)=0,D(x_i)=1$  
         $w$是以0为均值进行的初始化 => $E(w_i)=0$  
 
-        `$=D(w_i)$`
+        $=D(w_i)$
     6. 即$D(z)=nD(w_i)$
         > 我们更期望每层得到的方差不会累积增加，维持在“1”这个Just right刚刚好（与$D(x_i)$一样）
         
@@ -647,6 +647,28 @@ $$
 * #$hidden\ units$
 * $learning\ rate\ decay$
 * $mini-batch\ size$
+
+我们最优先考虑的一定是$\alpha$，其次呢，就是Momentum参数$\beta$了，还有$mini-batch\ size$和#$hidden\ units$，最后考虑#$layers$和$learning\ rate\ decay$
+
+但是我们到底怎么测试超参数怎么取值是比较好的呢？我们可以对考虑的几个超参数进行随机取值，然后在结果比较理想的区域（几个超参数就是几个维度的空间）重新随机取值，就像拿着“放大镜”找东西那样不断地越来越精细地搜索最佳超参数
+
+#### 2.3.2 Using an appropriate scale to pick hyperparameters
+虽然说随机取值是个不错的方法，但是这也是要看情况的，我们要根据具体情况选择合适的标尺
+* 如果说我们要在50到100内选#$hidden\ units$，或者在2到4内选#$layers$，那么很明显，这种随机取值的很合适的
+* 我们再看这个：如果我们要在0.0001到1内选一个$\alpha$，如果我们真的像这样随机选取，那么很明显，有90%的数据是落在0.1~1之间，而0.0001到0.1只有10%，这明显不是我们要的，看到这个我们很容易想到lg()函数，事实上我们确实也是这么做的，这里只需要这么做：
+    ```Python
+    r = -4 * np.random.rand()
+    alpha = 10 ** r
+    ```
+* 相反地，我们要怎么取$\beta$呢？这个数很明显是一个接近于1的值，嗯，很容易想到了，其实就是$1-\alpha$的方式
+
+#### 2.3.3 Pandas VS Caviar（Hyperparameters tuning in practice: Pandas vs. Caviar）
+Pandas：没有足够的计算资源，同时只能计算一组超参数
+Caviar：计算资源足够，同时计算多组超参数
+
+#### 2.3.4 Normalizing activations in a network
+
+
 
 ## Amendant Record
 181014 #1.1 Finished  
