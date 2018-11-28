@@ -670,7 +670,7 @@ Caviar：计算资源足够，同时计算多组超参数
 
 
 
-## Amendant Record
+# Amendant Record
 181014 #1.1 Finished  
 181017 #1.2 Finished  
 181020 #1.3 Finished  
@@ -679,7 +679,7 @@ Caviar：计算资源足够，同时计算多组超参数
 181028 #2.1 Finished  
 181116 #2.2 Finished  
 
-## Reference
+# Reference
 1. [深度学习工程师 - deeplearning.ai - 网易云课堂](https://mooc.study.163.com/smartSpec/detail/1001319001.htm)
 2. [黄海广博士笔记](http://www.ai-start.com/)
 3. 《Python 神经网络编程》 Tariq Rashid
