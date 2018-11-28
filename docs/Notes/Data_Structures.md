@@ -874,10 +874,10 @@ $d_i=i$|$d_i=\pm i^2$|$d_i=i\ast h_2(key)$
     * 关键字删除不需要“懒惰删除”法，从而没有存储“垃圾”
     * 太小的$\alpha$可能导致空间浪费，大的$\alpha$又将付出更多的时间代价；不均匀的链表长度导致时间效率的严重下降
 
-## Extends
+# Extends
 1. [switch-case实现分段函数](https://blog.csdn.net/xiaochenxiaoren/article/details/53140436)
 
-## Amendant Record
+# Amendant Record
 180911 [Chapter_4_Queue](https://github.com/SigureMo/notev/tree/master/Codes/Data_Structures/Chapter_4_Queue) Finished  
 180913 [Week_2](https://github.com/SigureMo/notev/tree/master/Codes/Data_Structures/Week_2) Finished  
 180915 [Chapter_6_Tree(#6.1-#6.9)](https://github.com/SigureMo/notev/tree/master/Codes/Data_Structures/Chapter_6_Tree) Finished  
@@ -896,7 +896,7 @@ $d_i=i$|$d_i=\pm i^2$|$d_i=i\ast h_2(key)$
 181102 Chapter_9_Sort(#9.5-#9.8) Finished  
 181110 Chapter_10_Hash(#10) Finished  
 
-## Reference
+# Reference
 1. [数据结构 - 浙江大学 - 中国大学MOOC](https://www.icourse163.org/course/ZJU-93001)
 2. 《数据结构 (C语言版)》 严蔚敏 吴伟民 编著
 3. [PTA | 程序设计类实验辅助教学平台](https://pintia.cn/)
