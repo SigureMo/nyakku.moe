@@ -1783,7 +1783,7 @@ CPU内部结构采用非总线方式
 #### 10.2.9 微程序设计举例
 略，有点长
 
-## Amendant Record
+# Amendant Record
 180914 #2 Finished  
 180918 #3 Finished  
 180921 #4.1 #4.2 Finished  
@@ -1797,10 +1797,10 @@ CPU内部结构采用非总线方式
 181109 #9 Finished  
 181113 #10 Finished  
 
-## Extends
+# Extends
 1. [说了好多年的RISC和CISC，其实也在走向融合！](http://www.sohu.com/a/153527985_505803)
 
-## Reference
+# Reference
 1. 丁男老师课程
 2. [计算机组成原理（上） - 哈尔滨工业大学 - 中国大学MOOC](https://www.icourse163.org/course/HIT-309001)
 3. [计算机组成原理（下） - 哈尔滨工业大学 - 中国大学MOOC](https://www.icourse163.org/course/HIT-1001527001)

@@ -7,8 +7,8 @@
 ### 1.1 相变的共性
 
 
-## Amendant Record
+# Amendant Record
 18xxxx #0 Finished
 
-## Reference
+# Reference
 1. 黄昊老师课程

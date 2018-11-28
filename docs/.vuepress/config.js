@@ -50,7 +50,7 @@ module.exports = {
             { text: 'Discovery', link: '/Discovery/' },
             { text: 'About', link: '/About.html' },
         ],
-        sidebarDepth: 2,
+        sidebarDepth: 1,
         sidebar: {
             '/Opinions/': [
                 '',

@@ -56,8 +56,8 @@ x, y = -y
 ```
 
 
-## Amendant Record
+# Amendant Record
 18xxxx #0 Finished
 
-## Reference
+# Reference
 1. 《数学建模算法与应用（第二版）》 司守奎 孙兆亮
