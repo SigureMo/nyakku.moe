@@ -863,7 +863,7 @@ for (p1 = intVector.begin(); p1 != intVector.end(); p1++){
     * size
     * empty
 
-## Amendant Record
+# Amendant Record
 180917 #1 Finished  
 180919 #2 Finished  
 181005 #3 Finished  
@@ -871,6 +871,6 @@ for (p1 = intVector.begin(); p1 != intVector.end(); p1++){
 181013 #6 Finished  
 181015 #7 #8 #9 Finished  
 
-## Reference
+# Reference
 1. [网易云课堂 C++程序设计入门（上）](https://mooc.study.163.com/course/1000003015)
 2. [网易云课堂 C++程序设计入门（下）](https://mooc.study.163.com/course/1000005002)

@@ -273,10 +273,10 @@ T0PS2~0|000~111|预分频器分频比1:2 ~ 1:256
 
 
 
-## Amendant Record
+# Amendant Record
 180913 #0 #1 Finished  
 180926 #2 #3 Finished  
 181017 #4 Finished  
 
-## Reference
+# Reference
 1. 陈育斌老师选修课程
