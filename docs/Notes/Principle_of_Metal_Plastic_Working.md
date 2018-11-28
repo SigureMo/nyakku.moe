@@ -362,8 +362,8 @@ $$
 \sigma = \frac{1}{\sqrt{2}}\sqrt{(\sigma_1 - \sigma_2)^2 + (\sigma_2 - \sigma_3)^2 + (\sigma_3 - \sigma_1)^2} = \sigma_s
 $$
 
-## Amendant Record
+# Amendant Record
 181123 ALL Finished
 
-## Reference
+# Reference
 1. 宋刚老师课程

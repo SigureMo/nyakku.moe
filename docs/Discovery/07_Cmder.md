@@ -38,7 +38,7 @@ SET CMDER_ROOT=<CmderPath>
 ```
 嗯，随便起个名字就好，扩展名'.bat'
 ::: tip
-将<CmderPath>替换成你的cmder.exe所在目录
+将`<CmderPath>`替换成你的cmder.exe所在目录
 :::
 
 ### 2.2 Change the settings
@@ -51,7 +51,7 @@ SET CMDER_ROOT=<CmderPath>
     ],
 ```
 ::: tip
-将<ScriptPath>替换成你的.bat文件的具体路径，注意路径中对某些字符的转义
+将`<ScriptPath>`替换成你的.bat文件的具体路径，注意路径中对某些字符的转义
 :::
 
 # Amendant Record
