@@ -664,10 +664,28 @@ $$
 
 #### 2.3.3 Pandas VS Caviar（Hyperparameters tuning in practice: Pandas vs. Caviar）
 Pandas：没有足够的计算资源，同时只能计算一组超参数
+
 Caviar：计算资源足够，同时计算多组超参数
 
 #### 2.3.4 Normalizing activations in a network
-
+我们之前已经了解到这么一种算法叫做……归一化输入是吧，事实上这确实是一个非常有用的算法，它甚至是可以用在深层网络之中，这个时候我们叫它——Batch归一化
+1. 我们将归一化$z$作为默认选择，而不是归一化$a$，不过，这也是有争论的
+2. 每次归一化只针对某一层，绝对不可能会将某两层数据归一化处理
+3. 具体操作呢？
+$$
+\mu = \frac{1}{m} \sum_i z^{(i)} \\
+\sigma^2 = \frac{1}{m} \sum_i (z_i - \mu)^2 \\
+z_{norm}^{(i)} = \frac{z^{(i)}-\mu}{\sqrt{\sigma^2 + \varepsilon}}
+$$
+4. 这样，这些$z$就均一化为均值0方差1咯~
+5. 但是，我们也许并不希望$z$的每个分量都是均值0方差1这样千篇一律的状态，也许隐藏单元需要更加多元化的分布，所以，我们可以使用
+$$
+\tilde{z}^{(i)} = \gamma z_{norm}^{(i)} + \beta
+$$
+这里的$\gamma$和$\beta$是模型的学习参数，需要像更新$w$和$b$一样更新它们
+6. 你可以随意地设置$\tilde{z}^{(i)}$的均值，如果$\gamma = \sqrt{\sigma^2 + \varepsilon}$而且$\beta = \mu$，那么$\tilde{z}^{(i)} = z^{(i)}$，也就是说，$z^{(i)}$只是某种$\gamma$和$\beta$取值下的$\tilde{z}^{(i)}$
+7. 隐藏单元和训练输入归一化的一个区别是，隐藏单元也许并不一定是均值0方差1
+8. $\gamma$和$\beta$的作用是使隐藏单元值的均值和方差标准化，即$z^{(i)}$有固定的均值和方差，至于是多少……随你
 
 
 # Amendant Record
