@@ -114,6 +114,6 @@ module.exports = {
         // 默认是 false, 设置为 true 来启用
         editLinks: true,
         // 默认为 "Edit this page"
-        editLinkText: '欢迎提出建议！',
+        editLinkText: '在Github上编辑此页！',
     },
 }
