@@ -1,6 +1,6 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.9.0/katex.min.css">
 
-# Basis of Mechanical Designing <Badge text="alpha" type="warn"/> <Badge text="10.8.2"/>
+# Basis of Mechanical Designing <Badge text="alpha" type="error"/> <Badge text="11.3.0"/>
 
 ## 0 绪论
 * 1. 部件 装配的单元
@@ -249,8 +249,8 @@ $z_v=z/cos^3\beta$
 ### 4.9 小结
 这章大多是公式，主要记住：
 1. 分度圆直径$d=mz$，其中m是模数、z是齿数
-2. 齿顶圆直径$d_a=d+2h_a$，而`$h_a=h_a^*m$，其中$h_a^*$正常齿制为1.0
-3. 齿根圆直径$d_f=d-2h_f$，而`$h_f=(h_a^*+c^*)m$，其中$h_a^*$正常齿制为0.8
+2. 齿顶圆直径$d_a=d+2h_a$，而$h_a=h_a^*m$，其中$h_a^*$正常齿制为1.0
+3. 齿根圆直径$d_f=d-2h_f$，而$h_f=(h_a^*+c^*)m$，其中$c^*$正常齿制为0.25
 4. 斜齿轮$m_n = m_tcos\beta$
 5. 再没啥了
 
@@ -577,6 +577,9 @@ $T=9.55\times10^6\frac{P}{n}(N\cdot mm)$P取kW，n取r/min
 
 ### 11.2 齿轮的材料及其选用准则
 #### 11.2.3 齿轮要求
+
+
+
 
 ### 11.3 齿轮传动的精度
 齿轮的精度标准

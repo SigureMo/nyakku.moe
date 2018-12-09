@@ -65,6 +65,7 @@ module.exports = {
                 'Principles_of_Computer_Composition',
                 'Computer_Network',
                 'Basis_of_Mechanical_Designing',
+                'Basis_of_Mechanical_Designing.less',
                 'PIC',
                 'Cpp',
                 'Deep_Learning',

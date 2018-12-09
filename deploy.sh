@@ -14,7 +14,9 @@ cd docs/.vuepress/dist
 
 git init
 git add -A
-git commit -m 'deploy'
+# git commit -m 'deploy'
+time=$(date "+%Y-%m-%d %H:%M:%S")
+git commit -m "redeploy @${time}"
 
 # 如果发布到 https://<USERNAME>.github.io
 # git push -f git@github.com:<USERNAME>/<USERNAME>.github.io.git master
