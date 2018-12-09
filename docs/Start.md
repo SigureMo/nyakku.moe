@@ -33,11 +33,11 @@
 ### 刷题
 Num|Directory|Src
 ---|---|---
-1|[Data Structures](https://github.com/SigureMo/S_Note/tree/master/Codes/Data_Structures/)|[PTA](https://pintia.cn/problem-sets)
-2|[PAT](https://github.com/SigureMo/S_Note/tree/master/Codes/PAT/)|[PTA](https://pintia.cn/problem-sets)
-3|[100 days of algorithms](https://github.com/SigureMo/S_Note/tree/master/Codes/100_days_of_algorithms)|[Python 100天算法挑战](https://python123.io/index/topics/algorithm_100_days)
-4|[MI OJ](https://github.com/SigureMo/S_Note/tree/master/Codes/MI_OJ/)|[MI_OJ](https://code.mi.com/problem/list)
-5|[LeetCode](https://github.com/SigureMo/S_Note/tree/master/Codes/LeetCode/)|[LeetCode](https://leetcode.com/problemset/all/)
+1|[Data Structures](https://github.com/SigureMo/notev/tree/master/Codes/Data_Structures/)|[PTA](https://pintia.cn/problem-sets)
+2|[PAT](https://github.com/SigureMo/notev/tree/master/Codes/PAT/)|[PTA](https://pintia.cn/problem-sets)
+3|[100 days of algorithms](https://github.com/SigureMo/notev/tree/master/Codes/100_days_of_algorithms)|[Python 100天算法挑战](https://python123.io/index/topics/algorithm_100_days)
+4|[MI OJ](https://github.com/SigureMo/notev/tree/master/Codes/MI_OJ/)|[MI_OJ](https://code.mi.com/problem/list)
+5|[LeetCode](https://github.com/SigureMo/notev/tree/master/Codes/LeetCode/)|[LeetCode](https://leetcode.com/problemset/all/)
 
 ## Disclaimer
 [Disclaimer](Disclaimer.md)
