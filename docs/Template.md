@@ -61,7 +61,7 @@ $$
 ## Badge <Badge text="beta" type="warn"/> <Badge text="0.10.1+"/>
 这是Vuepress中的内置组件，可以通过这种方式使用：
 ```md
-### Badge <Badge text="beta" type="warn"/> <Badge text="0.10.1+"/>
+## Badge <Badge text="beta" type="warn"/> <Badge text="0.10.1+"/>
 ```
 渲染出来的效果当然就是标题这种啦~
 
@@ -69,14 +69,15 @@ $$
 
 ::: tip
 今后将使用其作为笔记状态标记，暂定以下规则：
-1. <Badge text="alpha" type="warn"/> <Badge text="0.10.1"/>为**studying**类的标记
-2. <Badge text="beta" type="tip"/> <Badge text="1.10.1"/>为**debugging**类的标记
+1. <Badge text="alpha" type="warn"/> <Badge text="0.10.1"/>为**studying**类（正在编写与学习中）的标记
+2. <Badge text="beta" type="tip"/> <Badge text="1.10.1"/>为**debugging**类（基本框架完成，待补充完善）的标记
+3. <Badge text="beta" type="error"/> <Badge text="1.10.1"/>为**discarded**类（中途停止继续记录，可能使用新框架重写）的标记
 :::
 
-## Amendant Record
+# Amendant Record
 1. 18xxxx Init
 2. 18xxxx Add #0 #1
 
-## Reference
+# Reference
 1. XXX老师课程
 2. [url](/)
