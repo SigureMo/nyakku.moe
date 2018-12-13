@@ -100,7 +100,7 @@ $$
 
 使用 Prettier 对文档进行优化，使用 husky 配合 pretty-quick 钩子，详情请见[Prettier 官网](https://prettier.io/)
 
-::: warn
+::: warning
 
 优化工作进行中
 
