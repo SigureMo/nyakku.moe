@@ -642,8 +642,10 @@ v /= 1-beta**t // 注意，不是放在forloop内的哦
 
 1. 我们使用梯度递降法的时候经常会遇到这种情况：
    ![DeepLearning10](../Images/DeepLearning10.png)  
-    _ 每次梯度递降都会不断地波动，指向的方向并不是最终的位置，当然，增大学习率会使得这个现象更加严重
-   _ 我们更希望图中竖直方向上的波动更小些，水平方向移动更快些，要如何做呢？
+
+   每次梯度递降都会不断地波动，指向的方向并不是最终的位置，当然，增大学习率会使得这个现象更加严重
+
+   我们更希望图中竖直方向上的波动更小些，水平方向移动更快些，要如何做呢？
 2. 我们试试这个方法：
 
 $$
@@ -813,7 +815,7 @@ Caviar：计算资源足够，同时计算多组超参数
 
 #### 2.3.4 Normalizing activations in a network
 
-我们之前已经了解到这么一种算法叫做……归一化输入是吧，事实上这确实是一个非常有用的算法，它甚至是可以用在深层网络之中，这个时候我们叫它——Batch 归一化
+我们之前已经了解到这么一种算法叫做……归一化输入是吧，事实上这确实是一个非常有用的算法，它甚至是可以用在深层网络之中，这个时候我们叫它——Batch 归一化（简称 **BN** ）
 
 1. 我们将归一化$z$作为默认选择，而不是归一化$a$，不过，这也是有争论的
 2. 每次归一化只针对某一层，绝对不可能会将某两层数据归一化处理
@@ -836,7 +838,159 @@ $$
 
 6. 你可以随意地设置$\tilde{z}^{(i)}$的均值，如果$\gamma = \sqrt{\sigma^2 + \varepsilon}$而且$\beta = \mu$，那么$\tilde{z}^{(i)} = z^{(i)}$，也就是说，$z^{(i)}$只是某种$\gamma$和$\beta$取值下的$\tilde{z}^{(i)}$
 7. 隐藏单元和训练输入归一化的一个区别是，隐藏单元也许并不一定是均值 0 方差 1
-8. $\gamma$和$\beta$的作用是使隐藏单元值的均值和方差标准化，即$z^{(i)}$有固定的均值和方差，至于是多少……随你
+8. $\gamma$和$\beta$的作用是使隐藏单元值的均值和方差标准化，即$z^{(i)}$有固定的均值和方差，至于是多少……当然是要训练的呀~
+
+#### 2.3.5 Fitting Batch Norm into a neural network
+1. 之前说过，每一个神经网络单元所做的无非计算$ z^{[l]} $和$ a^{[l]} $两步，而如果使用 Batch 归一化的话，我们要在这两步之间加一步计算$ \tilde{z}^{[l]} $，之后再据此计算$ a^{[l]} $
+2. 所以说，我们现在每层的参数由$ w^{[l]} $和$ b^{[l]} $变成了$ w^{[l]} $、$ b^{[l]} $、$ \beta^{[l]} $、$ \gamma^{[l]} $四个，当然这里的$ \beta $不是 Momentum 里的超参数$ \beta $
+3. 当然你还是可以结合 Adam 或 RMSprop 或 Momentum 方法而不是单纯地使用 BN
+4. BN 的过程虽然看起来很复杂，但是我们如果在框架里使用它的话，它只是一行代码而已，就比如说 Tensorflow ，我们只需要使用`tf.nn.batch_normalization`就可以实现它
+5. 实践中经常会将 mini-batch 和 BN 一起使用，
+6. 之前有提到使用 BN 后会有四个参数$ w^{[l]} $、$ b^{[l]} $、$ \beta^{[l]} $、$ \gamma^{[l]} $，但是事实上$ b^{[l]} $已经是没有必要的，因为我们的$ z^{[l]} = w^{[l]} a{[l-1]} + b^{[l]}$，但是之后的归一化会将所有的$ z^{[l]} $变换为均值为0，方差为1，再由$ \gamma $和$ \beta $重新缩放，所以$ b^{[l]} $其实是在这个过程中被消除掉了
+7. 所以，接下来，我们要做的就是反向prop也就是
+$$
+w^{[l]} = w^{[l]} - \alpha dw^{[l]} \\
+\beta^{[l]} = \beta^{[l]} - \alpha d\beta^{[l]} \\
+\gamma^{[l]} = \gamma^{[l]} - \alpha d\gamma^{[l]} \\
+$$
+8. 事实上，我们更多的是直接用框架完成这些~
+
+#### 2.3.6 Why does Batch Norm work?
+为什么 BN 会有用呐？
+1. 第一个原因是，BN 会将各层输入的特征值进行归一化，就和之前的归一化输入是一样的，**每层都会得到“标准”的输入，这对加速学习是非常有用的**
+2. 另外，它可以使得网络更加滞后或者说更深层，神经网络的后层比之于前层更加经受得住变化
+3. 那么如何经受变化呢？比如说我们一个神经网络适应了某一个分布下的训练集，可以对该分布下训练集做出很好的预测，但是换了一个分布的训练集情况就很有可能会有所不同，这有点像这个神经网络过拟合第一个分布下的训练集，我们称这种情况为 **Covariate shift** 
+4. 我们随便找到一个深层神经网络，比如说一个5层的神经网络，我们遮去前两层暂且不看，那么第三层的输入又是什么样子的呢？当然是没有规律的、分布未知的数据，因为我们根本没有对它的输入进行任何的约束，它只是在前层参数下的一个输出，这样下去，每层的噪声将会非常的大，前层的一个调整将会使后层的分布发生改变，这当然不是我们想看到的
+5. 但如果每层的分布是我们可以进行控制的（$ \gamma $ 和$ \beta $），这样至少**可以保证每层的输入在一个可控的分布下，这使得整个神经网络更加稳定，前层的改变迫使后层的适应程度会减小，也就减弱了层与层之间的联系，使得每层都可以自己学习，稍稍独立于其它层**
+6. **另外， BN 还有一个作用就是轻微的正则化**，为什么呢？主要是因为每组 mini-batch 得到的均值和方差都与整个数据集的有一定的噪声，这就使得得到的$ \tilde{z}^{[l]} $也是有噪声的，这就使得它有点类似于 dropout 一样，使得后层并不会过分得依赖于前层，当然这只是轻微的正则化，如果想要获得更好的正则化是可以配合 dropout 使用的
+7. 当然，正则化并不是 BN 的真正用途，这只是一个意外的结果罢了，也许会给你的训练带来好处，当然也有可能会带来一些问题
+
+#### 2.3.7 Batch Norm at test time
+
+1. 首先回顾下我们计算 BN 的公式
+$$
+\mu = \frac{1}{m} \sum_i z^{(i)} \\
+\sigma^2 = \frac{1}{m} \sum_i (z_i - \mu)^2 \\
+z_{norm}^{(i)} = \frac{z^{(i)}-\mu}{\sqrt{\sigma^2 + \varepsilon}} \\
+\tilde{z}^{(i)} = \gamma z_{norm}^{(i)} + \beta
+$$
+2. 既然要计算每个 mini-batch ，那么$ m $就一定是该 mini-batch 的样本数量而不是整个训练集的样本数量，但是我们可以看到，每处理一个数据都需要先计算出$ \mu $，再计算出$ \sigma $，然后才能对这一个样本进行处理，哦，天呐，算一个样本的$ \tilde{z}^{(i)} $要将整个 mini-batch 遍历三次！
+3. 为了避免这种遍历，要如何做呢？没错，就是指数加权平均，用它来估算$ \mu $和$ \sigma $，事实上任何合理的估算方法都是可以的，而在框架里大多都已经有着默认的估算方式，一般都有着比较好的效果
+
+#### 2.3.8 Softmax regression
+
+我们之前所用的都是二分类，比如说输入一张图片分类为是或不是猫，但是很多情况下我们需要做到更多，比如说，输入一张图片分类为猫、狗、鸡或者其他，这要如何做呢？
+
+1. 当然就是 Softmax 啦，之前我们之所以输出的是二分类当然是因为我们在输出层应用的是 Logistic 回归，而且输出层也只设置了一个结点，那么我们只需要在这里进行一些改动，就可以将它变成一个更强大的分类器啦
+2. 比如接着刚才那个例子，将图片分为猫、狗、鸡、或者其他，就是说需要 C = 4 种分类，那么我们可以设置这样的四个结点，每个结点输入$ z^{[l]} $，经过非线性变换后变成$ e^{z^{[l]}} $，临时叫它$ t^{[l]} $，因为我们最终要获得每种的概率，所以我们还要将这四个结点的输出进行归一化，也就是都除以他们的和，$ a^{[l]} = \frac{t^{[l]}}{\sum_{j=0}^3 t^{[l]}} $
+3. 上面的过程就是 Softmax 回归啦
+
+#### 2.3.9 Training a Softmax classifier
+
+事实上在 C = 2 时， Softmax 回归就变成了 logistic 回归，但在 Softmax 中都要怎么做呢？
+
+1. 损失函数，通常使用$ L(\hat{y}, y) = -\sum_{j=1}^4 y_j log\hat{y}_j $
+2. 反向传播，只需要记住$ dz^{[l]} = \hat{y} - y $，剩下的慢慢求偏导就好啦
+3. 当然，我们马上就要学习框架了，这使得只需要我们更加注重前向传播的逻辑与设计，而反向传播的求导什么的交给框架来做就好了
+
+#### 2.3.10 Deep Learning frameworks
+
+选择框架的标准：
+1. 简单易用，能够将线性代数库做较好的抽象
+2. 运行速度，这是我们一直都有提到的问题
+3. 开源
+
+一些推荐：
+- Caffe / Caffe2
+- CNTK
+- DL4J
+- Keras
+- Lasagne
+- mxnet
+- PaddlePaddle
+- TensorFlow
+- Theano
+- Torch
+
+#### 2.3.11 TensorFlow
+1. 首先是一个简单的例子，我们让 TensorFlow 找到使 Cost $ (w-5)^2 $最小的的参数$ w $
+```Python
+import numpy as np
+import tensorflow as tf
+
+# 定义参数 w
+w = tf.Variable(0, dtype=tf.float32)
+# 定义 Cost function
+cost = tf.add(tf.add(w**2, tf.multiply(-10, w)), 25)
+# 定义所用训练方法和学习率，这里是使用梯度递降法与0.01的学习率
+train = tf.train.GradientDescentOptimizer(0.01).minimize(cost)
+# 下面几行是惯用的写法
+# 首先是创建全局变量
+init = tf.global_variables_initializer()
+# 之后创建一个TensorFlow session
+session = tf.Session()
+# 初始化全局变量
+session.run(init)
+# 下面将会将 w 初始化为0，但是并没有运行，所以 print 出来还是0
+print(session.run(w))
+
+
+# 我们运行一步训练过程（这里是梯度递降法）
+session.run(train)
+print(session.run(w))
+
+# 我们运行1000次再看看
+for i in range(1000):
+    session.run(train)
+print(session.run(w))
+# 应该已经很接近最终答案5了
+```
+
+2. 但我们如何像我们之前做的那样将数据喂给它呢？
+```Python
+import numpy as np
+import tensorflow as tf
+
+
+coefficients = np.array([[1.], [-20.], [25.]])
+
+w = tf.Variable(0, dtype=tf.float32)
+# 告诉 tf 数据格式，具体数据之后“喂”
+x = tf.placeholde(tf.float32, [3, 1])
+# 因为 tf 已经重载了很多的运算符，所以我们完全可以将这个式子写得好看些
+# cost = w**2 - 10*w + 25
+# 为了方便“喂”，把原来固定参数改成 x
+cost = x[0][0]*w**2 + x[1][0]*w +x[2][0]
+# 如果不想用梯度递降法而是使用 Adam 优化器等等，改掉这行就可以啦
+train = tf.train.GradientDescentOptimizer(0.01).minimize(cost)
+init = tf.global_variables_initializer()
+session = tf.Session()
+session.run(init)
+print(session.run(w))
+
+# 在这里慢慢“喂”数据，如果要用 mini-batch ，就用 feed_dict 喂入不同的子集
+session.run(train, feed_dict={x:coefficients})
+print(session.run(w))
+
+for i in range(1000):
+    session.run(train, feed_dict={x:coefficients})
+print(session.run(w))
+```
+
+3. 也许我们经常遇到 `with` 的形式，这都是一样的，只不过这样的代码更安全
+```Python
+with tf.Session() as session:
+    session.run(init)
+    print(session.run(w))
+    # And more...
+```
+4. 就像前面所说的，所有的反向传播求导法则已经在建立前向传播那行（cost=blabla）建立好了，乘啦加啦什么的，都在框架内做好了对应的求导法则，所以我们要做的就是搭搭前向传播，选选方案，改改超参数啦
+
+::: tip
+
+由于当前 Vuepress0.x 对 KaTeX 公式支持得并不是太好，所以会存在大量“乱码”现象，该问题将会在 Vuepress1.0 发版时修复，旧笔记请移步[有道云笔记](http://note.youdao.com/noteshare?id=a8af33730d94e1077e70ad236b47e450)
+
+:::
 
 # Amendant Record
 
@@ -847,6 +1001,7 @@ $$
 181022 #1.4 Finished  
 181028 #2.1 Finished  
 181116 #2.2 Finished
+181225 #2.3 Finished
 
 # Reference
 
