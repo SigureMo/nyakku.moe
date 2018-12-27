@@ -68,15 +68,24 @@ module.exports = {
       ],
       "/Notes/": [
         "",
-        "Data_Structures",
-        "Principles_of_Computer_Composition",
-        "Computer_Network",
-        "PIC",
-        "Cpp",
-        "Deep_Learning",
-        "Mathematical_Modeling",
-        "Principle_and_Application_of_Solid_Phase_Transition",
-        "Principle_of_Metal_Plastic_Working"
+        ["Data_Structures", "Data Structures"],
+        [
+          "Principles_of_Computer_Composition",
+          "Principles of Computer Composition"
+        ],
+        ["Computer_Network", "Computer Network"],
+        ["PIC", "PIC"],
+        ["Cpp", "Cpp"],
+        ["Deep_Learning", "Deep Learning"],
+        ["Mathematical_Modeling", "Mathematical Modeling"],
+        [
+          "Principle_and_Application_of_Solid_Phase_Transition",
+          "Principle and Application of Solid Phase Transition"
+        ],
+        [
+          "Principle_of_Metal_Plastic_Working",
+          "Principle of Metal Plastic Working"
+        ]
       ],
       "/Projects/": [
         "",
