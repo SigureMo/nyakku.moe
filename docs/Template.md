@@ -48,7 +48,10 @@
 我们也可以单行渲染
 
 $$
-\sum_{i=1}^n a_i=0
+\begin{aligned}
+\sum_{i=1}^n a_i & = 0 \\
+\sum_{j=1}^n b_j & = 1000
+\end{aligned}
 $$
 
 具体可参照[katex 文档](http://www.intmath.com/cg5/katex-mathjax-comparison.php)和[katex 支持的函数](https://github.com/Khan/KaTeX/wiki/Function-Support-in-KaTeX)以及[latex 文档](https://math.meta.stackexchange.com/questions/5020/mathjax-basic-tutorial-and-quick-reference)
@@ -58,8 +61,8 @@ $$
 
 ```html
 <link
-  rel="stylesheet"
-  href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.9.0/katex.min.css"
+   rel="stylesheet"
+   href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.9.0/katex.min.css"
 />
 ```
 
