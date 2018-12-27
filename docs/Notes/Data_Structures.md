@@ -6,11 +6,11 @@
 
    -  [Linear List](#_2-线性表（linear-list）)
 
-      \*
-      _ [Ranked List](#_2-1-顺序表示（ranked-list）)
-      _ [Linked List](#_2-2-链式表示（linked-list）) \*
-      _ [Stack](#_3-堆栈（stack）)
-      _ [Queue](#_4-队列（queue）) \* [String](#_5-串（string）)
+      -  [Ranked List](#_2-1-顺序表示（ranked-list）)
+      -  [Linked List](#_2-2-链式表示（linked-list）)
+      -  [Stack](#_3-堆栈（stack）)
+      -  [Queue](#_4-队列（queue）)
+      -  [String](#_5-串（string）)
 
    -  [Tree](#_6-树（tree）)
       -  [Binary Tree](#_6-4-二叉树的定义)
