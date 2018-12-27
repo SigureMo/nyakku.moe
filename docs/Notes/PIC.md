@@ -318,12 +318,13 @@ AGAIN   ADDLW   03H
    -  计算初值 TC
 
    $$
-   TC \\
-   = M - \frac{T}{T_{CONUT}\times N} \\
-   = 65536 - \frac{1,000,000}{0.25 \times 64} \\
-   = 65536-62500 \\
-   = 3036 \\
-   = 0BDCH \\
+   \begin{aligned}
+   TC & = M - \frac{T}{T_{CONUT}\times N} \\
+    & = 65536 - \frac{1,000,000}{0.25 \times 64} \\
+    & = 65536-62500 \\
+    & = 3036 \\
+    & = 0BDCH \\
+   \end{aligned}
    $$
 
    -  T0CON 的初始化
