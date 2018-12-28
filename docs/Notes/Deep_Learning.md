@@ -1072,14 +1072,14 @@ with tf.Session() as session:
 
 # Amendant Record
 
-181014 #1.1 Finished
-181017 #1.2 Finished
-181020 #1.3 Finished
-181021 [Week_3](https://github.com/SigureMo/notev/tree/master/Codes/DeepLearning/Week_3) Finished
-181022 #1.4 Finished
-181028 #2.1 Finished
-181116 #2.2 Finished
-181225 #2.3 Finished
+1. 181014 #1.1 Finished
+2. 181017 #1.2 Finished
+3. 181020 #1.3 Finished
+4. 181021 [Week_3](https://github.com/SigureMo/notev/tree/master/Codes/DeepLearning/Week_3) Finished
+5. 181022 #1.4 Finished
+6. 181028 #2.1 Finished
+7. 181116 #2.2 Finished
+8. 181225 #2.3 Finished
 
 # Reference
 
