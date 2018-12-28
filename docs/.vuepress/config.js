@@ -75,7 +75,7 @@ module.exports = {
         ],
         ["Computer_Network", "Computer Network"],
         ["PIC", "PIC"],
-        ["Cpp", "Cpp"],
+        ["Cpp", "C++"],
         ["Deep_Learning", "Deep Learning"],
         ["Mathematical_Modeling", "Mathematical Modeling"],
         [
