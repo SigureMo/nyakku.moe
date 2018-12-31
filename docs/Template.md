@@ -90,12 +90,14 @@ $$
 更多选项参考[Vuepress 文档](https://vuepress.vuejs.org/zh/guide/using-vue.html#badge)
 
 ::: tip
+
 今后将使用其作为笔记状态标记，暂定以下规则：
 
 1. <Badge text="alpha" type="warn"/> <Badge text="0.10.1"/>为**studying**类（正在编写与学习中）的标记
 2. <Badge text="beta" type="tip"/> <Badge text="1.10.1"/>为**debugging**类（基本框架完成，待补充完善）的标记
-3. <Badge text="beta" type="error"/> <Badge text="1.10.1"/>为**discarded**类（中途停止继续记录，可能使用新框架重写）的标记
-   :::
+3. <Badge text="2.10.1" type="error" />为**discarded**类（中途停止继续记录，可能使用新框架重写）的标记
+
+:::
 
 ## Prettier
 
