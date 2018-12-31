@@ -1,5 +1,3 @@
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.9.0/katex.min.css">
-
 # Template <Badge text="alpha" type="warn"/>
 
 [[TOC]]
@@ -57,7 +55,7 @@ $$
 具体可参照[katex 文档](http://www.intmath.com/cg5/katex-mathjax-comparison.php)和[katex 支持的函数](https://github.com/Khan/KaTeX/wiki/Function-Support-in-KaTeX)以及[latex 文档](https://math.meta.stackexchange.com/questions/5020/mathjax-basic-tutorial-and-quick-reference)
 
 ::: tip
-不过有个前提就是在使用 KaTeX 的 markdown 的首行添加下面的 css 链接：
+不过有个前提就是在使用 KaTeX 的 markdown 内添加下面的 css 链接：
 
 ```html
 <link
@@ -118,3 +116,5 @@ $$
 
 1. XXX 老师课程
 2. [url](/)
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.9.0/katex.min.css">

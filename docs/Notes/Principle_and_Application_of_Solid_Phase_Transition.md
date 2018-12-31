@@ -1,5 +1,3 @@
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.9.0/katex.min.css">
-
 # Principle and Application of Solid Phase Transition <Badge text="alpha" type="warn"/> <Badge text="5.5.3"/>
 
 ## Part 1 固态相变理论基础
@@ -502,6 +500,10 @@ TTT 曲线
 
 #### 5.5.3 珠光体耐热钢
 
+## 6 脱溶沉淀
+
+### 6.1
+
 
 # Amendant Record
 
@@ -515,4 +517,6 @@ TTT 曲线
 
 1. 黄昊老师课程
 2. 《固态相变原理及应用》 张贵峰 黄昊
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.9.0/katex.min.css">
 $$

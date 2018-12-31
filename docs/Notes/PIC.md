@@ -1,5 +1,3 @@
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.9.0/katex.min.css">
-
 # PIC <Badge text="alpha" type="warn"/> <Badge text="5.1.6"/>
 
 ## 0 PIC 绪论
@@ -341,10 +339,12 @@ AGAIN   ADDLW   03H
 
 # Amendant Record
 
-180913 #0 #1 Finished
-180926 #2 #3 Finished
-181017 #4 Finished
+1. 180913 #0 #1 Finished
+2. 180926 #2 #3 Finished
+3. 181017 #4 Finished
 
 # Reference
 
 1. 陈育斌老师选修课程
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.9.0/katex.min.css">
