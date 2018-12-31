@@ -1,5 +1,3 @@
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.9.0/katex.min.css">
-
 # Data Structures <Badge text="beta" type="tip"/> <Badge text="10.2.9"/>
 
 -  Data Structures
@@ -1044,23 +1042,23 @@ Index Hash(const char *Key, int TableSize){
 
 # Amendant Record
 
-180911 [Chapter_4_Queue](https://github.com/SigureMo/notev/tree/master/Codes/Data_Structures/Chapter_4_Queue) Finished
-180913 [Week_2](https://github.com/SigureMo/notev/tree/master/Codes/Data_Structures/Week_2) Finished
-180915 [Chapter_6_Tree(#6.1-#6.9)](https://github.com/SigureMo/notev/tree/master/Codes/Data_Structures/Chapter_6_Tree) Finished
-180916 [Week_3](https://github.com/SigureMo/notev/tree/master/Codes/Data_Structures/Week_3) Finished
-180918 Chapter_5_String Finished
-180922 [Chapter_6_Tree(#6.10-#6.11)](https://github.com/SigureMo/notev/tree/master/Codes/Data_Structures/Chapter_6_Tree) Finished
-180923 [Week_4](https://github.com/SigureMo/notev/tree/master/Codes/Data_Structures/Week_4) Finished
-180929 [PyDS_Linked_List](https://github.com/SigureMo/notev/tree/master/Codes/Data_Structures/Chapter_2_List) [PyDS_Heap](https://github.com/SigureMo/notev/tree/master/Codes/Data_Structures/Chapter_7_Heap) [Chapter_6_Tree](https://github.com/SigureMo/notev/tree/master/Codes/Data_Structures/Chapter_6_Tree) [Chapter_7_Heap](https://github.com/SigureMo/notev/tree/master/Codes/Data_Structures/Chapter_7_Heap) Finished
-181004 [Week_5](https://github.com/SigureMo/notev/tree/master/Codes/Data_Structures/Week_5) Finished
-181005 [Chapter_8_Graph(#8.1-#8.2)](https://github.com/SigureMo/notev/tree/master/Codes/Data_Structures/Chapter_8_Graph) Finished
-181006 [Week_6](https://github.com/SigureMo/notev/tree/master/Codes/Data_Structures/Week_6) Finished
-181010 Chapter_8_Graph(#8.3) Finished
-181014 [Week_7](https://github.com/SigureMo/notev/tree/master/Codes/Data_Structures/Week_7) Finished
-181018 Chapter_8_Graph(#8.4-#8.6) Finished
-181025 Chapter_9_Sort(#9.1-#9.4) Finished
-181102 Chapter_9_Sort(#9.5-#9.8) Finished
-181110 Chapter_10_Hash(#10) Finished
+1. 180911 [Chapter_4_Queue](https://github.com/SigureMo/notev/tree/master/Codes/Data_Structures/Chapter_4_Queue) Finished
+2. 180913 [Week_2](https://github.com/SigureMo/notev/tree/master/Codes/Data_Structures/Week_2) Finished
+3. 180915 [Chapter_6_Tree(#6.1-#6.9)](https://github.com/SigureMo/notev/tree/master/Codes/Data_Structures/Chapter_6_Tree) Finished
+4. 180916 [Week_3](https://github.com/SigureMo/notev/tree/master/Codes/Data_Structures/Week_3) Finished
+5. 180918 Chapter_5_String Finished
+6. 180922 [Chapter_6_Tree(#6.10-#6.11)](https://github.com/SigureMo/notev/tree/master/Codes/Data_Structures/Chapter_6_Tree) Finished
+7. 180923 [Week_4](https://github.com/SigureMo/notev/tree/master/Codes/Data_Structures/Week_4) Finished
+8. 180929 [PyDS_Linked_List](https://github.com/SigureMo/notev/tree/master/Codes/Data_Structures/Chapter_2_List) [PyDS_Heap](https://github.com/SigureMo/notev/tree/master/Codes/Data_Structures/Chapter_7_Heap) [Chapter_6_Tree](https://github.com/SigureMo/notev/tree/master/Codes/Data_Structures/Chapter_6_Tree) [Chapter_7_Heap](https://github.com/SigureMo/notev/tree/master/Codes/Data_Structures/Chapter_7_Heap) Finished
+9. 181004 [Week_5](https://github.com/SigureMo/notev/tree/master/Codes/Data_Structures/Week_5) Finished
+10.   181005 [Chapter_8_Graph(#8.1-#8.2)](https://github.com/SigureMo/notev/tree/master/Codes/Data_Structures/Chapter_8_Graph) Finished
+11.   181006 [Week_6](https://github.com/SigureMo/notev/tree/master/Codes/Data_Structures/Week_6) Finished
+12.   181010 Chapter_8_Graph(#8.3) Finished
+13.   181014 [Week_7](https://github.com/SigureMo/notev/tree/master/Codes/Data_Structures/Week_7) Finished
+14.   181018 Chapter_8_Graph(#8.4-#8.6) Finished
+15.   181025 Chapter_9_Sort(#9.1-#9.4) Finished
+16.   181102 Chapter_9_Sort(#9.5-#9.8) Finished
+17.   181110 Chapter_10_Hash(#10) Finished
 
 # Reference
 
@@ -1068,3 +1066,5 @@ Index Hash(const char *Key, int TableSize){
 2. 《数据结构 (C 语言版)》 严蔚敏 吴伟民 编著
 3. [PTA | 程序设计类实验辅助教学平台](https://pintia.cn/)
 4. [Python 数据结构 - Python123](https://python123.io/index/topics/data_structure)
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.9.0/katex.min.css">

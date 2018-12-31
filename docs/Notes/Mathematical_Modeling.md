@@ -1,5 +1,3 @@
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.9.0/katex.min.css">
-
 # Mathematical Modeling <Badge text="alpha" type="warn"/> <Badge text="1.1.2"/>
 
 ## 1 线性规划
@@ -76,3 +74,5 @@ x, y = -y
 # Reference
 
 1. 《数学建模算法与应用（第二版）》 司守奎 孙兆亮
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.9.0/katex.min.css">

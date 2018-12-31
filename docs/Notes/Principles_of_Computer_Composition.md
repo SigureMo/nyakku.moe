@@ -1,5 +1,3 @@
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.9.0/katex.min.css">
-
 # Principles of Computer Composition <Badge text="beta" type="tip"/> <Badge text="10.2.9"/>
 
 ## 1 计算机系统概论
@@ -1546,12 +1544,12 @@ CPU 与 I/O 设备部分并行工作
 #### 8.3.5 流水线性能
 
 1. 吞吐率
-   单位时间内流水线所完成指令或输出结果的数量，设 m 段的流水线各段时间为$\Delta t$
-   _ 最大吞吐率
-   \$T_{pmax}=\frac{1}{\Delta t}$
-   _ 实际吞吐率
-    连续处理 n 条指令的吞吐率为
-    $T_p=\frac{n}{m\cdot\Delta} t+(n-1)\dot\Delta t\$
+   单位时间内流水线所完成指令或输出结果的数量，设 m 段的流水线各段时间为\$\Delta t\$
+   \_ 最大吞吐率
+   \\$T\_{pmax}=\frac{1}{\Delta t}\$
+   \_ 实际吞吐率
+   连续处理 n 条指令的吞吐率为
+   \$T_p=\frac{n}{m\cdot\Delta} t+(n-1)\dot\Delta t\$
 2. 加速比$S_p$
    m 段的流水线的速度与等功能的非流水线的速度之比
    设 m 段的流水线各段时间为$\Delta t$
@@ -1973,18 +1971,18 @@ CPU 内部结构采用非总线方式
 
 # Amendant Record
 
-180914 #2 Finished
-180918 #3 Finished
-180921 #4.1 #4.2 Finished
-180928 #4 Finished
-181005 #5 Finished
-181008 #6.1 #6.2 Finished
-181012 #6.3 Finished
-181016 #6 Finished
-181025 #7 Finished
-181101 #8 Finished
-181109 #9 Finished
-181113 #10 Finished
+1. 180914 #2 Finished
+2. 180918 #3 Finished
+3. 180921 #4.1 #4.2 Finished
+4. 180928 #4 Finished
+5. 181005 #5 Finished
+6. 181008 #6.1 #6.2 Finished
+7. 181012 #6.3 Finished
+8. 181016 #6 Finished
+9. 181025 #7 Finished
+10.   181101 #8 Finished
+11.   181109 #9 Finished
+12.   181113 #10 Finished
 
 # Extends
 
@@ -1997,3 +1995,5 @@ CPU 内部结构采用非总线方式
 3. [计算机组成原理（下） - 哈尔滨工业大学 - 中国大学 MOOC](https://www.icourse163.org/course/HIT-1001527001)
 
 [^1]: 机器语言程序员
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.9.0/katex.min.css">
