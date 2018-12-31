@@ -31,9 +31,9 @@ class SMTP(smtplib.SMTP_SSL):
         msg['Subject'] = Header(title, 'utf-8')
         self.sendmail(self.from_addr, to_addr, msg.as_string())
 
-
-smtp = SMTP('163')
-smtp.login_('<from_addr>', '<password>')
-smtp.send_text('<to_addr>', '<message>')
+if __name__ == "__main__":
+    smtp = SMTP('163')
+    smtp.login_('<from_addr>', '<password>')
+    smtp.send_text('<to_addr>', '<message>')
 
     
