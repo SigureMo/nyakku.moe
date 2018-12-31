@@ -61,55 +61,40 @@ module.exports = {
     sidebar: {
       "/Opinions/": [
         "",
-        "01_Everything_is_object",
-        "02_Encoding",
+        "04_Hardware",
         "03_C_and_pointer",
-        "04_Hardware"
+        "02_Encoding",
+        "01_Everything_is_object"
       ],
       "/Notes/": [
         "",
-        ["Data_Structures", "Data Structures"],
-        [
-          "Principles_of_Computer_Composition",
-          "Principles of Computer Composition"
-        ],
-        ["Computer_Network", "Computer Network"],
-        ["PIC", "PIC"],
-        ["Cpp", "C++"],
-        ["Deep_Learning", "Deep Learning"],
-        ["Mathematical_Modeling", "Mathematical Modeling"],
-        [
-          "Principle_and_Application_of_Solid_Phase_Transition",
-          "Principle and Application of Solid Phase Transition"
-        ],
-        [
-          "Principle_of_Metal_Plastic_Working",
-          "Principle of Metal Plastic Working"
-        ]
+        "Principle_of_Metal_Plastic_Working",
+        "Principle_and_Application_of_Solid_Phase_Transition",
+        "Mathematical_Modeling",
+        "Deep_Learning",
+        "Cpp",
+        "PIC",
+        "Computer_Network",
+        "Principles_of_Computer_Composition",
+        "Data_Structures"
       ],
       "/Projects/": [
         "",
-        "01_MOOC_Downloading",
+        "03_Baidu_Indexation",
         "02_open_163",
-        "03_Baidu_Indexation"
+        "01_MOOC_Downloading"
       ],
       "/Discovery/": [
         "",
-        "01_Termux_and_ssh",
-        "02_Settings_for_sublime",
-        "03_Pip3",
-        "04_Chrome_headless",
-        "05_Gitmoji",
+        "07_Cmder",
         "06_Harddisk",
-        "07_Cmder"
+        "05_Gitmoji",
+        "04_Chrome_headless",
+        "03_Pip3",
+        "02_Settings_for_sublime",
+        "01_Termux_and_ssh"
       ],
-      "/": [
-        "",
-        ["Start", "Start"],
-        ["Template", "Template"],
-        ["About", "About"],
-        ["Disclaimer", "Disclaimer"]
-      ]
+      "/": ["", "Start", "Template", "About", "Disclaimer"]
     },
 
     // 假定是 GitHub. 同时也可以是一个完整的 GitLab URL

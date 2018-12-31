@@ -1,8 +1,4 @@
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.9.0/katex.min.css">
-
 # Deep Learning <Badge text="alpha" type="warn"/> <Badge text="3.1.3"/>
-
-<!-- [TOC] -->
 
 ## 1 Neural Networks and DeepLearning
 
@@ -364,8 +360,23 @@ emmmm 貌似没啥，到时候用 for 循环组织各层就好
 2. 事实上，这个优化过程更取决于数据集、计算机配置等因素
 3. 我们大多数情况下将数据分为三部分
    -  训练集（training set） 用于训练
-   -  验证集（dev set） 用于调优超参数，直至在该验证集验证下误差达到最小
+   -  验证集（dev set） 根据训练集得到的模型在验证集上的表现调优超参数，直至在该验证集验证下误差达到最小
    -  测试集（test set） 用于评估最终确定的模型的精确度（泛化能力）
+
+::: tip
+
+为什么要分成这么三份？我们来考虑下以下几种情况：
+
+1. 一整个 train set ，很明显不可取，因为这样的话可能最终模型只拟合了 train set 这些数据
+2. train set + test set 由于超参数是用 test set 拟合的，所以很可能会出现对 test set 过拟合的现象
+3. 而再用一组在训练过程中从未“触碰”过的数据来验证就可以更好地证明模型的正确性
+
+另外，可以对 train set 进行分组，每次取一部分作为 dev set ，这叫做交叉验证，尽管这是一个很好的方法，但是由于训练往往是很耗时的，所以这种方法并不常用
+
+还有一点一定要注意的是，收集数据后尽量将它打乱，如果说将最开始收集到的数据作为 train set ，后收集到的数据作为 test set 的话，很明显这并不满足同分布
+
+:::
+
 4. 小数据量的情况下需要分配很大比例的数据用于测试，但是在当今的大数据时代，这样的做法属实是没太大的必要了，我们完全可以拿出更小的部分用以验证
 5. 训练集和验证集要确保来自同一分布
 6. 测试集并不是必要的，因为它只是对最终所选定的神经网络做出无偏评估
@@ -403,6 +414,12 @@ emmmm 貌似没啥，到时候用 for 循环组织各层就好
 6. 说这么多，怎么实现呢？我们先写下现在的成本函数：$J(w^{[1]},b^{[1]},...,w^{[2]},b^{[2]})=\frac{1}{m}\sum_{i=1}^{n}L(\hat{y}^{(i)},y^{(i)})+\frac{\lambda}{m}\sum_{l=1}^L||W^{[l]}||_F^2$，该矩阵范数被称作“弗罗贝尼乌斯范数”，用下标 F 标注，嗯，先这么叫好了，那么如何实现梯度下降？？？嗯？这个问题应该问吗？求导呗！
 7. $dw^{[l]}=backprop+\frac{\lambda}{m}w^{[l]}$，哦，这里的$backprop$是原来没有正则化的$dw^{[l]}$，然后我们就可以进行梯度递降了
 8. $w^{[l]} = w^{[l]} - \alpha dw^{[l]} = w^{[l]}-\frac{\alpha\lambda}{m}w^{[l]}-\alpha backprop = (1-\frac{\alpha\lambda}{m})w^{[l]}-\alpha backprop$，这样我们就在$w^{[l]}$前加了一个小于 1 的系数，也就是趋向于使$w^{[l]}$更小，因此，L2 正则化也被称为“权重递减”，但是权重减不减什么的并不是我们所关注的，所以我们不必记住这个名字
+
+::: tip
+
+正则化使得对模型做的任何事情都尽量减轻模型的复杂度，而不是试图去拟合数据
+
+:::
 
 #### 2.1.5 Why regularization reduces overfitting?
 
@@ -995,7 +1012,7 @@ coefficients = np.array([[1.], [-20.], [25.]])
 
 w = tf.Variable(0, dtype=tf.float32)
 # 告诉 tf 数据格式，具体数据之后“喂”
-x = tf.placeholde(tf.float32, [3, 1])
+x = tf.placeholder(tf.float32, [3, 1])
 # 因为 tf 已经重载了很多的运算符，所以我们完全可以将这个式子写得好看些
 # cost = w**2 - 10*w + 25
 # 为了方便“喂”，把原来固定参数改成 x
@@ -1086,3 +1103,6 @@ with tf.Session() as session:
 1. [深度学习工程师 - deeplearning.ai - 网易云课堂](https://mooc.study.163.com/smartSpec/detail/1001319001.htm)
 2. [黄海广博士笔记](http://www.ai-start.com/)
 3. 《Python 神经网络编程》 Tariq Rashid
+4. [2017CS231n 斯坦福李飞飞视觉识别 - 网易云课堂](https://study.163.com/course/courseMain.htm?courseId=1004697005)
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.9.0/katex.min.css">
