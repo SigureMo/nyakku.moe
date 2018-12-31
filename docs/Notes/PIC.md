@@ -1,4 +1,4 @@
-# PIC <Badge text="alpha" type="warn"/> <Badge text="5.1.6"/>
+# PIC <Badge text="beta" type="warn"/> <Badge text="5.1.6"/>
 
 ## 0 PIC 绪论
 
