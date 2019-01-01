@@ -350,7 +350,7 @@ emmmm 貌似没啥，到时候用 for 循环组织各层就好
 
 关系？也许当初是模拟神经元所做的吧，但是神经元绝对比这复杂多了，也许这样真的可以模拟出来大脑，也许根本不一样。总之，深度学习可以达到大脑的效果绝对是夸大的说法，至少，现在是这样的
 
-## 2 Improving Deep Neural Networks:Hyperparameter tuning, Regularization and Optimization
+## 2 Improving Deep Neural Networks
 
 ### 2.1 Practical aspects of Deep Learning
 
