@@ -14,5 +14,12 @@ insert_final_newline = true
 [*.py]
 indent_size = 4
 
+[*.m]
+indent_size = 4
+charset = gbk
+
+[*.sh]
+indent_size = 4
+
 [*.md]
 indent_size = 3
