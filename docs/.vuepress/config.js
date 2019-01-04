@@ -1,6 +1,6 @@
 module.exports = {
   title: "Notev",
-  description: "一个个人总结性的笔记，基本每天都会更新",
+  description: "一个小萌新的个人总结性的笔记，基本每天都会更新~",
   base: "/notev/",
   head: [["link", { rel: "icon", href: "/sigure_mo.png" }]],
   configureWebpack: {
