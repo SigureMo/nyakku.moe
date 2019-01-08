@@ -6,7 +6,7 @@ module.exports = {
   configureWebpack: {
     resolve: {
       alias: {
-        "@codes": "https://github.com/SigureMo/S_Note/tree/master/Codes"
+        "@codes": "https://github.com/SigureMo/notev/tree/master/Codes"
       }
     }
   },
@@ -19,11 +19,11 @@ module.exports = {
     // markdown 插件
     extendMarkdown: md => {
       md.set({ breaks: true });
-      // md.use(require('markdown-it-katex'));
       md.use(require("@iktakahiro/markdown-it-katex"), {
         throwOnError: false,
         errorColor: " #cc0000"
       });
+      md.use(require("markdown-it-mark"));
     }
   },
 
@@ -95,6 +95,10 @@ module.exports = {
         "01_Termux_and_ssh"
       ],
       "/": ["", "Start", "Template", "About", "Disclaimer"]
+    },
+
+    serviceWorker: {
+      updatePopup: true // Boolean | Object, 默认值是 undefined.
     },
 
     // 假定是 GitHub. 同时也可以是一个完整的 GitLab URL
