@@ -99,15 +99,13 @@ $$
 
 :::
 
+## ==Mark==
+
+使用 `markdown-it` 扩展中的 `markdown-it-mark` 扩展，只需要在需要==高亮==的文本两侧加`==`，便可实现 `<mark>` 效果，增加笔记的可读性
+
 ## Prettier
 
 使用 Prettier 对文档进行优化，使用 husky 配合 pretty-quick 钩子，详情请见[Prettier 官网](https://prettier.io/)
-
-::: warning
-
-优化工作进行中
-
-:::
 
 # Amendant Record
 
