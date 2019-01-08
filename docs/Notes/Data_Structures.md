@@ -937,16 +937,12 @@ $$
 
 2. 前 3 个字符移位法
 
-$$
-h(key) = (key[0]\times27^2+key[1]\times27+key[2])\ mod\ TableSize
-$$
+   $h(key) = (key[0]\times27^2+key[1]\times27+key[2])\ mod\ TableSize$
 
 3. 移位法
    涉及关键词所有 n 个字符，并且分布得很好
 
-$$
-h(key)=(\sum_{i=0}^{n-1}key[n-i-1]\times32^i)\ mod\ TableSize
-$$
+   $h(key)=(\sum_{i=0}^{n-1}key[n-i-1]\times32^i)\ mod\ TableSize$
 
 就相当于将字符串看做 32 进制“数”
 
@@ -1067,4 +1063,4 @@ Index Hash(const char *Key, int TableSize){
 3. [PTA | 程序设计类实验辅助教学平台](https://pintia.cn/)
 4. [Python 数据结构 - Python123](https://python123.io/index/topics/data_structure)
 
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.9.0/katex.min.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/katex.min.css">

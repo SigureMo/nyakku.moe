@@ -32,9 +32,9 @@ Unstructured Data : Image Audio Text
 
 #### 1.2.1 Binary Classification
 
--  如果想要识别图片中是否有猫，可以将输入和输出组织成这样：输入为 64 _ 64 _ 3 维（像素点 64 \* 64，三个颜色通道），输出为一个数字（0 或者 1）
+-  如果想要识别图片中是否有猫，可以将输入和输出组织成这样：输入为 64 \* 64 \* 3 维（像素点 64 \* 64，三个颜色通道），输出为一个数字（0 或者 1）
 -  我们对输入和输出符号做以下约定：
-   -  nx 为输入的维度，比如这里就是 64 _ 64 _ 3
+   -  nx 为输入的维度，比如这里就是 64 \* 64 \* 3
    -  用 X 将 x 按列组织起来
    -  用 Y 将 y 按行组织起来
    -  我们可以用 Python 里的`X.shape()`查看规模
@@ -176,7 +176,7 @@ A = σ(Z) # 对每个z求sigmoid
 
 #### 1.2.17 Quick tour of Jupyter/iPython Notebooks
 
-emmmmm，我选择暂时不安装，我还是更喜欢原生的 pyshell（idle）
+~~emmmmm，我选择暂时不安装，我还是更喜欢原生的 pyshell（idle）~~
 
 #### 1.2.18 Explanation of logistic regression cost function
 
@@ -509,7 +509,7 @@ a3 /= keep_prob
       > 假设：
       > $x$已经均一化 => $E(x_i)=0,D(x_i)=1$ > $w$是以 0 为均值进行的初始化 => $E(w_i)=0$
 
-          $=D(w_i)$
+      $=D(w_i)$
 
    6. 即$D(z)=nD(w_i)$
 
@@ -615,12 +615,7 @@ $$
 
 1. 我们依然使用$\beta=0.1$作为例子
 
-$$
-v_{100} = 0.1\theta_{100} + 0.1\times0.9\theta_{99} + 0.1\times0.9^2\theta_{98} +
-0.1\times0.9^3\theta_{97} +
-0.1\times0.9^4\theta_{96} +
-\cdots
-$$
+   $v_{100} = 0.1\theta_{100} + 0.1\times0.9\theta_{99} + 0.1\times0.9^2\theta_{98} + 0.1\times0.9^3\theta_{97} + 0.1\times0.9^4\theta_{96} + \cdots$
 
 -  将$v_{100}$展开后很容易看出来这是$\theta_t$与一个指数函数相乘（$\beta (1-\beta)^t$，这里以 100 天为原点，向负方向增长）
 -  那么为什么是表示最近$\frac{1}{1-\beta}$的平均值呢，我们推一下
@@ -753,7 +748,7 @@ $$
 \begin{aligned}
 S_{dW} & = \beta S_{dW} + (1-\beta)dW^2 \\
 S_{db} & = \beta S_{db} + (1-\beta)db^2 \\
-W = W - \alpha \frac{dW}{\sqrt{S_{dW}}}, b = b - \alpha \frac{db}{\sqrt{S_{db}}}
+W & = W - \alpha \frac{dW}{\sqrt{S_{dW}}}, b = b - \alpha \frac{db}{\sqrt{S_{db}}}
 \end{aligned}
 $$
 
@@ -766,6 +761,15 @@ $$
 
 Adam 优化算法，简单的说，这是一个结合了 Momentum 算法和 RMSprop 算法的算法，直接上算法，相信大家也明白
 
+-  $Initialize :$
+-  $v_{dW} = 0, S_{dW} = 0, v_{db} = 0, S_{db} = 0$
+-  $v_{dW} = \beta_1v_{dW} + (1-\beta_1)dW, v_{db} = \beta_1v_{db} + (1-\beta_1)db$
+-  $S_{dW} = \beta_2v_{dW} + (1-\beta_2)dW^2, S_{db} = \beta_2v_{db} + (1-\beta_2)db^2$
+-  $v_{dW}^{corrected} = \frac{v_{dW}}{(1-\beta_1^t)}, v_{db}^{corrected} = \frac{v_{db}}{(1-\beta_1^t)}$
+-  $S_{dW}^{corrected} = \frac{S_{dW}}{(1-\beta_2^t)}, S_{db}^{corrected} = \frac{S_{db}}{(1-\beta_2^t)}$
+-  $W = W - \alpha\frac{v_{dW}^{corrected}}{\sqrt{S_{dW}^{corrected}}+\varepsilon}, b = b - \alpha\frac{v_{db}^{corrected}}{\sqrt{S_{db}^{corrected}}+\varepsilon}$
+
+<!--
 $$
 \begin{aligned}
 Initialize & :\\
@@ -778,6 +782,7 @@ W & = W - \alpha\frac{v_{dW}^{corrected}}{\sqrt{S_{dW}^{corrected}}+\varepsilon}
 b = b - \alpha\frac{v_{db}^{corrected}}{\sqrt{S_{db}^{corrected}}+\varepsilon}
 \end{aligned}
 $$
+-->
 
 -  Adam 通常是使用偏差修正的
 -  Momentum 和 RMSprop 的参数$\beta$是不一样的，故使用$\beta_1$和$\beta_2$以区分
@@ -1105,4 +1110,4 @@ with tf.Session() as session:
 3. 《Python 神经网络编程》 Tariq Rashid
 4. [2017CS231n 斯坦福李飞飞视觉识别 - 网易云课堂](https://study.163.com/course/courseMain.htm?courseId=1004697005)
 
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.9.0/katex.min.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/katex.min.css">
