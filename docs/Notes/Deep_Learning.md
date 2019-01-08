@@ -32,9 +32,9 @@ Unstructured Data : Image Audio Text
 
 #### 1.2.1 Binary Classification
 
--  如果想要识别图片中是否有猫，可以将输入和输出组织成这样：输入为 64 _ 64 _ 3 维（像素点 64 \* 64，三个颜色通道），输出为一个数字（0 或者 1）
+-  如果想要识别图片中是否有猫，可以将输入和输出组织成这样：输入为 64 \* 64 \* 3 维（像素点 64 \* 64，三个颜色通道），输出为一个数字（0 或者 1）
 -  我们对输入和输出符号做以下约定：
-   -  nx 为输入的维度，比如这里就是 64 _ 64 _ 3
+   -  nx 为输入的维度，比如这里就是 64 \* 64 \* 3
    -  用 X 将 x 按列组织起来
    -  用 Y 将 y 按行组织起来
    -  我们可以用 Python 里的`X.shape()`查看规模
@@ -753,7 +753,7 @@ $$
 \begin{aligned}
 S_{dW} & = \beta S_{dW} + (1-\beta)dW^2 \\
 S_{db} & = \beta S_{db} + (1-\beta)db^2 \\
-W = W - \alpha \frac{dW}{\sqrt{S_{dW}}}, b = b - \alpha \frac{db}{\sqrt{S_{db}}}
+W & = W - \alpha \frac{dW}{\sqrt{S_{dW}}}, b = b - \alpha \frac{db}{\sqrt{S_{db}}}
 \end{aligned}
 $$
 
