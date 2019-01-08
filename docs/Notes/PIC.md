@@ -168,7 +168,7 @@ blabla, 还有好多啦
 1. ORG
    用于定义下面的指令或数据在 ROM 中的起始地址
 
-```asm
+```avrasm
 ORG 0000H ;此后内容写在ROM的0000H
 GOTO 0030H ;ROM内写入本语句
 ORG 0030H ;此后内容写在ROM的0030H
@@ -184,7 +184,7 @@ ORG 0030H ;此后内容写在ROM的0030H
 4. DB、DW 伪指令
    用于在 ROM 定义常数数据，Example：
 
-```asm
+```avrasm
 ORG 0100H
 DB  00H,02H,03H,04H,05H
 DB  06H,07H,08H,09H,0AH
@@ -200,7 +200,7 @@ DB  06H,07H,08H,09H,0AH
    decrease file skip zero 将文件寄存器地址 f 内的数据减一放到 d 内，如果为 0 则跳过下一步
    Example
 
-```asm
+```avrasm
 COUNT   EQU     10H
         ...     ...
         MOVLW   05H
