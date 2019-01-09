@@ -283,4 +283,4 @@ $$
 1. [走近数学——数学建模篇 - 全国大学生数学建模竞赛组织委员会 - 中国大学 MOOC](https://www.icourse163.org/course/cumcm-1001674011?tid=1003045001)
 2. 《数学建模算法与应用（第二版）》 司守奎 孙兆亮
 
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.9.0/katex.min.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/katex.min.css">

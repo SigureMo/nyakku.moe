@@ -1067,4 +1067,4 @@ Index Hash(const char *Key, int TableSize){
 3. [PTA | 程序设计类实验辅助教学平台](https://pintia.cn/)
 4. [Python 数据结构 - Python123](https://python123.io/index/topics/data_structure)
 
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.9.0/katex.min.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/katex.min.css">
