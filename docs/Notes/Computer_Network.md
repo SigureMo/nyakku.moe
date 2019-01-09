@@ -19,11 +19,11 @@
       易于重复或者丢失 但由于易于搭建 所以采用的更多
    2. 虚电路
       类似于地图的路线规划，同一链路可属于多个虚电路，不独占物理线路
-      - 虚电路携带数据：
+      -  虚电路携带数据：
          1. 路径
          2. 编号
          3. 路由表
-      - 分组 HEAD 携带编号
+      -  分组 HEAD 携带编号
 
 -  虚电路与电路交换的比较：
    虚电路是逻辑连接，非专用，每个结点到其他结点可有无数虚电路
@@ -616,4 +616,4 @@ ARP 只经过链路层，不经过网络层封装
 1. 申彦明老师课程
 2. 《计算机网络》 谢希仁
 
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.9.0/katex.min.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/katex.min.css">
