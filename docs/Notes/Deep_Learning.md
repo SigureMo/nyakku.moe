@@ -1105,4 +1105,4 @@ with tf.Session() as session:
 3. 《Python 神经网络编程》 Tariq Rashid
 4. [2017CS231n 斯坦福李飞飞视觉识别 - 网易云课堂](https://study.163.com/course/courseMain.htm?courseId=1004697005)
 
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.9.0/katex.min.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/katex.min.css">
