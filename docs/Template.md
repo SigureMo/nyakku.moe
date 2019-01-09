@@ -64,7 +64,7 @@ $$
 ```html
 <link
    rel="stylesheet"
-   href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.9.0/katex.min.css"
+   href="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/katex.min.css"
 />
 ```
 
@@ -97,9 +97,9 @@ $$
 
 今后将使用其作为笔记状态标记，暂定以下规则：
 
-1. <Badge text="alpha" type="warn"/> <Badge text="0.10.1"/>为**studying**类（正在编写与学习中）的标记
-2. <Badge text="beta" type="tip"/> <Badge text="1.10.1"/>为**debugging**类（基本框架完成，待补充完善）的标记
-3. <Badge text="2.10.1" type="error" />为**discarded**类（中途停止继续记录，可能使用新框架重写）的标记
+1. <Badge text="alpha" type="warn"/> <Badge text="0.10.1"/>为==Studying==类（正在编写与学习中）的标记
+2. <Badge text="beta" type="tip"/> <Badge text="1.10.1"/>为==Debugging==类（基本框架完成，待补充完善）的标记
+3. <Badge text="2.10.1" type="error" />为==Discarded==类（中途停止继续记录，可能使用新框架重写）的标记
 
 :::
 
@@ -121,4 +121,4 @@ $$
 1. XXX 老师课程
 2. [url](/)
 
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.9.0/katex.min.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/katex.min.css">

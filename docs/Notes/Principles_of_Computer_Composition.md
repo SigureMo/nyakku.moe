@@ -2002,4 +2002,4 @@ CPU 内部结构采用非总线方式
 
 [^1]: 机器语言程序员
 
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.9.0/katex.min.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/katex.min.css">
