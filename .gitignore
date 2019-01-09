@@ -141,3 +141,6 @@ hs_err_pid*
 
 # vuepress
 /.vuepress/dist/
+
+# temp
+tmp/
