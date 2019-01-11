@@ -343,7 +343,8 @@ $$
 $$
 \begin{aligned}
 S & = \sqrt{S_x^2 + S_y^2 + S_z^2} \\
-\sigma & = S_x l + S_y m + S_z n = \sigma_x l^2 + \sigma_y m^2 + \sigma_z n^2 + 2lm\tau_{xy} + 2mn\tau_{yz} + 2nl\tau_{zx} \\
+\sigma & = S_x l + S_y m + S_z n \\
+& = \sigma_x l^2 + \sigma_y m^2 + \sigma_z n^2 + 2lm\tau_{xy} + 2mn\tau_{yz} + 2nl\tau_{zx} \\
 \tau & = \sqrt{S^2 - \sigma^2}
 \end{aligned}
 $$
@@ -365,9 +366,7 @@ $$
 
 展开行列式整理得：
 
-$$
-\sigma^3 - (\sigma_x + \sigma_y + \sigma_z)\sigma^2 + [\sigma_x\sigma_y + \sigma_y\sigma_z + \sigma_z\sigma_x - (\tau_{xy}^2 + \tau_{yz}^2 + \tau_{zx}^2)]\sigma - [\sigma_x\sigma_y\sigma_z + 2\tau_{xy}\tau_{yz}\tau_{zx} - (\sigma_x\tau_{yz}^2 + \sigma_y\tau_{zx}^2 + \sigma_z\tau_{xy}^2)] = 0
-$$
+$\sigma^3 - (\sigma_x + \sigma_y + \sigma_z)  \sigma^2 + [\sigma_x\sigma_y + \sigma_y\sigma_z + \sigma_z\sigma_x - (\tau_{xy}^2 + \tau_{yz}^2 + \tau_{zx}^2)]  \sigma - [\sigma_x\sigma_y\sigma_z + 2\tau_{xy}\tau_{yz}\tau_{zx} - (\sigma_x\tau_{yz}^2 + \sigma_y\tau_{zx}^2 + \sigma_z\tau_{xy}^2)]  = 0$
 
 也就是：
 

@@ -144,3 +144,6 @@ hs_err_pid*
 
 # temp
 tmp/
+
+# config
+config.json

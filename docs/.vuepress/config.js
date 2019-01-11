@@ -32,19 +32,19 @@ module.exports = {
     // 自动返回顶部
     "@vuepress/back-to-top",
     // 页面滚动时自动激活侧边栏链接
-    "@vuepress/active-header-links",
+    "@vuepress/active-header-links"
     // 最近更新时间
-    [
-      "@vuepress/last-updated",
-      {
-        transformer: (timestamp, lang) => {
-          // 不要忘了安装 moment
-          const moment = require("moment");
-          moment.locale(lang);
-          return moment(timestamp).fromNow();
-        }
-      }
-    ]
+    // [
+    //   "@vuepress/last-updated",
+    //   {
+    //     transformer: (timestamp, lang) => {
+    //       // 不要忘了安装 moment
+    //       const moment = require("moment");
+    //       moment.locale(lang);
+    //       return moment(timestamp).fromNow();
+    //     }
+    //   }
+    // ]
   ],
 
   // 主题配置
@@ -69,7 +69,7 @@ module.exports = {
       "/Notes/": [
         "",
         "Principle_of_Metal_Plastic_Working",
-        "Principle_and_Application_of_Solid_Phase_Transition",
+        "Solid-state_Phase_Transformation",
         "Mathematical_Modeling",
         "Deep_Learning",
         "Cpp",
@@ -100,6 +100,8 @@ module.exports = {
     serviceWorker: {
       updatePopup: true // Boolean | Object, 默认值是 undefined.
     },
+
+    lastUpdated: "Last Updated", // string | boolean
 
     // 假定是 GitHub. 同时也可以是一个完整的 GitLab URL
     repo: "SigureMo/notev",
