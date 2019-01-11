@@ -59,16 +59,20 @@ $$
 具体可参照[katex 文档](http://www.intmath.com/cg5/katex-mathjax-comparison.php)和[katex 支持的函数](https://github.com/Khan/KaTeX/wiki/Function-Support-in-KaTeX)以及[latex 文档](https://math.meta.stackexchange.com/questions/5020/mathjax-basic-tutorial-and-quick-reference)
 
 ::: tip
-不过有个前提就是在使用 KaTeX 的 markdown 内添加下面的 css 链接：
 
-```html
-<link
-   rel="stylesheet"
-   href="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/katex.min.css"
-/>
-```
+1. 不过有个前提就是在使用 KaTeX 的 markdown 内添加下面的 css 链接：
 
-该问题尚待解决……
+   ```html
+   <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/katex.min.css"
+   />
+   ```
+
+   该问题尚待解决……
+
+2. 过长的公式请不要使用单行渲染！否则在手机浏览器会产生部分空屏的效果！
+
 :::
 
 ## Emoji:smiley:
@@ -97,9 +101,9 @@ $$
 
 今后将使用其作为笔记状态标记，暂定以下规则：
 
-1. <Badge text="alpha" type="warn"/> <Badge text="0.10.1"/>为==Studying==类（正在编写与学习中）的标记
-2. <Badge text="beta" type="tip"/> <Badge text="1.10.1"/>为==Debugging==类（基本框架完成，待补充完善）的标记
-3. <Badge text="2.10.1" type="error" />为==Discarded==类（中途停止继续记录，可能使用新框架重写）的标记
+1. <Badge text="alpha" type="warn"/> <Badge text="0.10.1"/>为 Studying 类（正在编写与学习中）的标记
+2. <Badge text="beta" type="tip"/> <Badge text="1.10.1"/>为 Debugging 类（基本框架完成，待补充完善）的标记
+3. <Badge text="2.10.1" type="error" />为 Discarded 类（中途停止继续记录，可能使用新框架重写）的标记
 
 :::
 
