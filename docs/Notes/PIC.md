@@ -1,4 +1,4 @@
-# PIC <Badge text="beta" type="warn"/> <Badge text="5.1.6"/>
+# PIC <Badge text="beta" type="tip"/> <Badge text="5.1.6"/>
 
 ## 0 PIC 绪论
 
@@ -303,15 +303,13 @@ AGAIN   ADDLW   03H
    -  首先确定预分频器的分频比 N 以满足 1s 的定时
 
    $$
-   T_{max} = 65536 \times 0.25\mu s \times N
-   = 16.384ms \times N
+   \begin{aligned}
+   T_{max} & = 65536 \times 0.25\mu s \times N \\
+    & = 16.384ms \times N
+   \end{aligned}
    $$
 
-   -  分频比 N 的确定：选 N=64 时
-
-   $$
-   16.384ms \times 64 = 1048.576ms > 1000ms
-   $$
+   -  分频比 N 的确定：选 N=64 时 $16.384ms \times 64 = 1048.576ms > 1000ms$
 
    -  计算初值 TC
 

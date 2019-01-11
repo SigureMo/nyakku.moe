@@ -176,7 +176,7 @@ A = σ(Z) # 对每个z求sigmoid
 
 #### 1.2.17 Quick tour of Jupyter/iPython Notebooks
 
-emmmmm，我选择暂时不安装，我还是更喜欢原生的 pyshell（idle）
+~~emmmmm，我选择暂时不安装，我还是更喜欢原生的 pyshell（idle）~~
 
 #### 1.2.18 Explanation of logistic regression cost function
 
@@ -615,12 +615,7 @@ $$
 
 1. 我们依然使用$\beta=0.1$作为例子
 
-$$
-v_{100} = 0.1\theta_{100} + 0.1\times0.9\theta_{99} + 0.1\times0.9^2\theta_{98} +
-0.1\times0.9^3\theta_{97} +
-0.1\times0.9^4\theta_{96} +
-\cdots
-$$
+   $v_{100} = 0.1\theta_{100} + 0.1\times0.9\theta_{99} + 0.1\times0.9^2\theta_{98} + 0.1\times0.9^3\theta_{97} + 0.1\times0.9^4\theta_{96} + \cdots$
 
 -  将$v_{100}$展开后很容易看出来这是$\theta_t$与一个指数函数相乘（$\beta (1-\beta)^t$，这里以 100 天为原点，向负方向增长）
 -  那么为什么是表示最近$\frac{1}{1-\beta}$的平均值呢，我们推一下
@@ -766,6 +761,15 @@ $$
 
 Adam 优化算法，简单的说，这是一个结合了 Momentum 算法和 RMSprop 算法的算法，直接上算法，相信大家也明白
 
+-  $Initialize :$
+-  $v_{dW} = 0, S_{dW} = 0, v_{db} = 0, S_{db} = 0$
+-  $v_{dW} = \beta_1v_{dW} + (1-\beta_1)dW, v_{db} = \beta_1v_{db} + (1-\beta_1)db$
+-  $S_{dW} = \beta_2v_{dW} + (1-\beta_2)dW^2, S_{db} = \beta_2v_{db} + (1-\beta_2)db^2$
+-  $v_{dW}^{corrected} = \frac{v_{dW}}{(1-\beta_1^t)}, v_{db}^{corrected} = \frac{v_{db}}{(1-\beta_1^t)}$
+-  $S_{dW}^{corrected} = \frac{S_{dW}}{(1-\beta_2^t)}, S_{db}^{corrected} = \frac{S_{db}}{(1-\beta_2^t)}$
+-  $W = W - \alpha\frac{v_{dW}^{corrected}}{\sqrt{S_{dW}^{corrected}}+\varepsilon}, b = b - \alpha\frac{v_{db}^{corrected}}{\sqrt{S_{db}^{corrected}}+\varepsilon}$
+
+<!--
 $$
 \begin{aligned}
 Initialize & :\\
@@ -778,6 +782,7 @@ W & = W - \alpha\frac{v_{dW}^{corrected}}{\sqrt{S_{dW}^{corrected}}+\varepsilon}
 b = b - \alpha\frac{v_{db}^{corrected}}{\sqrt{S_{db}^{corrected}}+\varepsilon}
 \end{aligned}
 $$
+-->
 
 -  Adam 通常是使用偏差修正的
 -  Momentum 和 RMSprop 的参数$\beta$是不一样的，故使用$\beta_1$和$\beta_2$以区分

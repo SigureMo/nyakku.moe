@@ -937,16 +937,12 @@ $$
 
 2. 前 3 个字符移位法
 
-$$
-h(key) = (key[0]\times27^2+key[1]\times27+key[2])\ mod\ TableSize
-$$
+   $h(key) = (key[0]\times27^2+key[1]\times27+key[2])\ mod\ TableSize$
 
 3. 移位法
    涉及关键词所有 n 个字符，并且分布得很好
 
-$$
-h(key)=(\sum_{i=0}^{n-1}key[n-i-1]\times32^i)\ mod\ TableSize
-$$
+   $h(key)=(\sum_{i=0}^{n-1}key[n-i-1]\times32^i)\ mod\ TableSize$
 
 就相当于将字符串看做 32 进制“数”
 
