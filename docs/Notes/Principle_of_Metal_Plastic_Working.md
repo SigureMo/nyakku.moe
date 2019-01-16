@@ -437,5 +437,3 @@ $$
 # Reference
 
 1. 宋刚老师课程
-
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/katex.min.css">

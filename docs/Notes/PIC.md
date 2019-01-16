@@ -344,5 +344,3 @@ AGAIN   ADDLW   03H
 # Reference
 
 1. 陈育斌老师选修课程
-
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/katex.min.css">
