@@ -1,7 +1,5 @@
 # Solid-state Phase Transformation <Badge text="beta" type="tip"/> <Badge text="10.3.3"/>
 
-[[TOC]]
-
 ## Part 1 固态相变理论基础
 
 ## 1 固态相变概论
@@ -1516,5 +1514,3 @@ $\varepsilon$ - 碳化物溶解、 $\theta$ - 碳化物重新从马氏体基体�
 1. 黄昊老师课程
 2. 《固态相变原理及应用》 张贵峰 黄昊
 3. [张贵峰老师复习参考](https://wenku.baidu.com/view/3e710092be23482fb5da4c77)
-
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/katex.min.css">
