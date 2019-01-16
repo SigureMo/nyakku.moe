@@ -1062,5 +1062,3 @@ Index Hash(const char *Key, int TableSize){
 2. 《数据结构 (C 语言版)》 严蔚敏 吴伟民 编著
 3. [PTA | 程序设计类实验辅助教学平台](https://pintia.cn/)
 4. [Python 数据结构 - Python123](https://python123.io/index/topics/data_structure)
-
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/katex.min.css">

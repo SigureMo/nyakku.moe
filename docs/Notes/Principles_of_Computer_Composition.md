@@ -2001,5 +2001,3 @@ CPU 内部结构采用非总线方式
 3. [计算机组成原理（下） - 哈尔滨工业大学 - 中国大学 MOOC](https://www.icourse163.org/course/HIT-1001527001)
 
 [^1]: 机器语言程序员
-
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/katex.min.css">

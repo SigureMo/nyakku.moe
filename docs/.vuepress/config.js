@@ -33,18 +33,6 @@ module.exports = {
     "@vuepress/back-to-top",
     // 页面滚动时自动激活侧边栏链接
     "@vuepress/active-header-links"
-    // 最近更新时间
-    // [
-    //   "@vuepress/last-updated",
-    //   {
-    //     transformer: (timestamp, lang) => {
-    //       // 不要忘了安装 moment
-    //       const moment = require("moment");
-    //       moment.locale(lang);
-    //       return moment(timestamp).fromNow();
-    //     }
-    //   }
-    // ]
   ],
 
   // 主题配置
@@ -53,7 +41,6 @@ module.exports = {
       { text: "Home", link: "/" },
       { text: "Notes", link: "/Notes/" },
       { text: "Opinions", link: "/Opinions/" },
-      { text: "Projects", link: "/Projects/" },
       { text: "Discovery", link: "/Discovery/" },
       { text: "About", link: "/About.html" }
     ],
@@ -63,7 +50,6 @@ module.exports = {
         "",
         "04_Hardware",
         "03_C_and_pointer",
-        "02_Encoding",
         "01_Everything_is_object"
       ],
       "/Notes/": [
@@ -78,22 +64,7 @@ module.exports = {
         "Principles_of_Computer_Composition",
         "Data_Structures"
       ],
-      "/Projects/": [
-        "",
-        "03_Baidu_Indexation",
-        "02_open_163",
-        "01_MOOC_Downloading"
-      ],
-      "/Discovery/": [
-        "",
-        "07_Cmder",
-        "06_Harddisk",
-        "05_Gitmoji",
-        "04_Chrome_headless",
-        "03_Pip3",
-        "02_Settings_for_sublime",
-        "01_Termux_and_ssh"
-      ],
+      "/Discovery/": ["", "07_Cmder", "06_Harddisk", "05_Gitmoji"],
       "/": ["", "Start", "Template", "About", "Disclaimer"]
     },
 
