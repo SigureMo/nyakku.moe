@@ -615,5 +615,3 @@ ARP 只经过链路层，不经过网络层封装
 
 1. 申彦明老师课程
 2. 《计算机网络》 谢希仁
-
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/katex.min.css">

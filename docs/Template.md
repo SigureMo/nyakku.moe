@@ -56,22 +56,11 @@ $$
 \end{aligned}
 $$
 
-具体可参照[katex 文档](http://www.intmath.com/cg5/katex-mathjax-comparison.php)和[katex 支持的函数](https://github.com/Khan/KaTeX/wiki/Function-Support-in-KaTeX)以及[latex 文档](https://math.meta.stackexchange.com/questions/5020/mathjax-basic-tutorial-and-quick-reference)
+具体可参照[$\KaTeX$ 文档](http://www.intmath.com/cg5/katex-mathjax-comparison.php)以及[$\LaTeX$ 文档](https://math.meta.stackexchange.com/questions/5020/mathjax-basic-tutorial-and-quick-reference)，另外可以使用[mavonEditor](https://md.zhystar.com/)在线测试 $\KaTeX$ 公式
 
 ::: tip
 
-1. 不过有个前提就是在使用 KaTeX 的 markdown 内添加下面的 css 链接：
-
-   ```html
-   <link
-      rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/katex.min.css"
-   />
-   ```
-
-   该问题尚待解决……
-
-2. 过长的公式请不要使用单行渲染！否则在手机浏览器会产生部分空屏的效果！
+过长的公式请不要使用单行渲染！否则在手机浏览器会产生部分空屏的效果！
 
 :::
 
@@ -124,5 +113,3 @@ $$
 
 1. XXX 老师课程
 2. [url](/)
-
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/katex.min.css">
