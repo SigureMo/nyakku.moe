@@ -2,7 +2,7 @@
 home: true
 heroImage: /sigure_mo.png
 actionText: Get started!
-actionLink: /Start.html
+actionLink: /Notes/index.html
 features:
    - title: 个人见解
      details: 个人对某些项目的总结，不保证完全正确，但可以保证所有内容都是原创

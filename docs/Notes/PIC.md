@@ -333,8 +333,6 @@ AGAIN   ADDLW   03H
       -  T0PS2~0=101：分频系数 1:64
          > 即 T0CON=00000101B=05H
 
-   -  [TMR0.asm](https://github.com/SigureMo/notev/blob/master/Codes/PIC/TMR0.asm)
-
 # Amendant Record
 
 1. 180913 #0 #1 Finished
