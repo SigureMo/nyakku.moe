@@ -42,7 +42,7 @@
 
 4. 代码高亮
 
-[Markdown-it 支持高亮的语言](https://blog.csdn.net/u012102104/article/details/78950290?utm_source=blogxgwz8)
+[Markdown-it 支持高亮的语言](https://blog.csdn.net/u012102104/article/details/78950290?utm_source=blogxgwz8)（[highlightjs](https://github.com/highlightjs/highlight.js/tree/master/src/languages)）
 
 ## 数学公式($\KaTeX$)
 
