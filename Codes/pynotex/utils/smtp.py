@@ -11,20 +11,24 @@ class SMTP(smtplib.SMTP_SSL):
             'port': 994,
             }
         }
-    
+
     def __init__(self, operator):
         self._server = SMTP.PARAMS[operator]['server']
         self._port = SMTP.PARAMS[operator]['port']
+        self.from_addr = None
+        self.password = None
         super().__init__(self._server, self._port)
 
     def __del__(self):
         self.quit()
 
-    def login_(self, from_addr, password):
-        self.from_addr = from_addr
-        self.login(from_addr, password)
+    def login_(self, from_addr=None, password=None):
+        self.from_addr = from_addr or self.from_addr
+        self.password = password or self.password
+        self.login(self.from_addr, self.password)
 
     def send_text(self, to_addr, text, title='Title', appName='AppName', userName='UserName'):
+        self.login_()
         msg = MIMEText(text, 'plain', 'utf-8')
         msg['From'] = Header(f'{appName} <{self.from_addr}>')
         msg['To'] = Header(f'{userName} <{to_addr}>')
@@ -36,4 +40,4 @@ if __name__ == "__main__":
     smtp.login_('<from_addr>', '<password>')
     smtp.send_text('<to_addr>', '<message>')
 
-    
+
