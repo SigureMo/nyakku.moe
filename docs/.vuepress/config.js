@@ -65,7 +65,7 @@ module.exports = {
         "Data_Structures"
       ],
       "/Discovery/": ["", "07_Cmder", "06_Harddisk", "05_Gitmoji"],
-      "/": ["", "Start", "Template", "About", "Disclaimer"]
+      "/": ["", "Template", "About"]
     },
 
     serviceWorker: {

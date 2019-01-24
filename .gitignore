@@ -147,3 +147,9 @@ tmp/
 
 # tests
 tests/
+
+# data
+data/
+
+# config
+config.json
