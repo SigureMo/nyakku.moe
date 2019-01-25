@@ -104,6 +104,12 @@ $$
 
 使用 Prettier 对文档进行优化，使用 husky 配合 pretty-quick 钩子，详情请见[Prettier 官网](https://prettier.io/)
 
+## Test
+
+那么，请在下面这个简易编辑器下尽请地尝试吧！
+
+<Varmark></Varmark>
+
 # Amendant Record
 
 1. 18xxxx Init
