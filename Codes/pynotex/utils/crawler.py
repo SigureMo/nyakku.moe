@@ -15,8 +15,8 @@ class Crawler(requests.Session):
     def download_bin(self, url, file_name, **kw):
         """下载二进制文件"""
 
-        if kw.get('stream', True):
-            chunk_size = kw.get('chunk_size', 1024)
+        if kw.pop('stream', True):
+            chunk_size = kw.pop('chunk_size', 1024)
             res = self.get(url, stream=True, **kw)
             with open(file_name, 'wb') as f:
                 for chunk in res.iter_content(chunk_size=chunk_size):
