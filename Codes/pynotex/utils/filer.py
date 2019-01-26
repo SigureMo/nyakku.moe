@@ -1,6 +1,7 @@
 import os
 import hashlib
 
+
 def touch_dir(path):
     if os.path.exists(path):
         return

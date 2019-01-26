@@ -42,7 +42,9 @@
 
 4. 代码高亮
 
-[Markdown-it 支持高亮的语言](https://blog.csdn.net/u012102104/article/details/78950290?utm_source=blogxgwz8)（[highlightjs](https://github.com/highlightjs/highlight.js/tree/master/src/languages)）
+[Vuepress 支持高粱的语言](https://github.com/vuejs/vuepress/blob/master/packages/%40vuepress/markdown/lib/highlight.js)
+
+<!-- [Markdown-it 支持高亮的语言](https://blog.csdn.net/u012102104/article/details/78950290?utm_source=blogxgwz8)（[highlightjs](https://github.com/highlightjs/highlight.js/tree/master/src/languages)） -->
 
 ## 数学公式($\KaTeX$)
 
@@ -106,7 +108,7 @@ $$
 
 ## Test
 
-那么，请在下面这个简易编辑器下尽请地尝试吧！
+那么，请在下面这个简（陋）编辑器下尽请地尝试吧！
 
 <Varmark></Varmark>
 
