@@ -6,12 +6,12 @@
 </template>
 
 <script>
-import { markdown } from "../config.js";
-let md = require("markdown-it")()
+const config = require("../config.js");
+const md = require("markdown-it")()
   .use(require("markdown-it-emoji"))
   .use(require("markdown-it-table-of-contents"))
   .use(require("markdown-it-anchor"));
-markdown.extendMarkdown(md);
+config.markdown.extendMarkdown(md);
 
 export default {
   data() {
@@ -19,12 +19,9 @@ export default {
       input: "## Try it!"
     };
   },
-  created: function() {
-    console.log(1);
-  },
   computed: {
     compiledMarkdown: function() {
-      return md.render("\n---\n" + this.input + "\n---\n");
+      return md.render("\n\n---\n---\n\n" + this.input + "\n\n---\n---\n\n");
     }
   }
 };

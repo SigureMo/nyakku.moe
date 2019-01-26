@@ -2,8 +2,9 @@ import time
 
 from utils.config import Config
 from utils.smtp import SMTP
-from utils.loop import Task, Loop
+from utils.loop import Loop
 from utils.ssh import Server
+from utils.async_lib.utils import Task
 
 CONFIGs = {}
 CONFIGs['smtp'] = Config('smtp').conf
@@ -19,7 +20,7 @@ def smtp_test():
     smtp = SMTP('163')
     smtp.login_(CONFIG['from_addr'], CONFIG['password'])
     loop = Loop(1)
-    loop.add_task_list(
+    loop.on(
         Task(test),
         Task(smtp.send_text, (CONFIG['to_addr'], '<message>'))
     )
@@ -36,4 +37,4 @@ def ssh_test():
     print(server.exec('hostname')[0].strip('\n'))
 
 if __name__ == '__main__':
-    ssh_test()
+    smtp_test()
