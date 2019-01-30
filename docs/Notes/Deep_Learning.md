@@ -1180,6 +1180,10 @@ with tf.Session() as session:
    -  正则化（$L2$ 正则化、$dropout$ 正则化、数据增强）
    -  选择其它的神经网络框架 / 优化超参数 （同上）
 
+### 3.2 ML Strategy (2)
+
+#### 3.2.1 Carrying out error analysis
+
 # Amendant Record
 
 1. 181014 #1.1 Finished
