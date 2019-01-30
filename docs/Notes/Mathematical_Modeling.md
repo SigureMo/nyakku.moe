@@ -384,10 +384,140 @@ $f_1 \equiv (x-3)^2 - [(T_1 + t_1) \cdot c]^2 = 0$
 
 从**科学可行性**到**工程可行性**，需要**技术**的支持
 
+## 3 火箭为什么是三级？
+
+### 3.1 问题的提出
+
+火箭的发射过程：
+
+1. 首先点燃最下面的一级火箭，火箭垂直于地面发射
+2. 待一级火箭燃料燃尽，丢弃一级火箭并点燃二级火箭
+3. 待二级火箭燃料燃尽，丢弃二级火箭并点燃三级火箭
+4. 火箭加速到一定速度，将卫星送入轨道
+
+由于火箭的级数越多，设计难度越大，但为了达到预定速度，级数也不能太少，所以级数的多少成了一个问题，至于如何解决这个问题，可以使用牛顿第二定律 $F=ma$ 来考虑
+
+### 3.2 卫星的速度
+
+首先，卫星需要多大的速度才能保持不掉下来？
+
+$$
+\begin{cases}
+G \frac{Mm}{r^2} = mg' = m \frac{v^2}{r} \\
+G \frac{Mm}{R^2} = mg
+\end{cases}
+$$
+
+易解得 $v = R \sqrt{\frac{g}{r}}$
+
+如果取 $r \approx R = 6371 km$ ，那么 $v = \sqrt{Rg} \approx 7.9 km/s$ ，也就是第一宇宙速度
+
+### 3.3 火箭的推力
+
+在 $t$ 到 $t + \Delta t$ 运用动量守恒定律
+
+首先考虑 $t$ 时刻：
+
+$$
+p(t) = m(t)v(t)
+$$
+
+> 其中 $m(t)$ 是 $t$ 时刻火箭的质量， $v(t)$ 是 $t$ 时刻火箭的速度
+
+然后考虑 $t + \Delta t$ 时刻：
+
+-  火箭系统的动量 $m(t + \Delta t) v(t + \Delta)$
+-  喷射出去的气体的动量 $(m(t) - m(t + \Delta t))(v(t) - u)$
+
+> 其中 $u$ 是气体相对于火箭的速度，$v(t)$ 是火箭相对于地球速度
+
+故$p(t + \Delta t) = m(t + \Delta t) v(t + \Delta) - (m(t) - m(t + \Delta t))(v(t) - u)$
+
+利用动量守恒定律得
+
+-  $m(t)v(t) = m(t + \Delta t) v(t + \Delta) - (m(t) - m(t + \Delta t))(v(t) - u)$
+-  $m(t + \Delta t) v(t + \Delta t) - m(t)v(t) = (m(t + \Delta t) - m(t))(v(t) - u)$
+-  $\frac{m(t + \Delta t) v(t + \Delta t) - m(t) v(t)}{\Delta t} = \frac{(m(t + \Delta t) - m(t))(v(t) - u)}{\Delta t}$
+-  $\lim_{\Delta t \to 0}\frac{m(t + \Delta t) v(t + \Delta t) - m(t) v(t)}{\Delta t} = \lim_{\Delta t \to 0}\frac{(m(t + \Delta t) - m(t))(v(t) - u)}{\Delta t}$
+-  $\frac{d(m(t)v(t))}{dt} = \frac{dm(t)}{dt} (v(t) - u)$
+-  $\frac{dm(t)}{dt} v(t) + \frac{dv(t)}{dt} m(t) = \frac{dm(t)}{dt} (v(t) - u)$
+-  $m(t)\frac{dv(t)}{dt} = -u \frac{dm(t)}{dt}$
+-  $v(t) = v_0 + u ln \frac{m_0}{m(t)}$
+
+经过上面一系列变换后，得到 $v(t) = v_0 + u ln \frac{m_0}{m(t)}$
+
+> 其中 $v_0$ 是初始时刻火箭的速度， $m_0$ 是初始时刻火箭系统的质量（如果初始火箭静止，那么 $v_0 = 0$）
+
+### 3.4 火箭系统的质量
+
+$$
+m_0 = m_p + m_s + m_f
+$$
+
+> 其中 $m_p$ 是火箭的有效载荷， $m_s$ 是火箭的结构质量， $m_f$ 是火箭所装载的燃料的质量
+
+火箭最终速度 $v = u ln \frac{m_0}{m_p + m_s}$
+
+令结构比 $\lambda = \frac{m_s}{m_s + m_f}$，即结构质量在结构和燃料总质量中所占的比例，从而我们得到
+
+$$
+\begin{aligned}
+v = & u ln \frac{m_0}{m_p + m_s} \\
+= & u ln \frac{m_0}{\lambda m_0 + (1 - \lambda) m_p} \\
+\leq & u ln \frac{1}{\lambda}
+\end{aligned}
+$$
+
+也就是说，火箭喷气速度 $u$ 越大，结构比越小，火箭最终速度越大，当然我们现在只考虑一级火箭
+
+我们现在能达到的 $u = 3 km/s$， $\lambda = 0.1$ ，代入上式计算可得 $v \leq u ln \frac{1}{\lambda} = 3 ln 10 \approx 7(km/s)$ ，也就是说在现有的技术条件下是无法达到第一宇宙速度的
+
+### 3.5 多级火箭的速度公式
+
+首先，确定以下参数：
+
+-  $n$ —— 火箭级数
+-  $m_i$ —— 第 $i$ 级火箭的结构和燃料的总质量
+-  $\lambda$ —— 结构比
+-  $m_p$ —— 有效载荷
+
+则第 $i$ 级火箭的结构质量： $\lambda m_i$，第 $i$ 级火箭的燃料质量： $(1 - \lambda) m_i$ ，火箭的初始质量： $m_0 = m_p + m_1 + m_2 + \cdots + m_n$
+
+1. 第一级火箭的燃料消耗完毕时
+
+   -  火箭的质量： $m_p + \lambda m_1 + m_2 + \cdots + m_n$
+   -  初始速度： $v_0 = 0$
+   -  火箭的速度：$v_1 = v_0 + u ln \frac{m_0}{m_p + \lambda m_1 + m_2 + \cdots + m_n}$
+
+2. 第二级火箭的燃料消耗完毕时
+
+   -  火箭的质量： $m_p + \lambda m_2 +m_3 + \cdots + m_n$
+   -  火箭的速度： $v_2 = v_1 + u ln \frac{m_p + m_2 + \cdots + m_n}{m_p + \lambda m_2 + \cdots + m_n}$
+
+3. 第 n 级火箭的燃料消耗完毕时
+
+   -  火箭的速度： $v_n = v_{n-1} + u ln \frac{m_p + m_n}{m_p + \lambda m_n}$
+
+将前面的速度代入即可得
+
+$v = u ln \left(\frac{m_0}{m_p + \lambda m_1 + m_2 + \cdots + m_n} \cdot \frac{m_p + m_2 + \cdots + m_n}{m_p + \lambda m_2 + \cdots + m_n} \cdot \cdots \cdot \frac{m_p + m_n}{m_p + \lambda m_n} \right)$
+
+### 3.6 三级火箭的最优性
+
+已知 $v, u, \lambda, m_p$，在约束条件
+
+-  $m_0 = m_p + m_1 + m_2 + \cdots + m_n$
+-  $\frac{v}{u} = ln \left(\frac{m_0}{m_p + \lambda m_1 + m_2 + \cdots + m_n} \cdot \frac{m_p + m_2 + \cdots + m_n}{m_p + \lambda m_2 + \cdots + m_n} \cdot \cdots \cdot \frac{m_p + m_n}{m_p + \lambda m_n} \right)$
+
+下，求 $m_0$ 的最小值或 $\frac{m_0}{m_p}$ 的最小值
+
+然后经过一系列操作……可以知道三级火箭最优:joy:
+
 # Amendant Record
 
 1. 190101 #1 Finished
 2. 190117 #2 Finished
+3. 190130 #3 Finished
 
 # Reference
 
