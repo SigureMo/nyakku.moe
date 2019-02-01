@@ -136,20 +136,15 @@ hs_err_pid*
 # text
 *.txt
 
-# node_modules
-/node_modules/
-
 # vuepress
 /.vuepress/dist/
+/node_modules/
 
 # temp
 tmp/
-
-# tests
 tests/
-
-# data
 data/
 
-# config
+# pynotex
 config.json
+tools/
