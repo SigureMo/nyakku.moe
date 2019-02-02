@@ -5,6 +5,7 @@ from utils.smtp import SMTP
 from utils.loop import Loop
 from utils.ssh import Server
 from utils.async_lib.utils import Task
+from utils.video_editor import FFmpeg
 
 CONFIGs = {}
 CONFIGs['smtp'] = Config('smtp').conf
@@ -36,5 +37,13 @@ def ssh_test():
         )
     print(server.exec('hostname')[0].strip('\n'))
 
+def video_test():
+    ffmpeg = FFmpeg()
+    ffmpeg.join_videos([
+        'tmp/video_editor/01.mp4',
+        'tmp/video_editor/02.mp4',
+    ], 'tmp/t.mp4')
+    ffmpeg.convert('tmp/video_editor/01.mp4', 'tmp/video_editor/05.flv')
+
 if __name__ == '__main__':
-    smtp_test()
+    video_test()
