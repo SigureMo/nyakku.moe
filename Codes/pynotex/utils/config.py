@@ -21,3 +21,4 @@ class Config():
         with open(config_path, 'r') as f:
             self._jObject = json.load(f)
         self.conf = self._jObject['APPs'].get(name)
+        self.glob = {}
