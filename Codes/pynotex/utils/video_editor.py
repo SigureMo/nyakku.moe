@@ -8,6 +8,9 @@ from utils.filer import touch_dir
 CONFIG = Config('video_editor').conf
 touch_dir(CONFIG['tmp_dir'])
 
+"""
+ref : https://github.com/soimort/you-get
+"""
 
 class FFmpeg():
     def __init__(self):
