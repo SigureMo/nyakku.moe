@@ -12,6 +12,7 @@ from utils.filer import touch_dir
 from utils.thread import ThreadPool
 from utils.async_lib.utils import Task
 from utils.video_editor import FFmpeg
+from utils.filer import Dpl, size_format, get_size
 
 """
 快速根据 url 下载 b 站系列视频，比如 'https://www.bilibili.com/video/av6538245'
@@ -30,21 +31,72 @@ headers = {
     'Referer': 'https://www.bilibili.com',
 }
 spider.headers.update(headers)
-touch_dir(CONFIG['tmp_dir'])
-touch_dir(CONFIG['data_dir'])
+GLOBAL['tmp_dir'] = touch_dir(CONFIG['tmp_dir'])
+GLOBAL['data_dir'] = touch_dir(CONFIG['data_dir'])
+
+# Common
+def download_segment(segment_url, file_path, segment_info):
+    num, total, name, segment_url, status, sp = segment_info
+    print('{} sp:{} {} of {}'.format(name, sp, num, total))
+    spider.download_bin(segment_url, file_path)
+    segment_info[4] = file_path
+
+    for part_info in GLOBAL['info']:
+        if all([segment_info[4] not in ['NOT_DL', 'MERGE', 'DONE'] for segment_info in part_info]):
+            video_queue.put((
+                [status for num, total, name, segment_url, status, sp in part_info],
+                os.path.join(GLOBAL['base_dir'], '{}.mp4'.format(segment_info[2])),
+                part_info,
+            ))
+            for segment_info in part_info:
+                segment_info[4] = 'MERGE'
+
+def timer():
+    size, t = get_size(GLOBAL['base_dir']), time.time()
+    while True:
+        if not video_queue.empty():
+            # Merge flv
+            video_path_list, output_path, part_info = video_queue.get()
+            ffmpeg.join_videos(video_path_list, output_path)
+            time.sleep(5)
+            for video_path in video_path_list:
+                os.remove(video_path)
+            for segment_info in part_info:
+                segment_info[4] = 'DONE'
+
+        # check is done
+        if all([all([segment_info[4] == 'DONE' for segment_info in part_info]) for part_info in GLOBAL['info']]):
+            break
+
+        # print process
+        now_size, now_t = get_size(GLOBAL['base_dir']), time.time()
+        delta_size, delta_t = now_size - size, now_t - t
+        size, t = now_size, now_t
+        speed = delta_size / delta_t
+        print('Speed: {}/s    '.format(size_format(speed)), end='\r')
+        time.sleep(1)
+
 
 # avid-dl
 def bilili_dl_by_avid(avid):
+
+    # 获取信息
     GLOBAL['info'] = []
     for cid, name in get_info(avid):
+        GLOBAL['playlist'].write_path(os.path.join(GLOBAL['base_dir'], '{}.mp4'.format(name)))
         GLOBAL['info'].append(get_part_info(cid, name))
+    GLOBAL['playlist'].flush()
+
+    # 创建线程池，准备下载
     pool = ThreadPool(10)
-    merge_thread = threading.Thread(target=merge_flv)
+    merge_thread = threading.Thread(target=timer)
     merge_thread.setDaemon(True)
+
+    # 开始下载
     for part_info in GLOBAL['info']:
         for segment_info in part_info:
             num, total, name, segment_url, status, sp = segment_info
-            file_path = os.path.join(CONFIG['data_dir'], GLOBAL['title'], '{}_{:02d}.flv'.format(name, num))
+            file_path = os.path.join(GLOBAL['base_dir'], '{}_{:02d}.flv'.format(name, num))
             pool.add_task(Task(download_segment, (segment_url, file_path, segment_info)))
     merge_thread.start()
     pool.run()
@@ -54,19 +106,21 @@ def get_info(avid):
     res = spider.get(GLOBAL['args'].url)
     title = re.search(r'<title .*>(.*)_哔哩哔哩 \(゜-゜\)つロ 干杯~-bilibili</title>', res.text).group(1)
     print(title)
-    touch_dir(os.path.join(CONFIG['data_dir'], title))
     GLOBAL['title'] = title
+    GLOBAL['base_dir'] = touch_dir(os.path.join(GLOBAL['data_dir'], title))
+    GLOBAL['playlist'] = Dpl(os.path.join(GLOBAL['base_dir'], 'Playlist.dpl'))
     info = json.loads(re.search(r'\"pages\":(\[\{.+?\}\}\]),', res.text).group(1))
-    # print(info)
     for item in info:
         yield item['cid'], item['part']
 
 def get_part_info(cid, name):
     video_api = 'https://api.bilibili.com/x/player/playurl?avid={avid}&cid={cid}&qn={sp}&type=&otype=json'
+    # 搜索支持的清晰度，并匹配最佳清晰度
     accept_quality = spider.get(video_api.format(avid=GLOBAL['avid'], cid=cid, sp=80)).json()['data']['accept_quality']
     for sp in GLOBAL['sp_seq']:
         if sp in accept_quality:
             break
+
     video_api_url = video_api.format(avid=GLOBAL['avid'], cid=cid, sp=sp)
     res = spider.get(video_api_url)
     part_info = []
@@ -82,65 +136,54 @@ def get_part_info(cid, name):
         ])
     return part_info
 
-def download_segment(segment_url, file_path, segment_info):
-    num, total, name, segment_url, status, sp = segment_info
-    print('{} sp:{} {} of {}'.format(name, sp, num, total))
-    spider.download_bin(segment_url, file_path)
-    segment_info[4] = file_path
-
-    for part_info in GLOBAL['info']:
-        if all([segment_info[4] not in ['NOT_DL', 'MERGE'] for segment_info in part_info]):
-            video_queue.put((
-                [status for num, total, name, segment_url, status, sp in part_info],
-                os.path.join(CONFIG['data_dir'], GLOBAL['title'], '{}.mp4'.format(segment_info[2]))
-            ))
-            for segment_info in part_info:
-                segment_info[4] = 'MERGE'
-
-def merge_flv():
-    while True:
-        if not video_queue.empty():
-            video_path_list, output_path = video_queue.get()
-            ffmpeg.join_videos(video_path_list, output_path)
-            time.sleep(5)
-            for video_path in video_path_list:
-                os.remove(video_path)
-        time.sleep(1)
-
 
 # bangumi-dl
-def bilili_dl_bangumi(season_id):
-    res = spider.get(GLOBAL['args'].url)
-    with open('tmp/ttt.html', 'w', encoding='utf8') as f:
-        f.write(res.text)
-    title = re.search(r'<span class="media-info-title-t">(\w+)</span>', res.text).group(1)
-    GLOBAL['title'] = title
-    print(title)
-    touch_dir(os.path.join(CONFIG['data_dir'], title))
+def bilili_dl_bangumi():
+
+    # 获取信息
     GLOBAL['info'] = []
-    ep_list_api = 'https://bangumi.bilibili.com/web_api/get_ep_list?season_id={}'
-    ep_list = spider.get(ep_list_api.format(season_id)).json()['result']
-    for ep_info in ep_list:
+    for ep_info in get_bangumi_info():
+        if re.match(r'^\d*$', ep_info['index']):
+            ep_info['index'] = '第{}话'.format(ep_info['index'])
+        ep_info['name'] = ' '.join([ep_info['index'], ep_info['index_title']])
+        GLOBAL['playlist'].write_path(os.path.join(GLOBAL['base_dir'], '{}.mp4'.format(ep_info['name'])))
         GLOBAL['info'].append(get_video_info(ep_info))
+    GLOBAL['playlist'].flush()
+
+    # 创建线程池，准备下载
     pool = ThreadPool(10)
-    merge_thread = threading.Thread(target=merge_flv)
-    merge_thread.setDaemon(True)
+    merge_thread = threading.Thread(target=timer)
+
+    # 开始下载
     for part_info in GLOBAL['info']:
         for segment_info in part_info:
             num, total, name, segment_url, status, sp = segment_info
-            file_path = os.path.join(CONFIG['data_dir'], GLOBAL['title'], '{}_{:02d}.flv'.format(name, num))
+            file_path = os.path.join(GLOBAL['base_dir'], '{}_{:02d}.flv'.format(name, num))
             pool.add_task(Task(download_segment, (segment_url, file_path, segment_info)))
     merge_thread.start()
     pool.run()
     pool.join()
+    merge_thread.join()
+
+def get_bangumi_info():
+    res = spider.get(GLOBAL['args'].url)
+    media_info = json.loads(re.search(r'<script>window\.__INITIAL_STATE__=(\{.+?\});\(function\(\)', res.text).group(1))['mediaInfo']
+    title = media_info['title']
+    print(title)
+    GLOBAL['title'] = title
+    GLOBAL['base_dir'] = touch_dir(os.path.join(GLOBAL['data_dir'], title))
+    GLOBAL['playlist'] = Dpl(os.path.join(GLOBAL['base_dir'], 'Playlist.dpl'))
+    return media_info['episodes']
 
 def get_video_info(ep_info):
     video_api = 'https://api.bilibili.com/pgc/player/web/playurl?avid={avid}&cid={cid}&qn={sp}&ep_id={ep_id}'
-    accept_quality = spider.get(video_api.format(avid=ep_info['avid'], cid=ep_info['cid'], ep_id=ep_info['episode_id'], sp=80)).json()['result']['accept_quality']
+    # 搜索支持的清晰度，并匹配最佳清晰度
+    accept_quality = spider.get(video_api.format(avid=ep_info['aid'], cid=ep_info['cid'], ep_id=ep_info['ep_id'], sp=80)).json()['result']['accept_quality']
     for sp in GLOBAL['sp_seq']:
         if sp in accept_quality:
             break
-    video_api_url = video_api.format(avid=ep_info['avid'], cid=ep_info['cid'], ep_id=ep_info['episode_id'], sp=sp)
+
+    video_api_url = video_api.format(avid=ep_info['aid'], cid=ep_info['cid'], ep_id=ep_info['ep_id'], sp=sp)
     res = spider.get(video_api_url)
     video_info = []
     for num, segment_info in enumerate(res.json()['result']['durl']):
@@ -148,7 +191,7 @@ def get_video_info(ep_info):
         video_info.append([
             num,
             len(res.json()['result']['durl']),
-            ep_info['index'],
+            ep_info['name'],
             segment_url,
             'NOT_DL',
             sp,
@@ -162,10 +205,8 @@ def bilili_dl(url):
         avid = re.match(r'https?://www.bilibili.com/video/av(\d+)', url).group(1)
         GLOBAL['avid'] = avid
         bilili_dl_by_avid(avid)
-    elif re.match(r'https?://www.bilibili.com/bangumi/media/md(\d+)/', url):
-        season_id = re.match(r'https?://www.bilibili.com/bangumi/media/md(\d+)/', url).group(1)
-        GLOBAL['season_id'] = season_id
-        bilili_dl_bangumi(season_id)
+    elif re.match(r'https?://www.bilibili.com/bangumi/media/md(\d+)', url):
+        bilili_dl_bangumi()
 
 def main():
     parser = argparse.ArgumentParser(description='bilili-dl')
