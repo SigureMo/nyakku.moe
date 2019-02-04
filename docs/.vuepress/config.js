@@ -40,18 +40,11 @@ module.exports = {
     nav: [
       { text: "Home", link: "/" },
       { text: "Notes", link: "/Notes/" },
-      { text: "Opinions", link: "/Opinions/" },
       { text: "Discovery", link: "/Discovery/" },
       { text: "About", link: "/About.html" }
     ],
     sidebarDepth: 1,
     sidebar: {
-      "/Opinions/": [
-        "",
-        "04_Hardware",
-        "03_C_and_pointer",
-        "01_Everything_is_object"
-      ],
       "/Notes/": [
         "",
         "Principle_of_Metal_Plastic_Working",
@@ -64,7 +57,15 @@ module.exports = {
         "Principles_of_Computer_Composition",
         "Data_Structures"
       ],
-      "/Discovery/": ["", "07_Cmder", "06_Harddisk", "05_Gitmoji"],
+      "/Discovery/": [
+        "",
+        "07_Cmder",
+        "06_Harddisk",
+        "05_Gitmoji",
+        "04_Hardware",
+        "03_C_and_pointer",
+        "01_Everything_is_object"
+      ],
       "/": ["", "Template", "About"]
     },
 
