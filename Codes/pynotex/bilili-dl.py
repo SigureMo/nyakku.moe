@@ -25,6 +25,7 @@ GLOBAL = Config('bilili-dl').glob
 spider = Crawler()
 ffmpeg = FFmpeg()
 video_queue = queue.Queue()
+
 sps = [80, 64, 32, 16] # 高清 1080P  高清 720P  清晰 480P  流畅 360P
 headers = {
     'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/64.0.3282.167 Safari/537.36',
@@ -33,6 +34,7 @@ headers = {
 spider.headers.update(headers)
 GLOBAL['tmp_dir'] = touch_dir(CONFIG['tmp_dir'])
 GLOBAL['data_dir'] = touch_dir(CONFIG['data_dir'])
+
 
 # Common
 def download_segment(segment_url, file_path, segment_info):
@@ -51,11 +53,12 @@ def download_segment(segment_url, file_path, segment_info):
             for segment_info in part_info:
                 segment_info[4] = 'MERGE'
 
+
 def timer():
     size, t = get_size(GLOBAL['base_dir']), time.time()
     while True:
+        # Merge flv
         if not video_queue.empty():
-            # Merge flv
             video_path_list, output_path, part_info = video_queue.get()
             ffmpeg.join_videos(video_path_list, output_path)
             time.sleep(5)
@@ -102,10 +105,12 @@ def bilili_dl_by_avid(avid):
     pool.run()
     pool.join()
 
+
 def get_info(avid):
     res = spider.get(GLOBAL['args'].url)
     title = re.search(r'<title .*>(.*)_哔哩哔哩 \(゜-゜\)つロ 干杯~-bilibili</title>', res.text).group(1)
     print(title)
+
     GLOBAL['title'] = title
     GLOBAL['base_dir'] = touch_dir(os.path.join(GLOBAL['data_dir'], title))
     GLOBAL['playlist'] = Dpl(os.path.join(GLOBAL['base_dir'], 'Playlist.dpl'))
@@ -113,8 +118,10 @@ def get_info(avid):
     for item in info:
         yield item['cid'], item['part']
 
+
 def get_part_info(cid, name):
     video_api = 'https://api.bilibili.com/x/player/playurl?avid={avid}&cid={cid}&qn={sp}&type=&otype=json'
+
     # 搜索支持的清晰度，并匹配最佳清晰度
     accept_quality = spider.get(video_api.format(avid=GLOBAL['avid'], cid=cid, sp=80)).json()['data']['accept_quality']
     for sp in GLOBAL['sp_seq']:
@@ -165,6 +172,7 @@ def bilili_dl_bangumi():
     pool.join()
     merge_thread.join()
 
+
 def get_bangumi_info():
     res = spider.get(GLOBAL['args'].url)
     media_info = json.loads(re.search(r'<script>window\.__INITIAL_STATE__=(\{.+?\});\(function\(\)', res.text).group(1))['mediaInfo']
@@ -174,6 +182,7 @@ def get_bangumi_info():
     GLOBAL['base_dir'] = touch_dir(os.path.join(GLOBAL['data_dir'], title))
     GLOBAL['playlist'] = Dpl(os.path.join(GLOBAL['base_dir'], 'Playlist.dpl'))
     return media_info['episodes']
+
 
 def get_video_info(ep_info):
     video_api = 'https://api.bilibili.com/pgc/player/web/playurl?avid={avid}&cid={cid}&qn={sp}&ep_id={ep_id}'
@@ -207,6 +216,7 @@ def bilili_dl(url):
         bilili_dl_by_avid(avid)
     elif re.match(r'https?://www.bilibili.com/bangumi/media/md(\d+)', url):
         bilili_dl_bangumi()
+
 
 def main():
     parser = argparse.ArgumentParser(description='bilili-dl')
