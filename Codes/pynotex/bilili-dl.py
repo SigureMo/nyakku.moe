@@ -67,16 +67,19 @@ def timer():
             for segment_info in part_info:
                 segment_info[4] = 'DONE'
 
-        # check is done
-        if all([all([segment_info[4] == 'DONE' for segment_info in part_info]) for part_info in GLOBAL['info']]):
-            break
-
         # print process
         now_size, now_t = get_size(GLOBAL['base_dir']), time.time()
         delta_size, delta_t = now_size - size, now_t - t
         size, t = now_size, now_t
         speed = delta_size / delta_t
-        print('Speed: {}/s    '.format(size_format(speed)), end='\r')
+        print('Speed: {}/s'.format(size_format(speed)), end='\r')
+
+        # check is done
+        if all([all([segment_info[4] == 'DONE' for segment_info in part_info]) for part_info in GLOBAL['info']]):
+            print(' ' * 50, end='\r')
+            print('Done!')
+            break
+
         time.sleep(1)
 
 
@@ -104,6 +107,7 @@ def bilili_dl_by_avid(avid):
     merge_thread.start()
     pool.run()
     pool.join()
+    merge_thread.join()
 
 
 def get_info(avid):
