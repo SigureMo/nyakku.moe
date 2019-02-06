@@ -61,10 +61,9 @@ def main():
         cvimg = cv2.imread('tmp/adb/screencap.png')
         start_point, radius = get_penguin(cvimg)
         end_point = get_end_point(cvimg)
-        # distance = math.sqrt((start_point[0] - end_point[0]) ** 2 + (start_point[1] - end_point[1]) ** 2) / radius
         distance = math.sqrt((abs(start_point[0] - end_point[0]) - radius) ** 2 + (start_point[1] - end_point[1]) ** 2) / radius
         end_time = time.time()
-        k = 88# 83.5
+        k = 89
         t = int(k * distance)
         spend = end_time - start_time
         print('{} to {} r={:.4f}pix dis={:.4f} spend {}ms press {}ms'.format(
