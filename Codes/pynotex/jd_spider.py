@@ -33,6 +33,7 @@ class AirConditioning(Model):
     vip_discount_price = BigintField('vip_discount_price')
     pc_price = BigintField('pc_price')
     vip_pc_price = BigintField('vip_pc_price')
+    speciality = StringField('speciality')
 
     def __init__(self, db, **kw):
         self.db = db
@@ -136,16 +137,17 @@ def write_db(skuid, d):
     pc = int(rfp / 1000 * 10 * 40 * 0.55 * 10) # 10 年耗电价 按 每天 10 小时
     pc_price = price + pc
     vip_pc_price = vip_price + pc
+    speciality = d.get('特性')
     AirConditioning(
         GLOBAL['db'], skuid=skuid, brand=brand, kind=kind, horsepower=horsepower, mode=mode,
         EEI=EEI, EER=EER, rfc=rfc, rfp=rfp, noise=noise, price=price, vip_price=vip_price,
         discount_price=discount_price, vip_discount_price=vip_discount_price,
-        pc_price=pc_price, vip_pc_price=vip_pc_price
+        pc_price=pc_price, vip_pc_price=vip_pc_price, speciality=speciality
     ).insert()
 
 
 def get_data():
-    kw = '空调'
+    kw = '空调柜机'
     db = SQLite(os.path.join(GLOBAL['data_dir'], 'AirConditioning.db'))
     GLOBAL['db'] = db
     try:
@@ -186,7 +188,7 @@ def select():
     db = SQLite(os.path.join(GLOBAL['data_dir'], 'AirConditioning.db'))
     for item in AirConditioning(db,
     skuid=True, brand=True, kind=True, horsepower=True, mode=True,
-    EEI=True, EER=True, rfc=True, rfp=True, vip_discount_price=True).select(
+    EEI=True, EER=True, rfc=True, rfp=True, vip_discount_price=True, speciality=True).select(
         conditional="NOT brand in ('长虹', 'TCL') AND horsepower in ('2匹', '大2匹', '3匹', '大3匹') AND mode='变频' AND EEI <= 2 AND price <= 7000 AND price >= 4000",
         order=['price DESC']
         ):
