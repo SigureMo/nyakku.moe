@@ -1,9 +1,17 @@
 import math
 import time
 import cv2
+import os
 import numpy as np
 
 from utils.adb import ADB
+from utils.config import Config
+from utils.filer import touch_dir
+
+CONFIG = Config('adb').conf
+GLOBAL = Config('adb').glob
+
+GLOBAL['tmp_dir'] = touch_dir(CONFIG['tmp_dir'])
 
 """ 《穿越福城》 小游戏辅助
 19 年春节前夕福袋活动，由于玩法类似前两年微信跳一跳，故参考 2018 最具潜力的项目之一，
@@ -21,11 +29,6 @@ def get_penguin(cvimg):
         ((x, y), radius) = cv2.minEnclosingCircle(c)  # 确定面积最大的轮廓的外接圆
 
         center = (int(x), int(y))
-        # cv2.circle(cvimg, center, int(radius), (0, 0, 255), 3) #画出圆心
-        # cv2.circle(cvimg, center, 3, (0, 0, 255), -1)
-        # cv2.imshow('cvimg',cvimg)
-        # if cv2.waitKey(0)==ord('q'):
-        #     cv2.destroyAllWindows()
         return center, radius
 
 def get_end_point(cvimg):
@@ -40,11 +43,6 @@ def get_end_point(cvimg):
         ((x, y), radius) = cv2.minEnclosingCircle(c)  # 确定外接圆
 
         center = (int(x), int(y))
-        # cv2.circle(cvimg, center, int(radius), (0, 0, 255), 3) #画出圆心
-        # cv2.circle(cvimg, center, 3, (0, 0, 255), -1)
-        # cv2.imshow('cvimg',cvimg)
-        # if cv2.waitKey(0)==ord('q'):
-        #     cv2.destroyAllWindows()
         return center
 
 def main():
@@ -57,20 +55,24 @@ def main():
         start_time = time.time()
         img = adb.screenshot()
         w, h = img.size
-        img.save('tmp/adb/screencap.png')
-        cvimg = cv2.imread('tmp/adb/screencap.png')
-        start_point, radius = get_penguin(cvimg)
-        end_point = get_end_point(cvimg)
-        distance = math.sqrt((abs(start_point[0] - end_point[0]) - radius) ** 2 + (start_point[1] - end_point[1]) ** 2) / radius
+        try:
+            cvimg = cv2.cvtColor(np.asarray(img),cv2.COLOR_RGB2BGR)
+            start_point, radius = get_penguin(cvimg)
+            end_point = get_end_point(cvimg)
+            distance = math.sqrt((abs(start_point[0] - end_point[0]) - radius) ** 2 + (start_point[1] - end_point[1]) ** 2) / radius
+        except Exception as e:
+            cv2.imwrite(os.path.join(GLOBAL['tmp_dir'], 'screencap.png'), cvimg)
+            print(e)
+            return
         end_time = time.time()
         k = 89
         t = int(k * distance)
         spend = end_time - start_time
-        print('{} to {} r={:.4f}pix dis={:.4f} spend {}ms press {}ms'.format(
+        print('{} to {} r={:.4f}pix dis={:.4f} spend {}ms press {}ms sleep {}ms'.format(
             start_point, end_point, radius,
-            distance, int(spend * 1000), t))
+            distance, int(spend * 1000), t, int((5 * distance / 20 + 1) * 1000)))
         adb.swipe((int(w * 0.5)-10, int(h * 0.78)-10), (int(w * 0.5)+10, int(h * 0.78)+10), t)
-        time.sleep(5)
+        time.sleep(5 * distance / 20 + 1)
 
 if __name__ == '__main__':
     main()
