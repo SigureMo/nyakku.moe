@@ -1,4 +1,5 @@
 import os
+import re
 import hashlib
 
 
@@ -74,6 +75,10 @@ def touch_file(path):
         os.open(path, 'w').close()
     return os.path.normpath(path)
 
+def repair_filename(filename):
+    regex_path = re.compile(r'[\\/:*?"<>|]')
+    return regex_path.sub('', filename)
+
 def get_size(path):
     if os.path.isfile(path):
         return os.path.getsize(path)
@@ -82,6 +87,9 @@ def get_size(path):
         for subpath in os.listdir(path):
             size += get_size(os.path.join(path, subpath))
         return size
+    else:
+        print(path)
+        return 0
 
 def size_format(size):
     flag = '-' if size < 0 else ''
