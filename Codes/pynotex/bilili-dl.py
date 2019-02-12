@@ -8,11 +8,10 @@ import time
 
 from utils.config import Config
 from utils.crawler import Crawler
-from utils.filer import touch_dir
 from utils.thread import ThreadPool
 from utils.async_lib.utils import Task
 from utils.video_editor import FFmpeg
-from utils.filer import Dpl, size_format, get_size
+from utils.filer import touch_dir, Dpl, size_format, get_size, repair_filename
 
 """
 快速根据 url 下载 b 站系列视频，比如 'https://www.bilibili.com/video/av6538245'
@@ -102,7 +101,7 @@ def bilili_dl_by_avid(avid):
     for part_info in GLOBAL['info']:
         for segment_info in part_info:
             num, total, name, segment_url, status, sp = segment_info
-            file_path = os.path.join(GLOBAL['base_dir'], '{}_{:02d}.flv'.format(name, num))
+            file_path = os.path.join(GLOBAL['base_dir'], repair_filename('{}_{:02d}.flv'.format(name, num)))
             pool.add_task(Task(download_segment, (segment_url, file_path, segment_info)))
     merge_thread.start()
     pool.run()
@@ -120,7 +119,7 @@ def get_info(avid):
     GLOBAL['playlist'] = Dpl(os.path.join(GLOBAL['base_dir'], 'Playlist.dpl'))
     info = json.loads(re.search(r'\"pages\":(\[\{.+?\}\}\]),', res.text).group(1))
     for item in info:
-        yield item['cid'], item['part']
+        yield item['cid'], repair_filename(item['part'])
 
 
 def get_part_info(cid, name):
@@ -156,7 +155,7 @@ def bilili_dl_bangumi():
     for ep_info in get_bangumi_info():
         if re.match(r'^\d*$', ep_info['index']):
             ep_info['index'] = '第{}话'.format(ep_info['index'])
-        ep_info['name'] = ' '.join([ep_info['index'], ep_info['index_title']])
+        ep_info['name'] = repair_filename(' '.join([ep_info['index'], ep_info['index_title']]))
         GLOBAL['playlist'].write_path(os.path.join(GLOBAL['base_dir'], '{}.mp4'.format(ep_info['name'])))
         GLOBAL['info'].append(get_video_info(ep_info))
     GLOBAL['playlist'].flush()
