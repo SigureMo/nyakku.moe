@@ -127,7 +127,7 @@ class Model(dict, metaclass=ModelMetaclass):
         """
         fields = []
         for k, v in self.__mappings__.items():
-            if getattr(self, k, None) is not None:
+            if hasattr(self, k):
                 fields.append(v.name)
         if not fields:
             fields.append('*')
@@ -145,7 +145,7 @@ class Model(dict, metaclass=ModelMetaclass):
         field_strs = []
         args = []
         for k, v in self.__mappings__.items():
-            if getattr(self, k, None) is not None:
+            if hasattr(self, k):
                 field_strs.append('%s=?' % v.name)
                 args.append(getattr(self, k, None))
             elif getattr(self, k+'_', None) is not None:
