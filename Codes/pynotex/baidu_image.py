@@ -2,6 +2,7 @@ import json
 import os
 import time
 import asyncio
+import argparse
 
 from PIL import Image
 from utils.config import Config
@@ -25,18 +26,20 @@ GLOBAL['imgs'] = []
 GLOBAL['urls'] = asyncio.Queue()
 GLOBAL['cnt'] = 0
 GLOBAL['consumer_num'] = 40
-GLOBAL['keyword'] = '喵'
-GLOBAL['page_num'] = 50
-GLOBAL['shape'] = (64, 64)
+GLOBAL['keyword'] = '鹅'
+GLOBAL['page_num'] = 2
+GLOBAL['shape'] = (28, 28)
+GLOBAL['grey'] = True
 GLOBAL['map'] = {
-    '猫': 0,
-    '喵': 0,
-    '狗': 1,
-    '鸡': 2,
-    '鸭': 3,
-    '猪': 4,
-    '牛': 5,
-    '羊': 6
+    '猫': [1, 0, 0, 0, 0],
+    '喵': [1, 0, 0, 0, 0],
+    '狗': [0, 1, 0, 0, 0],
+    '牛': [0, 0, 1, 0, 0],
+    '羊': [0, 0, 0, 1, 0],
+    '鸡': [0, 0, 0, 0, 1],
+    '鸭': [0, 0, 0, 0, 1],
+    '鹅': [0, 0, 0, 0, 1],
+    '猪': [0, 0, 0, 0, 1],
 }
 
 async def get_url(session, keyword, urls, page):
@@ -65,9 +68,8 @@ async def get_url(session, keyword, urls, page):
             pass
 
 async def get_all_urls(session, keyword, urls, page_num=1):
-    cnt = 0
     for page in range(page_num):
-        cnt = await get_url(session, keyword, urls, page)
+        await get_url(session, keyword, urls, page)
     for i in range(GLOBAL['consumer_num']):
         await urls.put((i, None))
 
@@ -103,10 +105,25 @@ def run():
         ) for i in range(GLOBAL['consumer_num'])],
     ])
     coroutine.run()
-    imgs2h5(GLOBAL['imgs'], [GLOBAL['map'][GLOBAL['keyword']]] * len(GLOBAL['imgs']), os.path.join(GLOBAL['data_dir'], GLOBAL['keyword'] + '.h5'))
+    imgs2h5(
+        GLOBAL['imgs'],
+        [GLOBAL['map'][GLOBAL['keyword']] for i in range(len(GLOBAL['imgs']))],
+        os.path.join(GLOBAL['data_dir'], GLOBAL['keyword'] + '.h5'),
+        grey = GLOBAL['grey'],
+        )
     print('Done!')
 
 if __name__ == '__main__':
     t = time.time()
+    parser = argparse.ArgumentParser(description='baidu_image')
+    parser.add_argument('kw', help='关键词')
+    parser.add_argument('-p', default='5', help='页数（每页60）')
+    parser.add_argument('-s', default='(64, 64)', help='分辨率')
+    parser.add_argument('-g', default='False', help='是否生成灰度图')
+    args = parser.parse_args()
+    GLOBAL['keyword'] = args.kw
+    GLOBAL['page_num'] = int(args.p)
+    GLOBAL['shape'] = eval(args.s)
+    GLOBAL['grey'] = eval(args.g)
     run()
     print(time.time() - t)

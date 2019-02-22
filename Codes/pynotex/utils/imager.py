@@ -38,13 +38,19 @@ def reshape_circle(im):
                 om.putpixel((i,j), (0, 0, 0, 0))
     return om
 
-def imgs2h5(im_list, label_list, h5_path):
+def imgs2h5(im_list, label_list, h5_path, grey=False):
     assert len(im_list) == len(label_list)
-    X = np.zeros(shape=(len(im_list), *np.array(im_list[0]).shape))
-    Y = np.zeros(shape=(len(im_list)))
+    num_channels = 3
+    if grey:
+        num_channels = 1
+        im_list = list(map(lambda im: im.convert('L'), im_list))
+    shape = (*im_list[0].size, num_channels)
+    X = np.zeros(shape=(len(im_list), *shape))
+    Y = np.zeros(shape=(len(im_list), len(label_list[0])))
 
     for i, im in enumerate(im_list):
-        X[i] = np.array(im)
+        X[i] = np.reshape(np.array(im), shape) / 255
+        Y[i] = np.array(label_list[i])
         im.close()
 
     f = h5py.File(h5_path, 'w')
