@@ -42,7 +42,7 @@
 
 4. 代码高亮
 
-[Vuepress 支持高粱的语言](https://github.com/vuejs/vuepress/blob/master/packages/%40vuepress/markdown/lib/highlight.js)
+[Vuepress 支持高亮的语言](https://github.com/vuejs/vuepress/blob/master/packages/%40vuepress/markdown/lib/highlight.js)
 
 <!-- [Markdown-it 支持高亮的语言](https://blog.csdn.net/u012102104/article/details/78950290?utm_source=blogxgwz8)（[highlightjs](https://github.com/highlightjs/highlight.js/tree/master/src/languages)） -->
 
@@ -106,9 +106,28 @@ $$
 
 使用 Prettier 对文档进行优化，使用 husky 配合 pretty-quick 钩子，详情请见[Prettier 官网](https://prettier.io/)
 
+## Matplotlib
+
+使用 `Python` 库 `matplotlib` 愉快地生成函数等图像！
+
+基于`VS Code` 插件 [Markdown Preview Enhanced](https://shd101wyy.github.io/markdown-preview-enhanced/#/zh-cn/code-chunk) ，首先打开 `VS Code` 设置中的 `enableScriptExecution` ，之后便可以通过快捷键 `shift-enter` 运行当前代码块、快捷键 `ctrl-shift-enter` 运行全部代码块
+
+使用 `plt.show()` 可在预览文档中快速预览生成的图片，但无法保存到云端文档，故可配合 `plt.savefig('../Images/filename.png')` 将图片保存至 `Images` 文件夹内，之后添加`![filename](../Images/filename.png)` 即可
+
+示例：
+
+```python {cmd=true matplotlib=true hide=true}
+import matplotlib.pyplot as plt
+plt.plot([1, 2, 3, 4])
+plt.show()
+plt.savefig("Images/example.png")
+```
+
+![example](Images/example.png)
+
 ## Test
 
-那么，请在下面这个简（陋）编辑器下尽请地尝试吧！
+那么，请在下面这个简（陋）编辑器下尽请地尝试吧（仅支持部分功能）！
 
 <Varmark></Varmark>
 
