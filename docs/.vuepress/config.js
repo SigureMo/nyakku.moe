@@ -47,6 +47,7 @@ module.exports = {
     sidebar: {
       "/Notes/": [
         "",
+        "Higher_Mathematics",
         "Principle_of_Metal_Plastic_Working",
         "Solid-state_Phase_Transformation",
         "Mathematical_Modeling",
