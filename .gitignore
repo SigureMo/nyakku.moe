@@ -148,3 +148,6 @@ data/
 # pynotex
 config.json
 tools/
+
+# Mac
+.DS_Store
