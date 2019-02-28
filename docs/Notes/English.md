@@ -46,7 +46,33 @@
    > - What's she doing?
    > - She is typing a letter.
 
+### Day 004
 
+- $some$ 修饰可数、不可数名词
+
+- 不可数名词 不可计量的和抽象的名词，其做主语时视为单数，如需选用 $be$ 动词应当使用 $is$
+
+- 辅元辅的 $ing$ 形式双写最后一个字母，如 $running$ ，元元辅是不行的哦，如 $raining$
+
+- $over$ & $on$
+   - $over$ 无接触
+   - $on$ 有接触
+
+- 宾语补足语
+   > e.g.
+   > paint it pink 中的 pink
+
+- $do with$ 表示对某件事物或者某个人的处理
+   > e.g.
+   > - What are you going to do with the problem?
+   > - I can't do with his laziness.
+
+- 双宾语
+   > e.g.
+   > - Give me a book.
+   > - Give a book to me.
+   >
+   > 这两句话意思一样，$book$ 是传递的事物，是直接宾语， $me$ 是间接宾语
 
 # Reference
 
