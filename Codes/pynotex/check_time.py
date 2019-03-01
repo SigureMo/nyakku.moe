@@ -16,7 +16,7 @@ def get_webservertime(host):
     # 校准时间
     dat = "date %u-%02u-%02u"%(ttime.tm_year,ttime.tm_mon,ttime.tm_mday)
     tm = "time %02u:%02u:%02u"%(ttime.tm_hour,ttime.tm_min,ttime.tm_sec)
-    status = not (os.system(dat) and os.system(tm))
+    status = not (os.system(dat) or os.system(tm))
     return status
 
 if __name__ == '__main__':
