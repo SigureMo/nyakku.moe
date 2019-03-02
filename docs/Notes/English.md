@@ -87,11 +87,18 @@
 
 ### Day 005
 
--  $There be$ 的就近原则
+-  $There\ be$ 的就近原则
    > e.g.
    >
    > -  There is a book, two pens and many pencils in the schoolbag.
    > -  There are four eggs, one apple and two bananasin the refrigerator.
+
+### Day 006
+
+-
+
+-  $some$ 作代词时可以用来指代不可数名词的，也可指代可数名词复数形式
+-  $one$ 作代词的时候一般指代可数名词的单数形式，如果要指代可数名词复数形式要用 $ones$
 
 # Reference
 
