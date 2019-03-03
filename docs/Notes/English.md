@@ -100,6 +100,64 @@
    -  $some$ 作代词时可以用来指代不可数名词的，也可指代可数名词复数形式
    -  $one$ 作代词的时候一般指代可数名词的单数形式，如果要指代可数名词复数形式要用 $ones$
 
+### Day 007
+
+- 情态动词（如 $can$）加动词原形
+
+- $do$ 可以代替所有实意动词（有实际动作的词）
+
+- 及物动词和不及物动词
+   - 及物动词 后面要加成分
+      > e.g.
+      > - I want a pair of sunglasses.
+      > - I like ...
+   - 不及物动词 后面不能直接加动作的对象
+      > e.g.
+      > - I run.
+      > - Birds fly.
+   - 及物动词 & 不及物动词
+      > e.g.
+      > - I cook. / I cook the dinner.
+      > - I sing. / I sing a song.
+
+- 可数名词不会单独出现，要么前面加冠词，要么后面变形变成复数
+   > e.g.
+   > I like bananas, but I don't like apples.
+
+- 序数词
+   1. first 1st
+   2. second 2nd
+   3. third 3rd
+   4. fourth 4th
+   5. fifth 5th
+   6. sixth 6th
+   7. seventh 7th
+   8. eighth 8th
+   9. ninth 9th
+   10. tenth 10th
+   11. eleventh 11th
+   12. twelfth 12th
+
+- 选择疑问句
+   > e.g.
+   > Do you want beef or lamb?
+
+- 第三人称单数
+
+- 月份
+   1. January
+   2. February
+   3. March
+   4. April
+   5. May
+   6. June
+   7. July
+   8. August
+   9. September
+   10. October
+   11. November
+   23. December
+
 # Reference
 
 1. 沪江网校新概念英语
