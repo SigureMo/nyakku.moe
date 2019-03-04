@@ -158,6 +158,23 @@
    11. November
    23. December
 
+### Day 008
+
+- 在哪个方位，哪个方向 用介词 $in$
+   > e.g.
+   > in the North
+
+- 时间的问答
+   > e.g.
+   >
+   > - What time is it?
+   > - It's ten o'clock.
+   > - It's ten o'clock sharp. （十点整）
+   > - It's ten o'clock p.m. （晚上十点）
+
+- What else do you need?
+
+
 # Reference
 
 1. 沪江网校新概念英语
