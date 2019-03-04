@@ -134,6 +134,36 @@ $(a+b)^n=\sum\limits_{k=0}^n C_n^k a^kb^{n-k}$
       -  无穷间断点
       -  振荡间断点
 
+### 2.2 例题
+
+#### 2.2.1 数列极限计算
+
+1. 直接计算法
+
+   > Example1:
+   > Q: 设 $a_0 = 0$ ，$a_1 = 1$, $a_n + a_{n-1} = 2 a_{n+1}$ ,求 $\lim \limits_{n \to a_n}$
+   > A: $$
+   \begin{aligned}
+   a_{n+1} =& \frac{a_n + a_{n-1}}{2} \rArr \\
+   a_{n+1} - a_n =& \frac{a_n + a_{n+1}}{2} - a_n \\
+   =& \frac{a_{n-1} - a_n}{2} \\
+   =& -\frac{1}{2} (a_n - a_{n-1}) \\
+   =& (-\frac{1}{2})^2 (a_{n-1} -a_{n-2}) \\
+   =& \cdots \\
+   =& (-\frac{1}{2})^n (a_1 - a_0) \\
+   =& (-\frac{1}{2})^n \\
+   a_n =& (a_n - a_{n-1}) + (a_{n-1} - a_{n-2}) + (a_{n-2} - a_{n-3}) + \cdots + (a_1 - a_0) + a_0 \\
+   =& (-\frac{1}{2})^n + (-\frac{1}{2})^{n-1} + \cdots + 1 \\
+   =& \frac{1 \cdot [1 - (-\frac{1}{2})^n]}{1 - (-\frac{1}{2})} \\
+   \therefore \lim \limits_{n \to \infty} a_n =& \frac{2}{3}
+   \end{aligned}
+   $$
+
+2. **单调有界准则**
+3. 定义法
+4. 夹逼准则
+5. 定积分定义
+
 # Amendant Record
 
 1. 190227 #1 Finished
