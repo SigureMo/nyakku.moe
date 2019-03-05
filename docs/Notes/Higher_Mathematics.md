@@ -141,7 +141,7 @@ $(a+b)^n=\sum\limits_{k=0}^n C_n^k a^kb^{n-k}$
 1. 直接计算法
 
    > Example1:
-   > Q: 设 $a_0 = 0$ ，$a_1 = 1$, $a_n + a_{n-1} = 2 a_{n+1}$ ,求 $\lim \limits_{n \to a_n}$
+   > Q: 设 $a_0 = 0$ ，$a_1 = 1$, $a_n + a_{n-1} = 2 a_{n+1}$ ,求 $\lim \limits_{n \to \infty} a_n$
    > A: $$
    \begin{aligned}
    a_{n+1} =& \frac{a_n + a_{n-1}}{2} \rArr \\
