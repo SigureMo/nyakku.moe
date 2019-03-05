@@ -1,4 +1,4 @@
-# English <Badge text="alpha" type="warn"/> <Badge text="0.0.0"/>
+# English <Badge text="alpha" type="warn"/> <Badge text="009"/>
 
 > Escape can not solve the problem。
 
@@ -145,19 +145,81 @@
 - 第三人称单数
 
 - 月份
-   1. January
-   2. February
-   3. March
-   4. April
-   5. May
-   6. June
-   7. July
-   8. August
-   9. September
-   10. October
-   11. November
-   23. December
+   1. January Jan.
+   2. February Feb.
+   3. March Mar,
+   4. April Apr.
+   5. May May
+   6. June June
+   7. July July
+   8. August Aug.
+   9. September Sept.
+   10. October Oct.
+   11. November Nov.
+   23. December Dec.
+
+### Day 008
+
+- 在哪个方位，哪个方向 用介词 $in$
+   > e.g.
+   > in the North
+
+- 时间的问答
+   > e.g.
+   >
+   > - What time is it?
+   > - It's ten o'clock.
+   > - It's ten o'clock sharp. （十点整）
+   > - It's ten o'clock p.m. （晚上十点）
+
+- What else do you need?
+
+### Day 009
+
+- You mustn't ... / Don't ...
+
+- $Can$ 与 $May$
+   - Can I...?
+   - May I...? 更正式些
+
+- 一对一的所属不用 $of$ 而用 $to$
+   > e.g.
+   > - the key to the front door.
+   > - the answer to the question.
+
+- 介词小结
+   - at 具体时间点
+   - in 月份、季节、早上、下午
+   - from 来源
+
+- 整点、几点半、几点一刻、几点三刻
+   - 10 o'clock (10:00)
+   - half past ten (10:30)
+   - a quarter past ten (10:15)
+   - a quarter to ten (09:45)
+
+- 表示某一类商店，经常省略 shop
+   - at the butcher's
+   - at the greengrocer's
+   - at the hairdresser's
+   - at the stationer's
+   - at the doctor's
+
+- 表示地点，有些需要用定冠词 $the$ ,有些不需要加
+   - at the office 在办公室
+   - in the country 在乡下
+   - at the butcher's 在肉店
+   ---
+   - at school 在学校，上学，求学
+   - at home 在家
+   - at church 在教堂做礼拜
+   ---
+   - in hospital 住院 / in the hospital 在医院
+   - go to sea 出海 / go to the sea 去海边
+   - at table 进餐 / at the table 在桌子旁边
+   > 加上 $the$ 就变成一个具体指某个地点的名词
 
 # Reference
 
 1. 沪江网校新概念英语
+2. 《新概念英语》
