@@ -151,3 +151,6 @@ tools/
 
 # Mac
 .DS_Store
+
+# .vscode
+/.vscode/
