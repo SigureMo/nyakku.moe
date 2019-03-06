@@ -1,4 +1,4 @@
-# Deep Learning <Badge text="alpha" type="warn"/> <Badge text="4.4.11"/>
+# Deep Learning <Badge text="alpha" type="warn"/> <Badge text="5.1.6"/>
 
 ## 1 Neural Networks and DeepLearning
 
@@ -2028,7 +2028,7 @@ $J(G) = \alpha J_{content}(C, G) + \beta J_{style}(S, G)$
 
 那么什么是图片的风格呢？
 
-![DeepLearning62](../Images/DeepLearning62.png)
+![DeepLearning63](../Images/DeepLearning63.png)
 
 我们这里取神经网络某个隐藏层进行分析，我们知道，每个通道是一个过滤器的输出，而每种过滤器代表了某种检测对象，所以每个通道就对应了原图中各个区域内是否有该特征
 
@@ -2066,6 +2066,150 @@ $J(G) = \alpha J_{content}(C, G) + \beta J_{style}(S, G)$
 #### 4.4.11 1D and 3D generalizations of models
 
 一维、三维卷积操作和二维的一毛一样……
+
+## 5 Sequence Models
+
+### 5.1 Recurrent Neural Networks
+
+#### 5.1.1 Why Sequence Models?
+
+一些例子
+
+- 语音识别
+- 音乐生成 输入数据甚至可以是空
+- 情感分类
+- DNA 序列分析
+- 机器翻译
+- 视频行为识别
+- 命名实体识别 从句子中识别出人名
+
+#### 5.1.2 Notation
+
+比如我们想从这句话里识别出来人名
+
+Harry Potter and Hermione Granger invented a new spell.
+
+我们可以记 $x^{<t>}$ 输入数据的第 $t$ 个单词，比如说这里的 $x^{<3>}$ 就是 and
+
+可以记 $T_x$ 为输入数据的总词汇量，$t$ 是指在时域的推进
+
+我们知道，$x^{(i)}$ 表示第 $i$ 组输入数据，那么 $x^{(i)<t>}$ 就是第 $i$ 组数据的第 $t$ 个单词，$T_x^{(i)}$ 就表示该语句单词的个数（不同语句单词数可能不一样）
+
+然后怎么来表示呢？
+
+![DeepLearning64](../Images/DeepLearning64.png)
+
+我们建立一个词汇表，将所有单词罗列出来，比如如图上所示 $a$ 是第 1 个，$and$ 是第 367 个等等
+
+我们以此表示语句，比如说我们这句话第一个单词就应表示为除了第 4075 行是 1 其余都是 0 的列向量，我们叫这种只有一个是 1 ，其余全是 0 的向量为 one-hot 向量
+
+但当有词汇表里没有的词汇出现怎么办？我们可以制定一个 Unknown word ，记为 <UNK>
+
+#### 5.1.3 Recurrent Neural Network Model
+
+就上面的例子而言，如果我们使用传统的神经网络的话，输入向量维度不同、参数过多，而且学习到的东西并不共享
+
+![DeepLearning65](../Images/DeepLearning65.png)
+
+循环神经网络是逐步对每个词汇扫描，第一个时间步，第一个单词经过神经网络输出 $\hat{y}^{<1>}$ ，并且其激活值 $a^{<1>}$ 也会参与下一层的运算，这就使得每个时间步都会向后传递
+
+当然，为了保持一致，我们需要设置一个 $a^{<0>}$ ，通常将其设置为 0 向量
+
+本模型的一个问题就是，虽然每个时间步都会向后传递，但是并不会向前传递
+
+我们记 $W_{aa}$ 为处理上层激活值的参数，$W_{ax}$ 为处理输入的参数， $W_{ay}$ 为处理本层激活值获得输出的参数
+
+所以
+- $a^{<t>} = g_1(W_{aa}a^{<t-1>} + W_{ax}x^{<t>} + b_a)$
+- $\hat{y}^{<t>} = g_2(W_{ya}a^{<t>} + b_y)$
+
+这里 $g_1$ 常用 tanh ，有时也用 ReLU， $g_2$ 看情况，比如这里识别人名的话，会选用 sigmoid
+
+我们可以再简化下，记
+
+$$
+W_a = \\
+\begin{bmatrix}
+W_{aa} & W_{ax} \\
+\end{bmatrix}
+$$
+
+那么很明显，我们的第一个式子可以写成
+
+$$
+a^{<t>} = g_1(W_a
+\begin{bmatrix}
+a^{<t-1>} \\
+x^{<t>} \\
+\end{bmatrix} + b_a)
+$$
+
+第二个式子也可以简写为
+
+$\hat{y}^{<t>} = g_2(W_{y}a^{<t>} + b_y)$
+
+#### 5.1.4 Backpropagation through time
+
+和传统神经网络一样，反向传播就是逆着前向传播逐渐进行的
+
+![DeepLearning66](../Images/DeepLearning66.png)
+
+![DeepLearning67](../Images/DeepLearning67.png)
+
+#### 5.1.5 Different types of RNNs
+
+我们在 5.1.1 中提到了很多的应用，但是很明显，大多数并不适用前面的模型，因为他们的 $T_x \not= T_y$，这需要我们适当修改下
+
+![DeepLearning68](../Images/DeepLearning68.png)
+
+- 一对一的问题我们以前就可以解决了
+- 一对多，比如音乐的生成，我们输入一个整数代表音乐的类型或者什么都不输入，它会为我们生成一系列音符序列，很明显，后面的时间布并没有输入，不过我们通常会将前一层的输出喂给下一层
+- 多对一，比如从一段话里识别一个人对电影的评价（1 到 5 星），那么我们可以只在最后一层输出，所以它会综合前面所有单词输出一个评价
+- 多对多 $T_x = T_y$ ，就是我们刚刚的人名识别类型
+- 多对多 $T_x \not= T_y$ ，语言翻译，前几时间步仅做输入（称为 encoder），后几个时间步仅做输出（称为 decoder）
+
+#### 5.1.6 Language model and sequence generation
+
+什么是语言模型？
+
+比如我们在做一个语音识别系统，有这样一个句子
+
+"the apple and pear(pair) salad was delicious."
+
+但是到底是 "the apple and pair salad"，还是 "the apple and pear salad ？"
+
+一个语音识别模型可以根据前面的 "the apple and" 计算出 后面词是 "pair" 的概率和 "pear" 的概率
+
+（有点像搜索候选）
+
+在建立模型之前，我们需要一个语料库作为训练数据，另外我们要用 <UNK> 标记不清楚的单词，用 <EOS> 标记句子结尾
+
+这里以 "Cats average 15 hours of sleep a day." 这句话为例
+
+![DeepLearning69](../Images/DeepLearning69.png)
+
+首先，我们从一个零向量开始，预测第一个词，所以第 0 个时间步输入 $x^{<1>} = 0$ ，其输出期待为 $y^{<1>}$ 也就是 "cats"（用 Softmax 就好），相应地，它会输出各个词的概率，可能这里 "cat" 的概率会很高
+
+然后，我们下一个时间步以 $x^{<2>} = y^{<1>}$ 也就是 "cats" 作为输入，其输出期待为 $y^{<2>}$ "average"，这里也会输出各个词语的概率，可能这里 "average" 概率很高
+
+再下一个时间步，以 $x^{<3>} = y^{<2>}$ 也就是 "average" 作为输入，当然，我们这里同时也考虑到了前面的激活值，所以可以认为是考虑到输入 "cats average" 的情况下，我们期待其输出 "15"
+
+以此类推 ...
+
+我们看下代价函数
+
+$L(\hat{y}^{<t>}, y^{<t>}) = - \sum_i y_i^{<t>} \log \hat{y}_i^{<t>}$
+
+总体的损失函数自然就是相加啦
+
+$L = \sum_t L^{<t>}(\hat{y}^{<t>}, y^{<t>})$
+
+比如我们有这么一个句子 $y^{<1>}, y^{<2>}, y^{<3>}$
+- 第零个时间步它会输出 $y^{<1>}$ 的概率，也就是 $P(y^{<1>})$
+- 第一个时间步它会输出在考虑 $y^{<1>}$ 的情况下 $y^{<2>}$ 的概率，也就是 $P(y^{<2>}|y^{<1>})$
+- 第三个时间步它会输出在考虑 $y^{<1>}, y^{<2>}$ 的情况下，$y^{<3>}$ 的概率，也就是 $P(y^{<3>}|y^{<1>}, y^{<2>})$
+
+很明显，输出这个句子的概率会是 $P(y^{<1>}, y^{<2>}, y^{<3>}) = P(y^{<1>}) P(y^{<2>}|y^{<1>}) P(y^{<3>}|y^{<1>}, y^{<2>})$ ，也就是他们三项相乘
 
 # Amendant Record
 
