@@ -219,6 +219,21 @@
    - at table 进餐 / at the table 在桌子旁边
    > 加上 $the$ 就变成一个具体指某个地点的名词
 
+### Day 010
+
+- 当提到第一人称的时候，经常往后面放
+   > e.g.
+   >
+   > - my mother and I
+   > - my friends and I
+
+- 非规律时间表达
+   > e.g.
+   >
+   > - three fifty-four
+   > - fifty-four past three
+   > - six to four
+
 # Reference
 
 1. 沪江网校新概念英语
