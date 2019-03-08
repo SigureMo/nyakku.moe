@@ -234,6 +234,58 @@
    > - fifty-four past three
    > - six to four
 
+- 元音 + $y$ 直接在后面加 $s$ ，辅音 + $y$ 变 $y$ 为 $i$ 然后加 $es$（动词单三、动词过去式（加 $d$）、名词复数都适用）
+   > e.g.
+   >
+   > - tray $\to$ trays
+   > - boy $\to$ boys
+   > - family $\to$ families
+   > - city $\to$ cities
+
+- 以 $last$ 或者 $this$ 开头的时间状语，前面都不要加介词
+   > e.g.
+   >
+   > - They were in fashion last year and the year before last. But they're not in fashion this year.
+   > - I met her last night.
+
+- 否定疑问句 反问，难道
+   > e.g.
+   >
+   > Can't you wait till this afternoon?
+
+### Day 011
+
+- need to do sth. 需要做某事
+   > e.g.
+   >
+   > - I need to talk to you.
+   > - You needn't talk so loud here.（否定形式，不需要）
+
+- urgent need for sth.（急需某物，其中 urgent :急需）
+   > e.g.
+   >
+   > I have urgent need to money.
+
+- $many$ 和 $much$
+   - $much$ + 不可数名词
+   - $many$ + 可数名词
+
+- $a lot of$ 既可以用于可数，也可以用于不可数
+
+- $have got \cdots = have$ 、 $haven't got = don't have$
+
+- $at all$ 一点、丝毫、根本
+   > e.g.
+   >
+   > I don't like spicy food at all.
+
+- 初窥从句
+
+   I hope that... 我希望... + 结构完整的从句（clause）
+
+
+
+
 # Reference
 
 1. 沪江网校新概念英语
