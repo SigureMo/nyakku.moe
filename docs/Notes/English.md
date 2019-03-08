@@ -1,4 +1,4 @@
-# English <Badge text="alpha" type="warn"/> <Badge text="009"/>
+# English <Badge text="alpha" type="warn"/> <Badge text="012"/>
 
 > Escape can not solve the problem。
 
@@ -283,7 +283,17 @@
 
    I hope that... 我希望... + 结构完整的从句（clause）
 
+### Day 012
 
+- $once\ in\ a\ while$ 偶尔，频率低
+
+- $have$ + 名词可构成很多动词短语
+
+- $in\ front\ of$ 和 $in\ the\ front\ of$
+   - $in\ front\ of$ 在前面（外面的）
+   - $in\ the\ front\ of$ 在前面（里面的）
+
+- 现在完成时 主语 + have 的现在式 + 过去分词
 
 
 # Reference
