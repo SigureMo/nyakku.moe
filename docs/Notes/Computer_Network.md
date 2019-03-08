@@ -1,4 +1,4 @@
-# Computer Network <Badge text="alpha" type="warn"/> <Badge text="4.11.2"/>
+# Computer Network <Badge text="alpha" type="warn"/> <Badge text="6.9.0"/>
 
 ## 1 概述
 
@@ -1271,6 +1271,38 @@ SNS（Social Networking Site）
 
 比如针对二进制数据的 base64 编码（每 6bit 转换成一个 ASCII 码）
 
+### 6.6 动态主机配置协议 DHCP
+
+为了免去为需要连接网络的设备逐个配置 IP 、子网掩码等信息的麻烦，DHCP 应运而生
+
+- 即插即用，非常适合经常变换网络的设备
+- 使用 UDP
+- 每个网络使用一个 DHCP 中继代理，以降低 DHCP 服务器的数量
+- IP 是有租用期的，当租用期过了一半需请求更新租用期
+
+### 6.7 简单网络管理协议 SNMP
+
+网络管理包裹对硬件、软件和人力的使用、综合与协调，以便对网络自言进行监视、测试、配置、分析、评价和控制，这样就能以合理的价格满足网络的一些需求，如实时运行性能、服务质量等
+
+其包含了
+
+- SNMP 本身
+- 管理信息结构 SMI
+- 管理信息库 MIB
+
+### 6.8 应用进程跨越网络的通信
+
+系统调用 （system call）
+应用编程接口 API （Application Programming Interface）
+
+![CN16](../Images/CN16.png)
+
+当然，UDP 服务器由于只提供无连接服务，因此不适用 listen 和 accept 系统调用
+
+### 6.9 P2P 应用
+
+资源并不存储在服务器上，服务器上只存储资源的索引，资源存储在用户主机上
+
 # Extends
 
 1. wireshark 抓包工具
@@ -1283,6 +1315,7 @@ SNS（Social Networking Site）
 3. 181009 #3 Finished
 4. 190226 #4 Finished
 5. 190303 #5 Finished
+6. 190308 #6 Finished
 
 # Reference
 
