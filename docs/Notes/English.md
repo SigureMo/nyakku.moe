@@ -206,13 +206,15 @@
    - at the doctor's
 
 - 表示地点，有些需要用定冠词 $the$ ,有些不需要加
-   - at the office 在办公室
-   - in the country 在乡下
-   - at the butcher's 在肉店
+   - 强调地点
+      - at the office 在办公室
+      - in the country 在乡下
+      - at the butcher's 在肉店
    ---
-   - at school 在学校，上学，求学
-   - at home 在家
-   - at church 在教堂做礼拜
+   - 强调动作
+      - at school 在学校，上学，求学
+      - at home 在家
+      - at church 在教堂做礼拜
    ---
    - in hospital 住院 / in the hospital 在医院
    - go to sea 出海 / go to the sea 去海边
@@ -294,6 +296,99 @@
    - $in\ the\ front\ of$ 在前面（里面的）
 
 - 现在完成时 主语 + have 的现在式 + 过去分词
+
+### Day 013
+
+- 动词的种类
+   - 实意动词
+      - 及物动词 + 宾语/双宾语/复合宾语
+      - 不及物动词
+   - 系动词 be, seem, turn, become 等 + 表语
+   - 助动词
+      - be + doing/done
+      - have + done/been doing
+      - do(does, did)
+      - will, shall, would, should
+   - 情态动词 may, can, must, might, could
+
+- have been to someplace 去过某一个地方，到过某一个地方
+   > e.g.
+   >
+   > - I have been to Canana.
+   > - I have been to the supermarket.
+
+- 现在完成时 与 一般过去时
+   - 现在完成时 后面不加时间状语或者时间状语是一段时间
+   - 一般过去时 一定要有具体的时间状语
+
+- try to do sth. 和 try doing
+   - try to do sth. 设法、努力去做某事
+   - try doing 尝试做某事，只是试试
+
+- to be honest/frank 实话说
+
+- $since$
+   - 后面可以跟着一个具体的过去的时间点，来表示一段时间，多用于完成时，自从...
+      > e.g.
+      >
+      > I've studied English since 1998.
+   - since + 一段时间 + ago
+      > e.g.
+      >
+      > He has been here since five weeks ago.
+
+- 几个常见不规则动词的过去式和过去分词形式
+
+   |Prototype|Preterite|Past participle|
+   |---|---|---|
+   |cut|cut|cut|
+   |put|put|put|
+   |read|read|read|
+   |set|set|set|
+   |shut|shut|shut|
+   |do|did|done|
+   |come|came|come|
+   |give|gave|given|
+   |swim|swam|swum|
+   |take|took|taken|
+   |eat|ate|eaten|
+   |go|went|gone|
+   |nse|rose|nsen|
+   |see|saw|seen|
+   |speak|spoke|spoken|
+
+- 现在完成时 一段时间
+   - for + 一段时间
+      > e.g.
+      >
+      > I have studied English for two years.
+   - since + 过去的一个时间点
+      > e.g.
+      >
+      > I have studied English since two years ago.
+
+- be going to 打算做某事，有计划性的
+
+- 一般将来时 will + 动词原形
+   > e.g.
+   >
+   > He will go to Shanghai next week.
+
+- will, shall, bo going to 的区别
+   - be going to 计划性比较强，近期的未来，客观性比较强
+   - will 不突出计划性，主观性比较强，说话人认为、相信、假定要发生，遥远的未来
+   - shall 通常用在第一人称中，单数复数都可以
+   > e.g.
+   >
+   > - He is going to get better. (有好转的、恢复的迹象，（依此判断）就要好了)
+   > - He will get better. (（我认为）他的病会好的，最终会健康的)
+   > - I shall get better. (我会好的)
+
+- 对否定看法表示赞同用 No 而不是 Yes
+   > e.g.
+   >
+   > - Jake doesn't like cakes. (Jake 不喜欢吃蛋糕)
+   > - No, he doesn't. (**是的**，他确实不喜欢吃蛋糕)
 
 
 # Reference
