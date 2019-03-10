@@ -1,4 +1,4 @@
-# English <Badge text="alpha" type="warn"/> <Badge text="012"/>
+# English <Badge text="alpha" type="warn"/> <Badge text="014"/>
 
 > Escape can not solve the problem。
 
@@ -339,7 +339,7 @@
 
 - 几个常见不规则动词的过去式和过去分词形式
 
-   |Prototype|Preterite|Past participle|
+   |Prototype|Preterite|Present perfect|
    |---|---|---|
    |cut|cut|cut|
    |put|put|put|
@@ -390,6 +390,44 @@
    > - Jake doesn't like cakes. (Jake 不喜欢吃蛋糕)
    > - No, he doesn't. (**是的**，他确实不喜欢吃蛋糕)
 
+#### Day 014
+
+- will not 的缩写是 won't
+
+- had better 最好
+   - had better do sth. 最好可以做某事
+   - had better 情态动词
+   - 后面加动词原形
+   - had better 简写成 'd better
+
+- in...'s time 表示将来
+   > e.g.
+   >
+   > in a week's time
+
+- 不带 to 只出现后面的动词：感官动词和使役动词后省略 to
+   - 感官动词 see/watch/notice/observe/look at/hear/listen to/feel
+   - 使役动词 let/have/make
+   > e.g.
+   >
+   > - see sb. do sth.
+   > - watch sb. do sth.
+   > - have sb. do sth.
+
+- 直接引语和间接引语
+   - 直接引语 直接加引号，把别人说的话原封不动的拿过来，放在引号里面
+   - 间接引语 把某一个人所说的话告诉另一个人，不用引号，往往会在引用的话之前，加上 that 这样的词来引导
+   > e.g.
+   >
+   > - The doctor says, "I will come at once."
+   > - The doctor says that he will come at once.
+
+- 反意疑问句 陈述句 + 疑问句，后句与前句语气相反，表示惊讶愤怒或者用来确认自己的判断是不是正确
+   > e.g.
+   >
+   > - She is pretty, isn't she? 她真漂亮，难道不是吗？（她真漂亮啊）
+   > - He is not hard-working, is he? 他学习并不怎么努力，难道不是吗？
+   > - She likes coffee, doesn't he? 她喜欢咖啡，难道不是吗？
 
 # Reference
 
