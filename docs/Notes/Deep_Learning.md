@@ -535,10 +535,34 @@ a3 /= keep_prob
 
 #### 2.1.12 Numerical approximation of gradients
 
-1. 这节课是讲解梯度检验的原理，其实就是导数的定义啦
-2. I'm closing...
-   ![DeepLearning08](../Images/DeepLearning08.jpg)
-   简单地算了下（实际上是画了下）为啥双边误差比单边误差小，至于为啥双边误差是$O(\varepsilon^2)$，单边误差是$O(\varepsilon)$，就想不出来了，暂时先这样，等后期开始复习高数再想想
+使用导数定义近似估计梯度，首先我们看下单边误差
+
+$$
+\begin{aligned}
+& \lim \limits_{\varepsilon \to 0} \frac{\frac{f(\theta + \varepsilon) - f(\theta)}{\varepsilon} - f'(\theta)}{\varepsilon ^k} \\
+=& \lim \limits_{\varepsilon \to 0} \frac{f(\theta + \varepsilon) - f(\theta) - \varepsilon f'(\theta)}{\varepsilon ^{k+1}} \\
+=& \lim \limits_{\varepsilon \to 0} \frac{f'(\theta + \varepsilon) - f'(\theta)}{(k+1)\varepsilon ^k} \\
+=& \lim \limits_{\varepsilon \to 0} \frac{f''(\theta + \varepsilon)}{k(k+1) \varepsilon ^{k-1}}
+\end{aligned}
+$$
+
+故 $k-1 = 0$ 即误差是 $\varepsilon$ 的同阶无穷小
+
+下面看看双边误差
+
+$$
+\begin{aligned}
+& \lim \limits_{\varepsilon \to 0} \frac{\frac{f(\theta + \varepsilon) - f(\theta - \varepsilon)}{2 \varepsilon} - f'(\theta)}{\varepsilon ^k} \\
+=& \lim \limits_{\varepsilon \to 0} \frac{f(\theta + \varepsilon) - f(\theta - \varepsilon) - 2 \varepsilon f'(\theta)}{2 \varepsilon ^{k+1}} \\
+=& \lim \limits_{\varepsilon \to 0} \frac{f'(\theta + \varepsilon) + f'(\theta - \varepsilon) - 2 f'(\theta)}{2 (k+1)\varepsilon ^k} \\
+=& \lim \limits_{\varepsilon \to 0} \frac{f''(\theta + \varepsilon) - f''(\theta - \varepsilon)}{2 k(k+1) \varepsilon ^{k-1}} \\
+=& \lim \limits_{\varepsilon \to 0} \frac{f'''(\theta + \varepsilon) + f'''(\theta - \varepsilon)}{2 (k-1)k(k+1) \varepsilon ^{k-2}}
+\end{aligned}
+$$
+
+故 $k-2 = 0$ 即误差是 $\varepsilon^2$ 的同阶无穷小
+
+也就是说，双边误差比单边误差小，所以我们会用双边误差做梯度检验
 
 #### 2.1.13 Gradient checking
 
