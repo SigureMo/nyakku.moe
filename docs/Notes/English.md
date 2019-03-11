@@ -390,7 +390,7 @@
    > - Jake doesn't like cakes. (Jake 不喜欢吃蛋糕)
    > - No, he doesn't. (**是的**，他确实不喜欢吃蛋糕)
 
-#### Day 014
+### Day 014
 
 - will not 的缩写是 won't
 
@@ -428,6 +428,72 @@
    > - She is pretty, isn't she? 她真漂亮，难道不是吗？（她真漂亮啊）
    > - He is not hard-working, is he? 他学习并不怎么努力，难道不是吗？
    > - She likes coffee, doesn't he? 她喜欢咖啡，难道不是吗？
+
+### Day 015
+
+- 过了，挂了
+   > e.g.
+   >
+   > - pass the English exam
+   > - pass in English
+   > - fail the English exam
+   > - fail the English paper
+
+- enough 足够的
+   > e.g.
+   >
+   > - sth. is easy enough for sb. to do
+   > - sth. is too difficult for sb. to do
+
+- 不定式 to do 作宾语
+   > e.g.
+   >
+   > - Do you want a cup of coffee?
+   > - Do you want to drink a cup of coffee?
+
+- 该两句型否定形式
+   - want sb. to do sth. $\to$ don't want sb. to do sth.
+   - tell sb. to do sth. $\to$ tell sb. not to do sth.
+
+- ...be in 正流行
+   > e.g.
+   >
+   > He's in. 他很潮
+
+- as well 和 too
+   - too
+      - 一般出现在句尾，而且 too 前面经常还有一个逗号
+      - 只能用在肯定句里面 如果否定的话，就要换成 either
+      - 可以紧贴着主语，前后用逗号隔开
+   - as well
+      - 通常也放在句尾（不能紧贴主语）
+      - 一般也只在肯定句中出现
+      - 含义理解起来更多样化
+
+- 形容词最高级前一定要用 the
+   > e.g.
+   >
+   > He is the tallest in our class.
+
+- I have ever seen 我所见过的...，常与最高级一起连用
+   > e.g.
+   >
+   > It is the cleanest street I have ever seen.
+
+- a little/little
+   - a little 肯定
+   - little 否定
+   > e.g.
+   >
+   > - There's a little salt. 有一些盐，偏肯定
+   > - There's little salt. 几乎没有盐，偏否定
+
+- 多和少的比较级、最高级
+
+   ||更多|最多|更少|最少|
+   |---|---|---|---|---|
+   |可数名词|more|the most|fewer|the fewest|
+   |不可数名词|more|the most|less|the least|
 
 # Reference
 
