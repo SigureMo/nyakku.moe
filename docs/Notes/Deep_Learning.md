@@ -1,4 +1,4 @@
-# Deep Learning <Badge text="alpha" type="warn"/> <Badge text="5.1.12"/>
+# Deep Learning <Badge text="alpha" type="warn"/> <Badge text="5.2.5"/>
 
 ## 1 Neural Networks and DeepLearning
 
@@ -2309,6 +2309,74 @@ LSTM 是比 GRU 更早的模型，它比 GRU 更复杂也更灵活，GRU 是对�
 ![DeepLearning72](../Images/DeepLearning72.png)
 
 将每个单元都变成深层，且每一层都与下一个时间步相连接，但是往往这样的连接层只有 3 层，因为有着时间的维度，RNN 会变得相当的大，不过我们可以在输出前建立几层，只不过不在时间步上建立连接
+
+### 5.2 Natural Language Processing and Word Embeddings
+
+#### 5.2.1 Word Representation
+
+我们一直使用 one-hot 向量来表示一个词汇，但是这样显然是不太好用的，因为任何两个词之间的距离都是一样的，比如说，orange 和 apple 与 orange 和 king 之间的距离是一样的，但是我们知道，apple 和 orange 之间的距离应该更小些，因为它们有着很多的相似之处，如何做到这一点呢？
+
+![DeepLearning73](../Images/DeepLearning73.png)
+
+我们可以使用一个向量来表示一个词，比如，第一个维度表示他的性别，第二个维度表示他有多高贵等等……（比如说我们弄了 300 个维度）
+
+很明显，使用这种表示方法的话，orange 和 apple 之间的距离就会相对小些
+
+我们将这样 300 维度的数据使用 t-SNE 算法在二维空间表示出来，就会有下面这样的结果
+
+![DeepLearning74](../Images/DeepLearning74.png)
+
+这样，各个词语之间的关系一目了然，每个词像嵌入在 300 维空间的某个位置，故称其为词嵌入
+
+#### 5.2.2 Using Word Embeddings
+
+如何使用词嵌入呢？这里仍然以命名实体进行举例
+
+首先看普通的 one-hot 向量，比如说这样一个句子： "Sally Johnson is an orange farmer." ，因为我们知道 orange farmer 是人，所以 Sally Johnson 一定就是人名了，再看一个句子 “Robert Lin is a durian cultivator.”，可是我们的词汇表里没这两个词怎么办，这样就没办法了呀
+
+但如果我们使用从其他训练集里训练的词嵌入的话，它很容易知道 durian 和 orange 很相似，cultivator 和 farmer 很相似，这样就很容易训练我们的命名实体模型啦
+
+值得注意的是，我们之所以在这里使用这样的方法是因为我们命名实体的训练集一般比较小，所以我们会考虑这样类似于迁移学习的方法，但如果是语言模型或者机器翻译模型的话，我们一般不太会使用这种方法，因为他们已经有着很多很多的数据了
+
+另外，词嵌入和人脸编码有着点联系，这里的人脸编码是指训练出将人脸转化为特征向量的神经网络，其输出的向量有点类似词嵌入的效果，是将各个编码嵌入到不同的位置……
+
+#### 5.2.3 Properties of Word Embeddings
+
+如果 man 对应 woman 的话，那么 king 对应什么？为什么？
+
+很明显 king 对应 queue ，我们可以知道 $e_{man} - e_{woman} \approx e_{king} - e_{queue}$ 所以我们说 king 对应 queue
+
+所以我们就相当于找一个词 $e_w$ ，使其与 $e_{king} - e_{man} + e_{woman}$ 相似，我们定义他们之间的相似度 $sim(e_w, e_{king} - e_{man} + e_{woman})$
+
+我们通常使用余弦相似度来表示他们之间的相似度
+
+$sim(u, v) = \frac{u^T v}{||u||_2||v||_2}$
+
+或者使用平方距离或者欧式距离来表示
+
+$||u-v||^2$
+
+不过我们更常用的还是余弦相似度
+
+#### 5.2.4 Embedding Matrix
+
+我们的嵌入矩阵 $E$ 应该是这样的， 300 行，每行一个特征， 10000 列，每列一个词语，这样，当我们使用 $E \cdot o_j$ （$o_j$ 表示词语 $j$ 的 one-hot 向量）得到的当然是这个词语的特征向量啦
+
+不过，我们实际操作的时候不会这样乘，因为这样会浪费大量运算（与 0 相乘）
+
+#### 5.2.5 Learning Word Embeddings
+
+那么我们要如何学习这样一个词嵌入的矩阵呢？
+
+我们有一个句子 "I want a glass of orange \_\_\_\_"
+
+![DeepLearning75](../Images/DeepLearning75.png)
+
+我们通过嵌入矩阵 E 将他们转化为特征向量，然后我们将他们喂入一个 Softmax 层，用来预测最后一个词的 one-hot 向量
+
+在训练的过程中，嵌入矩阵 E 是被不断优化的，最终就会得到我们想要的嵌入矩阵
+
+另外，我们并不是将整个句子都喂入神经网络，通常我们只喂入一部分，称其为 context ，context 的选定就是个超参数了，比如说选定前面四个、前后各四个等等，更好的选定方法见下一节
 
 # Amendant Record
 
