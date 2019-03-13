@@ -577,6 +577,66 @@
    -  younger sister 妹妹
    -  younger brother 弟弟
 
+### Day 017
+
+-  no + 名词： 表示所知的东西全然没有 $\to$ 强调
+
+   > e.g.
+   >
+   > -  I haven't got any brothers or sisters.
+   > -  I have got no brothers or sisters.
+
+-  none 用于指人或物，可与 of 短语连用，用作单数或复数
+
+   > e.g.
+   >
+   > None of them have/has arrived.
+
+-  当有人说了一句否定意义的话，其否定的内容也适用于你或者另外的人/事物，可使用倒装句。（注意主语和动词的顺序）
+
+   > e.g.
+   >
+   > Jimmy: I can't swim.
+   > Helen： Neither can I.
+
+-  当有人说了一句肯定意义的话，其肯定的内容也适用于你或者另外的人或事物，可以使用倒装句型
+
+   > e.g.
+   >
+   > Helen: I have got some English story books.
+   > Jimmy: So have I.
+
+-  前面出现否定词 not ，后面就用 nothing
+
+   > e.g.
+   >
+   > I didn't buy anything. $\to$ I bought nothing.
+
+-  过去进行时 过去某个时刻正在发生什么
+
+   -  be doing $\to$ was/were doing
+
+-  过去完成时 过去的某个时刻，该动作已经发生了
+
+   -  have 过去式 $\to$ had + 过去式
+
+-  when 和 while
+
+   -  when 表示在某某个时间点或某一段时间， while 仅指某一段时间
+
+-  forget: forget to do sth. / forget doing sth.
+
+   > e.g.
+   >
+   > forget to do sth. 某事还没有做，给不小心忘了
+   > forget doing sth. 做了某事，但忘记曾经做过
+
+-  定语从句
+   > e.g.
+   >
+   > -  She is the girl. She met me yesterday.
+   > -  She is the girl who met me yesterday.
+
 # Reference
 
 1. 沪江网校新概念英语
