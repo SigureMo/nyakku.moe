@@ -1,4 +1,4 @@
-# Computer Network <Badge text="alpha" type="warn"/> <Badge text="8.4.0"/>
+# Computer Network <Badge text="beta" type="tip"/> <Badge text="8.4.0"/>
 
 ## 1 概述
 
