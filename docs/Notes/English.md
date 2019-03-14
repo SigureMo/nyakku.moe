@@ -1,4 +1,4 @@
-# English <Badge text="alpha" type="warn"/> <Badge text="014"/>
+# English <Badge text="alpha" type="warn"/> <Badge text="018"/>
 
 > Escape can not solve the problem。
 
@@ -636,6 +636,68 @@
    >
    > -  She is the girl. She met me yesterday.
    > -  She is the girl who met me yesterday.
+
+### Day 018
+
+-  during + 一段时间
+
+   > e.g.
+   >
+   > I only saw her once during my stay in Rome.
+
+-  在限制性定语从句中，如果关系代词在从句中做宾语，那么这个关系代词经常可以省略
+
+   > e.g.
+   >
+   > -  ... photograph (that) I took...
+   > -  ... people (whom/that) I met...
+
+-  must 的否定不是 mustn't! 要使用 don't need 或者 needn't 再或者 don't have to
+
+-  must be 、 can't be 表示推测
+
+-  at least 至少
+
+-  that 作副词出现，表程度
+
+   > e.g.
+   >
+   > She's not that tall.
+
+-  want sb. to do sth. 想让某人做某事，希望某人做某事
+
+   > e.g.
+   >
+   > I want my teacher to help me with my English.
+
+-  插入语 表示征求别人的意见或看法
+
+   > e.g.
+   >
+   > -  This pair of shoes, I think, is nice.
+   > -  I think, this pair of shoes is nice.
+   > -  Where are you? $\to$ Where do you think you are?
+   > -  Who is singing? $\to$ Who do you thin is singing?
+
+   -  常用插入语
+      -  I think 我认为
+      -  I'm afraid 恐怕
+      -  to be honest 老实说
+      -  by the way 顺便
+      -  most important of all 最重要的是
+
+-  对过去情况的推测 must have been... 、 can't have been...
+
+-  that's why 所以……
+
+   > e.g.
+   >
+   > -  The soup is so salty.
+   > -  That's why I didn't have it.
+
+-  take sb.'s advice 采取某人的建议，听取某人的劝告
+
+-  had better 最好，后接动词原形
 
 # Reference
 
