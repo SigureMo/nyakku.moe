@@ -699,6 +699,17 @@
 
 -  had better 最好，后接动词原形
 
+### Day 019
+
+-  有关可能性的表达 may might
+
+-  for a long time / long 表示很长一段时间
+
+   -  for a long time 肯定句
+   -  long 否定句、疑问句
+
+-  条件从句 主将从现，当主是情态动词的时候也是现
+
 # Reference
 
 1. 沪江网校新概念英语
