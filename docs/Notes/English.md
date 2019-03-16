@@ -1,4 +1,4 @@
-# English <Badge text="alpha" type="warn"/> <Badge text="018"/>
+# English <Badge text="alpha" type="warn"/> <Badge text="020"/>
 
 > Escape can not solve the problem。
 
@@ -709,6 +709,37 @@
    -  long 否定句、疑问句
 
 -  条件从句 主将从现，当主是情态动词的时候也是现
+
+### Day 020
+
+-  by the way （BTW） 顺带说一句…… 可转移新话题
+
+-  宾语从句 后跟陈述语序
+
+   > e.g.
+   >
+   > -  I want to know if you are tired. 我想知道你**是否**累了 （这里的 if = whether）
+   > -  Tell me why you are tired. 告诉我你为什么累了
+
+-  被动语态
+
+   相应的 be 动词 + 过去分词 （+ by sb.）
+
+-  -ed 和 -ing 结尾形容词的区别
+
+   -  -ed 结尾：描述人
+   -  -ing 结尾：描述事情、事物
+      -  embarrassed embarrassing
+      -  amused amusing
+      -  excited exciting
+         > e.g.
+         >
+         > I was excited when I heard the exciting news.
+
+-  主语从句
+   > e.g.
+   >
+   > What I saw made me very sad.
 
 # Reference
 
