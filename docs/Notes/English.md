@@ -1,4 +1,4 @@
-# English <Badge text="alpha" type="warn"/> <Badge text="020"/>
+# English <Badge text="alpha" type="warn"/> <Badge text="021"/>
 
 > Escape can not solve the problem。
 
@@ -708,7 +708,7 @@
    -  for a long time 肯定句
    -  long 否定句、疑问句
 
--  条件从句 主将从现，当主是情态动词的时候也是现
+-  条件状语从句 主将从现，当主是情态动词的时候也是现
 
 ### Day 020
 
@@ -740,6 +740,30 @@
    > e.g.
    >
    > What I saw made me very sad.
+
+### Day 021
+
+-  do sth. by oneself 某一个人自己做某事
+
+   > e.g.
+   >
+   > I finished the task all by myself.
+
+-  同意 / 不同意 他人的观点
+
+   -  I think so./ I don't think so.
+   -  I agree with you./ I don't agree you.
+
+-  that 用作副词表程度，那么
+
+   > e.g.
+   >
+   > -  I'm not that tall.
+   > -  She's not that fat.
+
+-  be dressed in 表示穿上，穿戴上
+
+-  go for a walk 出去散步，出去散心
 
 # Reference
 
