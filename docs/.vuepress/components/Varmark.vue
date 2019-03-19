@@ -9,7 +9,6 @@
 const config = require("../config.js");
 const md = require("markdown-it")()
   .use(require("markdown-it-emoji"))
-  .use(require("markdown-it-table-of-contents"))
   .use(require("markdown-it-anchor"));
 config.markdown.extendMarkdown(md);
 
