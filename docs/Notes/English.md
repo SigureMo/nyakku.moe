@@ -1,6 +1,6 @@
-# English <Badge text="alpha" type="warn"/> <Badge text="021"/>
+# English <Badge text="alpha" type="warn"/> <Badge text="022"/>
 
-> Escape can not solve the problem。
+> Escape can not solve any problem。
 
 ## Day-to-day
 
@@ -764,6 +764,41 @@
 -  be dressed in 表示穿上，穿戴上
 
 -  go for a walk 出去散步，出去散心
+
+### Day 022
+
+-  What + a/an + (adj.) n. 由 what 引导的感叹句
+
+   > e.g.
+   >
+   > What a day!
+
+-  现在进行时
+
+   -  表示正在进行的动作或状态
+      > e.g.
+      >
+      > It's rainning again.
+   -  表示近期计划或安排要进行的动作
+      > e.g.
+      >
+      > I'm coming to see you.
+
+-  一些表示人的名词加 -ly 构成形容词而不是副词
+
+   > e.g.
+   >
+   > friendly manly womanly brotherly sisterly wifely husbandly
+
+-  whole 和 all
+
+   -  whole 一般指一个整体
+      > e.g. the whole class 整个班
+   -  all 则着重指所有的
+      > e.g. all the student 全体同学
+
+-  现在完成时的标志词
+   -  just 、 already 、 recently 、so far 、yet 、 since 、 etc.
 
 # Reference
 
