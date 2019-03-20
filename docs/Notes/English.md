@@ -1,4 +1,4 @@
-# English <Badge text="alpha" type="warn"/> <Badge text="022"/>
+# English <Badge text="alpha" type="warn"/> <Badge text="023"/>
 
 > Escape can not solve any problem。
 
@@ -712,8 +712,6 @@
 
 ### Day 020
 
--  by the way （BTW） 顺带说一句…… 可转移新话题
-
 -  宾语从句 后跟陈述语序
 
    > e.g.
@@ -798,7 +796,62 @@
       > e.g. all the student 全体同学
 
 -  现在完成时的标志词
-   -  just 、 already 、 recently 、so far 、yet 、 since 、 etc.
+   -  just 、 already 、 recently 、so far 、yet 、 since 、up to now（到现在为止） etc.
+
+### Day 023
+
+-  from a distance 从远处看
+
+-  way 的几种用法
+
+   -  in one's way 挡住某人的去路
+   -  on one's way 在去...的路上
+   -  by the way (BTW) 顺便说一下、顺便插一句嘴
+   -  In this way = by this means/method 用这种方法
+
+-  how long & how far
+
+   -  how far 两地间距离提问
+   -  how long 物体或者时间的长短
+
+-  other & another
+
+   -  other 两者中的一个
+   -  another 多者中的一个
+
+-  call 的用法
+
+   -  call sb. + name 叫做...、称呼某人为...
+   -  give sb. a call 给某人打电话
+   -  call at + someplace 拜访
+   -  the call of nature 需要上洗手间
+
+-  ask 的用法
+
+   -  ask (sb.) for sth. 向某人索要某物
+   -  ask sb. to do sth. 让某人做某事
+
+-  in return for 作为回报
+
+-  什么时候用 the ？
+
+   -  the + 最高级
+   -  the + 序数词
+   -  the + 复述上文提到的
+   -  the + 形容词
+   -  the + 复数姓氏
+   -  the + 江河湖海岛峡湾
+   -  the + 乐器
+   -  the + 谈话双方都知道的内容
+   -  the + 世界上独一无二的事物
+
+-  while 引导的动作与主句的动作同时进行，前后都用进行时态 when 不可以
+
+   > e.g.
+   >
+   > Some students were singing while others were dancing.
+
+-  be full of sth. = be filled with sth. 用...充满
 
 # Reference
 
