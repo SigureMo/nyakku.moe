@@ -1,4 +1,4 @@
-# English <Badge text="alpha" type="warn"/> <Badge text="023"/>
+# English <Badge text="alpha" type="warn"/> <Badge text="024"/>
 
 > Escape can not solve any problem。
 
@@ -852,6 +852,70 @@
    > Some students were singing while others were dancing.
 
 -  be full of sth. = be filled with sth. 用...充满
+
+#### Day 024
+
+-  enter 用法
+
+   -  enter someplace 进入某处
+      > e.g.
+      >
+      > He entered the building by the back door.
+   -  enter for 报名参加
+      > e.g.
+      >
+      > To pratice your coal English, you'd better enter for the speech competition.
+
+-  neat and tidy 干净整洁
+
+   > e.g. Can't you keep you desk neat and tidy?
+
+-  -en 跟在一些物质名词之后构成形容词，表示“材料”或“质地”
+
+   > e.g. wooden golden earhen woolen
+
+-  interesting 和 be interested in
+
+   -  interesing 某人、某事有趣
+   -  be interested in 某人对某事感兴趣
+
+-  hardly 几乎不
+
+-  比较级最高级
+
+   -  一些不规则的变化
+      -  good / well - better, best
+      -  bad / badly - worse, worst
+      -  far / farther / futher
+   -  如果要把比较的两个项目都提到，要在比较级后加 than
+   -  比较级的特殊用法
+      -  双重比较，表示持续不断的变化，越来越...
+         > e.g.
+         >
+         > -  Your English is getting better and better.
+         > -  It's becoming more and more difficult to find a job.
+      -  越...就越...: the + 比较级
+         > e.g.
+         >
+         > The younger you are, the easler it is so learn.
+
+-  nearly 可以用 almost 来代替
+
+   almost 和 nearly 都可以用在 all、every 和 everybody 这类词前，，但是在 any、no、nobody、never、nothing 前一般用 almost 而不用 nearly
+
+   > e.g.
+   >
+   > Almost no one came to the party.
+
+-  each & evary
+
+   -  each 强调单个的
+   -  every 强调总和
+
+-  as ... as ... 表比较
+   > e.g.
+   >
+   > ... is not as large as Bill Frith's
 
 # Reference
 
