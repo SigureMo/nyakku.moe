@@ -1,4 +1,4 @@
-# English <Badge text="alpha" type="warn"/> <Badge text="024"/>
+# English <Badge text="alpha" type="warn"/> <Badge text="025"/>
 
 > Escape can not solve any problem。
 
@@ -916,6 +916,35 @@
    > e.g.
    >
    > ... is not as large as Bill Frith's
+
+#### Day 025
+
+-  crowd & group
+
+   -  a crowd of people 无序
+   -  a group of people 有序
+
+-  a corwd of = crowds of 类似于 a lot of = lots of
+
+-  refer to 指的是...
+
+-  at & on & in
+
+   -  at 和一天之内的某个时间连用
+   -  on 和星期几、几月几日连用，具体到某一天
+   -  in 和表达较长的时间的词语连用
+
+-  v. and v. 同一个动词，同样的形式，表示该动作的重复
+
+   > e.g.
+   >
+   > -  waited and waited 等啊等
+   > -  walked and walked 走啊走
+   > -  cried and cried 一直哭
+
+-  moment
+   -  at that moment 在那一刻
+   -  at the moment = now 此时此刻
 
 # Reference
 
