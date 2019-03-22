@@ -154,3 +154,7 @@ tools/
 
 # .vscode
 /.vscode/
+
+# vb
+MSSCCPRJ.SCC
+*.vbw
