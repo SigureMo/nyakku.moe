@@ -23,7 +23,7 @@ def parse(url):
         '0': {'str': '', 'parse_func': parse_xxx},
         '1': {'str': 'doc', 'parse_func': parse_doc},
         '2': {'str': 'xls', 'parse_func': parse_xxx},
-        '3': {'str': 'ppt', 'parse_func': parse_xxx},
+        '3': {'str': 'ppt', 'parse_func': parse_ppt},
         '4': {'str': 'docx', 'parse_func': parse_xxx},
         '5': {'str': 'xlsx', 'parse_func': parse_xxx},
         '6': {'str': 'pptx', 'parse_func': parse_ppt},
