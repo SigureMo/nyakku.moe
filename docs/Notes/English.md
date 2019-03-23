@@ -1,4 +1,4 @@
-# English <Badge text="alpha" type="warn"/> <Badge text="025"/>
+# English <Badge text="alpha" type="warn"/> <Badge text="026"/>
 
 > Escape can not solve any problem。
 
@@ -945,6 +945,56 @@
 -  moment
    -  at that moment 在那一刻
    -  at the moment = now 此时此刻
+
+### Day 026
+
+-  made 用法
+
+   -  be made in sp. 产地
+      > e.g.
+      >
+      > Made in China
+   -  be made of 用某种材料（看得出原料）
+      > e.g.
+      >
+      > The ring is made of silver.
+   -  be made from 用多种原料制成
+      > e.g.
+      >
+      > This cake was made from sugar, flour, butter and eggs.
+   -  be made by + 制作人
+
+-  turn 的用法
+
+   -  It's sb. is turn (to do sth.) 轮到某人做某事
+
+      > e.g.
+      >
+      > It's your turn to drive Lisa to school.
+
+   -  take turns to do sth.
+      > e.g.
+      >
+      > We all took turns to give a speech.
+
+-  立刻的几种表达
+
+   -  immediately
+   -  right away
+   -  at once
+   -  in no time
+
+-  to one's surprise 令某人惊讶
+
+-  pay 与 cost
+
+   -  pay 人做主语，支付
+   -  cost 物做主语，花费
+
+-  other & another & extra
+   -  other 两者中的另一个
+   -  another 多者中的另一个
+   -  extra 另外的，附加的
 
 # Reference
 
