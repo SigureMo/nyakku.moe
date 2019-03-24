@@ -25,6 +25,8 @@ Attribute VB_PredeclaredId = True
 Attribute VB_Exposed = False
 Dim cnt%
 
+' https://github.com/SigureMo/notev/tree/master/Codes/VB
+
 Private Sub Command1_Click()
     
     Dim w%, h%, r%, a!, Color
@@ -33,6 +35,7 @@ Private Sub Command1_Click()
     r = 1000 '×ÔÐÐÐÞ¸Ä Radius
     a = Sqr(2) * r
     Form1.Caption = "Canvas"
+    Randomize
     
     If cnt Mod 3 = 0 Then
         Command1.Caption = "Draw a rectangle!"
