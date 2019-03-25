@@ -417,6 +417,8 @@
 
 ### 2.3 进程同步
 
+[本章节 Python 实现](https://github.com/SigureMo/notev/tree/master/Codes/OS/process_sync)
+
 #### 2.3.1 进程同步的基本概念
 
 -  两种形式的制约关系
@@ -512,6 +514,8 @@
    -  `Swait(S, 1, 1)` 一般的记录型信号量
    -  `Swait(S, 1, 0)` $S \geq 1$ 时，允许多个进程进入特定区， $S = 0$ 时，将阻止任何进程进入特定区
 
+   > 有个细节需要注意下，就是 `Swait` 结束后被唤醒并不能直接进入临界区，还需要重新尝试请求资源，因为这个时候并不能保证所有资源都就绪，而 `wait` 只需要一个资源，这就保证了被唤醒后资源一定全部就绪，所以可以直接进入临界区
+
 #### 2.3.4 信号量的应用
 
 -  使用信号量实现互斥
@@ -536,12 +540,14 @@
 
 #### 2.4.1 生产者-消费者问题
 
+[PC.py](https://github.com/SigureMo/notev/blob/master/Codes/OS/process_sync/PC.py)
+
 -  使用记录型信号量解决该问题
 
    -  生产者先后使用 `wait(empty)` `wait(mutex)` `signal(mutex)` `signal(full)`
    -  消费者先后使用 `wait(full)` `wait(mutex)` `signal(mutex)` `signal(empty)`
 
-   由于是使用多个资源，容易出现死锁
+   > 注意 `wait` 的先后顺序，如果 `wait(mutex)` `wait(empty)` 可以想象下满了或者空的情况，会出现死锁……
 
 -  利用 AND 信号量解决该问题
 
@@ -554,7 +560,14 @@
 
    定义好管程内要做的，生产者用 `PC.put(x)`， 消费者用 `PC.get(x)` 即可
 
+> 一些变体
+>
+> -  缓冲区无限大，那么我们就不需要 `wait(empty)` `signal(empty)` 了
+> -  生产者生产者互斥、消费者消费者互斥，但生产者消费者不互斥，我们只需要设两个互斥信号量即可
+
 #### 2.4.2 哲学家进餐问题
+
+[The_Dining_Philosophers.py](https://github.com/SigureMo/notev/blob/master/Codes/OS/process_sync/The_Dining_Philosophers.py)
 
 -  利用记录型信号量解决该问题
 
@@ -566,11 +579,33 @@
 
 #### 2.4.3 读者-写者问题
 
+[Writer_and_Reader.py](https://github.com/SigureMo/notev/blob/master/Codes/OS/process_sync/Writer_and_Reader.py)
+
 需要注意的是，当一个 Writer 进程在写的时候，不允许任何 Reader 进程和 Writer 进程访问该对象
+
+但是要怎么实现呢？
+
+-  写者的话，直接用一个互斥信号量 `wmutex` 就好了
+-  读者需要考虑的比较多
+   -  首先，读者之间是不互斥的，我们是要解决读者使写者不能读的问题，所以当读者在读的时候， `wait(wmutex)`
+   -  但是，如果直接 `wait(wmutex)` 的话，所有“者”都互斥了，可是多个读者是可以同时读的
+   -  我们判断下是否已经有人在读了，当无人在读的情况下也就是第一个读者才 `wait(wmutex)`，相应地，最后一个读者才 `signal(wmutex)`
+   -  为了判断读者数量，额外引进了一个变量，这个变量会成为临界资源，所以需要使用 `rmutex` 包裹，以保证读者读写该变量时互斥
+
+另外，可以利用信号量集以更巧妙的方法实现（注意 `Swait(S, 1, 0)`，只检查资源，不消耗）
+
+[Writer_and_Reader.py](https://github.com/SigureMo/notev/blob/master/Codes/OS/process_sync/Writer_and_Reader_SemSet.py)
+
+#### 2.4.4 其他问题（习题）
+
+-  [购物问题 Shopping.py](https://github.com/SigureMo/notev/blob/master/Codes/OS/process_sync/Shopping.py)
+-  [进程同步 Processes.py](https://github.com/SigureMo/notev/blob/master/Codes/OS/process_sync/Processes.py)
+-  [独木桥问题 Single-plank_Bridge.py](https://github.com/SigureMo/notev/blob/master/Codes/OS/process_sync/Single-plank_Bridge.py)
 
 # Amendant Record
 
 1. 190311 #1 Finished
+2. 190326 [process_sync](https://github.com/SigureMo/notev/tree/master/Codes/OS/process_sync) Finished
 
 # Reference
 
