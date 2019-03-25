@@ -417,7 +417,7 @@
 
 ### 2.3 进程同步
 
-[本章节 Python 实现](https://github.com/SigureMo/notev/blob/Codes/OS/process_sync/)
+[本章节 Python 实现](https://github.com/SigureMo/notev/tree/master/Codes/OS/process_sync)
 
 #### 2.3.1 进程同步的基本概念
 
@@ -538,7 +538,7 @@
 
 #### 2.4.1 生产者-消费者问题
 
-[PC.py](https://github.com/SigureMo/notev/blob/Codes/OS/process_sync/PC.py)
+[PC.py](https://github.com/SigureMo/notev/blob/master/Codes/OS/process_sync/PC.py)
 
 -  使用记录型信号量解决该问题
 
@@ -565,7 +565,7 @@
 
 #### 2.4.2 哲学家进餐问题
 
-[The_Dining_Philosophers.py](https://github.com/SigureMo/notev/blob/Codes/OS/process_sync/The_Dining_Philosophers.py)
+[The_Dining_Philosophers.py](https://github.com/SigureMo/notev/blob/master/Codes/OS/process_sync/The_Dining_Philosophers.py)
 
 -  利用记录型信号量解决该问题
 
@@ -577,7 +577,7 @@
 
 #### 2.4.3 读者-写者问题
 
-[Writer_and_Reader.py](https://github.com/SigureMo/notev/blob/Codes/OS/process_sync/Writer_and_Reader.py)
+[Writer_and_Reader.py](https://github.com/SigureMo/notev/blob/master/Codes/OS/process_sync/Writer_and_Reader.py)
 
 需要注意的是，当一个 Writer 进程在写的时候，不允许任何 Reader 进程和 Writer 进程访问该对象
 
@@ -592,14 +592,14 @@
 
 #### 2.4.4 其他问题（习题）
 
--  [购物问题 Shopping.py](https://github.com/SigureMo/notev/blob/Codes/OS/process_sync/Shopping.py)
--  [进程同步 Process.py](https://github.com/SigureMo/notev/blob/Codes/OS/process_sync/Process.py)
--  [独木桥问题 Single-plank_Bridge.py](https://github.com/SigureMo/notev/blob/Codes/OS/process_sync/Single-plank_Bridge.py)
+-  [购物问题 Shopping.py](https://github.com/SigureMo/notev/blob/master/Codes/OS/process_sync/Shopping.py)
+-  [进程同步 Processes.py](https://github.com/SigureMo/notev/blob/master/Codes/OS/process_sync/Processes.py)
+-  [独木桥问题 Single-plank_Bridge.py](https://github.com/SigureMo/notev/blob/master/Codes/OS/process_sync/Single-plank_Bridge.py)
 
 # Amendant Record
 
 1. 190311 #1 Finished
-2. 190326 [process_sync](https://github.com/SigureMo/notev/blob/Codes/OS/process_sync/) Finished
+2. 190326 [process_sync](https://github.com/SigureMo/notev/tree/master/Codes/OS/process_sync) Finished
 
 # Reference
 
