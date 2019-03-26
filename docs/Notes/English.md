@@ -1,4 +1,4 @@
-# English <Badge text="alpha" type="warn"/> <Badge text="026"/>
+# English <Badge text="alpha" type="warn"/> <Badge text="027"/>
 
 > Escape can not solve any problem。
 
@@ -995,6 +995,33 @@
    -  other 两者中的另一个
    -  another 多者中的另一个
    -  extra 另外的，附加的
+
+### Day 027
+
+-  at present = now
+
+-  visit = make a visit to
+
+-  as soon as
+
+   -  一……就…… 一个动作紧随另一个动作发生，几乎是连在一起发生的
+
+      > e.g.
+      >
+      > As soon as I had received the letter, I called him back.
+
+   -  引导时间状语从句，遇到将来时，要变一般时
+      > e.g.
+      >
+      > As soon as you arrive there, send me a message!
+
+-  apart from & except & except for 把...排除在外，不计
+   -  except 从一个整体里排除某件事物
+      > e.g. I invite everyone except John.
+   -  except for 从某些不同类的事物中排除某项
+      > e.g. Your composition is good except for some spelling mistakes.
+   -  besides 除已有的以外，除了已包含的以外
+      > Will there be anyone else we know at the party besides Will and Janet?
 
 # Reference
 
