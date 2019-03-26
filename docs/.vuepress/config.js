@@ -62,6 +62,7 @@ module.exports = {
       ],
       "/Discovery/": [
         "",
+        "08_Synchronization",
         "07_Cmder",
         "06_Harddisk",
         "05_Gitmoji",
