@@ -1,4 +1,4 @@
-# Mathematical Modeling <Badge text="alpha" type="warn"/> <Badge text="1.4.2"/>
+# Mathematical Modeling <Badge text="alpha" type="warn"/> <Badge text="4.2.0"/>
 
 ## Part 1 案例部分
 
@@ -512,6 +512,66 @@ $v = u ln \left(\frac{m_0}{m_p + \lambda m_1 + m_2 + \cdots + m_n} \cdot \frac{m
 下，求 $m_0$ 的最小值或 $\frac{m_0}{m_p}$ 的最小值
 
 然后经过一系列操作……可以知道三级火箭最优:joy:
+
+## 4 投资优化策略
+
+### 4.1 背景
+
+马科维兹均值-方差模型诞生前夜，占据主导地位的理论是净现值决策与投资分散化理论，但是这两种理论其实是相互矛盾的
+
+-  净现值理论
+
+   针对单一投资品种，将多期收益转化到当前收益的定量模型，并没有考虑风险
+
+   假设某资产未来第 $t$ 年的预期收益为 $d_i$ ，其投资收益的净现值为
+
+   $$
+   V_0 = \sum_{t=1}^\infty d_t (\frac{1}{1+i})^t
+   $$
+
+   其中 $i$ —— 年利率， $\frac{1}{1+i}$ —— 贴现率
+
+-  投资分散化理论
+
+   针对多个投资品种，“定性地”知道通过分散投资来规避风险
+
+### 4.2 马科维兹均值-方差模型
+
+将投资组合的收益当做随机变量来看，用其期望值衡量投资组合的预期收益，用其方差衡量投资组合的风险
+
+我们可以尝试用该模型来推演下投资分散化理论
+
+假设有两种资产的收益率分别为 $X$ 与 $Y$，其方差分别为 $Var(X)$ 和 $Var(Y)$ ，投资比例为 $x$ 和 $1-x$ ，投资组合的收益为 $Z = xX + (1-x)Y$，那么其风险就是 $Var(Z) = x^2 Var(X) + (1-x)^2 Var(Y) + 2x(1-x)\rho_{XY}(Var(X)Var(Y))^{1/2}$ ，可以证明该值比 $Var(X)$ 和 $Var(Y)$ 都低
+
+如果我们有最近 $T$ 年的 $A,B,C$ 三种股票的收益数据，我们预期年收益率至少达到 15%
+要如何投资呢？
+
+我们将三种股票的收益率分别表示为 $R_1,R_2, R_3$ 分别投资比例为 $x_i, x_2, x_3$ ，那么投资组合的收益率就是 $R=x_1 R_1 + x_2 R_2 + x_3 R_3$
+
+决策目标为 $min Var(R)$
+
+约束条件为
+
+-  $ER \geq 15\%$
+-  $x_1+x_2+x_3 = 1$
+-  $x_1,x_2,x_3 \geq 0$
+
+我们令 $\mu_i = ER_i, \sigma_{ij} = cov(R_i, R_j)$
+
+则 $ER = \mu_1 x_1 + \mu_2 x_2 + \mu_3 x_3$
+
+$Var(R) = \cdots = \sum_{i=1}^3 \sum_{j=1}^3 \sigma_{ij}x_i x_j = \mathbf{x^T}(\mathbf{COV})\mathbf{x}$
+
+$$
+\begin{aligned}
+min & \sum_{i=1}^3 \sum_{j=1}^3 \sigma_{ij}x_i x_j \\
+s.t. & \mu_1 x_1 + \mu_2 x_2 + \mu_3 x_3 \geq 0.15 \\
+ & x_1 + x_2 + x_3 = 1 \\
+ & x_1, x_2, x_3 \geq 0
+\end{aligned}
+$$
+
+这就变成了一个可求解的参数估计问题
 
 # Amendant Record
 
