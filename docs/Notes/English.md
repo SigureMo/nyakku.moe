@@ -1,4 +1,4 @@
-# English <Badge text="alpha" type="warn"/> <Badge text="027"/>
+# English <Badge text="alpha" type="warn"/> <Badge text="028"/>
 
 > Escape can not solve any problem。
 
@@ -1022,6 +1022,39 @@
       > e.g. Your composition is good except for some spelling mistakes.
    -  besides 除已有的以外，除了已包含的以外
       > Will there be anyone else we know at the party besides Will and Janet?
+
+### Day 028
+
+-  so & such
+
+   -  so + adj./adv.
+      > e.g. The girl over there is so hot!
+   -  such + adj. + n.
+      > e.g. such a big house.
+
+-  note 相关用法
+
+   -  make a note of sth. 记下某事
+   -  make/take notes 做笔记
+   -  take note of 注意到，留意
+
+-  area & region & distrct
+
+   -  area 表示“某一部分”最常用的词；所值范围可大可小
+   -  region 常指较大的地方；一般指国家的一部分
+   -  distict 范围比 region 小，通常指固定划分出来的一片特定区域
+
+-  pay attention to & take care of
+
+   -  pay attention to 关注...
+   -  take care of 照顾...
+
+-  remind & remember
+
+   -  remind 提醒 remind sb. to do sth.
+   -  remember 记得 remember sb. to do sth.
+
+-  cannot fail to （双重否定）你一定会遵守！
 
 # Reference
 
