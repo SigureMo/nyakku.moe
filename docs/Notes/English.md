@@ -1,4 +1,4 @@
-# English <Badge text="alpha" type="warn"/> <Badge text="028"/>
+# English <Badge text="alpha" type="warn"/> <Badge text="029"/>
 
 > Escape can not solve any problem。
 
@@ -1055,6 +1055,77 @@
    -  remember 记得 remember sb. to do sth.
 
 -  cannot fail to （双重否定）你一定会遵守！
+
+### Day 029
+
+-  渐渐地、一步步一步地
+
+   -  stage by stage
+   -  step by step
+   -  gradually
+
+-  instead of ...而不是...
+
+   > e.g.
+   >
+   > Men usually wear socks instead of stockings.
+
+-  must
+
+   -  必要性 必须、应该、一定要
+   -  表示推测
+
+   > 过去式 had to
+   > 将来式 will/shall have to
+
+-  must & have to
+
+   -  must 主观看法；强烈意愿
+   -  have to 客观必要，不得不
+
+-  肯定推测 must be / 否定推测 can't be
+
+-  have 作为助动词的时候直接加 not 否定，作为实意动词的时候用 don't 否定
+
+-  have got & have
+
+   -  I've got sth. = I have sth.
+   -  haven't got = don't have
+
+   > 可以互换的前提
+   >
+   > -  拥有，具有
+   > -  得病
+   > -  have to = have got to（多见于一般现在时）
+
+-  动名词的特点
+   -  构成 动词 + ing 意义上相当于名词，也保留动词的特征，有宾语、时态及语态的变化
+   -  用法
+      -  作主语
+         > e.g. Talking mends no holes.
+         -  动名词做主语，谓语动词用单数
+      -  作表语
+         > e.g. His hobby is painting.
+         -  一般表示比较抽象的习惯性动作
+      -  作宾语
+         > e.g. The rain prevented us from going out.
+         -  可以做介词的宾语 without、before、after...
+         -  也可以做动词的宾语
+            -  一些后跟动名词作宾语的词
+               avoid、imagine、mind、engoy、keep、can't help doing、finish
+            -  跟在某些固定词组后作宾语
+               -  be used to 习惯于
+               -  be proud of 为 ... 自豪
+               -  be good at 擅长
+               -  be interested in 对 ... 感兴趣
+               -  devote ... to 把 ... 贡献给
+               -  keep ... from 避免
+               -  insist on 坚持
+               -  set about 动手去做
+            -  动名词和不定式都可以做宾语，但意义大不相同
+               -  -ing 动作已经发生
+               -  to do 动作尚未发生
+                  > e.g. remember、forget、regret、try、mean、go on、stop
 
 # Reference
 
