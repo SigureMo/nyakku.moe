@@ -16,59 +16,52 @@ from utils.primitive import *
 from utils.process import Process, all_start
 
 N = 100
-full = Semaphore(0) # Range [-1, N]
 empty = Semaphore(N) # Range [-1, N]
 in_ = Semaphore(1) # Range [-N+1, 1]
 out = Semaphore(1) # Range [-N+1, 1]
 customers = []
 
-class Customer():
+class Customer(Process):
 
-    def __init__(self):
-        self.num = '{:5d}'.format(random.randint(0, 99999))
-
-    def __str__(self):
-        return "Customer" + self.num
-
-class Enter(Process):
-    """ 仅指进入动作， 不指入口实体，下同"""
-    def __init__(self):
+    def __init__(self, num):
+        self.num = num
         super().__init__()
+
+    def walk(self):
+        time.sleep(random.randint(0, 50))
+
+    def enter(self):
+        wait(self, empty)
+        wait(self, in_)
+
+        print("in：%s" % self.num)
+        time.sleep(random.randint(0, 1000) / 1000)
+
+        signal(self, in_)
+
+    def shopping(self):
+        customers.append(self.num)
+        print("shopping：%s" % self.num)
+        print("Empty %s" % empty.value)
+        print("shopping_num %s" % len(customers))
+        time.sleep(random.randint(0, 100))
+        customers.pop(customers.index(self.num))
+
+    def exit(self):
+        wait(self, out)
+
+        print("out：%s" % self.num)
+        time.sleep(random.randint(0, 1000) / 1000)
+
+        signal(self, out)
+        signal(self, empty)
 
     def run(self):
         while True:
-            # print(list(map(lambda x:str(x), customers)))
-            print(in_.value, out.value, empty.value, full.value)
-            wait(self, empty)
-            wait(self, in_)
+            self.walk()
+            self.enter()
+            self.shopping()
+            self.exit()
+            self.walk()
 
-            customer = Customer()
-            customers.append(customer)
-            print("%s is shopping..." % customer)
-
-            signal(self, full)
-            signal(self, in_)
-
-            time.sleep(random.randint(0, 1000) / 1000)
-
-class Exit(Process):
-    def __init__(self):
-        super().__init__()
-
-    def run(self):
-        while True:
-            # print(list(map(lambda x:str(x), customers)))
-            print(in_.value, out.value, empty.value, full.value)
-            wait(self, full)
-            wait(self, out)
-
-            index = random.randint(0, len(customers)-1)
-            customer = customers.pop(index)
-            print("%s was exited." % customer)
-
-            signal(self, empty)
-            signal(self, out)
-
-            time.sleep(random.randint(0, 1000) / 1000)
-
-all_start(Enter(), Exit())
+all_start(*[Customer(i) for i in range(300)])

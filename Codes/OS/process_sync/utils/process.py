@@ -1,4 +1,5 @@
 from threading import Thread, Event
+from utils.primitive import MUTEX
 
 class Process(Thread):
     """ 伪进程类
@@ -7,17 +8,17 @@ class Process(Thread):
 
     def __init__(self):
         super().__init__()
-        self.__singal = Event()
-        self.__singal.set()
+        self.__flag = Event()
+        self.__flag.set()
 
     def pause(self):
-        self.__singal.clear()
+        self.__flag.clear()
+        MUTEX.release()
+        self.__flag.wait()
+        MUTEX.acquire()
 
     def restart(self):
-        self.__singal.set()
-
-    def wait(self):
-        self.__singal.wait()
+        self.__flag.set()
 
 def all_start(*pros):
     for pro in pros:

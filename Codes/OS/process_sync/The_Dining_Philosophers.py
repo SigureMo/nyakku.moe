@@ -30,12 +30,12 @@ class Philosopher(Process):
         while True:
             # wait(self, chopsticks[self.num])
             # wait(self, chopsticks[(self.num + 1) % 5])
-            Swait(self, chopsticks[self.num], chopsticks[(self.num + 1) % 5])
+            Swait(self, SemaphoreSet(chopsticks[self.num]), SemaphoreSet(chopsticks[(self.num + 1) % 5]))
 
             self.eat()
             # signal(self, chopsticks[self.num])
             # signal(self, chopsticks[(self.num + 1) % 5])
-            Ssignal(self, chopsticks[self.num], chopsticks[(self.num + 1) % 5])
+            Ssignal(self, SemaphoreSet(chopsticks[self.num]), SemaphoreSet(chopsticks[(self.num + 1) % 5]))
 
             self.think()
 
