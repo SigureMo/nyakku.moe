@@ -10,12 +10,19 @@ class Semaphore():
         self.value = value
         self.block_list = []
 
+class SemaphoreSet():
+    """ 信号量集 """
+
+    def __init__(self, sem, lower=1, demand=1):
+        self.sem = sem
+        self.lower = lower
+        self.demand = demand
+
 def primitive(func):
     def new_func(process, *args):
         MUTEX.acquire()
         func(process, *args)
         MUTEX.release()
-        process.wait()
     return new_func
 
 @primitive
@@ -40,19 +47,21 @@ def signal(process, sem):
         sem.block_list.pop(0).restart()
 
 @primitive
-def Swait(process, *sems):
-    # while True:
-    if all([sem.value >=1 for sem in sems]):
-        for sem in sems:
-            sem.value -= 1
-        # break
+def Swait(process, *semsets):
+    if all([semset.sem.value >= semset.lower for semset in semsets]):
+        for semset in semsets:
+            semset.sem.value -= semset.demand
     else:
-        for sem in sems:
-            sem.block_list.append(process)
+        for semset in semsets:
+            semset.sem.block_list.append(process)
         process.pause()
+        MUTEX.release() # 防止死锁，先释放互斥锁
+        Swait(process, *semsets)
+        MUTEX.acquire()
 
-def Ssignal(process, *sems):
-    for sem in sems:
-        sem.value += 1
-        if len(sem.block_list):
-            sem.block_list.pop(0).restart()
+@primitive
+def Ssignal(process, *semsets):
+    for semset in semsets:
+        semset.sem.value += semset.demand
+        while len(semset.sem.block_list):
+            semset.sem.block_list.pop(0).restart()
