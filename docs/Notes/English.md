@@ -1,6 +1,6 @@
-# English <Badge text="alpha" type="warn"/> <Badge text="029"/>
+# English <Badge text="alpha" type="warn"/> <Badge text="030"/>
 
-> Escape can not solve any problem。
+> Escape can not solve any problem.
 
 ## Day-to-day
 
@@ -1126,6 +1126,86 @@
                -  -ing 动作已经发生
                -  to do 动作尚未发生
                   > e.g. remember、forget、regret、try、mean、go on、stop
+
+### Day 030
+
+-  I often do sth. for hours without doing anything. 我经常一连数小时做某事
+
+-  without + v-ing/n.
+
+-  worry sb. 后面的是担心的人，而不是被担心的人
+
+   > e.g.
+   >
+   > -  Doesn't it worry you that Sarah spends so much time away form home?
+   > -  This does not worry me. = I'm not worride about this.
+
+-  instead of & without
+
+   -  instead of 一件事没做成，做了另一件
+   -  without 强调没做某事
+
+-  spend stm. sp. 在某地度过多少时间
+
+-  never < seldom < sometimes < often < usually < always
+
+-  reason & cause & purpose
+
+   -  reason 对某事的解释，理由
+
+      > e.g.
+      >
+      > Give me one good reason.
+
+   -  cause 产生某结果的原因
+
+      > e.g.
+      >
+      > The heavy storm was the cause of the accident.
+
+   -  purpose 目的
+      > e.g.
+      >
+      > Their purpose is to attact attention to this issue.
+
+-  reason with sb. 和某人讲道理，说服某人
+
+   > e.g.
+   >
+   > I tried to reason with her but she locked herself in the bedroom.
+
+-  sum 相关用法
+
+   -  a large/small sum of
+   -  the sum of ...的总和
+      > e.g. The sum of 10 and 5 is 15.
+   -  to sum up 概括地说
+
+-  决定做某事的相关表达
+
+   -  determined to do sth.
+   -  make up one's mind
+   -  decide to do sth.
+   -  make a decision to do sth.
+
+-  现在分词
+
+   -  形式 v. + ing 也就是和动名词形式上相同，那么如何区分？
+      -  作定语时
+         -  现在分词 Look at the sleeping boy. 有逻辑上的主谓关系，能转换为定语从句
+         -  动名词 Please wait for me in sht reading room.
+
+-  some + 可数名词单数 ：有个，某个
+
+   > e.g. for some reason 由于某种原因
+
+-  情态动词的被动语态
+
+   -  情态动词 + (not) be + done (past participle)
+
+-  leave
+   -  leave a place 离开
+   -  leave sth./sb. somewhere 把某物/某人留下；遗
 
 # Reference
 
