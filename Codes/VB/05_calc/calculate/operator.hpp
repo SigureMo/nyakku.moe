@@ -18,10 +18,11 @@ public:
   bool isBackSpace();
   bool isUnaryOperator();
   bool isBinaryOperator();
+  virtual Number* compute(Operand &oa1, Operand &oa2)=0;
+  int precedence;
 protected:
   int code_; // ascii ...
   std::string text_;
-  int precedence_;
   int varNum_;
 };
 

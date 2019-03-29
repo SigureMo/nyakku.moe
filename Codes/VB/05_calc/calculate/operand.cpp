@@ -3,7 +3,7 @@
 Operand::Operand(int oaType):ArithmeticUnit(1) {
   this->oaType_ = oaType;
   this->dot = 0;
-  this->value = 0;
+  this->nums = 0;
 }
 
 bool Operand::isConstant() {
@@ -23,16 +23,20 @@ bool Operand::isNumber() {
 }
 
 void Operand::cleanZeros() {
-  while (this->value % 10 == 0) {
-    this->value /= 10;
+  while (this->nums % 10 == 0) {
+    this->nums /= 10;
     this->dot -= 1;
   }
+}
+
+float Operand::getValue() {
+  return this->nums / pow(10, this->dot);
 }
 
 
 Constant::Constant(char name):Operand(0) {
   this->name_ = name;
-  this->value = name - 48;
+  this->nums = name - 48;
 }
 
 
@@ -41,7 +45,7 @@ Variable::Variable(char name):Operand(1) {
 }
 
 Variable::Change(float value) {
-  this->value = value * pow(10, 6);
+  this->nums = value * pow(10, 6);
   this->dot = 6;
   cleanZeros();
 }
@@ -49,7 +53,7 @@ Variable::Change(float value) {
 
 Number::Number(int value, int dot):Operand(2) {
   this->name_ = 0;
-  this->value = value;
+  this->nums = value;
   this->dot = dot;
 }
 

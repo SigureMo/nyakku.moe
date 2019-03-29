@@ -41,7 +41,7 @@ bool Operator::isBinaryOperator() {
 
 Plus::Plus():Operator('+') {
   this->text_ = '+';
-  this->precedence_ = 1;
+  this->precedence = 1;
   this->varNum_ = 2;
 }
 
@@ -50,7 +50,7 @@ void Plus::test() {
 }
 
 Number* Plus::compute(Operand &oa1, Operand &oa2) {
-  int value;
+  int nums;
   Operand *inaccuracy, *accuracy;
   Number *oa;
   if (oa1.dot < oa2.dot) {
@@ -61,7 +61,7 @@ Number* Plus::compute(Operand &oa1, Operand &oa2) {
     accuracy = &oa1;
     inaccuracy = &oa2;
   }
-  value = accuracy->value + inaccuracy->value*pow(10, accuracy->dot-inaccuracy->dot);
-  oa = new Number(value, accuracy->dot);
+  nums = accuracy->nums + inaccuracy->nums*pow(10, accuracy->dot-inaccuracy->dot);
+  oa = new Number(nums, accuracy->dot);
   return oa;
 }
