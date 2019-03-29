@@ -15,7 +15,8 @@ public:
   bool isNumber();
   bool isVariable();
   void cleanZeros(); // clean zeros that behind the dot
-  int value; // number
+  float getValue();
+  int nums; // number
   int dot; // position of dot
 protected:
   int oaType_;
@@ -35,7 +36,7 @@ public:
 
 class Number : public Operand {
 public:
-  Number(int value, int dot);
+  Number(int nums, int dot);
 };
 
 class Dot : public Operand {
