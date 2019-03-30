@@ -1,4 +1,4 @@
-# English <Badge text="alpha" type="warn"/> <Badge text="030"/>
+# English <Badge text="alpha" type="warn"/> <Badge text="031"/>
 
 > Escape can not solve any problem.
 
@@ -1206,6 +1206,73 @@
 -  leave
    -  leave a place 离开
    -  leave sth./sb. somewhere 把某物/某人留下；遗
+
+### Day 031
+
+-  v. + prep. (of from in on)
+
+   > 横向无任何关联，仅为节省空间！
+
+   | of          | from          | in             | on               |
+   | ----------- | ------------- | -------------- | ---------------- |
+   | accuse of   | borrow from   | believe in     | act on           |
+   | approve of  | defend from   | delight in     | based on         |
+   | assure of   | demand from   | employed in    | call on          |
+   | beware of   | differ from   | encourage in   | comment on       |
+   | boast of    | dessmiss from | engaged in     | concentrate on   |
+   | complain of | draw from     | experienced in | congratulate on  |
+   | consist of  | emerge from   | fail in        | consult on       |
+   | convince of | escape from   | help in        | count on         |
+   | cure of     | excuse from   | include in     | decide on        |
+   | despair of  | hinder from   | indulge in     | depend on        |
+   | dream of    | prevent from  | instruct in    | economize on     |
+   | expect of   | prohibit from | interested in  | embark on        |
+   | hear of     | protect from  | invest in      | experiment on    |
+   | get rid of  | recelve from  | involved in    | insist on        |
+   | smell of    | separate from | persist in     | learn on/against |
+   | suspect of  | sufferr from  | share in       | live on          |
+   | think of    |               |                | operate on       |
+   | tired of    |               |                | perform on       |
+   | warn of     |               |                | pride on         |
+   |             |               |                | rely on          |
+   |             |               |                | vote on          |
+   |             |               |                | write on         |
+
+   > e.g.
+   >
+   > -  I refuse to comment on his work.
+   > -  He congratulated me on having got engaged.
+   > -  I dreamed of you last night.
+   > -  You can never rely on him to be punctual.
+   > -  Nothing will prevent him form succeeding.
+   > -  It took me a long time to get rid of him.
+   > -  You can depend on me.
+   > -  My hands smell of soap.
+   > -  You should not boast of your success.
+   > -  He delights in annoying me.
+
+-  think of/about doing sth. 想到某事
+
+   > e.g. I did think about buying a flat in Shanghai.
+
+-  双方之间
+
+   -  each other 双方之间
+   -  one another 三者或以上的相互之间
+
+-  regular 的意思
+
+   -  at regular times 定期地
+   -  often 经常
+   -  evenly arranged or shaped 匀称地
+
+-  a little / much more
+   -  a little more ...一点点
+   -  much more ...得多
+      > e.g.
+      >
+      > -  That is a little more expensive.
+      > -  That is much more expensive.
 
 # Reference
 
