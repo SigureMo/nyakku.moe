@@ -18,13 +18,13 @@ int main(void) {
   // test2
   // Support +-*/^()
   checkVars();
-  fillArithmeticUnitVector("(1-17.5)*3-3^2=");
+  fillArithmeticUnitVector("-(1--17.5)*3-3^2=");
   cout << computeValue() << endl;
   checkVars();
 
   // TODO
-  // 1. 垃圾回收问题
-  // 2. 负号的问题
-  // 3. 变量的支持
+  // [ ] 垃圾回收问题
+  // [+] 负号的问题
+  // [ ] 变量的支持
   return 0;
 }

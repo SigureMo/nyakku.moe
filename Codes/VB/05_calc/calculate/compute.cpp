@@ -59,7 +59,12 @@ void fillArithmeticUnitVector(string expression) {
       arithmeticUnitVector.push_back(new Plus);
     }
     else if (c == '-') {
-      arithmeticUnitVector.push_back(new Minus);
+      if (i == 0 || !(expression[i-1] >= 48 && expression[i-1] <=57)) {
+        arithmeticUnitVector.push_back(new Negative);
+      }
+      else {
+        arithmeticUnitVector.push_back(new Minus);
+      }
     }
     else if (c == '*') {
       arithmeticUnitVector.push_back(new Multiply);

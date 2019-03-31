@@ -120,3 +120,13 @@ RightBracket::RightBracket():Operator(')') {
   this->text_ = ')';
   this->precedence = 0;
 }
+
+Negative::Negative():Operator('-') {
+  this->text_ = '-';
+  this->precedence = 5;
+  this->varNum_ = 1;
+}
+
+Number* Negative::compute(Operand* oa1) {
+  return new Number(-oa1->nums, oa1->dot);
+}

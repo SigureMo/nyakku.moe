@@ -67,4 +67,10 @@ public:
   RightBracket();
 };
 
+class Negative : public Operator {
+public:
+  Negative();
+  Number* compute(Operand* oa1);
+};
+
 #endif
