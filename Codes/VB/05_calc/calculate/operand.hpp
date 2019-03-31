@@ -37,6 +37,7 @@ public:
 class Number : public Operand {
 public:
   Number(int nums, int dot);
+  Number(float value);
 };
 
 class Dot : public Operand {
