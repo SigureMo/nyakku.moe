@@ -23,7 +23,7 @@ bool Operand::isNumber() {
 }
 
 void Operand::cleanZeros() {
-  while (this->nums % 10 == 0) {
+  while (this->nums % 10 == 0 && this->nums!=0) {
     this->nums /= 10;
     this->dot -= 1;
   }
@@ -51,10 +51,18 @@ Variable::Change(float value) {
 }
 
 
-Number::Number(int value, int dot):Operand(2) {
+Number::Number(int nums, int dot):Operand(2) {
   this->name_ = 0;
-  this->nums = value;
+  this->nums = nums;
   this->dot = dot;
+  cleanZeros();
+}
+
+Number::Number(float value):Operand(2) {
+  this->name_ = 0;
+  this->nums = value * pow(10, 6);
+  this->dot = 6;
+  cleanZeros();
 }
 
 

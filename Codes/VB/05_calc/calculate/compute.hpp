@@ -16,10 +16,12 @@ extern vector<ArithmeticUnit*> arithmeticUnitVector;
 extern stack<Operator*> operatorStack;
 extern Number* operandTmp;
 extern queue<ArithmeticUnit*> postfixExpressionQueue;
-extern stack<ArithmeticUnit*> runtimeStack;
+extern stack<Operand*> operandStack;
 
 void checkVars();
-void fillarithmeticUnitVector(string expression);
+void fillArithmeticUnitVector(string expression);
 void computePostfixExpressionQueue();
+void pushOperand();
+float computeValue();
 
 #endif

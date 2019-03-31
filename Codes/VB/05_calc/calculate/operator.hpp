@@ -18,7 +18,8 @@ public:
   bool isBackSpace();
   bool isUnaryOperator();
   bool isBinaryOperator();
-  virtual Number* compute(Operand &oa1, Operand &oa2)=0;
+  virtual Number* compute(Operand* oa1, Operand* oa2);
+  virtual Number* compute(Operand* oa1);
   int precedence;
 protected:
   int code_; // ascii ...
@@ -29,8 +30,41 @@ protected:
 class Plus : public Operator {
 public:
   Plus();
-  void test();
-  Number* compute(Operand &oa1, Operand &oa2);
+  Number* compute(Operand* oa1, Operand* oa2);
+};
+
+class Minus : public Operator {
+public:
+  Minus();
+  Number* compute(Operand* oa1, Operand* oa2);
+};
+
+class Multiply : public Operator {
+public:
+  Multiply();
+  Number* compute(Operand* oa1, Operand* oa2);
+};
+
+class Divide : public Operator {
+public:
+  Divide();
+  Number* compute(Operand* oa1, Operand* oa2);
+};
+
+class Power : public Operator {
+public:
+  Power();
+  Number* compute(Operand* oa1, Operand* oa2);
+};
+
+class LeftBracket : public Operator {
+public:
+  LeftBracket();
+};
+
+class RightBracket : public Operator {
+public:
+  RightBracket();
 };
 
 #endif
