@@ -7,20 +7,31 @@
 
 using namespace std;
 
-int main(void) {
-  // test1
-  Plus plus;
-  Number num1(1000, 3);
-  Number num2(20, 2);
-  Number* num3 = plus.compute(&num1, &num2);
-  cout << num3->getValue() << endl;
+/**
+ * @ref: 中M 浙江大学 数据结构 2.2 堆栈应用 表达式求值
+ */
 
-  // test2
+int main(void) {
+
+  // test
   // Support +-*/^()
-  checkVars();
-  fillArithmeticUnitVector("-(1--17.5)*3-3^2=");
-  cout << computeValue() << endl;
-  checkVars();
+  while (true) {
+    string expression;
+    string tmp_expression;
+    checkVars();
+    cout << "> ";
+    do {
+      getline(cin, tmp_expression);
+      for (int i = 0; i < tmp_expression.size(); i++) {
+        if (tmp_expression[i] != ' ') {
+          expression += tmp_expression[i];
+        }
+      }
+    } while (expression[expression.size()-1] != '=');
+    fillArithmeticUnitVector(expression);
+    cout << "> " << computeValue() << endl;
+    checkVars();
+  }
 
   // TODO
   // [ ] 垃圾回收问题

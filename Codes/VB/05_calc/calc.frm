@@ -204,6 +204,11 @@ Attribute VB_GlobalNameSpace = False
 Attribute VB_Creatable = False
 Attribute VB_PredeclaredId = True
 Attribute VB_Exposed = False
+Private Declare Function checkVars Lib "calc.dll" ()
+Private Declare Function fillArithmeticUnitVector Lib "calc.dll" (ByVal expression As String)
+Private Declare Function computePostfixExpressionQueue Lib "calc.dll" ()
+Private Declare Function computeValue Lib "calc.dll" () As Single
+
 Dim operationUnitStack As Stack '运算单位栈
 Dim operatorStack As Stack '运算符栈
 Dim operandTmp As Integer '运算数临时变量 默认 integer ，当出现小数点 Redim 为 single
@@ -377,4 +382,7 @@ End Sub
 Private Sub Key_Plus_Click()
     Call Press_Key(Key_Plus)
     Text1.text = Text1.text & "+"
+    fillArithmeticUnitVector ("1+1=")
+    Call computePostfixExpressionQueue
+    MsgBox computeValue()
 End Sub
