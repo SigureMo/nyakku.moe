@@ -1,4 +1,4 @@
-# Operating System <Badge text="alpha" type="warn"/> <Badge text="2.4.3"/>
+# Operating System <Badge text="alpha" type="warn"/> <Badge text="2.7.1"/>
 
 ## 1 操作系统引论
 
@@ -601,6 +601,57 @@
 -  [购物问题 Shopping.py](https://github.com/SigureMo/notev/blob/master/Codes/OS/process_sync/Shopping.py)
 -  [进程同步 Processes.py](https://github.com/SigureMo/notev/blob/master/Codes/OS/process_sync/Processes.py)
 -  [独木桥问题 Single-plank_Bridge.py](https://github.com/SigureMo/notev/blob/master/Codes/OS/process_sync/Single-plank_Bridge.py)
+
+### 2.5 进程通信
+
+-  共享存储器系统
+
+   -  基于共享数据结构的通信方式
+   -  基于共享存储区的通信方式 中等信息传递，用户解决同步问题
+
+-  管道(pipe)通信系统 大量信息传递，系统解决同步问题
+-  消息传递系统 少量信息传递，系统解决同步问题
+-  客户机-服务器系统
+   -  socket
+   -  RPC
+
+### 2.6 线程的基本概念
+
+#### 2.6.1 线程与进程的对比
+
+-  调度的基本单位 切换开销小
+-  并发性 线程之间也可以并发执行
+-  拥有资源 并不拥有系统额外分配的资源，享有父进程的资源，故创建开销小
+-  独立性 同一进程的不同线程之间可以共享资源，独立性不明显
+-  系统开销 创建与切换都远比进程快
+-  支持多处理机系统 一个进程的多个线程可在多个核心上运行，这使得多个线程之间实现了真的并行，大大提高了该进程的完成速度
+
+#### 2.6.2 线程的状态和线程控制块
+
+-  线程的三个状态 和进程一样 **执行**、**就绪**、**阻塞**
+-  线程控制块 TCB 类似于 PCB
+
+### 2.7 线程的实现
+
+#### 2.7.1 线程的实现方式
+
+-  内核支持线程 KST
+
+   内核所“承认”的线程，可获得内核分配的 CPU 时间片，也可在多核 CPU 上实现并行
+
+   -  优点
+      -  更轻量的结构
+      -  进程中一个线程阻塞后，其余线程可正常运行
+      -  多核心可并发执行
+
+-  用户级线程 ULT
+
+   内核并不知道用户级线程的存在，所以内核给它分配的时间片是按其父进程分配的，各个线程将争夺进程的时间片执行
+
+   -  优点
+      -  线程切换不需要到内核空间（不需要用户态与核心态的切换）
+      -  调度算法可以是进程专用的
+      -  用户级线程的实现与 OS 平台无关
 
 # Amendant Record
 
