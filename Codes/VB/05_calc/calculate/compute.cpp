@@ -81,6 +81,9 @@ void fillArithmeticUnitVector(string expression) {
     else if (c == ')') {
       arithmeticUnitVector.push_back(new RightBracket);
     }
+    else if (c == ' ') {
+      cout << 1;
+    }
     else {
       cout << "Operator " << c << " is not defined!" << endl;
     }
