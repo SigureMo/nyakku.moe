@@ -1,4 +1,4 @@
-# English <Badge text="alpha" type="warn"/> <Badge text="031"/>
+# English <Badge text="alpha" type="warn"/> <Badge text="032"/>
 
 > Escape can not solve any problem.
 
@@ -1273,6 +1273,18 @@
       >
       > -  That is a little more expensive.
       > -  That is much more expensive.
+
+# Day 032
+
+-  一般将来式的句子中，before 引导时间状语时，从句用一般现在时
+
+   > e.g.
+   >
+   > Another two months will be needed before the new bridge is completed.
+
+-  surprise 的用法
+   -  get a surprise 感到惊奇
+   -  to one's surprise 令某人惊奇的是 ...
 
 # Reference
 
