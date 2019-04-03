@@ -1,10 +1,6 @@
 Type=Exe
 Form=calc.frm
 Reference=*\G{00020430-0000-0000-C000-000000000046}#2.0#0#C:\Windows\SysWOW64\stdole2.tlb#OLE Automation
-Class=Stack; Stack.cls
-Class=Operation; Operation.cls
-Class=Queue; Queue.cls
-Module=Calc; Calc.bas
 IconForm="Calculator"
 Startup="Calculator"
 Command32=""

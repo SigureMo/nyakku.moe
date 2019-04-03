@@ -10,13 +10,39 @@ Begin VB.Form Calculator
    ScaleHeight     =   7560
    ScaleWidth      =   9315
    StartUpPosition =   3  '窗口缺省
-   Begin VB.TextBox Text1 
+   Begin VB.CommandButton Key_RightBracket 
+      Caption         =   ")"
       Height          =   855
-      Left            =   720
+      Left            =   3600
+      Style           =   1  'Graphical
+      TabIndex        =   23
+      Top             =   5880
+      Width           =   855
+   End
+   Begin VB.CommandButton Key_LeftBracket 
+      Caption         =   "("
+      Height          =   735
+      Left            =   2400
+      Style           =   1  'Graphical
+      TabIndex        =   22
+      Top             =   6000
+      Width           =   855
+   End
+   Begin VB.TextBox Result 
+      Height          =   855
+      Left            =   600
+      Locked          =   -1  'True
+      TabIndex        =   21
+      Top             =   1200
+      Width           =   4335
+   End
+   Begin VB.TextBox Expression_Box 
+      Height          =   855
+      Left            =   600
+      Locked          =   -1  'True
       TabIndex        =   20
-      Text            =   "Text1"
-      Top             =   360
-      Width           =   2415
+      Top             =   120
+      Width           =   4335
    End
    Begin VB.CommandButton Key_Divide 
       Caption         =   "÷"
@@ -204,26 +230,35 @@ Attribute VB_GlobalNameSpace = False
 Attribute VB_Creatable = False
 Attribute VB_PredeclaredId = True
 Attribute VB_Exposed = False
-Private Declare Function checkVars Lib "calc.dll" ()
-Private Declare Function fillArithmeticUnitVector Lib "calc.dll" (ByVal expression As String)
-Private Declare Function computePostfixExpressionQueue Lib "calc.dll" ()
-Private Declare Function computeValue Lib "calc.dll" () As Single
-
-Dim operationUnitStack As Stack '运算单位栈
-Dim operatorStack As Stack '运算符栈
-Dim operandTmp As Integer '运算数临时变量 默认 integer ，当出现小数点 Redim 为 single
-Dim postfixExpressionQueue As Queue '后缀表达式队列
-Dim runtimeStack As Stack '运算时栈 用于对后缀表达式进行计算
+Private Declare Function compute Lib "calc.dll" (ByVal Expression As String) As Single
+Dim Expression As String
+Dim Operands As String
+Dim Operators As String
 
 Private Sub Form_Load()
     'Shell (start & "calc.exe")
-    Set operationUnitStack = New Stack
-    Set operatorStack = New Stack
-    operandTmp = 0
-    Set postfixExpressionQueue = New Queue
-    Set runtimeStack = New Stack
+    Operands = "1234567890."
+    Operators = "+-*/()^"
 End Sub
 
+' 判断是操作数还是操作符
+Public Function isOperand(c As String) As Boolean
+    If InStr(1, Operands, c) Then
+        isOperand = True
+    Else
+        isOperand = False
+    End If
+End Function
+
+Public Function isOperator(c As String) As Boolean
+    If InStr(1, Operators, c) Then
+        isOperator = True
+    Else
+        isOperator = False
+    End If
+End Function
+
+' 快捷键
 Private Sub Form_KeyPress(KeyAscii As Integer)
     Select Case KeyAscii
         Case 8
@@ -271,6 +306,7 @@ Private Sub Form_KeyPress(KeyAscii As Integer)
     'MsgBox KeyAscii
 End Sub
 
+' 按键变色
 Private Sub Press_Key(Key)
     ' 记得设置 Key.Style 为 1
     Key.BackColor = &H80000010
@@ -278,6 +314,7 @@ Private Sub Press_Key(Key)
     Key.BackColor = &H8000000F
 End Sub
 
+' sleep
 Public Sub Delay(PauseTime As Single)
     Dim Start As Single
     Start = Timer
@@ -286,103 +323,168 @@ Public Sub Delay(PauseTime As Single)
     Loop
 End Sub
 
+' 显示表达式
+Public Sub Show_Expression()
+    Expression_Box.Text = ""
+    i = 0
+    While i < Len(Expression)
+        c = Mid(Expression, i + 1, 1)
+        If c = "s" Then
+            Expression_Box.Text = Expression_Box.Text & "sin"
+        Else
+            Expression_Box.Text = Expression_Box.Text & c
+        End If
+        i = i + 1
+    Wend
+End Sub
+
+' 按键回调
+
+' Operands
 Private Sub Key_0_Click()
     Call Press_Key(Key_0)
-    Text1.text = Text1.text & 0
+    Expression = Expression & 0
+    Call Show_Expression
 End Sub
 
 Private Sub Key_1_Click()
     Call Press_Key(Key_1)
-    Text1.text = Text1.text & 1
+    Expression = Expression & 1
+    Call Show_Expression
 End Sub
 
 Private Sub Key_2_Click()
     Call Press_Key(Key_2)
-    Text1.text = Text1.text & 2
+    Expression = Expression & 2
+    Call Show_Expression
 End Sub
 
 Private Sub Key_3_Click()
     Call Press_Key(Key_3)
-    Text1.text = Text1.text & 3
+    Expression = Expression & 3
+    Call Show_Expression
 End Sub
 
 Private Sub Key_4_Click()
     Call Press_Key(Key_4)
-    Text1.text = Text1.text & 4
+    Expression = Expression & 4
+    Call Show_Expression
 End Sub
 
 Private Sub Key_5_Click()
     Call Press_Key(Key_5)
-    Text1.text = Text1.text & 5
+    Expression = Expression & 5
+    Call Show_Expression
 End Sub
 
 Private Sub Key_6_Click()
     Call Press_Key(Key_6)
-    Text1.text = Text1.text & 6
+    Expression = Expression & 6
+    Call Show_Expression
 End Sub
 
 Private Sub Key_7_Click()
     Call Press_Key(Key_7)
-    Text1.text = Text1.text & 7
+    Expression = Expression & 7
+    Call Show_Expression
 End Sub
 
 Private Sub Key_8_Click()
     Call Press_Key(Key_8)
-    Text1.text = Text1.text & 8
+    Expression = Expression & 8
+    Call Show_Expression
 End Sub
 
 Private Sub Key_9_Click()
     Call Press_Key(Key_9)
-    Text1.text = Text1.text & 9
-End Sub
-
-Private Sub Key_Back_Click()
-    Call Press_Key(Key_Back)
-    Text1.text = Text1.text & "←"
-End Sub
-
-Private Sub Key_C_Click()
-    Call Press_Key(Key_C)
-    Text1.text = Text1.text & "C"
-End Sub
-
-Private Sub Key_CE_Click()
-    Call Press_Key(Key_CE)
-    Text1.text = Text1.text & "CE"
-End Sub
-
-Private Sub Key_Divide_Click()
-    Call Press_Key(Key_Divide)
-    Text1.text = Text1.text & "/"
+    Expression = Expression & 9
+    Call Show_Expression
 End Sub
 
 Private Sub Key_Dot_Click()
     Call Press_Key(Key_Dot)
+    Expression = Expression & "."
+    Call Show_Expression
 End Sub
 
-Private Sub Key_Equal_Click()
-    Call Press_Key(Key_Equal)
-    Text1.text = Text1.text & "="
+
+
+' Operators
+
+Private Sub Key_Plus_Click()
+    Call Press_Key(Key_Plus)
+    Expression = Expression & "+"
+    Call Show_Expression
 End Sub
 
 Private Sub Key_Minus_Click()
     Call Press_Key(Key_Minus)
-    Text1.text = Text1.text & "-"
+    Expression = Expression & "-"
+    Call Show_Expression
 End Sub
 
 Private Sub Key_Multiply_Click()
     Call Press_Key(Key_Multiply)
-    Text1.text = Text1.text & "x"
+    Expression = Expression & "*"
+    Call Show_Expression
+End Sub
+
+Private Sub Key_Divide_Click()
+    Call Press_Key(Key_Divide)
+    Expression = Expression & "/"
+    Call Show_Expression
 End Sub
 
 Private Sub Key_Negative_Click()
     Call Press_Key(Key_Negative)
+    Expression = Expression & "-"
+    Call Show_Expression
 End Sub
 
-Private Sub Key_Plus_Click()
-    Call Press_Key(Key_Plus)
-    Text1.text = Text1.text & "+"
-    fillArithmeticUnitVector ("1+1=")
-    Call computePostfixExpressionQueue
-    MsgBox computeValue()
+Private Sub Key_LeftBracket_Click()
+    Call Press_Key(Key_LeftBracket)
+    Expression = Expression & "("
+    Call Show_Expression
 End Sub
+
+Private Sub Key_RightBracket_Click()
+    Call Press_Key(Key_RightBracket)
+    Expression = Expression & ")"
+    Call Show_Expression
+End Sub
+
+
+' 特殊操作符
+Private Sub Key_Back_Click()
+    Call Press_Key(Key_Back)
+    If Not Expression = "" Then
+        Expression = Mid(Expression, 1, Len(Expression) - 1)
+    End If
+    Call Show_Expression
+End Sub
+
+Private Sub Key_C_Click()
+    Call Press_Key(Key_C)
+    Expression = ""
+    Call Show_Expression
+End Sub
+
+Private Sub Key_CE_Click()
+    Call Press_Key(Key_CE)
+    For i = Len(Expression) To 1 Step -1
+        If isOperand(Mid(Expression, Len(Expression), 1)) Then
+            Expression = Mid(Expression, 1, Len(Expression) - 1)
+        Else
+            Exit For
+        End If
+    Next i
+    Call Show_Expression
+End Sub
+
+Private Sub Key_Equal_Click()
+    Call Press_Key(Key_Equal)
+    Expression = Expression & "="
+    Result.Text = compute(Expression)
+    Expression = ""
+End Sub
+

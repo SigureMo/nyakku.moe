@@ -130,3 +130,23 @@ Negative::Negative():Operator('-') {
 Number* Negative::compute(Operand* oa1) {
   return new Number(-oa1->nums, oa1->dot);
 }
+
+Log::Log():Operator('l') {
+  this->text_ = 'l';
+  this->precedence = 5;
+  this->varNum_ = 1;
+}
+
+Number* Log::compute(Operand* oa1) {
+  return new Number(log(oa1->getValue()) / log(10));
+}
+
+Ln::Ln():Operator('n') {
+  this->text_ = 'n';
+  this->precedence = 5;
+  this->varNum_ = 1;
+}
+
+Number* Ln::compute(Operand* oa1) {
+  return new Number(log(oa1->getValue()));
+}

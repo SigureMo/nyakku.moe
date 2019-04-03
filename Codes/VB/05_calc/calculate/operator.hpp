@@ -73,4 +73,16 @@ public:
   Number* compute(Operand* oa1);
 };
 
+class Log : public Operator {
+public:
+  Log();
+  Number* compute(Operand* oa1);
+};
+
+class Ln : public Operator {
+public:
+  Ln();
+  Number* compute(Operand* oa1);
+};
+
 #endif

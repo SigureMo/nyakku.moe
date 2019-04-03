@@ -82,7 +82,13 @@ void fillArithmeticUnitVector(string expression) {
       arithmeticUnitVector.push_back(new RightBracket);
     }
     else if (c == ' ') {
-      cout << 1;
+      ;
+    }
+    else if (c == 'l') {
+      arithmeticUnitVector.push_back(new Log);
+    }
+    else if (c == 'n') {
+      arithmeticUnitVector.push_back(new Ln);
     }
     else {
       cout << "Operator " << c << " is not defined!" << endl;
