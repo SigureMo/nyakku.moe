@@ -1,4 +1,4 @@
-# English <Badge text="alpha" type="warn"/> <Badge text="032"/>
+# English <Badge text="alpha" type="warn"/> <Badge text="033"/>
 
 > Escape can not solve any problem.
 
@@ -1285,6 +1285,10 @@
 -  surprise 的用法
    -  get a surprise 感到惊奇
    -  to one's surprise 令某人惊奇的是 ...
+
+# Day 033
+
+-  I could do nothing for you. 我帮不了你
 
 # Reference
 
