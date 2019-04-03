@@ -133,7 +133,14 @@ hs_err_pid*
 # compiled
 *.exe
 *.dll
+*.o
+*.a
 bin/
+
+# dev-c++
+libcalc.def
+Makefile.win
+*.layout
 
 # text
 *.txt
