@@ -4,12 +4,185 @@ Begin VB.Form Calculator
    ClientHeight    =   7560
    ClientLeft      =   120
    ClientTop       =   465
-   ClientWidth     =   9315
+   ClientWidth     =   13680
    KeyPreview      =   -1  'True
    LinkTopic       =   "Form1"
    ScaleHeight     =   7560
-   ScaleWidth      =   9315
+   ScaleWidth      =   13680
    StartUpPosition =   3  '窗口缺省
+   Begin VB.CommandButton Key_MMinus 
+      Caption         =   "M-"
+      Height          =   375
+      Left            =   7920
+      TabIndex        =   45
+      Top             =   1560
+      Width           =   735
+   End
+   Begin VB.CommandButton Key_MPlus 
+      Caption         =   "M+"
+      Height          =   375
+      Left            =   6960
+      TabIndex        =   44
+      Top             =   1560
+      Width           =   735
+   End
+   Begin VB.CommandButton Key_MR 
+      Caption         =   "MR"
+      Height          =   495
+      Left            =   6120
+      TabIndex        =   43
+      Top             =   1440
+      Width           =   615
+   End
+   Begin VB.CommandButton Key_MC 
+      Caption         =   "MC"
+      Height          =   375
+      Left            =   5160
+      TabIndex        =   42
+      Top             =   1440
+      Width           =   615
+   End
+   Begin VB.CommandButton Key_MS 
+      Caption         =   "MS"
+      Height          =   375
+      Left            =   8760
+      TabIndex        =   41
+      Top             =   1560
+      Width           =   735
+   End
+   Begin VB.TextBox Memory 
+      Height          =   735
+      Left            =   7440
+      Locked          =   -1  'True
+      TabIndex        =   39
+      Top             =   600
+      Width           =   1095
+   End
+   Begin VB.CommandButton Clear_History_Button 
+      Caption         =   "Clear"
+      Height          =   495
+      Left            =   11880
+      TabIndex        =   37
+      Top             =   6360
+      Width           =   975
+   End
+   Begin VB.ListBox History 
+      Height          =   6000
+      ItemData        =   "calc.frx":0000
+      Left            =   9720
+      List            =   "calc.frx":0002
+      TabIndex        =   36
+      Top             =   960
+      Width           =   3375
+   End
+   Begin VB.CommandButton Key_Power 
+      Caption         =   "x^y"
+      Height          =   615
+      Left            =   840
+      Style           =   1  'Graphical
+      TabIndex        =   35
+      Top             =   2400
+      Width           =   615
+   End
+   Begin VB.CommandButton Key_Exp 
+      Caption         =   "e"
+      Height          =   495
+      Left            =   840
+      Style           =   1  'Graphical
+      TabIndex        =   34
+      Top             =   5040
+      Width           =   615
+   End
+   Begin VB.CommandButton Key_PI 
+      Caption         =   "π"
+      Height          =   615
+      Left            =   960
+      Style           =   1  'Graphical
+      TabIndex        =   33
+      Top             =   6000
+      Width           =   615
+   End
+   Begin VB.CommandButton Key_Mod 
+      Caption         =   "Mod"
+      Height          =   615
+      Left            =   3840
+      Style           =   1  'Graphical
+      TabIndex        =   32
+      Top             =   3960
+      Width           =   615
+   End
+   Begin VB.CommandButton Key_Ln 
+      Caption         =   "ln"
+      Height          =   615
+      Left            =   1680
+      Style           =   1  'Graphical
+      TabIndex        =   31
+      Top             =   4920
+      Width           =   855
+   End
+   Begin VB.CommandButton Key_Log 
+      Caption         =   "log"
+      Height          =   615
+      Left            =   1680
+      Style           =   1  'Graphical
+      TabIndex        =   30
+      Top             =   4080
+      Width           =   735
+   End
+   Begin VB.CommandButton Key_ArcTan 
+      Caption         =   "arctan"
+      Height          =   495
+      Left            =   3600
+      Style           =   1  'Graphical
+      TabIndex        =   29
+      Top             =   3240
+      Width           =   855
+   End
+   Begin VB.CommandButton Key_ArcCos 
+      Caption         =   "arccos"
+      Height          =   735
+      Left            =   2880
+      Style           =   1  'Graphical
+      TabIndex        =   28
+      Top             =   3120
+      Width           =   615
+   End
+   Begin VB.CommandButton Key_ArcSin 
+      Caption         =   "arcsin"
+      Height          =   735
+      Left            =   1680
+      Style           =   1  'Graphical
+      TabIndex        =   27
+      Top             =   3120
+      Width           =   975
+   End
+   Begin VB.CommandButton Key_Tan 
+      Caption         =   "tan"
+      Height          =   615
+      Left            =   3840
+      Style           =   1  'Graphical
+      TabIndex        =   26
+      Top             =   2400
+      Width           =   495
+   End
+   Begin VB.CommandButton Key_Cos 
+      Caption         =   "cos"
+      Height          =   615
+      Left            =   2880
+      Style           =   1  'Graphical
+      TabIndex        =   25
+      Top             =   2400
+      Width           =   615
+   End
+   Begin VB.CommandButton Key_Sin 
+      Caption         =   "sin"
+      Height          =   615
+      Left            =   1680
+      Style           =   1  'Graphical
+      TabIndex        =   24
+      Top             =   2400
+      Width           =   975
+   End
    Begin VB.CommandButton Key_RightBracket 
       Caption         =   ")"
       Height          =   855
@@ -22,7 +195,7 @@ Begin VB.Form Calculator
    Begin VB.CommandButton Key_LeftBracket 
       Caption         =   "("
       Height          =   735
-      Left            =   2400
+      Left            =   2640
       Style           =   1  'Graphical
       TabIndex        =   22
       Top             =   6000
@@ -224,6 +397,22 @@ Begin VB.Form Calculator
       Top             =   4800
       Width           =   800
    End
+   Begin VB.Label Memory_Label 
+      Caption         =   "Memory"
+      Height          =   255
+      Left            =   7560
+      TabIndex        =   40
+      Top             =   240
+      Width           =   855
+   End
+   Begin VB.Label History_Label 
+      Caption         =   "History"
+      Height          =   375
+      Left            =   9840
+      TabIndex        =   38
+      Top             =   360
+      Width           =   1335
+   End
 End
 Attribute VB_Name = "Calculator"
 Attribute VB_GlobalNameSpace = False
@@ -267,12 +456,20 @@ Private Sub Form_KeyPress(KeyAscii As Integer)
             Call Key_Equal_Click
         Case 27
             Call Key_C_Click
+        Case 37
+            Call Key_Mod_Click
+        Case 40
+            Call Key_LeftBracket_Click
+        Case 41
+            Call Key_RightBracket_Click
         Case 42
             Call Key_Multiply_Click
         Case 43
             Call Key_Plus_Click
         Case 45
             Call Key_Minus_Click
+        Case 46
+            Call Key_Dot_Click
         Case 47
             Call Key_Divide_Click
         Case 48
@@ -299,6 +496,28 @@ Private Sub Form_KeyPress(KeyAscii As Integer)
             Call Key_0_Click
         Case 61
             Call Key_Equal_Click
+        Case 79
+            Call Key_ArcCos_Click
+        Case 83
+            Call Key_ArcSin_Click
+        Case 84
+            Call Key_ArcTan_Click
+        Case 94
+            Call Key_Power_Click
+        Case 101
+            Call Key_Exp_Click
+        Case 108
+            Call Key_Log_Click
+        Case 110
+            Call Key_Ln_Click
+        Case 111
+            Call Key_Cos_Click
+        Case 112
+            Call Key_PI_Click
+        Case 115
+            Call Key_Sin_Click
+        Case 116
+            Call Key_Tan_Click
         Case 127
             Call Key_CE_Click
     End Select
@@ -331,6 +550,26 @@ Public Sub Show_Expression()
         c = Mid(Expression, i + 1, 1)
         If c = "s" Then
             Expression_Box.Text = Expression_Box.Text & "sin"
+        ElseIf c = "o" Then
+            Expression_Box.Text = Expression_Box.Text & "cos"
+        ElseIf c = "t" Then
+            Expression_Box.Text = Expression_Box.Text & "tan"
+        ElseIf c = "S" Then
+            Expression_Box.Text = Expression_Box.Text & "arcsin"
+        ElseIf c = "O" Then
+            Expression_Box.Text = Expression_Box.Text & "arccos"
+        ElseIf c = "T" Then
+            Expression_Box.Text = Expression_Box.Text & "arctan"
+        ElseIf c = "l" Then
+            Expression_Box.Text = Expression_Box.Text & "log"
+        ElseIf c = "n" Then
+            Expression_Box.Text = Expression_Box.Text & "ln"
+        ElseIf c = "%" Then
+            Expression_Box.Text = Expression_Box.Text & "Mod"
+        ElseIf c = "p" Then
+            Expression_Box.Text = Expression_Box.Text & "π"
+        ElseIf c = "e" Then
+            Expression_Box.Text = Expression_Box.Text & "e"
         Else
             Expression_Box.Text = Expression_Box.Text & c
         End If
@@ -441,6 +680,12 @@ Private Sub Key_Negative_Click()
     Call Show_Expression
 End Sub
 
+Private Sub Key_Power_Click()
+    Call Press_Key(Key_Power)
+    Expression = Expression & "^"
+    Call Show_Expression
+End Sub
+
 Private Sub Key_LeftBracket_Click()
     Call Press_Key(Key_LeftBracket)
     Expression = Expression & "("
@@ -453,6 +698,71 @@ Private Sub Key_RightBracket_Click()
     Call Show_Expression
 End Sub
 
+Private Sub Key_Sin_Click()
+    Call Press_Key(Key_Sin)
+    Expression = Expression & "s"
+    Call Show_Expression
+End Sub
+
+Private Sub Key_Cos_Click()
+    Call Press_Key(Key_Cos)
+    Expression = Expression & "o"
+    Call Show_Expression
+End Sub
+
+Private Sub Key_Tan_Click()
+    Call Press_Key(Key_Tan)
+    Expression = Expression & "t"
+    Call Show_Expression
+End Sub
+
+Private Sub Key_ArcSin_Click()
+    Call Press_Key(Key_ArcSin)
+    Expression = Expression & "S"
+    Call Show_Expression
+End Sub
+
+Private Sub Key_ArcCos_Click()
+    Call Press_Key(Key_ArcCos)
+    Expression = Expression & "O"
+    Call Show_Expression
+End Sub
+
+Private Sub Key_ArcTan_Click()
+    Call Press_Key(Key_ArcSin)
+    Expression = Expression & "T"
+    Call Show_Expression
+End Sub
+
+Private Sub Key_Log_Click()
+    Call Press_Key(Key_Log)
+    Expression = Expression & "l"
+    Call Show_Expression
+End Sub
+
+Private Sub Key_Ln_Click()
+    Call Press_Key(Key_Ln)
+    Expression = Expression & "n"
+    Call Show_Expression
+End Sub
+
+Private Sub Key_Mod_Click()
+    Call Press_Key(Key_Mod)
+    Expression = Expression & "%"
+    Call Show_Expression
+End Sub
+
+Private Sub Key_PI_Click()
+    Call Press_Key(Key_PI)
+    Expression = Expression & "p"
+    Call Show_Expression
+End Sub
+
+Private Sub Key_Exp_Click()
+    Call Press_Key(Key_Exp)
+    Expression = Expression & "e"
+    Call Show_Expression
+End Sub
 
 ' 特殊操作符
 Private Sub Key_Back_Click()
@@ -486,5 +796,34 @@ Private Sub Key_Equal_Click()
     Expression = Expression & "="
     Result.Text = compute(Expression)
     Expression = ""
+    History.AddItem (Expression_Box.Text & "=" & Result.Text)
 End Sub
 
+' Clear History
+Private Sub Clear_History_Button_Click()
+    Call History.Clear
+End Sub
+
+' About Memory （只针对 Result， 不针对 Expression）
+Private Sub Key_MS_Click()
+    If IsNumeric(Result.Text) Then
+        Memory.Text = Result.Text
+    End If
+End Sub
+
+Private Sub Key_MC_Click()
+    Memory.Text = ""
+End Sub
+
+Private Sub Key_MR_Click()
+    Expression = Expression & Memory.Text
+    Call Show_Expression
+End Sub
+
+Private Sub Key_MPlus_Click()
+    Memory.Text = Val(Memory.Text) + Val(Result.Text)
+End Sub
+
+Private Sub Key_MMinus_Click()
+    Memory.Text = Val(Memory.Text) - Val(Result.Text)
+End Sub

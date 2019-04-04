@@ -73,6 +73,12 @@ public:
   Number* compute(Operand* oa1);
 };
 
+class Mod : public Operator {
+public:
+  Mod();
+  Number* compute(Operand* oa1, Operand* oa2);
+};
+
 class Log : public Operator {
 public:
   Log();
@@ -82,6 +88,42 @@ public:
 class Ln : public Operator {
 public:
   Ln();
+  Number* compute(Operand* oa1);
+};
+
+class Sin : public Operator {
+public:
+  Sin();
+  Number* compute(Operand* oa1);
+};
+
+class Cos : public Operator {
+public:
+  Cos();
+  Number* compute(Operand* oa1);
+};
+
+class Tan : public Operator {
+public:
+  Tan();
+  Number* compute(Operand* oa1);
+};
+
+class ArcSin : public Operator {
+public:
+  ArcSin();
+  Number* compute(Operand* oa1);
+};
+
+class ArcCos : public Operator {
+public:
+  ArcCos();
+  Number* compute(Operand* oa1);
+};
+
+class ArcTan : public Operator {
+public:
+  ArcTan();
   Number* compute(Operand* oa1);
 };
 

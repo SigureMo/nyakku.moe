@@ -2,13 +2,13 @@
 #include <windows.h>
 #include "compute.hpp"
 
-extern "C" DLLIMPORT __stdcall float compute(char *expression)
+extern "C" DLLIMPORT __stdcall double compute(char *expression)
 {
 	checkVars();
 	fillArithmeticUnitVector(expression);
 	computePostfixExpressionQueue();
 	return computeValue();
-} 
+}
 
 BOOL WINAPI DllMain(HINSTANCE hinstDLL,DWORD fdwReason,LPVOID lpvReserved)
 {
@@ -31,7 +31,7 @@ BOOL WINAPI DllMain(HINSTANCE hinstDLL,DWORD fdwReason,LPVOID lpvReserved)
 			break;
 		}
 	}
-	
+
 	/* Return TRUE on success, FALSE on failure */
 	return TRUE;
 }

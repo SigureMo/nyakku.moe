@@ -21,7 +21,7 @@ extern stack<Operand*> operandStack;
 void checkVars();
 void fillArithmeticUnitVector(string expression);
 void computePostfixExpressionQueue();
-void pushOperand();
-float computeValue();
+void pushOperand(bool& digitFlag, bool& dotFlag);
+double computeValue();
 
 #endif

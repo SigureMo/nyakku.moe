@@ -7,6 +7,6 @@
 #define DLLIMPORT __declspec(dllimport)
 #endif
 
-extern "C" DLLIMPORT __stdcall float compute(char *expression);
+extern "C" DLLIMPORT __stdcall double compute(char *expression);
 
 #endif
