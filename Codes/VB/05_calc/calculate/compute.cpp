@@ -49,13 +49,19 @@ void fillArithmeticUnitVector(string expression) {
     else if (c == '=') {
       computePostfixExpressionQueue();
     }
-    else if (c >= 48 && c <= 57) {
-      arithmeticUnitVector.push_back(new Constant(c));
+    else if (c >= 48 && c <= 57) { // digit
+      arithmeticUnitVector.push_back(new Digit(c));
     }
-    else if (c == '.') {
+    else if (c == 'e') { // constant
+      arithmeticUnitVector.push_back(new Exp);
+    }
+    else if (c == 'p') {
+      arithmeticUnitVector.push_back(new PI);
+    }
+    else if (c == '.') { // dot
       arithmeticUnitVector.push_back(new Dot('.'));
     }
-    else if (c == '+') {
+    else if (c == '+') { // operators
       arithmeticUnitVector.push_back(new Plus);
     }
     else if (c == '-') {
@@ -71,6 +77,9 @@ void fillArithmeticUnitVector(string expression) {
     }
     else if (c == '/') {
       arithmeticUnitVector.push_back(new Divide);
+    }
+    else if (c == '%') {
+      arithmeticUnitVector.push_back(new Mod);
     }
     else if (c == '^') {
       arithmeticUnitVector.push_back(new Power);
@@ -90,6 +99,24 @@ void fillArithmeticUnitVector(string expression) {
     else if (c == 'n') {
       arithmeticUnitVector.push_back(new Ln);
     }
+    else if (c == 's') {
+      arithmeticUnitVector.push_back(new Sin);
+    }
+    else if (c == 'o') {
+      arithmeticUnitVector.push_back(new Cos);
+    }
+    else if (c == 't') {
+      arithmeticUnitVector.push_back(new Tan);
+    }
+    else if (c == 'S') {
+      arithmeticUnitVector.push_back(new ArcSin);
+    }
+    else if (c == 'O') {
+      arithmeticUnitVector.push_back(new ArcCos);
+    }
+    else if (c == 'T') {
+      arithmeticUnitVector.push_back(new ArcTan);
+    }
     else {
       cout << "Operator " << c << " is not defined!" << endl;
     }
@@ -97,16 +124,14 @@ void fillArithmeticUnitVector(string expression) {
 }
 
 void computePostfixExpressionQueue() {
-  bool operandFlag = false;
+  bool digitFlag = false;
+  bool dotFlag = false;
   for (int i = 0; i < arithmeticUnitVector.size(); i++) {
     ArithmeticUnit* unit = arithmeticUnitVector[i];
 
     if (unit->isOperator()) {
 
-      if (operandFlag) {
-        pushOperand();
-      }
-      operandFlag = false;
+      pushOperand(digitFlag, dotFlag);
 
       Operator* ot = (Operator*) unit;
       if (ot->isLeftBracket()) {
@@ -135,25 +160,31 @@ void computePostfixExpressionQueue() {
       }
     }
     else if (unit->isOperand()) {
-      operandFlag = true;
       Operand* oa = (Operand*) unit;
       if (oa->isDot()) {
-        operandTmp->dot = 1;
+        dotFlag = true;
       }
-      else if (oa->isConstant()) {
-        if (operandTmp->dot) {
+      else if (oa->isDigit()) {
+        digitFlag = true;
+        if (dotFlag) {
           operandTmp->dot++;
         }
         operandTmp->nums = operandTmp->nums * 10 + oa->nums;
+      }
+      else if (oa->isConstant()) {
+        Constant* ct = (Constant*) oa;
+        if (!digitFlag) {
+          operandTmp->nums = 1;
+        }
+        digitFlag = true;
+        operandTmp->multiply(ct->value);
+        pushOperand(digitFlag, dotFlag);
       }
     }
   }
 
   // clear operandTmp
-  if (operandFlag) {
-    pushOperand();
-  }
-  operandFlag = false;
+  pushOperand(digitFlag, dotFlag);
 
   // clear operatorStack
   while (!operatorStack.empty()) {
@@ -165,17 +196,19 @@ void computePostfixExpressionQueue() {
   arithmeticUnitVector.clear();
 }
 
-void pushOperand() {
-  if (operandTmp->dot) {
-    operandTmp->dot -= 1;
+void pushOperand(bool& digitFlag, bool& dotFlag) {
+  /* push operandTmp into postfixExpressionQueue and clear operandTmp */
+  if (digitFlag) {
+    Number* newOperand = new Number(operandTmp->nums, operandTmp->dot);
+    postfixExpressionQueue.push(newOperand);
+    operandTmp->dot = 0;
+    operandTmp->nums = 0;
   }
-  Number* newOperand = new Number(operandTmp->nums, operandTmp->dot);
-  postfixExpressionQueue.push(newOperand);
-  operandTmp->dot = 0;
-  operandTmp->nums = 0;
+  digitFlag = false;
+  dotFlag = false;
 }
 
-float computeValue() {
+double computeValue() {
   while (!postfixExpressionQueue.empty()) {
     ArithmeticUnit* unit = postfixExpressionQueue.front();
     postfixExpressionQueue.pop();

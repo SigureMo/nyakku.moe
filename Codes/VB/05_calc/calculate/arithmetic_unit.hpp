@@ -1,6 +1,8 @@
 #ifndef ARITHMETICUNIT_H
 #define ARITHMETICUNIT_H
 
+typedef long long ll;
+
 class ArithmeticUnit {
 public:
   ArithmeticUnit(int opType);

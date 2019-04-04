@@ -11,38 +11,56 @@ public:
   Operand(int oaType);
   friend Operator;
   bool isDot();
-  bool isConstant();
+  bool isDigit();
   bool isNumber();
   bool isVariable();
+  bool isConstant();
   void cleanZeros(); // clean zeros that behind the dot
-  float getValue();
-  int nums; // number
+  double getValue();
+  void setValue(double value);
+  ll nums; // number
   int dot; // position of dot
 protected:
   int oaType_;
   int name_; // char
 };
 
-class Constant : public Operand {
+class Digit : public Operand {
 public:
-  Constant(char name);
+  Digit(char name);
 };
 
 class Variable : public Operand {
 public:
   Variable(char name);
-  Change(float value);
 };
 
 class Number : public Operand {
 public:
-  Number(int nums, int dot);
-  Number(float value);
+  Number(ll nums, int dot);
+  Number(double value);
+  void multiply(double value);
 };
 
 class Dot : public Operand {
 public:
   Dot(char name);
+};
+
+class Constant : public Operand {
+public:
+  Constant(char name);
+  double value;
+};
+
+class PI : public Constant {
+public:
+  PI();
+};
+
+class Exp : public Constant {
+public:
+  Exp();
 };
 
 #endif

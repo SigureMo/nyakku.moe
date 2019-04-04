@@ -131,6 +131,26 @@ Number* Negative::compute(Operand* oa1) {
   return new Number(-oa1->nums, oa1->dot);
 }
 
+Mod::Mod():Operator('%') {
+  this->text_ = '%';
+  this->precedence = 2;
+  this->varNum_ = 2;
+}
+
+Number* Mod::compute(Operand* oa1, Operand* oa2) {
+  int nums, maxdot;
+  Number *oa;
+  if (oa1->dot > oa2->dot) {
+    maxdot = oa1->dot;
+  }
+  else {
+    maxdot = oa2->dot;
+  }
+  nums = (ll)(oa1->nums * pow(10, maxdot-oa1->dot)) % (ll)(oa2->nums * pow(10, maxdot-oa2->dot));
+  oa = new Number(nums, maxdot);
+  return oa;
+}
+
 Log::Log():Operator('l') {
   this->text_ = 'l';
   this->precedence = 5;
@@ -149,4 +169,64 @@ Ln::Ln():Operator('n') {
 
 Number* Ln::compute(Operand* oa1) {
   return new Number(log(oa1->getValue()));
+}
+
+Sin::Sin():Operator('s') {
+  this->text_ = 's';
+  this->precedence = 5;
+  this->varNum_ = 1;
+}
+
+Number* Sin::compute(Operand* oa1) {
+  return new Number(sin(oa1->getValue()));
+}
+
+Cos::Cos():Operator('o') {
+  this->text_ = 'o';
+  this->precedence = 5;
+  this->varNum_ = 1;
+}
+
+Number* Cos::compute(Operand* oa1) {
+  return new Number(cos(oa1->getValue()));
+}
+
+Tan::Tan():Operator('t') {
+  this->text_ = 't';
+  this->precedence = 5;
+  this->varNum_ = 1;
+}
+
+Number* Tan::compute(Operand* oa1) {
+  return new Number(tan(oa1->getValue()));
+}
+
+ArcSin::ArcSin():Operator('S') {
+  this->text_ = 'S';
+  this->precedence = 5;
+  this->varNum_ = 1;
+}
+
+Number* ArcSin::compute(Operand* oa1) {
+  return new Number(asin(oa1->getValue()));
+}
+
+ArcCos::ArcCos():Operator('O') {
+  this->text_ = 'O';
+  this->precedence = 5;
+  this->varNum_ = 1;
+}
+
+Number* ArcCos::compute(Operand* oa1) {
+  return new Number(acos(oa1->getValue()));
+}
+
+ArcTan::ArcTan():Operator('T') {
+  this->text_ = 'T';
+  this->precedence = 5;
+  this->varNum_ = 1;
+}
+
+Number* ArcTan::compute(Operand* oa1) {
+  return new Number(atan(oa1->getValue()));
 }
