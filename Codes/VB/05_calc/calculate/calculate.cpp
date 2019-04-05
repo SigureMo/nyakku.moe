@@ -12,9 +12,6 @@ using namespace std;
  */
 
 int main(void) {
-
-  // test
-  // Support +-*/^()
   while (true) {
     string expression;
     string tmp_expression;
@@ -32,11 +29,5 @@ int main(void) {
     cout << "> " << computeValue() << endl;
     checkVars();
   }
-
-  // TODO
-  // [ ] 垃圾回收问题
-  // [+] 负号的问题
-  // [ ] 变量的支持
-  // [ ] 一元运算符（前缀、后缀）
   return 0;
 }

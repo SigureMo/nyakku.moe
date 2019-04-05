@@ -18,6 +18,8 @@ public:
   bool isBackSpace();
   bool isUnaryOperator();
   bool isBinaryOperator();
+  bool isPrefixUnaryOperator();
+  bool isPostfixBinaryOperator();
   virtual Number* compute(Operand* oa1, Operand* oa2);
   virtual Number* compute(Operand* oa1);
   int precedence;
@@ -126,5 +128,19 @@ public:
   ArcTan();
   Number* compute(Operand* oa1);
 };
+
+class Factorial : public Operator {
+public:
+  Factorial();
+  Number* compute(Operand* oa1);
+};
+
+class Sqrt : public Operator {
+public:
+  Sqrt();
+  Number* compute(Operand* oa1);
+};
+
+double Gamma(double x);
 
 #endif

@@ -65,7 +65,7 @@ void fillArithmeticUnitVector(string expression) {
       arithmeticUnitVector.push_back(new Plus);
     }
     else if (c == '-') {
-      if (i == 0 || !(expression[i-1] >= 48 && expression[i-1] <=57)) {
+      if (i == 0 || !(expression[i-1] >= 48 && expression[i-1] <=57) && expression[i-1] != '!') {
         arithmeticUnitVector.push_back(new Negative);
       }
       else {
@@ -117,6 +117,12 @@ void fillArithmeticUnitVector(string expression) {
     else if (c == 'T') {
       arithmeticUnitVector.push_back(new ArcTan);
     }
+    else if (c == '!') {
+      arithmeticUnitVector.push_back(new Factorial);
+    }
+    else if (c == '@') {
+      arithmeticUnitVector.push_back(new Sqrt);
+    }
     else {
       cout << "Operator " << c << " is not defined!" << endl;
     }
@@ -148,7 +154,7 @@ void computePostfixExpressionQueue() {
           postfixExpressionQueue.push(otmp);
         }
       }
-      else if (operatorStack.empty() || ot->precedence > operatorStack.top()->precedence) {
+      else if (operatorStack.empty() || ot->isPrefixUnaryOperator() || ot->precedence > operatorStack.top()->precedence) {
         operatorStack.push(ot);
       }
       else {
