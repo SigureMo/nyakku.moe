@@ -3,6 +3,8 @@
 #include "operator.hpp"
 #include "operand.hpp"
 
+using namespace std;
+
 Operator::Operator(int code):ArithmeticUnit(0) {
   this->code_ = code;
 }
@@ -32,11 +34,19 @@ bool Operator::isBackSpace() {
 }
 
 bool Operator::isUnaryOperator() {
-  return this->varNum_ == 1;
+  return this->varNum_ == 1 or this->varNum_ == -1;
 }
 
 bool Operator::isBinaryOperator() {
   return this->varNum_ == 2;
+}
+
+bool Operator::isPrefixUnaryOperator() {
+  return this->varNum_ == 1;
+}
+
+bool Operator::isPostfixBinaryOperator() {
+  return this->varNum_ == -1;
 }
 
 Number* Operator::compute(Operand* oa1, Operand* oa2) {};
@@ -123,7 +133,7 @@ RightBracket::RightBracket():Operator(')') {
 
 Negative::Negative():Operator('-') {
   this->text_ = '-';
-  this->precedence = 5;
+  this->precedence = 9;
   this->varNum_ = 1;
 }
 
@@ -153,7 +163,7 @@ Number* Mod::compute(Operand* oa1, Operand* oa2) {
 
 Log::Log():Operator('l') {
   this->text_ = 'l';
-  this->precedence = 5;
+  this->precedence = 9;
   this->varNum_ = 1;
 }
 
@@ -163,7 +173,7 @@ Number* Log::compute(Operand* oa1) {
 
 Ln::Ln():Operator('n') {
   this->text_ = 'n';
-  this->precedence = 5;
+  this->precedence = 9;
   this->varNum_ = 1;
 }
 
@@ -173,7 +183,7 @@ Number* Ln::compute(Operand* oa1) {
 
 Sin::Sin():Operator('s') {
   this->text_ = 's';
-  this->precedence = 5;
+  this->precedence = 9;
   this->varNum_ = 1;
 }
 
@@ -183,7 +193,7 @@ Number* Sin::compute(Operand* oa1) {
 
 Cos::Cos():Operator('o') {
   this->text_ = 'o';
-  this->precedence = 5;
+  this->precedence = 9;
   this->varNum_ = 1;
 }
 
@@ -193,7 +203,7 @@ Number* Cos::compute(Operand* oa1) {
 
 Tan::Tan():Operator('t') {
   this->text_ = 't';
-  this->precedence = 5;
+  this->precedence = 9;
   this->varNum_ = 1;
 }
 
@@ -203,7 +213,7 @@ Number* Tan::compute(Operand* oa1) {
 
 ArcSin::ArcSin():Operator('S') {
   this->text_ = 'S';
-  this->precedence = 5;
+  this->precedence = 9;
   this->varNum_ = 1;
 }
 
@@ -213,7 +223,7 @@ Number* ArcSin::compute(Operand* oa1) {
 
 ArcCos::ArcCos():Operator('O') {
   this->text_ = 'O';
-  this->precedence = 5;
+  this->precedence = 9;
   this->varNum_ = 1;
 }
 
@@ -223,10 +233,51 @@ Number* ArcCos::compute(Operand* oa1) {
 
 ArcTan::ArcTan():Operator('T') {
   this->text_ = 'T';
-  this->precedence = 5;
+  this->precedence = 9;
   this->varNum_ = 1;
 }
 
 Number* ArcTan::compute(Operand* oa1) {
   return new Number(atan(oa1->getValue()));
+}
+
+Factorial::Factorial():Operator('!') {
+  this->text_ = '!';
+  this->precedence = 9;
+  this->varNum_ = -1;
+}
+
+Number* Factorial::compute(Operand* oa1) {
+  if (oa1->dot) {
+    return new Number(Gamma(oa1->getValue()));
+  }
+  else {
+    ll res = 1;
+    for (int i = oa1->nums; i > 0; i--) {
+      res *= i;
+    }
+    return new Number(res, 0);
+  }
+}
+
+Sqrt::Sqrt():Operator('@') {
+  this->text_ = '@';
+  this->precedence = 9;
+  this->varNum_ = 1;
+}
+
+Number* Sqrt::compute(Operand* oa1) {
+  return new Number(sqrt(oa1->getValue()));
+}
+
+double Gamma(double x) {
+  // $\Gamma(x) = \int_0^{+\infty}t^{x-1}e^{-t}dt$
+  int i = 0;
+  double delta = 1e-6;
+  double res = 0;
+  while (i < 1e7) {
+    res += pow(i * delta, x) * exp(-i * delta) * delta;
+    i++;
+  }
+  return res;
 }
