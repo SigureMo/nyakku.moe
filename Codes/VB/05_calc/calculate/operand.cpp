@@ -27,7 +27,7 @@ bool Operand::isConstant() {
 }
 
 void Operand::cleanZeros() {
-  while (this->nums % 10 == 0 && this->nums!=0) {
+  while (this->nums % 10 == 0 && this->nums!=0 && this->dot > 0) {
     this->nums /= 10;
     this->dot -= 1;
   }
