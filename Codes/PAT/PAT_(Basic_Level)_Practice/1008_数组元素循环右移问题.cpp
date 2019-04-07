@@ -2,6 +2,10 @@
 
 using namespace std;
 
+// 一步到位算法，直接将数据传到目标位置
+// 移动必定构成一个环路，但构成的环路的大小是多大，一共需要几个环路才能将整个数组遍历完呢？
+// 这里使用 get_offset 获取最小的偏移量 offset（> 0），这样我们一共只需要遍历 offset 次就可以完成对整个数组的调整了
+
 int get_offset(int range, int step);
 
 int main() {
@@ -40,17 +44,11 @@ int main() {
 }
 
 int get_offset(int range, int step) {
-  // cout << range << " " << step << endl;
   if (range % step == 0) {
     return step;
   }
   else {
     int offset = ((range / step + 1) * step) % range;
-    if (offset == 1) {
-      return 1;
-    }
-    else {
-      return get_offset(step, offset);
-    }
+    return get_offset(step, offset);
   }
 }
