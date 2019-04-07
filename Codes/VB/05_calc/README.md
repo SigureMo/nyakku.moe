@@ -30,7 +30,7 @@
 
 第二种方案否决的最快，因为我发现 VB 并没用使用进程通信的接口（或者我不知道），第三种是由于曾经用代码直接编写界面导致我对 GUI 的设计一直很抵触，而第一种又是最最适合而且可行性最高的方案（之前学完 C++ 后实现了几个算法就没再用过了，这次正好再捡起来并开始刷算法）
 
-说实话，算是我做过最大的项目了吧（从 [VB 版开始](https://github.com/SigureMo/notev/commit/4b8315594cbef81037619984c67db9f22178ed43)到 [VB & C++ 版初步完成]()历时两周多），毕竟使用两种生疏的语言做生疏的算法……不过确实学到了不少
+说实话，算是我做过最大的项目了吧（从 [VB 版开始](https://github.com/SigureMo/notev/commit/4b8315594cbef81037619984c67db9f22178ed43)到 [VB & C++ 版初步完成](https://github.com/SigureMo/notev/commit/2d549ea17a3d592f8e6def319a2b8d303c894fca)历时近两周），毕竟使用两种生疏的语言做生疏的算法……不过确实学到了不少
 
 ## 尚需解决的问题
 
@@ -42,12 +42,18 @@
    -  [ ] 广义阶乘精度较低的问题
    -  [ ] 部分英文名称并不合适
 -  VB （GUI）部分
+   -  [ ] 输入审核机制
    -  [ ] 部分数值溢出
+   -  [ ] 运算值预览
+   -  [ ] deg、dms、左下角按键的支持（现在没搞懂它们都有啥用）
+   -  [ ] win10 calc 中 DEG HYP F-E 的支持
 
 ## 注意事项
 
 -  由于部分运算尚不稳定，请尽可能地使用括号对歧义处进行包裹
+-  部分运算符的用法更符合数学习惯而不是 win10 calc 的用法
+-  绘制图形时切忌变量前加常数，当前的机制为 VB 中纯字符串替换，类似于宏的原理，dll 中尚不支持变量的使用
 
 ---
 
-[notev](https://github.com/SigureMo/notev/tree/master/Codes/VB)
+[Open Sourse @ notev](https://github.com/SigureMo/notev/tree/master/Codes/VB)
