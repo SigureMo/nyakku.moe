@@ -166,26 +166,28 @@ End Sub
 
 Private Sub CheckerBoard_MouseDown(Button As Integer, Shift As Integer, x As Single, y As Single)
     If Button = 1 Then
-        If chess_matrix(Round(x), Round(y)) = 0 Then
-            chess_matrix(Round(x), Round(y)) = next_color
-            change_color
+        If Round(x) <= 18 And Round(x) >= 0 And Round(y) >= 0 And Round(y) <= 18 Then
+            If chess_matrix(Round(x), Round(y)) = 0 Then
+                chess_matrix(Round(x), Round(y)) = next_color
+                change_color
+            End If
+            Redraw
+            winner = Check_Winner(Round(x), Round(y))
+            If winner = 1 Then
+                black_score = black_score + 1
+                MsgBox "ºÚÆåÊ¤£¡"
+                Clear_CheckerBoard
+            ElseIf winner = 2 Then
+                white_score = white_score + 1
+                MsgBox "°×ÆåÊ¤£¡"
+                Clear_CheckerBoard
+            ElseIf winner = 3 Then
+                MsgBox "Æ½¾Ö£¡"
+                Clear_CheckerBoard
+            End If
+            Redraw
         End If
     End If
-    Redraw
-    winner = Check_Winner(Round(x), Round(y))
-    If winner = 1 Then
-        black_score = black_score + 1
-        MsgBox "ºÚÆåÊ¤£¡"
-        Clear_CheckerBoard
-    ElseIf winner = 2 Then
-        white_score = white_score + 1
-        MsgBox "°×ÆåÊ¤£¡"
-        Clear_CheckerBoard
-    ElseIf winner = 3 Then
-        MsgBox "Æ½¾Ö£¡"
-        Clear_CheckerBoard
-    End If
-    Redraw
 End Sub
 
 Private Function Check_Winner(x As Integer, y As Integer) As Integer
