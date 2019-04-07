@@ -441,10 +441,19 @@ Begin VB.Form Calculator
       TabIndex        =   14
       Top             =   250
       Width           =   5100
+      Begin VB.TextBox Step_X_Box 
+         Height          =   400
+         Left            =   1200
+         TabIndex        =   71
+         Text            =   "0.001"
+         Top             =   1540
+         Width           =   1000
+      End
       Begin VB.CommandButton Key_X 
          Caption         =   "x"
          Height          =   400
          Left            =   3800
+         Style           =   1  'Graphical
          TabIndex        =   23
          Top             =   1500
          Width           =   800
@@ -480,6 +489,15 @@ Begin VB.Form Calculator
          Text            =   "-1"
          Top             =   400
          Width           =   1000
+      End
+      Begin VB.Label Step_X_Label 
+         AutoSize        =   -1  'True
+         Caption         =   "¦¤x"
+         Height          =   180
+         Left            =   240
+         TabIndex        =   72
+         Top             =   1680
+         Width           =   1540
       End
       Begin VB.Label Range_Y_Step_Label 
          AutoSize        =   -1  'True
@@ -653,10 +671,11 @@ Private Declare Function compute Lib "calc.dll" (ByVal Expression As String) As 
 Dim Expression As String
 Dim Operands As String
 Dim Operators As String
+Dim iMode As Integer ' 0:Calc, 1:Graph
 
 
 Private Sub Form_Load()
-    Shell (Start & "calc.exe")
+    ' Shell (Start & "calc.exe")
     Operands = "1234567890.x"
     Operators = "+-*/()^"
     Call CalculateMode_Click
@@ -681,7 +700,7 @@ End Function
 
 ' ¿ì½Ý¼ü
 Private Sub Form_KeyPress(KeyAscii As Integer)
-    If Not ((Calculator.ActiveControl Is X_Min_Box) Or (Calculator.ActiveControl Is Y_Min_Box) Or (Calculator.ActiveControl Is X_Max_Box) Or (Calculator.ActiveControl Is Y_Max_Box)) Then
+    If Not ((Calculator.ActiveControl Is X_Min_Box) Or (Calculator.ActiveControl Is Y_Min_Box) Or (Calculator.ActiveControl Is X_Max_Box) Or (Calculator.ActiveControl Is Y_Max_Box) Or (Calculator.ActiveControl Is Step_X_Box)) Then
         Select Case KeyAscii
             Case 8
                 Call Key_Back_Click
@@ -730,7 +749,11 @@ Private Sub Form_KeyPress(KeyAscii As Integer)
             Case 58
                 Call Key_0_Click
             Case 61
-                Call Key_Equal_Click
+                If iMode = 0 Then
+                    Call Key_Equal_Click
+                ElseIf iMode = 1 Then
+                    Call Key_Plot_Click
+                End If
             Case 64
                 Call Key_Sqrt_Click
             Case 79
@@ -841,8 +864,9 @@ Public Sub Show_Expression()
 End Sub
 
 
-' Mode Change
+' Mode Switch
 Private Sub GraphMode_Click()
+    iMode = 1
     Result.Visible = False
     Memory_Frame.Visible = False
     History_Frame.Visible = False
@@ -853,6 +877,7 @@ Private Sub GraphMode_Click()
 End Sub
 
 Private Sub CalculateMode_Click()
+    iMode = 0
     Result.Visible = True
     Memory_Frame.Visible = True
     History_Frame.Visible = True
@@ -1177,12 +1202,14 @@ Private Sub Key_X_Click()
 End Sub
 
 Private Sub Key_Plot_Click()
+    Call Press_Key(Key_Plot)
     Graph.Cls
     Graph.DrawWidth = 2
     x_min = Val(X_Min_Box.Text)
     x_max = Val(X_Max_Box.Text)
     y_min = Val(Y_Min_Box.Text)
     y_max = Val(Y_Max_Box.Text)
+    step_x = Val(Step_X_Box.Text)
     delta_x = x_max - x_min
     delta_y = y_max - y_min
     Graph.Scale (x_min, y_max)-(x_max, y_min)
@@ -1190,32 +1217,20 @@ Private Sub Key_Plot_Click()
     Graph.Line (x_min, 0)-(x_max, 0)
     ' Axis x
     For i = x_min To x_max Step delta_x * 0.1
-        Graph.Line (i, 0)-(i, delta_y * 0.02)
+        Graph.Line (i, 0)-(i, delta_y * 0.01)
         Graph.CurrentX = i: Graph.CurrentY = -delta_y * 0.05: Graph.Print Format(i, "0.00")
     Next i
     ' Axis y
     For i = y_min To y_max Step delta_y * 0.1
-        Graph.Line (0, i)-(delta_y * 0.01, i)
+        Graph.Line (0, i)-(delta_x * 0.01, i)
         Graph.CurrentX = -delta_x * 0.1: Graph.CurrentY = i: Graph.Print Format(i, "0.00")
     Next i
     ' Plot
     If Expression <> "" Then
-        Expression = Expression & "="
-        For x = x_min To x_max Step 0.001
-            tempExpression = ""
-            i = 1
-            While i < Len(Expression)
-                idx = InStr(i, Expression, "x")
-                If idx Then
-                    tempExpression = tempExpression & Mid(Expression, i, idx - i) & Format(x, "0.000")
-                    i = idx + 1
-                Else
-                    tempExpression = tempExpression & Mid(Expression, i, Len(Expression))
-                    i = Len(Expression) + 1
-                End If
-            Wend
-            Graph.PSet (x, compute(tempExpression))
+        For x = x_min To x_max Step step_x
+            tempExpression = Replace(Expression, "x", Format(x, "0.000"))
+            Graph.PSet (x, compute(tempExpression & "="))
         Next
     End If
-    
+    Call Show_Expression
 End Sub
