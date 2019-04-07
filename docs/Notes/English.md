@@ -1,4 +1,4 @@
-# English <Badge text="alpha" type="warn"/> <Badge text="033"/>
+# English <Badge text="alpha" type="warn"/> <Badge text="034"/>
 
 > Escape can not solve any problem.
 
@@ -1274,7 +1274,7 @@
       > -  That is a little more expensive.
       > -  That is much more expensive.
 
-# Day 032
+### Day 032
 
 -  一般将来式的句子中，before 引导时间状语时，从句用一般现在时
 
@@ -1286,9 +1286,46 @@
    -  get a surprise 感到惊奇
    -  to one's surprise 令某人惊奇的是 ...
 
-# Day 033
+### Day 033
 
 -  I could do nothing for you. 我帮不了你
+
+### Day 034
+
+-  hardly & almost
+
+   -  sb. had hardly done when... 刚刚...就..
+   -  sb. had almost done when... 马上就要...时，就...
+
+-  when & while & as
+
+   -  when 可以和延续性动词连用，也可以和短暂性动词连用，而 while 和 as 只能和延续型动词连用
+      > e.g.
+      >
+      > -  Why do you want a new job when you've got such a good one already? (get 短暂性)
+      > -  Sorry, I was out when you caled me.(call 短暂性)
+      > -  Strike while whe iron is hot. (is 持续性)
+      > -  The students took notes as they listened.
+   -  when 从句的谓语动词可以在主句谓语动作之前、之后或同时发生，while 和 as 只能同时
+      > e.g.
+      >
+      > -  When he had finished his homework, he took a short rest.
+   -  当主句、从句动作同时进行，从句动作的时间概念淡化，而主要表示主句动作发生的背景或条件时，只能用 as ，这时，as 常表示 “随着”、“一边……一边……”之意
+      > e.g.
+      >
+      > -  As the time went on, the weather got worse.
+      > -  As years go by, China is getting stronger and richer.
+
+-  yet & still
+   -  yet 通常用在疑问句或否定句中，表示“某事预期发生，却还未发生”
+   -  still 表示“因某事持续的时间比预期的要久而惊讶的”
+      > e.g.
+      >
+      > -  Is dinner ready yet? I/m starving.
+      > -  Is it still rainning?
+-  it is & there be
+   -  it is 指代；形式主语；天气（adj./v.）
+   -  there be 有；there be sb. doing sth.；天气（n.）
 
 # Reference
 
