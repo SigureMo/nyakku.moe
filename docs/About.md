@@ -4,13 +4,20 @@
 <p align="center">
   <a href="https://github.com/SigureMo" class="zi zi_tmGithub"></a>
   <a href="mailto:sigure_mo@163.com" class="zi zi_envelope"></a>
+  <a href="tencent://AddContact/?fromId=45&fromSubId=1&subcmd=all&uin=240377379&website=www.oicqzone.com" class="zi zi_tmQq"></a>
 </p>
 
-Sigure_Mo，大三材料喵，喵喵喵喵喵 ~
+Sigure_Mo，大三材料喵，加油加油加油油 ε≡٩(๑>₃<)۶ ~
+
+## Status
 
 -  偶尔写写 <i class="zi zi_tmPython"></i> 小脚本 ~
--  偶尔学学 Deep Learning ~
--  偶尔刷刷 Data Structures ~
+-  偶尔学学 ML ~
+-  偶尔刷刷 PAT ~
+-  偶尔卖卖 萌 :joy: ~
+-  一直在学习 ……（手动滑稽）
+
+## Comments
 
 <Valine></Valine>
 
