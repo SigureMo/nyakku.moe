@@ -786,8 +786,6 @@ Private Sub Form_KeyPress(KeyAscii As Integer)
                 Call Key_CE_Click
         End Select
     End If
-    
-    'MsgBox KeyAscii
 End Sub
 
 ' À¨ºÅ»Øµ÷
@@ -1008,10 +1006,6 @@ Private Sub Key_RightBracket_Click()
     Call ShowLeftBracket
 End Sub
 
-Private Sub Key_Root_Click()
-
-End Sub
-
 Private Sub Key_Sin_Click()
     Call Press_Key(Key_Sin)
     Expression = Expression & "s"
@@ -1154,6 +1148,7 @@ Private Sub Key_CE_Click()
 End Sub
 
 Private Sub Key_Equal_Click()
+    On Error GoTo ErrorHandler
     Call Press_Key(Key_Equal)
     If Expression <> "" Then
         Expression = Expression & "="
@@ -1161,6 +1156,12 @@ Private Sub Key_Equal_Click()
         Expression = ""
         History.AddItem (Expression_Box.Text & "=" & Result.Text)
     End If
+    Exit Sub
+ErrorHandler:
+    If Err.Number = 11 Then
+        MsgBox (Error(Err.Number))
+    End If
+    Resume Next
 End Sub
 
 ' Clear History
@@ -1202,6 +1203,7 @@ Private Sub Key_X_Click()
 End Sub
 
 Private Sub Key_Plot_Click()
+    On Error Resume Next
     Call Press_Key(Key_Plot)
     Graph.Cls
     Graph.DrawWidth = 2

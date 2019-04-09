@@ -86,8 +86,6 @@ Dim next_color As Integer ' 1 black, 2 white
 Dim black_score As Integer
 Dim white_score As Integer
 
-' 与隔壁 14 天的大工程比起来，这个 1 小时实现基本功能的小东西实在是太……简单了吧，隔壁快把我给做哭了都
-' 在不可预期的未来，可以考虑实用强化学习自动下棋，哦，现在当然是不会做咯
 
 Private Sub Init_CheckerBoard()
     w = CheckerBoard.Width
