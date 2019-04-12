@@ -194,65 +194,7 @@ Private Function Check_Winner(x As Integer, y As Integer) As Integer
     win = False
     full = True
     
-    ' -
-    For i = -4 To 4
-        If x + i >= 0 And x + i <= 18 Then
-            If chess_matrix(x + i, y) = chess_color Then
-                num = num + 1
-                If num >= 5 Then
-                    win = True
-                End If
-            Else
-                num = 0
-            End If
-        End If
-    Next i
-    num = 0
-    
-    ' |
-    For i = -4 To 4
-        If y + i >= 0 And y + i <= 18 Then
-            If chess_matrix(x, y + i) = chess_color Then
-                num = num + 1
-                If num >= 5 Then
-                    win = True
-                End If
-            Else
-                num = 0
-            End If
-        End If
-    Next i
-    num = 0
-    
-    ' \
-    For i = -4 To 4
-        If y + i >= 0 And y + i <= 18 And x + i >= 0 And x + i <= 18 Then
-            If chess_matrix(x + i, y + i) = chess_color Then
-                num = num + 1
-                If num >= 5 Then
-                    win = True
-                End If
-            Else
-                num = 0
-            End If
-        End If
-    Next i
-    num = 0
-
-    ' \
-    For i = -4 To 4
-        If y - i >= 0 And y - i <= 18 And x + i >= 0 And x + i <= 18 Then
-            If chess_matrix(x + i, y - i) = chess_color Then
-                num = num + 1
-                If num >= 5 Then
-                    win = True
-                End If
-            Else
-                num = 0
-            End If
-        End If
-    Next i
-    num = 0
+    win = have_five(x, y, 1, 0) Or have_five(x, y, 0, 1) Or have_five(x, y, 1, 1) Or have_five(x, y, 1, -1)
     
     ' full?
     For i = 0 To 18
@@ -272,3 +214,23 @@ Private Function Check_Winner(x As Integer, y As Integer) As Integer
     End If
 End Function
 
+Private Function have_five(x As Integer, y As Integer, axis_x As Integer, axis_y As Integer) As Boolean
+    chess_color = chess_matrix(x, y)
+    num = 0
+    For i = -4 To 4
+        target_x = x + i * axis_x
+        target_y = y + i * axis_y
+        If target_x >= 0 And target_x <= 18 And target_y >= 0 And target_y <= 18 Then
+            If chess_matrix(target_x, target_y) = chess_color Then
+                num = num + 1
+                If num >= 5 Then
+                    have_five = True
+                    Exit Function
+                End If
+            Else
+                num = 0
+            End If
+        End If
+    Next i
+    have_five = False
+End Function
