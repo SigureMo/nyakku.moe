@@ -141,7 +141,7 @@ void computePostfixExpressionQueue() {
 
       Operator* ot = (Operator*) unit;
       if (ot->isLeftBracket()) {
-        ot->precedence = 0;
+        ot->priority = 0;
         operatorStack.push(ot);
       }
       else if (ot->isRightBracket()) {
@@ -154,11 +154,11 @@ void computePostfixExpressionQueue() {
           postfixExpressionQueue.push(otmp);
         }
       }
-      else if (operatorStack.empty() || ot->isPrefixUnaryOperator() || ot->precedence > operatorStack.top()->precedence) {
+      else if (operatorStack.empty() || ot->isPrefixUnaryOperator() || ot->priority > operatorStack.top()->priority) {
         operatorStack.push(ot);
       }
       else {
-        while (!operatorStack.empty() && ot->precedence <= operatorStack.top()->precedence) {
+        while (!operatorStack.empty() && ot->priority <= operatorStack.top()->priority) {
           postfixExpressionQueue.push(operatorStack.top());
           operatorStack.pop();
         }
