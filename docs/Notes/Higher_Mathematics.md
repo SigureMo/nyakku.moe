@@ -142,7 +142,9 @@ $(a+b)^n=\sum\limits_{k=0}^n C_n^k a^kb^{n-k}$
 
    > Example1:
    > Q: 设 $a_0 = 0$ ，$a_1 = 1$, $a_n + a_{n-1} = 2 a_{n+1}$ ,求 $\lim \limits_{n \to \infty} a_n$
-   > A: $$
+   > A:
+
+   $$
    \begin{aligned}
    a_{n+1} =& \frac{a_n + a_{n-1}}{2} \rArr \\
    a_{n+1} - a_n =& \frac{a_n + a_{n+1}}{2} - a_n \\
@@ -163,6 +165,39 @@ $(a+b)^n=\sum\limits_{k=0}^n C_n^k a^kb^{n-k}$
 3. 定义法
 4. 夹逼准则
 5. 定积分定义
+
+## 3 Single variable differential calculus
+
+### 3.1 主线梳理
+
+#### 3.1.1 导数的定义
+
+$$
+\lim_{x \to x_0} \frac{f(x) - f(x_0)}{x - x_0}
+$$
+
+或者
+
+$$
+\lim_{\Delta x \to 0} \frac{f(x_0 + \Delta x) - f(x_0)}{\Delta x}
+$$
+
+用啥看情况吧
+
+#### 3.1.2 求导法则
+
+-  和差积商
+-  反函数
+-  复合函数
+-  基本求导法则与导数公式
+
+### 3.2 一些需要记的
+
+-  反函数求导法则
+
+   基于 $\frac{dy}{dx} = \frac{1}{\frac{dx}{dy}}$ ，用反函数求出来之后再求个导数，然后变量替换即可
+
+### 3.3 一些需要注意的
 
 # Amendant Record
 
