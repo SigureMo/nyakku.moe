@@ -55,7 +55,7 @@ Number* Operator::compute(Operand* oa1) {};
 
 Plus::Plus():Operator('+') {
   this->text_ = '+';
-  this->precedence = 1;
+  this->priority = 1;
   this->varNum_ = 2;
 }
 
@@ -78,7 +78,7 @@ Number* Plus::compute(Operand* oa1, Operand* oa2) {
 
 Minus::Minus():Operator('-') {
   this->text_ = '-';
-  this->precedence = 1;
+  this->priority = 1;
   this->varNum_ = 2;
 }
 
@@ -93,7 +93,7 @@ Number* Minus::compute(Operand* oa1, Operand* oa2) {
 
 Multiply::Multiply():Operator('*') {
   this->text_ = '*';
-  this->precedence = 2;
+  this->priority = 2;
   this->varNum_ = 2;
 }
 
@@ -103,7 +103,7 @@ Number* Multiply::compute(Operand* oa1, Operand* oa2) {
 
 Divide::Divide():Operator('/') {
   this->text_ = '/';
-  this->precedence = 2;
+  this->priority = 2;
   this->varNum_ = 2;
 }
 
@@ -113,7 +113,7 @@ Number* Divide::compute(Operand* oa1, Operand* oa2) {
 
 Power::Power():Operator('^') {
   this->text_ = '^';
-  this->precedence = 3;
+  this->priority = 3;
   this->varNum_ = 2;
 }
 
@@ -123,17 +123,17 @@ Number* Power::compute(Operand* oa1, Operand* oa2) {
 
 LeftBracket::LeftBracket():Operator('(') {
   this->text_ = '(';
-  this->precedence = 99;
+  this->priority = 99;
 }
 
 RightBracket::RightBracket():Operator(')') {
   this->text_ = ')';
-  this->precedence = 0;
+  this->priority = 0;
 }
 
 Negative::Negative():Operator('-') {
   this->text_ = '-';
-  this->precedence = 9;
+  this->priority = 9;
   this->varNum_ = 1;
 }
 
@@ -143,7 +143,7 @@ Number* Negative::compute(Operand* oa1) {
 
 Mod::Mod():Operator('%') {
   this->text_ = '%';
-  this->precedence = 2;
+  this->priority = 2;
   this->varNum_ = 2;
 }
 
@@ -163,7 +163,7 @@ Number* Mod::compute(Operand* oa1, Operand* oa2) {
 
 Log::Log():Operator('l') {
   this->text_ = 'l';
-  this->precedence = 9;
+  this->priority = 9;
   this->varNum_ = 1;
 }
 
@@ -173,7 +173,7 @@ Number* Log::compute(Operand* oa1) {
 
 Ln::Ln():Operator('n') {
   this->text_ = 'n';
-  this->precedence = 9;
+  this->priority = 9;
   this->varNum_ = 1;
 }
 
@@ -183,7 +183,7 @@ Number* Ln::compute(Operand* oa1) {
 
 Sin::Sin():Operator('s') {
   this->text_ = 's';
-  this->precedence = 9;
+  this->priority = 9;
   this->varNum_ = 1;
 }
 
@@ -193,7 +193,7 @@ Number* Sin::compute(Operand* oa1) {
 
 Cos::Cos():Operator('o') {
   this->text_ = 'o';
-  this->precedence = 9;
+  this->priority = 9;
   this->varNum_ = 1;
 }
 
@@ -203,7 +203,7 @@ Number* Cos::compute(Operand* oa1) {
 
 Tan::Tan():Operator('t') {
   this->text_ = 't';
-  this->precedence = 9;
+  this->priority = 9;
   this->varNum_ = 1;
 }
 
@@ -213,7 +213,7 @@ Number* Tan::compute(Operand* oa1) {
 
 ArcSin::ArcSin():Operator('S') {
   this->text_ = 'S';
-  this->precedence = 9;
+  this->priority = 9;
   this->varNum_ = 1;
 }
 
@@ -223,7 +223,7 @@ Number* ArcSin::compute(Operand* oa1) {
 
 ArcCos::ArcCos():Operator('O') {
   this->text_ = 'O';
-  this->precedence = 9;
+  this->priority = 9;
   this->varNum_ = 1;
 }
 
@@ -233,7 +233,7 @@ Number* ArcCos::compute(Operand* oa1) {
 
 ArcTan::ArcTan():Operator('T') {
   this->text_ = 'T';
-  this->precedence = 9;
+  this->priority = 9;
   this->varNum_ = 1;
 }
 
@@ -243,7 +243,7 @@ Number* ArcTan::compute(Operand* oa1) {
 
 Factorial::Factorial():Operator('!') {
   this->text_ = '!';
-  this->precedence = 9;
+  this->priority = 9;
   this->varNum_ = -1;
 }
 
@@ -262,7 +262,7 @@ Number* Factorial::compute(Operand* oa1) {
 
 Sqrt::Sqrt():Operator('@') {
   this->text_ = '@';
-  this->precedence = 9;
+  this->priority = 9;
   this->varNum_ = 1;
 }
 

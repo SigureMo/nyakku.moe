@@ -22,7 +22,7 @@ public:
   bool isPostfixBinaryOperator();
   virtual Number* compute(Operand* oa1, Operand* oa2);
   virtual Number* compute(Operand* oa1);
-  int precedence;
+  int priority;
 protected:
   int code_; // ascii ...
   std::string text_;
