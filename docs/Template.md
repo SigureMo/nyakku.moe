@@ -56,7 +56,7 @@ $$
 \end{aligned}
 $$
 
-具体可参照[$\KaTeX$ 文档](http://www.intmath.com/cg5/katex-mathjax-comparison.php)以及[$\LaTeX$ 文档](https://math.meta.stackexchange.com/questions/5020/mathjax-basic-tutorial-and-quick-reference)，另外可以使用[mavonEditor](https://md.zhystar.com/)在线测试 $\KaTeX$ 公式
+具体可参照[$\KaTeX$ 支持的公式](https://katex.org/docs/supported.html)以及[$\LaTeX$ 支持的公式](https://math.meta.stackexchange.com/questions/5020/mathjax-basic-tutorial-and-quick-reference)
 
 ::: tip
 
