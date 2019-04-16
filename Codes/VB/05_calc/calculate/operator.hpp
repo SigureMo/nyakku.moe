@@ -19,7 +19,7 @@ public:
   bool isUnaryOperator();
   bool isBinaryOperator();
   bool isPrefixUnaryOperator();
-  bool isPostfixBinaryOperator();
+  bool isPostfixUnaryOperator();
   virtual Number* compute(Operand* oa1, Operand* oa2);
   virtual Number* compute(Operand* oa1);
   int priority;
