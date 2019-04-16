@@ -45,7 +45,7 @@ bool Operator::isPrefixUnaryOperator() {
   return this->varNum_ == 1;
 }
 
-bool Operator::isPostfixBinaryOperator() {
+bool Operator::isPostfixUnaryOperator() {
   return this->varNum_ == -1;
 }
 
