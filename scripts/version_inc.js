@@ -9,7 +9,7 @@ fs.readFile("package.json", "utf8", function(err, data) {
     data.version.split(".")[1]
   }.${parseInt(data.version.split(".")[2]) + 1}`;
 
-  out_str = JSON.stringify(data, null, 2) + "\r";
+  out_str = JSON.stringify(data, null, 2) + "\n";
 
   fs.writeFile("package.json", out_str, "utf8", err => {
     if (err) throw err;
