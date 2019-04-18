@@ -15,10 +15,10 @@ import time
 from utils.primitive import *
 from utils.process import Process, all_start
 
-N = 100
-empty = Semaphore(N) # Range [-1, N]
-in_ = Semaphore(1) # Range [-N+1, 1]
-out = Semaphore(1) # Range [-N+1, 1]
+N = 300
+empty = Semaphore(100) # Range [100-N, 100]
+in_ = Semaphore(1) # Range [1-min(N, 100), 1]
+out = Semaphore(1) # Range [1-min(N, 100), 1]
 customers = []
 
 class Customer(Process):
@@ -64,4 +64,4 @@ class Customer(Process):
             self.exit()
             self.walk()
 
-all_start(*[Customer(i) for i in range(300)])
+all_start(*[Customer(i) for i in range(N)])
