@@ -18,9 +18,10 @@ from utils.primitive import *
 from utils.process import Process, all_start
 
 mutex = Semaphore(1)
-full = Semaphore(0)
+odd = Semaphore(0)
+even = Semaphore(0)
 empty = Semaphore(200)
-buff1 = [] # 右侧待处理，左侧已处理
+buff1 = [] # 右侧待处理偶数，左侧奇数
 
 class P1(Process):
 
@@ -33,16 +34,22 @@ class P1(Process):
             wait(self, empty)
             wait(self, mutex)
 
-            self.generate()
+            if self.generate() == 0:
+                signal(self, even)
+            else:
+                signal(self, odd)
 
             signal(self, mutex)
-            signal(self, full)
 
     def generate(self):
         num = random.randint(0, 99999)
-        buff1.append(num)
+        if num % 2 == 0:
+            buff1.append(num)
+        else:
+            buff1.insert(0, num)
         time.sleep(random.randint(0, 1000) / 1000)
         print("Generate %s" % num)
+        return num % 2
 
 class P2(Process):
 
@@ -52,21 +59,21 @@ class P2(Process):
     def run(self):
         while True:
             print_sems()
-            wait(self, full)
+            wait(self, even)
             wait(self, mutex)
 
             self.process()
 
             signal(self, mutex)
-            signal(self, full) # 注意
+            signal(self, odd)
+
+            time.sleep(random.randint(0, 10000) / 1000)
 
     def process(self):
         num = buff1.pop()
-        if num % 2 == 0:
-            num = num + 1
+        num = num + 1
         buff1.insert(0, num)
         print("Process %s" % num)
-        time.sleep(random.randint(0, 1000) / 1000)
 
 class P3(Process):
 
@@ -76,7 +83,7 @@ class P3(Process):
     def run(self):
         while True:
             print_sems()
-            wait(self, full)
+            wait(self, odd)
             wait(self, mutex)
 
             self.print()
@@ -84,15 +91,13 @@ class P3(Process):
             signal(self, mutex)
             signal(self, empty)
 
+            time.sleep(random.randint(0, 10000) / 1000)
+
     def print(self):
         num = buff1.pop(0)
-        if num % 2 == 0:
-            buff1.append(num)
-        else:
-            print(num)
-        time.sleep(random.randint(0, 1000) / 1000)
+        print(num)
 
 def print_sems():
-    print(mutex.value, full.value, empty.value)
+    print(mutex.value, odd.value, even.value, empty.value)
 
 all_start(P1(), P2(), P3())
