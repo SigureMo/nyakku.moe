@@ -1,4 +1,4 @@
-[*.{frm,vbp}]
+[*.{frm,vbp,bas,cls}]
 indent_size = 3
 end_of_line = crlf
 
