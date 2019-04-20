@@ -2,13 +2,20 @@ VERSION 5.00
 Begin VB.Form Form1 
    Caption         =   "Form1"
    ClientHeight    =   8775
-   ClientLeft      =   120
-   ClientTop       =   465
+   ClientLeft      =   2955
+   ClientTop       =   2295
    ClientWidth     =   11565
    LinkTopic       =   "Form1"
    ScaleHeight     =   8775
    ScaleWidth      =   11565
-   StartUpPosition =   3  '窗口缺省
+   Begin VB.CommandButton Data_Export_Button 
+      Caption         =   "导出数据"
+      Height          =   615
+      Left            =   9240
+      TabIndex        =   15
+      Top             =   7680
+      Width           =   1455
+   End
    Begin VB.Frame Frame3 
       Caption         =   "点选设置"
       Height          =   1575
@@ -201,9 +208,6 @@ Private Sub Mesh()
     Meshed = True
 End Sub
 
-Private Sub Grid_Generate_Button_Click()
-
-End Sub
 
 ' 点选相关
 
@@ -219,29 +223,28 @@ Private Sub Grid_MouseDown(Button As Integer, Shift As Integer, x As Single, y A
     If Button = 1 Then
         real_x = Int(x)
         real_y = Int(y)
+        Msg_Box.Cls
+        Msg_Box.Print "已选择点 (" & real_x & ", " & real_y & ")"
         If Shift = 1 Or Shift = 3 Then
-            If Not Shift = 3 Then
+            If Shift = 1 Then
                 Clear_Select_Matrix
             End If
-            If Start_x = -1 Then
-                Start_x = real_x
-                Start_y = real_y
-                Msg_Box.Cls
-                Msg_Box.Print "已选择起始点 (" & real_x & ", " & real_y & ") 请继续选择终点"
-            Else
+            If Not Start_x = -1 Then
                 Call Mark_Area(Start_x, real_x, Start_y, real_y)
                 Msg_Box.Cls
                 Msg_Box.Print "已选择区域 (" & Start_x & ", " & Start_y & ")-(" & real_x & ", " & real_y & ")"
                 Start_x = -1
+            Else
+                Start_x = real_x
+                Start_y = real_y
             End If
         ElseIf Shift = 0 Or Shift = 2 Then
+            Start_x = real_x
+            Start_y = real_y
             If Shift = 0 Then
                 Clear_Select_Matrix
             End If
-            Start_x = -1
             Select_Matrix(real_x, real_y) = True
-            Msg_Box.Cls
-            Msg_Box.Print "已选择点 (" & real_x & ", " & real_y & ")"
         End If
         Call Redraw_Area(0, Val(Delta_X_Box.Text), 0, Val(Delta_Y_Box.Text))
         Call Redraw_Sec_Area(0, Val(Delta_X_Box.Text), 0, Val(Delta_Y_Box.Text))
@@ -271,7 +274,7 @@ Private Sub Mark_Area(x_start As Integer, x_end As Integer, y_start As Integer, 
     Next i
 End Sub
 
-'' 根据选择矩阵设置选择矩阵
+'' 根据选择矩阵设置材料矩阵
 Private Sub Set_Values_By_SecMatrix(value As Integer)
     range_x = Val(Delta_X_Box.Text)
     range_y = Val(Delta_Y_Box.Text)
@@ -312,8 +315,20 @@ End Sub
 '' 网格生成回调
 Private Sub Mesh_Button_Click()
     If IsNumeric(Delta_X_Box.Text) And IsNumeric(Delta_Y_Box.Text) Then
-        Grid.Cls
-        Mesh
+        If Not InStr(1, Delta_X_Box.Text, ".", vbTextCompare) = 0 Then
+            MsgBox "请使用整数而不是小数"
+        ElseIf Val(Delta_X_Box.Text) > 1000 Or Val(Delta_X_Box.Text) > 1000 Then
+            MsgBox "空间步长上限为 1000"
+            Exit Sub
+        ElseIf Val(Delta_X_Box.Text) <= 0 Or Val(Delta_X_Box.Text) <= 0 Then
+            MsgBox "空间步长应为正数"
+        Else
+            If Val(Delta_X_Box.Text) * Val(Delta_X_Box.Text) > 10000 Then
+                MsgBox "本程序对于过于精细的划分支持并不好，如有卡顿现象请见谅……"
+            End If
+            Grid.Cls
+            Mesh
+        End If
     Else
         MsgBox "请确定空间步长均为数字！"
     End If
@@ -368,17 +383,23 @@ Private Sub Load_Params()
     Dim s() As String
     Dim filename As String
     filename = "data/params.dat"
-    i = 0
+    l = 0
+    Dim m() As Material
     Open filename For Input As #1
     Do While Not EOF(1)
-        i = i + 1
-        ReDim Preserve s(i)
-        Line Input #1, s(i)
+        l = l + 1
+        ReDim Preserve s(l)
+        ReDim Preserve m(l)
+        Line Input #1, s(l)
     Loop
     Close #1
-    For Each i In s
-        If (Not i = "") And (Not Mid(i, 1, 1) = "#") Then
-            MsgBox i
+    For i = 0 To l
+        If (Not s(i) = "") And (Not Mid(s(i), 1, 1) = "#") Then
+            params = Split(s(i), ",")
+            m(i).name = params(0)
+            m(i).type_ = params(1)
+            m(i).param1 = params(2)
+            MsgBox m(i).name & " " & m(i).type_ & " " & m(i).param1
         End If
     Next i
 End Sub
