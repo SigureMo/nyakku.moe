@@ -25,9 +25,9 @@ Begin VB.Form Form1
       Width           =   4215
       Begin VB.ComboBox Material_Combo1 
          Height          =   300
-         ItemData        =   "temperature_field.frx":0000
+         ItemData        =   "Preprocessing.frx":0000
          Left            =   480
-         List            =   "temperature_field.frx":000D
+         List            =   "Preprocessing.frx":000D
          Style           =   2  'Dropdown List
          TabIndex        =   14
          Top             =   840
@@ -156,7 +156,8 @@ Dim color_arr
 Dim Tips_arr
 Dim click_cnt%
 Dim SAND%, CASTING%, CHILL%, SEC%
-
+Dim Materials() As Material
+Dim Material_List() As Material
 
 Private Sub Form_Load()
     Meshed = False
@@ -384,7 +385,6 @@ Private Sub Load_Params()
     Dim filename As String
     filename = "data/params.dat"
     l = 0
-    Dim m() As Material
     Open filename For Input As #1
     Do While Not EOF(1)
         l = l + 1
@@ -396,10 +396,15 @@ Private Sub Load_Params()
     For i = 0 To l
         If (Not s(i) = "") And (Not Mid(s(i), 1, 1) = "#") Then
             params = Split(s(i), ",")
-            m(i).name = params(0)
-            m(i).type_ = params(1)
-            m(i).param1 = params(2)
-            MsgBox m(i).name & " " & m(i).type_ & " " & m(i).param1
+            Material_List(i).name = params(0)
+            Material_List(i).type_ = params(1)
+            Material_List(i).param1 = params(2)
         End If
     Next i
+End Sub
+
+' 导出数据
+
+Private Sub Data_Export_Button_Click()
+    Save_Materials
 End Sub
