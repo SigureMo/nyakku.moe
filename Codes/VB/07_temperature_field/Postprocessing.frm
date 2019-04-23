@@ -56,8 +56,46 @@ Attribute VB_Creatable = False
 Attribute VB_PredeclaredId = True
 Attribute VB_Exposed = False
 Dim PI!
+Dim Material_Matrix()
+Dim Temperature_Matrix()
+Dim Tmp_Matrix()
 Dim Loaded As Boolean
-Dim Materials(3) As Material
+Dim Materials(2) As Material
+Dim range_x%, range_y%
+
+Private Sub Data_Import_Button_Click()
+    Call Load_Materials(Materials)
+    Dim s As String
+    Dim i%
+    Dim begin_grid
+    begin_grid = False
+    i = 0
+    Open "data/mesh.dat" For Input As #1
+    Do While Not EOF(1)
+        Line Input #1, s
+        If Not s = "" Then
+            If begin_grid = False Then
+                If Split(s, ":")(0) = "RANGE" Then
+                    range_x = Val(Split(Split(s, ":")(1), ",")(0))
+                    range_y = Val(Split(Split(s, ":")(1), ",")(1))
+                    begin_grid = True
+                    ReDim Preserve Material_Matrix(range_x - 1, range_y - 1)
+                    ReDim Preserve Temperature_Matrix(range_x - 1, range_y - 1)
+                    ReDim Preserve Tmp_Matrix(range_x - 1, range_y - 1)
+                End If
+            Else
+                j = 0
+                For Each c In Split(s, ",")
+                    Material_Matrix(i, j) = Val(c)
+                    j = j + 1
+                Next c
+                i = i + 1
+            End If
+        End If
+    Loop
+    Close #1
+    Loaded = True
+End Sub
 
 Private Sub Form_Load()
     PI = 3.1415926
@@ -71,24 +109,15 @@ Private Sub Init_ShadeGuide()
     ShadeGuide.ForeColor = vbWhite
     delta = PI / 16
     For i = 0 To 15
-        'If 2 * i * delta < 255 Then
-            'colour = RGB(ReLU(-255 + 2 * i * delta), 2 * i * delta, ReLU(255 - 2 * i * delta))
-        'Else
-            'colour = RGB(ReLU(-255 + 2 * i * delta), 255 * 2 - 2 * i * delta, ReLU(255 - 2 * i * delta))
-        'End If
-        'colour = RGB(255 - i * delta, 4 / 3 / 255 * (i * delta / 255) ^ 2 + 4 / 3 * (i * delta / 255), i * delta)
-        colour = RGB((Sin(delta * i - PI / 2) + 1) * 255 / 2, Sin(delta * i) * 255, (Sin(delta * i + PI / 2) + 1) * 255 / 2)
-        ShadeGuide.Line (2, i + 1)-(4, i + 2), colour, BF
+        ShadeGuide.Line (2, i + 1)-(4, i + 2), Get_Color(i * 100), BF
         ShadeGuide.CurrentX = 4: ShadeGuide.CurrentY = i + 1: ShadeGuide.Print i * 100
     Next i
     ShadeGuide.CurrentX = 5: ShadeGuide.CurrentY = 17: ShadeGuide.Print "ЩЋБъ"
 End Sub
 
-Private Function ReLU(x As Single)
-    If x > 0 Then
-        ReLU = x
-    Else
-        ReLU = 0
-    End If
+Private Function Get_Color(t As Integer) As Variant
+    Dim i%
+    i = t / 100
+    delta = PI / 16
+    Get_Color = RGB((Sin(delta * i - PI / 2) + 1) * 255 / 2, Sin(delta * i) * 255, (Sin(delta * i + PI / 2) + 1) * 255 / 2)
 End Function
-
