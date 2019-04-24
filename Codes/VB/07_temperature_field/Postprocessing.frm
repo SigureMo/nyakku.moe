@@ -10,6 +10,14 @@ Begin VB.Form Form1
    ScaleHeight     =   7410
    ScaleWidth      =   11955
    StartUpPosition =   3  '窗口缺省
+   Begin VB.CommandButton Settings_Button 
+      Caption         =   "参数设置"
+      Height          =   615
+      Left            =   10680
+      TabIndex        =   4
+      Top             =   1320
+      Width           =   975
+   End
    Begin VB.CommandButton Data_Import_Button 
       Caption         =   "导入数据"
       Height          =   615
@@ -63,6 +71,13 @@ Dim Loaded As Boolean
 Dim Materials(2) As Material
 Dim range_x%, range_y%
 
+Private Sub Form_Load()
+    PI = 3.1415926
+    Loaded = False
+    Init_ShadeGuide
+End Sub
+
+' 导入数据
 Private Sub Data_Import_Button_Click()
     Call Load_Materials(Materials)
     Dim s As String
@@ -97,12 +112,7 @@ Private Sub Data_Import_Button_Click()
     Loaded = True
 End Sub
 
-Private Sub Form_Load()
-    PI = 3.1415926
-    Loaded = False
-    Init_ShadeGuide
-End Sub
-
+' 初始化色标
 Private Sub Init_ShadeGuide()
     ShadeGuide.BackColor = vbBlack
     ShadeGuide.Scale (0, 18)-(8, 0)
@@ -115,9 +125,14 @@ Private Sub Init_ShadeGuide()
     ShadeGuide.CurrentX = 5: ShadeGuide.CurrentY = 17: ShadeGuide.Print "色标"
 End Sub
 
+' 色温对照函数
 Private Function Get_Color(t As Integer) As Variant
     Dim i%
     i = t / 100
     delta = PI / 16
     Get_Color = RGB((Sin(delta * i - PI / 2) + 1) * 255 / 2, Sin(delta * i) * 255, (Sin(delta * i + PI / 2) + 1) * 255 / 2)
 End Function
+
+Private Sub Settings_Button_Click()
+    Settings.Show
+End Sub
