@@ -1,4 +1,20 @@
-# Data Structures <Badge text="beta" type="tip"/> <Badge text="10.2.9"/>
+# Data Structures and Algorthms <Badge text="review" type="error"/> <Badge text="V2"/> <Badge text="0.0.0"/>
+
+## 0 Preface
+
+数据结构与算法本就是无法分割的整体，半年前草草结束中 M 课程后，大多数程序中并没有用到具体的数据结构，但是却时刻影响着我的编码风格，在任何时候都会尽可能不牺牲时间复杂度的情况下完成高效的代码
+
+也许是我写的代码、做的应用还是太少，实际应用中对数据结构的练习有限，导致现在记得的部分寥寥无几，大概需要再过一遍才能都捡起来，当然，这是意料之中，也是计划之内（毕竟要考研），数据结构作为计算机专业的一门基础课程，一定要仔细学习，马虎不得，之前一遍虽说前半部分认真做了习题，但课上也仅仅是草草听了一遍，更别说后半部分连习题都没做的了，本次 Review ，一方面是为备考，另一方面是仔细整理知识点，并加入 Algorithms 部分（标题都变了），这次，我可要认真咯~
+
+另：我要刷 PAT ~
+
+# Reference
+
+1.
+
+---
+
+# Old Version
 
 -  Data Structures
 
@@ -1061,4 +1077,3 @@ Index Hash(const char *Key, int TableSize){
 1. [数据结构 - 浙江大学 - 中国大学 MOOC](https://www.icourse163.org/course/ZJU-93001)
 2. 《数据结构 (C 语言版)》 严蔚敏 吴伟民 编著
 3. [PTA | 程序设计类实验辅助教学平台](https://pintia.cn/)
-4. [Python 数据结构 - Python123](https://python123.io/index/topics/data_structure)

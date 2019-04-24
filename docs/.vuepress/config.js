@@ -47,18 +47,19 @@ module.exports = {
     sidebar: {
       "/Notes/": [
         "",
+        "Data_Structures_and_Algorithms",
         "Operating_System",
+        "Discrete_Mathematics",
         "English",
         "Higher_Mathematics",
-        "Principle_of_Metal_Plastic_Working",
-        "Solid-state_Phase_Transformation",
         "Mathematical_Modeling",
         "Deep_Learning",
-        "Cpp",
-        "PIC",
         "Computer_Network",
         "Principles_of_Computer_Composition",
-        "Data_Structures"
+        "Cpp",
+        "PIC",
+        "Solid-state_Phase_Transformation",
+        "Principle_of_Metal_Plastic_Working"
       ],
       "/Discovery/": [
         "",
