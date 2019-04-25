@@ -1,4 +1,4 @@
-# Discrete_Mathematics <Badge text="alpha" type="warn"/> <Badge text="0.0.0"/>
+# Discrete Mathematics <Badge text="alpha" type="warn"/> <Badge text="0.0.0"/>
 
 ## 1 基础：逻辑和证明
 

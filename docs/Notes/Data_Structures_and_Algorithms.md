@@ -8,10 +8,6 @@
 
 另：我要刷 PAT ~
 
-# Reference
-
-1.
-
 ---
 
 # Old Version
@@ -1071,9 +1067,11 @@ Index Hash(const char *Key, int TableSize){
 15.   181025 Chapter_9_Sort(#9.1-#9.4) Finished
 16.   181102 Chapter_9_Sort(#9.5-#9.8) Finished
 17.   181110 Chapter_10_Hash(#10) Finished
+18.   190425 V2.0 Started
 
 # Reference
 
 1. [数据结构 - 浙江大学 - 中国大学 MOOC](https://www.icourse163.org/course/ZJU-93001)
-2. 《数据结构 (C 语言版)》 严蔚敏 吴伟民 编著
-3. [PTA | 程序设计类实验辅助教学平台](https://pintia.cn/)
+2. [PTA | 程序设计类实验辅助教学平台](https://pintia.cn/)
+3. 《数据结构 (C 语言版)》 严蔚敏 吴伟民 编著
+4. 《Introduction to Algorithms》 Thomas H.Cormen 、 Charles E.Leiserson 等
