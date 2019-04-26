@@ -63,6 +63,7 @@ module.exports = {
       ],
       "/Discovery/": [
         "",
+        "09_Cpp_Handbook",
         "08_Synchronization",
         "07_Cmder",
         "06_Harddisk",
