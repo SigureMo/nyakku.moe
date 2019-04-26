@@ -47,19 +47,30 @@ module.exports = {
     sidebar: {
       "/Notes/": [
         "",
-        "Data_Structures_and_Algorithms",
-        "Operating_System",
-        "Discrete_Mathematics",
-        "English",
-        "Higher_Mathematics",
-        "Mathematical_Modeling",
-        "Deep_Learning",
-        "Computer_Network",
-        "Principles_of_Computer_Composition",
-        "Cpp",
-        "PIC",
-        "Solid-state_Phase_Transformation",
-        "Principle_of_Metal_Plastic_Working"
+        {
+          title: "Computer Science",
+          children: [
+            "Data_Structures_and_Algorithms",
+            "Operating_System",
+            "Discrete_Mathematics",
+            "Deep_Learning",
+            "Principles_of_Computer_Composition",
+            "Computer_Network",
+            "Cpp",
+            "PIC"
+          ]
+        },
+        {
+          title: "Basic Subject",
+          children: ["English", "Higher_Mathematics", "Mathematical_Modeling"]
+        },
+        {
+          title: "Material Science",
+          children: [
+            "Solid-state_Phase_Transformation",
+            "Principle_of_Metal_Plastic_Working"
+          ]
+        }
       ],
       "/Discovery/": [
         "",
