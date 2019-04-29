@@ -84,9 +84,51 @@
    > -  由于使用 `exec` 的进程会直接执行该命令而不会回到原来进程，故可在子进程中调用 `exec` 以便回到原进程继续执行命令
    > -  示例中使用子进程判断需调用的程序是否已编译，若未编译则自动调用 `gcc` 进行编译
    > -  Usage: `g++ test.cpp && ./a.out <action> <num1> <num2> ...`
-   > -  Example: `g++ test.cpp && ./a.out min 1 3 5`
+   > -  Sample: `g++ test.cpp && ./a.out min 1 3 5`
 
 ## 2 处理器调度（20'）
+
+### 2.1 实验目的
+
+熟悉使用各种单处理器调度的各种算法，加深对于处理器调度机制的理解，练习模拟算法的编程技巧，锻炼分析实验数据的能力
+
+### 2.2 实验说明
+
+随机给出进程调度实例，如
+
+| 进程 | 到达时间 | 服务时间 |
+| ---- | -------- | -------- |
+| A    | 0        | 3        |
+| B    | 2        | 6        |
+| C    | 4        | 4        |
+| D    | 6        | 5        |
+| E    | 8        | 2        |
+
+模拟进程调度，给出按照废先来先服务 FCFS、轮转 RR （q=1）、最短进程优先 SJF、最高响应比优先 HRN、进行调度各进程的完成时间、周转时间、带权周转时间
+
+[test2.cpp](test2.cpp)
+
+-  Usage:
+
+   -  `g++ test2.cpp && ./a.out <algorithm>`
+   -  `N`
+   -  `<name1> <arrival1> <serve1>`
+   -  `<name2> <arrival2> <serve2>`
+   -  `... ... ...`
+   -  `<nameN> <arrivalN> <serveN>`
+
+-  Sample:
+
+   ```
+   g++ Codes\OS\Tests\test2.cpp -o tmp/tmp && tmp\\tmp FCFS
+   5
+   A 0 3
+   B 2 6
+   C 4 4
+   D 6 5
+   E 8 2
+
+   ```
 
 ## 3 存储管理上机作业（20'）
 
