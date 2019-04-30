@@ -1,5 +1,6 @@
 VERSION 5.00
 Object = "{6B7E6392-850A-101B-AFC0-4210102A8DA7}#1.3#0"; "COMCTL32.OCX"
+Object = "{F9043C88-F6F2-101A-A3C9-08002B2F49FB}#1.2#0"; "COMDLG32.OCX"
 Begin VB.Form Form1 
    Caption         =   "Form1"
    ClientHeight    =   7410
@@ -10,6 +11,38 @@ Begin VB.Form Form1
    ScaleHeight     =   7410
    ScaleWidth      =   11955
    StartUpPosition =   3  '窗口缺省
+   Begin MSComDlg.CommonDialog CommonDialog 
+      Left            =   9960
+      Top             =   720
+      _ExtentX        =   847
+      _ExtentY        =   847
+      _Version        =   393216
+   End
+   Begin ComctlLib.StatusBar StatusBar1 
+      Align           =   2  'Align Bottom
+      Height          =   375
+      Left            =   0
+      TabIndex        =   5
+      Top             =   7035
+      Width           =   11955
+      _ExtentX        =   21087
+      _ExtentY        =   661
+      SimpleText      =   ""
+      _Version        =   327682
+      BeginProperty Panels {0713E89E-850A-101B-AFC0-4210102A8DA7} 
+         NumPanels       =   2
+         BeginProperty Panel1 {0713E89F-850A-101B-AFC0-4210102A8DA7} 
+            TextSave        =   ""
+            Key             =   ""
+            Object.Tag             =   ""
+         EndProperty
+         BeginProperty Panel2 {0713E89F-850A-101B-AFC0-4210102A8DA7} 
+            TextSave        =   ""
+            Key             =   ""
+            Object.Tag             =   ""
+         EndProperty
+      EndProperty
+   End
    Begin VB.CommandButton Settings_Button 
       Caption         =   "参数设置"
       Height          =   615
@@ -72,6 +105,7 @@ Dim Materials(2) As Material
 Dim range_x%, range_y%
 
 Private Sub Form_Load()
+    Dim i As Integer
     PI = 3.1415926
     Loaded = False
     Init_ShadeGuide
@@ -79,37 +113,52 @@ End Sub
 
 ' 导入数据
 Private Sub Data_Import_Button_Click()
-    Call Load_Materials(Materials)
+    'On Error GoTo ErrHandler
+    Dim filename As String
+    filename = App.Path & "\data\mesh.dat"
+    CommonDialog.CancelError = True
+    CommonDialog.Flags = cdlOFNHideReadOnly
+    CommonDialog.Filter = "All Files (*.*)|*.*|Text Files (*.txt)|*.txt|Binary Files (*.dat)|*.dat"
+    CommonDialog.filename = filename
+    CommonDialog.FilterIndex = 3
+    CommonDialog.ShowOpen
+    filename = CommonDialog.filename
+    Dim cnt%, line%
     Dim s As String
-    Dim i%
-    Dim begin_grid
-    begin_grid = False
     i = 0
-    Open "data/mesh.dat" For Input As #1
-    Do While Not EOF(1)
-        Line Input #1, s
-        If Not s = "" Then
-            If begin_grid = False Then
-                If Split(s, ":")(0) = "RANGE" Then
-                    range_x = Val(Split(Split(s, ":")(1), ",")(0))
-                    range_y = Val(Split(Split(s, ":")(1), ",")(1))
-                    begin_grid = True
-                    ReDim Preserve Material_Matrix(range_x - 1, range_y - 1)
-                    ReDim Preserve Temperature_Matrix(range_x - 1, range_y - 1)
-                    ReDim Preserve Tmp_Matrix(range_x - 1, range_y - 1)
+    line = 0
+    Open filename For Input As #1
+        Do While Not EOF(1)
+            Line Input #1, s
+            If Not s = "" Then
+                If Mid(s, 1, 3) = "###" Then
+                    cnt = cnt + 1
+                    line = 0
+                Else
+                    Select Case cnt
+                        Case 1
+                            Materials(line) = StringToMaterial(s)
+                        Case 2
+                            range_x = Val(Split(s, ",")(0))
+                            range_y = Val(Split(s, ",")(1))
+                            ReDim Material_Matrix(range_x - 1, range_y - 1)
+                            ReDim Temperature_Matrix(range_x - 1, range_y - 1)
+                            ReDim Tmp_Matrix(range_x - 1, range_y - 1)
+                        Case 3
+                            j = 0
+                            For Each c In Split(s, ",")
+                                Material_Matrix(line, j) = Val(c)
+                                j = j + 1
+                            Next c
+                    End Select
+                    line = line + 1
                 End If
-            Else
-                j = 0
-                For Each c In Split(s, ",")
-                    Material_Matrix(i, j) = Val(c)
-                    j = j + 1
-                Next c
-                i = i + 1
             End If
-        End If
-    Loop
+        Loop
     Close #1
     Loaded = True
+ErrHandler:
+    Exit Sub
 End Sub
 
 ' 初始化色标
@@ -128,9 +177,62 @@ End Sub
 ' 色温对照函数
 Private Function Get_Color(t As Integer) As Variant
     Dim i%
+    Dim w!
+    w = 2.5
     i = t / 100
-    delta = PI / 16
-    Get_Color = RGB((Sin(delta * i - PI / 2) + 1) * 255 / 2, Sin(delta * i) * 255, (Sin(delta * i + PI / 2) + 1) * 255 / 2)
+    Get_Color = HSV2RGB(250 - sigmoid_variant(i / 16, w) * 250, 1, 1)
+    ' 由于直接均匀分色在中间的绿色区域区分并不明显，使用 sigmoid 函数（两侧缓慢，中间比较快）对其进行调整, w 越大，效果越明显
+End Function
+
+Private Function sigmoid_variant(x As Single, w As Single) As Single
+    ' x (0, 1) w(0, INF) output (0, 1)
+    x = w * 2 * (x - 0.5) ' x (-w, w) y (1-sigmoid(w), sigmoid(w))
+    h = 2 * (sigmoid(w) - 0.5)
+    sigmoid_variant = (sigmoid(x) - 0.5) / h + 0.5
+End Function
+
+
+Private Function sigmoid(x As Single) As Single
+    sigmoid = 1 / (1 + Exp(-x))
+End Function
+
+Private Function HSV2RGB(h As Integer, s As Single, v As Single) As Variant
+   ' h(0, 360) s(0, 1.0) v(0, 1.0)
+    Dim r As Single, g As Single, b As Single
+    Dim i As Integer, f As Single, p As Single, q As Single, t As Single
+    i = Int(h / 60) Mod 6
+    f = h / 60 - i
+    p = v * (1 - s)
+    q = v * (1 - f * s)
+    t = v * (1 - (1 - f) * s)
+    
+    Select Case i
+        Case 0
+            r = v
+            g = t
+            b = p
+        Case 1
+            r = q
+            g = v
+            b = p
+        Case 2
+            r = p
+            g = v
+            b = t
+        Case 3
+            r = p
+            g = q
+            b = v
+        Case 4
+            r = t
+            g = p
+            b = v
+        Case 5
+            r = v
+            g = p
+            b = q
+    End Select
+    HSV2RGB = RGB(r * 255, g * 255, b * 255)
 End Function
 
 Private Sub Settings_Button_Click()

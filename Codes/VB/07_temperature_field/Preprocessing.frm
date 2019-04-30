@@ -1,4 +1,6 @@
 VERSION 5.00
+Object = "{6B7E6392-850A-101B-AFC0-4210102A8DA7}#1.3#0"; "COMCTL32.OCX"
+Object = "{F9043C88-F6F2-101A-A3C9-08002B2F49FB}#1.2#0"; "COMDLG32.OCX"
 Begin VB.Form Form1 
    Caption         =   "Form1"
    ClientHeight    =   8775
@@ -8,11 +10,51 @@ Begin VB.Form Form1
    LinkTopic       =   "Form1"
    ScaleHeight     =   8775
    ScaleWidth      =   11565
+   Begin MSComDlg.CommonDialog CommonDialog 
+      Left            =   8640
+      Top             =   7800
+      _ExtentX        =   847
+      _ExtentY        =   847
+      _Version        =   393216
+   End
+   Begin ComctlLib.StatusBar StatusBar 
+      Align           =   2  'Align Bottom
+      Height          =   375
+      Left            =   0
+      TabIndex        =   26
+      Top             =   8400
+      Width           =   11565
+      _ExtentX        =   20399
+      _ExtentY        =   661
+      SimpleText      =   ""
+      _Version        =   327682
+      BeginProperty Panels {0713E89E-850A-101B-AFC0-4210102A8DA7} 
+         NumPanels       =   3
+         BeginProperty Panel1 {0713E89F-850A-101B-AFC0-4210102A8DA7} 
+            Object.Width           =   3528
+            MinWidth        =   3528
+            Key             =   ""
+            Object.Tag             =   ""
+         EndProperty
+         BeginProperty Panel2 {0713E89F-850A-101B-AFC0-4210102A8DA7} 
+            Object.Width           =   4410
+            MinWidth        =   4410
+            Key             =   ""
+            Object.Tag             =   ""
+         EndProperty
+         BeginProperty Panel3 {0713E89F-850A-101B-AFC0-4210102A8DA7} 
+            Object.Width           =   8819
+            MinWidth        =   8819
+            Key             =   ""
+            Object.Tag             =   ""
+         EndProperty
+      EndProperty
+   End
    Begin VB.CommandButton Data_Export_Button 
       Caption         =   "导出数据"
       Height          =   615
       Left            =   9240
-      TabIndex        =   15
+      TabIndex        =   13
       Top             =   7680
       Width           =   1455
    End
@@ -20,7 +62,7 @@ Begin VB.Form Form1
       Caption         =   "点选设置"
       Height          =   1575
       Left            =   6960
-      TabIndex        =   10
+      TabIndex        =   9
       Top             =   3000
       Width           =   4215
       Begin VB.ComboBox Material_Combo 
@@ -29,7 +71,7 @@ Begin VB.Form Form1
          Left            =   480
          List            =   "Preprocessing.frx":000D
          Style           =   2  'Dropdown List
-         TabIndex        =   14
+         TabIndex        =   12
          Top             =   840
          Width           =   1335
       End
@@ -37,7 +79,7 @@ Begin VB.Form Form1
          Caption         =   "指定材料"
          Height          =   375
          Left            =   2280
-         TabIndex        =   13
+         TabIndex        =   11
          Top             =   840
          Width           =   1575
       End
@@ -45,7 +87,7 @@ Begin VB.Form Form1
          Caption         =   "反向填充"
          Height          =   255
          Left            =   240
-         TabIndex        =   11
+         TabIndex        =   10
          Top             =   360
          Width           =   1215
       End
@@ -54,7 +96,7 @@ Begin VB.Form Form1
       Caption         =   "材料设置"
       Height          =   2295
       Left            =   6840
-      TabIndex        =   9
+      TabIndex        =   8
       Top             =   5160
       Width           =   4455
       Begin VB.PictureBox Chill_Color 
@@ -63,7 +105,7 @@ Begin VB.Form Form1
          Left            =   1680
          ScaleHeight     =   195
          ScaleWidth      =   555
-         TabIndex        =   27
+         TabIndex        =   25
          Top             =   1560
          Width           =   615
       End
@@ -73,7 +115,7 @@ Begin VB.Form Form1
          Left            =   1680
          ScaleHeight     =   195
          ScaleWidth      =   555
-         TabIndex        =   26
+         TabIndex        =   24
          Top             =   1200
          Width           =   615
       End
@@ -83,7 +125,7 @@ Begin VB.Form Form1
          Left            =   1680
          ScaleHeight     =   195
          ScaleWidth      =   555
-         TabIndex        =   25
+         TabIndex        =   23
          Top             =   720
          Width           =   615
       End
@@ -91,7 +133,7 @@ Begin VB.Form Form1
          Height          =   300
          Left            =   3000
          Style           =   2  'Dropdown List
-         TabIndex        =   21
+         TabIndex        =   19
          Top             =   1680
          Width           =   1095
       End
@@ -99,7 +141,7 @@ Begin VB.Form Form1
          Height          =   300
          Left            =   3000
          Style           =   2  'Dropdown List
-         TabIndex        =   20
+         TabIndex        =   18
          Top             =   1200
          Width           =   1095
       End
@@ -109,7 +151,7 @@ Begin VB.Form Form1
          Left            =   3000
          List            =   "Preprocessing.frx":0025
          Style           =   2  'Dropdown List
-         TabIndex        =   19
+         TabIndex        =   17
          Top             =   720
          Width           =   975
       End
@@ -118,7 +160,7 @@ Begin VB.Form Form1
          Caption         =   "冷铁"
          Height          =   180
          Left            =   480
-         TabIndex        =   24
+         TabIndex        =   22
          Top             =   1440
          Width           =   360
       End
@@ -127,7 +169,7 @@ Begin VB.Form Form1
          Caption         =   "铸件"
          Height          =   180
          Left            =   480
-         TabIndex        =   23
+         TabIndex        =   21
          Top             =   1080
          Width           =   360
       End
@@ -136,7 +178,7 @@ Begin VB.Form Form1
          Caption         =   "铸型"
          Height          =   180
          Left            =   480
-         TabIndex        =   22
+         TabIndex        =   20
          Top             =   720
          Width           =   360
       End
@@ -157,7 +199,7 @@ Begin VB.Form Form1
          Caption         =   "材料选择"
          Height          =   180
          Left            =   3120
-         TabIndex        =   18
+         TabIndex        =   16
          Top             =   240
          Width           =   720
       End
@@ -166,7 +208,7 @@ Begin VB.Form Form1
          Caption         =   "颜色"
          Height          =   180
          Left            =   1800
-         TabIndex        =   17
+         TabIndex        =   15
          Top             =   360
          Width           =   360
       End
@@ -175,19 +217,10 @@ Begin VB.Form Form1
          Caption         =   "材料类型"
          Height          =   180
          Left            =   360
-         TabIndex        =   16
+         TabIndex        =   14
          Top             =   360
          Width           =   720
       End
-   End
-   Begin VB.PictureBox Msg_Box 
-      Height          =   495
-      Left            =   240
-      ScaleHeight     =   435
-      ScaleWidth      =   5955
-      TabIndex        =   8
-      Top             =   7920
-      Width           =   6015
    End
    Begin VB.Frame Frame1 
       Caption         =   "网格设置"
@@ -255,14 +288,6 @@ Begin VB.Form Form1
       Top             =   240
       Width           =   6375
    End
-   Begin VB.Label Tips_Label 
-      AutoSize        =   -1  'True
-      Height          =   540
-      Left            =   360
-      TabIndex        =   12
-      Top             =   7200
-      Width           =   4410
-   End
 End
 Attribute VB_Name = "Form1"
 Attribute VB_GlobalNameSpace = False
@@ -279,7 +304,6 @@ Dim color_arr
 Dim Tips_arr
 Dim click_cnt%
 Dim SAND%, CASTING%, CHILL%, SEC%
-Dim Materials(2) As Material
 Dim Material_List() As Material
 
 Private Sub Form_Load()
@@ -357,27 +381,25 @@ End Sub
 ' 点选相关
 
 '' 点选回调
-Private Sub Grid_MouseDown(Button As Integer, Shift As Integer, x As Single, y As Single)
+Private Sub Grid_MouseDown(Button As Integer, Shift As Integer, X As Single, Y As Single)
     click_cnt = click_cnt + 1
-    Tips_Label.Caption = "Tips:" & Tips_arr(click_cnt Mod (UBound(Tips_arr) - LBound(Tips_arr) + 1))
+    StatusBar.Panels(3).Text = "Tips:" & Tips_arr(click_cnt Mod (UBound(Tips_arr) - LBound(Tips_arr) + 1))
     Dim real_x%, real_y%
     If Not Meshed Then
         MsgBox "请先生成网格"
         Exit Sub
     End If
     If Button = 1 Then
-        real_x = Int(x)
-        real_y = Int(y)
-        Msg_Box.Cls
-        Msg_Box.Print "已选择点 (" & real_x & ", " & real_y & ")"
+        real_x = Int(X)
+        real_y = Int(Y)
+        StatusBar.Panels(2).Text = "已选择点 (" & real_x & ", " & real_y & ")"
         If Shift = 1 Or Shift = 3 Then
             If Shift = 1 Then
                 Clear_Select_Matrix
             End If
             If Not Start_x = -1 Then
                 Call Mark_Area(Start_x, real_x, Start_y, real_y)
-                Msg_Box.Cls
-                Msg_Box.Print "已选择区域 (" & Start_x & ", " & Start_y & ")-(" & real_x & ", " & real_y & ")"
+                StatusBar.Panels(2).Text = "已选择区域 (" & Start_x & ", " & Start_y & ")-(" & real_x & ", " & real_y & ")"
                 Start_x = -1
             Else
                 Start_x = real_x
@@ -394,6 +416,11 @@ Private Sub Grid_MouseDown(Button As Integer, Shift As Integer, x As Single, y A
         Call Redraw_Area(0, range_x, 0, range_y)
         Call Redraw_Sec_Area(0, range_x, 0, range_y)
     End If
+End Sub
+
+'' 鼠标移动回调
+Private Sub Grid_MouseMove(Button As Integer, Shift As Integer, X As Single, Y As Single)
+    StatusBar.Panels(1).Text = "当前位置为(" & Int(X) & ", " & Int(Y) & ")"
 End Sub
 
 '' Shift 区域选择
@@ -530,22 +557,65 @@ End Sub
 ' 导出数据
 
 Private Sub Data_Export_Button_Click()
-    Materials(0) = Material_List(Val(Split(Sand_Combo.Text, ",")(0)))
-    Materials(1) = Material_List(Val(Split(Casting_Combo.Text, ",")(0)))
-    Materials(2) = Material_List(Val(Split(Chill_Combo.Text, ",")(0)))
-    Call Save_Materials(Materials)
+    If Not Meshed Then
+        MsgBox "请先生成网格"
+        Exit Sub
+    End If
+    'On Error GoTo ErrHandler
+    Dim filename As String
+    filename = App.Path & "\data\mesh.dat"
+    CommonDialog.CancelError = True
+    CommonDialog.Flags = cdlOFNHideReadOnly
+    CommonDialog.Filter = "All Files (*.*)|*.*|Text Files (*.txt)|*.txt|Binary Files (*.dat)|*.dat"
+    CommonDialog.filename = filename
+    CommonDialog.FilterIndex = 3
+    CommonDialog.ShowSave
+    filename = CommonDialog.filename
+
     Dim line As String
-    Open "data/mesh.dat" For Append As #1
-    Print #1, "RANGE" & ":" & range_x & "," & range_y
-    For i = 0 To range_x - 1
-        line = ""
-        For j = 0 To range_y - 1
-            If Not j = 0 Then
-                line = line & ","
+    Open filename For Output As #1
+        Print #1, "### Materials"
+        Print #1, MaterialToString(Material_List(Val(Split(Sand_Combo.Text, ",")(0))))
+        Print #1, MaterialToString(Material_List(Val(Split(Casting_Combo.Text, ",")(0))))
+        Print #1, MaterialToString(Material_List(Val(Split(Chill_Combo.Text, ",")(0))))
+        Print #1, ""
+        
+        Print #1, "### Range"
+        Print #1, range_x & "," & range_y
+        Print #1, ""
+        
+        Print #1, "### Matrix"
+        For i = 0 To range_x - 1
+            line = ""
+            For j = 0 To range_y - 1
+                If Not j = 0 Then
+                    line = line & ","
+                End If
+                line = line & Material_Matrix(i, j)
+            Next j
+            Print #1, line
+        Next i
+        Print #1, ""
+    Close #1
+ErrHandler:
+    Exit Sub
+End Sub
+
+' 加载材料参数文件
+Private Sub Load_Params(ByRef Material_List() As Material)
+    Dim s As String
+    Dim filename As String
+    filename = App.Path & "\data\params.dat"
+    i = 0
+    Open filename For Input As #1
+        Do While Not EOF(1)
+            Line Input #1, s
+            If Not (s = "" Or Mid(s, 1, 1) = "#") Then
+                ReDim Preserve Material_List(i)
+                Material_List(i) = StringToMaterial(s)
+                i = i + 1
             End If
-            line = line & Material_Matrix(i, j)
-        Next j
-        Print #1, line
-    Next i
+        Loop
     Close #1
 End Sub
+
