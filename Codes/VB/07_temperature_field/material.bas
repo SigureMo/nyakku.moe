@@ -19,21 +19,3 @@ Public Function StringToMaterial(ByRef s As String) As Material
     m.param1 = params(2)
     StringToMaterial = m
 End Function
-
-' 加载材料参数文件
-Public Sub Load_Params(ByRef Material_List() As Material)
-    Dim s As String
-    Dim filename As String
-    filename = App.Path & "\data\params.dat"
-    i = 0
-    Open filename For Input As #1
-        Do While Not EOF(1)
-            Line Input #1, s
-            If Not (s = "" Or Mid(s, 1, 1) = "#") Then
-                ReDim Preserve Material_List(i)
-                Material_List(i) = StringToMaterial(s)
-                i = i + 1
-            End If
-        Loop
-    Close #1
-End Sub
