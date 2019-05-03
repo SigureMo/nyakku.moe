@@ -11,14 +11,32 @@ Begin VB.Form Form1
    ScaleHeight     =   7410
    ScaleWidth      =   11955
    StartUpPosition =   3  '窗口缺省
+   Begin VB.CheckBox Dynamic_View_CheackBox 
+      Caption         =   "观看动态过程"
+      Height          =   495
+      Left            =   9720
+      TabIndex        =   7
+      Top             =   3600
+      Value           =   1  'Checked
+      Width           =   1695
+   End
+   Begin VB.CheckBox Hidden_Sand_CheckBox 
+      Caption         =   "仅显示铸件"
+      Height          =   495
+      Left            =   9720
+      TabIndex        =   6
+      Top             =   2760
+      Value           =   1  'Checked
+      Width           =   1575
+   End
    Begin MSComDlg.CommonDialog CommonDialog 
-      Left            =   9960
+      Left            =   9840
       Top             =   720
       _ExtentX        =   847
       _ExtentY        =   847
       _Version        =   393216
    End
-   Begin ComctlLib.StatusBar StatusBar1 
+   Begin ComctlLib.StatusBar StatusBar 
       Align           =   2  'Align Bottom
       Height          =   375
       Left            =   0
@@ -33,12 +51,10 @@ Begin VB.Form Form1
          NumPanels       =   2
          BeginProperty Panel1 {0713E89F-850A-101B-AFC0-4210102A8DA7} 
             TextSave        =   ""
-            Key             =   ""
             Object.Tag             =   ""
          EndProperty
          BeginProperty Panel2 {0713E89F-850A-101B-AFC0-4210102A8DA7} 
             TextSave        =   ""
-            Key             =   ""
             Object.Tag             =   ""
          EndProperty
       EndProperty
@@ -144,6 +160,7 @@ Private Sub Data_Import_Button_Click()
                             ReDim Material_Matrix(range_x - 1, range_y - 1)
                             ReDim Temperature_Matrix(range_x - 1, range_y - 1)
                             ReDim Tmp_Matrix(range_x - 1, range_y - 1)
+                            Grid.Scale (0, 0)-(range_x, range_y)
                         Case 3
                             j = 0
                             For Each c In Split(s, ",")
@@ -174,7 +191,7 @@ Private Sub Init_ShadeGuide()
     ShadeGuide.CurrentX = 5: ShadeGuide.CurrentY = 17: ShadeGuide.Print "色标"
 End Sub
 
-' 色温对照函数
+'' 色温对照函数
 Private Function Get_Color(t As Integer) As Variant
     Dim i%
     Dim w!
@@ -184,18 +201,20 @@ Private Function Get_Color(t As Integer) As Variant
     ' 由于直接均匀分色在中间的绿色区域区分并不明显，使用 sigmoid 函数（两侧缓慢，中间比较快）对其进行调整, w 越大，效果越明显
 End Function
 
-Private Function sigmoid_variant(x As Single, w As Single) As Single
+'' Sigmoid 自定义变体，用于调节颜色变化速率
+Private Function sigmoid_variant(X As Single, w As Single) As Single
     ' x (0, 1) w(0, INF) output (0, 1)
-    x = w * 2 * (x - 0.5) ' x (-w, w) y (1-sigmoid(w), sigmoid(w))
+    X = w * 2 * (X - 0.5) ' x (-w, w) y (1-sigmoid(w), sigmoid(w))
     h = 2 * (sigmoid(w) - 0.5)
-    sigmoid_variant = (sigmoid(x) - 0.5) / h + 0.5
+    sigmoid_variant = (sigmoid(X) - 0.5) / h + 0.5
 End Function
 
-
-Private Function sigmoid(x As Single) As Single
-    sigmoid = 1 / (1 + Exp(-x))
+'' Sigmoid
+Private Function sigmoid(X As Single) As Single
+    sigmoid = 1 / (1 + Exp(-X))
 End Function
 
+'' HSV 色值转化为 RGB 色值
 Private Function HSV2RGB(h As Integer, s As Single, v As Single) As Variant
    ' h(0, 360) s(0, 1.0) v(0, 1.0)
     Dim r As Single, g As Single, b As Single
@@ -235,6 +254,16 @@ Private Function HSV2RGB(h As Integer, s As Single, v As Single) As Variant
     HSV2RGB = RGB(r * 255, g * 255, b * 255)
 End Function
 
+' 参数设置
 Private Sub Settings_Button_Click()
     Settings.Show
 End Sub
+
+' 网格相关
+'' 移动回调
+Private Sub Grid_MouseMove(Button As Integer, Shift As Integer, X As Single, Y As Single)
+    If Loaded Then
+        StatusBar.Panels(1).Text = "(" & Int(X) & ", " & Int(Y) & ")"
+    End If
+End Sub
+
