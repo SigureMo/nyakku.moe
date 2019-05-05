@@ -292,6 +292,24 @@ $\Rightarrow$
 
 ### 4.1 主线梳理
 
+-  基本积分表
+   -  $\int \sec x dx = \ln |\sec x + \tan x| + C$
+-  积分法
+   -  分部积分法
+   -  凑积分法
+   -  换元法
+   -  有理函数积分
+-  应用
+   -  面积 $S = \int_a^b f(x) dx = \int_a^b y dx = \int_{f(a)}^{f(b)} x dy$
+   -  体积
+      -  $V_x = \int_a^b \pi [f(x)]^2 dx = \pi \int_a^b y^2 dx$
+      -  $V_y = \int_a^b 2\pi x f(x) dx$
+   -  平面曲线弧长
+      -  $S = \int_{s(a)}^{s(b)} ds$ （易由弧微分 $ds = \sqrt{(dx)^2 + (dy)^2} = \sqrt{1 + (f'(x))^2} dx$）
+   -  旋转体侧面积
+      -  $S_x = 2 \pi \int_{s(a)}^{s(b)} y dS$
+      -  $S_y = 2 \pi \int_{s(a)}^{s(b)} x dS$
+
 ### 4.2 一些需要记的
 
 -  $1 + \cos x$ 的常用变化
