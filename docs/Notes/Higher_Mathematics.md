@@ -234,6 +234,11 @@ $\Rightarrow$
 -  积分中值定理
    -  $f(x)$ 闭区间连续，则 $\exist\ \xi\ \in\ [a, b], s.t. \int_a^b f(x) dx = f(\xi)(b-a)$
 
+#### 3.1.4 曲率
+
+-  一般方程 $K = \frac{|y''|}{(1 + y'^2) ^{3/2}}$
+-  参数方程 $K = \frac{|\varphi '(t) \psi ''(t) - \varphi ''(t) \psi '(t)|}{[\varphi '^2(t) + \psi '^2(t)]^{3/2}}$
+
 ### 3.2 一些需要记的
 
 -  反函数求导法则
@@ -292,23 +297,33 @@ $\Rightarrow$
 
 ### 4.1 主线梳理
 
--  基本积分表
-   -  $\int \sec x dx = \ln |\sec x + \tan x| + C$
--  积分法
-   -  分部积分法
-   -  凑积分法
-   -  换元法
-   -  有理函数积分
--  应用
-   -  面积 $S = \int_a^b f(x) dx = \int_a^b y dx = \int_{f(a)}^{f(b)} x dy$
-   -  体积
-      -  $V_x = \int_a^b \pi [f(x)]^2 dx = \pi \int_a^b y^2 dx$
-      -  $V_y = \int_a^b 2\pi x f(x) dx$
-   -  平面曲线弧长
-      -  $S = \int_{s(a)}^{s(b)} ds$ （易由弧微分 $ds = \sqrt{(dx)^2 + (dy)^2} = \sqrt{1 + (f'(x))^2} dx$）
-   -  旋转体侧面积
-      -  $S_x = 2 \pi \int_{s(a)}^{s(b)} y dS$
-      -  $S_y = 2 \pi \int_{s(a)}^{s(b)} x dS$
+#### 4.1.1 基本积分表
+
+-  $\int \sec x dx = \ln |\sec x + \tan x| + C$
+
+#### 4.1.2 积分法
+
+-  分部积分法
+-  凑积分法
+-  换元法
+-  有理函数积分
+
+#### 4.1.3 应用
+
+-  面积 $S = \int_a^b f(x) dx = \int_a^b y dx = \int_{f(a)}^{f(b)} x dy$
+-  体积
+   -  $V_x = \int_a^b \pi [f(x)]^2 dx = \pi \int_a^b y^2 dx$
+   -  $V_y = \int_a^b 2\pi x f(x) dx$
+-  平面曲线弧长
+   -  $S = \int_{s(a)}^{s(b)} ds$ （易由弧微分 $ds = \sqrt{(dx)^2 + (dy)^2} = \sqrt{1 + (f'(x))^2} dx$）
+-  旋转体侧面积
+   -  $S_x = 2 \pi \int_{s(a)}^{s(b)} y dS$
+   -  $S_y = 2 \pi \int_{s(a)}^{s(b)} x dS$
+
+#### 4.1.4 反常积分
+
+-  无穷限的反常积分
+-  无界函数的反常积分
 
 ### 4.2 一些需要记的
 
@@ -319,8 +334,13 @@ $\Rightarrow$
 ### 4.3 一些需要注意的
 
 -  从不定积分到定积分
+
    -  能使用几何意义（包含奇偶性）
    -  点火公式
+
+-  反常积分审敛只需与 $\frac{1}{x}$ 比阶即可
+   -  无穷区间 比 $\frac{1}{x}$ 高阶的无穷小收敛
+   -  无界函数 比 $\frac{1}{x}$ 低阶的无穷大收敛
 
 ## 5 Differential Equation
 
