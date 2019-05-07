@@ -152,7 +152,7 @@ Makefile.win
 # temp
 tmp/
 /tests/
-data/
+/data/
 
 # pynotex
 config.json
