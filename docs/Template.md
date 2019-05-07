@@ -129,7 +129,7 @@ plt.savefig("Images/example.png")
 
 <Varmark></Varmark>
 
-# Amendant Record
+# Change Log
 
 1. 18xxxx Init
 2. 18xxxx Add #0 #1

@@ -2556,7 +2556,7 @@ $arg max \frac{1}{T_y^\alpha}\sum\limits_{t=1}^{T_y} \log P(y^{<t>} |x, y^{<1>},
 
 $Thank you,  Andrew Ng$
 
-# Amendant Record
+# Change Log
 
 1. 181014 #1.1 Finished
 2. 181017 #1.2 Finished

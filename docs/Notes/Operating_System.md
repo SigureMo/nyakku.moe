@@ -1236,7 +1236,7 @@ emmm 虽说共用一个进程吧，但是每个页表都要记录该进程的各
 
 -  页面调入过程
 
-# Amendant Record
+# Change Log
 
 1. 190311 #1 Finished
 2. 190326 [process_sync](https://github.com/SigureMo/notev/tree/master/Codes/OS/process_sync) Finished
