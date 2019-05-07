@@ -573,7 +573,7 @@ $$
 
 这就变成了一个可求解的参数估计问题
 
-# Amendant Record
+# Change Log
 
 1. 190101 #1 Finished
 2. 190117 #2 Finished
