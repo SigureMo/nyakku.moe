@@ -1042,7 +1042,7 @@ for (p1 = intVector.begin(); p1 != intVector.end(); p1++){
    -  size
    -  empty
 
-# Amendant Record
+# Change Log
 
 180917 #1 Finished
 180919 #2 Finished
