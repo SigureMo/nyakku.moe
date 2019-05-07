@@ -1479,7 +1479,7 @@ PGP 协议，基于 MD5 和 RSA
 1. wireshark 抓包工具
 2. [QQ 是基于 UDP 还是 TCP](https://zhidao.baidu.com/question/136592671.html)
 
-# Amendant Record
+# Change Log
 
 1. 180913 #1 Finished
 2. 180918 #2 Finished

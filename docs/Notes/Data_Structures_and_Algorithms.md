@@ -1049,7 +1049,7 @@ Index Hash(const char *Key, int TableSize){
 
 1. [switch-case 实现分段函数](https://blog.csdn.net/xiaochenxiaoren/article/details/53140436)
 
-# Amendant Record
+# Change Log
 
 1. 180911 [Chapter_4_Queue](https://github.com/SigureMo/notev/tree/master/Codes/Data_Structures/Chapter_4_Queue) Finished
 2. 180913 [Week_2](https://github.com/SigureMo/notev/tree/master/Codes/Data_Structures/Week_2) Finished
