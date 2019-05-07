@@ -1,0 +1,8 @@
+# vb
+MSSCCPRJ.SCC
+*.vbw
+*.log
+
+# temperature_field
+/07_temperature_field/data/*
+!/07_temperature_field/data/params.dat

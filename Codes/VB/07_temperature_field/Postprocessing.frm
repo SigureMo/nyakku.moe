@@ -1,7 +1,7 @@
 VERSION 5.00
 Object = "{6B7E6392-850A-101B-AFC0-4210102A8DA7}#1.3#0"; "COMCTL32.OCX"
 Object = "{F9043C88-F6F2-101A-A3C9-08002B2F49FB}#1.2#0"; "COMDLG32.OCX"
-Begin VB.Form Form1 
+Begin VB.Form Main 
    Caption         =   "Form1"
    ClientHeight    =   7410
    ClientLeft      =   120
@@ -107,7 +107,7 @@ Begin VB.Form Form1
       Width           =   6735
    End
 End
-Attribute VB_Name = "Form1"
+Attribute VB_Name = "Main"
 Attribute VB_GlobalNameSpace = False
 Attribute VB_Creatable = False
 Attribute VB_PredeclaredId = True
@@ -117,13 +117,12 @@ Dim Material_Matrix()
 Dim Temperature_Matrix()
 Dim Tmp_Matrix()
 Dim Loaded As Boolean
-Dim Materials(2) As Material
-Dim range_x%, range_y%
+Public delta_x As Single, delta_y As Single
 
 Private Sub Form_Load()
-    Dim i As Integer
     PI = 3.1415926
     Loaded = False
+    Init_Material_Params
     Init_ShadeGuide
 End Sub
 
@@ -157,6 +156,8 @@ Private Sub Data_Import_Button_Click()
                         Case 2
                             range_x = Val(Split(s, ",")(0))
                             range_y = Val(Split(s, ",")(1))
+                            delta_x = 0.5 / range_x
+                            delta_y = 0.5 / range_y
                             ReDim Material_Matrix(range_x - 1, range_y - 1)
                             ReDim Temperature_Matrix(range_x - 1, range_y - 1)
                             ReDim Tmp_Matrix(range_x - 1, range_y - 1)
@@ -197,25 +198,25 @@ Private Function Get_Color(t As Integer) As Variant
     Dim w!
     w = 2.5
     i = t / 100
-    Get_Color = HSV2RGB(250 - sigmoid_variant(i / 16, w) * 250, 1, 1)
+    Get_Color = HSV(250 - sigmoid_variant(i / 16, w) * 250, 1, 1)
     ' 由于直接均匀分色在中间的绿色区域区分并不明显，使用 sigmoid 函数（两侧缓慢，中间比较快）对其进行调整, w 越大，效果越明显
 End Function
 
 '' Sigmoid 自定义变体，用于调节颜色变化速率
-Private Function sigmoid_variant(X As Single, w As Single) As Single
+Private Function sigmoid_variant(x As Single, w As Single) As Single
     ' x (0, 1) w(0, INF) output (0, 1)
-    X = w * 2 * (X - 0.5) ' x (-w, w) y (1-sigmoid(w), sigmoid(w))
+    x = w * 2 * (x - 0.5) ' x (-w, w) y (1-sigmoid(w), sigmoid(w))
     h = 2 * (sigmoid(w) - 0.5)
-    sigmoid_variant = (sigmoid(X) - 0.5) / h + 0.5
+    sigmoid_variant = (sigmoid(x) - 0.5) / h + 0.5
 End Function
 
 '' Sigmoid
-Private Function sigmoid(X As Single) As Single
-    sigmoid = 1 / (1 + Exp(-X))
+Private Function sigmoid(x As Single) As Single
+    sigmoid = 1 / (1 + Exp(-x))
 End Function
 
-'' HSV 色值转化为 RGB 色值
-Private Function HSV2RGB(h As Integer, s As Single, v As Single) As Variant
+'' 根据 HSV 色值生成 RGB 颜色
+Private Function HSV(h As Integer, s As Single, v As Single) As Variant
    ' h(0, 360) s(0, 1.0) v(0, 1.0)
     Dim r As Single, g As Single, b As Single
     Dim i As Integer, f As Single, p As Single, q As Single, t As Single
@@ -251,7 +252,7 @@ Private Function HSV2RGB(h As Integer, s As Single, v As Single) As Variant
             g = p
             b = q
     End Select
-    HSV2RGB = RGB(r * 255, g * 255, b * 255)
+    HSV = RGB(r * 255, g * 255, b * 255)
 End Function
 
 ' 参数设置
@@ -261,9 +262,12 @@ End Sub
 
 ' 网格相关
 '' 移动回调
-Private Sub Grid_MouseMove(Button As Integer, Shift As Integer, X As Single, Y As Single)
+Private Sub Grid_MouseMove(Button As Integer, Shift As Integer, x As Single, Y As Single)
     If Loaded Then
-        StatusBar.Panels(1).Text = "(" & Int(X) & ", " & Int(Y) & ")"
+        StatusBar.Panels(1).Text = "(" & Int(x) & ", " & Int(Y) & ")"
     End If
 End Sub
+
+' 绘制相关
+'' 绘制云图
 
