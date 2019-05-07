@@ -333,7 +333,7 @@ AGAIN   ADDLW   03H
       -  T0PS2~0=101：分频系数 1:64
          > 即 T0CON=00000101B=05H
 
-# Amendant Record
+# Change Log
 
 1. 180913 #0 #1 Finished
 2. 180926 #2 #3 Finished
