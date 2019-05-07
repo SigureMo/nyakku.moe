@@ -296,25 +296,19 @@ Attribute VB_PredeclaredId = True
 Attribute VB_Exposed = False
 Dim Material_Matrix(1000, 1000) As Integer
 Dim Select_Matrix(1000, 1000) As Boolean
-Dim range_x%, range_y%
 Dim grid_w%, grid_l%
 Dim Start_x%, Start_y%
 Dim Meshed As Boolean
-Dim color_arr
 Dim Tips_arr
 Dim click_cnt%
-Dim SAND%, CASTING%, CHILL%, SEC%
 Dim Material_List() As Material
 
 Private Sub Form_Load()
+    Init_Material_Params
     Meshed = False
     grid_w = 500
     grid_l = 500
-    color_arr = Array(vbYellow, vbRed, vbBlue)
     Start_x = -1
-    SAND = 0
-    CASTING = 1
-    CHILL = 2
     Tips_arr = Array("支持按住 Shift 进行区域选择哦！", "支持按住 Ctrl 连续点选哦！", "Shift Ctrl 同时按住也是支持的哦", "适当使用反向填充会有奇效哦！", "本程序以 mm 为单位哦，整体长度为" & grid_w & "，整体宽度为" & grid_l)
     click_cnt = 0
     Call Load_Params(Material_List)

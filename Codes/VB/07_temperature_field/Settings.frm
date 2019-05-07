@@ -128,7 +128,7 @@ Begin VB.Form Settings
          Height          =   375
          Left            =   2280
          TabIndex        =   12
-         Text            =   "1560"
+         Text            =   "973"
          Top             =   360
          Width           =   1935
       End
@@ -175,10 +175,18 @@ Begin VB.Form Settings
       Left            =   360
       TabIndex        =   0
       Top             =   240
-      Width           =   4695
+      Width           =   5175
+      Begin VB.CommandButton Compute_Delta_T_Button 
+         Caption         =   "计算时间步"
+         Height          =   855
+         Left            =   4080
+         TabIndex        =   24
+         Top             =   600
+         Width           =   855
+      End
       Begin VB.TextBox Range_T_Box 
          Height          =   375
-         Left            =   2160
+         Left            =   1680
          TabIndex        =   5
          Text            =   "20000"
          Top             =   1080
@@ -186,7 +194,7 @@ Begin VB.Form Settings
       End
       Begin VB.TextBox Delta_T_Box 
          Height          =   375
-         Left            =   2160
+         Left            =   1800
          TabIndex        =   4
          Text            =   "10"
          Top             =   480
@@ -218,5 +226,27 @@ Attribute VB_Creatable = False
 Attribute VB_PredeclaredId = True
 Attribute VB_Exposed = False
 Private Sub Set_Params_Button_Click()
+    delta_t = Val(Delta_T_Box)
+    range_t = Val(Range_T_Box)
+    T0(SAND) = Val(Sand_T0_Box)
+    T0(CASTING) = Val(Casting_T0_Box.Text)
+    T0(CHILL) = Val(Chill_T0_Box.Text)
+    T0(AIR) = Val(Air_T0_Box.Text)
+    TT(CHILL, CASTING) = TT(CASTING, CHILL) = Val(CC_Transfer_Box.Text)
+    TT(SAND, AIR) = TT(AIR, SAND) = Val(SA_Transfer_Box.Text)
+    TT(CASTING, SAND) = TT(SAND, CASTING) = Val(CS_Transfer_Box.Text)
+    TT(CASTING, AIR) = TT(AIR, CASTING) = Val(CA_Transfer_Box.Text)
     Unload Me
+End Sub
+
+Private Sub Compute_Delta_T_Button_Click()
+    Dim delta_d!, M_Casting As Material
+    If Main.delta_x < Main.delta_y Then
+        delta_d = Main.delta_x
+    Else
+        delta_d = Main.delta_y
+    End If
+    M_Casting = Materials(CASTING)
+    delta_t = 1 / 4 * delta_d * delta_d * M_Casting.c * M_Casting.rho / M_Casting.k
+    Delta_T_Box.Text = Round(delta_t / 10, 3)
 End Sub
