@@ -462,7 +462,7 @@
 
    ```c
    wait(S) {
-       while (S <= 0>);
+       while (S <= 0);
        S--;
    }
 
