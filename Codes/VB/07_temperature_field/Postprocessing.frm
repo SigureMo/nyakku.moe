@@ -11,6 +11,14 @@ Begin VB.Form Main
    ScaleHeight     =   7410
    ScaleWidth      =   11955
    StartUpPosition =   3  '窗口缺省
+   Begin VB.CommandButton Test 
+      Caption         =   "test"
+      Height          =   735
+      Left            =   9120
+      TabIndex        =   8
+      Top             =   4680
+      Width           =   1215
+   End
    Begin VB.CheckBox Dynamic_View_CheackBox 
       Caption         =   "观看动态过程"
       Height          =   495
@@ -54,7 +62,6 @@ Begin VB.Form Main
             Object.Tag             =   ""
          EndProperty
          BeginProperty Panel2 {0713E89F-850A-101B-AFC0-4210102A8DA7} 
-            TextSave        =   ""
             Object.Tag             =   ""
          EndProperty
       EndProperty
@@ -114,8 +121,8 @@ Attribute VB_PredeclaredId = True
 Attribute VB_Exposed = False
 Dim PI!
 Dim Material_Matrix()
-Dim Temperature_Matrix()
-Dim Tmp_Matrix()
+Dim Temperature_Matrix() As Single
+Dim Tmp_Matrix() As Single
 Dim Loaded As Boolean
 Public delta_x As Single, delta_y As Single
 
@@ -124,6 +131,15 @@ Private Sub Form_Load()
     Loaded = False
     Init_Material_Params
     Init_ShadeGuide
+End Sub
+
+' 初始化温度矩阵
+Private Sub Init_Temperature_Matrix()
+    For i = 0 To range_x - 1
+        For j = 0 To range_y - 1
+            Temperature_Matrix(i, j) = T0(Material_Matrix(i, j))
+        Next j
+    Next i
 End Sub
 
 ' 导入数据
@@ -193,7 +209,7 @@ Private Sub Init_ShadeGuide()
 End Sub
 
 '' 色温对照函数
-Private Function Get_Color(t As Integer) As Variant
+Private Function Get_Color(t As Single) As Variant
     Dim i%
     Dim w!
     w = 2.5
@@ -270,4 +286,23 @@ End Sub
 
 ' 绘制相关
 '' 绘制云图
+Private Sub Redraw_Cloud_Chart(Only_Casting As Boolean)
+    For i = 0 To range_x - 1
+        For j = 0 To range_y - 1
+            If Only_Casting Then
+                If Material_Matrix(i, j) = CASTING Then
+                    Grid.Line (i, j)-(i + 1, j + 1), Get_Color(Temperature_Matrix(i, j)), BF
+                Else
+                    Grid.Line (i, j)-(i + 1, j + 1), RGB(77, 77, 77), BF
+                End If
+            Else
+                Grid.Line (i, j)-(i + 1, j + 1), Get_Color(Temperature_Matrix(i, j)), BF
+            End If
+        Next j
+    Next i
+End Sub
 
+Private Sub Test_Click()
+    Init_Temperature_Matrix
+    Redraw_Cloud_Chart (False)
+End Sub

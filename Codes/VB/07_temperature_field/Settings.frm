@@ -225,22 +225,36 @@ Attribute VB_GlobalNameSpace = False
 Attribute VB_Creatable = False
 Attribute VB_PredeclaredId = True
 Attribute VB_Exposed = False
+Private Sub Form_Load()
+    Delta_T_Box.Text = delta_t
+    Range_T_Box.Text = range_t
+    Sand_T0_Box.Text = T0(SAND)
+    Casting_T0_Box.Text = T0(CASTING)
+    Chill_T0_Box.Text = T0(CHILL)
+    Air_T0_Box.Text = T0(AIR)
+    CC_Transfer_Box.Text = TT(CHILL, CASTING)
+    SA_Transfer_Box.Text = TT(SAND, AIR)
+    CS_Transfer_Box.Text = TT(CASTING, SAND)
+    CA_Transfer_Box.Text = TT(CASTING, AIR)
+    Compute_Delta_T_Button_Click
+End Sub
+
 Private Sub Set_Params_Button_Click()
-    delta_t = Val(Delta_T_Box)
-    range_t = Val(Range_T_Box)
-    T0(SAND) = Val(Sand_T0_Box)
+    delta_t = Val(Delta_T_Box.Text)
+    range_t = Val(Range_T_Box.Text)
+    T0(SAND) = Val(Sand_T0_Box.Text)
     T0(CASTING) = Val(Casting_T0_Box.Text)
     T0(CHILL) = Val(Chill_T0_Box.Text)
     T0(AIR) = Val(Air_T0_Box.Text)
-    TT(CHILL, CASTING) = TT(CASTING, CHILL) = Val(CC_Transfer_Box.Text)
-    TT(SAND, AIR) = TT(AIR, SAND) = Val(SA_Transfer_Box.Text)
-    TT(CASTING, SAND) = TT(SAND, CASTING) = Val(CS_Transfer_Box.Text)
-    TT(CASTING, AIR) = TT(AIR, CASTING) = Val(CA_Transfer_Box.Text)
+    TT(CHILL, CASTING) = Val(CC_Transfer_Box.Text): TT(CASTING, CHILL) = Val(CC_Transfer_Box.Text)
+    TT(SAND, AIR) = Val(SA_Transfer_Box.Text): TT(AIR, SAND) = Val(SA_Transfer_Box.Text)
+    TT(CASTING, SAND) = Val(CS_Transfer_Box.Text): TT(SAND, CASTING) = Val(CS_Transfer_Box.Text)
+    TT(CASTING, AIR) = Val(CA_Transfer_Box.Text): TT(AIR, CASTING) = Val(CA_Transfer_Box.Text)
     Unload Me
 End Sub
 
 Private Sub Compute_Delta_T_Button_Click()
-    Dim delta_d!, M_Casting As Material
+    Dim delta_d!, delta_t!, M_Casting As Material
     If Main.delta_x < Main.delta_y Then
         delta_d = Main.delta_x
     Else
