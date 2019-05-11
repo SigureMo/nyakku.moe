@@ -4,27 +4,42 @@ Object = "{F9043C88-F6F2-101A-A3C9-08002B2F49FB}#1.2#0"; "COMDLG32.OCX"
 Begin VB.Form Main 
    Caption         =   "Form1"
    ClientHeight    =   9615
-   ClientLeft      =   120
-   ClientTop       =   465
+   ClientLeft      =   1950
+   ClientTop       =   2895
    ClientWidth     =   13695
    LinkTopic       =   "Form1"
    ScaleHeight     =   9615
    ScaleWidth      =   13695
-   StartUpPosition =   3  '窗口缺省
+   Begin VB.CommandButton Show_T_Profile_Button 
+      Caption         =   "显示温度曲线"
+      Height          =   735
+      Left            =   10680
+      TabIndex        =   10
+      Top             =   5880
+      Width           =   1335
+   End
+   Begin VB.CommandButton Set_Probe_Button 
+      Caption         =   "设置探针"
+      Height          =   735
+      Left            =   10680
+      TabIndex        =   9
+      Top             =   2160
+      Width           =   1335
+   End
    Begin VB.CommandButton Compute_Button 
       Caption         =   "开始计算"
       Height          =   735
       Left            =   10680
       TabIndex        =   8
-      Top             =   2160
+      Top             =   3120
       Width           =   1335
    End
    Begin VB.CommandButton Test 
       Caption         =   "test"
       Height          =   735
-      Left            =   10560
+      Left            =   10680
       TabIndex        =   7
-      Top             =   5040
+      Top             =   7200
       Width           =   1215
    End
    Begin VB.CheckBox Dynamic_View_CheackBox 
@@ -32,16 +47,16 @@ Begin VB.Form Main
       Height          =   495
       Left            =   10560
       TabIndex        =   6
-      Top             =   3960
+      Top             =   4920
       Value           =   1  'Checked
       Width           =   1695
    End
    Begin VB.CheckBox Hidden_Sand_CheckBox 
       Caption         =   "仅显示铸件"
       Height          =   495
-      Left            =   10680
+      Left            =   10560
       TabIndex        =   5
-      Top             =   3120
+      Top             =   4080
       Value           =   1  'Checked
       Width           =   1575
    End
@@ -134,6 +149,7 @@ Dim L_Matrix() As Single
 Dim Loaded As Boolean
 Dim paused As Boolean
 Dim pause_index%
+Public px%, py%, popen As Boolean, Show_Probe%
 Public delta_x As Single, delta_y As Single
 
 Private Sub Form_Load()
@@ -141,6 +157,7 @@ Private Sub Form_Load()
     Loaded = False
     paused = True
     pause_index = 1
+    Show_Probe = 1
     Init_Material_Params
     Init_ShadeGuide
 End Sub
@@ -230,43 +247,43 @@ Private Sub Init_ShadeGuide()
 End Sub
 
 ''' 色温对照函数
-Private Function Get_Color(T As Single) As Variant
+Private Function Get_Color(t As Single) As Variant
     Dim i%
     Dim w!
     w = 2.5
-    i = T / 100
+    i = t / 100
     Get_Color = HSV(250 - sigmoid_variant(i / 16, w) * 250, 1, 1)
     ' 由于直接均匀分色在中间的绿色区域区分并不明显，使用 sigmoid 函数（两侧缓慢，中间比较快）对其进行调整, w 越大，效果越明显
 End Function
 
 ''' Sigmoid 自定义变体，用于调节颜色变化速率
-Private Function sigmoid_variant(x As Single, w As Single) As Single
+Private Function sigmoid_variant(X As Single, w As Single) As Single
     ' x (0, 1) w(0, INF) output (0, 1)
-    x = w * 2 * (x - 0.5) ' x (-w, w) y (1-sigmoid(w), sigmoid(w))
+    X = w * 2 * (X - 0.5) ' x (-w, w) y (1-sigmoid(w), sigmoid(w))
     h = 2 * (sigmoid(w) - 0.5)
-    sigmoid_variant = (sigmoid(x) - 0.5) / h + 0.5
+    sigmoid_variant = (sigmoid(X) - 0.5) / h + 0.5
 End Function
 
 ''' Sigmoid
-Private Function sigmoid(x As Single) As Single
-    sigmoid = 1 / (1 + Exp(-x))
+Private Function sigmoid(X As Single) As Single
+    sigmoid = 1 / (1 + Exp(-X))
 End Function
 
 ''' 根据 HSV 色值生成 RGB 颜色
 Private Function HSV(h As Integer, s As Single, v As Single) As Variant
    ' h(0, 360) s(0, 1.0) v(0, 1.0)
     Dim r As Single, g As Single, b As Single
-    Dim i As Integer, f As Single, p As Single, q As Single, T As Single
+    Dim i As Integer, f As Single, p As Single, q As Single, t As Single
     i = Int(h / 60) Mod 6
     f = h / 60 - i
     p = v * (1 - s)
     q = v * (1 - f * s)
-    T = v * (1 - (1 - f) * s)
+    t = v * (1 - (1 - f) * s)
     
     Select Case i
         Case 0
             r = v
-            g = T
+            g = t
             b = p
         Case 1
             r = q
@@ -275,13 +292,13 @@ Private Function HSV(h As Integer, s As Single, v As Single) As Variant
         Case 2
             r = p
             g = v
-            b = T
+            b = t
         Case 3
             r = p
             g = q
             b = v
         Case 4
-            r = T
+            r = t
             g = p
             b = v
         Case 5
@@ -298,6 +315,24 @@ Private Sub Settings_Button_Click()
     Settings.Show
 End Sub
 
+'' 设置探针
+Private Sub Set_Probe_Button_Click()
+    Set_Probe.Show
+End Sub
+
+''' 点击回调
+Private Sub Grid_MouseDown(Button As Integer, Shift As Integer, X As Single, Y As Single)
+    Dim real_x%, real_y%
+    real_x = Int(X)
+    real_y = Int(Y)
+    If Loaded And popen And real_x < range_x And Y < range_y Then
+        px = real_x
+        py = real_y
+        Set_Probe.Px_Box.Text = px
+        Set_Probe.Py_Box.Text = py
+    End If
+End Sub
+
 '' 切换隐藏/显示铸型
 Private Sub Hidden_Sand_CheckBox_Click()
     Redraw_Cloud_Chart (Hidden_Sand_CheckBox.Value)
@@ -306,6 +341,7 @@ End Sub
 
 '' 开始计算
 Private Sub Compute_Button_Click()
+    ReDim Preserve Tp(range_t)
     If paused Then
         Compute_Button.Caption = "暂停计算"
         paused = False
@@ -322,6 +358,11 @@ Private Sub Compute_Button_Click()
             ' 计算下一时刻温度
             Next_T
             
+            ' 记录探针温度
+            If Not px = -1 Then
+                Tp(i) = Temperature_Matrix(px, py)
+            End If
+            
             ' 显示时间
             StatusBar.Panels(4).Text = Round(delta_t * i, 3) & "s"
             
@@ -329,6 +370,7 @@ Private Sub Compute_Button_Click()
                 ' 绘制云图
                 If Dynamic_View_CheackBox.Value Then
                     Redraw_Cloud_Chart (Hidden_Sand_CheckBox.Value)
+                    Redraw_Probe
                     Mesh
                     Grid.Refresh
                 End If
@@ -349,18 +391,24 @@ Private Sub Compute_Button_Click()
         Next i
         Compute_Button.Caption = "开始计算"
         pause_index = 1
+        paused = True
     Else
         Compute_Button.Caption = "继续计算"
         paused = True
     End If
 End Sub
 
+' 显示温度曲线
+Private Sub Show_T_Profile_Button_Click()
+    Profile.Show
+End Sub
+
 ' 移动回调
-Private Sub Grid_MouseMove(Button As Integer, Shift As Integer, x As Single, y As Single)
+Private Sub Grid_MouseMove(Button As Integer, Shift As Integer, X As Single, Y As Single)
     Dim real_x%, real_y%
-    real_x = Int(x)
-    real_y = Int(y)
-    If Loaded And real_x < range_x And y < range_y Then
+    real_x = Int(X)
+    real_y = Int(Y)
+    If Loaded And real_x < range_x And Y < range_y Then
         StatusBar.Panels(1).Text = "(" & real_x & ", " & real_y & ")"
         StatusBar.Panels(2).Text = Temperature_Matrix(real_x, real_y) & "℃"
     End If
@@ -368,7 +416,7 @@ End Sub
 
 ' 绘制相关
 '' 绘制云图
-Private Sub Redraw_Cloud_Chart(Only_Casting As Boolean)
+Public Sub Redraw_Cloud_Chart(Only_Casting As Boolean)
     For i = 0 To range_x - 1
         For j = 0 To range_y - 1
             If Only_Casting Then
@@ -385,7 +433,7 @@ Private Sub Redraw_Cloud_Chart(Only_Casting As Boolean)
 End Sub
 
 '' 绘制边界
-Private Sub Redraw_Border()
+Public Sub Redraw_Border()
     Grid.Line (0, 0)-(range_x, 1 / 2), vbBlack, BF
     Grid.Line (0, range_y - 1 / 2)-(range_x, range_y), vbBlack, BF
     Grid.Line (0, 0)-(1 / 2, range_y), vbBlack, BF
@@ -393,7 +441,7 @@ Private Sub Redraw_Border()
 End Sub
 
 '' 绘制网格
-Private Sub Mesh()
+Public Sub Mesh()
     For i = 0 To range_x
         Grid.Line (i, 0)-(i, range_y), vbBlack
     Next i
@@ -403,12 +451,33 @@ Private Sub Mesh()
     Redraw_Border
 End Sub
 
+'' 绘制温度探针
+Public Sub Redraw_Probe()
+    If Show_Probe = 0 Then
+        Exit Sub
+    End If
+    If px = -1 Then
+        Exit Sub
+    End If
+    Dim color As Variant
+    Grid.FillStyle = vbFSSolid
+    For i = 4 To 0 Step -1
+        If i Mod 2 = 0 Then
+            color = vbRed
+        Else
+            color = vbWhite
+        End If
+        Grid.FillColor = color
+        Grid.Circle (px + 0.5, py + 0.5), (2 * i + 1) / 18, color
+    Next i
+End Sub
+
 ' 计算相关
 '' 温度矩阵下一时刻
 Private Sub Next_T()
     ' 计算下一时刻温度
     Dim s!, w!, d! ' 两结点间接触宽度、结点厚度、结点间温度中心距离
-    Dim T!
+    Dim t!
     Dim Ma As Material
     Dim m!
     For i = 0 To range_x - 1
@@ -424,13 +493,13 @@ Private Sub Next_T()
             heat = heat + Get_Heat(i, j, i, j + 1, s, w, d)
             m = Ma.rho * s * w ' 单元质量
             dT = heat / (Ma.c * m) ' 临时温度变化值
-            T = Temperature_Matrix(i, j)
+            t = Temperature_Matrix(i, j)
             
             ' 计算潜热
             If compute_L Then
-                If Material_Matrix(i, j) = CASTING And T + dT < Materials(CASTING).Tl And L_Matrix(i, j) > 0.001 Then
-                    heat = heat + Ma.c * m * (T - Materials(CASTING).Tl)
-                    T = Materials(CASTING).Tl
+                If Material_Matrix(i, j) = CASTING And t + dT < Materials(CASTING).Tl And L_Matrix(i, j) > 0.001 Then
+                    heat = heat + Ma.c * m * (t - Materials(CASTING).Tl)
+                    t = Materials(CASTING).Tl
                     If -heat >= L_Matrix(i, j) * m Then
                         heat = heat + L_Matrix(i, j) * m
                         L_Matrix(i, j) = 0
@@ -443,7 +512,7 @@ Private Sub Next_T()
             End If
             
             ' 计算温度
-            Tmp_Matrix(i, j) = T + dT
+            Tmp_Matrix(i, j) = t + dT
         Next j
     Next i
     ' 临时矩阵数值传入温度矩阵
@@ -455,14 +524,14 @@ Private Sub Next_T()
 End Sub
 
 '' 计算两结点的接触宽度、厚度、温度中心距离
-Private Sub Get_SWD(ByRef s!, ByRef w!, ByRef d!, ByVal x%, ByVal y%, ByVal direct%)
+Private Sub Get_SWD(ByRef s!, ByRef w!, ByRef d!, ByVal X%, ByVal Y%, ByVal direct%)
     Dim dx!, dy!
     dx = delta_x
     dy = delta_y
-    If x = 0 Or x = range_x - 1 Then ' 左右边界
+    If X = 0 Or X = range_x - 1 Then ' 左右边界
         dx = dx / 2
     End If
-    If y = 0 Or y = range_y - 1 Then ' 上下边界
+    If Y = 0 Or Y = range_y - 1 Then ' 上下边界
         dy = dy / 2
     End If
     If direct = 0 Then ' 两结点水平相邻
@@ -477,20 +546,20 @@ Private Sub Get_SWD(ByRef s!, ByRef w!, ByRef d!, ByVal x%, ByVal y%, ByVal dire
 End Sub
 
 '' 计算源结点到目的结点的交换热量
-Private Function Get_Heat(ByVal x%, ByVal y%, ByVal sx%, ByVal sy%, ByVal s!, ByVal w!, ByVal d!)
+Private Function Get_Heat(ByVal X%, ByVal Y%, ByVal sx%, ByVal sy%, ByVal s!, ByVal w!, ByVal d!)
     If sx < 0 Or sx >= range_x Or sy < 0 Or sy >= range_y Then
-        h = TT(Material_Matrix(x, y), AIR)
-        Get_Heat = h * (T0(AIR) - Temperature_Matrix(x, y)) * s * delta_t
+        h = TT(Material_Matrix(X, Y), AIR)
+        Get_Heat = h * (T0(AIR) - Temperature_Matrix(X, Y)) * s * delta_t
         Exit Function
     Else
-        If Material_Matrix(x, y) = Material_Matrix(sx, sy) Then
-            k = Materials(Material_Matrix(x, y)).k
+        If Material_Matrix(X, Y) = Material_Matrix(sx, sy) Then
+            k = Materials(Material_Matrix(X, Y)).k
         Else
-            k1 = Materials(Material_Matrix(x, y)).k
+            k1 = Materials(Material_Matrix(X, Y)).k
             k2 = Materials(Material_Matrix(sx, sy)).k
             k = 2 * k1 * k2 / (k1 + k2)
         End If
-        Get_Heat = k * (Temperature_Matrix(sx, sy) - Temperature_Matrix(x, y)) / d * s * delta_t
+        Get_Heat = k * (Temperature_Matrix(sx, sy) - Temperature_Matrix(X, Y)) / d * s * delta_t
         Exit Function
     End If
 End Function

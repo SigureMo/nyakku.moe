@@ -2,13 +2,12 @@ VERSION 5.00
 Begin VB.Form Settings 
    Caption         =   "Form2"
    ClientHeight    =   9255
-   ClientLeft      =   120
-   ClientTop       =   465
+   ClientLeft      =   16140
+   ClientTop       =   2895
    ClientWidth     =   5850
    LinkTopic       =   "Form2"
    ScaleHeight     =   9255
    ScaleWidth      =   5850
-   StartUpPosition =   3  '窗口缺省
    Begin VB.CommandButton Cancel_Button 
       Caption         =   "取消"
       Height          =   735

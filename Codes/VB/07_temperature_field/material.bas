@@ -20,6 +20,7 @@ Public TT(3, 3) ' ´«ÈÈ¾ØÕó
 Public delta_t
 Public range_t
 Public compute_L%
+Public Tp() As Single ' Ì½ÕëÎÂ¶È
 
 Public Sub Init_Material_Params()
     SAND = 0
