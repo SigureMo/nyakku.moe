@@ -313,11 +313,11 @@ Private Sub Form_Load()
     click_cnt = 0
     Call Load_Params(Material_List)
     For i = 0 To UBound(Material_List)
-        If Material_List(i).type_ = SAND Then
+        If Material_List(i).type = SAND Then
             Sand_Combo.AddItem (i & "," & Material_List(i).name)
-        ElseIf Material_List(i).type_ = CASTING Then
+        ElseIf Material_List(i).type = CASTING Then
             Casting_Combo.AddItem (i & "," & Material_List(i).name)
-        ElseIf Material_List(i).type_ = CHILL Then
+        ElseIf Material_List(i).type = CHILL Then
             Chill_Combo.AddItem (i & "," & Material_List(i).name)
         End If
     Next i
@@ -360,7 +360,7 @@ End Sub
 
 '' 绘制网格
 Private Sub Mesh()
-    Grid.Scale (0, 0)-(range_x, range_y)
+    Grid.Scale (0, range_y)-(range_x, 0)
     For i = 0 To range_x
         Grid.Line (i, 0)-(i, range_y)
     Next i
@@ -414,7 +414,9 @@ End Sub
 
 '' 鼠标移动回调
 Private Sub Grid_MouseMove(Button As Integer, Shift As Integer, X As Single, Y As Single)
-    StatusBar.Panels(1).Text = "当前位置为(" & Int(X) & ", " & Int(Y) & ")"
+    If Meshed Then
+        StatusBar.Panels(1).Text = "当前位置为(" & Int(X) & ", " & Int(Y) & ")"
+    End If
 End Sub
 
 '' Shift 区域选择
