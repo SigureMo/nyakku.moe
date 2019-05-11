@@ -327,7 +327,6 @@ Private Sub Form_Load()
 End Sub
 
 ' 绘制相关
-
 '' 绘制底色
 Private Sub Redraw_Area(x_start As Integer, x_end As Integer, y_start As Integer, y_end As Integer)
     For i = x_start To x_end
@@ -373,7 +372,6 @@ End Sub
 
 
 ' 点选相关
-
 '' 点选回调
 Private Sub Grid_MouseDown(Button As Integer, Shift As Integer, X As Single, Y As Single)
     click_cnt = click_cnt + 1
@@ -473,7 +471,6 @@ End Sub
 
 
 ' 网格设置
-
 '' 网格生成回调
 Private Sub Mesh_Button_Click()
     If IsNumeric(Delta_X_Box.Text) And IsNumeric(Delta_Y_Box.Text) Then
@@ -504,6 +501,7 @@ Private Sub Mesh_Button_Click()
     End If
     Clear_Material_Matrix
     Clear_Select_Matrix
+    Call Redraw_Area(0, range_x, 0, range_y)
 End Sub
 
 '' 等网格回调
@@ -551,7 +549,6 @@ End Sub
 
 
 ' 导出数据
-
 Private Sub Data_Export_Button_Click()
     If Not Meshed Then
         MsgBox "请先生成网格"
