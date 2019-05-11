@@ -1,13 +1,13 @@
 Attribute VB_Name = "Module1"
 Public Type Material
     name As String
-    type As String
-    rho As String
-    c As String
-    k As String
-    Tl As String
-    Ts As String
-    L As String
+    type As Integer
+    rho As Single
+    c As Single
+    k As Single
+    Tl As Single
+    Ts As Single
+    L As Single
 End Type
 
 ' 公用数据部分
@@ -19,6 +19,7 @@ Public T0(3) ' 始温数组
 Public TT(3, 3) ' 传热矩阵
 Public delta_t
 Public range_t
+Public compute_L%
 
 Public Sub Init_Material_Params()
     SAND = 0
@@ -31,10 +32,11 @@ Public Sub Init_Material_Params()
     T0(CASTING) = 973
     T0(CHILL) = 25
     T0(AIR) = 30
-    TT(CHILL, CASTING) = 2000 ': TT(CASTING, CHILL) = 2000
+    TT(CHILL, CASTING) = 2000: TT(CASTING, CHILL) = 2000
     TT(SAND, AIR) = 25.08: TT(AIR, SAND) = 25.08
     TT(CASTING, SAND) = 0: TT(SAND, CASTING) = 0
     TT(CASTING, AIR) = 29.03: TT(AIR, CASTING) = 29.03
+    compute_L = 1
     color_arr = Array(vbYellow, vbRed, vbBlue)
 End Sub
 
@@ -48,12 +50,12 @@ Public Function StringToMaterial(ByRef s As String) As Material
     Dim m As Material
     params = Split(s, ",")
     m.name = params(0)
-    m.type = params(1)
-    m.rho = params(2)
-    m.c = params(3)
-    m.k = params(4)
-    m.Tl = params(5)
-    m.Ts = params(6)
-    m.L = params(7)
+    m.type = Val(params(1))
+    m.rho = Val(params(2))
+    m.c = Val(params(3))
+    m.k = Val(params(4))
+    m.Tl = Val(params(5))
+    m.Ts = Val(params(6))
+    m.L = Val(params(7))
     StringToMaterial = m
 End Function

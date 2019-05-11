@@ -1,21 +1,46 @@
 VERSION 5.00
 Begin VB.Form Settings 
    Caption         =   "Form2"
-   ClientHeight    =   9015
+   ClientHeight    =   9255
    ClientLeft      =   120
    ClientTop       =   465
    ClientWidth     =   5850
    LinkTopic       =   "Form2"
-   ScaleHeight     =   9015
+   ScaleHeight     =   9255
    ScaleWidth      =   5850
    StartUpPosition =   3  '窗口缺省
-   Begin VB.CommandButton Set_Params_Button 
+   Begin VB.CommandButton Cancel_Button 
+      Caption         =   "取消"
+      Height          =   735
+      Left            =   3960
+      TabIndex        =   27
+      Top             =   8280
+      Width           =   1455
+   End
+   Begin VB.CommandButton Apply_Button 
+      Caption         =   "应用"
+      Height          =   855
+      Left            =   2160
+      TabIndex        =   26
+      Top             =   8280
+      Width           =   1455
+   End
+   Begin VB.CheckBox Compute_L_Check 
+      Caption         =   "计算潜热"
+      Height          =   375
+      Left            =   960
+      TabIndex        =   25
+      Top             =   7560
+      Value           =   1  'Checked
+      Width           =   2055
+   End
+   Begin VB.CommandButton Confirm_Button 
       Caption         =   "确定"
       Height          =   855
-      Left            =   720
+      Left            =   360
       TabIndex        =   3
-      Top             =   7800
-      Width           =   4095
+      Top             =   8280
+      Width           =   1455
    End
    Begin VB.Frame Heat_Transfer_Coefficient_Frame 
       Caption         =   "传热系数"
@@ -236,10 +261,62 @@ Private Sub Form_Load()
     SA_Transfer_Box.Text = TT(SAND, AIR)
     CS_Transfer_Box.Text = TT(CASTING, SAND)
     CA_Transfer_Box.Text = TT(CASTING, AIR)
-    Compute_Delta_T_Button_Click
+    Compute_L_Check.Value = compute_L
 End Sub
 
-Private Sub Set_Params_Button_Click()
+Private Sub Confirm_Button_Click()
+    If Set_Params Then
+        Unload Me
+    End If
+End Sub
+
+Private Sub Apply_Button_Click()
+    Set_Params
+End Sub
+
+Private Sub Cancel_Button_Click()
+    Unload Me
+End Sub
+
+Private Sub Compute_Delta_T_Button_Click()
+    Delta_T_Box.Text = Round(Get_Delta_T * 0.9, 3)
+End Sub
+
+Private Function Get_Delta_T() As Single
+    Dim min_d!, max_d!, delta_t!, delta_t1!, delta_t2!
+    Dim h!, M_Casting As Material, M_Sand As Material
+    If Main.delta_x < Main.delta_y Then
+        min_d = Main.delta_x
+        max_d = Main.delta_y
+    Else
+        min_d = Main.delta_y
+        max_d = Main.delta_x
+    End If
+    
+    M_Casting = Materials(CASTING)
+    M_Sand = Materials(SAND)
+    h = Val(SA_Transfer_Box.Text)
+    
+    delta_t1 = 1 / 4 * min_d ^ 2 * M_Casting.c * M_Casting.rho / M_Casting.k
+    delta_t2 = 1 / 4 * min_d ^ 2 * M_Sand.c * M_Sand.rho / M_Sand.k / (1 + h * max_d / M_Sand.k)
+    
+    If delta_t1 < delta_t2 Then
+        delta_t = delta_t1
+    Else
+        delta_t = delta_t2
+    End If
+    Get_Delta_T = delta_t
+End Function
+
+Private Function Set_Params() As Boolean
+    Set_Params = True
+    If Val(Delta_T_Box.Text) > Get_Delta_T Then
+        res = MsgBox("时间步长过大，可能导致模型不收敛，确定继续吗？", vbYesNo, "提示")
+        If res = vbNo Then
+            Set_Params = False
+            Exit Function
+        End If
+    End If
     delta_t = Val(Delta_T_Box.Text)
     range_t = Val(Range_T_Box.Text)
     T0(SAND) = Val(Sand_T0_Box.Text)
@@ -250,17 +327,5 @@ Private Sub Set_Params_Button_Click()
     TT(SAND, AIR) = Val(SA_Transfer_Box.Text): TT(AIR, SAND) = Val(SA_Transfer_Box.Text)
     TT(CASTING, SAND) = Val(CS_Transfer_Box.Text): TT(SAND, CASTING) = Val(CS_Transfer_Box.Text)
     TT(CASTING, AIR) = Val(CA_Transfer_Box.Text): TT(AIR, CASTING) = Val(CA_Transfer_Box.Text)
-    Unload Me
-End Sub
-
-Private Sub Compute_Delta_T_Button_Click()
-    Dim delta_d!, delta_t!, M_Casting As Material
-    If Main.delta_x < Main.delta_y Then
-        delta_d = Main.delta_x
-    Else
-        delta_d = Main.delta_y
-    End If
-    M_Casting = Materials(CASTING)
-    delta_t = 1 / 4 * delta_d * delta_d * M_Casting.c * M_Casting.rho / M_Casting.k
-    Delta_T_Box.Text = Round(delta_t / 10, 3)
-End Sub
+    compute_L = Compute_L_Check.Value
+End Function
