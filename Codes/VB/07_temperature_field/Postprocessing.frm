@@ -160,6 +160,10 @@ Private Sub Form_Load()
     Show_Probe = 1
     Init_Material_Params
     Init_ShadeGuide
+    Settings_Button.Enabled = False
+    Set_Probe_Button.Enabled = False
+    Compute_Button.Enabled = False
+    Show_T_Profile_Button.Enabled = False
 End Sub
 
 ' 初始化相关
@@ -207,11 +211,15 @@ Private Sub Data_Import_Button_Click()
                             range_y = Val(Split(s, ",")(1))
                             delta_x = 0.5 / range_x
                             delta_y = 0.5 / range_y
+                            ' 初始化各种数据
                             ReDim Material_Matrix(range_x - 1, range_y - 1)
                             ReDim Temperature_Matrix(range_x - 1, range_y - 1)
                             ReDim Tmp_Matrix(range_x - 1, range_y - 1)
                             ReDim L_Matrix(range_x - 1, range_y - 1)
+                            ReDim Tp(1)
                             Grid.Scale (0, range_y)-(range_x * 1.2, 0)
+                            Settings_Button.Enabled = True
+                            Set_Probe_Button.Enabled = True
                         Case 3
                             j = 0
                             For Each c In Split(s, ",")
@@ -250,10 +258,11 @@ End Sub
 Private Function Get_Color(t As Single) As Variant
     Dim i%
     Dim w!
-    w = 2.5
+    w = 4
     i = t / 100
     Get_Color = HSV(250 - sigmoid_variant(i / 16, w) * 250, 1, 1)
-    ' 由于直接均匀分色在中间的绿色区域区分并不明显，使用 sigmoid 函数（两侧缓慢，中间比较快）对其进行调整, w 越大，效果越明显
+    ' 由于直接均匀分色在中间的绿色区域区分并不明显，使用 sigmoid 函数（两侧缓慢，中间比较快）对其进行调整
+    ' w 越大，上述效果越明显，由于本问题色标主要集中在中间区域（800-1000），故设较大的权值（4），如非本情况可适当减小（如 2.5）
 End Function
 
 ''' Sigmoid 自定义变体，用于调节颜色变化速率
@@ -342,6 +351,10 @@ End Sub
 '' 开始计算
 Private Sub Compute_Button_Click()
     ReDim Preserve Tp(range_t)
+    Set_Probe_Button.Enabled = False
+    If px <> -1 Then
+        Show_T_Profile_Button.Enabled = True
+    End If
     If paused Then
         Compute_Button.Caption = "暂停计算"
         paused = False
@@ -392,6 +405,7 @@ Private Sub Compute_Button_Click()
         Compute_Button.Caption = "开始计算"
         pause_index = 1
         paused = True
+        Set_Probe_Button.Enabled = True
     Else
         Compute_Button.Caption = "继续计算"
         paused = True
@@ -408,7 +422,7 @@ Private Sub Grid_MouseMove(Button As Integer, Shift As Integer, X As Single, Y A
     Dim real_x%, real_y%
     real_x = Int(X)
     real_y = Int(Y)
-    If Loaded And real_x < range_x And Y < range_y Then
+    If Loaded And real_x < range_x And real_y < range_y Then
         StatusBar.Panels(1).Text = "(" & real_x & ", " & real_y & ")"
         StatusBar.Panels(2).Text = Temperature_Matrix(real_x, real_y) & "℃"
     End If

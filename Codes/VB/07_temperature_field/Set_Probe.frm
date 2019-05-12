@@ -112,6 +112,7 @@ Private Sub Form_Load()
     Px_Box.Text = Main.px
     Py_Box.Text = Main.py
     Show_Probe_Check.Value = Main.Show_Probe
+    ReDim Tp(1)
 End Sub
 
 Private Sub Confirm_Button_Click()
