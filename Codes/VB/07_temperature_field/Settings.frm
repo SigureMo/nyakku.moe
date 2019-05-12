@@ -327,4 +327,5 @@ Private Function Set_Params() As Boolean
     TT(CASTING, SAND) = Val(CS_Transfer_Box.Text): TT(SAND, CASTING) = Val(CS_Transfer_Box.Text)
     TT(CASTING, AIR) = Val(CA_Transfer_Box.Text): TT(AIR, CASTING) = Val(CA_Transfer_Box.Text)
     compute_L = Compute_L_Check.Value
+    Main.Compute_Button.Enabled = True
 End Function

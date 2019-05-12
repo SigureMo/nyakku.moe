@@ -28,7 +28,7 @@ Public Sub Init_Material_Params()
     CHILL = 2
     AIR = 3
     delta_t = 10
-    range_t = 20000
+    range_t = 2000
     T0(SAND) = 30
     T0(CASTING) = 973
     T0(CHILL) = 25
