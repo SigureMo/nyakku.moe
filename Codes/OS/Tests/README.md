@@ -110,16 +110,18 @@
 
 -  Usage:
 
-   -  `g++ test2.cpp && ./a.out <algorithm>`
-   -  `N`
-   -  `<name1> <arrival1> <serve1>`
-   -  `<name2> <arrival2> <serve2>`
-   -  `... ... ...`
-   -  `<nameN> <arrivalN> <serveN>`
+   ```bash
+   g++ test2.cpp && ./a.out <algorithm>
+   N
+   <name1> <arrival1> <serve1>
+   <name2> <arrival2> <serve2>
+   ... ... ...
+   <nameN> <arrivalN> <serveN>
+   ```
 
 -  Sample:
 
-   ```
+   ```bash
    g++ Codes\OS\Tests\test2.cpp -o tmp/tmp && tmp\\tmp FCFS
    5
    A 0 3
@@ -131,6 +133,44 @@
    ```
 
 ## 3 存储管理上机作业（20'）
+
+### 3.1 实验目的
+
+加深对于存储管理的了解，掌握虚拟存储器的实现原理，观察和了解重要的页面置换算法和置换过程，练习模拟算法的编程技巧，锻炼分析试验数据的能力
+
+### 3.2 实验说明
+
+-  示例实验程序中模拟两种置换算法：LRU 算法和 FIFO 算法
+-  给定任意序列不同的页面引用序列和任意分配页面数目，显示两种算法的页置换过程
+-  能统计和报告不同置换算法情况下**依次淘汰的页号**、**缺页次数（页错误数）**和**缺页率**
+
+[test3.cpp](test3.cpp)
+
+-  Usage:
+
+   ```bash
+   g++ test3.cpp && ./a.out <algorithm>
+   N M
+   <P1> <P2> ... <PN>
+   ```
+
+-  Sample1:
+
+   ```bash
+   g++ Codes\OS\Tests\test3.cpp -o tmp/tmp && tmp\\tmp FIFO
+   20 3
+   7 0 1 2 0 3 0 4 2 3 0 3 2 1 2 0 1 7 0 1
+
+   ```
+
+-  Sample2:
+
+   ```bash
+   g++ Codes\OS\Tests\test3.cpp -o tmp/tmp && tmp\\tmp LRU
+   11 5
+   4 7 0 7 1 0 1 2 1 2 6
+
+   ```
 
 ## 4 磁盘移臂调度算法实验（20'）
 
