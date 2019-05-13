@@ -2,19 +2,56 @@ VERSION 5.00
 Object = "{6B7E6392-850A-101B-AFC0-4210102A8DA7}#1.3#0"; "COMCTL32.OCX"
 Object = "{F9043C88-F6F2-101A-A3C9-08002B2F49FB}#1.2#0"; "COMDLG32.OCX"
 Begin VB.Form Main 
-   Caption         =   "Form1"
+   BorderStyle     =   1  'Fixed Single
+   Caption         =   "温度场后处理程序"
    ClientHeight    =   9615
-   ClientLeft      =   1950
-   ClientTop       =   2895
+   ClientLeft      =   1875
+   ClientTop       =   2820
    ClientWidth     =   13695
    LinkTopic       =   "Form1"
+   MaxButton       =   0   'False
+   MinButton       =   0   'False
    ScaleHeight     =   9615
    ScaleWidth      =   13695
+   Begin VB.Frame Options_Frame 
+      Caption         =   "计算动态演示及选项"
+      Height          =   1695
+      Left            =   10320
+      TabIndex        =   9
+      Top             =   4080
+      Width           =   2415
+      Begin VB.CheckBox Dynamic_View_CheackBox 
+         Caption         =   "动态过程演示"
+         Height          =   495
+         Left            =   360
+         TabIndex        =   11
+         Top             =   960
+         Value           =   1  'Checked
+         Width           =   1695
+      End
+      Begin VB.CheckBox Hidden_Sand_CheckBox 
+         Caption         =   "仅显示铸件"
+         Height          =   495
+         Left            =   360
+         TabIndex        =   10
+         Top             =   360
+         Value           =   1  'Checked
+         Width           =   1575
+      End
+   End
+   Begin VB.CommandButton Graph_Export_Button 
+      Caption         =   "导出云图"
+      Height          =   615
+      Left            =   10680
+      TabIndex        =   8
+      Top             =   7200
+      Width           =   1335
+   End
    Begin VB.CommandButton Show_T_Profile_Button 
       Caption         =   "显示温度曲线"
       Height          =   735
       Left            =   10680
-      TabIndex        =   10
+      TabIndex        =   7
       Top             =   5880
       Width           =   1335
    End
@@ -22,7 +59,7 @@ Begin VB.Form Main
       Caption         =   "设置探针"
       Height          =   735
       Left            =   10680
-      TabIndex        =   9
+      TabIndex        =   6
       Top             =   2160
       Width           =   1335
    End
@@ -30,35 +67,9 @@ Begin VB.Form Main
       Caption         =   "开始计算"
       Height          =   735
       Left            =   10680
-      TabIndex        =   8
+      TabIndex        =   5
       Top             =   3120
       Width           =   1335
-   End
-   Begin VB.CommandButton Test 
-      Caption         =   "test"
-      Height          =   735
-      Left            =   10680
-      TabIndex        =   7
-      Top             =   7200
-      Width           =   1215
-   End
-   Begin VB.CheckBox Dynamic_View_CheackBox 
-      Caption         =   "观看动态过程"
-      Height          =   495
-      Left            =   10560
-      TabIndex        =   6
-      Top             =   4920
-      Value           =   1  'Checked
-      Width           =   1695
-   End
-   Begin VB.CheckBox Hidden_Sand_CheckBox 
-      Caption         =   "仅显示铸件"
-      Height          =   495
-      Left            =   10560
-      TabIndex        =   5
-      Top             =   4080
-      Value           =   1  'Checked
-      Width           =   1575
    End
    Begin MSComDlg.CommonDialog CommonDialog 
       Left            =   9960
@@ -158,12 +169,14 @@ Private Sub Form_Load()
     paused = True
     pause_index = 1
     Show_Probe = 1
+    px = -1
     Init_Material_Params
     Init_ShadeGuide
     Settings_Button.Enabled = False
     Set_Probe_Button.Enabled = False
     Compute_Button.Enabled = False
     Show_T_Profile_Button.Enabled = False
+    Graph_Export_Button.Enabled = False
 End Sub
 
 ' 初始化相关
@@ -181,7 +194,7 @@ End Sub
 
 '' 导入数据
 Private Sub Data_Import_Button_Click()
-    'On Error GoTo ErrHandler
+    On Error GoTo ErrHandler
     Dim filename As String
     filename = App.Path & "\data\mesh.dat"
     CommonDialog.CancelError = True
@@ -220,6 +233,7 @@ Private Sub Data_Import_Button_Click()
                             Grid.Scale (0, range_y)-(range_x * 1.2, 0)
                             Settings_Button.Enabled = True
                             Set_Probe_Button.Enabled = True
+                            Graph_Export_Button.Enabled = True
                         Case 3
                             j = 0
                             For Each c In Split(s, ",")
@@ -259,7 +273,7 @@ Private Function Get_Color(t As Single) As Variant
     Dim i%
     Dim w!
     w = 4
-    i = t / 100
+    i = Int(t / 100)
     Get_Color = HSV(250 - sigmoid_variant(i / 16, w) * 250, 1, 1)
     ' 由于直接均匀分色在中间的绿色区域区分并不明显，使用 sigmoid 函数（两侧缓慢，中间比较快）对其进行调整
     ' w 越大，上述效果越明显，由于本问题色标主要集中在中间区域（800-1000），故设较大的权值（4），如非本情况可适当减小（如 2.5）
@@ -415,6 +429,11 @@ End Sub
 ' 显示温度曲线
 Private Sub Show_T_Profile_Button_Click()
     Profile.Show
+End Sub
+
+' 导出云图
+Private Sub Graph_Export_Button_Click()
+    Call Export_Picture(Grid, CommonDialog, "后处理.bmp")
 End Sub
 
 ' 移动回调

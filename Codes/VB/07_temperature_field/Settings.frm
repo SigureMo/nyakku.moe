@@ -1,18 +1,38 @@
 VERSION 5.00
 Begin VB.Form Settings 
-   Caption         =   "Form2"
+   BorderStyle     =   1  'Fixed Single
+   Caption         =   "参数设置"
    ClientHeight    =   9255
-   ClientLeft      =   16140
-   ClientTop       =   2895
+   ClientLeft      =   16065
+   ClientTop       =   2820
    ClientWidth     =   5850
    LinkTopic       =   "Form2"
+   MaxButton       =   0   'False
+   MinButton       =   0   'False
    ScaleHeight     =   9255
    ScaleWidth      =   5850
+   Begin VB.Frame L_Frame 
+      Caption         =   "潜热相关"
+      Height          =   855
+      Left            =   360
+      TabIndex        =   27
+      Top             =   7320
+      Width           =   3855
+      Begin VB.CheckBox Compute_L_Check 
+         Caption         =   "计算潜热"
+         Height          =   375
+         Left            =   240
+         TabIndex        =   28
+         Top             =   360
+         Value           =   1  'Checked
+         Width           =   2055
+      End
+   End
    Begin VB.CommandButton Cancel_Button 
       Caption         =   "取消"
       Height          =   735
       Left            =   3960
-      TabIndex        =   27
+      TabIndex        =   26
       Top             =   8280
       Width           =   1455
    End
@@ -20,18 +40,9 @@ Begin VB.Form Settings
       Caption         =   "应用"
       Height          =   855
       Left            =   2160
-      TabIndex        =   26
+      TabIndex        =   25
       Top             =   8280
       Width           =   1455
-   End
-   Begin VB.CheckBox Compute_L_Check 
-      Caption         =   "计算潜热"
-      Height          =   375
-      Left            =   960
-      TabIndex        =   25
-      Top             =   7560
-      Value           =   1  'Checked
-      Width           =   2055
    End
    Begin VB.CommandButton Confirm_Button 
       Caption         =   "确定"
@@ -201,12 +212,12 @@ Begin VB.Form Settings
       Top             =   240
       Width           =   5175
       Begin VB.CommandButton Compute_Delta_T_Button 
-         Caption         =   "计算时间步"
+         Caption         =   "自动计算时间步"
          Height          =   855
          Left            =   4080
          TabIndex        =   24
-         Top             =   600
-         Width           =   855
+         Top             =   480
+         Width           =   975
       End
       Begin VB.TextBox Range_T_Box 
          Height          =   375

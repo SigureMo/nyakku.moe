@@ -1,11 +1,14 @@
 VERSION 5.00
 Begin VB.Form Set_Probe 
-   Caption         =   "Form1"
+   BorderStyle     =   1  'Fixed Single
+   Caption         =   "Œ¬∂»ÃΩ’Î…Ë÷√"
    ClientHeight    =   3630
-   ClientLeft      =   15945
-   ClientTop       =   5535
+   ClientLeft      =   15870
+   ClientTop       =   5460
    ClientWidth     =   4560
    LinkTopic       =   "Form1"
+   MaxButton       =   0   'False
+   MinButton       =   0   'False
    ScaleHeight     =   3630
    ScaleWidth      =   4560
    Begin VB.CommandButton Delete_Button 
@@ -112,7 +115,6 @@ Private Sub Form_Load()
     Px_Box.Text = Main.px
     Py_Box.Text = Main.py
     Show_Probe_Check.Value = Main.Show_Probe
-    ReDim Tp(1)
 End Sub
 
 Private Sub Confirm_Button_Click()
@@ -137,6 +139,7 @@ Private Sub Set_Params()
     Main.Redraw_Cloud_Chart (Main.Hidden_Sand_CheckBox.Value)
     Main.Mesh
     Main.Redraw_Probe
+    ReDim Tp(1)
 End Sub
 
 Private Sub Delete_Button_Click()

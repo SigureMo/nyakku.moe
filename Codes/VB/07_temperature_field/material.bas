@@ -60,3 +60,21 @@ Public Function StringToMaterial(ByRef s As String) As Material
     m.L = Val(params(7))
     StringToMaterial = m
 End Function
+
+' µ¼³öÍ¼Æ¬
+Public Sub Export_Picture(Picture, CommonDialog, default_name As String)
+    On Error GoTo ErrHandler
+    Dim filename As String
+    filename = App.Path & "\data\" & default_name
+    CommonDialog.CancelError = True
+    CommonDialog.Flags = cdlOFNHideReadOnly
+    CommonDialog.Filter = "All Files (*.*)|*.*|Text Files (*.bmp)|*.bmp"
+    CommonDialog.filename = filename
+    CommonDialog.FilterIndex = 3
+    CommonDialog.ShowSave
+    filename = CommonDialog.filename
+
+    SavePicture Picture.Image, filename
+ErrHandler:
+    Exit Sub
+End Sub
