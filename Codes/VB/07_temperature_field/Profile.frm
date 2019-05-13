@@ -1,12 +1,15 @@
 VERSION 5.00
 Object = "{6B7E6392-850A-101B-AFC0-4210102A8DA7}#1.3#0"; "COMCTL32.OCX"
 Begin VB.Form Profile 
-   Caption         =   "Form1"
+   BorderStyle     =   1  'Fixed Single
+   Caption         =   "温度曲线"
    ClientHeight    =   8235
-   ClientLeft      =   15945
-   ClientTop       =   2895
+   ClientLeft      =   15870
+   ClientTop       =   2820
    ClientWidth     =   12795
    LinkTopic       =   "Form1"
+   MaxButton       =   0   'False
+   MinButton       =   0   'False
    ScaleHeight     =   8235
    ScaleWidth      =   12795
    Begin ComctlLib.StatusBar StatusBar 
@@ -23,6 +26,7 @@ Begin VB.Form Profile
       BeginProperty Panels {0713E89E-850A-101B-AFC0-4210102A8DA7} 
          NumPanels       =   3
          BeginProperty Panel1 {0713E89F-850A-101B-AFC0-4210102A8DA7} 
+            TextSave        =   ""
             Object.Tag             =   ""
          EndProperty
          BeginProperty Panel2 {0713E89F-850A-101B-AFC0-4210102A8DA7} 
@@ -35,11 +39,11 @@ Begin VB.Form Profile
    End
    Begin VB.CommandButton Confirm_Button 
       Caption         =   "确定"
-      Height          =   375
-      Left            =   11160
+      Height          =   495
+      Left            =   11040
       TabIndex        =   3
       Top             =   7080
-      Width           =   1335
+      Width           =   1455
    End
    Begin VB.CommandButton Refresh_Button 
       Caption         =   "刷新显示"
@@ -49,7 +53,7 @@ Begin VB.Form Profile
       Top             =   7080
       Width           =   1695
    End
-   Begin VB.CommandButton Export_Graph_Button 
+   Begin VB.CommandButton Graph_Export_Button 
       Caption         =   "导出图像"
       Height          =   495
       Left            =   6840
@@ -74,11 +78,17 @@ Attribute VB_GlobalNameSpace = False
 Attribute VB_Creatable = False
 Attribute VB_PredeclaredId = True
 Attribute VB_Exposed = False
-Dim Tmax%, TPrintStep%
+Dim Tmax%, TPrintStep%, TimePrintNum%, TimePrintStep%
 
 Private Sub Form_Load()
     Tmax = 1600
     TPrintStep = 300
+    TimePrintNum = 10
+    TimePrintStep = Int(range_t / TimePrintNum)
+    If TimePrintStep Mod 100 <> 0 Then
+        TimePrintStep = Int(TimePrintStep / 100) * 100
+        TimePrintNum = TimePrintNum + 1
+    End If
     Show_Graph
 End Sub
 
@@ -87,7 +97,8 @@ Private Sub Refresh_Button_Click()
 End Sub
 
 Private Sub Show_Graph()
-    Dim color, Tl!, m As Material
+    Dim color, Tl!, m As Material, k!
+    k = Graph.Height / Graph.Width ' 高宽比，保证某些小组件在宽高上一致
     m = Materials(CASTING)
     Tl = m.Tl
     Graph.BackColor = vbWhite
@@ -97,20 +108,45 @@ Private Sub Show_Graph()
     Graph.DrawWidth = 2
     Graph.Line (0, 0)-(0, Tmax * 1.05), vbBlack
     Graph.Line (0, 0)-(range_t * 1.05, 0), vbBlack
+    '' 指针
+    Dim arrowSize!
+    arrowSize = 0.01
+    Graph.Line (range_t * arrowSize, Tmax * (1.05 - arrowSize * 3 ^ 0.5 / k))-(0, Tmax * 1.05), vbBlack
+    Graph.Line (-range_t * arrowSize, Tmax * (1.05 - arrowSize * 3 ^ 0.5 / k))-(0, Tmax * 1.05), vbBlack
+    Graph.Line (range_t * (1.05 - arrowSize * 3 ^ 0.5), Tmax * 0.01 / k)-(range_t * 1.05, 0), vbBlack
+    Graph.Line (range_t * (1.05 - arrowSize * 3 ^ 0.5), -Tmax * 0.01 / k)-(range_t * 1.05, 0), vbBlack
     
-    ' 辅助坐标网格
-    Graph.DrawWidth = 1
+    ' 辅助坐标网格及标注坐标值
+    Graph.FontSize = 8
     For i = 1 To 5
+        Graph.DrawWidth = 1
         Graph.Line (0, i * TPrintStep)-(range_t, i * TPrintStep), RGB(160, 160, 160)
+        Graph.DrawWidth = 2
+        Graph.Line (0, i * TPrintStep)-(range_t * 0.01, i * TPrintStep), vbBlack
+        Graph.CurrentX = -0.05 * range_t: Graph.CurrentY = i * TPrintStep + Tmax * 0.01: Graph.Print i * TPrintStep
     Next i
     
-    For i = 1 To range_t
-        If i Mod 200 = 0 Then
-            Graph.Line (i, 0)-(i, Tmax), RGB(160, 160, 160)
-        End If
+    For i = 1 To TimePrintNum
+        Graph.DrawWidth = 1
+        Graph.Line (i * TimePrintStep, 0)-(i * TimePrintStep, Tmax), RGB(160, 160, 160)
+        Graph.DrawWidth = 2
+        Graph.Line (i * TimePrintStep, 0)-(i * TimePrintStep, Tmax * 0.01 / k), vbBlack
+        Graph.CurrentX = i * TimePrintStep - range_t * 0.02: Graph.CurrentY = -0.05 * Tmax: Graph.Print i * TimePrintStep
     Next i
+    
+    ' 绘制标题、坐标轴单位、0
+    Graph.FontSize = 8
+    Graph.CurrentX = -0.05 * range_t: Graph.CurrentY = -0.05 * Tmax: Graph.Print 0
+    Graph.FontBold = True
+    Graph.FontSize = 18
+    Graph.CurrentX = range_t / 3: Graph.CurrentY = Tmax * 1.07: Graph.Print "点(" & Main.px & ", " & Main.py & ")温度变化曲线"
+    Graph.FontSize = 10
+    Graph.CurrentX = -0.1 * range_t: Graph.CurrentY = 1.07 * Tmax: Graph.Print "温度/℃"
+    Graph.CurrentX = 1.03 * range_t: Graph.CurrentY = -0.05 * Tmax: Graph.Print "时间步"
+    Graph.FontBold = False
     
     ' 液相线（熔点）辅助线
+    Graph.DrawWidth = 1
     Graph.Line (0, Tl)-(range_t, Tl), vbRed
     
     ' 坐标系
@@ -145,4 +181,15 @@ Private Sub Graph_MouseMove(Button As Integer, Shift As Integer, X As Single, Y 
             StatusBar.Panels(3).Text = Round(t, 3) & "℃"
         End If
     End If
+    Graph.Refresh
+End Sub
+
+' 导出图像
+Private Sub Graph_Export_Button_Click()
+    Call Export_Picture(Graph, Main.CommonDialog, "温度曲线.bmp")
+End Sub
+
+' 关闭窗口
+Private Sub Confirm_Button_Click()
+    Unload Me
 End Sub

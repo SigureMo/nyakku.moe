@@ -1,17 +1,28 @@
 VERSION 5.00
 Object = "{6B7E6392-850A-101B-AFC0-4210102A8DA7}#1.3#0"; "COMCTL32.OCX"
 Object = "{F9043C88-F6F2-101A-A3C9-08002B2F49FB}#1.2#0"; "COMDLG32.OCX"
-Begin VB.Form Form1 
+Begin VB.Form 温度场前处理程序 
+   BorderStyle     =   1  'Fixed Single
    Caption         =   "Form1"
    ClientHeight    =   8775
-   ClientLeft      =   2955
-   ClientTop       =   2295
+   ClientLeft      =   2880
+   ClientTop       =   2220
    ClientWidth     =   11565
    LinkTopic       =   "Form1"
+   MaxButton       =   0   'False
+   MinButton       =   0   'False
    ScaleHeight     =   8775
    ScaleWidth      =   11565
+   Begin VB.CommandButton Graph_Export_Button 
+      Caption         =   "导出云图"
+      Height          =   615
+      Left            =   9600
+      TabIndex        =   27
+      Top             =   7800
+      Width           =   1575
+   End
    Begin MSComDlg.CommonDialog CommonDialog 
-      Left            =   8640
+      Left            =   6960
       Top             =   7800
       _ExtentX        =   847
       _ExtentY        =   847
@@ -33,19 +44,16 @@ Begin VB.Form Form1
          BeginProperty Panel1 {0713E89F-850A-101B-AFC0-4210102A8DA7} 
             Object.Width           =   3528
             MinWidth        =   3528
-            Key             =   ""
             Object.Tag             =   ""
          EndProperty
          BeginProperty Panel2 {0713E89F-850A-101B-AFC0-4210102A8DA7} 
             Object.Width           =   4410
             MinWidth        =   4410
-            Key             =   ""
             Object.Tag             =   ""
          EndProperty
          BeginProperty Panel3 {0713E89F-850A-101B-AFC0-4210102A8DA7} 
             Object.Width           =   8819
             MinWidth        =   8819
-            Key             =   ""
             Object.Tag             =   ""
          EndProperty
       EndProperty
@@ -53,9 +61,9 @@ Begin VB.Form Form1
    Begin VB.CommandButton Data_Export_Button 
       Caption         =   "导出数据"
       Height          =   615
-      Left            =   9240
+      Left            =   7560
       TabIndex        =   13
-      Top             =   7680
+      Top             =   7800
       Width           =   1455
    End
    Begin VB.Frame Frame3 
@@ -289,7 +297,7 @@ Begin VB.Form Form1
       Width           =   6375
    End
 End
-Attribute VB_Name = "Form1"
+Attribute VB_Name = "温度场前处理程序"
 Attribute VB_GlobalNameSpace = False
 Attribute VB_Creatable = False
 Attribute VB_PredeclaredId = True
@@ -554,7 +562,7 @@ Private Sub Data_Export_Button_Click()
         MsgBox "请先生成网格"
         Exit Sub
     End If
-    'On Error GoTo ErrHandler
+    On Error GoTo ErrHandler
     Dim filename As String
     filename = App.Path & "\data\mesh.dat"
     CommonDialog.CancelError = True
@@ -592,6 +600,15 @@ Private Sub Data_Export_Button_Click()
     Close #1
 ErrHandler:
     Exit Sub
+End Sub
+
+'导出云图
+Private Sub Graph_Export_Button_Click()
+    If Not Meshed Then
+        MsgBox "请先生成网格"
+        Exit Sub
+    End If
+    Call Export_Picture(Grid, CommonDialog, "前处理.bmp")
 End Sub
 
 ' 加载材料参数文件
