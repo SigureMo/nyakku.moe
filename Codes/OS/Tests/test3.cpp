@@ -14,6 +14,9 @@ int N, M, F;
 
 void FIFO(int num, Memory front, Memory rear);
 void LRU(int num, Memory front, Memory rear);
+void inline PageJoin(int num, Memory front, Memory rear);
+int inline PageReplace(int num, Memory front, Memory rear);
+void inline PageAdvance(int num, Memory page_front, Memory rear);
 void Print(Memory front);
 
 int main(int argc, char* argv[]){
@@ -59,27 +62,14 @@ void FIFO(int num, Memory front, Memory rear) {
     tmp = tmp->next;
   }
   if (!found) {
+    F++;
     if (front->Meta.size < M) {
       // 页面加入
-      Memory newPage = new Page;
-      newPage->Meta.num = num;
-      newPage->next = NULL;
-      rear->next->next = newPage;
-      rear->next = newPage;
-      front->Meta.size++;
+      PageJoin(num, front, rear);
     }
     else {
       // 页面置换
-      Memory t = front->next;
-      front->next = front->next->next;
-      outPage = t->Meta.num;
-      F++;
-      delete t;
-      Memory newPage = new Page;
-      newPage->Meta.num = num;
-      newPage->next = NULL;
-      rear->next->next = newPage;
-      rear->next = newPage;
+      outPage = PageReplace(num, front, rear);
     }
   }
   cout << "> " << num << " ";
@@ -104,36 +94,19 @@ void LRU(int num, Memory front, Memory rear) {
     tmp = tmp->next;
   }
   if (!found) {
+    F++;
     if (front->Meta.size < M) {
       // 页面加入
-      Memory newPage = new Page;
-      newPage->Meta.num = num;
-      newPage->next = NULL;
-      rear->next->next = newPage;
-      rear->next = newPage;
-      front->Meta.size++;
+      PageJoin(num, front, rear);
     }
     else {
       // 页面置换
-      Memory t = front->next;
-      front->next = front->next->next;
-      outPage = t->Meta.num;
-      F++;
-      delete t;
-      Memory newPage = new Page;
-      newPage->Meta.num = num;
-      newPage->next = NULL;
-      rear->next->next = newPage;
-      rear->next = newPage;
+      outPage = PageReplace(num, front, rear);
     }
   }
   else {
     // 页面提前
-    Memory t = tmp->next;
-    tmp->next = tmp->next->next;
-    t->next = NULL;
-    rear->next->next = t;
-    rear->next = t;
+    PageAdvance(num, tmp, rear);
   }
   cout << "> " << num << " ";
   Print(front);
@@ -150,6 +123,37 @@ void Print(Memory front) {
     cout << " " << tmp->Meta.num;
     tmp = tmp->next;
   }
-  cout << "]" << endl;
+  cout << " ]" << endl;
   delete tmp;
+}
+
+void inline PageJoin(int num, Memory front, Memory rear) {
+  Memory newPage = new Page;
+  newPage->Meta.num = num;
+  newPage->next = NULL;
+  rear->next->next = newPage;
+  rear->next = newPage;
+  front->Meta.size++;
+}
+
+int inline PageReplace(int num, Memory front, Memory rear) {
+  int outPage;
+  Memory t = front->next;
+  front->next = front->next->next;
+  outPage = t->Meta.num;
+  delete t;
+  Memory newPage = new Page;
+  newPage->Meta.num = num;
+  newPage->next = NULL;
+  rear->next->next = newPage;
+  rear->next = newPage;
+  return outPage;
+}
+
+void inline PageAdvance(int num, Memory page_front, Memory rear) {
+  Memory page = page_front->next;
+  page_front->next = page_front->next->next;
+  page->next = NULL;
+  rear->next->next = page;
+  rear->next = page;
 }
