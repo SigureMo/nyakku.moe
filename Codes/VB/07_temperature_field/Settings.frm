@@ -2,26 +2,26 @@ VERSION 5.00
 Begin VB.Form Settings 
    BorderStyle     =   1  'Fixed Single
    Caption         =   "参数设置"
-   ClientHeight    =   9255
+   ClientHeight    =   9750
    ClientLeft      =   16065
    ClientTop       =   2820
-   ClientWidth     =   5850
+   ClientWidth     =   5910
    LinkTopic       =   "Form2"
    MaxButton       =   0   'False
    MinButton       =   0   'False
-   ScaleHeight     =   9255
-   ScaleWidth      =   5850
+   ScaleHeight     =   9750
+   ScaleWidth      =   5910
    Begin VB.Frame L_Frame 
       Caption         =   "潜热相关"
-      Height          =   855
+      Height          =   975
       Left            =   360
       TabIndex        =   27
-      Top             =   7320
-      Width           =   3855
+      Top             =   7560
+      Width           =   5295
       Begin VB.CheckBox Compute_L_Check 
          Caption         =   "计算潜热"
          Height          =   375
-         Left            =   240
+         Left            =   480
          TabIndex        =   28
          Top             =   360
          Value           =   1  'Checked
@@ -30,18 +30,18 @@ Begin VB.Form Settings
    End
    Begin VB.CommandButton Cancel_Button 
       Caption         =   "取消"
-      Height          =   735
-      Left            =   3960
+      Height          =   855
+      Left            =   4080
       TabIndex        =   26
-      Top             =   8280
+      Top             =   8640
       Width           =   1455
    End
    Begin VB.CommandButton Apply_Button 
       Caption         =   "应用"
       Height          =   855
-      Left            =   2160
+      Left            =   2280
       TabIndex        =   25
-      Top             =   8280
+      Top             =   8640
       Width           =   1455
    End
    Begin VB.CommandButton Confirm_Button 
@@ -49,71 +49,77 @@ Begin VB.Form Settings
       Height          =   855
       Left            =   360
       TabIndex        =   3
-      Top             =   8280
+      Top             =   8640
       Width           =   1455
    End
    Begin VB.Frame Heat_Transfer_Coefficient_Frame 
       Caption         =   "传热系数"
-      Height          =   2055
+      Height          =   2295
       Left            =   360
       TabIndex        =   2
       Top             =   5160
-      Width           =   4695
+      Width           =   5295
       Begin VB.TextBox CA_Transfer_Box 
-         Height          =   270
-         Left            =   2400
+         Alignment       =   2  'Center
+         Height          =   390
+         Left            =   1680
          TabIndex        =   23
          Text            =   "29.03"
          Top             =   1680
-         Width           =   1695
+         Width           =   2055
       End
       Begin VB.TextBox CS_Transfer_Box 
-         Height          =   270
-         Left            =   2400
+         Alignment       =   2  'Center
+         Enabled         =   0   'False
+         Height          =   390
+         Left            =   1680
          TabIndex        =   22
          Text            =   "0"
          Top             =   1200
-         Width           =   1575
+         Width           =   2055
       End
       Begin VB.TextBox SA_Transfer_Box 
-         Height          =   270
-         Left            =   2400
+         Alignment       =   2  'Center
+         Height          =   375
+         Left            =   1680
          TabIndex        =   21
          Text            =   "25.08"
          Top             =   720
-         Width           =   1575
+         Width           =   2055
       End
       Begin VB.TextBox CC_Transfer_Box 
-         Height          =   270
-         Left            =   2400
+         Alignment       =   2  'Center
+         Enabled         =   0   'False
+         Height          =   375
+         Left            =   1680
          TabIndex        =   17
          Text            =   "2000"
-         Top             =   360
-         Width           =   1575
+         Top             =   240
+         Width           =   2055
       End
       Begin VB.Label CA_Transfer_Label 
          AutoSize        =   -1  'True
          Caption         =   "铸件/空气"
          Height          =   180
-         Left            =   600
+         Left            =   480
          TabIndex        =   20
-         Top             =   1680
+         Top             =   1800
          Width           =   810
       End
       Begin VB.Label CS_Transfer_Label 
          AutoSize        =   -1  'True
          Caption         =   "铸件/铸型"
          Height          =   180
-         Left            =   600
+         Left            =   480
          TabIndex        =   19
-         Top             =   1200
+         Top             =   1320
          Width           =   810
       End
       Begin VB.Label SA_Transfer_Label 
          AutoSize        =   -1  'True
          Caption         =   "铸型/空气"
          Height          =   180
-         Left            =   600
+         Left            =   480
          TabIndex        =   18
          Top             =   840
          Width           =   810
@@ -122,7 +128,7 @@ Begin VB.Form Settings
          AutoSize        =   -1  'True
          Caption         =   "铸件/冷铁"
          Height          =   180
-         Left            =   600
+         Left            =   480
          TabIndex        =   16
          Top             =   360
          Width           =   810
@@ -130,77 +136,81 @@ Begin VB.Form Settings
    End
    Begin VB.Frame Start_Params_Frame 
       Caption         =   "初始温度"
-      Height          =   2175
+      Height          =   2415
       Left            =   360
       TabIndex        =   1
       Top             =   2640
-      Width           =   4815
+      Width           =   5295
       Begin VB.TextBox Air_T0_Box 
+         Alignment       =   2  'Center
          Height          =   375
-         Left            =   2280
+         Left            =   1680
          TabIndex        =   15
          Text            =   "30"
-         Top             =   1680
-         Width           =   1935
+         Top             =   1800
+         Width           =   2055
       End
       Begin VB.TextBox Chill_T0_Box 
+         Alignment       =   2  'Center
          Height          =   375
-         Left            =   2280
+         Left            =   1680
          TabIndex        =   14
          Text            =   "25"
          Top             =   1320
-         Width           =   1935
+         Width           =   2055
       End
       Begin VB.TextBox Sand_T0_Box 
+         Alignment       =   2  'Center
          Height          =   375
-         Left            =   2280
+         Left            =   1680
          TabIndex        =   13
          Text            =   "30"
          Top             =   840
-         Width           =   1935
+         Width           =   2055
       End
       Begin VB.TextBox Casting_T0_Box 
+         Alignment       =   2  'Center
          Height          =   375
-         Left            =   2280
+         Left            =   1680
          TabIndex        =   12
          Text            =   "973"
          Top             =   360
-         Width           =   1935
+         Width           =   2055
       End
       Begin VB.Label Air_T0_Label 
          AutoSize        =   -1  'True
          Caption         =   "空气"
          Height          =   180
-         Left            =   480
+         Left            =   720
          TabIndex        =   11
-         Top             =   1560
+         Top             =   1920
          Width           =   360
       End
       Begin VB.Label Chill_T0_Label 
          AutoSize        =   -1  'True
          Caption         =   "冷铁"
          Height          =   180
-         Left            =   480
+         Left            =   720
          TabIndex        =   10
-         Top             =   1200
+         Top             =   1440
          Width           =   360
       End
       Begin VB.Label Sand_T0_Label 
          AutoSize        =   -1  'True
          Caption         =   "铸型"
          Height          =   180
-         Left            =   480
+         Left            =   720
          TabIndex        =   9
-         Top             =   840
+         Top             =   960
          Width           =   360
       End
       Begin VB.Label Casting_T0_Label 
          AutoSize        =   -1  'True
          Caption         =   "铸件"
          Height          =   180
-         Left            =   480
+         Left            =   720
          TabIndex        =   8
-         Top             =   360
+         Top             =   480
          Width           =   360
       End
    End
@@ -210,29 +220,31 @@ Begin VB.Form Settings
       Left            =   360
       TabIndex        =   0
       Top             =   240
-      Width           =   5175
+      Width           =   5295
       Begin VB.CommandButton Compute_Delta_T_Button 
-         Caption         =   "自动计算时间步"
+         Caption         =   "自动计算时间步长"
          Height          =   855
          Left            =   4080
          TabIndex        =   24
-         Top             =   480
+         Top             =   600
          Width           =   975
       End
       Begin VB.TextBox Range_T_Box 
+         Alignment       =   2  'Center
          Height          =   375
          Left            =   1680
          TabIndex        =   5
          Text            =   "20000"
-         Top             =   1080
+         Top             =   1200
          Width           =   2055
       End
       Begin VB.TextBox Delta_T_Box 
+         Alignment       =   2  'Center
          Height          =   375
-         Left            =   1800
+         Left            =   1680
          TabIndex        =   4
          Text            =   "10"
-         Top             =   480
+         Top             =   600
          Width           =   2055
       End
       Begin VB.Label Range_T_Label 
@@ -241,7 +253,7 @@ Begin VB.Form Settings
          Height          =   180
          Left            =   600
          TabIndex        =   7
-         Top             =   1080
+         Top             =   1200
          Width           =   720
       End
       Begin VB.Label Delta_T_Label 
@@ -250,7 +262,7 @@ Begin VB.Form Settings
          Height          =   180
          Left            =   600
          TabIndex        =   6
-         Top             =   480
+         Top             =   720
          Width           =   720
       End
    End

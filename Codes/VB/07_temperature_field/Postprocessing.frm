@@ -383,6 +383,8 @@ End Sub
 
 '' 开始计算
 Private Sub Compute_Button_Click()
+    Dim PrintStep%
+    PrintStep = 20
     ReDim Preserve Tp(range_t)
     Probe_Settings.Enabled = False
     If px <> -1 Then
@@ -412,7 +414,7 @@ Private Sub Compute_Button_Click()
             ' 显示时间
             StatusBar.Panels(4).Text = Round(delta_t * i, 3) & "s"
             
-            If i Mod 20 = 0 Then
+            If i Mod PrintStep = 0 Then
                 ' 绘制云图
                 If Dynamic_View_CheckBox.Value Then
                     Redraw_Graph
@@ -423,9 +425,14 @@ Private Sub Compute_Button_Click()
                 ProgressBar.Value = i
                 
                 ' 获取凝固比并显示
-                Solidification_Rate = Get_Solidification_Rate()
-                StatusBar.Panels(3).Text = "凝固百分比：" & Round(Solidification_Rate * 100, 2) & "%"
-                If Solidification_Rate = 1 Then
+                Solidification_rate = Get_Solidification_Rate()
+                StatusBar.Panels(3).Text = "凝固百分比：" & Round(Solidification_rate * 100, 2) & "%"
+                If Solidification_rate > 0.99 Then ' 终凝阶段降低误差
+                    PrintStep = 1
+                ElseIf Solidification_rate > 0.98 Then
+                    PrintStep = 5
+                End If
+                If Solidification_rate = 1 Then
                     Exit For
                 End If
                 
