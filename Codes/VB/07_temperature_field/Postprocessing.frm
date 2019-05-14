@@ -4,28 +4,36 @@ Object = "{F9043C88-F6F2-101A-A3C9-08002B2F49FB}#1.2#0"; "COMDLG32.OCX"
 Begin VB.Form Main 
    BorderStyle     =   1  'Fixed Single
    Caption         =   "温度场后处理程序"
-   ClientHeight    =   9615
+   ClientHeight    =   9555
    ClientLeft      =   1875
-   ClientTop       =   2820
-   ClientWidth     =   13695
+   ClientTop       =   3120
+   ClientWidth     =   13260
    LinkTopic       =   "Form1"
    MaxButton       =   0   'False
    MinButton       =   0   'False
-   ScaleHeight     =   9615
-   ScaleWidth      =   13695
+   ScaleHeight     =   9555
+   ScaleWidth      =   13260
    Begin VB.Frame Options_Frame 
       Caption         =   "计算动态演示及选项"
-      Height          =   1695
-      Left            =   10320
-      TabIndex        =   9
-      Top             =   4080
+      Height          =   2535
+      Left            =   10440
+      TabIndex        =   5
+      Top             =   3600
       Width           =   2415
-      Begin VB.CheckBox Dynamic_View_CheackBox 
+      Begin VB.CheckBox Only_Phase_CheckBox 
+         Caption         =   "仅显示相态"
+         Height          =   375
+         Left            =   360
+         TabIndex        =   8
+         Top             =   1680
+         Width           =   1335
+      End
+      Begin VB.CheckBox Dynamic_View_CheckBox 
          Caption         =   "动态过程演示"
          Height          =   495
          Left            =   360
-         TabIndex        =   11
-         Top             =   960
+         TabIndex        =   7
+         Top             =   1080
          Value           =   1  'Checked
          Width           =   1695
       End
@@ -33,47 +41,31 @@ Begin VB.Form Main
          Caption         =   "仅显示铸件"
          Height          =   495
          Left            =   360
-         TabIndex        =   10
-         Top             =   360
+         TabIndex        =   6
+         Top             =   480
          Value           =   1  'Checked
          Width           =   1575
       End
    End
-   Begin VB.CommandButton Graph_Export_Button 
-      Caption         =   "导出云图"
-      Height          =   615
-      Left            =   10680
-      TabIndex        =   8
-      Top             =   7200
-      Width           =   1335
-   End
    Begin VB.CommandButton Show_T_Profile_Button 
       Caption         =   "显示温度曲线"
       Height          =   735
-      Left            =   10680
-      TabIndex        =   7
-      Top             =   5880
-      Width           =   1335
-   End
-   Begin VB.CommandButton Set_Probe_Button 
-      Caption         =   "设置探针"
-      Height          =   735
-      Left            =   10680
-      TabIndex        =   6
+      Left            =   10440
+      TabIndex        =   4
       Top             =   2160
-      Width           =   1335
+      Width           =   2295
    End
    Begin VB.CommandButton Compute_Button 
       Caption         =   "开始计算"
       Height          =   735
-      Left            =   10680
-      TabIndex        =   5
-      Top             =   3120
-      Width           =   1335
+      Left            =   10440
+      TabIndex        =   3
+      Top             =   840
+      Width           =   2295
    End
    Begin MSComDlg.CommonDialog CommonDialog 
-      Left            =   9960
-      Top             =   720
+      Left            =   240
+      Top             =   240
       _ExtentX        =   847
       _ExtentY        =   847
       _Version        =   393216
@@ -82,10 +74,10 @@ Begin VB.Form Main
       Align           =   2  'Align Bottom
       Height          =   375
       Left            =   0
-      TabIndex        =   4
-      Top             =   9240
-      Width           =   13695
-      _ExtentX        =   24156
+      TabIndex        =   2
+      Top             =   9180
+      Width           =   13260
+      _ExtentX        =   23389
       _ExtentY        =   661
       SimpleText      =   ""
       _Version        =   327682
@@ -109,29 +101,13 @@ Begin VB.Form Main
          EndProperty
       EndProperty
    End
-   Begin VB.CommandButton Settings_Button 
-      Caption         =   "参数设置"
-      Height          =   735
-      Left            =   10680
-      TabIndex        =   3
-      Top             =   1320
-      Width           =   1335
-   End
-   Begin VB.CommandButton Data_Import_Button 
-      Caption         =   "导入数据"
-      Height          =   615
-      Left            =   10680
-      TabIndex        =   2
-      Top             =   600
-      Width           =   1335
-   End
    Begin ComctlLib.ProgressBar ProgressBar 
       Height          =   375
       Left            =   120
       TabIndex        =   1
       Top             =   8640
-      Width           =   9615
-      _ExtentX        =   16960
+      Width           =   9735
+      _ExtentX        =   17171
       _ExtentY        =   661
       _Version        =   327682
       Appearance      =   1
@@ -139,12 +115,34 @@ Begin VB.Form Main
    Begin VB.PictureBox Grid 
       AutoRedraw      =   -1  'True
       Height          =   8000
-      Left            =   120
+      Left            =   240
       ScaleHeight     =   7935
       ScaleWidth      =   9540
       TabIndex        =   0
       Top             =   240
       Width           =   9600
+   End
+   Begin VB.Menu File 
+      Caption         =   "文件"
+      Begin VB.Menu Data_Import 
+         Caption         =   "导入数据"
+         Shortcut        =   ^O
+      End
+      Begin VB.Menu Graph_Export 
+         Caption         =   "导出云图"
+         Shortcut        =   ^P
+      End
+   End
+   Begin VB.Menu Setting 
+      Caption         =   "设置"
+      Begin VB.Menu Params_Settings 
+         Caption         =   "参数设置"
+         Shortcut        =   ^Q
+      End
+      Begin VB.Menu Probe_Settings 
+         Caption         =   "温度探针"
+         Shortcut        =   ^W
+      End
    End
 End
 Attribute VB_Name = "Main"
@@ -172,11 +170,24 @@ Private Sub Form_Load()
     px = -1
     Init_Material_Params
     Init_ShadeGuide
-    Settings_Button.Enabled = False
-    Set_Probe_Button.Enabled = False
+    Params_Settings.Enabled = False
+    Probe_Settings.Enabled = False
     Compute_Button.Enabled = False
     Show_T_Profile_Button.Enabled = False
-    Graph_Export_Button.Enabled = False
+    Graph_Export.Enabled = False
+End Sub
+
+Private Sub Form_QueryUnload(Cancel As Integer, UnloadMode As Integer)
+    If Not paused Then
+        If MsgBox("程序正在计算中，真的要退出吗？", vbYesNo + vbDefaultButton1, "退出") = vbNo Then
+            Cancel = True
+            Exit Sub
+        End If
+        paused = True
+    End If
+    Unload Settings
+    Unload Set_Probe
+    Unload Profile
 End Sub
 
 ' 初始化相关
@@ -193,7 +204,7 @@ Private Sub Init_Temperature_Matrix()
 End Sub
 
 '' 导入数据
-Private Sub Data_Import_Button_Click()
+Private Sub Data_Import_Click()
     On Error GoTo ErrHandler
     Dim filename As String
     filename = App.Path & "\data\mesh.dat"
@@ -231,9 +242,9 @@ Private Sub Data_Import_Button_Click()
                             ReDim L_Matrix(range_x - 1, range_y - 1)
                             ReDim Tp(1)
                             Grid.Scale (0, range_y)-(range_x * 1.2, 0)
-                            Settings_Button.Enabled = True
-                            Set_Probe_Button.Enabled = True
-                            Graph_Export_Button.Enabled = True
+                            Params_Settings.Enabled = True
+                            Probe_Settings.Enabled = True
+                            Graph_Export.Enabled = True
                         Case 3
                             j = 0
                             For Each c In Split(s, ",")
@@ -248,8 +259,7 @@ Private Sub Data_Import_Button_Click()
     Close #1
     Loaded = True
     Init_Temperature_Matrix
-    Redraw_Cloud_Chart (Hidden_Sand_CheckBox.Value)
-    Mesh
+    Redraw_Graph
 ErrHandler:
     Exit Sub
 End Sub
@@ -260,12 +270,21 @@ Private Sub Init_ShadeGuide()
     Grid.BackColor = vbBlack
     Grid.Scale (-40, 18)-(8, 0)
     Grid.ForeColor = vbWhite
-    delta = PI / 16
-    For i = 0 To 15
-        Grid.Line (2, i + 1)-(4, i + 2), Get_Color(i * 100), BF
-        Grid.CurrentX = 4: Grid.CurrentY = i + 1: Grid.Print i * 100
-    Next i
-    Grid.CurrentX = 5: Grid.CurrentY = 17: Grid.Print "色标"
+    If Only_Phase_CheckBox.Value Then
+        Grid.Line (1, 7)-(3, 8), vbBlue, BF
+        Grid.CurrentX = 4: Grid.CurrentY = 7.5: Grid.Print "固态"
+        Grid.Line (1, 9)-(3, 10), vbYellow, BF
+        Grid.CurrentX = 4: Grid.CurrentY = 9.5: Grid.Print "凝固中"
+        Grid.Line (1, 11)-(3, 12), vbRed, BF
+        Grid.CurrentX = 4: Grid.CurrentY = 11.5: Grid.Print "液态"
+    Else
+        delta = PI / 16
+        For i = 0 To 15
+            Grid.Line (2, i + 1)-(4, i + 2), Get_Color(i * 100), BF
+            Grid.CurrentX = 4: Grid.CurrentY = i + 1: Grid.Print i * 100
+        Next i
+        Grid.CurrentX = 5: Grid.CurrentY = 17: Grid.Print "色标"
+    End If
 End Sub
 
 ''' 色温对照函数
@@ -334,12 +353,12 @@ End Function
 
 ' 按键回调
 '' 参数设置
-Private Sub Settings_Button_Click()
+Private Sub Params_Settings_Click()
     Settings.Show
 End Sub
 
 '' 设置探针
-Private Sub Set_Probe_Button_Click()
+Private Sub Probe_Settings_Click()
     Set_Probe.Show
 End Sub
 
@@ -351,8 +370,8 @@ Private Sub Grid_MouseDown(Button As Integer, Shift As Integer, X As Single, Y A
     If Loaded And popen And real_x < range_x And Y < range_y Then
         px = real_x
         py = real_y
-        Set_Probe.Px_Box.Text = px
-        Set_Probe.Py_Box.Text = py
+        Set_Probe.Px_Box.Text = px + 1
+        Set_Probe.Py_Box.Text = py + 1
     End If
 End Sub
 
@@ -365,7 +384,7 @@ End Sub
 '' 开始计算
 Private Sub Compute_Button_Click()
     ReDim Preserve Tp(range_t)
-    Set_Probe_Button.Enabled = False
+    Probe_Settings.Enabled = False
     If px <> -1 Then
         Show_T_Profile_Button.Enabled = True
     End If
@@ -395,10 +414,8 @@ Private Sub Compute_Button_Click()
             
             If i Mod 20 = 0 Then
                 ' 绘制云图
-                If Dynamic_View_CheackBox.Value Then
-                    Redraw_Cloud_Chart (Hidden_Sand_CheckBox.Value)
-                    Redraw_Probe
-                    Mesh
+                If Dynamic_View_CheckBox.Value Then
+                    Redraw_Graph
                     Grid.Refresh
                 End If
                 
@@ -419,7 +436,7 @@ Private Sub Compute_Button_Click()
         Compute_Button.Caption = "开始计算"
         pause_index = 1
         paused = True
-        Set_Probe_Button.Enabled = True
+        Probe_Settings.Enabled = True
     Else
         Compute_Button.Caption = "继续计算"
         paused = True
@@ -432,7 +449,7 @@ Private Sub Show_T_Profile_Button_Click()
 End Sub
 
 ' 导出云图
-Private Sub Graph_Export_Button_Click()
+Private Sub Graph_Export_Click()
     Call Export_Picture(Grid, CommonDialog, "后处理.bmp")
 End Sub
 
@@ -441,15 +458,34 @@ Private Sub Grid_MouseMove(Button As Integer, Shift As Integer, X As Single, Y A
     Dim real_x%, real_y%
     real_x = Int(X)
     real_y = Int(Y)
-    If Loaded And real_x < range_x And real_y < range_y Then
-        StatusBar.Panels(1).Text = "(" & real_x & ", " & real_y & ")"
-        StatusBar.Panels(2).Text = Temperature_Matrix(real_x, real_y) & "℃"
+    If Loaded Then
+        If real_x < range_x And real_y < range_y Then
+            StatusBar.Panels(1).Text = "(" & real_x + 1 & ", " & real_y + 1 & ")"
+            StatusBar.Panels(2).Text = Temperature_Matrix(real_x, real_y) & "℃"
+        Else
+            StatusBar.Panels(1).Text = "Air"
+            StatusBar.Panels(2).Text = T0(AIR) & "℃"
+        End If
+    End If
+End Sub
+
+' 仅显示相态回调
+Private Sub Only_Phase_CheckBox_Click()
+    Init_ShadeGuide
+    If Only_Phase_CheckBox.Value Then
+        Hidden_Sand_CheckBox.Enabled = False
+    Else
+        Hidden_Sand_CheckBox.Enabled = True
+    End If
+    If Loaded Then
+        Grid.Scale (0, range_y)-(range_x * 1.2, 0)
+        Redraw_Graph
     End If
 End Sub
 
 ' 绘制相关
 '' 绘制云图
-Public Sub Redraw_Cloud_Chart(Only_Casting As Boolean)
+Private Sub Redraw_Cloud_Chart(Only_Casting As Boolean)
     For i = 0 To range_x - 1
         For j = 0 To range_y - 1
             If Only_Casting Then
@@ -465,8 +501,31 @@ Public Sub Redraw_Cloud_Chart(Only_Casting As Boolean)
     Next i
 End Sub
 
+'' 绘制相态
+Private Sub Redraw_Phase_State()
+    Dim Tl!
+    Dim color
+    Tl = Materials(CASTING).Tl
+    For i = 0 To range_x - 1
+        For j = 0 To range_y - 1
+            If Material_Matrix(i, j) = CASTING Then
+                If Temperature_Matrix(i, j) - Tl > 0.001 Then
+                    color = vbRed
+                ElseIf Tl - Temperature_Matrix(i, j) > 0.001 Then
+                    color = vbBlue
+                Else
+                    color = vbYellow
+                End If
+                Grid.Line (i, j)-(i + 1, j + 1), color, BF
+            Else
+                Grid.Line (i, j)-(i + 1, j + 1), RGB(77, 77, 77), BF
+            End If
+        Next j
+    Next i
+End Sub
+
 '' 绘制边界
-Public Sub Redraw_Border()
+Private Sub Redraw_Border()
     Grid.Line (0, 0)-(range_x, 1 / 2), vbBlack, BF
     Grid.Line (0, range_y - 1 / 2)-(range_x, range_y), vbBlack, BF
     Grid.Line (0, 0)-(1 / 2, range_y), vbBlack, BF
@@ -474,7 +533,7 @@ Public Sub Redraw_Border()
 End Sub
 
 '' 绘制网格
-Public Sub Mesh()
+Private Sub Mesh()
     For i = 0 To range_x
         Grid.Line (i, 0)-(i, range_y), vbBlack
     Next i
@@ -485,7 +544,7 @@ Public Sub Mesh()
 End Sub
 
 '' 绘制温度探针
-Public Sub Redraw_Probe()
+Private Sub Redraw_Probe()
     If Show_Probe = 0 Then
         Exit Sub
     End If
@@ -503,6 +562,17 @@ Public Sub Redraw_Probe()
         Grid.FillColor = color
         Grid.Circle (px + 0.5, py + 0.5), (2 * i + 1) / 18, color
     Next i
+End Sub
+
+'' 绘制相图、相态、网格、探针
+Public Sub Redraw_Graph()
+    If Only_Phase_CheckBox.Value Then
+        Redraw_Phase_State
+    Else
+        Redraw_Cloud_Chart (Hidden_Sand_CheckBox.Value)
+    End If
+    Redraw_Probe
+    Mesh
 End Sub
 
 ' 计算相关
@@ -614,10 +684,3 @@ Private Function Get_Solidification_Rate() As Single
     Next i
     Get_Solidification_Rate = 1# * cnt / total
 End Function
-
-' 测试用临时按钮
-Private Sub Test_Click()
-    Next_T
-    Redraw_Cloud_Chart (Hidden_Sand_CheckBox.Value)
-    Mesh
-End Sub

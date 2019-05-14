@@ -3,21 +3,21 @@ Object = "{6B7E6392-850A-101B-AFC0-4210102A8DA7}#1.3#0"; "COMCTL32.OCX"
 Begin VB.Form Profile 
    BorderStyle     =   1  'Fixed Single
    Caption         =   "温度曲线"
-   ClientHeight    =   8235
+   ClientHeight    =   7725
    ClientLeft      =   15870
    ClientTop       =   2820
    ClientWidth     =   12795
    LinkTopic       =   "Form1"
    MaxButton       =   0   'False
    MinButton       =   0   'False
-   ScaleHeight     =   8235
+   ScaleHeight     =   7725
    ScaleWidth      =   12795
    Begin ComctlLib.StatusBar StatusBar 
       Align           =   2  'Align Bottom
       Height          =   375
       Left            =   0
       TabIndex        =   4
-      Top             =   7860
+      Top             =   7350
       Width           =   12795
       _ExtentX        =   22569
       _ExtentY        =   661
@@ -26,7 +26,6 @@ Begin VB.Form Profile
       BeginProperty Panels {0713E89E-850A-101B-AFC0-4210102A8DA7} 
          NumPanels       =   3
          BeginProperty Panel1 {0713E89F-850A-101B-AFC0-4210102A8DA7} 
-            TextSave        =   ""
             Object.Tag             =   ""
          EndProperty
          BeginProperty Panel2 {0713E89F-850A-101B-AFC0-4210102A8DA7} 
@@ -40,37 +39,37 @@ Begin VB.Form Profile
    Begin VB.CommandButton Confirm_Button 
       Caption         =   "确定"
       Height          =   495
-      Left            =   11040
+      Left            =   10200
       TabIndex        =   3
-      Top             =   7080
-      Width           =   1455
+      Top             =   6720
+      Width           =   2055
    End
    Begin VB.CommandButton Refresh_Button 
       Caption         =   "刷新显示"
       Height          =   495
-      Left            =   9120
+      Left            =   7800
       TabIndex        =   2
-      Top             =   7080
-      Width           =   1695
+      Top             =   6720
+      Width           =   2055
    End
    Begin VB.CommandButton Graph_Export_Button 
       Caption         =   "导出图像"
       Height          =   495
-      Left            =   6840
+      Left            =   5280
       TabIndex        =   1
-      Top             =   7080
+      Top             =   6720
       Width           =   2175
    End
    Begin VB.PictureBox Graph 
       AutoRedraw      =   -1  'True
       BorderStyle     =   0  'None
-      Height          =   6255
-      Left            =   480
-      ScaleHeight     =   6255
-      ScaleWidth      =   11775
+      Height          =   6000
+      Left            =   360
+      ScaleHeight     =   6000
+      ScaleWidth      =   12000
       TabIndex        =   0
-      Top             =   360
-      Width           =   11775
+      Top             =   240
+      Width           =   12000
    End
 End
 Attribute VB_Name = "Profile"
@@ -139,7 +138,7 @@ Private Sub Show_Graph()
     Graph.CurrentX = -0.05 * range_t: Graph.CurrentY = -0.05 * Tmax: Graph.Print 0
     Graph.FontBold = True
     Graph.FontSize = 18
-    Graph.CurrentX = range_t / 3: Graph.CurrentY = Tmax * 1.07: Graph.Print "点(" & Main.px & ", " & Main.py & ")温度变化曲线"
+    Graph.CurrentX = range_t / 3: Graph.CurrentY = Tmax * 1.07: Graph.Print "点(" & Main.px + 1 & ", " & Main.py + 1 & ")温度变化曲线"
     Graph.FontSize = 10
     Graph.CurrentX = -0.1 * range_t: Graph.CurrentY = 1.07 * Tmax: Graph.Print "温度/℃"
     Graph.CurrentX = 1.03 * range_t: Graph.CurrentY = -0.05 * Tmax: Graph.Print "时间步"
