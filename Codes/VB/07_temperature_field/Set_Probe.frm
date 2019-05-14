@@ -5,16 +5,16 @@ Begin VB.Form Set_Probe
    ClientHeight    =   3630
    ClientLeft      =   15870
    ClientTop       =   5460
-   ClientWidth     =   4560
+   ClientWidth     =   5010
    LinkTopic       =   "Form1"
    MaxButton       =   0   'False
    MinButton       =   0   'False
    ScaleHeight     =   3630
-   ScaleWidth      =   4560
+   ScaleWidth      =   5010
    Begin VB.CommandButton Delete_Button 
       Caption         =   "删除探针"
       Height          =   615
-      Left            =   3120
+      Left            =   3480
       TabIndex        =   8
       Top             =   1800
       Width           =   1215
@@ -22,15 +22,15 @@ Begin VB.Form Set_Probe
    Begin VB.CommandButton Cancel_Button 
       Caption         =   "取消"
       Height          =   615
-      Left            =   3360
+      Left            =   3480
       TabIndex        =   7
       Top             =   2880
-      Width           =   1095
+      Width           =   1215
    End
    Begin VB.CommandButton Apply_Button 
       Caption         =   "应用"
       Height          =   615
-      Left            =   1800
+      Left            =   1920
       TabIndex        =   6
       Top             =   2880
       Width           =   1215
@@ -41,16 +41,16 @@ Begin VB.Form Set_Probe
       Left            =   360
       TabIndex        =   5
       Top             =   2880
-      Width           =   1095
+      Width           =   1215
    End
    Begin VB.CheckBox Show_Probe_Check 
       Caption         =   "显示探针"
       Height          =   255
-      Left            =   960
+      Left            =   720
       TabIndex        =   4
       Top             =   1920
       Value           =   1  'Checked
-      Width           =   2055
+      Width           =   1335
    End
    Begin VB.TextBox Py_Box 
       Height          =   375
@@ -58,11 +58,11 @@ Begin VB.Form Set_Probe
       TabIndex        =   1
       Text            =   "0"
       Top             =   840
-      Width           =   975
+      Width           =   1095
    End
    Begin VB.TextBox Px_Box 
       Height          =   375
-      Left            =   960
+      Left            =   840
       TabIndex        =   0
       Text            =   "0"
       Top             =   840
@@ -112,8 +112,8 @@ Attribute VB_PredeclaredId = True
 Attribute VB_Exposed = False
 Private Sub Form_Load()
     Main.popen = True
-    Px_Box.Text = Main.px
-    Py_Box.Text = Main.py
+    Px_Box.Text = Main.px + 1
+    Py_Box.Text = Main.py + 1
     Show_Probe_Check.Value = Main.Show_Probe
 End Sub
 
@@ -133,19 +133,19 @@ Private Sub Cancel_Button_Click()
 End Sub
 
 Private Sub Set_Params()
-    Main.px = Val(Px_Box.Text)
-    Main.py = Val(Py_Box.Text)
+    If Val(Px_Box.Text) <= 0 Or Val(Py_Box.Text) <= 0 Or Val(Px_Box.Text) > range_x Or Val(Py_Box.Text) > range_y Then
+        MsgBox "该点不存在"
+        Exit Sub
+    End If
+    Main.px = Val(Px_Box.Text) - 1
+    Main.py = Val(Py_Box.Text) - 1
     Main.Show_Probe = Show_Probe_Check.Value
-    Main.Redraw_Cloud_Chart (Main.Hidden_Sand_CheckBox.Value)
-    Main.Mesh
-    Main.Redraw_Probe
+    Main.Redraw_Graph
     ReDim Tp(1)
 End Sub
 
 Private Sub Delete_Button_Click()
     Main.px = -1
-    Main.Redraw_Cloud_Chart (Main.Hidden_Sand_CheckBox.Value)
-    Main.Mesh
-    Main.Redraw_Probe
+    Main.Redraw_Graph
 End Sub
 

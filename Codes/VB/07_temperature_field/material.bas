@@ -28,7 +28,7 @@ Public Sub Init_Material_Params()
     CHILL = 2
     AIR = 3
     delta_t = 10
-    range_t = 2000
+    range_t = 20000
     T0(SAND) = 30
     T0(CASTING) = 973
     T0(CHILL) = 25
@@ -36,7 +36,7 @@ Public Sub Init_Material_Params()
     TT(CHILL, CASTING) = 2000: TT(CASTING, CHILL) = 2000
     TT(SAND, AIR) = 25.08: TT(AIR, SAND) = 25.08
     TT(CASTING, SAND) = 0: TT(SAND, CASTING) = 0
-    TT(CASTING, AIR) = 29.03: TT(AIR, CASTING) = 29.03
+    TT(CASTING, AIR) = 20.93: TT(AIR, CASTING) = 20.93
     compute_L = 1
     color_arr = Array(vbYellow, vbRed, vbBlue)
 End Sub
