@@ -84,19 +84,23 @@ Begin VB.Form Main
       BeginProperty Panels {0713E89E-850A-101B-AFC0-4210102A8DA7} 
          NumPanels       =   4
          BeginProperty Panel1 {0713E89F-850A-101B-AFC0-4210102A8DA7} 
+            Key             =   ""
             Object.Tag             =   ""
          EndProperty
          BeginProperty Panel2 {0713E89F-850A-101B-AFC0-4210102A8DA7} 
+            Key             =   ""
             Object.Tag             =   ""
          EndProperty
          BeginProperty Panel3 {0713E89F-850A-101B-AFC0-4210102A8DA7} 
             Object.Width           =   3528
             MinWidth        =   3528
+            Key             =   ""
             Object.Tag             =   ""
          EndProperty
          BeginProperty Panel4 {0713E89F-850A-101B-AFC0-4210102A8DA7} 
             Object.Width           =   5292
             MinWidth        =   5292
+            Key             =   ""
             Object.Tag             =   ""
          EndProperty
       EndProperty
@@ -274,11 +278,11 @@ Private Sub Init_ShadeGuide()
     Grid.ForeColor = vbWhite
     If Only_Phase_CheckBox.Value Then
         Grid.Line (1, 7)-(3, 8), vbBlue, BF
-        Grid.CurrentX = 4: Grid.CurrentY = 7.5: Grid.Print "固态"
+        Grid.CurrentX = 4: Grid.CurrentY = 7.5: Grid.Print "固相"
         Grid.Line (1, 9)-(3, 10), vbYellow, BF
         Grid.CurrentX = 4: Grid.CurrentY = 9.5: Grid.Print "凝固中"
         Grid.Line (1, 11)-(3, 12), vbRed, BF
-        Grid.CurrentX = 4: Grid.CurrentY = 11.5: Grid.Print "液态"
+        Grid.CurrentX = 4: Grid.CurrentY = 11.5: Grid.Print "液相"
     Else
         delta = PI / 16
         For i = 0 To 15
@@ -290,11 +294,11 @@ Private Sub Init_ShadeGuide()
 End Sub
 
 ''' 色温对照函数
-Private Function Get_Color(t As Single) As Variant
+Private Function Get_Color(T As Single) As Variant
     Dim i%
     Dim w!
     w = 4
-    i = Int(t / 100)
+    i = Int(T / 100)
     If i > 16 Then
         i = 16
     ElseIf i < 0 Then
@@ -322,17 +326,17 @@ End Function
 Private Function HSV(h As Integer, s As Single, v As Single) As Variant
    ' h(0, 360) s(0, 1.0) v(0, 1.0)
     Dim r As Single, g As Single, b As Single
-    Dim i As Integer, f As Single, p As Single, q As Single, t As Single
+    Dim i As Integer, f As Single, p As Single, q As Single, T As Single
     i = Int(h / 60) Mod 6
     f = h / 60 - i
     p = v * (1 - s)
     q = v * (1 - f * s)
-    t = v * (1 - (1 - f) * s)
+    T = v * (1 - (1 - f) * s)
     
     Select Case i
         Case 0
             r = v
-            g = t
+            g = T
             b = p
         Case 1
             r = q
@@ -341,13 +345,13 @@ Private Function HSV(h As Integer, s As Single, v As Single) As Variant
         Case 2
             r = p
             g = v
-            b = t
+            b = T
         Case 3
             r = p
             g = q
             b = v
         Case 4
-            r = t
+            r = T
             g = p
             b = v
         Case 5
@@ -391,6 +395,7 @@ End Sub
 '' 开始计算
 Private Sub Compute_Button_Click()
     Dim PrintStep%
+    Dim Solid_Fraction!
     PrintStep = 20
     ReDim Preserve Tp(range_t)
     Probe_Settings.Enabled = False
@@ -432,15 +437,15 @@ Private Sub Compute_Button_Click()
                 ' 绘制进度条
                 ProgressBar.Value = i
                 
-                ' 获取凝固比并显示
-                Solidification_rate = Get_Solidification_Rate()
-                StatusBar.Panels(3).Text = "凝固百分比：" & Round(Solidification_rate * 100, 2) & "%"
-                If Solidification_rate > 0.99 Then ' 终凝阶段降低误差
+                ' 获取固相率并显示
+                Solid_Fraction = Get_Solid_Fraction()
+                StatusBar.Panels(3).Text = "固相率：" & Round(Solid_Fraction * 100, 2) & "%"
+                If Solid_Fraction > 0.99 Then ' 终凝阶段降低误差
                     PrintStep = 1
-                ElseIf Solidification_rate > 0.98 Then
+                ElseIf Solid_Fraction > 0.98 Then
                     PrintStep = 5
                 End If
-                If Solidification_rate = 1 Then
+                If Solid_Fraction = 1 Then
                     Exit For
                 End If
                 
@@ -597,9 +602,8 @@ End Sub
 Private Sub Next_T()
     ' 计算下一时刻温度
     Dim s!, w!, d! ' 两结点间接触宽度、结点厚度、结点间温度中心距离
-    Dim t!
+    Dim T!, m!, heat!
     Dim Ma As Material
-    Dim m!
     For i = 0 To range_x - 1
         For j = 0 To range_y - 1
             ' 计算从各方向获得的热量
@@ -613,13 +617,13 @@ Private Sub Next_T()
             heat = heat + Get_Heat(i, j, i, j + 1, s, w, d)
             m = Ma.rho * s * w ' 单元质量
             dT = heat / (Ma.c * m) ' 临时温度变化值
-            t = Temperature_Matrix(i, j)
+            T = Temperature_Matrix(i, j)
             
             ' 计算潜热
             If compute_L Then
-                If Material_Matrix(i, j) = CASTING And t + dT < Materials(CASTING).Tl And L_Matrix(i, j) > 0.001 Then
-                    heat = heat + Ma.c * m * (t - Materials(CASTING).Tl)
-                    t = Materials(CASTING).Tl
+                If Material_Matrix(i, j) = CASTING And T + dT < Materials(CASTING).Tl And L_Matrix(i, j) > 0.001 Then
+                    heat = heat + Ma.c * m * (T - Materials(CASTING).Tl)
+                    T = Materials(CASTING).Tl
                     If -heat >= L_Matrix(i, j) * m Then
                         heat = heat + L_Matrix(i, j) * m
                         L_Matrix(i, j) = 0
@@ -632,7 +636,7 @@ Private Sub Next_T()
             End If
             
             ' 计算温度
-            Tmp_Matrix(i, j) = t + dT
+            Tmp_Matrix(i, j) = T + dT
         Next j
     Next i
     ' 临时矩阵数值传入温度矩阵
@@ -684,8 +688,8 @@ Private Function Get_Heat(ByVal X%, ByVal Y%, ByVal sx%, ByVal sy%, ByVal s!, By
     End If
 End Function
 
-'' 获取凝固率
-Private Function Get_Solidification_Rate() As Single
+'' 获取固相率
+Private Function Get_Solid_Fraction() As Single
     Dim cnt%, total%
     cnt = 0
     total = 0
@@ -700,8 +704,8 @@ Private Function Get_Solidification_Rate() As Single
         Next j
     Next i
     If total = 0 Then
-        Get_Solidification_Rate = 0
+        Get_Solid_Fraction = 0
     Else
-        Get_Solidification_Rate = 1# * cnt / total
+        Get_Solid_Fraction = 1# * cnt / total
     End If
 End Function
