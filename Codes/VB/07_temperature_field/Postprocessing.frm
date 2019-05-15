@@ -260,6 +260,8 @@ Private Sub Data_Import_Click()
     Loaded = True
     Init_Temperature_Matrix
     Redraw_Graph
+    Compute_Button.Caption = "开始计算"
+    pause_index = 1
 ErrHandler:
     Exit Sub
 End Sub
@@ -293,6 +295,11 @@ Private Function Get_Color(t As Single) As Variant
     Dim w!
     w = 4
     i = Int(t / 100)
+    If i > 16 Then
+        i = 16
+    ElseIf i < 0 Then
+        i = 0
+    End If
     Get_Color = HSV(250 - sigmoid_variant(i / 16, w) * 250, 1, 1)
     ' 由于直接均匀分色在中间的绿色区域区分并不明显，使用 sigmoid 函数（两侧缓慢，中间比较快）对其进行调整
     ' w 越大，上述效果越明显，由于本问题色标主要集中在中间区域（800-1000），故设较大的权值（4），如非本情况可适当减小（如 2.5）
@@ -388,12 +395,13 @@ Private Sub Compute_Button_Click()
     ReDim Preserve Tp(range_t)
     Probe_Settings.Enabled = False
     If px <> -1 Then
-        Show_T_Profile_Button.Enabled = True
+        Probe_Settings.Enabled = True
     End If
     If paused Then
         Compute_Button.Caption = "暂停计算"
         paused = False
         Grid.AutoRedraw = True
+        Data_Import.Enabled = False
         ProgressBar.Min = 1
         ProgressBar.Max = range_t
         For i = pause_index To range_t
@@ -444,9 +452,11 @@ Private Sub Compute_Button_Click()
         pause_index = 1
         paused = True
         Probe_Settings.Enabled = True
+        Data_Import.Enabled = True
     Else
         Compute_Button.Caption = "继续计算"
         paused = True
+        Data_Import.Enabled = True
     End If
 End Sub
 
@@ -689,5 +699,9 @@ Private Function Get_Solidification_Rate() As Single
             End If
         Next j
     Next i
-    Get_Solidification_Rate = 1# * cnt / total
+    If total = 0 Then
+        Get_Solidification_Rate = 0
+    Else
+        Get_Solidification_Rate = 1# * cnt / total
+    End If
 End Function
