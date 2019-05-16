@@ -84,23 +84,19 @@ Begin VB.Form Main
       BeginProperty Panels {0713E89E-850A-101B-AFC0-4210102A8DA7} 
          NumPanels       =   4
          BeginProperty Panel1 {0713E89F-850A-101B-AFC0-4210102A8DA7} 
-            Key             =   ""
             Object.Tag             =   ""
          EndProperty
          BeginProperty Panel2 {0713E89F-850A-101B-AFC0-4210102A8DA7} 
-            Key             =   ""
             Object.Tag             =   ""
          EndProperty
          BeginProperty Panel3 {0713E89F-850A-101B-AFC0-4210102A8DA7} 
             Object.Width           =   3528
             MinWidth        =   3528
-            Key             =   ""
             Object.Tag             =   ""
          EndProperty
          BeginProperty Panel4 {0713E89F-850A-101B-AFC0-4210102A8DA7} 
             Object.Width           =   5292
             MinWidth        =   5292
-            Key             =   ""
             Object.Tag             =   ""
          EndProperty
       EndProperty
@@ -154,8 +150,10 @@ Attribute VB_GlobalNameSpace = False
 Attribute VB_Creatable = False
 Attribute VB_PredeclaredId = True
 Attribute VB_Exposed = False
+Option Explicit
+
 Dim PI!
-Dim Material_Matrix()
+Dim Material_Matrix() As Integer
 Dim Temperature_Matrix() As Single
 Dim Tmp_Matrix() As Single
 Dim L_Matrix() As Single
@@ -164,6 +162,7 @@ Dim paused As Boolean
 Dim pause_index%
 Public px%, py%, popen As Boolean, Show_Probe%
 Public delta_x As Single, delta_y As Single
+Public SX_Matrix, SY_Matrix, WX_Matrix, WY_Matrix, DX_Matrix, DY_Matrix
 
 Private Sub Form_Load()
     PI = 3.1415926
@@ -195,14 +194,49 @@ Private Sub Form_QueryUnload(Cancel As Integer, UnloadMode As Integer)
 End Sub
 
 ' 初始化相关
-'' 初始化温度矩阵、潜热矩阵
-Private Sub Init_Temperature_Matrix()
+'' 创建各种矩阵
+Private Sub Redim_Matrixes()
+    ReDim Material_Matrix(range_x - 1, range_y - 1)
+    ReDim Temperature_Matrix(range_x - 1, range_y - 1)
+    ReDim Tmp_Matrix(range_x - 1, range_y - 1)
+    ReDim L_Matrix(range_x - 1, range_y - 1)
+    ReDim SX_Matrix(range_x - 1, range_y - 1): ReDim SY_Matrix(range_x - 1, range_y - 1)
+    ReDim WX_Matrix(range_x - 1, range_y - 1): ReDim WY_Matrix(range_x - 1, range_y - 1)
+    ReDim DX_Matrix(range_x - 1, range_y - 1): ReDim DY_Matrix(range_x - 1, range_y - 1)
+    ReDim Tp(1)
+End Sub
+
+'' 初始化各种矩阵
+Private Sub Init_Matrixes()
+    Dim dx!, dy!
+    Dim i%, j%
     For i = 0 To range_x - 1
         For j = 0 To range_y - 1
+            ' 温度矩阵
             Temperature_Matrix(i, j) = T0(Material_Matrix(i, j))
+            
+            ' 潜热矩阵
             If Material_Matrix(i, j) = CASTING Then
                 L_Matrix(i, j) = Materials(CASTING).L
             End If
+            
+            ' SWD 矩阵
+            dx = delta_x
+            dy = delta_y
+            If i = 0 Or i = range_x - 1 Then ' 左右边界
+                dx = dx / 2
+            End If
+            If j = 0 Or j = range_y - 1 Then ' 上下边界
+                dy = dy / 2
+            End If
+            ' 水平相邻
+            DX_Matrix(i, j) = delta_x
+            SX_Matrix(i, j) = dy
+            WX_Matrix(i, j) = dx
+            ' 竖直相邻
+            DY_Matrix(i, j) = delta_y
+            SY_Matrix(i, j) = dx
+            WY_Matrix(i, j) = dy
         Next j
     Next i
 End Sub
@@ -219,7 +253,7 @@ Private Sub Data_Import_Click()
     CommonDialog.FilterIndex = 3
     CommonDialog.ShowOpen
     filename = CommonDialog.filename
-    Dim cnt%, line%
+    Dim cnt%, line%, i%, j%, c
     Dim s As String
     i = 0
     line = 0
@@ -239,12 +273,9 @@ Private Sub Data_Import_Click()
                             range_y = Val(Split(s, ",")(1))
                             delta_x = 0.5 / range_x
                             delta_y = 0.5 / range_y
-                            ' 初始化各种数据
-                            ReDim Material_Matrix(range_x - 1, range_y - 1)
-                            ReDim Temperature_Matrix(range_x - 1, range_y - 1)
-                            ReDim Tmp_Matrix(range_x - 1, range_y - 1)
-                            ReDim L_Matrix(range_x - 1, range_y - 1)
-                            ReDim Tp(1)
+                            
+                            Redim_Matrixes
+                            
                             Grid.Scale (0, range_y)-(range_x * 1.2, 0)
                             Params_Settings.Enabled = True
                             Probe_Settings.Enabled = True
@@ -262,7 +293,7 @@ Private Sub Data_Import_Click()
         Loop
     Close #1
     Loaded = True
-    Init_Temperature_Matrix
+    Init_Matrixes
     Redraw_Graph
     Compute_Button.Caption = "开始计算"
     pause_index = 1
@@ -272,6 +303,7 @@ End Sub
 
 '' 初始化色标
 Private Sub Init_ShadeGuide()
+    Dim delta!, i!
     Grid.AutoRedraw = True
     Grid.BackColor = vbBlack
     Grid.Scale (-40, 18)-(8, 0)
@@ -294,11 +326,11 @@ Private Sub Init_ShadeGuide()
 End Sub
 
 ''' 色温对照函数
-Private Function Get_Color(T As Single) As Variant
+Private Function Get_Color(t As Single) As Variant
     Dim i%
     Dim w!
     w = 4
-    i = Int(T / 100)
+    i = Int(t / 100)
     If i > 16 Then
         i = 16
     ElseIf i < 0 Then
@@ -310,33 +342,34 @@ Private Function Get_Color(T As Single) As Variant
 End Function
 
 ''' Sigmoid 自定义变体，用于调节颜色变化速率
-Private Function sigmoid_variant(X As Single, w As Single) As Single
+Private Function sigmoid_variant(x As Single, w As Single) As Single
     ' x (0, 1) w(0, INF) output (0, 1)
-    X = w * 2 * (X - 0.5) ' x (-w, w) y (1-sigmoid(w), sigmoid(w))
+    Dim h!
+    x = w * 2 * (x - 0.5) ' x (-w, w) y (1-sigmoid(w), sigmoid(w))
     h = 2 * (sigmoid(w) - 0.5)
-    sigmoid_variant = (sigmoid(X) - 0.5) / h + 0.5
+    sigmoid_variant = (sigmoid(x) - 0.5) / h + 0.5
 End Function
 
 ''' Sigmoid
-Private Function sigmoid(X As Single) As Single
-    sigmoid = 1 / (1 + Exp(-X))
+Private Function sigmoid(x As Single) As Single
+    sigmoid = 1 / (1 + Exp(-x))
 End Function
 
 ''' 根据 HSV 色值生成 RGB 颜色
 Private Function HSV(h As Integer, s As Single, v As Single) As Variant
    ' h(0, 360) s(0, 1.0) v(0, 1.0)
     Dim r As Single, g As Single, b As Single
-    Dim i As Integer, f As Single, p As Single, q As Single, T As Single
+    Dim i As Integer, f As Single, p As Single, q As Single, t As Single
     i = Int(h / 60) Mod 6
     f = h / 60 - i
     p = v * (1 - s)
     q = v * (1 - f * s)
-    T = v * (1 - (1 - f) * s)
+    t = v * (1 - (1 - f) * s)
     
     Select Case i
         Case 0
             r = v
-            g = T
+            g = t
             b = p
         Case 1
             r = q
@@ -345,13 +378,13 @@ Private Function HSV(h As Integer, s As Single, v As Single) As Variant
         Case 2
             r = p
             g = v
-            b = T
+            b = t
         Case 3
             r = p
             g = q
             b = v
         Case 4
-            r = T
+            r = t
             g = p
             b = v
         Case 5
@@ -374,11 +407,11 @@ Private Sub Probe_Settings_Click()
 End Sub
 
 ''' 点击回调
-Private Sub Grid_MouseDown(Button As Integer, Shift As Integer, X As Single, Y As Single)
+Private Sub Grid_MouseDown(Button As Integer, Shift As Integer, x As Single, y As Single)
     Dim real_x%, real_y%
-    real_x = Int(X)
-    real_y = Int(Y)
-    If Loaded And popen And real_x < range_x And Y < range_y Then
+    real_x = Int(x)
+    real_y = Int(y)
+    If Loaded And popen And real_x < range_x And y < range_y Then
         px = real_x
         py = real_y
         Set_Probe.Px_Box.Text = px + 1
@@ -394,13 +427,14 @@ End Sub
 
 '' 开始计算
 Private Sub Compute_Button_Click()
+    Dim i%, j%
     Dim PrintStep%
     Dim Solid_Fraction!
-    PrintStep = 20
+    PrintStep = 30
     ReDim Preserve Tp(range_t)
     Probe_Settings.Enabled = False
     If px <> -1 Then
-        Probe_Settings.Enabled = True
+        Show_T_Profile_Button.Enabled = True
     End If
     If paused Then
         Compute_Button.Caption = "暂停计算"
@@ -476,10 +510,10 @@ Private Sub Graph_Export_Click()
 End Sub
 
 ' 移动回调
-Private Sub Grid_MouseMove(Button As Integer, Shift As Integer, X As Single, Y As Single)
+Private Sub Grid_MouseMove(Button As Integer, Shift As Integer, x As Single, y As Single)
     Dim real_x%, real_y%
-    real_x = Int(X)
-    real_y = Int(Y)
+    real_x = Int(x)
+    real_y = Int(y)
     If Loaded Then
         If real_x < range_x And real_y < range_y Then
             StatusBar.Panels(1).Text = "(" & real_x + 1 & ", " & real_y + 1 & ")"
@@ -505,9 +539,21 @@ Private Sub Only_Phase_CheckBox_Click()
     End If
 End Sub
 
+' 是否动态演示切换回调
+Private Sub Dynamic_View_CheckBox_Click()
+    If Dynamic_View_CheckBox.Value Then
+        Hidden_Sand_CheckBox.Enabled = True
+        Only_Phase_CheckBox.Enabled = True
+    Else
+        Hidden_Sand_CheckBox.Enabled = False
+        Only_Phase_CheckBox.Enabled = False
+    End If
+End Sub
+
 ' 绘制相关
 '' 绘制云图
 Private Sub Redraw_Cloud_Chart(Only_Casting As Boolean)
+    Dim i%, j%
     For i = 0 To range_x - 1
         For j = 0 To range_y - 1
             If Only_Casting Then
@@ -527,6 +573,7 @@ End Sub
 Private Sub Redraw_Phase_State()
     Dim Tl!
     Dim color
+    Dim i%, j%
     Tl = Materials(CASTING).Tl
     For i = 0 To range_x - 1
         For j = 0 To range_y - 1
@@ -556,6 +603,7 @@ End Sub
 
 '' 绘制网格
 Private Sub Mesh()
+    Dim i%
     For i = 0 To range_x
         Grid.Line (i, 0)-(i, range_y), vbBlack
     Next i
@@ -567,6 +615,7 @@ End Sub
 
 '' 绘制温度探针
 Private Sub Redraw_Probe()
+    Dim i%
     If Show_Probe = 0 Then
         Exit Sub
     End If
@@ -601,29 +650,32 @@ End Sub
 '' 温度矩阵下一时刻
 Private Sub Next_T()
     ' 计算下一时刻温度
-    Dim s!, w!, d! ' 两结点间接触宽度、结点厚度、结点间温度中心距离
-    Dim T!, m!, heat!
+    Dim s!, w!, d! ' 两结点间接触宽度、结点厚度、两结点温度中心距离
+    Dim i%, j%
+    Dim t!, m!, heat!, dT!
     Dim Ma As Material
     For i = 0 To range_x - 1
         For j = 0 To range_y - 1
             ' 计算从各方向获得的热量
             heat = 0
             Ma = Materials(Material_Matrix(i, j))
-            Call Get_SWD(s, w, d, i, j, 0)
+            ' Call Get_SWD(s, w, d, i, j, 0)
+            s = SX_Matrix(i, j): w = WX_Matrix(i, j): d = DX_Matrix(i, j)
             heat = heat + Get_Heat(i, j, i - 1, j, s, w, d)
             heat = heat + Get_Heat(i, j, i + 1, j, s, w, d)
-            Call Get_SWD(s, w, d, i, j, 1)
+            ' Call Get_SWD(s, w, d, i, j, 1)
+            s = SY_Matrix(i, j): w = WY_Matrix(i, j): d = DY_Matrix(i, j)
             heat = heat + Get_Heat(i, j, i, j - 1, s, w, d)
             heat = heat + Get_Heat(i, j, i, j + 1, s, w, d)
             m = Ma.rho * s * w ' 单元质量
             dT = heat / (Ma.c * m) ' 临时温度变化值
-            T = Temperature_Matrix(i, j)
+            t = Temperature_Matrix(i, j)
             
             ' 计算潜热
             If compute_L Then
-                If Material_Matrix(i, j) = CASTING And T + dT < Materials(CASTING).Tl And L_Matrix(i, j) > 0.001 Then
-                    heat = heat + Ma.c * m * (T - Materials(CASTING).Tl)
-                    T = Materials(CASTING).Tl
+                If Material_Matrix(i, j) = CASTING And t + dT < Materials(CASTING).Tl And L_Matrix(i, j) > 0.001 Then
+                    heat = heat + Ma.c * m * (t - Materials(CASTING).Tl)
+                    t = Materials(CASTING).Tl
                     If -heat >= L_Matrix(i, j) * m Then
                         heat = heat + L_Matrix(i, j) * m
                         L_Matrix(i, j) = 0
@@ -636,10 +688,11 @@ Private Sub Next_T()
             End If
             
             ' 计算温度
-            Tmp_Matrix(i, j) = T + dT
+            Tmp_Matrix(i, j) = t + dT
         Next j
     Next i
-    ' 临时矩阵数值传入温度矩阵
+    
+    ' 临时矩阵传回温度矩阵
     For i = 0 To range_x - 1
         For j = 0 To range_y - 1
             Temperature_Matrix(i, j) = Tmp_Matrix(i, j)
@@ -648,14 +701,14 @@ Private Sub Next_T()
 End Sub
 
 '' 计算两结点的接触宽度、厚度、温度中心距离
-Private Sub Get_SWD(ByRef s!, ByRef w!, ByRef d!, ByVal X%, ByVal Y%, ByVal direct%)
+Private Sub Get_SWD(ByRef s!, ByRef w!, ByRef d!, ByVal x%, ByVal y%, ByVal direct%)
     Dim dx!, dy!
     dx = delta_x
     dy = delta_y
-    If X = 0 Or X = range_x - 1 Then ' 左右边界
+    If x = 0 Or x = range_x - 1 Then ' 左右边界
         dx = dx / 2
     End If
-    If Y = 0 Or Y = range_y - 1 Then ' 上下边界
+    If y = 0 Or y = range_y - 1 Then ' 上下边界
         dy = dy / 2
     End If
     If direct = 0 Then ' 两结点水平相邻
@@ -669,27 +722,30 @@ Private Sub Get_SWD(ByRef s!, ByRef w!, ByRef d!, ByVal X%, ByVal Y%, ByVal dire
     End If
 End Sub
 
+
 '' 计算源结点到目的结点的交换热量
-Private Function Get_Heat(ByVal X%, ByVal Y%, ByVal sx%, ByVal sy%, ByVal s!, ByVal w!, ByVal d!)
+Private Function Get_Heat(x%, y%, sx%, sy%, s!, w!, d!)
+    Dim h!, k!, k1!, k2!
     If sx < 0 Or sx >= range_x Or sy < 0 Or sy >= range_y Then
-        h = TT(Material_Matrix(X, Y), AIR)
-        Get_Heat = h * (T0(AIR) - Temperature_Matrix(X, Y)) * s * delta_t
-        Exit Function
+        h = TT(Material_Matrix(x, y), AIR)
+        Get_Heat = 0
+        Get_Heat = h * (T0(AIR) - Temperature_Matrix(x, y)) * s * delta_t
     Else
-        If Material_Matrix(X, Y) = Material_Matrix(sx, sy) Then
-            k = Materials(Material_Matrix(X, Y)).k
+        If Material_Matrix(x, y) = Material_Matrix(sx, sy) Then
+            k = Materials(Material_Matrix(x, y)).k
         Else
-            k1 = Materials(Material_Matrix(X, Y)).k
+            k1 = Materials(Material_Matrix(x, y)).k
             k2 = Materials(Material_Matrix(sx, sy)).k
             k = 2 * k1 * k2 / (k1 + k2)
         End If
-        Get_Heat = k * (Temperature_Matrix(sx, sy) - Temperature_Matrix(X, Y)) / d * s * delta_t
-        Exit Function
+        Get_Heat = 0
+        Get_Heat = k * (Temperature_Matrix(sx, sy) - Temperature_Matrix(x, y)) / d * s * delta_t
     End If
 End Function
 
 '' 获取固相率
 Private Function Get_Solid_Fraction() As Single
+    Dim i%, j%
     Dim cnt%, total%
     cnt = 0
     total = 0
