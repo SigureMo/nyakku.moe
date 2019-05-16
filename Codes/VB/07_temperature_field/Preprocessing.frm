@@ -499,32 +499,37 @@ End Sub
 ' 网格设置
 '' 网格生成回调
 Private Sub Mesh_Button_Click()
-    If IsNumeric(Delta_X_Box.Text) And IsNumeric(Delta_Y_Box.Text) Then
-        delta_x = Val(Delta_X_Box.Text)
-        delta_y = Val(Delta_Y_Box.Text)
-        
-        If delta_x < 1 Or delta_y < 1 Then
-            MsgBox "空间步长应为正整数"
-        ElseIf grid_w Mod delta_x And grid_l Mod delta_y Then
-            MsgBox "请确定该区域可被正确划分（可整除）"
-        Else
-            range_x_tmp = grid_w / delta_x
-            range_y_tmp = grid_l / delta_y
-            If range_x_tmp > 1000 Or range_y_tmp > 1000 Then
-                MsgBox "空间步长太小，最多划分为 1000 * 1000 的网格"
-            Else
-                If range_x_tmp * range_y_tmp > 10000 Then
-                    MsgBox "本程序对于过于精细的划分支持并不好，如有卡顿现象请见谅……"
-                End If
-                range_x = range_x_tmp
-                range_y = range_y_tmp
-                Grid.Cls
-                Mesh
-            End If
-        End If
-    Else
+    Dim delta_x%, delta_y%
+    If Not IsNumeric(Delta_X_Box.Text) Or Not IsNumeric(Delta_Y_Box.Text) Then
         MsgBox "请确定空间步长均为数字！"
+        Exit Sub
     End If
+    
+    delta_x = Val(Delta_X_Box.Text)
+    delta_y = Val(Delta_Y_Box.Text)
+    
+    If delta_x < 1 Or delta_y < 1 Then
+        MsgBox "空间步长应为正整数"
+        Exit Sub
+    ElseIf grid_w Mod delta_x Or grid_l Mod delta_y Then
+        MsgBox "请确定该区域可被正确划分（可整除）"
+        Exit Sub
+    End If
+    
+    range_x_tmp = grid_w / delta_x
+    range_y_tmp = grid_l / delta_y
+    
+    If range_x_tmp > 1000 Or range_y_tmp > 1000 Then
+        MsgBox "空间步长太小，最多划分为 1000 * 1000 的网格"
+        Exit Sub
+    ElseIf range_x_tmp * range_y_tmp > 10000 Then
+            MsgBox "本程序对于过于精细的划分支持并不好，如有卡顿现象请见谅……"
+    End If
+    
+    range_x = range_x_tmp
+    range_y = range_y_tmp
+    Grid.Cls
+    Mesh
     Clear_Material_Matrix
     Clear_Select_Matrix
     Call Redraw_Area(0, range_x, 0, range_y)
@@ -551,7 +556,7 @@ Private Sub Micro_Mesh_Button_Click()
         Exit Sub
     End If
     xc = delta_x / Val(Delta_X_Box)
-    yc = delta_y / Val(Delta_X_Box)
+    yc = delta_y / Val(Delta_Y_Box)
     new_range_x = 500 / Val(Delta_X_Box)
     new_range_y = 500 / Val(Delta_Y_Box)
     For i = 0 To new_range_x - 1
@@ -670,8 +675,10 @@ Private Sub Data_Import_Click()
                         Case 2
                             range_x = Val(Split(s, ",")(0))
                             range_y = Val(Split(s, ",")(1))
-                            delta_x = 0.5 / range_x
-                            delta_y = 0.5 / range_y
+                            delta_x = 500 / range_x
+                            delta_y = 500 / range_y
+                            Delta_X_Box.Text = delta_x
+                            Delta_Y_Box.Text = delta_y
                             Grid.Scale (0, range_y)-(range_x, 0)
                             Mesh
                         Case 3
