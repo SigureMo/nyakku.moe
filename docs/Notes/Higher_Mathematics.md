@@ -432,11 +432,14 @@ $\Rightarrow$
 -  支持逐项积分，逐项求导
 
 -  函数展开成幂级数
+
    -  $e^x = \sum \limits_{n = 0}^\infty \frac{1}{n!}x^n$ 全域收敛
    -  $\sin x = \sum \limits_{n = 0}^\infty \frac{(-1)^n}{(2n + 1)!}x^{2n + 1}$ 全域收敛，即 $e^x$ 缺偶数项，且需切换正负
    -  $\cos x$ 和楼上相反
    -  由于 $\sum \limits_{n = 0}^\infty x^n = \frac{1}{1 - x}$ ，故 $\frac{1}{1 + x} = \sum \limits_{n = 0}^\infty (-1)^n x^n$ ，收敛域 $(-1, 1)$
    -  楼上再逐项积分得 $ln(1 + x) = \sum \limits_{n = 0}^\infty \frac{(-1)^n}{n + 1} x^{n + 1} = \sum \limits_{n = 1}^\infty \frac{(-1)^{n - 1}}{n} x^n$ ，收敛域 $(-1, 1]$
+
+   > 欧拉公式 $e^{ix} = \cos x + i \sin x$ ，令 $x = \pi$ ，则 $e^{i \pi} + 1 = 0$
 
 ### 9.2 一些需要注意的
 
