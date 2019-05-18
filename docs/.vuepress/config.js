@@ -74,6 +74,7 @@ module.exports = {
       ],
       "/Discovery/": [
         "",
+        "10_KaTeX_Index",
         "09_Cpp_Handbook",
         "08_Synchronization",
         "07_Cmder",
