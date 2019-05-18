@@ -34,19 +34,19 @@ bool Operator::isBackSpace() {
 }
 
 bool Operator::isUnaryOperator() {
-  return this->varNum_ == 1 or this->varNum_ == -1;
+  return this->eleNumber == 1 or this->eleNumber == -1;
 }
 
 bool Operator::isBinaryOperator() {
-  return this->varNum_ == 2;
+  return this->eleNumber == 2;
 }
 
 bool Operator::isPrefixUnaryOperator() {
-  return this->varNum_ == 1;
+  return this->eleNumber == 1;
 }
 
 bool Operator::isPostfixUnaryOperator() {
-  return this->varNum_ == -1;
+  return this->eleNumber == -1;
 }
 
 Number* Operator::compute(Operand* oa1, Operand* oa2) {};
@@ -56,7 +56,7 @@ Number* Operator::compute(Operand* oa1) {};
 Plus::Plus():Operator('+') {
   this->text_ = '+';
   this->priority = 1;
-  this->varNum_ = 2;
+  this->eleNumber = 2;
 }
 
 Number* Plus::compute(Operand* oa1, Operand* oa2) {
@@ -79,7 +79,7 @@ Number* Plus::compute(Operand* oa1, Operand* oa2) {
 Minus::Minus():Operator('-') {
   this->text_ = '-';
   this->priority = 1;
-  this->varNum_ = 2;
+  this->eleNumber = 2;
 }
 
 Number* Minus::compute(Operand* oa1, Operand* oa2) {
@@ -94,7 +94,7 @@ Number* Minus::compute(Operand* oa1, Operand* oa2) {
 Multiply::Multiply():Operator('*') {
   this->text_ = '*';
   this->priority = 2;
-  this->varNum_ = 2;
+  this->eleNumber = 2;
 }
 
 Number* Multiply::compute(Operand* oa1, Operand* oa2) {
@@ -104,7 +104,7 @@ Number* Multiply::compute(Operand* oa1, Operand* oa2) {
 Divide::Divide():Operator('/') {
   this->text_ = '/';
   this->priority = 2;
-  this->varNum_ = 2;
+  this->eleNumber = 2;
 }
 
 Number* Divide::compute(Operand* oa1, Operand* oa2) {
@@ -114,7 +114,7 @@ Number* Divide::compute(Operand* oa1, Operand* oa2) {
 Power::Power():Operator('^') {
   this->text_ = '^';
   this->priority = 3;
-  this->varNum_ = 2;
+  this->eleNumber = 2;
 }
 
 Number* Power::compute(Operand* oa1, Operand* oa2) {
@@ -134,7 +134,7 @@ RightBracket::RightBracket():Operator(')') {
 Negative::Negative():Operator('-') {
   this->text_ = '-';
   this->priority = 9;
-  this->varNum_ = 1;
+  this->eleNumber = 1;
 }
 
 Number* Negative::compute(Operand* oa1) {
@@ -144,7 +144,7 @@ Number* Negative::compute(Operand* oa1) {
 Mod::Mod():Operator('%') {
   this->text_ = '%';
   this->priority = 2;
-  this->varNum_ = 2;
+  this->eleNumber = 2;
 }
 
 Number* Mod::compute(Operand* oa1, Operand* oa2) {
@@ -156,7 +156,7 @@ Number* Mod::compute(Operand* oa1, Operand* oa2) {
   else {
     maxdot = oa2->dot;
   }
-  nums = (ll)(oa1->nums * pow(10, maxdot-oa1->dot)) % (ll)(oa2->nums * pow(10, maxdot-oa2->dot));
+  nums = (llong)(oa1->nums * pow(10, maxdot-oa1->dot)) % (llong)(oa2->nums * pow(10, maxdot-oa2->dot));
   oa = new Number(nums, maxdot);
   return oa;
 }
@@ -164,7 +164,7 @@ Number* Mod::compute(Operand* oa1, Operand* oa2) {
 Log::Log():Operator('l') {
   this->text_ = 'l';
   this->priority = 9;
-  this->varNum_ = 1;
+  this->eleNumber = 1;
 }
 
 Number* Log::compute(Operand* oa1) {
@@ -174,7 +174,7 @@ Number* Log::compute(Operand* oa1) {
 Ln::Ln():Operator('n') {
   this->text_ = 'n';
   this->priority = 9;
-  this->varNum_ = 1;
+  this->eleNumber = 1;
 }
 
 Number* Ln::compute(Operand* oa1) {
@@ -184,7 +184,7 @@ Number* Ln::compute(Operand* oa1) {
 Sin::Sin():Operator('s') {
   this->text_ = 's';
   this->priority = 9;
-  this->varNum_ = 1;
+  this->eleNumber = 1;
 }
 
 Number* Sin::compute(Operand* oa1) {
@@ -194,7 +194,7 @@ Number* Sin::compute(Operand* oa1) {
 Cos::Cos():Operator('o') {
   this->text_ = 'o';
   this->priority = 9;
-  this->varNum_ = 1;
+  this->eleNumber = 1;
 }
 
 Number* Cos::compute(Operand* oa1) {
@@ -204,7 +204,7 @@ Number* Cos::compute(Operand* oa1) {
 Tan::Tan():Operator('t') {
   this->text_ = 't';
   this->priority = 9;
-  this->varNum_ = 1;
+  this->eleNumber = 1;
 }
 
 Number* Tan::compute(Operand* oa1) {
@@ -214,7 +214,7 @@ Number* Tan::compute(Operand* oa1) {
 ArcSin::ArcSin():Operator('S') {
   this->text_ = 'S';
   this->priority = 9;
-  this->varNum_ = 1;
+  this->eleNumber = 1;
 }
 
 Number* ArcSin::compute(Operand* oa1) {
@@ -224,7 +224,7 @@ Number* ArcSin::compute(Operand* oa1) {
 ArcCos::ArcCos():Operator('O') {
   this->text_ = 'O';
   this->priority = 9;
-  this->varNum_ = 1;
+  this->eleNumber = 1;
 }
 
 Number* ArcCos::compute(Operand* oa1) {
@@ -234,7 +234,7 @@ Number* ArcCos::compute(Operand* oa1) {
 ArcTan::ArcTan():Operator('T') {
   this->text_ = 'T';
   this->priority = 9;
-  this->varNum_ = 1;
+  this->eleNumber = 1;
 }
 
 Number* ArcTan::compute(Operand* oa1) {
@@ -244,26 +244,28 @@ Number* ArcTan::compute(Operand* oa1) {
 Factorial::Factorial():Operator('!') {
   this->text_ = '!';
   this->priority = 9;
-  this->varNum_ = -1;
+  this->eleNumber = -1;
 }
 
 Number* Factorial::compute(Operand* oa1) {
-  if (oa1->dot) {
-    return new Number(Gamma(oa1->getValue()));
+  double res = 1;
+  double num;
+  for (num = oa1->getValue(); num > 1; num--) {
+    res *= num;
   }
-  else {
-    ll res = 1;
-    for (int i = oa1->nums; i > 0; i--) {
-      res *= i;
-    }
-    return new Number(res, 0);
+  if (num == 0) {
+    res = 1;
   }
+  else if (num < 1) {
+    res *= Gamma(num + 1);
+  }
+  return new Number(res);
 }
 
 Sqrt::Sqrt():Operator('@') {
   this->text_ = '@';
   this->priority = 9;
-  this->varNum_ = 1;
+  this->eleNumber = 1;
 }
 
 Number* Sqrt::compute(Operand* oa1) {
@@ -276,7 +278,7 @@ double Gamma(double x) {
   double delta = 1e-6;
   double res = 0;
   while (i < 1e7) {
-    res += pow(i * delta, x) * exp(-i * delta) * delta;
+    res += pow(i * delta, x - 1) * exp(-i * delta) * delta;
     i++;
   }
   return res;

@@ -18,7 +18,7 @@ public:
   void cleanZeros(); // clean zeros that behind the dot
   double getValue();
   void setValue(double value);
-  ll nums; // number
+  llong nums; // number
   int dot; // position of dot
 protected:
   int oaType_;
@@ -37,7 +37,7 @@ public:
 
 class Number : public Operand {
 public:
-  Number(ll nums, int dot);
+  Number(llong nums, int dot);
   Number(double value);
   void multiply(double value);
 };
