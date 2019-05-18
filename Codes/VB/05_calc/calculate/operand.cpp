@@ -55,7 +55,7 @@ Variable::Variable(char name):Operand(1) {
 }
 
 
-Number::Number(ll nums, int dot):Operand(2) {
+Number::Number(llong nums, int dot):Operand(2) {
   this->name_ = 0;
   this->nums = nums;
   this->dot = dot;

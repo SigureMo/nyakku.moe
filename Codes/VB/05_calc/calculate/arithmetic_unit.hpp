@@ -1,7 +1,7 @@
 #ifndef ARITHMETICUNIT_H
 #define ARITHMETICUNIT_H
 
-typedef long long ll;
+typedef long long llong;
 
 class ArithmeticUnit {
 public:

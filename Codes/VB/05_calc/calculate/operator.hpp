@@ -26,7 +26,7 @@ public:
 protected:
   int code_; // ascii ...
   std::string text_;
-  int varNum_;
+  int eleNumber;
 };
 
 class Plus : public Operator {
