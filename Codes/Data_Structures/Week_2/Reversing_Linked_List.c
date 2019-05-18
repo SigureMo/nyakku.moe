@@ -1,34 +1,4 @@
-// Reversing Linked List
-////Given a constant K and a singly linked list L, you are supposed to reverse the links of every K elements on L. For example, given L being 1->2->3->4->5->6, if K=3, then you must output 3?2?1?6?5?4; if K=4, you must output 4-3->2->1->5->6.
-//Specification:
-//	IN:
-//	Each input file contains one test case. For each case, the first line contains the address of the first node, a positive N (=10
-//?5
-//?? ) which is the total number of nodes, and a positive K (=N) which is the length of the sublist to be reversed. The address of a node is a 5-digit nonnegative integer, and NULL is represented by -1.
-//
-//Then N lines follow, each describes a node in the format:
-//
-//Address Data Next
-//where Address is the position of the node, Data is an integer, and Next is the position of the next node.
-//    OUT:
-//    For each case, output the resulting ordered linked list. Each node occupies a line, and is printed in the same format as in the input.
-//Sample:
-//    IN:
-//	    00100 6 4
-//		00000 4 99999
-//		00100 1 12309
-//		68237 6 -1
-//		33218 3 00000
-//		99999 5 68237
-//		12309 2 33218
-//    OUT:
-//        00000 4 33218
-//		33218 3 12309
-//		12309 2 00100
-//		00100 1 99999
-//		99999 5 68237
-//		68237 6 -1
-
+// See PAT_B 1025
 
 #include <stdio.h>
 #include <stdlib.h>
@@ -40,9 +10,9 @@ typedef struct _node {
 		int Address;
 		int K;
 	} Meta;
-    int Data;
-    int NextAddress;
-    struct _node* Next;
+  int Data;
+  int NextAddress;
+  struct _node* Next;
 }Node, *List;
 
 List Read();
@@ -52,15 +22,14 @@ void Print(List L);
 
 int main()
 {
-    List L;
-    L = Read();
-    L = Sort(L);
-//    Print(L);
+  List L;
+  L = Read();
+  L = Sort(L);
 	L = Reverse(L);
 	L = Sort(L);
-    Print(L);
-    return 0;
-} 
+  Print(L);
+  return 0;
+}
 
 List Read(){
 	List L, rear, t;
@@ -80,10 +49,11 @@ List Read(){
 }
 
 
-//½¨Á¢ÁÙÊ±HEAD front ÓÃÓÚ¼ÇÂ¼ÅÅºÃÐòµÄ²¿·Ö 
-//ÁíÍâÉèÒ»¸ö rear¼ÇÂ¼ÒÑÍê³ÉÅÅÐòµÄÎ²½áµã ÒÔ±ãÏòºó²åÈëÐÂµÄÅÅºÃÐòµÄ½áµã
-//LÔòÊÇÎ´ÅÅºÃÐòµÄ²¿·Ö
-//×¢Òâ£ºÎªÁË±£Ö¤LµÄÍêÕûÐÔ °ÑÅÅÐòÕÒµ½µÄ½áµãÒªÈÆ¹ýÈ¥ Íê³ÉÕâ¸öÔòÐèÒª m->Next = m->Next->Next; Òò´ËÁíÉèÁ¢ÒÆ¶¯Ö¸Õëm µ«ÎªÁËÐÞ¸ÄÆäÖ¸Õë²¢²»½ôËæ 
+// å»ºç«‹ä¸´æ—¶ HEAD front ç”¨äºŽè®°å½•æŽ’å¥½åºçš„éƒ¨åˆ†
+// å¦å¤–è®¾ä¸€ä¸ª rear è®°å½•å·²å®ŒæˆæŽ’åºçš„å°¾ç»“ç‚¹ ä»¥ä¾¿å‘åŽæ’å…¥æ–°çš„æŽ’å¥½åºçš„ç»“ç‚¹
+// L åˆ™æ˜¯æœªæŽ’å¥½åºçš„éƒ¨åˆ†
+// æ³¨æ„ï¼šä¸ºäº†ä¿è¯ L çš„å®Œæ•´æ€§ æŠŠæŽ’åºæ‰¾åˆ°çš„ç»“ç‚¹è¦ç»•è¿‡åŽ» å®Œæˆè¿™ä¸ªåˆ™éœ€è¦ m->Next = m->Next->Next;
+//       å› æ­¤å¦è®¾ç«‹ç§»åŠ¨æŒ‡é’ˆ m ä½†ä¸ºäº†ä¿®æ”¹å…¶æŒ‡é’ˆå¹¶ä¸ç´§éš
 List Sort(List L){
 	List front, rear, m;
 	int cnt = 0;
@@ -98,10 +68,6 @@ List Sort(List L){
 				rear = rear->Next;
 				m->Next = m->Next->Next;
 				cnt++;
-//				printf("---->%d %d\n",m->Next,m->Data);
-//				printf("L-----------------------\n");
-//				Print(L);
-//				printf("end---\n");
 				break;
 			}
 			m = m->Next;
@@ -112,33 +78,35 @@ List Sort(List L){
 	front->Data = cnt;
 	return front;
 }
-//List Reverse(List L){
-//	int K = L->Meta.K;
-//	int cnt, t;
-//	int num = L->Data/K;
-//	List blockHead, Front, Rear, p, next, tmp;
-//	blockHead = Front = Rear = L;
-//	while(num--){
-//		p = blockHead->Next;
-//		next = p->Next;
-//		cnt = K-1;
-//		Rear = blockHead->Next;
-//		while(cnt--){
-//			tmp = next->Next;
-//			next->Next = p;
-//			Front = next;
-//			next = tmp; 
-//			p = Front;
-//		}
-//		blockHead->Next = Front;
-//		blockHead = Rear;
-//	}
-//	if (next){
-//		Rear->Next = next;
-//	}
-//	return L;
-//}
-//Ô­À´ÒÔÎªÊÇÖ»ÐÞ¸ÄÁ´±í½á¹¹ ºóÀ´²Å·¢ÏÖ¾ÓÈ»Á´±íµÄºóÐøµØÖ·Ò²Òª¸Ä£¬¾Í²ÉÓÃÁËÖ»ÐÞ¸ÄÁ´±íÄÚÈÝ£¬Á´ÐÞ¸Ä½»ÓÉSort´¦ÀíµÄ·½°¸£¬Ïà¶ÔÀ´Ëµ¼òµ¥ÁËÐí¶à 
+
+
+// åŽŸæ¥ä»¥ä¸ºæ˜¯åªä¿®æ”¹é“¾è¡¨ç»“æž„ åŽæ¥æ‰å‘çŽ°å±…ç„¶é“¾è¡¨çš„åŽç»­åœ°å€ä¹Ÿè¦æ”¹ï¼Œå°±é‡‡ç”¨äº†åªä¿®æ”¹é“¾è¡¨å†…å®¹ï¼Œé“¾ä¿®æ”¹äº¤ç”±Sortå¤„ç†çš„æ–¹æ¡ˆï¼Œç›¸å¯¹æ¥è¯´ç®€å•äº†è®¸å¤š
+// List Reverse(List L){
+// 	int K = L->Meta.K;
+// 	int cnt, t;
+// 	int num = L->Data/K;
+// 	List blockHead, Front, Rear, p, next, tmp;
+// 	blockHead = Front = Rear = L;
+// 	while(num--){
+// 		p = blockHead->Next;
+// 		next = p->Next;
+// 		cnt = K-1;
+// 		Rear = blockHead->Next;
+// 		while(cnt--){
+// 			tmp = next->Next;
+// 			next->Next = p;
+// 			Front = next;
+// 			next = tmp;
+// 			p = Front;
+// 		}
+// 		blockHead->Next = Front;
+// 		blockHead = Rear;
+// 	}
+// 	if (next){
+// 		Rear->Next = next;
+// 	}
+// 	return L;
+// }
 
 List Reverse(List L){
 	int K = L->Meta.K;
@@ -152,11 +120,9 @@ List Reverse(List L){
 		pR = p;
 		cnt = K-1;
 		while(cnt--){
-//			printf("1---->%d %d %d\n",p->Meta.Address, p->Data, p->NextAddress);
 			ad = p->Meta.Address;
 			p = p->Next;
 			p->NextAddress = ad;
-//			printf("2---->%d %d %d\n",p->Meta.Address, p->Data, p->NextAddress);
 		}
 		pH->NextAddress = p->Meta.Address;
 		if (p->Next){
@@ -165,11 +131,7 @@ List Reverse(List L){
 		else{
 			pR->NextAddress = -1;
 		}
-//		printf("H---->%d %d %d\n",pH->Meta.K, pH->Data, pH->NextAddress);
-//	    printf("D---->%d %d %d\n",p->Meta.Address, p->Data, p->NextAddress);
-//	    printf("R---->%d %d %d\n",pR->Meta.Address, pR->Data, pR->NextAddress);
 	}
-//	printf("L---->%d %d %d\n",L->Meta.K, L->Data, L->NextAddress);
 	return L;
 }
 
