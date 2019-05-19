@@ -1,16 +1,36 @@
 # KaTeX Index
 
+## 常用标记
+
+### 多行公式
+
+$$
+\begin{aligned}
+\sum_{i=1}^n a_i & = 0 \\
+\sum_{j=1}^n b_j & = 1000
+\end{aligned}
+$$
+
+```LaTeX
+\begin{aligned}
+\sum_{i=1}^n a_i & = 0 \\
+\sum_{j=1}^n b_j & = 1000
+\end{aligned}
+```
+
 ## 分科索引
 
 ### 高等数学
 
-| symbol              | code                |
-| ------------------- | ------------------- |
-| $\lim$              | `\lim`              |
-| $\sum$              | `\sum`              |
-| $\equiv$            | `\equiv`            |
-| $\lfloor x \rfloor$ | `\lfloor x \rfloor` |
-| $\lceil x \rceil$   | `\lceil x \rceil`   |
+| symbol                   | code                     |
+| ------------------------ | ------------------------ |
+| $\lim$                   | `\lim`                   |
+| $\sum$                   | `\sum`                   |
+| $\equiv$                 | `\equiv`                 |
+| $\lfloor x \rfloor$      | `\lfloor x \rfloor`      |
+| $\lceil x \rceil$        | `\lceil x \rceil`        |
+| $\text{\textasciitilde}$ | `\text{\textasciitilde}` |
+| $\omicron$               | `\omicron`               |
 
 ### 离散数学
 
@@ -27,6 +47,7 @@
 | $\iff$            | `\iff`            |
 | $\bigvee$         | `\bigvee`         |
 | $\bigwedge$       | `\bigwedge`       |
+| $\odot$           | `\odot`           |
 
 #### 量词符号
 
