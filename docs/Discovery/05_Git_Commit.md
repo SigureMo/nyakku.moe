@@ -1,4 +1,4 @@
-# Gitmoji
+# Git Commit
 
 ## 1 Gitmoji 规范
 
@@ -67,8 +67,65 @@
 | :wheel_of_dharma:           | `:wheel_of_dharma:`           | Work about Kubernetes                        | Kubernetes 相关工作                  |
 | :label:                     | `:label:`                     | Adding or updating types (Flow, TypesScript) | 添加或更新类型声明(Flow、TypeScript) |
 
+## 2 Commit Message 规范
+
+组成： header 、 body 、 footer
+即
+
+```
+<type>(<scope>): <subject>
+<BLANK LINE>
+<body>
+<BLANK LINE>
+<footer>
+```
+
+### Header
+
+#### type
+
+-  feat：新功能（feature）
+-  fix：修补 bug
+-  docs：文档（documentation）
+-  style： 格式（不影响代码运行的变动）
+-  refactor：重构（即不是新增功能，也不是修改 bug 的代码变动）
+-  test：增加测试
+-  chore：构建过程或辅助工具的变动
+
+#### scope
+
+scope 用于说明 commit 影响的范围，如果你的修改影响了不止一个 scope ，你可以使用 `*` 代替
+
+#### subject
+
+subject 是 commit 目的的简短描述，不超过 50 个字符
+
+-  以动词开头，使用第一人称现在时，比如 change，而不是 changed 或 changes
+-  第一个字母小写
+-  结尾不加句号（.）
+
+### Body
+
+Body 是详细描述
+
+### Footer
+
+-  不兼容变动
+-  关闭 Issue 如 `Closes #234`
+
+### Revert
+
+用于撤销之前的某次 commit ，以 `revert` 开头，后面跟着被撤销 Commit 的 Header ，如
+
+```
+revert: feat(pencil): add 'graphiteWidth' option
+
+This reverts commit 667ecc1654a317a13331b17617d973392f415f02.
+```
+
 # Reference
 
 1. [程序员提交代码的 emoji 指南——原来表情文字不能乱用](https://www.h5jun.com/post/gitmoji.html)
 2. [Gitmoji](http://gitmoji.carloscuesta.me/)
 3. [用 gitmoji 来提交你的 git commit 吧](https://github.com/mytac/blogs/issues/2)
+4. [git commit 规范指南](https://segmentfault.com/a/1190000009048911?utm_source=tag-newest)

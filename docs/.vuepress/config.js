@@ -79,7 +79,7 @@ module.exports = {
         "08_Synchronization",
         "07_Cmder",
         "06_Harddisk",
-        "05_Gitmoji",
+        "05_Git_Commit",
         "04_Hardware",
         "03_C_and_pointer",
         "01_Everything_is_object"
