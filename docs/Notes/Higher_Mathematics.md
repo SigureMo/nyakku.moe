@@ -1,6 +1,6 @@
 # Higher Mathematics <Badge text="alpha" type="warn"/> <Badge text="0.0.0"/>
 
-## 1 Basics
+## 1 基础
 
 ### 1.1 定理
 
@@ -43,7 +43,7 @@
 
 $(a+b)^n=\sum\limits_{k=0}^n C_n^k a^kb^{n-k}$
 
-## 2 Limit and continuity
+## 2 极限和连续
 
 ### 2.1 定理
 
@@ -97,6 +97,12 @@ $(a+b)^n=\sum\limits_{k=0}^n C_n^k a^kb^{n-k}$
       > 又把四则运算与复合函数这俩简单的法则加上了，至于原因嘛，当然是因为这里出问题了，什么时候可以直接求 $x \to 0$ 时的 $\cos x$ ，貌似很简单的问题，但是为什么 $\lim \limits_{x \to 0} (\frac{1}{\sin^2 x} + \frac{\cos^2 x}{x^2})$ 里的 $\cos x$ 不是 1？我们可以试着用四则运算拆拆试试，很明显，由于分母是 0 ，我们不能用四则运算直接得出
       >
       > 类似的，出在复合函数上的一个问题，我们知道第二个重要极限，我们可是为什么这样可以呢？我们看一下：$\lim \limits_{x \to \infty} (1 + \frac{1}{x})^x = \lim \limits_{x \to \infty} e^{x \ln (1 + \frac{1}{x})} = e^{\lim \limits_{x \to \infty} x \ln (1 + \frac{1}{x})}$ ，咦，这步为啥，极限四则运算没有它呀，我们还有复合函数运算法则呀，也就是将上一步看成 $e^t$，很容易就得到上面的式子啦
+      >
+      > 下面看一个 18 讲上的例子，刚好与这里讨论的问题相一致
+      > $\lim \limits_{x \to +\infty} \frac{e^x}{(1 + \frac{1}{x})^{x^2}} = \lim \limits_{x \to +\infty} \frac{e^x}{[(1 + \frac{1}{x})^x]^x} = \lim \limits_{x \to +\infty}\frac{e^x}{e^x}$
+      > 书中写到：“这里违反里同一极限号后同一变量的趋向具有同时性，不能人为地制造先后顺序”，私以为这里本就违反了最基本的极限运算法则，上面提到，复合函数是可以拆开的，但是这里内外层都有 $x$ ，明显不能拆开，另外，这里也不是极限四则运算里的乘法，因为这里是无限项之间相乘，故本处不能如此拆分，这样理解的话，书上其余部分“反例”理解起来就会相对容易些，因为它们都满足极限运算法则，所以为什么不能那么做呢？
+      > 而书中原本写的“变量趋向的同时性”，我认为可以理解为如果将其强行拆分为内外层复合函数的话，内外层的考虑将会是独立的了，这样与原式是不等的，所以不可以拆分
+      > 所以，极限的基本运算法则要用好，不能强行自造定理，否则会犯很“低级”（其实并不低级，因为真的很难注意到这些细节）的错误
 
 -  函数极限存在准则——夹逼准则
    如果函数 $f(x), g(x)$ 及 $h(x)$ 满足下列条件：
@@ -118,6 +124,24 @@ $(a+b)^n=\sum\limits_{k=0}^n C_n^k a^kb^{n-k}$
    > -  若取 $x'_n = \frac{1}{(2n+\frac{1}{2})\pi \to 0, n \to \infty}$ ，则有 $f(x'_n) = (2n + \frac{1}{2})\pi \to \infty$
    >
    > 根据海涅定理可知极限不存在
+
+-  泰勒公式
+
+   $$
+   \begin{aligned}
+   \sin x &= x - \frac{x^3}{3!} + \omicron(x^3) \\
+   \arcsin x &= x + \frac{x^3}{3!} + \omicron(x^3) \\
+   \tan x &= x + \frac{x^3}{3} + \omicron(x^3) \\
+   \arctan x &= x - \frac{x^3}{3} + \omicron(x^3) \\
+   \cos x &= 1 - \frac{x^2}{2!} + \frac{x^4}{4!} + \omicron(x^4) \\
+   \ln (x + 1) &= x - \frac{x^2}{2} + \frac{x^3}{3} + \omicron(x^3) \\
+   e^x &= 1 + x + \frac{x^2}{2!} + \frac{x^3}{3} + \omicron(x^3) \\
+   (1 + x)^\alpha &= 1 + x + \frac{\alpha(\alpha - 1)}{2!} x^2 + \omicron(x^2) \\
+   \end{aligned}
+   $$
+
+   > -  $\frac{A}{B}$ 型注意“上下同阶”
+   > -  $A - B$ 注意“幂次最低”
 
 #### 2.1.4 函数的连续与间断
 
@@ -166,7 +190,14 @@ $(a+b)^n=\sum\limits_{k=0}^n C_n^k a^kb^{n-k}$
 4. 夹逼准则
 5. 定积分定义
 
-## 3 Single Variable Differential Calculus
+### 2.3 一些小技巧
+
+-  积分不一定洛必达，我们可以通过洛必达得到该积分的等价无穷小，如
+   1. $\int_0^x \frac{\sin t^2}{t} dt \text{\textasciitilde} \frac{1}{2} x^2$ （可通过洛必达得到）
+   2. $x - \ln (1 + x) \text{\textasciitilde} \frac{1}{2} x^2$ （由泰勒展开易得）
+   3. 那么，$\int_0^{x - \ln (1 + x)} \frac{\sin t^2}{t} dt \text{\textasciitilde} \frac{1}{2} x^2 \text{\textasciitilde} \frac{1}{8} x^4$ （$2$ 式代入 $1$ 式即得）
+
+## 3 一元函数微分学
 
 ### 3.1 主线梳理
 
@@ -293,7 +324,7 @@ $\Rightarrow$
 -  凹凸性均指“向上”，与某些教材不同，即 $f''(x) > 0$ 为凹而不是凸
 -  使用中值定理的 $a$ 和 $b$ ，不一定是给定的区间边界，可能是其中的某个区域的边界，甚至可能是已经使用某个定理得到的 $\xi_1$（就是多次使用罗尔定理这种……）
 
-## 4 Single Variable Integral Calculus
+## 4 一元函数积分学
 
 ### 4.1 主线梳理
 
@@ -342,13 +373,13 @@ $\Rightarrow$
    -  无穷区间 比 $\frac{1}{x}$ 高阶的无穷小收敛
    -  无界函数 比 $\frac{1}{x}$ 低阶的无穷大收敛
 
-## 5 Differential Equation
+## 5 微分方程
 
-## 6 Space Analytic Geometry
+## 6 空间解析几何
 
-## 7 Multivariable Differential Calculus
+## 7 多元函数微分学
 
-## 8 Multivariate Functional Integral
+## 8 多元函数积分学
 
 ### 8.1 主线梳理
 
@@ -393,7 +424,7 @@ $\Rightarrow$
 -  曲面积分优先考虑对称性
 -  可以使用格林公式将面积转换为第二类曲线积分
 
-## 9 Infinite Series
+## 9 无穷级数
 
 ### 9.1 主线梳理
 
@@ -441,6 +472,57 @@ $\Rightarrow$
 
    > 欧拉公式 $e^{ix} = \cos x + i \sin x$ ，令 $x = \pi$ ，则 $e^{i \pi} + 1 = 0$
 
+#### 9.1.3 傅里叶级数
+
+用于展开一些周期函数，可展开为（我们先考虑以 $2\pi$ 为周期的情况，且 $[-\pi, \pi]$ 为其一个周期）
+
+$$
+\frac{a_0}{2} + \sum_{n = 1}^\infty (a_n \cos nx + b_n \sin nx)
+$$
+
+由于三角函数的正交性：
+
+-  $\int_{-\pi}^\pi \cos nx dx = 0(n = 0, 1, 2, 3, \cdots)$
+-  $\int_{-\pi}^\pi \sin nx dx = 0(n = 0, 1, 2, 3, \cdots)$
+-  $\int_{-\pi}^\pi \sin kx \cos nx dx = 0(n = 0, 1, 2, 3, \cdots)$
+-  $\int_{-\pi}^\pi \cos kx \cos nx dx = 0(n = 0, 1, 2, 3, \cdots, k \not = n)$
+-  $\int_{-\pi}^\pi \sin kx \sin nx dx = 0(n = 0, 1, 2, 3, \cdots, k \not = n)$
+
+可以推出
+
+$$
+\begin{aligned}
+a_n =& \frac{1}{\pi} \int_{-\pi}^\pi f(x) \cos nx dx (n = 0, 1, 2, 3, \cdots) \\
+b_n =& \frac{1}{\pi} \int_{-\pi}^\pi f(x) \sin nx dx (n = 1, 2, 3, \cdots)
+\end{aligned}
+$$
+
+收敛定理：
+
+-  在一个周期内连续或只有有限个第一类间断点
+-  在一个周期内之多只有有限个极值点
+
+那么收敛，在间断点处收敛于该点左极限与右极限的算数平均值
+
+-  如果某函数只有一部分，那么我们可以在对该部分进行周期延拓，然后只取其定义域部分即可
+-  相似地，上面这种情况还可以进行奇延拓或偶延拓
+-  如果周期为 $2l$ 那么展开就成了这样子
+
+   $$
+   \frac{a_0}{2} + \sum_{n = 1}^\infty (a_n \cos \frac{n \pi x}{l} + b_n \sin \frac{n \pi x}{l})
+   $$
+
+   其中
+
+   $$
+   \begin{aligned}
+   a_n =& \frac{1}{l} \int_{-l}^l f(x) \cos \frac{n \pi x}{l} dx (n = 0, 1, 2, 3, \cdots) \\
+   b_n =& \frac{1}{l} \int_{-l}^l f(x) \sin \frac{n \pi x}{l} dx (n = 1, 2, 3, \cdots)
+   \end{aligned}
+   $$
+
+-  奇函数的话， $a_n = 0$ ，只有 $\sin nx$ 项（可依此简化计算），偶函数如是
+
 ### 9.2 一些需要注意的
 
 -  当幂级数为非连续项时（如缺奇数次项），不可用系数比，需要直接用比值审敛法
@@ -449,6 +531,7 @@ $\Rightarrow$
 
 -  可适当利用放缩来简化计算
 -  求幂级数和函数 $S(x)$ 时，分母含 $n$ 可利用逐项求导消掉，分子含 $n$ 可利用逐项积分消掉，为保证可以积分（求导），可在等式两侧乘 $x$ 的有限次方
+-  傅里叶级数可根据奇偶性、三角函数的正交性简化计算
 
 # Change Log
 
