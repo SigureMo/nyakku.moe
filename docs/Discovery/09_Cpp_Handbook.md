@@ -11,6 +11,42 @@
 -  `const char* p = str.data();`
 -  `const char *p = str.c_str();`
 
+## 排序算法
+
+### Sort
+
+```cpp
+Sort(start, end, 排序方法)
+```
+
+第三个参数缺省为从小到大排列，比如有一个 `int a[10]`
+
+```cpp
+sort(a, a+10);
+```
+
+便可对其进行排序
+
+那么如何自定义排序方法呢？
+
+比如我们定义
+
+```cpp
+bool compare(int a, int b)
+{
+  return a > b;
+}
+```
+
+之后调用
+
+```cpp
+sort(a, a+10, compare);
+```
+
+即可获得从大到小的序列
+
 # Reference
 
 1. [C++中 string、char \*、char[]的转换](https://www.cnblogs.com/Pillar/p/4206452.html)
+2. [sort 函数的用法(C++排序库函数的调用)](https://www.cnblogs.com/jjzzx/p/5122381.html)
