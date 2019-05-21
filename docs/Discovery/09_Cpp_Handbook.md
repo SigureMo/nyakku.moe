@@ -11,6 +11,20 @@
 -  `const char* p = str.data();`
 -  `const char *p = str.c_str();`
 
+### 如何按行获取输入？
+
+```cpp
+getline(cin, s);
+```
+
+### 寻找子串
+
+```cpp
+position = s.find("b", 5);
+```
+
+意为从位置 `5` 开始寻找子串（缺省为 `0`），返回第一个找到的位置，若未找到，则返回 `string::npos` ，可据此判断子串是否在子串中
+
 ## 排序算法
 
 ### Sort
@@ -50,3 +64,4 @@ sort(a, a+10, compare);
 
 1. [C++中 string、char \*、char[]的转换](https://www.cnblogs.com/Pillar/p/4206452.html)
 2. [sort 函数的用法(C++排序库函数的调用)](https://www.cnblogs.com/jjzzx/p/5122381.html)
+3. [C++ string 中的 find()函数](https://www.cnblogs.com/wkfvawl/p/9429128.html)

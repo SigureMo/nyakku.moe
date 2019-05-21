@@ -112,7 +112,11 @@ Attribute VB_PredeclaredId = True
 Attribute VB_Exposed = False
 Private Sub Form_Load()
     Main.popen = True
-    Px_Box.Text = Main.px + 1
+    If Main.px = -1 Then
+        Px_Box.Text = Main.px + 2
+    Else
+        Px_Box.Text = Main.px + 1
+    End If
     Py_Box.Text = Main.py + 1
     Show_Probe_Check.Value = Main.Show_Probe
 End Sub
