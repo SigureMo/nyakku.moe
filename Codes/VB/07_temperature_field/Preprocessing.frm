@@ -36,20 +36,16 @@ Begin VB.Form 温度场前处理程序
          BeginProperty Panel1 {0713E89F-850A-101B-AFC0-4210102A8DA7} 
             Object.Width           =   3528
             MinWidth        =   3528
-            TextSave        =   ""
-            Key             =   ""
             Object.Tag             =   ""
          EndProperty
          BeginProperty Panel2 {0713E89F-850A-101B-AFC0-4210102A8DA7} 
             Object.Width           =   4410
             MinWidth        =   4410
-            Key             =   ""
             Object.Tag             =   ""
          EndProperty
          BeginProperty Panel3 {0713E89F-850A-101B-AFC0-4210102A8DA7} 
             Object.Width           =   9701
             MinWidth        =   9701
-            Key             =   ""
             Object.Tag             =   ""
          EndProperty
       EndProperty
@@ -338,6 +334,7 @@ Private Sub Form_Load()
                      "Shift Ctrl 同时按住也是支持的哟~", _
                      "右键一下选择区域就都清空了呢~", _
                      "适当使用反向填充会有奇效哦！", _
+                     "单击滑轮就可以快速填充材料！", _
                      "本程序以 mm 为单位哦，整体长度为 " & grid_w & "，整体宽度为 " & grid_l)
     click_cnt = 0
     Call Load_Params(Material_List)
@@ -437,7 +434,7 @@ Private Sub Grid_MouseDown(Button As Integer, Shift As Integer, X As Single, Y A
     ElseIf Button = 2 Then
         Clear_Select_Matrix
     ElseIf Button = 4 Then
-        MsgBox 1
+        Select_Material_Button_Click
     End If
     Call Redraw_Area(0, range_x, 0, range_y)
     Call Redraw_Sec_Area(0, range_x, 0, range_y)
