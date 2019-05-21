@@ -43,14 +43,12 @@ Begin VB.Form 温度场前处理程序
          BeginProperty Panel2 {0713E89F-850A-101B-AFC0-4210102A8DA7} 
             Object.Width           =   4410
             MinWidth        =   4410
-            TextSave        =   ""
             Key             =   ""
             Object.Tag             =   ""
          EndProperty
          BeginProperty Panel3 {0713E89F-850A-101B-AFC0-4210102A8DA7} 
-            Object.Width           =   8819
-            MinWidth        =   8819
-            TextSave        =   ""
+            Object.Width           =   9701
+            MinWidth        =   9701
             Key             =   ""
             Object.Tag             =   ""
          EndProperty
@@ -335,7 +333,12 @@ Private Sub Form_Load()
     grid_w = 500
     grid_l = 500
     Start_x = -1
-    Tips_arr = Array("支持按住 Shift 进行区域选择哦！", "支持按住 Ctrl 连续点选哦！", "Shift Ctrl 同时按住也是支持的哦", "适当使用反向填充会有奇效哦！", "本程序以 mm 为单位哦，整体长度为" & grid_w & "，整体宽度为" & grid_l)
+    Tips_arr = Array("支持按住 Shift 进行区域选择哦！", _
+                     "支持按住 Ctrl 连续点选哦！", _
+                     "Shift Ctrl 同时按住也是支持的哟~", _
+                     "右键一下选择区域就都清空了呢~", _
+                     "适当使用反向填充会有奇效哦！", _
+                     "本程序以 mm 为单位哦，整体长度为 " & grid_w & "，整体宽度为 " & grid_l)
     click_cnt = 0
     Call Load_Params(Material_List)
     For i = 0 To UBound(Material_List)
@@ -431,9 +434,13 @@ Private Sub Grid_MouseDown(Button As Integer, Shift As Integer, X As Single, Y A
             End If
             Select_Matrix(real_x, real_y) = True
         End If
-        Call Redraw_Area(0, range_x, 0, range_y)
-        Call Redraw_Sec_Area(0, range_x, 0, range_y)
+    ElseIf Button = 2 Then
+        Clear_Select_Matrix
+    ElseIf Button = 4 Then
+        MsgBox 1
     End If
+    Call Redraw_Area(0, range_x, 0, range_y)
+    Call Redraw_Sec_Area(0, range_x, 0, range_y)
 End Sub
 
 '' 鼠标移动回调
@@ -445,22 +452,17 @@ End Sub
 
 '' Shift 区域选择
 Private Sub Mark_Area(x_start As Integer, x_end As Integer, y_start As Integer, y_end As Integer)
-    If x_start < x_end Then
-        x_s = x_start
-        x_e = x_end
-    Else
-        x_e = x_start
-        x_s = x_end
+    Dim x_step, y_step
+    x_step = 1
+    y_step = 1
+    If x_start > x_end Then
+        x_step = -1
     End If
-    If y_start < y_end Then
-        y_s = y_start
-        y_e = y_end
-    Else
-        y_e = y_start
-        y_s = y_end
+    If y_start > y_end Then
+        y_step = -1
     End If
-    For i = x_s To x_e
-        For j = y_s To y_e
+    For i = x_start To x_end Step x_step
+        For j = y_start To y_end Step y_step
             Select_Matrix(i, j) = True
         Next j
     Next i
