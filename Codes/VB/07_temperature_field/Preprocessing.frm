@@ -32,63 +32,63 @@ Begin VB.Form Preprocessing
          Height          =   270
          Left            =   3480
          TabIndex        =   41
-         Top             =   1080
+         Top             =   960
          Width           =   495
       End
       Begin VB.TextBox Center_Y_Text 
          Height          =   270
          Left            =   2760
          TabIndex        =   40
-         Top             =   1080
+         Top             =   960
          Width           =   495
       End
       Begin VB.TextBox Center_X_Text 
          Height          =   270
          Left            =   2160
          TabIndex        =   39
-         Top             =   1080
+         Top             =   960
          Width           =   495
       End
       Begin VB.TextBox Rect_EY_Text 
          Height          =   270
          Left            =   3720
          TabIndex        =   38
-         Top             =   720
+         Top             =   640
          Width           =   375
       End
       Begin VB.TextBox Rect_EX_Text 
          Height          =   270
          Left            =   3240
          TabIndex        =   37
-         Top             =   720
+         Top             =   640
          Width           =   375
       End
       Begin VB.TextBox Rect_SY_Text 
          Height          =   270
          Left            =   2640
          TabIndex        =   36
-         Top             =   720
+         Top             =   640
          Width           =   375
       End
       Begin VB.TextBox Rect_SX_Text 
          Height          =   270
          Left            =   2160
          TabIndex        =   35
-         Top             =   720
+         Top             =   640
          Width           =   375
       End
       Begin VB.TextBox Point_Y_Text 
          Height          =   270
          Left            =   2640
          TabIndex        =   34
-         Top             =   360
+         Top             =   300
          Width           =   375
       End
       Begin VB.TextBox Point_X_Text 
          Height          =   270
          Left            =   2160
          TabIndex        =   33
-         Top             =   360
+         Top             =   300
          Width           =   375
       End
       Begin VB.CheckBox Shortcuts_Enable_Check 
@@ -102,11 +102,11 @@ Begin VB.Form Preprocessing
       End
       Begin VB.CheckBox Ongoing_Select_Check 
          Caption         =   "连续选择"
+         Enabled         =   0   'False
          Height          =   255
          Left            =   240
          TabIndex        =   31
          Top             =   1440
-         Value           =   1  'Checked
          Width           =   1455
       End
       Begin VB.OptionButton Circle_Select_Option 
@@ -138,7 +138,7 @@ Begin VB.Form Preprocessing
          Height          =   255
          Left            =   4080
          TabIndex        =   44
-         Top             =   1080
+         Top             =   960
          Width           =   375
       End
       Begin VB.Label Alt_Label 
@@ -183,18 +183,21 @@ Begin VB.Form Preprocessing
          BeginProperty Panel1 {0713E89F-850A-101B-AFC0-4210102A8DA7} 
             Object.Width           =   3528
             MinWidth        =   3528
+            TextSave        =   ""
             Key             =   ""
             Object.Tag             =   ""
          EndProperty
          BeginProperty Panel2 {0713E89F-850A-101B-AFC0-4210102A8DA7} 
-            Object.Width           =   5292
-            MinWidth        =   5292
+            Object.Width           =   7056
+            MinWidth        =   7056
+            TextSave        =   ""
             Key             =   ""
             Object.Tag             =   ""
          EndProperty
          BeginProperty Panel3 {0713E89F-850A-101B-AFC0-4210102A8DA7} 
             Object.Width           =   9701
             MinWidth        =   9701
+            TextSave        =   ""
             Key             =   ""
             Object.Tag             =   ""
          EndProperty
@@ -467,7 +470,7 @@ Attribute VB_Exposed = False
 Dim Material_Matrix(1000, 1000) As Integer
 Dim Select_Matrix(1000, 1000) As Boolean
 Dim grid_w%, grid_l%
-Dim start_x%, start_y%
+Dim Start_x%, Start_y%
 Dim Center_x!, Center_y!
 Dim Meshed As Boolean
 Dim Tips_arr
@@ -479,7 +482,7 @@ Private Sub Form_Load()
     Meshed = False
     grid_w = 500
     grid_l = 500
-    start_x = -1
+    Start_x = -1
     Center_x = -1
     Tips_arr = Array("Alt 为选中圆形区域， Shift 选中矩形区域", _
                      "支持按住 Ctrl 连续点选哦！", _
@@ -574,24 +577,16 @@ Private Sub Grid_MouseDown(Button As Integer, Shift As Integer, X As Single, Y A
             Clear_Select_Matrix
         End If
         If Mode = 0 Then
-            Point_X_Text.Text = real_x + 1
-            Point_Y_Text.Text = real_y + 1
             Select_Matrix(real_x, real_y) = True
-            start_x = real_x
-            start_y = real_y
-            Center_x = x_mm
-            Center_y = y_mm
+            Call Set_Start_Points(real_x, real_y, x_mm, y_mm)
         ElseIf Mode = 1 Then
-            If Not start_x = -1 Then
-                Call Mark_Area(start_x, real_x, start_y, real_y)
+            If Not Start_x = -1 Then
+                Call Mark_Area(Start_x, real_x, Start_y, real_y)
                 Rect_EX_Text.Text = real_x + 1
                 Rect_EY_Text.Text = real_y + 1
-                start_x = -1
+                Start_x = -1
             Else
-                start_x = real_x
-                start_y = real_y
-                Rect_SX_Text = real_x + 1
-                Rect_SY_Text = real_y + 1
+                Call Set_Start_Points(real_x, real_y, x_mm, y_mm)
             End If
         ElseIf Mode = 2 Then
             If Center_x >= 0 Then
@@ -600,10 +595,7 @@ Private Sub Grid_MouseDown(Button As Integer, Shift As Integer, X As Single, Y A
                 Radius_Text.Text = radius
                 Center_x = -1
             Else
-                Center_x = x_mm
-                Center_y = y_mm
-                Center_X_Text.Text = x_mm
-                Center_Y_Text.Text = y_mm
+                Call Set_Start_Points(real_x, real_y, x_mm, y_mm)
             End If
         End If
     ElseIf Button = 2 Then
@@ -613,6 +605,20 @@ Private Sub Grid_MouseDown(Button As Integer, Shift As Integer, X As Single, Y A
     End If
     Call Redraw_Area(0, range_x, 0, range_y)
     Call Redraw_Sec_Area(0, range_x, 0, range_y)
+End Sub
+
+''' 设置初始位置（们）
+Private Sub Set_Start_Points(sx%, sy%, cx!, cy!)
+    Start_x = sx
+    Start_y = sy
+    Center_x = cx
+    Center_y = cy
+    Rect_SX_Text.Text = sx + 1
+    Rect_SY_Text.Text = sy + 1
+    Center_X_Text.Text = cx
+    Center_Y_Text.Text = cy
+    Point_X_Text.Text = sx + 1
+    Point_Y_Text.Text = sy + 1
 End Sub
 
 ''' 检查模式
@@ -676,16 +682,16 @@ End Sub
 '' 圆形区域选择
 Private Sub Mark_Circle(Center_x!, Center_y!, radius!)
     Dim delta_x%, delta_y%
-    Dim start_x%, start_y%, end_x%, end_y%
+    Dim Start_x%, Start_y%, end_x%, end_y%
     Dim x_mm!, y_mm!
     delta_x = 500 / range_x
     delta_y = 500 / range_y
-    start_x = Int((Center_x - radius) / delta_x) - 1
-    start_y = Int((Center_y - radius) / delta_y) - 1
+    Start_x = Int((Center_x - radius) / delta_x) - 1
+    Start_y = Int((Center_y - radius) / delta_y) - 1
     end_x = Int((Center_x + radius) / delta_x) + 1
     end_y = Int((Center_y + radius) / delta_y) + 1
-    For i = start_x To end_x
-        For j = start_y To end_y
+    For i = Start_x To end_x
+        For j = Start_y To end_y
             If i >= 0 And i < range_x And j >= 0 And j < range_y Then
                 x_mm = (i + 0.5) * delta_x
                 y_mm = (j + 0.5) * delta_y
@@ -831,9 +837,11 @@ Private Sub Shortcuts_Enable_Check_Click()
     If Shortcuts_Enable_Check.value Then
         Shift_Label.Visible = True
         Alt_Label.Visible = True
+        Ongoing_Select_Check.Enabled = False
     Else
         Shift_Label.Visible = False
         Alt_Label.Visible = False
+        Ongoing_Select_Check.Enabled = True
     End If
 End Sub
 
@@ -857,9 +865,31 @@ Private Sub Select_Button_Click()
     End If
     Call Redraw_Area(0, range_x, 0, range_y)
     Call Redraw_Sec_Area(0, range_x, 0, range_y)
+    Exit Sub
 ErrorHandler:
     MsgBox "请确保输入以及选项正确！"
     Exit Sub
+End Sub
+
+'' 点选点击回调
+Private Sub Single_Select_Option_Click()
+    Point_X_Text.Enabled = True: Point_Y_Text.Enabled = True
+    Rect_SX_Text.Enabled = False: Rect_SY_Text.Enabled = False: Rect_EX_Text.Enabled = False: Rect_EY_Text.Enabled = False
+    Center_X_Text.Enabled = False: Center_Y_Text.Enabled = False: Radius_Text.Enabled = False
+End Sub
+
+'' 矩形区选点击回调
+Private Sub Rect_Select_Option_Click()
+    Point_X_Text.Enabled = False: Point_Y_Text.Enabled = False
+    Rect_SX_Text.Enabled = True: Rect_SY_Text.Enabled = True: Rect_EX_Text.Enabled = True: Rect_EY_Text.Enabled = True
+    Center_X_Text.Enabled = False: Center_Y_Text.Enabled = False: Radius_Text.Enabled = False
+End Sub
+
+'' 圆形区选点击回调
+Private Sub Circle_Select_Option_Click()
+    Point_X_Text.Enabled = False: Point_Y_Text.Enabled = False
+    Rect_SX_Text.Enabled = False: Rect_SY_Text.Enabled = False: Rect_EX_Text.Enabled = False: Rect_EY_Text.Enabled = False
+    Center_X_Text.Enabled = True: Center_Y_Text.Enabled = True: Radius_Text.Enabled = True
 End Sub
 
 
@@ -1017,7 +1047,7 @@ ErrHandler:
     Exit Sub
 End Sub
 
-'导出云图
+' 导出云图
 Private Sub Graph_Export_Click()
     If Not Meshed Then
         MsgBox "请先生成网格"
