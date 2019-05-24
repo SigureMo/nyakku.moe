@@ -1,18 +1,165 @@
 VERSION 5.00
 Object = "{6B7E6392-850A-101B-AFC0-4210102A8DA7}#1.3#0"; "COMCTL32.OCX"
 Object = "{F9043C88-F6F2-101A-A3C9-08002B2F49FB}#1.2#0"; "COMDLG32.OCX"
-Begin VB.Form 温度场前处理程序 
+Begin VB.Form Preprocessing 
    BorderStyle     =   1  'Fixed Single
-   Caption         =   "Form1"
-   ClientHeight    =   8775
+   Caption         =   "温度场前处理程序"
+   ClientHeight    =   8880
    ClientLeft      =   2880
    ClientTop       =   2520
-   ClientWidth     =   13305
+   ClientWidth     =   13215
    LinkTopic       =   "Form1"
    MaxButton       =   0   'False
    MinButton       =   0   'False
-   ScaleHeight     =   8775
-   ScaleWidth      =   13305
+   ScaleHeight     =   8880
+   ScaleWidth      =   13215
+   Begin VB.Frame Mode_Frame 
+      Caption         =   "选择模式"
+      Height          =   1935
+      Left            =   8520
+      TabIndex        =   27
+      Top             =   2520
+      Width           =   4500
+      Begin VB.CommandButton Select_Button 
+         Caption         =   "选择"
+         Height          =   255
+         Left            =   3120
+         TabIndex        =   45
+         Top             =   1440
+         Width           =   1095
+      End
+      Begin VB.TextBox Radius_Text 
+         Height          =   270
+         Left            =   3480
+         TabIndex        =   41
+         Top             =   1080
+         Width           =   495
+      End
+      Begin VB.TextBox Center_Y_Text 
+         Height          =   270
+         Left            =   2760
+         TabIndex        =   40
+         Top             =   1080
+         Width           =   495
+      End
+      Begin VB.TextBox Center_X_Text 
+         Height          =   270
+         Left            =   2160
+         TabIndex        =   39
+         Top             =   1080
+         Width           =   495
+      End
+      Begin VB.TextBox Rect_EY_Text 
+         Height          =   270
+         Left            =   3720
+         TabIndex        =   38
+         Top             =   720
+         Width           =   375
+      End
+      Begin VB.TextBox Rect_EX_Text 
+         Height          =   270
+         Left            =   3240
+         TabIndex        =   37
+         Top             =   720
+         Width           =   375
+      End
+      Begin VB.TextBox Rect_SY_Text 
+         Height          =   270
+         Left            =   2640
+         TabIndex        =   36
+         Top             =   720
+         Width           =   375
+      End
+      Begin VB.TextBox Rect_SX_Text 
+         Height          =   270
+         Left            =   2160
+         TabIndex        =   35
+         Top             =   720
+         Width           =   375
+      End
+      Begin VB.TextBox Point_Y_Text 
+         Height          =   270
+         Left            =   2640
+         TabIndex        =   34
+         Top             =   360
+         Width           =   375
+      End
+      Begin VB.TextBox Point_X_Text 
+         Height          =   270
+         Left            =   2160
+         TabIndex        =   33
+         Top             =   360
+         Width           =   375
+      End
+      Begin VB.CheckBox Shortcuts_Enable_Check 
+         Caption         =   "启用快捷键"
+         Height          =   255
+         Left            =   1680
+         TabIndex        =   32
+         Top             =   1440
+         Value           =   1  'Checked
+         Width           =   1455
+      End
+      Begin VB.CheckBox Ongoing_Select_Check 
+         Caption         =   "连续选择"
+         Height          =   255
+         Left            =   240
+         TabIndex        =   31
+         Top             =   1440
+         Value           =   1  'Checked
+         Width           =   1455
+      End
+      Begin VB.OptionButton Circle_Select_Option 
+         Caption         =   "圆形区域"
+         Height          =   375
+         Left            =   240
+         TabIndex        =   30
+         Top             =   960
+         Width           =   1095
+      End
+      Begin VB.OptionButton Rect_Select_Option 
+         Caption         =   "矩形区域"
+         Height          =   375
+         Left            =   240
+         TabIndex        =   29
+         Top             =   600
+         Width           =   1095
+      End
+      Begin VB.OptionButton Single_Select_Option 
+         Caption         =   "点选"
+         Height          =   375
+         Left            =   240
+         TabIndex        =   28
+         Top             =   240
+         Width           =   1095
+      End
+      Begin VB.Label MM_Label 
+         Caption         =   "(mm)"
+         Height          =   255
+         Left            =   4080
+         TabIndex        =   44
+         Top             =   1080
+         Width           =   375
+      End
+      Begin VB.Label Alt_Label 
+         AutoSize        =   -1  'True
+         Caption         =   "(Alt)"
+         Height          =   180
+         Left            =   1320
+         TabIndex        =   43
+         Top             =   1080
+         Width           =   450
+      End
+      Begin VB.Label Shift_Label 
+         AutoSize        =   -1  'True
+         Caption         =   "(Shift)"
+         Height          =   180
+         Left            =   1320
+         TabIndex        =   42
+         Top             =   720
+         Width           =   630
+      End
+   End
    Begin MSComDlg.CommonDialog CommonDialog 
       Left            =   360
       Top             =   240
@@ -25,9 +172,9 @@ Begin VB.Form 温度场前处理程序
       Height          =   375
       Left            =   0
       TabIndex        =   25
-      Top             =   8400
-      Width           =   13305
-      _ExtentX        =   23469
+      Top             =   8505
+      Width           =   13215
+      _ExtentX        =   23310
       _ExtentY        =   661
       SimpleText      =   ""
       _Version        =   327682
@@ -36,51 +183,54 @@ Begin VB.Form 温度场前处理程序
          BeginProperty Panel1 {0713E89F-850A-101B-AFC0-4210102A8DA7} 
             Object.Width           =   3528
             MinWidth        =   3528
+            Key             =   ""
             Object.Tag             =   ""
          EndProperty
          BeginProperty Panel2 {0713E89F-850A-101B-AFC0-4210102A8DA7} 
-            Object.Width           =   4410
-            MinWidth        =   4410
+            Object.Width           =   5292
+            MinWidth        =   5292
+            Key             =   ""
             Object.Tag             =   ""
          EndProperty
          BeginProperty Panel3 {0713E89F-850A-101B-AFC0-4210102A8DA7} 
             Object.Width           =   9701
             MinWidth        =   9701
+            Key             =   ""
             Object.Tag             =   ""
          EndProperty
       EndProperty
    End
-   Begin VB.Frame Frame3 
-      Caption         =   "点选设置"
-      Height          =   1755
-      Left            =   8500
+   Begin VB.Frame Fill_Option_Frame 
+      Caption         =   "填充选项"
+      Height          =   915
+      Left            =   8520
       TabIndex        =   9
-      Top             =   2880
+      Top             =   4560
       Width           =   4500
       Begin VB.ComboBox Material_Combo 
          Height          =   300
          ItemData        =   "Preprocessing.frx":0000
-         Left            =   600
+         Left            =   1320
          List            =   "Preprocessing.frx":000D
          Style           =   2  'Dropdown List
          TabIndex        =   12
-         Top             =   1080
+         Top             =   360
          Width           =   1455
       End
       Begin VB.CommandButton Select_Material_Button 
          Caption         =   "指定材料"
          Height          =   495
-         Left            =   2640
+         Left            =   2880
          TabIndex        =   11
-         Top             =   960
+         Top             =   240
          Width           =   1455
       End
       Begin VB.CheckBox InvertSelect_Check_Box 
          Caption         =   "反向填充"
          Height          =   255
-         Left            =   600
+         Left            =   240
          TabIndex        =   10
-         Top             =   480
+         Top             =   360
          Width           =   1215
       End
    End
@@ -89,7 +239,7 @@ Begin VB.Form 温度场前处理程序
       Height          =   2745
       Left            =   8520
       TabIndex        =   8
-      Top             =   5160
+      Top             =   5640
       Width           =   4500
       Begin VB.PictureBox Chill_Color 
          BackColor       =   &H00FF0000&
@@ -220,9 +370,9 @@ Begin VB.Form 温度场前处理程序
    Begin VB.Frame Frame1 
       Caption         =   "网格设置"
       Height          =   2220
-      Left            =   8500
+      Left            =   8520
       TabIndex        =   1
-      Top             =   200
+      Top             =   240
       Width           =   4500
       Begin VB.CommandButton Micro_Mesh_Button 
          Caption         =   "细致划分"
@@ -309,7 +459,7 @@ Begin VB.Form 温度场前处理程序
       End
    End
 End
-Attribute VB_Name = "温度场前处理程序"
+Attribute VB_Name = "Preprocessing"
 Attribute VB_GlobalNameSpace = False
 Attribute VB_Creatable = False
 Attribute VB_PredeclaredId = True
@@ -317,7 +467,8 @@ Attribute VB_Exposed = False
 Dim Material_Matrix(1000, 1000) As Integer
 Dim Select_Matrix(1000, 1000) As Boolean
 Dim grid_w%, grid_l%
-Dim Start_x%, Start_y%
+Dim start_x%, start_y%
+Dim Center_x!, Center_y!
 Dim Meshed As Boolean
 Dim Tips_arr
 Dim click_cnt%
@@ -328,10 +479,11 @@ Private Sub Form_Load()
     Meshed = False
     grid_w = 500
     grid_l = 500
-    Start_x = -1
-    Tips_arr = Array("支持按住 Shift 进行区域选择哦！", _
+    start_x = -1
+    Center_x = -1
+    Tips_arr = Array("Alt 为选中圆形区域， Shift 选中矩形区域", _
                      "支持按住 Ctrl 连续点选哦！", _
-                     "Shift Ctrl 同时按住也是支持的哟~", _
+                     "既想要区域选又想要连续选怎么办？试试按键组合！", _
                      "右键一下选择区域就都清空了呢~", _
                      "适当使用反向填充会有奇效哦！", _
                      "单击滑轮就可以快速填充材料！", _
@@ -402,34 +554,57 @@ End Sub
 Private Sub Grid_MouseDown(Button As Integer, Shift As Integer, X As Single, Y As Single)
     click_cnt = click_cnt + 1
     StatusBar.Panels(3).Text = "Tips:" & Tips_arr(click_cnt Mod (UBound(Tips_arr) - LBound(Tips_arr) + 1))
-    Dim real_x%, real_y%
+    Dim real_x%, real_y%, Mode%, Ongoing As Boolean
+    Dim x_mm!, y_mm!, radius!
+    Dim delta_x%, delta_y%
     If Not Meshed Then
         MsgBox "请先生成网格"
         Exit Sub
     End If
+    delta_x = 500 / range_x
+    delta_y = 500 / range_y
     If Button = 1 Then
+        Call Get_Mode(Shift, Mode, Ongoing)
         real_x = Int(X)
         real_y = Int(Y)
+        x_mm = (real_x + 0.5) * delta_x
+        y_mm = (real_y + 0.5) * delta_y
         StatusBar.Panels(2).Text = "已选择点 (" & real_x + 1 & ", " & real_y + 1 & ")"
-        If Shift = 1 Or Shift = 3 Then
-            If Shift = 1 Then
-                Clear_Select_Matrix
-            End If
-            If Not Start_x = -1 Then
-                Call Mark_Area(Start_x, real_x, Start_y, real_y)
-                StatusBar.Panels(2).Text = "已选择区域 (" & Start_x + 1 & ", " & Start_y + 1 & ")-(" & real_x + 1 & ", " & real_y + 1 & ")"
-                Start_x = -1
-            Else
-                Start_x = real_x
-                Start_y = real_y
-            End If
-        ElseIf Shift = 0 Or Shift = 2 Then
-            Start_x = real_x
-            Start_y = real_y
-            If Shift = 0 Then
-                Clear_Select_Matrix
-            End If
+        If Not Ongoing Then
+            Clear_Select_Matrix
+        End If
+        If Mode = 0 Then
+            Point_X_Text.Text = real_x + 1
+            Point_Y_Text.Text = real_y + 1
             Select_Matrix(real_x, real_y) = True
+            start_x = real_x
+            start_y = real_y
+            Center_x = x_mm
+            Center_y = y_mm
+        ElseIf Mode = 1 Then
+            If Not start_x = -1 Then
+                Call Mark_Area(start_x, real_x, start_y, real_y)
+                Rect_EX_Text.Text = real_x + 1
+                Rect_EY_Text.Text = real_y + 1
+                start_x = -1
+            Else
+                start_x = real_x
+                start_y = real_y
+                Rect_SX_Text = real_x + 1
+                Rect_SY_Text = real_y + 1
+            End If
+        ElseIf Mode = 2 Then
+            If Center_x >= 0 Then
+                radius = Sqr((Center_x - x_mm) ^ 2 + (Center_y - y_mm) ^ 2) + 1
+                Call Mark_Circle(Center_x, Center_y, radius)
+                Radius_Text.Text = radius
+                Center_x = -1
+            Else
+                Center_x = x_mm
+                Center_y = y_mm
+                Center_X_Text.Text = x_mm
+                Center_Y_Text.Text = y_mm
+            End If
         End If
     ElseIf Button = 2 Then
         Clear_Select_Matrix
@@ -438,6 +613,38 @@ Private Sub Grid_MouseDown(Button As Integer, Shift As Integer, X As Single, Y A
     End If
     Call Redraw_Area(0, range_x, 0, range_y)
     Call Redraw_Sec_Area(0, range_x, 0, range_y)
+End Sub
+
+''' 检查模式
+Private Sub Get_Mode(Shift As Integer, ByRef Mode%, ByRef Ongoing As Boolean)
+    Dim ShiftDown As Boolean, AltDown As Boolean, CtrlDown As Boolean
+    ShiftDown = (Shift And vbShiftMask) > 0
+    CtrlDown = (Shift And vbCtrlMask) > 0
+    AltDown = (Shift And vbAltMask) > 0
+    Ongoing = False
+    If Shortcuts_Enable_Check.value Then
+        If ShiftDown Then
+            Mode = 1
+        ElseIf AltDown Then
+            Mode = 2
+        Else
+            Mode = 0
+        End If
+        If CtrlDown Then
+            Ongoing = True
+        End If
+    Else
+        If Single_Select_Option.value Then
+            Mode = 0
+        ElseIf Rect_Select_Option.value Then
+            Mode = 1
+        ElseIf Circle_Select_Option.value Then
+            Mode = 2
+        End If
+        If Ongoing_Select_Check.value Then
+            Ongoing = True
+        End If
+    End If
 End Sub
 
 '' 鼠标移动回调
@@ -463,6 +670,32 @@ Private Sub Mark_Area(x_start As Integer, x_end As Integer, y_start As Integer, 
             Select_Matrix(i, j) = True
         Next j
     Next i
+    StatusBar.Panels(2).Text = "已选择矩形区域 (" & x_start + 1 & ", " & y_start + 1 & ")-(" & x_end + 1 & ", " & y_end + 1 & ")"
+End Sub
+
+'' 圆形区域选择
+Private Sub Mark_Circle(Center_x!, Center_y!, radius!)
+    Dim delta_x%, delta_y%
+    Dim start_x%, start_y%, end_x%, end_y%
+    Dim x_mm!, y_mm!
+    delta_x = 500 / range_x
+    delta_y = 500 / range_y
+    start_x = Int((Center_x - radius) / delta_x) - 1
+    start_y = Int((Center_y - radius) / delta_y) - 1
+    end_x = Int((Center_x + radius) / delta_x) + 1
+    end_y = Int((Center_y + radius) / delta_y) + 1
+    For i = start_x To end_x
+        For j = start_y To end_y
+            If i >= 0 And i < range_x And j >= 0 And j < range_y Then
+                x_mm = (i + 0.5) * delta_x
+                y_mm = (j + 0.5) * delta_y
+                If Sqr((Center_x - x_mm) ^ 2 + (Center_y - y_mm) ^ 2) <= radius Then
+                    Select_Matrix(i, j) = True
+                End If
+            End If
+        Next j
+    Next i
+    StatusBar.Panels(2).Text = "已选择圆形区域 (" & Center_x & ", " & Center_y & ")" & " 半径" & radius & " mm"
 End Sub
 
 '' 根据选择矩阵设置材料矩阵
@@ -592,6 +825,43 @@ Private Sub Delta_X_Box_Change()
     End If
 End Sub
 
+' 模式选择相关
+'' 启用快捷键回调
+Private Sub Shortcuts_Enable_Check_Click()
+    If Shortcuts_Enable_Check.value Then
+        Shift_Label.Visible = True
+        Alt_Label.Visible = True
+    Else
+        Shift_Label.Visible = False
+        Alt_Label.Visible = False
+    End If
+End Sub
+
+'' 选择参数所示区域
+Private Sub Select_Button_Click()
+    On Error GoTo ErrorHandler
+    If Not Meshed Then
+        MsgBox "请先生成网格"
+        Exit Sub
+    End If
+    
+    If Not Ongoing_Select_Check.value Then
+        Clear_Select_Matrix
+    End If
+    If Single_Select_Option.value Then
+        Select_Matrix(Point_X_Text.Text - 1, Point_Y_Text.Text - 1) = True
+    ElseIf Rect_Select_Option.value Then
+        Call Mark_Area(Rect_SX_Text.Text - 1, Rect_EX_Text.Text - 1, Rect_SY_Text.Text - 1, Rect_EY_Text.Text - 1)
+    ElseIf Circle_Select_Option.value Then
+        Call Mark_Circle(Center_X_Text.Text, Center_Y_Text.Text, Radius_Text.Text)
+    End If
+    Call Redraw_Area(0, range_x, 0, range_y)
+    Call Redraw_Sec_Area(0, range_x, 0, range_y)
+ErrorHandler:
+    MsgBox "请确保输入以及选项正确！"
+    Exit Sub
+End Sub
+
 
 ' 材料指定
 Private Sub Select_Material_Button_Click()
@@ -621,14 +891,17 @@ End Sub
 ' 颜色修改
 Private Sub Sand_Color_Click()
     Set_Color (SAND)
+    Call Redraw_Area(0, range_x, 0, range_y)
 End Sub
 
 Private Sub Casting_Color_Click()
     Set_Color (CASTING)
+    Call Redraw_Area(0, range_x, 0, range_y)
 End Sub
 
 Private Sub Chill_Color_Click()
     Set_Color (CHILL)
+    Call Redraw_Area(0, range_x, 0, range_y)
 End Sub
 
 '' 颜色弹窗
@@ -770,4 +1043,3 @@ Private Sub Load_Params(ByRef Material_List() As Material)
         Loop
     Close #1
 End Sub
-
