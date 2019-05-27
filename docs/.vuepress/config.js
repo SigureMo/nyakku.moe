@@ -62,7 +62,12 @@ module.exports = {
         },
         {
           title: "Basic Subject",
-          children: ["English", "Higher_Mathematics", "Mathematical_Modeling"]
+          children: [
+            "English",
+            "Higher_Mathematics",
+            "Linear_Algebra",
+            "Mathematical_Modeling"
+          ]
         },
         {
           title: "Material Science",
