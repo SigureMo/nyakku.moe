@@ -597,6 +597,8 @@ Private Sub Grid_MouseDown(Button As Integer, Shift As Integer, X As Single, Y A
             Else
                 Call Set_Start_Points(real_x, real_y, x_mm, y_mm)
             End If
+        ElseIf Mode = -1 Then
+            MsgBox "Shift 和 Alt 同时按是不支持的哦！"
         End If
     ElseIf Button = 2 Then
         Clear_Select_Matrix
@@ -629,7 +631,9 @@ Private Sub Get_Mode(Shift As Integer, ByRef Mode%, ByRef Ongoing As Boolean)
     AltDown = (Shift And vbAltMask) > 0
     Ongoing = False
     If Shortcuts_Enable_Check.value Then
-        If ShiftDown Then
+        If ShiftDown And AltDown Then
+            Mode = -1
+        ElseIf ShiftDown Then
             Mode = 1
         ElseIf AltDown Then
             Mode = 2
