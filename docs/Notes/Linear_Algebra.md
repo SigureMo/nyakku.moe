@@ -58,6 +58,27 @@
 -  $|\mathbf{A}| \not= 0$ $\iff$ 矩阵 $\mathbf{A}$ 可逆，且 $\mathbf{A}^{-1} = \frac{1}{|\mathbf{A}|}\mathbf{A}^*$
 -  若 $|\mathbf{A}| = 0$， 我们称其为奇异矩阵，否则为非奇异矩阵，很明显，非奇异矩阵可逆
 
+#### 2.1.3 克拉默法则
+
+用于求解线性方程组，$x_1 = \frac{|\mathbf{A_1}|}{|\mathbf{A}|}$ ，$x_2 = \frac{|\mathbf{A_2}|}{|\mathbf{A}|}$ ，$\cdots$ ，$x_n = \frac{|\mathbf{A_n}|}{|\mathbf{A}|}$
+
+其中 $\mathbf{A}_j$ 是把系数矩阵 $\mathbf{A}$ 中第 $j$ 列的元素用方程组右端的常数项代替后所得到的 $n$ 阶矩阵
+
+#### 2.1.4 矩阵分块法
+
+-  分块矩阵的运算规则与普通矩阵的运算规则相类似
+   -  加法
+   -  乘法
+-  分块对角矩阵
+   -  $|\mathbf{A}| = |\mathbf{A}_1| |\mathbf{A}_2| \cdots |\mathbf{A}_s|$
+-  矩阵 $\mathbf{A} = \mathbf{O}$ 的充要条件是 $\mathbf{A}^T \mathbf{A} = \mathbf{O}$
+
+### 2.2 一些小技巧
+
+-  使用已有表达式求解方阵的逆矩阵，可以将表达式化为 $\mathbf{A}\mathbf{X} = k\mathbf{E}$ 的形式，此时 $\frac{\mathbf{X}}{k}$ 即为其逆矩阵
+-  因为 $\mathbf{E}\mathbf{A} = \mathbf{A}\mathbf{E}$ ，所以含 $\mathbf{E}$ 的多项式很多是可交换的，依此可对式子进行因式分解等操作
+-  $|\mathbf{A}^*| = |\mathbf{A}|^{n-1}$
+
 # Change Log
 
 1. 190527 #1 Finished
