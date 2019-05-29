@@ -122,7 +122,7 @@
 -  Sample:
 
    ```bash
-   g++ Codes\OS\Tests\test2.cpp -o tmp/tmp && tmp\\tmp FCFS
+   g++ Codes\OS\Experiment\test2.cpp -o tmp/tmp && tmp\\tmp FCFS
    5
    A 0 3
    B 2 6
@@ -159,7 +159,7 @@
 -  Sample1:
 
    ```bash
-   g++ Codes\OS\Tests\test3.cpp -o tmp/tmp && tmp\\tmp FIFO
+   g++ Codes\OS\Experiment\test3.cpp -o tmp/tmp && tmp\\tmp FIFO
    20 3
    7 0 1 2 0 3 0 4 2 3 0 3 2 1 2 0 1 7 0 1
 
@@ -168,7 +168,7 @@
 -  Sample2:
 
    ```bash
-   g++ Codes\OS\Tests\test3.cpp -o tmp/tmp && tmp\\tmp LRU
+   g++ Codes\OS\Experiment\test3.cpp -o tmp/tmp && tmp\\tmp LRU
    11 5
    4 7 0 7 1 0 1 2 1 2 6
 
@@ -199,7 +199,7 @@
 -  Sample:
 
    ```bash
-   g++ Codes\OS\Tests\test4.cpp -o tmp/tmp && tmp\\tmp SSTF
+   g++ Codes\OS\Experiment\test4.cpp -o tmp/tmp && tmp\\tmp SSTF
    9 100
    55 58 39 18 90 160 150 38 184
 
