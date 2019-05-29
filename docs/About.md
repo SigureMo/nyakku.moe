@@ -7,7 +7,14 @@
   <a href="tencent://AddContact/?fromId=45&fromSubId=1&subcmd=all&uin=240377379&website=www.oicqzone.com" class="zi zi_tmQq"></a>
 </p>
 
-Sigure_Mo，大三材料喵，加油加油加油油 ε≡٩(๑>₃<)۶ ~
+Sigure_Mo，大三材料喵，跨考计算机准备中 ε≡٩(๑>₃<)۶ ~
+
+-  主要方向
+   -  DeepLearning
+   -  网络爬虫
+-  主要语言
+   -  Python
+   -  C++
 
 ## Status
 
