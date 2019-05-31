@@ -207,12 +207,47 @@
 
 ## 5 文件管理作业（20'）
 
-> 本文档转自杨志豪老师实验题目 PDF 版，添加部分个人笔记
+### 5.1 实验目的
+
+通过模拟文件的创建、删除操作，加深对于操作系统文件管理功能的了解，联系模拟算法的编程技巧，锻炼研究分析实验数据的能力
+
+### 5.2 实验说明
+
+给出一个磁盘块序列： 1、2、3 …… 500，初始状态所有块为空的，每块的大小为 2k ，选择使用空闲表、空闲盘区链、位示图三种算法之一来管理空闲块，对于基于块的索引分配执行以下步骤：
+
+1. 随机生成 `2k - 10k` 的文件 50 个，文件名为 `1.txt, 2.txt, ..., 50.txt`， 按照上述算法存储到模拟磁盘中
+2. 删除 `奇数.txt` （`1.txt, 3.txt, ..., 49.txt`） 文件
+3. 新创建 5 个文件（`A.txt, B.txt, C.txt, D.txt, E.txt`），大小为 `7k, 5k, 2k, 9k, 3.5k`，按照与步骤 1 相同的算法存储到模拟磁盘中
+4. 给出文件 `A.txt, B.txt, C.txt, D.txt, E.txt` 的盘块存储状态和所有空闲区块的状态
+
+> 一些非官方的“缩写”
+>
+> -  空闲表法（Free Table Method）使用缩写 `FTM`
+> -  空闲链表法（Free Linked Lists Method）使用缩写 `FLLM`
+> -  位示图法（bitmap）使用 `BIT`
+
+[test5.cpp](test5.cpp)
+
+-  Usage:
+
+   ```bash
+   g++ test5.cpp && ./a.out <algorithm>
+   ```
+
+-  Sample:
+
+   ```bash
+   g++ Codes\OS\Experiment\test5.cpp -o tmp/tmp && tmp\\tmp FTM
+   ```
+
+> 本文档转自杨志豪老师实验题目 PDF 版，添加部分个人注记
 
 # Refs
 
 1. [c 语言：fork 函数详解](https://www.cnblogs.com/jeakon/archive/2012/05/26/2816828.html)
 2. [linux c 之 wait 和 waitpid 函数的用法和总结](https://blog.csdn.net/u011068702/article/details/54409273)
 3. [linux c 之 exec 函数族](https://blog.csdn.net/butterfly5211314/article/details/84945108)
+
+---
 
 Copyright 2019 DUT [杨志豪老师](http://faculty.dlut.edu.cn/zhyang_CS/zh_CN/jxzy/749840/content/1641.htm)

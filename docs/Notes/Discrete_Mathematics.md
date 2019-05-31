@@ -1,4 +1,4 @@
-# Discrete Mathematics <Badge text="alpha" type="warn"/> <Badge text="4.3.0"/>
+# Discrete Mathematics <Badge text="alpha" type="warn"/> <Badge text="4.6.0"/>
 
 ## 0 引
 
@@ -612,6 +612,34 @@ $$
 -  快速矩阵乘法 类似于上面的算法
 
 我们还可以得到分治问题的时间复杂度算法，这里就不列出了
+
+### 4.4 生成函数
+
+我们将序列的项作为幂级数（形式幂级数，只用其一些性质，并不是真的将其表示为函数）的系数，这样幂级数的一些结论（某个幂级数的和函数、逐项微分等性质）就可以用来研究一些计数问题，我们主要关注的是幂级数里**某一项或几项的阶数以及其系数**
+
+### 4.5 容斥
+
+前面其实我们已经了解过一些容斥原理在其他问题上的表现了，比如说两个有穷集的并集的元素数明显是
+
+$$
+|A \cup B| = |A| + |B| - |A \cap B|
+$$
+
+再看看三个有穷集，不难得出 $|A \cup B \cup C| = |A| + |B| + |C| - |A \cap B| - |A \cap C| - |B \cap C| + |A \cap B \cap C|$
+
+这样，我们很容易推广到 $n$ 个有穷集的情况
+
+$|A_1 \cup A_2 \cup \cdots \cup A_n| = \sum\limits_{1 \leq i \leq n} |A_i| - \sum\limits_{1 \leq i < j \leq n} |A_i \cap A_j| + \sum\limits_{1 \leq i < j < k \leq n} |A_i \cap A_j \cap A_k| - \cdots + (-1)^{n+1} |A_1 \cap A_2 \cap \cdots \cap A_n|$
+
+### 4.6 容斥原理的应用
+
+容斥原理的另一种形式，用于求解在一个集合中的元素胡，使得这些元素不具有 $n$ 个性质 $P_1, P_2, \cdots , P_n$ 中的任何一条性质
+
+该形式往往有着更多的应用，比如
+
+-  找出不超过一个给定正整数的素数的个数 可以先找合数，然后根据容斥原理反推质数
+-  映上函数的个数
+-  计数排列 $n$ 个物体并使得没有一个物体在他的初始位置上的方式数
 
 # Reference
 
