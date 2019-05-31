@@ -25,6 +25,17 @@ position = s.find("b", 5);
 
 意为从位置 `5` 开始寻找子串（缺省为 `0`），返回第一个找到的位置，若未找到，则返回 `string::npos` ，可据此判断子串是否在子串中
 
+### 流操作
+
+举个例子即可
+
+```cpp
+stringstream namestream;
+string name;
+namestream << "a.txt";
+name = string(namestream.str());
+```
+
 ## 排序算法
 
 ### Sort
@@ -59,6 +70,19 @@ sort(a, a+10, compare);
 ```
 
 即可获得从大到小的序列
+
+## 随机数的生成
+
+> 头文件 `stdlib.h`
+
+`rand()` 会生成一个随机整型数，我们可以通过定义宏来实现对上限的限制
+
+```cpp
+#define random(x) (rand()%x)
+#define randint(start, end) (rand()%(end-start) + start)
+```
+
+另外 `void srand(unsigned int seed)` 可以对喂一个随机种子
 
 # Reference
 
