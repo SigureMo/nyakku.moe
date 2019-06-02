@@ -84,19 +84,23 @@ Begin VB.Form Main
       BeginProperty Panels {0713E89E-850A-101B-AFC0-4210102A8DA7} 
          NumPanels       =   4
          BeginProperty Panel1 {0713E89F-850A-101B-AFC0-4210102A8DA7} 
+            Key             =   ""
             Object.Tag             =   ""
          EndProperty
          BeginProperty Panel2 {0713E89F-850A-101B-AFC0-4210102A8DA7} 
+            Key             =   ""
             Object.Tag             =   ""
          EndProperty
          BeginProperty Panel3 {0713E89F-850A-101B-AFC0-4210102A8DA7} 
             Object.Width           =   3528
             MinWidth        =   3528
+            Key             =   ""
             Object.Tag             =   ""
          EndProperty
          BeginProperty Panel4 {0713E89F-850A-101B-AFC0-4210102A8DA7} 
             Object.Width           =   5292
             MinWidth        =   5292
+            Key             =   ""
             Object.Tag             =   ""
          EndProperty
       EndProperty
@@ -342,17 +346,17 @@ Private Function Get_Color(t As Single) As Variant
 End Function
 
 ''' Sigmoid 自定义变体，用于调节颜色变化速率
-Private Function sigmoid_variant(x As Single, w As Single) As Single
+Private Function sigmoid_variant(X As Single, w As Single) As Single
     ' x (0, 1) w(0, INF) output (0, 1)
     Dim h!
-    x = w * 2 * (x - 0.5) ' x (-w, w) y (1-sigmoid(w), sigmoid(w))
+    X = w * 2 * (X - 0.5) ' x (-w, w) y (1-sigmoid(w), sigmoid(w))
     h = 2 * (sigmoid(w) - 0.5)
-    sigmoid_variant = (sigmoid(x) - 0.5) / h + 0.5
+    sigmoid_variant = (sigmoid(X) - 0.5) / h + 0.5
 End Function
 
 ''' Sigmoid
-Private Function sigmoid(x As Single) As Single
-    sigmoid = 1 / (1 + Exp(-x))
+Private Function sigmoid(X As Single) As Single
+    sigmoid = 1 / (1 + Exp(-X))
 End Function
 
 ''' 根据 HSV 色值生成 RGB 颜色
@@ -407,11 +411,11 @@ Private Sub Probe_Settings_Click()
 End Sub
 
 ''' 点击回调
-Private Sub Grid_MouseDown(Button As Integer, Shift As Integer, x As Single, y As Single)
+Private Sub Grid_MouseDown(Button As Integer, Shift As Integer, X As Single, Y As Single)
     Dim real_x%, real_y%
-    real_x = Int(x)
-    real_y = Int(y)
-    If Loaded And popen And real_x < range_x And y < range_y Then
+    real_x = Int(X)
+    real_y = Int(Y)
+    If Loaded And popen And real_x < range_x And Y < range_y Then
         px = real_x
         py = real_y
         Set_Probe.Px_Box.Text = px + 1
@@ -510,10 +514,10 @@ Private Sub Graph_Export_Click()
 End Sub
 
 ' 移动回调
-Private Sub Grid_MouseMove(Button As Integer, Shift As Integer, x As Single, y As Single)
+Private Sub Grid_MouseMove(Button As Integer, Shift As Integer, X As Single, Y As Single)
     Dim real_x%, real_y%
-    real_x = Int(x)
-    real_y = Int(y)
+    real_x = Int(X)
+    real_y = Int(Y)
     If Loaded Then
         If real_x < range_x And real_y < range_y Then
             StatusBar.Panels(1).Text = "(" & real_x + 1 & ", " & real_y + 1 & ")"
@@ -701,14 +705,14 @@ Private Sub Next_T()
 End Sub
 
 '' 计算两结点的接触宽度、厚度、温度中心距离
-Private Sub Get_SWD(ByRef s!, ByRef w!, ByRef d!, ByVal x%, ByVal y%, ByVal direct%)
+Private Sub Get_SWD(ByRef s!, ByRef w!, ByRef d!, ByVal X%, ByVal Y%, ByVal direct%)
     Dim dx!, dy!
     dx = delta_x
     dy = delta_y
-    If x = 0 Or x = range_x - 1 Then ' 左右边界
+    If X = 0 Or X = range_x - 1 Then ' 左右边界
         dx = dx / 2
     End If
-    If y = 0 Or y = range_y - 1 Then ' 上下边界
+    If Y = 0 Or Y = range_y - 1 Then ' 上下边界
         dy = dy / 2
     End If
     If direct = 0 Then ' 两结点水平相邻
@@ -724,22 +728,20 @@ End Sub
 
 
 '' 计算源结点到目的结点的交换热量
-Private Function Get_Heat(x%, y%, sx%, sy%, s!, w!, d!)
+Private Function Get_Heat(X%, Y%, sx%, sy%, s!, w!, d!)
     Dim h!, k!, k1!, k2!
     If sx < 0 Or sx >= range_x Or sy < 0 Or sy >= range_y Then
-        h = TT(Material_Matrix(x, y), AIR)
-        Get_Heat = 0
-        Get_Heat = h * (T0(AIR) - Temperature_Matrix(x, y)) * s * delta_t
+        h = TT(Material_Matrix(X, Y), AIR)
+        Get_Heat = h * (T0(AIR) - Temperature_Matrix(X, Y)) * s * delta_t
     Else
-        If Material_Matrix(x, y) = Material_Matrix(sx, sy) Then
-            k = Materials(Material_Matrix(x, y)).k
+        If Material_Matrix(X, Y) = Material_Matrix(sx, sy) Then
+            k = Materials(Material_Matrix(X, Y)).k
         Else
-            k1 = Materials(Material_Matrix(x, y)).k
+            k1 = Materials(Material_Matrix(X, Y)).k
             k2 = Materials(Material_Matrix(sx, sy)).k
             k = 2 * k1 * k2 / (k1 + k2)
         End If
-        Get_Heat = 0
-        Get_Heat = k * (Temperature_Matrix(sx, sy) - Temperature_Matrix(x, y)) / d * s * delta_t
+        Get_Heat = k * (Temperature_Matrix(sx, sy) - Temperature_Matrix(X, Y)) / d * s * delta_t
     End If
 End Function
 
