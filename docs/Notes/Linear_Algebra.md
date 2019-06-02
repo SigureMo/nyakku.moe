@@ -79,6 +79,32 @@
 -  因为 $\mathbf{E}\mathbf{A} = \mathbf{A}\mathbf{E}$ ，所以含 $\mathbf{E}$ 的多项式很多是可交换的，依此可对式子进行因式分解等操作
 -  $|\mathbf{A}^*| = |\mathbf{A}|^{n-1}$
 
+## 3 矩阵的初等变换与线性方程组
+
+### 3.1 主线梳理
+
+#### 3.1.1 矩阵的初等变换
+
+-  初等行变换
+   -  对换两行
+   -  以数 $k$ 乘某一行中的所有元
+   -  将某一行的所有元的 $k$ 被加到另一行的对应元上去
+-  行最简形
+   -  非零行的首非零元为 1
+   -  首非零元所在的列的其他元均为 0
+-  初等行变换可以等效为左乘一个可逆矩阵，类似地，初等列变换可以等效为右乘一个可逆矩阵
+
+#### 3.1.2 矩阵的秩
+
+-  最高阶非零子式的阶数即为矩阵的秩
+-  $0 \leq R(\mathbf{A}_{m \times n}) \leq min \{m, n\}$
+-  $R(\mathbf{A}^T) = R(\mathbf{A})$
+-  若 $\mathbf{A}\text{\textasciitilde}\mathbf{B}$，则 $R(\mathbf{A}) = R(\mathbf{B})$
+-  $max \{ R(\mathbf{A}), R(\mathbf{B}) \} \leq R(\mathbf{A}, \mathbf{B}) \leq R(\mathbf{A}) + R(\mathbf{B})$
+-  $R(\mathbf{A} + \mathbf{B}) \leq R(\mathbf{A}) + R(\mathbf{B})$
+-  $R(\mathbf{A} \mathbf{B}) \leq min \{R(\mathbf{A}), R(\mathbf{B}))\}$
+-  若 $\mathbf{A}_{m \times n} \mathbf{B}_{n \times l} = \mathbf{O}$ ，则 $R(\mathbf{A}) + R(\mathbf{B}) \leq n$
+
 # Change Log
 
 1. 190527 #1 Finished
