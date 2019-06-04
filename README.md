@@ -1,5 +1,7 @@
 # Notev
 
+将热爱延续下去，将开源进行到底！
+
 [Get started!](https://siguremo.github.io/notev/)
 
 ## Notes & Codes
