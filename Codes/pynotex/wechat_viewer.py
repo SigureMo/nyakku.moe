@@ -22,8 +22,8 @@ Help_Msg = """Wechat Viewer is running ...
 - help
 - prtsc
 - prtph
-- cmd <cmd_string>
 - fget <file_path>
+- $ <cmd_string>
 """
 
 @itchat.msg_register('Text')
