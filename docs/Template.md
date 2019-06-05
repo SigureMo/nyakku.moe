@@ -127,7 +127,7 @@ plt.savefig("Images/example.png")
 
 那么，请在下面这个简（陋）编辑器下尽请地尝试吧（仅支持部分功能）！
 
-<Varmark></Varmark>
+<Varmark/>
 
 # Change Log
 
