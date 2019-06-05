@@ -7,9 +7,7 @@
 
 <script>
 const config = require("../config.js");
-const md = require("markdown-it")()
-  .use(require("markdown-it-emoji"))
-  .use(require("markdown-it-anchor"));
+const md = require("markdown-it")();
 config.markdown.extendMarkdown(md);
 
 export default {
