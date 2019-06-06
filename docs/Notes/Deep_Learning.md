@@ -51,14 +51,14 @@ Unstructured Data : Image Audio Text
 
 1. 计算误差时，如果使用误差的平方作为损失函数很有可能得到多个“低谷”（很多局部最优），使用梯度下降法将得不到真正最优的解
 2. 我们使用$-(ylog\hat{y}+(1-y)log(1-\hat{y}))$作为损失函数，至于为什么可以使 y 分别等于 0 和 1 推算一下（y 也只有这么两个可取的值）
-3. 相对于只作用于某一样本的 loss function（损失函数），cost function（成本函数）J 是作用于整个样本集上的函数；对于某一样本，我们使用 loss function 来衡量 y 与$\hat{y}$的差距，相对应的，对于某一样本集，我们使用 cost function 来衡量 W 和 B 的效果
+3. 相对于只作用于某一样本的 loss function（损失函数），cost function（成本函数）J 是作用于整个样本集上的函数；对于某一样本，我们使用 loss function 来衡量 $y$ 与$\hat{y}$的差距，相对应的，对于某一样本集，我们使用 cost function 来衡量 W 和 b 的效果
 
 #### 1.2.4 Gradient Descent
 
 1. 因为我们选用了 logistic 的损失函数，所以我们将得到一个最优解而不是像平方误差函数那样的多个局部最优解，因此，我们随意地初始化这么一个 w 和 b，它最终都会随着梯度下降逐步收敛于我们想要的那个解
 2. 所谓梯度下降，就是在每一个状态下沿着下降最快的方向降低
-3. 现在先不考虑 b，只考虑 w，我们很容易根据 J 对 w 的导数得到使得 J 下降的 w 的方向，所以我们根据这个“方向”对 w 进行调整，就像：$w -= \alpha dJ(w)/dw$，这里的$\alpha$称作学习率（learning rate），就是每次更新的步长
-4. 扩展到 w 和 b 的情况，我们每次迭代就需要执行$w -=  \alpha \delta J(w,b)/\delta w$和$b -=  \alpha \delta J(w,b)/\delta b$
+3. 现在先不考虑 b，只考虑 w，我们很容易根据 J 对 w 的导数得到使得 J 下降的 w 的方向，所以我们根据这个“方向”对 w 进行调整，就像：$w -= \alpha \frac{dJ(w)}{dw}$，这里的$\alpha$称作学习率（learning rate），就是每次更新的步长
+4. 扩展到 w 和 b 的情况，我们每次迭代就需要执行$w -=  \alpha \frac{\partial J(w,b)}{\partial w}$和$b -=  \alpha \frac{\partial J(w,b)}{\partial b}$
 
 #### 1.2.5 Derivatives
 
