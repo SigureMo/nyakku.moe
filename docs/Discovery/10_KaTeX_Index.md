@@ -78,6 +78,12 @@ $$
 | $\subseteq$    | `\subseteq`    |
 | $\circ$        | `\circ`        |
 
+#### 关系
+
+| symbol         | code           |
+| -------------- | -------------- |
+| $\preccurlyeq$ | `\preccurlyeq` |
+
 # Reference
 
 1. [$\KaTeX$ 支持的公式](https://katex.org/docs/supported.html)
