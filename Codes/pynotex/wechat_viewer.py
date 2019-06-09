@@ -67,6 +67,6 @@ def text_reply(msg):
 
 
 if __name__ == '__main__':
-    itchat.auto_login(hotReload=True, statusStorageDir=os.path.join(TMP_DIR, "itchat.pkl"), enableCmdQR=True)
+    itchat.auto_login(hotReload=True, statusStorageDir=os.path.join(TMP_DIR, "itchat.pkl"))
     itchat.send(Help_Msg, "filehelper")
     itchat.run()
