@@ -79,6 +79,7 @@ module.exports = {
       ],
       "/Discovery/": [
         "",
+        "12_Advanced_Control_Strategy",
         "11_Git_Handbook",
         "10_KaTeX_Index",
         "09_Cpp_Handbook",
