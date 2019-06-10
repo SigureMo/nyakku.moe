@@ -9,6 +9,7 @@ from utils.filer import touch_dir
 from utils.async_lib.utils import Task
 from utils.video_editor import FFmpeg
 from utils.db import SQLite, IntegerField, StringField, FloatField, Model
+from utils.common import console
 
 CONFIGs = {}
 CONFIGs['smtp'] = Config('smtp').conf
@@ -73,6 +74,19 @@ def db_test():
     User(db).delete(conditional="name = 'Xiaomiao'")
     print(User(db).select())
 
+def console_test():
+    frames = ["⠈ ", " ⠁", " ⠐", " ⠠", " ⡀", "⢀ ", "⠄ ", "⠂ "]
+    done_sign = console.color_str(" ", background_color=console.BLUE)
+    undone_sign = console.color_str(" ", background_color=console.WHITE)
+    total = 10000
+    for cnt in range(1, total+1):
+        # console.clear_line()
+        print(
+            "{:5}/{:5}".format(cnt, total),
+            console.slide(cnt, frames),
+            console.process_bar(cnt/total, width=50, done_sign=done_sign, undone_sign=undone_sign),
+            end="\r"
+        )
 
 if __name__ == '__main__':
-    db_test()
+    console_test()
