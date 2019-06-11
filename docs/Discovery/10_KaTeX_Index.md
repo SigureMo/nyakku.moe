@@ -25,6 +25,7 @@ $$
 | symbol       | code         |
 | ------------ | ------------ |
 | $\mathbf{A}$ | `\mathbf{A}` |
+| $\partial$   | `\partial`   |
 
 ### 线性代数
 
