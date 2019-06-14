@@ -5,9 +5,12 @@ fs.readFile("package.json", "utf8", function(err, data) {
   if (err) throw err;
   data = JSON.parse(data);
 
-  data.version = `${data.version.split(".")[0]}.${
-    data.version.split(".")[1]
-  }.${parseInt(data.version.split(".")[2]) + 1}`;
+  version_list = data.version.split(".");
+  reversion = parseInt(version_list[version_list.length - 1]);
+  version_list[version_list.length - 1] = (reversion + 1).toString();
+  version = version_list.join(".");
+
+  data.version = version;
 
   out_str = JSON.stringify(data, null, 2) + "\n";
 
