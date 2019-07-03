@@ -3,13 +3,6 @@ module.exports = {
   description: "一个小透明的透明世界~",
   base: "/notev/",
   head: [["link", { rel: "icon", href: "/sigure_mo.png" }]],
-  configureWebpack: {
-    resolve: {
-      alias: {
-        "@codes": "https://github.com/SigureMo/notev/tree/master/Codes"
-      }
-    }
-  },
 
   markdown: {
     // markdown-it-anchor 的选项
