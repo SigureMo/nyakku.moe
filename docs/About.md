@@ -54,9 +54,6 @@ export default {
          this.dist_times = `${dist_days} days ${dist_hours} h ${dist_mins} m ${dist_secs} s`;
       }
    },
-   created () {
-      setInterval(this.refresh, 1000);
-   },
    mounted () {
       setInterval(this.refresh, 1000);
    }
