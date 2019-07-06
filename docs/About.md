@@ -7,7 +7,7 @@
   <a href="tencent://AddContact/?fromId=45&fromSubId=1&subcmd=all&uin=240377379&website=www.oicqzone.com" class="zi zi_tmQq"></a>
 </p>
 
-Sigure_Mo，大三材料喵，跨考计算机准备中 ε≡٩(๑>₃<)۶ ~
+Sigure_Mo，大三材料喵，跨考 CS 准备中 ε≡٩(๑>₃<)۶ ~
 
 已成功入坑 {{ dist_times }} ~
 
@@ -21,7 +21,7 @@ Sigure_Mo，大三材料喵，跨考计算机准备中 ε≡٩(๑>₃<)۶ ~
 ## Status
 
 -  偶尔写写 <i class="zi zi_tmPython"></i> 小脚本 ~
--  偶尔学学 ML ~
+-  偶尔学学 DL ~
 -  偶尔刷刷 PAT ~
 -  偶尔卖卖 萌 :joy: ~
 -  一直在学习 ……（手动滑稽）
