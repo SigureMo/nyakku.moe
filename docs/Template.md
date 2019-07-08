@@ -84,7 +84,7 @@ $$
 
 渲染出来的效果当然就是标题这种啦~
 
-更多选项参考[Vuepress 文档](https://vuepress.vuejs.org/zh/guide/using-vue.html#badge)
+更多选项参考[Vuepress 文档](https://vuepress.vuejs.org/zh/guide/using-vue.html)
 
 ::: tip
 
