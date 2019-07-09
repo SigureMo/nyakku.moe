@@ -6,3 +6,6 @@ MSSCCPRJ.SCC
 # temperature_field
 /07_temperature_field/data/*
 !/07_temperature_field/data/params.dat
+
+# pic_labeler
+/08_pic_labeler/*.csv
