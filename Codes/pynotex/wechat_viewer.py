@@ -9,7 +9,10 @@ import time
 
 import cv2
 import itchat
-from PIL import ImageGrab
+try:
+    from PIL import ImageGrab
+except ImportError:
+    import pyscreenshot as ImageGrab
 
 from utils.compress import zip
 from utils.config import Config
