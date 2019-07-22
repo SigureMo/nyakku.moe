@@ -1,5 +1,6 @@
 import time
 import os
+import sys
 import requests
 
 """
@@ -14,8 +15,12 @@ def get_webservertime(host):
     ltime = time.strptime(ts[5:25], "%d %b %Y %H:%M:%S")
     ttime = time.localtime(time.mktime(ltime) + 60*60*8)
     # 校准时间
-    dat = "date %u-%02u-%02u"%(ttime.tm_year,ttime.tm_mon,ttime.tm_mday)
-    tm = "time %02u:%02u:%02u"%(ttime.tm_hour,ttime.tm_min,ttime.tm_sec)
+    if sys.platform == 'linux':
+        dat = "date -s %02u/%02u/%u"%(ttime.tm_mon, ttime.tm_mday, ttime.tm_year)
+        tm = "date -s %02u:%02u:%02u"%(ttime.tm_hour,ttime.tm_min,ttime.tm_sec)
+    else:
+        dat = "date %u-%02u-%02u"%(ttime.tm_year, ttime.tm_mon, ttime.tm_mday)
+        tm = "time %02u:%02u:%02u"%(ttime.tm_hour, ttime.tm_min, ttime.tm_sec)
     status = not (os.system(dat) or os.system(tm))
     return status
 
