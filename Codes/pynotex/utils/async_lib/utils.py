@@ -44,7 +44,7 @@ class Coroutine(object):
         try:
             import uvloop
         except ImportError:
-            print("no install uvloop package")
+            print("[Warn] no install uvloop package")
         else:
             asyncio.set_event_loop_policy(uvloop.EventLoopPolicy())
         finally:
