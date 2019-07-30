@@ -13,7 +13,7 @@ Sigure_Mo，大三材料喵，跨考 CS 准备中 ε≡٩(๑>₃<)۶ ~
 
 -  主要方向
    -  DeepLearning
-   -  网络爬虫
+   -  Spider
 -  主要语言
    -  Python
    -  C++
