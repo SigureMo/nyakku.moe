@@ -6,7 +6,7 @@ module.exports = {
 
   markdown: {
     // markdown-it-anchor 的选项
-    anchor: { permalink: false },
+    anchor: { permalink: true },
     // markdown-it-toc 的选项
     toc: { includeLevel: [1, 2, 3] },
     // markdown 插件
@@ -81,8 +81,7 @@ module.exports = {
         "06_Harddisk",
         "05_Git_Commit",
         "04_Hardware",
-        "03_C_and_pointer",
-        "01_Everything_is_object"
+        "03_C_and_pointer"
       ],
       "/": ["", "Template", "About"]
     },
@@ -110,6 +109,10 @@ module.exports = {
     // 默认是 false, 设置为 true 来启用
     editLinks: true,
     // 默认为 "Edit this page"
-    editLinkText: "在GitHub上编辑此页！"
+    editLinkText: "在GitHub上编辑此页！",
+    // Service Worker 的配置
+    serviceWorker: {
+      updatePopup: true
+    }
   }
 };
