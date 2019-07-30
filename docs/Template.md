@@ -70,7 +70,7 @@ $$
 
 比如在哪里需要提到 bug，不妨在两边加上:，就像`:bug:`这样，然后就成了:bug:这样子~
 
-当然，我们还可以使用 Emoji 作为 git 的 commit 说明，可以参考[Gitmoji](./Discovery/05_Gitmoji.md)
+当然，我们还可以使用 Emoji 作为 git 的 commit 说明，可以参考[Gitmoji](./Discovery/05_Git_Commit.md)
 
 更多请查看[Gitmoji 官网](http://gitmoji.carloscuesta.me/)和[Emoji 官网](https://emojipedia.org/)
 
@@ -121,13 +121,7 @@ plt.show()
 plt.savefig("Images/example.png")
 ```
 
-![example](Images/example.png)
-
-## Test
-
-那么，请在下面这个简（陋）编辑器下尽请地尝试吧（仅支持部分功能）！
-
-<Varmark/>
+![example](./Images/example.png)
 
 # Change Log
 
