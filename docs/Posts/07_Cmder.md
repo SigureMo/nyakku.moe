@@ -51,7 +51,7 @@ clear=cls
 
 创建一个批处理文件，内容如下：
 
-```dos
+```batch
 @echo off
 SET CMDER_ROOT=<CmderPath>
 "%CMDER_ROOT%\vendor\init.bat"
