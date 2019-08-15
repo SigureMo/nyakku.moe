@@ -1,4 +1,10 @@
-# English <Badge text="alpha" type="warn"/> <Badge text="034"/>
+---
+title: English
+categories:
+   - Basic Subject
+tags:
+   - kaoyan
+---
 
 > Escape can not solve any problem.
 

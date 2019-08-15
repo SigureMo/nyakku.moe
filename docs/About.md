@@ -1,6 +1,9 @@
-# About me
+---
+title: About me
+sidebar: false
+---
 
-<p align="center"><a href="https://github.com/SigureMo" target="_blank" rel="noopener noreferrer"><img :src="$withBase('/sigure_mo.png')" alt="SigureMo" height=200 width=200></a></p>
+<p align="center"><img :src="$withBase('/sigure_mo.png')" alt="SigureMo" height=200 width=200></p>
 <p align="center">
   <a href="https://github.com/SigureMo" class="zi zi_tmGithub"></a>
   <a href="mailto:sigure_mo@163.com" class="zi zi_envelope"></a>
@@ -25,10 +28,6 @@ Sigure_Mo，大三材料喵，跨考 CS 准备中 ε≡٩(๑>₃<)۶ ~
 -  偶尔刷刷 PAT ~
 -  偶尔卖卖 萌 :joy: ~
 -  一直在学习 ……（手动滑稽）
-
-## Comments
-
-<Valine></Valine>
 
 <script>
 export default {

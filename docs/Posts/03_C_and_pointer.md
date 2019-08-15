@@ -1,4 +1,11 @@
-# C and pointer
+---
+title: C and pointer
+date: 2018-09-09
+categories:
+   - Discovery
+tags:
+   - C
+---
 
 ## 1 初识
 

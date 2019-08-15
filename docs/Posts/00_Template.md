@@ -1,4 +1,10 @@
-# Template <Badge text="alpha" type="warn"/>
+---
+title: Template
+categories:
+   - Discovery
+tags:
+   - Vuepress
+---
 
 [[TOC]]
 

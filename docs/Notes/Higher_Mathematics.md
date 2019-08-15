@@ -1,4 +1,11 @@
-# Higher Mathematics <Badge text="alpha" type="warn"/> <Badge text="0.0.0"/>
+---
+title: Higher Mathematics
+categories:
+   - Basic Subject
+tags:
+   - Math
+   - kaoyan
+---
 
 ## 1 基础
 
