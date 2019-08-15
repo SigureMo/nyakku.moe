@@ -1,5 +1,6 @@
 ---
 title: Template
+date: 2018-09-09
 categories:
    - Discovery
 tags:
@@ -124,10 +125,10 @@ $$
 import matplotlib.pyplot as plt
 plt.plot([1, 2, 3, 4])
 plt.show()
-plt.savefig("Images/example.png")
+plt.savefig("../Images/example.png")
 ```
 
-![example](./Images/example.png)
+![example](../Images/example.png)
 
 # Change Log
 
