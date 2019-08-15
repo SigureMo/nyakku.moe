@@ -1,3 +1,12 @@
+---
+title: Linear Algebra
+categories:
+   - Basic Subject
+tags:
+   - Math
+   - kaoyan
+---
+
 # Linear Algebra <Badge text="alpha" type="warn"/> <Badge text="0.0.0"/>
 
 ## 1 行列式

@@ -1,4 +1,11 @@
-# C++ <Badge text="beta" type="tip"/> <Badge text="9.4.1"/>
+---
+title: C++
+categories:
+   - Computer Science
+tags:
+   - CS
+   - C++
+---
 
 ## 1. C to ++
 

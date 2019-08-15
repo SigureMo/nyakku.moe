@@ -1,4 +1,11 @@
-# Principle of Metal Plastic Working <Badge text="beta" type="tip"/> <Badge text="8.3.0"/>
+---
+title: Principle of Metal Plastic Working
+categories:
+   - Material Science
+tags:
+   - MS
+   - Required Course
+---
 
 ## 1 金属冷态下塑性变形
 

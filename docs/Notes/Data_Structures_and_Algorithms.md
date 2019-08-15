@@ -1,4 +1,11 @@
-# Data Structures and Algorthms <Badge text="review" type="error"/> <Badge text="V2"/> <Badge text="0.0.0"/>
+---
+title: Data Structures and Algorthms
+categories:
+   - Computer Science
+tags:
+   - CS
+   - kaoyan
+---
 
 ## 0 Preface
 

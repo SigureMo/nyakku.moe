@@ -1,8 +1,17 @@
 module.exports = {
   title: "Notev",
-  description: "一个小透明的透明世界~",
+  description: "一个小透明的透明世界🌌",
   base: "/notev/",
-  head: [["link", { rel: "icon", href: "/sigure_mo.png" }]],
+  head: [
+    [
+      "meta",
+      {
+        name: "viewport",
+        content: "width=device-width,initial-scale=1,user-scalable=no"
+      }
+    ],
+    ["link", { rel: "icon", href: "/sigure_mo.png" }]
+  ],
 
   markdown: {
     // markdown-it-anchor 的选项
@@ -22,72 +31,67 @@ module.exports = {
 
   // 插件
   plugins: [
-    // 自动返回顶部
-    "@vuepress/back-to-top",
     // 页面滚动时自动激活侧边栏链接
     "@vuepress/active-header-links"
   ],
 
   // 主题配置
+  theme: "reco",
   themeConfig: {
+    // 博客配置
+    type: "blog",
+    blogConfig: {
+      category: {
+        location: 2, // 在导航栏菜单中所占的位置，默认2
+        text: "Category" // 默认文案 “分类”
+      },
+      tag: {
+        location: 3, // 在导航栏菜单中所占的位置，默认3
+        text: "Tag" // 默认文案 “标签”
+      }
+    },
+    author: "SigureMo",
     nav: [
-      { text: "Home", link: "/" },
-      { text: "Notes", link: "/Notes/" },
-      { text: "Discovery", link: "/Discovery/" },
-      { text: "About", link: "/About.html" }
+      { text: "Home", link: "/", icon: "reco-home" },
+      { text: "TimeLine", link: "/TimeLine/", icon: "reco-date" },
+      { text: "About", link: "/About.html", icon: "reco-account" },
+      {
+        text: "Conntect",
+        icon: "reco-message",
+        items: [
+          {
+            text: "Github",
+            link: "https://github.com/SigureMo",
+            icon: "reco-github"
+          },
+          {
+            text: "Email",
+            link: "mailto:sigure_mo@163.com",
+            icon: "reco-message"
+          },
+          {
+            text: "QQ",
+            link:
+              "tencent://AddContact/?fromId=45&fromSubId=1&subcmd=all&uin=240377379&website=www.oicqzone.com",
+            icon: "reco-qq"
+          },
+          {
+            text: "Wechat",
+            link:
+              "http://qr.topscan.com/api.php?text=https://u.wechat.com/EPDjgRrQutXUU-K1XzT9X_0",
+            icon: "reco-wechat"
+          }
+        ]
+      }
     ],
     sidebarDepth: 1,
-    sidebar: {
-      "/Notes/": [
-        "",
-        {
-          title: "Computer Science",
-          children: [
-            "Data_Structures_and_Algorithms",
-            "Operating_System",
-            "Discrete_Mathematics",
-            "Deep_Learning",
-            "Principles_of_Computer_Composition",
-            "Computer_Network",
-            "Cpp",
-            "PIC"
-          ]
-        },
-        {
-          title: "Basic Subject",
-          children: [
-            "English",
-            "Higher_Mathematics",
-            "Linear_Algebra",
-            "Mathematical_Modeling"
-          ]
-        },
-        {
-          title: "Material Science",
-          children: [
-            "Solid-state_Phase_Transformation",
-            "Principle_of_Metal_Plastic_Working"
-          ]
-        }
-      ],
-      "/Discovery/": [
-        "",
-        "12_Neural_Network_Control",
-        "11_Git_Handbook",
-        "10_KaTeX_Index",
-        "09_Cpp_Handbook",
-        "08_Synchronization",
-        "07_Cmder",
-        "06_Harddisk",
-        "05_Git_Commit",
-        "04_Hardware",
-        "03_C_and_pointer"
-      ],
-      "/": ["", "Template", "About"]
-    },
-
+    sidebar: "auto",
     serviceWorker: {
       updatePopup: true // Boolean | Object, 默认值是 undefined.
+    },
+    valineConfig: {
+      appId: "E0ei2XbovnHMSlL4tQM2mVDo-gzGzoHsz",
+      appKey: "zSYs7qvWjLlEvF9tMcVMUUUr"
     },
 
     lastUpdated: "Last Updated", // string | boolean
@@ -96,7 +100,7 @@ module.exports = {
     repo: "SigureMo/notev",
     // 自定义仓库链接文字。默认从 `themeConfig.repo` 中自动推断为
     // "GitHub"/"GitLab"/"Bitbucket" 其中之一，或是 "Source"。
-    repoLabel: "Github",
+    repoLabel: "Repo",
 
     // 以下为可选的编辑链接选项
 

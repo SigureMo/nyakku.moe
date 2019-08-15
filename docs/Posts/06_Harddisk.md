@@ -1,4 +1,12 @@
-# Harddisk
+---
+title: Harddisk
+date: 2018-10-01
+categories:
+   - Discovery
+tags:
+   - OS
+   - Windows
+---
 
 ## 1 Reinstall OS
 

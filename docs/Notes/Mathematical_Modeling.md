@@ -1,4 +1,10 @@
-# Mathematical Modeling <Badge text="alpha" type="warn"/> <Badge text="4.2.0"/>
+---
+title: Mathematical Modeling
+categories:
+   - Basic Subject
+tags:
+   - Math
+---
 
 ## Part 1 案例部分
 

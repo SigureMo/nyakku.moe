@@ -1,4 +1,11 @@
-# Solid-state Phase Transformation <Badge text="beta" type="tip"/> <Badge text="10.3.3"/>
+---
+title: Solid-state Phase Transformation
+categories:
+   - Material Science
+tags:
+   - MS
+   - Required Course
+---
 
 ## Part 1 固态相变理论基础
 
