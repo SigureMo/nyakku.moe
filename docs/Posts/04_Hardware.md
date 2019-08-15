@@ -1,4 +1,11 @@
-# Hardware
+---
+title: Hardware
+date: 2018-09-19
+categories:
+   - Discovery
+tags:
+   - Hardware
+---
 
 ## 1 组成
 

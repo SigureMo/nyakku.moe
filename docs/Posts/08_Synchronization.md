@@ -1,4 +1,11 @@
-# Synchronization
+---
+title: Synchronization
+date: 2019-03-26
+categories:
+   - Discovery
+tags:
+   - OS
+---
 
 ## 1 什么是同步？
 

@@ -1,4 +1,10 @@
-# Operating System <Badge text="beta" type="tip"/> <Badge text="6.6.2"/>
+---
+title: Operating System
+categories:
+   - Computer Science
+tags:
+   - CS
+---
 
 ## 1 操作系统引论
 

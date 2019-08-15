@@ -1,6 +1,15 @@
-# C++ Handbook
+---
+title: C++ Handbook
+date: 2019-04-27
+categories:
+   - Discovery
+tags:
+   - C++
+---
 
 由于对 C++ 的使用大多限于刷算法，所以对很多语法的了解并不是很深，而且对于很多好用的接口函数都需要现查现用，为了方便查阅，根据局部性原理，就在自己这里做个 $Cache$ 吧 :joy:
+
+<!-- more -->
 
 ## String
 

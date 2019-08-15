@@ -1,4 +1,11 @@
-# Computer Network <Badge text="beta" type="tip"/> <Badge text="8.4.0"/>
+---
+title: Computer Network
+categories:
+   - Computer Science
+tags:
+   - CS
+   - kaoyan
+---
 
 ## 1 概述
 

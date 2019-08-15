@@ -1,4 +1,11 @@
-# PIC <Badge text="beta" type="tip"/> <Badge text="5.1.6"/>
+---
+title: PIC
+categories:
+   - Computer Science
+tags:
+   - CS
+   - Optional Course
+---
 
 ## 0 PIC 绪论
 
