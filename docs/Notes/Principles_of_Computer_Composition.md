@@ -1,4 +1,11 @@
-# Principles of Computer Composition <Badge text="beta" type="tip"/> <Badge text="10.2.9"/>
+---
+title: Principles of Computer Composition
+categories:
+   - Computer Science
+tags:
+   - CS
+   - kaoyan
+---
 
 ## 1 计算机系统概论
 
