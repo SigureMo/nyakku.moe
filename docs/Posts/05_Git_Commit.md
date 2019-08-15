@@ -1,4 +1,11 @@
-# Git Commit
+---
+title: Git Commit
+date: 2018-09-16
+categories:
+   - Discovery
+tags:
+   - Git
+---
 
 ## 1 Gitmoji 规范
 
