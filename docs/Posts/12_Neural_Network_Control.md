@@ -1,6 +1,15 @@
-# Neural Network Control
+---
+title: Neural Network Control
+date: 2019-06-09
+categories:
+   - Discovery
+tags:
+   - DL
+---
 
 源于必修课材料成型过程检测及控制一次 Pre ，最初只想扯到 AI ，直到某一天无意中扫到 PPT 扩展内容中提到了这个，就强行扯到这里了（当时我是无比开心的），当然，神经网络控制（NNC）本就是先进过程控制（APC）的一个重要分支啦，也是没有跑题的说（理直气壮.jpg）
+
+<!-- more -->
 
 ## 什么是神经元网络？
 

@@ -1,4 +1,11 @@
-# Discrete Mathematics <Badge text="beta" type="tip"/> <Badge text="8.4.2"/>
+---
+title: Discrete Mathematics
+categories:
+   - Computer Science
+tags:
+   - Math
+   - CS
+---
 
 ## 0 引
 
