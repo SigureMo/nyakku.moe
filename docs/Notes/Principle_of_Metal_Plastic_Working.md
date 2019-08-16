@@ -1,9 +1,9 @@
 ---
 title: Principle of Metal Plastic Working
 categories:
-   - Material Science
+   - 经纶·注
 tags:
-   - MS
+   - Material Science
    - Required Course
 ---
 

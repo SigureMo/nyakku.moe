@@ -1,8 +1,9 @@
 ---
 title: Mathematical Modeling
 categories:
-   - Basic Subject
+   - 经纶·注
 tags:
+   - Basic Subject
    - Math
 ---
 

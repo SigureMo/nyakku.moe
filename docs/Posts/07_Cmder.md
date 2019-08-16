@@ -2,7 +2,7 @@
 title: Cmder
 date: 2018-10-01
 categories:
-   - Discovery
+   - 百家·集
 tags:
    - Tool
    - Windows
