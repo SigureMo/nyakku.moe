@@ -1,7 +1,7 @@
 ---
 title: Computer Network
 categories:
-   - Computer Science
+   - 经纶·注
 tags:
    - CS
    - kaoyan

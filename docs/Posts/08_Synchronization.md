@@ -2,7 +2,7 @@
 title: Synchronization
 date: 2019-03-26
 categories:
-   - Discovery
+   - 倏尔·论
 tags:
    - OS
 ---
