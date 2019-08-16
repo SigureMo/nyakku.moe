@@ -1,8 +1,8 @@
 ---
-title: Hello GCN
+title: 初识图卷积神经网络（GCN）
 date: 2019-08-16
 categories:
-   - Discovery
+   - 倏尔·论
 tags:
    - DL
    - GCN
@@ -19,7 +19,7 @@ tags:
    -  $CNN$ 基本卷积方式
 -  开发环境
    -  `python 3.6`
--  格式使用 `Jupyter Notebook` ，源码见底部
+-  格式使用 `Jupyter Notebook` ，`Out` 部分放于块尾注释中，源码见底部
 
 ::: tip
 本文不深究公式细节，主要是为了更轻松地从传统神经网络过渡到 $GCN$ ，主要代码及结构参考 [Ref1](#reference) ，文字部分主要为自己的理解，如果有不当之处，还请指正

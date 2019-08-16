@@ -1,7 +1,7 @@
 ---
 title: Discrete Mathematics
 categories:
-   - Computer Science
+   - 经纶·注
 tags:
    - Math
    - CS

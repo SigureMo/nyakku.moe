@@ -2,7 +2,7 @@
 title: Git Commit
 date: 2018-09-16
 categories:
-   - Discovery
+   - 百家·集
 tags:
    - Git
 ---
