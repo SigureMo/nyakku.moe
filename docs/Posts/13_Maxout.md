@@ -7,7 +7,7 @@ tags:
    - DL
 ---
 
-Maxout 是 Goodfellow 在 2013 年提出的一个新的激活函数，相比于其它的激活函数，Maxout 本身是需要参数的，参数可以通过网络的反向传播得到学习，相应地，它比其它激活函数有着更好的性能，理论上可以拟合任意凸函数，使得网络取得更好的性能
+Maxout 是 Goodfellow 在 2013 年提出的一个新的激活函数，相比于其它的激活函数，Maxout 本身是需要参数的，参数可以通过网络的反向传播得到学习，相应地，它比其它激活函数有着更好的性能，理论上可以拟合任意凸函数，进而使得网络取得更好的性能
 
 <!-- more -->
 
@@ -20,28 +20,52 @@ Maxout 可以说是一个激活函数，但与其他激活函数所不同的是�
 我们网络前层进行 $WX + b$ 的线性变换后，是需要增加激活函数进行非线性变换的，但是具体怎么选择激活函数呢？我们可不可以让网络自己学习这个呢？
 
 ![DL00](../Images/DL00.png)
+
+上图便是最基本的 $Maxout$ 连接示意图，前面与普通的全连接并无区别，之后每两个单元“连接”到一个单元上，当然，这里不是真的连接，因为该条线上并不涉及参数，那么如何从两个单元得到一个单元的值呢？其实只需要比较两个单元的值即可，大的值便可以通过~也便是 $Max\ Out$
+
 ![DL01](../Images/DL01.png)
 
-我们看卷积层或者说全连接层的输出部分，单独看每个单元，将它连接到 $k$ （这里 $k = 2$）个单元上，也就是 $k$ 个参数，然后看这 $k$ 个单元中哪个的激活值最大，我们取最大的那个即可，每个单元都进行如此操作，这样激活前后的单元数的没有变的
-
-## 1 如何实现 Maxout
-
-那么我们要怎么实现这样的 $Maxout$ 激活呢？很明显，这需要使用新的参数，要在不同通道之间分别进行全连接，当然这会很麻烦
+结果便如上图所示，每两个单元中较大的值会被激活
 
 ![DL02](../Images/DL02.png)
 
-我们看前面的全连接部分，是很复杂的连接，但是前两层的线性变换可以看成一层线性变换，也就是
+我们知道每个单元都是前层特征的线性组合，那么比如上图中第一个单元学习到了 $y = 0$ ，而第二个单元学习到了 $y = x$ ，那么这两个单元学习到的激活函数便是 $ReLU$ 激活函数
 
-![DL03](../Images/DL03.png)
+更一般地，我们使每 $k$ （前面的例子 $k = 2$）个单元“连接”到一个单元上，那么 $Maxout$ 可以学习到更多段的分段函数作为激活函数，当 $k$ 足够大时，理论上可以拟合任何凸函数
 
-如果我们将其中一部分连接使用 $Maxout$ 的方式去掉，也就相当于实现了 $Maxout$ 层
+## 2 如何实现 Maxout
 
-![DL05](../Images/DL05.png)
-![DL04](../Images/DL04.png)
+首先令前层单元数为 $d$，后层单元数为 $m$，$Maxout$ 单元扩增倍数为 $k$ （即每 $k$ 个单元“连接”到一个单元）
 
-可以看到，这里激活后的连接方式与前面的完全相同，那么如何实现它呢？
+那么我们要怎么实现这样的 $Maxout$ 激活呢？
 
-可以参考 `tf.contrib.layers.maxout` 的实现方式，将前层的部分参数作为 $Maxout$ 的激活参数，这样省去了新建 $Maxout$ 层的麻烦，但是经过这样的 $Maxout$ 层单元数会减少，所以要注意连接方式
+### 2.1 构建网络层时直接使用新的结构
+
+一种方式是对整个网络层进行重构，原来，即原本 $d \times m$ 个参数改为 $d \times m \times k$ 个参数，之后从中挑选出最大的即可，比如下面的代码
+
+```Python
+import tensorflow as tf
+
+
+x = tf.random_normal([1,3])
+m = 3
+k = 2
+
+d = x.get_shape().as_list()[-1]
+
+W = tf.Variable(tf.random_normal(shape=[d, m, k]))
+b = tf.Variable(tf.random_normal(shape = [m, k]))
+dot_z = tf.tensordot(x, W, axes=1) + b
+z = tf.reduce_max(dot_z, axis=2)
+
+with tf.Session() as sess:
+    sess.run(tf.global_variables_initializer())
+    print(sess.run([x, dot_z, z]))
+```
+
+### 2.2 将 Maxout 作为一个激活函数进行使用
+
+另一种方式是按照 $Maxout$ 为一个激活函数，搭建完线性变换部分（$d$ 个单元连接到 $k \times m$ 个单元）后，再进行 $Reshape$ 分为 $k$ 组，之后每组挑选出最大的即可，参考 `tf.contrib.layers.maxout` ，实现如下
 
 ```python
 def maxout(inputs, num_units, axis=None):
@@ -61,9 +85,18 @@ def maxout(inputs, num_units, axis=None):
             shape[i] = -1
     outputs = tf.reduce_max(tf.reshape(inputs, shape), -1, keepdims=False)
     return outputs
+
+# X.shape = (..., d)
+X = tf.layers.conv2d(inputs=X, filters=k * m, kernel_size, strides, padding)
+# X.shape = (..., m*k)
+X = maxout(inputs=X, num_units=m)
+# X.shape = (..., m)
 ```
+
+相比于前一种方式，这种方式操作起来更加方便，可以不对原有网络结构进行改变便可实现 $Maxout$ 激活，但是要注意的一点是，前面的线性变换输出单元数是 $m \times k$ 而不是 $m$ ，经过 $Maxout$ 激活后输出单元数才是 $m$
 
 # Reference
 
 1. [Tensorflow 文档 Maxout](https://tensorflow.google.cn/api_docs/python/tf/contrib/layers/maxout?hl=en)
 2. [Paper: Maxout Networks](https://arxiv.org/abs/1302.4389)
+3. [Maxout 激活函数原理及实现](https://www.jianshu.com/p/710fd5d6d640)
