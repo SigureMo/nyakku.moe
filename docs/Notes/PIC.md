@@ -1,7 +1,7 @@
 ---
 title: PIC
 categories:
-   - Computer Science
+   - 经纶·注
 tags:
    - CS
    - Optional Course

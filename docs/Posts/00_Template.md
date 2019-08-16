@@ -2,7 +2,7 @@
 title: Template
 date: 2018-09-09
 categories:
-   - Discovery
+   - 百家·集
 tags:
    - Vuepress
 ---

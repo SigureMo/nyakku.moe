@@ -2,7 +2,7 @@
 title: Hardware
 date: 2018-09-19
 categories:
-   - Discovery
+   - 倏尔·论
 tags:
    - Hardware
 ---
