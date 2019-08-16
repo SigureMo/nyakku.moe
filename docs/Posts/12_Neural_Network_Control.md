@@ -2,7 +2,7 @@
 title: Neural Network Control
 date: 2019-06-09
 categories:
-   - Discovery
+   - 百家·集
 tags:
    - DL
 ---

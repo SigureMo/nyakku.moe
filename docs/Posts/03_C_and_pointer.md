@@ -2,7 +2,7 @@
 title: C and pointer
 date: 2018-09-09
 categories:
-   - Discovery
+   - 倏尔·论
 tags:
    - C
 ---

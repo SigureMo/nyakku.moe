@@ -72,7 +72,7 @@ module.exports = {
           {
             text: "QQ",
             link:
-              "tencent://AddContact/?fromId=45&fromSubId=1&subcmd=all&uin=240377379&website=www.oicqzone.com",
+              "http://qr.topscan.com/api.php?text=http://qm.qq.com/cgi-bin/qm/qr?k=1PbIl8QPOkF0ErJKX-GmjA-E8e53djl4",
             icon: "reco-qq"
           },
           {
@@ -80,6 +80,11 @@ module.exports = {
             link:
               "http://qr.topscan.com/api.php?text=https://u.wechat.com/EPDjgRrQutXUU-K1XzT9X_0",
             icon: "reco-wechat"
+          },
+          {
+            text: "CSDN",
+            link: "https://blog.csdn.net/qq_41819321",
+            icon: "reco-csdn"
           }
         ]
       }
