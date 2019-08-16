@@ -2,7 +2,7 @@
 title: Git Handbook
 date: 2019-05-22
 categories:
-   - Discovery
+   - 百家·集
 tags:
    - Git
 ---

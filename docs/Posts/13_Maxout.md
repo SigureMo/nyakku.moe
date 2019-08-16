@@ -1,13 +1,15 @@
 ---
-title: Maxout
+title: Maxout 的简单理解与实现
 date: 2019-07-01
 categories:
-   - Discovery
+   - 倏尔·论
 tags:
    - DL
 ---
 
+::: tip
 Maxout 是 Goodfellow 在 2013 年提出的一个新的激活函数，相比于其它的激活函数，Maxout 本身是需要参数的，参数可以通过网络的反向传播得到学习，相应地，它比其它激活函数有着更好的性能，理论上可以拟合任意凸函数，进而使得网络取得更好的性能
+:::
 
 <!-- more -->
 
