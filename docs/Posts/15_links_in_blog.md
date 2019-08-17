@@ -4,7 +4,7 @@ date: 2019-08-17
 categories:
    - 趣笔·书
 tags:
-   - front_end
+   - front end
 ---
 
 ::: tip
