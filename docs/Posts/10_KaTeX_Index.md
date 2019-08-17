@@ -2,7 +2,7 @@
 title: KaTeX Index
 date: 2019-05-19
 categories:
-   - 百家·集
+   - 雁影·留
 tags:
    - KaTeX
 ---
