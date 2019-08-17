@@ -2,7 +2,7 @@
 title: Template
 date: 2018-09-09
 categories:
-   - 百家·集
+   - 雁影·留
 tags:
    - Vuepress
 ---
@@ -27,6 +27,10 @@ tags:
 
 ```md
 ![<noteName><imgCnt>](https://github.com/SigureMo/notev/blob/master/docs/Images/<noteName><imgCnt>.<ext>?raw=true)
+
+<!-- or -->
+
+![<noteName><imgCnt>](https://raw.githubusercontent.com/SigureMo/notev/master/docs/Images/<noteName><imgCnt>.<ext>)
 ```
 
 ## 引用代码
