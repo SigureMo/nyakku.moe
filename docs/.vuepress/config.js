@@ -1,7 +1,6 @@
 module.exports = {
   title: "Notev",
   description: "一个小透明的透明世界🌌",
-  base: "/notev/",
   head: [
     [
       "meta",

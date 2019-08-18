@@ -2,7 +2,7 @@
 
 将热爱延续下去，将开源进行到底！
 
-[Get started!](https://siguremo.github.io/notev/)
+[Get started!](https://sigure.xyz/)
 
 ## Notes & Codes
 
