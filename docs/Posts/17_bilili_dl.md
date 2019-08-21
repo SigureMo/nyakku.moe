@@ -48,7 +48,7 @@ https://www.bilibili.com/video/av6538245
 
 在该页面下的`视频选集`一栏中可以看到视频列表
 
-首先 `F12` 打开开发者模式，切换到 `Network` 栏下并刷新页面（最好右键刷新按钮`选择清空缓存并影星重新加载`），在抓到的包中分别搜索 `.mp4` 与 `.flv` ，可以搜到类似于如下的 `url`
+首先 `F12` 打开开发者模式，切换到 `Network` 栏下并刷新页面（最好右键刷新按钮`选择清空缓存并硬性重新加载`），在抓到的包中分别搜索 `.mp4` 与 `.flv` ，可以搜到类似于如下的 `url`
 
 ```
 http://upos-hz-mirrorks3u.acgvideo.com/upgcxcode/97/67/10636797/10636797-1-32.flv?e=ig8euxZM... ...
@@ -62,6 +62,7 @@ https://api.bilibili.com/x/player/playurl?avid={avid}&cid={cid}&qn={sp}&type=&ot
 
 也就是说只要有 `avid` 、 `cid` 以及 `sp` 就可以获取视频，通过分析可以得知 `avid` 即为主页 url 中尾部数字，而 `sp` 代表了清晰度，代码对应情况如下
 
+-  112: 高清 1080P+
 -  80: 高清 1080P
 -  64: 高清 720P
 -  32: 清晰 480P
@@ -140,7 +141,8 @@ python bilili-dl.py <url>
 `bilili-dl` 还支持很多参数，具体如下
 
 -  `-d`/`--dir` 指定存储目录，默认为根目录
--  `-r`/`--sharpness` 指定清晰度，默认为 80，对应关系如下
+-  `-r`/`--sharpness` 指定清晰度，默认为 112，对应关系如下
+   -  112 # 高清 1080P+
    -  80 # 高清 1080P
    -  64 # 高清 720P
    -  32 # 清晰 480P
@@ -151,7 +153,7 @@ python bilili-dl.py <url>
    -  `<p1>,<p2>,<p3>,...,<pn>` 即通过 `,` 分割，不要加空格
    -  `<p_start>~<p_end>` 即通过 `~` 分隔，下载起始到终止的剧集
    -  `all` 全部下载
--  `--playlist-type` 指定播放列表类型，支持 dpl 和 m3u ，默认为 dpl
+-  `--playlist-type` 指定播放列表类型，支持 dpl 和 m3u ，默认为 dpl，设置为 no 即不生成播放列表
 -  `--path-type` 指定播放列表路径的类型（rp：相对路径，ap：绝对路径），默认为相对路径
 -  `--ffmpeg` 指定 `ffmpeg` 存放路径，默认为 `ffmpeg/ffmpeg.exe`
 
