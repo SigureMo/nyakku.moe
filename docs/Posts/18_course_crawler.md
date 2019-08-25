@@ -87,7 +87,7 @@ python mooc.py https://www.icourse163.org/course/TONGJI-53004
 ```
 
 ::: tip
-这里的 `<url>` 为课程主页的地址，网址的具体要求及课程下载的额外要求详见[分类](../courses/icourse163.md)
+这里的 `<url>` 为课程主页的地址，网址的具体要求及课程下载的额外要求详见[分类](https://www.sigure.xyz/course-crawler/courses/icourse163.html)
 :::
 
 ### 身份验证
@@ -98,7 +98,7 @@ python mooc.py https://www.icourse163.org/course/TONGJI-53004
 
 切换到 `Network` 选项卡，刷新页面，在左侧选择第一个抓到的包，在右侧 `Headers` 中找到 `cookie` （也可能是 `Cookie`），复制粘贴到程序命令行中
 
-![get_cookies.png](../images/get_cookies.png)
+![get_cookies.png](https://raw.githubusercontent.com/SigureMo/course-crawler/docs/images/get_cookies.png)
 
 ::: tip
 如果你和我一样懒的话，可以直接三击 cookies 快速将整个 cookies 及前面的 `cookie:` 一起选中，直接复制粘贴到程序中，也是可以的，反正我是懒得从左上滑到右下啦，所以特意做了这个小“优化”~
