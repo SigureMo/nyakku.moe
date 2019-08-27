@@ -10,4 +10,4 @@
 
 ## Vue 驱动！
 
-使用全新的 vuepress，构建界面清爽的文档~
+使用全新的 [vuepress](https://github.com/vuejs/vuepress) 生成静态网站，使用主题 [reco](https://github.com/vuepress-reco/vuepress-theme-reco)~
