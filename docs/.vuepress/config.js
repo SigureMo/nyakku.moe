@@ -50,6 +50,10 @@ module.exports = {
       }
     },
     author: "SigureMo",
+    // 备案号
+    record: "辽ICP备19014250号-1",
+    // 项目开始时间，只填写年份
+    startYear: "2018",
     nav: [
       { text: "Home", link: "/", icon: "reco-home" },
       { text: "TimeLine", link: "/TimeLine/", icon: "reco-date" },
