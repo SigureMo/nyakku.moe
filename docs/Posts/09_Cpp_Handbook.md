@@ -20,6 +20,59 @@ tags:
 -  `const char* p = str.data();`
 -  `const char *p = str.c_str();`
 
+### 流操作
+
+举个例子即可
+
+```cpp
+stringstream namestream;
+string name;
+namestream << "a.txt";
+name = string(namestream.str());
+```
+
+### 数字与字符串的相互转换
+
+-  利用 `stringstream` （需 `#include <sstream>`）
+
+   -  字符串转浮点型
+
+      ```cpp
+      double a ;
+      string res= "123.32";
+      stringstream ss;
+      ss << res;
+      ss >> a;
+      ```
+
+   -  浮点型转字符串
+
+      ```cpp
+      double a = 123.32;
+      string res;
+      stringstream ss;
+      ss << a;
+      ss >> res;
+      ```
+
+-  利用 `sscanf` 和 `sprintf` （需 `#include <string>`）
+
+   -  字符串转浮点型
+
+      ```cpp
+      char str1[]="123.321";
+      double b;
+      sscanf(str1, "%lf", &b);
+      ```
+
+   -  浮点型转字符串
+
+      ```cpp
+      char str1[10];
+      double b=123.321;
+      sprintf(str1, "%.3lf", b);
+      ```
+
 ### 如何按行获取输入？
 
 ```cpp
@@ -33,17 +86,6 @@ position = s.find("b", 5);
 ```
 
 意为从位置 `5` 开始寻找子串（缺省为 `0`），返回第一个找到的位置，若未找到，则返回 `string::npos` ，可据此判断子串是否在子串中
-
-### 流操作
-
-举个例子即可
-
-```cpp
-stringstream namestream;
-string name;
-namestream << "a.txt";
-name = string(namestream.str());
-```
 
 ## 排序算法
 
@@ -98,3 +140,4 @@ sort(a, a+10, compare);
 1. [C++中 string、char \*、char[]的转换](https://www.cnblogs.com/Pillar/p/4206452.html)
 2. [sort 函数的用法(C++排序库函数的调用)](https://www.cnblogs.com/jjzzx/p/5122381.html)
 3. [C++ string 中的 find()函数](https://www.cnblogs.com/wkfvawl/p/9429128.html)
+4. [c++数字和字符串的转换](https://www.cnblogs.com/houchen/p/8984164.html)
