@@ -163,3 +163,9 @@ tmp/
 # vb
 MSSCCPRJ.SCC
 *.vbw
+
+# binary file
+*.jpg
+*.jpeg
+*.png
+*.mp4
