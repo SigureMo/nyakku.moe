@@ -9,7 +9,14 @@ module.exports = {
         content: "width=device-width,initial-scale=1,user-scalable=no"
       }
     ],
-    ["link", { rel: "icon", href: "/sigure_mo.png" }]
+    ["link", { rel: "icon", href: "/sigure_mo.png" }],
+    [
+      "link",
+      {
+        rel: "stylesheet",
+        href: "https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/katex.min.css"
+      }
+    ]
   ],
 
   markdown: {
@@ -19,7 +26,7 @@ module.exports = {
     toc: { includeLevel: [1, 2, 3] },
     // markdown 插件
     extendMarkdown: md => {
-      md.set({ breaks: true });
+      md.set({ html: true });
       md.use(require("@iktakahiro/markdown-it-katex"), {
         throwOnError: false,
         errorColor: " #cc0000"
