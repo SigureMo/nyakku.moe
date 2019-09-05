@@ -33,6 +33,12 @@ tags:
 ![<noteName><imgCnt>](https://raw.githubusercontent.com/SigureMo/notev/master/docs/Images/<noteName><imgCnt>.<ext>)
 ```
 
+::: warning
+
+由于已经取消对 Images/ 文件夹的上传，所以本静态网站将不提供外部图片路径
+
+:::
+
 ## 引用代码
 
 1. 引用外部代码
