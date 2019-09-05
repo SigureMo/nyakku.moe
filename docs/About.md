@@ -10,7 +10,7 @@ sidebar: false
   <a href="tencent://AddContact/?fromId=45&fromSubId=1&subcmd=all&uin=240377379&website=www.oicqzone.com" class="zi zi_tmQq"></a>
 </p>
 
-Sigure_Mo，大三材料喵，跨考 CS 准备中 ε≡٩(๑>₃<)۶ ~
+Sigure_Mo，材料喵，拟跨考 CS ε≡٩(๑>₃<)۶ ~
 
 已成功入坑 {{ dist_times }} ~
 
@@ -28,6 +28,11 @@ Sigure_Mo，大三材料喵，跨考 CS 准备中 ε≡٩(๑>₃<)۶ ~
 -  偶尔刷刷 PAT ~
 -  偶尔卖卖 萌 :joy: ~
 -  一直在学习 ……（手动滑稽）
+
+## Projects
+
+-  [Course Crawler](https://www.sigure.xyz/course-crawler/) 慕课课程下载工具，Fork 于 Foair
+-  [Shoeprint Recognition](https://www.sigure.xyz/shoeprint-recognition/) “恒锐杯”鞋印花纹图像类别判定挑战赛
 
 <script>
 export default {
