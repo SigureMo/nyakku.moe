@@ -381,7 +381,21 @@ module.exports = {
 下面推荐几个有用的插件
 
 -  `markdown-it-mark` 在词语两侧添加 `==` 即可对其实现==高亮==的效果，非常简单实用
--  `@iktakahiro/markdown-it-katex` 可在 Markdown 内解析 $\KaTeX$，但是其依赖 `CSS`，所以需要额外在 `docs/.vuepress/styles/index.styl` 中添加 `@import "https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/katex.min.css"`
+-  `@iktakahiro/markdown-it-katex` 可在 Markdown 内解析 $\KaTeX$，但是其依赖 `CSS`，所以需要额外配置下 `docs/.vuepress/config.js`
+
+```js
+module.exports = {
+   head: [
+      [
+         "link",
+         {
+            rel: "stylesheet",
+            href: "https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/katex.min.css"
+         }
+      ]
+   ]
+};
+```
 
 ::: warning
 在 `config.js` 中配置的 markdown 配置都是在编译时便解析完成的，所以配置 `markdown-it-katex` 后可能会导致编译时间特别长，但是当前其是一个非常有效的方式
