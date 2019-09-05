@@ -153,6 +153,7 @@ Makefile.win
 tmp/
 /tests/
 /data/
+/tools/
 
 # Mac
 .DS_Store
