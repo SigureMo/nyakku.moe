@@ -1,0 +1,10 @@
+# -*- coding: gbk -*-
+# name,type,rho(kg/m^3),c(J/(kg.K)),k(W/(m.K)),T_l(K),T_s(K),L(J/kg)
+## 0 Sand
+Sand,0,1500,837.36,0.83736,,,
+
+## 1 Casting
+PureAl,1,2350,1088,100,930,900,389730
+
+## 2 Chill
+Chill,2,10,500,100,,,
