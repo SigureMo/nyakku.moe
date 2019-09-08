@@ -66,7 +66,7 @@ module.exports = {
       { text: "TimeLine", link: "/TimeLine/", icon: "reco-date" },
       { text: "About", link: "/About.html", icon: "reco-account" },
       {
-        text: "Conntect",
+        text: "Contact",
         icon: "reco-message",
         items: [
           {
