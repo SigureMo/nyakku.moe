@@ -28,6 +28,7 @@ tags:
 
 -  **Markdown Preview Enhanced**
 -  **EditorConfig for VS Code**
+-  **GitLens — Git supercharged**
 -  Excel Viewer
 -  LaTeX Workshop
 -  Markdown PDF
