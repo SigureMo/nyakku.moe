@@ -6,6 +6,7 @@ categories:
 tags:
    - Tool
    - Windows
+   - VSCode
 ---
 
 ## 1 Start
