@@ -84,7 +84,7 @@ tags:
 
 线性表是具有==相同数据类型==的 $n$ 个==数据元素==的==有限序列==
 
-#### 2.2 顺序表示（Ranked_List）
+### 2.2 顺序表示（Ranked_List）
 
 -  物理结构顺序与逻辑结构顺序相同
 -  排序后的更容易操作，不需要每次都全部搜索
@@ -95,7 +95,7 @@ tags:
 
 :::
 
-#### 2.3 链式表示（Linked_List）
+### 2.3 链式表示（Linked_List）
 
 ---
 
@@ -1140,3 +1140,5 @@ Index Hash(const char *Key, int TableSize){
 2. [PTA | 程序设计类实验辅助教学平台](https://pintia.cn/)
 3. 《数据结构 (C 语言版)》 严蔚敏 吴伟民 编著
 4. 《Introduction to Algorithms》 Thomas H.Cormen 、 Charles E.Leiserson 等
+5. 2020 年数据结构考研复习指导 - 王道
+6. 2020 版数据结构高分笔记 - 天勤
