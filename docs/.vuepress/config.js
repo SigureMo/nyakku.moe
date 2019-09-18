@@ -20,6 +20,8 @@ module.exports = {
   ],
 
   markdown: {
+    // 代码显示行号
+    lineNumbers: true,
     // markdown-it-anchor 的选项
     anchor: { permalink: true },
     // markdown-it-toc 的选项
