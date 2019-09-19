@@ -1,5 +1,10 @@
 #include <cmath>
 #include "arithmetic_unit.hpp"
+#define DIGHT 0
+#define VARIABLE 1
+#define NUMBER 2
+#define DOT 3
+#define CONSTRAINT 4
 
 #ifndef OPERAND_H
 #define OPERAND_H
