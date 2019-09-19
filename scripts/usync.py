@@ -63,7 +63,7 @@ if __name__ == "__main__":
     if args.direct == "u++":
         src_root = ""
         tar_root = uroot
-    elif args.dirct == "u--":
+    elif args.direct == "u--":
         src_root = uroot
         tar_root = ""
 
