@@ -11,8 +11,8 @@ tags:
 
    -  [Linear List](#_2-线性表（linear-list）)
 
-      -  [Ranked List](#_2-1-顺序表示（ranked-list）)
-      -  [Linked List](#_2-2-链式表示（linked-list）)
+      -  [Sequence List](#_2-2-顺序表示（sequence-list）)
+      -  [Linked List](#_2-3-链式表示（linked-list）)
       -  [Stack](#_3-堆栈（stack）)
       -  [Queue](#_4-队列（queue）)
       -  [String](#_5-串（string）)
@@ -70,7 +70,7 @@ tags:
 -  时间复杂度 将算法中基本操作的执行次数作为算法时间复杂度的度量
 -  空间复杂度 存储空间的度量
 
-## 2 线性表（Linear_List）
+## 2 线性表（Linear List）
 
 -  顺序存储
    -  顺序表
@@ -84,7 +84,7 @@ tags:
 
 线性表是具有==相同数据类型==的 $n$ 个==数据元素==的==有限序列==
 
-### 2.2 顺序表示（Ranked_List）
+### 2.2 顺序表示（Sequence List） <Badge text="!" type="error"/>
 
 -  物理结构顺序与逻辑结构顺序相同
 -  排序后的更容易操作，不需要每次都全部搜索
@@ -95,43 +95,60 @@ tags:
 
 :::
 
-### 2.3 链式表示（Linked_List）
+<<< @/Codes/Data_Structures_and_Algorthms/Chapter_02_Linear_List/01_Sequence_List.cpp
+
+### 2.3 链式表示（Linked List） <Badge text="!" type="error"/>
+
+-  求长度和按 index 查找明显变慢，但是删除和插入操作明显变简单
+-  删除和插入要注意操作顺序
+
+::: tip 关于带不带头结点
+
+如非明确说明，默认带头结点
+
+:::
+
+#### 2.3.1 单链表（Single Linked List）
+
+<<< @/Codes/Data_Structures_and_Algorthms/Chapter_02_Linear_List/02_Single_Linked_List.cpp
+
+#### 2.3.2 双链表(Double Linked List)
+
+<<< @/Codes/Data_Structures_and_Algorthms/Chapter_02_Linear_List/03_Double_Linked_List.c
+
+#### 2.3.3 循环链表(Circular Linked List)
+
+-  循环单链表(Single Circular Linked List)
+
+   最后一个结点指向**第一个结点**而不是 $NULL$，即带头结点则指向头结点
+
+-  循环双链表(Double Circular Linked List)
+
+#### 2.3.4 静态链表(Static Linked List)
+
+使用**数组**存储，指针域实际存储的是数组**下标**
+
+<<< @/Codes/Data_Structures_and_Algorthms/Chapter_02_Linear_List/04_Static_Linked_List.c
+
+#### 2.3.5 多重链表（Multiple List）
+
+-  多重链表中结点的**指针域会有多个**
+-  但包含两个指针域的链表并不一定是多重链表，比如双向链表就不是多重链表。
+-  用途
+   基本上如**树、图**这样相对复杂的数据结构都可以采用多重链表方式实现存储。
+   > 如*稀疏矩阵*的存储 -> 使用十字链表（一种典型的多重链表）存储，即使用两个指针域（Right、Down）将同行和同列串起来
+
+#### 2.4 广义表（General Lists）
+
+广义表是线性表的推广,其数据域不仅可以是单元素，也可以是另一个广义表
+
+<<< @/Codes/Data_Structures_and_Algorthms/Chapter_02_Linear_List/05_General_List.c
 
 ---
 
 新旧分界线
 
 ---
-
-### 2.1 顺序表示（Ranked_List）
-
-1. 使用新表可以化插入为复制(时降空增)
-2. 排序后的更容易操作，不需要每次都全部搜索
-
-[Ranked_List](https://github.com/SigureMo/notev/tree/master/Codes/Data_Structures/Chapter_2_List/Ranked_List.c)
-
-### 2.2 链式表示（Linked_List）
-
-1. 求长度和按 index 查找明显变慢，但是删除和插入操作明显变简单
-2. 删除和插入要注意操作顺序
-
-[Linked_List](https://github.com/SigureMo/notev/tree/master/Codes/Data_Structures/Chapter_2_List/Linked_List.c)
-
-#### 2.2.1 广义表（General_Lists）
-
-1. 广义表是线性表的推广
-2. 对于线性表而言，n 个元素都是基本的单元素
-3. 广义表中，这些元素不仅可以是单元素也可以是另一个广义表
-
-[General_Lists](https://github.com/SigureMo/notev/tree/master/Codes/Data_Structures/Chapter_2_List/General_Lists.c)
-
-#### 2.2.2 多重链表（Multiple_List）
-
-1. 多重链表中结点的**指针域会有多个**，如前面例子包含了 Next 和 SubList 两个指针域
-2. 但包含两个指针域的链表并不一定是多重链表，比如双向链表就不是多重链表。
-   > 多重链表有广泛的用途：基本上如**树、图**这样相对复杂的数据结构都可以采用多重链表方式实现存储。
-   > Examples:
-       稀疏矩阵的存储 -> 使用十字链表（一种典型的多重链表）存储，即使用两个指针域（Right、Down）将同行和同列串起来
 
 ## 3 堆栈（Stack）
 
@@ -1115,24 +1132,20 @@ Index Hash(const char *Key, int TableSize){
 
 # Change Log
 
-1. 180911 [Chapter_4_Queue](https://github.com/SigureMo/notev/tree/master/Codes/Data_Structures/Chapter_4_Queue) Finished
+1. 180911 Chapter_4_Queue Finished
 2. 180913 [Week_2](https://github.com/SigureMo/notev/tree/master/Codes/Data_Structures/Week_2) Finished
-3. 180915 [Chapter_6_Tree(#6.1-#6.9)](https://github.com/SigureMo/notev/tree/master/Codes/Data_Structures/Chapter_6_Tree) Finished
-4. 180916 [Week_3](https://github.com/SigureMo/notev/tree/master/Codes/Data_Structures/Week_3) Finished
-5. 180918 Chapter_5_String Finished
-6. 180922 [Chapter_6_Tree(#6.10-#6.11)](https://github.com/SigureMo/notev/tree/master/Codes/Data_Structures/Chapter_6_Tree) Finished
-7. 180923 [Week_4](https://github.com/SigureMo/notev/tree/master/Codes/Data_Structures/Week_4) Finished
-8. 180929 [PyDS_Linked_List](https://github.com/SigureMo/notev/tree/master/Codes/Data_Structures/Chapter_2_List) [PyDS_Heap](https://github.com/SigureMo/notev/tree/master/Codes/Data_Structures/Chapter_7_Heap) [Chapter_6_Tree](https://github.com/SigureMo/notev/tree/master/Codes/Data_Structures/Chapter_6_Tree) [Chapter_7_Heap](https://github.com/SigureMo/notev/tree/master/Codes/Data_Structures/Chapter_7_Heap) Finished
-9. 181004 [Week_5](https://github.com/SigureMo/notev/tree/master/Codes/Data_Structures/Week_5) Finished
-10.   181005 [Chapter_8_Graph(#8.1-#8.2)](https://github.com/SigureMo/notev/tree/master/Codes/Data_Structures/Chapter_8_Graph) Finished
-11.   181006 [Week_6](https://github.com/SigureMo/notev/tree/master/Codes/Data_Structures/Week_6) Finished
-12.   181010 Chapter_8_Graph(#8.3) Finished
-13.   181014 [Week_7](https://github.com/SigureMo/notev/tree/master/Codes/Data_Structures/Week_7) Finished
-14.   181018 Chapter_8_Graph(#8.4-#8.6) Finished
-15.   181025 Chapter_9_Sort(#9.1-#9.4) Finished
-16.   181102 Chapter_9_Sort(#9.5-#9.8) Finished
-17.   181110 Chapter_10_Hash(#10) Finished
-18.   190425 V2.0 Started
+3. 180916 [Week_3](https://github.com/SigureMo/notev/tree/master/Codes/Data_Structures/Week_3) Finished
+4. 180918 Chapter_5_String Finished
+5. 180923 [Week_4](https://github.com/SigureMo/notev/tree/master/Codes/Data_Structures/Week_4) Finished
+6. 180929 Chapter_6_Tree Finished
+7. 180929 Chapter_7_Heap Finished
+8. 181004 [Week_5](https://github.com/SigureMo/notev/tree/master/Codes/Data_Structures/Week_5) Finished
+9. 181006 [Week_6](https://github.com/SigureMo/notev/tree/master/Codes/Data_Structures/Week_6) Finished
+10.   181014 [Week_7](https://github.com/SigureMo/notev/tree/master/Codes/Data_Structures/Week_7) Finished
+11.   181018 Chapter_8_Graph Finished
+12.   181102 Chapter_9_Sort Finished
+13.   181110 Chapter_10_Hash Finished
+14.   190425 V2.0 Started
 
 # Reference
 
