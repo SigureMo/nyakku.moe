@@ -44,18 +44,20 @@ tags:
 1. 引用外部代码
 
 ```md
-![<codename>.<ext>](https://github.com/SigureMo/notev/blob/master/Codes/<noteName>/.../<codename>.<ext>)
+![<codename>.<ext>](https://github.com/SigureMo/notev/blob/master/Codes/<notename>/.../<codename>.<ext>)
 ```
 
 2. 引用外部代码目录
 
 ```md
-![<codename>.<ext>](https://github.com/SigureMo/notev/tree/master/Codes/<noteName>/.../)
+![<codename>.<ext>](https://github.com/SigureMo/notev/tree/master/Codes/<notename>/.../)
 ```
 
 3. 导入代码块
 
-暂无
+```md
+<<< @/Codes/<noteName>/.../<codename>{<hightlight_line1>,<hightlight_line2>}
+```
 
 4. 代码高亮
 
