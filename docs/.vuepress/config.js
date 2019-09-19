@@ -29,10 +29,7 @@ module.exports = {
     // markdown 插件
     extendMarkdown: md => {
       md.set({ html: true });
-      md.use(require("@iktakahiro/markdown-it-katex"), {
-        throwOnError: false,
-        errorColor: " #cc0000"
-      });
+
       md.use(require("markdown-it-mark"));
     }
   },
@@ -40,7 +37,11 @@ module.exports = {
   // 插件
   plugins: [
     // 页面滚动时自动激活侧边栏链接
-    "@vuepress/active-header-links"
+    "@vuepress/active-header-links",
+    // 开启 PWA
+    "@vuepress/pwa",
+    // 启用图片缩放
+    "@vuepress/medium-zoom"
   ],
 
   // 主题配置
