@@ -7,23 +7,23 @@ Operand::Operand(int oaType):ArithmeticUnit(1) {
 }
 
 bool Operand::isDigit() {
-  return this->oaType_ == 0;
+  return this->oaType_ == DIGHT;
 }
 
 bool Operand::isVariable() {
-  return this->oaType_ == 1;
+  return this->oaType_ == VARIABLE;
 }
 
 bool Operand::isDot() {
-  return this->oaType_ == 3;
+  return this->oaType_ == DOT;
 }
 
 bool Operand::isNumber() {
-  return this->oaType_ == 2;
+  return this->oaType_ == NUMBER;
 }
 
 bool Operand::isConstant() {
-  return this->oaType_ == 4;
+  return this->oaType_ == CONSTRAINT;
 }
 
 void Operand::cleanZeros() {
@@ -44,25 +44,25 @@ void Operand::setValue(double value) {
 }
 
 
-Digit::Digit(char name):Operand(0) {
+Digit::Digit(char name):Operand(DIGHT) {
   this->name_ = name;
   this->nums = name - 48;
 }
 
 
-Variable::Variable(char name):Operand(1) {
+Variable::Variable(char name):Operand(VARIABLE) {
   this->name_ = name;
 }
 
 
-Number::Number(llong nums, int dot):Operand(2) {
+Number::Number(llong nums, int dot):Operand(DOT) {
   this->name_ = 0;
   this->nums = nums;
   this->dot = dot;
   cleanZeros();
 }
 
-Number::Number(double value):Operand(2) {
+Number::Number(double value):Operand(NUMBER) {
   this->name_ = 0;
   this->setValue(value);
 }
@@ -73,12 +73,12 @@ void Number::multiply(double value) {
 }
 
 
-Dot::Dot(char name):Operand(3) {
+Dot::Dot(char name):Operand(DOT) {
   this->name_ = name;
 }
 
 
-Constant::Constant(char name):Operand(4) {
+Constant::Constant(char name):Operand(CONSTRAINT) {
   this->name_ = name;
 }
 

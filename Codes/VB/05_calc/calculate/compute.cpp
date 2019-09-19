@@ -65,7 +65,7 @@ void fillArithmeticUnitVector(string expression) {
       arithmeticUnitVector.push_back(new Plus);
     }
     else if (c == '-') {
-      if (i == 0 || !(expression[i-1] >= 48 && expression[i-1] <=57) && expression[i-1] != '!') {
+      if (i == 0 || (!(expression[i-1] >= 48 && expression[i-1] <=57) && (expression[i-1] != '!'))) {
         arithmeticUnitVector.push_back(new Negative);
       }
       else {
