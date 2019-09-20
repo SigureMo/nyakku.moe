@@ -1,5 +1,6 @@
 #include <cmath>
 #include "arithmetic_unit.hpp"
+#define PI 3.14159265358979323846
 #define DIGHT 0
 #define VARIABLE 1
 #define NUMBER 2
@@ -58,9 +59,9 @@ public:
   double value;
 };
 
-class PI : public Constant {
+class Pi : public Constant {
 public:
-  PI();
+  Pi();
 };
 
 class Exp : public Constant {

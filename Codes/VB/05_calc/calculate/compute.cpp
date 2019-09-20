@@ -56,7 +56,7 @@ void fillArithmeticUnitVector(string expression) {
       arithmeticUnitVector.push_back(new Exp);
     }
     else if (c == 'p') {
-      arithmeticUnitVector.push_back(new PI);
+      arithmeticUnitVector.push_back(new Pi);
     }
     else if (c == '.') { // dot
       arithmeticUnitVector.push_back(new Dot('.'));
