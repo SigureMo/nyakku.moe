@@ -114,7 +114,7 @@ tags:
 
 #### 2.3.2 双链表(Double Linked List)
 
-<<< @/Codes/Data_Structures_and_Algorthms/Chapter_02_Linear_List/03_Double_Linked_List.c
+<<< @/Codes/Data_Structures_and_Algorthms/Chapter_02_Linear_List/03_Double_Linked_List.cpp
 
 #### 2.3.3 循环链表(Circular Linked List)
 
@@ -128,7 +128,7 @@ tags:
 
 使用**数组**存储，指针域实际存储的是数组**下标**
 
-<<< @/Codes/Data_Structures_and_Algorthms/Chapter_02_Linear_List/04_Static_Linked_List.c
+<<< @/Codes/Data_Structures_and_Algorthms/Chapter_02_Linear_List/04_Static_Linked_List.cpp
 
 #### 2.3.5 多重链表（Multiple List）
 
@@ -138,62 +138,159 @@ tags:
    基本上如**树、图**这样相对复杂的数据结构都可以采用多重链表方式实现存储。
    > 如*稀疏矩阵*的存储 -> 使用十字链表（一种典型的多重链表）存储，即使用两个指针域（Right、Down）将同行和同列串起来
 
-#### 2.4 广义表（General Lists）
+### 2.4 广义表（Generalized List）
 
 广义表是线性表的推广,其数据域不仅可以是单元素，也可以是另一个广义表
 
-<<< @/Codes/Data_Structures_and_Algorthms/Chapter_02_Linear_List/05_General_List.c
+<<< @/Codes/Data_Structures_and_Algorthms/Chapter_02_Linear_List/05_Generalized_List.cpp
+
+## 3 堆栈（Stack）
+
+-  顺序栈
+-  链栈
+-  共享栈
+
+### 3.1 基本概念
+
+#### 3.1.1 定义
+
+一种只能在**一端**进行插入或删除操作的**线性表**
+
+-  栈顶：允许进行插入或删除操作的一端
+-  栈底：固定不变的一端
+
+#### 3.1.2 特点
+
+先进后出（FILO）
+
+#### 3.1.3 数学性质
+
+当 $n$ 个元素以某种顺序进栈，并且可在任意时刻出栈（在满足先进后出的前提下）时，所获得的元素排列的数目 $N$ 恰好满足函数 $Catalan()$ 的计算，即
+
+$$
+N = \frac{1}{n+1}C_{2n}^n
+$$
+
+### 3.2 顺序存储
+
+使用顺序结构存储的栈
+
+<<< @/Codes/Data_Structures_and_Algorthms/Chapter_03_Stack/01_Sequence_Stack.cpp
+
+OOP 版：
+
+<<< @/Codes/Data_Structures_and_Algorthms/Chapter_03_Stack/04_Sequence_Stack_oop.cpp
+
+::: tip 考题中如何使用
+
+```cpp
+// 初始化
+int stack[maxSize];
+int top = -1
+// 元素 x 进栈
+stack[++top] = x;
+// 元素 x 出栈
+x = stack[top--];
+```
+
+:::
+
+::: tip 关于 ++i 与 i++
+
+具体区别不赘述，很明显 `++i` 应当是比 `i++` 效率高的，所以当他们等效的时候（不返回值），`++i` 会有更高的效率，但是值得注意的是，当两者等效的时候，编译器自然也会进行优化，对内建数据类型来说（如果是 C 的话，只有内建数据类型可以用，而 C++ 自定义类型可通过运算符重载获得 `++`），**两者完全没有区别**（可以看得到的汇编代码），但如果是自定义类型的话，后缀式需要保存更改前的值并返回，这将引起极大的复制开销
+
+故
+
+-  **内建类型按你喜欢的来就好**
+-  **自定义类型建议使用前缀式**
+
+> ref [++i 与 i++哪个效率更高?](https://www.cnblogs.com/alionxd/articles/2989575.html)
+
+:::
+
+#### 3.2.1 共享栈
+
+使用一个数组实现两个堆栈
+
+一个栈底在左端，一个栈底在右端，可以充分利用数组空间
+
+<<< @/Codes/Data_Structures_and_Algorthms/Chapter_03_Stack/02_Shared_Stack.cpp
+
+::: tip
+
+-  栈空 分别判断
+   -  0 号栈 `top0 = -1`
+   -  1 号栈 `top1 = MaxSize`
+-  栈满 `top1 - top0 == 1`
+
+:::
+
+### 3.3 链式存储
+
+使用链表结构存储的栈
+
+如果使用链尾作为 Top，则难以实现 Pop 操作，故 Top 应在链头
+
+<<< @/Codes/Data_Structures_and_Algorthms/Chapter_03_Stack/03_Linked_Stack.cpp
+
+### 3.4 应用
+
+#### 3.4.1 在括号匹配中的应用
+
+```cpp
+bool match(char exp[], int n) {
+   char stack[maxSize];
+   int top = -1;
+   for (int i=0; i<n; i++) {
+      if (exp[i] == '(') {
+         stack[++top] = '(';
+      }
+      else if (exp[i] == ')') {
+         if (top == -1) return false;
+         top--;
+      }
+   }
+   if (top != -1) return false;
+   return true;
+}
+```
+
+-  `'('` 压栈
+-  `')'` 出栈 若已空则不匹配
+-  最后校验栈是否为空
+
+#### 3.4.2 在表达式求值中的应用
+
+由于后缀表达式比中缀表达式更容易处理（没有括号，不需考虑优先级，有固定的运算顺序），所以会先将中缀表达式转换成后缀表达式，再对后缀表达式进行求值
+
+-  中缀表达式转换成后缀表达式
+
+   -  运算数 直接输出
+   -  左括号 压栈
+   -  右括号 将**栈顶的运算符弹出**并**输出**，**直到遇到左括号**（出栈，不输出）
+   -  运算符
+      -  若**优先级大于**栈顶运算符时，则把它**压栈**
+      -  若**优先级小于**栈顶运算符时，将栈顶运算符**弹出并输出**，再比较新的栈顶运算符，直到该运算符大于栈顶运算符优先级为止，然后将该**运算符压栈**
+   -  若各对象处理完毕，则把堆栈中存留的**运算符一并弹出**
+      > 左括号 `'('` 栈外优先级最高，栈内优先级最低
+
+-  对后缀表达式进行求值
+
+   -  运算数 入栈
+   -  运算符 Pop 适当个数运算数（二元运算符就是 2 个，一元就 1 个咯），**计算结果入栈**，注意出栈时操作数是反着来的
+
+#### 3.4.3 更多...
+
+-  函数调用
+-  递归 写起来更容易，但性能不佳，如非尾递归（尾递归编译器可自动优化为循环），尽量使用循环代替
+-  深度优先搜索
+-  回溯方法
 
 ---
 
 新旧分界线
 
 ---
-
-## 3 堆栈（Stack）
-
-### 3.1 An Example
-
-对表达式进行求值
-
-1. 由运算符号和运算数构成
-2. 使用后缀表达式更容易求（如中缀表达式$a + b * c - d / e$可以转换为$a b c * + d e / -$）
-
-### 3.2 描述
-
-堆栈（Stack）：具有一定操作约束的线性表
-
-> 只在一端（栈顶[Top]）进行插入、删除
-> 插入：入栈（Push）
-> 删除：出栈（Pop）
-> ===>**后入先出**（Last In First Out [LIFO]）
-
-### 3.3 顺序存储
-
-[Ranked_Stack](https://github.com/SigureMo/notev/tree/master/Codes/Data_Structures/Chapter_3_Stack/Ranked_Stack.c)
-
-> Extend
-> 使用一个数组实现两个堆栈=>
-> 一个栈底在左端，一个栈底在右端，可以充分利用数组空间
-> [Double_Stack](https://github.com/SigureMo/notev/tree/master/Codes/Data_Structures/Chapter_3_Stack/Double_Stack.c)
-
-### 3.4 链式存储
-
-如果使用链尾作为 Top，则难以实现 Pop 操作，故 Top 应在链头
-
-[Linked_Stack](https://github.com/SigureMo/notev/tree/master/Codes/Data_Structures/Chapter_3_Stack/Linked_Stack.c)
-
-### 3.5 再探 Example
-
-1. 从左到右读入**后缀表达式**的各项，遇到运算数则入栈，遇到运算符则 pop 适当个数运算数，结果入栈
-2. 中缀表达式先转换为后缀表达式： 1. 遇到运算数则输出，遇到运算符比较优先级，若当前符号优先级低于栈顶元素则入栈，否则弹出栈内元素，直至栈顶元素比当前符号优先级低，此时该符号入栈 2. 左括号'('栈外优先级最高，栈外优先级最低，遇到右括号')'则一直出栈直到左括号
-   ![Data_Structures01](../Images/Data_Structures01.png)
-
-### 3.6 应用
-
-1. 函数调用及递归实现
-2. 深度优先搜索
-3. 回溯方法
 
 ## 4 队列（Queue）
 
