@@ -83,8 +83,8 @@ Constant::Constant(char name):Operand(CONSTRAINT) {
 }
 
 
-PI::PI():Constant('p') {
-  this->value = M_PI;
+Pi::Pi():Constant('p') {
+  this->value = PI;
 }
 
 
