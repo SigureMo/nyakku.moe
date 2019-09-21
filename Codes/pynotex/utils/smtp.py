@@ -19,8 +19,8 @@ class SMTP(smtplib.SMTP_SSL):
         self.password = None
         super().__init__(self._server, self._port)
 
-    def __del__(self):
-        self.quit()
+    # def __del__(self):
+    #     self.quit()
 
     def login_(self, from_addr=None, password=None):
         self.from_addr = from_addr or self.from_addr
@@ -30,6 +30,14 @@ class SMTP(smtplib.SMTP_SSL):
     def send_text(self, to_addr, text, title='Title', appName='AppName', userName='UserName'):
         self.login_()
         msg = MIMEText(text, 'plain', 'utf-8')
+        msg['From'] = Header(f'{appName} <{self.from_addr}>')
+        msg['To'] = Header(f'{userName} <{to_addr}>')
+        msg['Subject'] = Header(title, 'utf-8')
+        self.sendmail(self.from_addr, to_addr, msg.as_string())
+
+    def send_html(self, to_addr, html, title='Title', appName='AppName', userName='UserName'):
+        self.login_()
+        msg = MIMEText(html, 'html', 'utf-8')
         msg['From'] = Header(f'{appName} <{self.from_addr}>')
         msg['To'] = Header(f'{userName} <{to_addr}>')
         msg['Subject'] = Header(title, 'utf-8')
