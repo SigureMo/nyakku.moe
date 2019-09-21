@@ -38,7 +38,7 @@ def to_html(markdown_txt):
 def parse_address(address):
     """ 解析邮件地址各个参数 """
     re_mail = re.compile(
-        r"(?P<username>\w+)@(?P<hostname>\w+)\.(?P<cname>\w+)")
+        r"(?P<username>\w+)@(?P<hostname>\w+)\.(?P<domain>\w+)")
     res = re_mail.match(address)
     if res is None:
         return None
@@ -46,7 +46,7 @@ def parse_address(address):
         return {
             "username": res.group("username"),
             "hostname": res.group("hostname"),
-            "cname": res.group("cname")
+            "domain": res.group("domain")
         }
 
 
