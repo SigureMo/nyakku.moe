@@ -166,6 +166,7 @@ MSSCCPRJ.SCC
 *.vbw
 
 # binary file
+bin/
 *.jpg
 *.jpeg
 *.png
