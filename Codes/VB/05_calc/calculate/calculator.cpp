@@ -15,9 +15,11 @@ int main(void) {
   while (true) {
     string expression;
     string tmp_expression;
+    int flag = 0;
     checkVars();
-    cout << "> ";
     do {
+      if (flag++) cout << "... ";
+      else cout << ">>> ";
       getline(cin, tmp_expression);
       for (int i = 0; i < tmp_expression.size(); i++) {
         if (tmp_expression[i] != ' ') {
@@ -26,7 +28,7 @@ int main(void) {
       }
     } while (expression[expression.size()-1] != '=');
     fillArithmeticUnitVector(expression);
-    cout << "> " << computeValue() << endl;
+    cout << "--> " << computeValue() << endl;
     checkVars();
   }
   return 0;
