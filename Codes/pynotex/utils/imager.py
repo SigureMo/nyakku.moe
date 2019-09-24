@@ -8,7 +8,7 @@ def imgs2pdf(img_path_list, pdf_path):
     img_others = []
     for img_path in img_path_list[1:]:
         img = Image.open(img_path)
-        if img.mode == "RGBA":
+        if img.mode == "RGBA" or img.mode == "P":
             img = img.convert('RGB')
             img_others.append(img)
         else:
