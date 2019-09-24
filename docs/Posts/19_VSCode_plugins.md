@@ -29,6 +29,7 @@ tags:
 -  **Markdown Preview Enhanced**
 -  **EditorConfig for VS Code**
 -  **GitLens — Git supercharged**
+-  hexdump for vscode
 -  Excel Viewer
 -  LaTeX Workshop
 -  Markdown PDF
