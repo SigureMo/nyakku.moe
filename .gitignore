@@ -165,12 +165,5 @@ tmp/
 MSSCCPRJ.SCC
 *.vbw
 
-# binary file
-bin/
-*.jpg
-*.jpeg
-*.png
-*.mp4
-
 # private post
 docs/Posts/*__*.md
