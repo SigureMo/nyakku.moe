@@ -112,6 +112,12 @@ tags:
 
 <<< @/Codes/Data_Structures_and_Algorthms/Chapter_02_Linear_List/02_Single_Linked_List.cpp
 
+::: tip 做题时经常遇到的问题
+
+删除最后一个元素的话，即便是有尾指针也是没用的，因为需要将上一个结点 $next$ 置 $NULL$ ，但是尾指针做不到，除非是双链表
+
+:::
+
 #### 2.3.2 双链表(Double Linked List)
 
 <<< @/Codes/Data_Structures_and_Algorthms/Chapter_02_Linear_List/03_Double_Linked_List.cpp
