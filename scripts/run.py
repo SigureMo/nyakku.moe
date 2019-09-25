@@ -92,7 +92,9 @@ def run(argv):
 def run_cmds(cmd_list, *args, **kw):
     """ 使用子进程运行命令 """
     for cmd in cmd_list:
-        subprocess.run(cmd, *args, **kw)
+        p = subprocess.run(cmd, *args, **kw)
+        if p.returncode != 0:
+            sys.exit(1)
 
 if __name__ == '__main__':
     argv = sys.argv
