@@ -23,7 +23,7 @@ Sigure_Mo，材料喵，拟跨考 CS ε≡٩(๑>₃<)۶ ~
 
 ## Status
 
--  偶尔写写 <i class="zi zi_tmPython"></i> 小脚本 ~
+-  偶尔写写 各种小脚本 ~
 -  偶尔学学 DL ~
 -  偶尔刷刷 PAT ~
 -  偶尔卖卖 萌 :joy: ~
@@ -33,6 +33,10 @@ Sigure_Mo，材料喵，拟跨考 CS ε≡٩(๑>₃<)۶ ~
 
 -  [Course Crawler](https://www.sigure.xyz/course-crawler/) 慕课课程下载工具，Fork 于 Foair
 -  [Shoeprint Recognition](https://www.sigure.xyz/shoeprint-recognition/) “恒锐杯”鞋印花纹图像类别判定挑战赛
+
+## Statement
+
+本仓库全部代码使用 [MIT](https://github.com/SigureMo/notev/blob/master/LICENSE) 协议进行开源，但是本仓库全部文档内容使用 [CC 4.0 BY-SA](https://creativecommons.org/licenses/by-sa/4.0/) 协议进行发布
 
 <script>
 export default {
