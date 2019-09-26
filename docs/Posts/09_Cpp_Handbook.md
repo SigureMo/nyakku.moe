@@ -73,6 +73,8 @@ name = string(namestream.str());
       sprintf(str1, "%.3lf", b);
       ```
 
+-  利用 `stoi` `atoi` `itoa` 等函数
+
 ### 如何按行获取输入？
 
 ```cpp
