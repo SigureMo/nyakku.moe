@@ -19,7 +19,7 @@
    <img alt="javascript" src="https://img.shields.io/badge/javascript-scripts-f1e05a?style=flat-square&logo=javascript">
    <img alt="shell" src="https://img.shields.io/badge/shell-scripts-89e051?style=flat-square&logo=shell">
    </br>
-   <img alt="jupyter" src="https://img.shields.io/badge/jupyter-notes-da5b0b?style=flat-square&logo=jupyter">
+   <img alt="jupyter" src="https://img.shields.io/badge/jupyter-notebook-da5b0b?style=flat-square&logo=jupyter">
    <img alt="java" src="https://img.shields.io/badge/java-apps-b07219?style=flat-square&logo=java">
    <img alt="vue" src="https://img.shields.io/badge/vue-components-2c3e50?style=flat-square&logo=vue.js">
    <img alt="matlab" src="https://img.shields.io/badge/matlab-math-e16737?style=flat-square&logo=mathworks">
@@ -40,9 +40,9 @@
 
 <p align="center">
    <img alt="Windows 10" src="https://img.shields.io/badge/Windows-10-purple?style=flat-square&logo=Windows">
-   <img alt="Deepin 15.11" src="https://img.shields.io/badge/deepin-15.11-blue?style=flat-square&logo=deepin">
+   <img alt="Deepin 15.11" src="https://img.shields.io/badge/Deepin-15.11-blue?style=flat-square&logo=deepin">
    <img alt="MacOS 10.14" src="https://img.shields.io/badge/MacOS-10.14-red?style=flat-square&logo=apple">
-   <img alt="Ubuntu 16.04" src="https://img.shields.io/badge/ubuntu-16.04-orange?style=flat-square&logo=ubuntu">
+   <img alt="Ubuntu 16.04" src="https://img.shields.io/badge/Ubuntu_Server-16.04-orange?style=flat-square&logo=ubuntu">
 </p>
 
 多系统共同维护与测试~
