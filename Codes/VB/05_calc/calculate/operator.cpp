@@ -49,8 +49,8 @@ bool Operator::isPostfixUnaryOperator() {
   return this->eleNumber == -1;
 }
 
-Number* Operator::compute(Operand* oa1, Operand* oa2) {};
-Number* Operator::compute(Operand* oa1) {};
+Number* Operator::compute(Operand* oa1, Operand* oa2) {return new Number(0);};
+Number* Operator::compute(Operand* oa1) {return new Number(0);};
 
 
 Plus::Plus():Operator('+') {
