@@ -431,8 +431,6 @@ ClassName (parameterList)
 
 ### 3.5 Case Study
 
-[Stack](https://github.com/SigureMo/notev/tree/master/Codes/Data_Structures/Chapter_3_Stack/Stack.cpp)
-
 ### 3.6 The C++ vector Class
 
 -  Limitation of using array to store values: the array size is fixed in the class declaration.
@@ -448,8 +446,6 @@ ClassName (parameterList)
 +clear(): void
 +swap(v2: vector): void
 ```
-
-[Vector](https://github.com/SigureMo/notev/tree/master/Codes/C++/3.6_Vector.cpp)
 
 ### 3.7 More Programming Style Guidelines
 
@@ -555,21 +551,88 @@ cout << typeid(X).name() << endl;
 
 ### 5.2 Write data to a file
 
-[File_Output.cpp](https://github.com/SigureMo/notev/tree/master/Codes/C++/5.2_File_Output.cpp)
+```cpp
+#include <fstream>
+using namespace std;
+int main(){
+   ofstream output;
+   output.open("scores.txt");
+   output << "John" << " " << "T" << " " << "Smith"
+   << " " << 90 << endl;
+   output << "Eric" << " " << "K" << " " << "Jones"
+   << " " << 85;
+   output.close();
+   return 0;
+}
+```
 
 ### 5.3 Read data from a file
 
-[File_Input.cpp](https://github.com/SigureMo/notev/tree/master/Codes/C++/5.3_File_Input.cpp)
+```cpp
+#include <fstream>
+using namespace std;
+int main(){
+	// ifstream input("score.txt"); // 效果同下面两行
+	ifstream input;
+	input.open("scores.txt");
+
+	char firstName[80];
+	char mi;
+	char lastName[80];
+	int score;
+	while (!input.eof()){
+		input >> firstName >> mi >> lastName >> score;
+	}
+	input.close();
+	return 0;
+}
+
+```
 
 ### 5.4 Formating Output
 
 #### 5.4.1 Format output to the console
 
-[Formating_Output.cpp](https://github.com/SigureMo/notev/tree/master/Codes/C++/5.4.1_Formating_Output.cpp)
+```cpp
+#include <iomanip>
+#include <fstream>
+using namespace std;
+int main(){
+	ofstream output;
+	output.open("scores.txt");
+
+	output << setw(6) << "John" << setw(2) << "T" << setw(6) << "Smith"
+	<< " " << setw(4) << 90 << endl;
+	output << setw(6) << "Eric" << setw(2) << "K" << setw(6) << "Jones"
+	<< " " << setw(4) << 85 << endl;
+
+	output.close();
+	return 0;
+}
+
+```
 
 #### 5.4.2 getline
 
-[getline.cpp](https://github.com/SigureMo/notev/tree/master/Codes/C++/5.4.2_getline.cpp)
+```cpp
+#include <fstream>
+
+using namespace std;
+
+int main(){
+	ifstream input;
+	input.open("state.txt"); // "New York#New Mexico#Texas#Indiana"
+
+	char city[40];
+	while (!input.eof()){
+		input.getline(city, 40, '#');
+		cout << city << endl;
+	}
+
+	input.close();
+	return 0;
+}
+```
 
 #### 5.4.3 get and put
 
@@ -579,7 +642,33 @@ get 读入一个字符，put 写入一个字符
 
 #### 5.5.1 Combining Modes
 
-[Combining_Modes.cpp](https://github.com/SigureMo/notev/tree/master/Codes/C++/5.5.1_Combining_Modes.cpp)
+```cpp
+#include <iostream>
+#include <fstream>
+using namespace std;
+int main(){
+	fstream inout;
+	inout.open("city.txt", ios::out);
+
+	inout << "Beijing" << " " << "Shanghai" << " " << "Guangzhou" << " ";
+	inout.close();
+
+	inout.open("city.txt", ios::out | ios::app);
+	inout << "Shenzhen" << " " << "Hongkong";
+	inout.close();
+
+	char city[20];
+	inout.open("city.txt", ios::in);
+	while(!inout.eof()){
+		inout >> city;
+		cout << city << " ";
+	}
+
+	return 0;
+}
+
+
+```
 
 #### 5.5.2 Stream State Bit
 
@@ -595,19 +684,67 @@ get 读入一个字符，put 写入一个字符
 
 #### 5.6.1 The write Function
 
-[File_Output_Binary.cpp](https://github.com/SigureMo/notev/tree/master/Codes/C++/5.6.1_File_Output_Binary.cpp)
+```cpp
+#include <fstream>
+using namespace std;
+int main(){
+	fstream binaryio;
+	binaryio.open("city.dat", ios::out | ios::binary);
+	char s[] = "Hangzhou";
+	binaryio.write(s, 8);
+	binaryio.close();
+
+	return 0;
+}
+```
 
 #### 5.6.2 Write Any Type
 
-[File_Output_Binary2.cpp](https://github.com/SigureMo/notev/tree/master/Codes/C++/5.6.2_File_Output_Binary2.cpp)
+```cpp
+#include <fstream>
+using namespace std;
+int main(){
+	fstream binaryio;
+	binaryio.open("temp.dat", ios::out | ios::binary);
+	int value = 199;
+	binaryio.write(reinterpret_cast<char * >(&value), sizeof(value));
+	binaryio.close();
+	return 0;
+}
+```
 
 #### 5.6.3 The read Function
 
-[File_Input_Binary.cpp](https://github.com/SigureMo/notev/tree/master/Codes/C++/5.6.3_File_Input_Binary.cpp)
+```cpp
+#include <fstream>
+using namespace std;
+int main(){
+	fstream binaryio;
+	binaryio.open("city.dat", ios::in | ios::binary);
+	char s[10];
+	binaryio.read(s, 5);
+	s[5] = '\0';
+	cout << s;
+	binaryio.close();
+	return 0;
+}
+```
 
 #### 5.6.4 Read Any Type
 
-[File_Input_Binary2.cpp](https://github.com/SigureMo/notev/tree/master/Codes/C++/5.6.4_File_Input_Binary2.cpp)
+```cpp
+#include <fstream>
+using namespace std;
+int main(){
+	fstream binaryio;
+	binaryio.open("temp.dat", ios::in | ios::binary);
+	int value;
+	binaryio.read(reinterpret_cast<char * >(&value), sizeof(value));
+	cout << value;
+	binaryio.close();
+	return 0;
+}
+```
 
 ### 5.7 More on Binar IO
 
@@ -656,7 +793,48 @@ v[1] = 'b';
 
 #### 6.1.2 An Example
 
-[Operator_Overloading_example.cpp](https://github.com/SigureMo/notev/tree/master/Codes/C++/6.1_Operator_Overloading_example.cpp)
+```cpp
+
+#include <iostream>
+#include <string>
+#include <sstream>
+#include <vector>
+
+using namespace std;
+
+int main(){
+	// Student1~4
+	string sname("Student"), snumber("1");
+	for (int i = i; i <=4; i++){
+		cout << sname + snumber << endl;
+		snumber[0]++;
+	}
+
+	// Student5~7
+	vector<char> vname(sname.begin(), sname.end());
+	vname.resize(vname.size() + 1);
+	for (int i = 5; i <=7; i++){
+		vname[vname.size() - 1] = static_cast<char>(i + '0');
+		for (unsigned int j = 0; j < vname.size(); j++)
+		    cout << vname[j];
+		cout << endl;
+	}
+
+	// Student8~10
+	stringstream sequenceNo("", ios::out|ios::app);
+	for (int i = 8; i <= 10; i++){
+		sequenceNo.str("Student");
+		sequenceNo << i;
+		cout << sequenceNo.str() << endl;
+	}
+
+	cout << boolalpha << "Student1 > Student2 : " <<
+	        (string("Student1") > string("Student2"));
+
+	return 0;
+}
+
+```
 
 #### 6.1.2 The operator vs function
 
@@ -686,7 +864,128 @@ v[1] = 'b';
 
 #### 6.2.3 Test Rational Class
 
-[6.2_Rational.cpp](https://github.com/SigureMo/notev/tree/master/Codes/C++/6.2_Rational.cpp)
+```cpp
+#include <iostream>
+#include <sstream>
+#include <cmath>
+
+using namespace std;
+
+class Rational {
+	public:
+		Rational(){
+			numerator_ = 0;
+			denominator_ = 1;
+		}
+		Rational(long numerator, long denominator){
+			long factor = gcd(numerator, denominator);
+			numerator_ = ((denominator > 0) ? 1 : -1) * numerator / factor;
+			denominator_ = abs(denominator) / factor;
+		}
+		long getNumerator(){
+			return numerator_;
+		}
+		long getDenominator(){
+			return denominator_;
+		}
+		Rational add(Rational &secondRational){
+			long n = numerator_ * secondRational.getDenominator() +
+			     denominator_ * secondRational.getNumerator();
+			long d = denominator_ * secondRational.getDenominator();
+			return Rational(n, d);
+		}
+		Rational subtract(Rational &secondRational){
+			long n = numerator_ * secondRational.getDenominator() -
+			    denominator_ * secondRational.getNumerator();
+			long d = denominator_ * secondRational.getNumerator();
+			return Rational(n, d);
+		}
+		Rational multiply(Rational &secondRational){
+			long n = numerator_ * secondRational.getNumerator();
+			long d = denominator_ * secondRational.getDenominator();
+			return Rational(n, d);
+		}
+		Rational divide(Rational &secondRational){
+			long n = numerator_ * secondRational.getDenominator();
+			long d = denominator_ * secondRational.getNumerator();
+			return Rational(n, d);
+		}
+		int compareTo(Rational &secondRational){
+			Rational temp = this->subtract(secondRational);
+			if (temp.getNumerator() < 0)
+				return -1;
+			else if (temp.getNumerator() == 0)
+				return 0;
+			else
+			    return 1;
+		}
+		bool equals(Rational &secondRational){
+			if (this->compareTo(secondRational) == 0)
+			    return true;
+			else
+			    return false;
+		}
+		int intValue(){
+			return getNumerator() / getDenominator();
+		}
+		double doubleValue(){
+			return 1.0 * getNumerator() / getDenominator();
+		}
+		string toString(){
+			stringstream stringStream;
+			if (denominator_ != 1){
+				stringStream << numerator_ << "/" << denominator_;
+			}
+			else{
+				stringStream << numerator_;
+			}
+			return string(stringStream.str());
+		}
+
+	private:
+		long numerator_;
+		long denominator_;
+		static long gcd(long n, long d){
+			long n1 = abs(n);
+			long n2 = abs(d);
+			int gcd = 1;
+
+			for (int k = 1; k <= n1 && k <= n2; k++){
+				if (n1 % k == 0 && n2 % k == 0)
+				    gcd = k;
+
+
+			}
+			return gcd;
+		}
+};
+
+int main(){
+	Rational r1(4, 2);
+	Rational r2(2, 3);
+
+	cout << r1.toString() << " + " << r2.toString() << " = " <<
+	        r1.add(r2).toString() << endl;
+	cout << r1.toString() << " - " << r2.toString() << " = " <<
+	        r1.subtract(r2).toString() << endl;
+	cout << r1.toString() << " * " << r2.toString() << " = " <<
+	        r1.multiply(r2).toString() << endl;
+	cout << r1.toString() << " / " << r2.toString() << " = " <<
+	        r1.divide(r2).toString() << endl;
+
+	cout << "r2.intValue()" << " is " << r2.intValue() << endl;
+	cout << "r2.doubleValue()" << " is " << r2.doubleValue() << endl;
+
+	cout << "r1.compareTo(r2) is " << r1.compareTo(r2) << endl;
+	cout << "r2.compareTo(r1) is " << r2.compareTo(r1) << endl;
+	cout << "r1.compareTo(r1) is " << r1.compareTo(r2) << endl;
+	cout << boolalpha << "r1.equals(r1) is " << r1.equals(r1) << endl;
+	cout << boolalpha << "r1.equals(r2) is " << r1.equals(r2) << endl;
+
+	return 0;
+}
+
+```
 
 ### 6.3 Operator Function and Shorthand Operators Overloading
 
