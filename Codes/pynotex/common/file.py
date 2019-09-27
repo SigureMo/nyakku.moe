@@ -72,7 +72,7 @@ def touch_dir(path):
 
 def touch_file(path):
     if not os.path.exists(path):
-        os.open(path, 'w').close()
+        open(path, 'w').close()
     return os.path.normpath(path)
 
 def repair_filename(filename):
