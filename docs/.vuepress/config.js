@@ -29,10 +29,7 @@ module.exports = {
     // markdown 插件
     extendMarkdown: md => {
       md.set({ html: true });
-      md.use(require("@iktakahiro/markdown-it-katex"), {
-        throwOnError: false,
-        errorColor: " #cc0000"
-      });
+
       md.use(require("markdown-it-mark"));
     }
   },
@@ -111,8 +108,8 @@ module.exports = {
       updatePopup: true // Boolean | Object, 默认值是 undefined.
     },
     valineConfig: {
-      appId: "E0ei2XbovnHMSlL4tQM2mVDo-gzGzoHsz",
-      appKey: "zSYs7qvWjLlEvF9tMcVMUUUr"
+      appId: "bIyWjVy2YdU6OAzJsE1HGbz3-MdYXbMMI",
+      appKey: "40tBaHyy66LcTgfaTUc5C1qg"
     },
 
     lastUpdated: "Last Updated", // string | boolean
