@@ -29,7 +29,7 @@ def run(argv):
     elif ext == ".cpp":
         tmp_file = os.path.join(tmp_dir, "tmp")
         cmd_list = [
-            ["g++", file_path, "-o", tmp_file],
+            ["g++", file_path, "-o", tmp_file, "-std=c++11"],
             [tmp_file, *args]
         ]
         run_cmds(cmd_list)
