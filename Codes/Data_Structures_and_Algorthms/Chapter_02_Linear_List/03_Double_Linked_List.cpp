@@ -1,5 +1,5 @@
 typedef int ElemType;
-typedef struct DNode {
+typedef struct _node {
   ElemType data;
-  struct DNode *prior, *next;
+  struct _node *prior, *next;
 } DNode, *DLinkList;
