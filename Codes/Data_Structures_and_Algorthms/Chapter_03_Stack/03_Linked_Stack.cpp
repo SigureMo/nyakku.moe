@@ -2,9 +2,9 @@
 
 using namespace std;
 typedef int ElemType;
-typedef struct LinkNode {
+typedef struct _node {
   ElemType data;
-  struct LinkNode *next;
+  struct _node *next;
 } LinkNode, *LiStack;
 
 LiStack InitStack();
