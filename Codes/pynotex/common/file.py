@@ -65,6 +65,19 @@ class Dpl(Playlist):
             self.write_string('{}*title*{}\n'.format(self._count, name))
 
 
+class Dir():
+    def __init__(self, base):
+        """ 初始化并创建 base """
+        self.base = touch_dir(base)
+
+    def join(self, *path):
+        """ 返回 base 路径添加多段路径后的位置 """
+        return os.path.join(self.base, *path)
+
+    def __str__(self):
+        return self.base
+
+
 def touch_dir(path):
     if not os.path.exists(path):
         os.makedirs(path)
