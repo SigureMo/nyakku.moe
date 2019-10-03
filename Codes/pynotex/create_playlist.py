@@ -2,7 +2,7 @@ import sys
 import os
 import re
 
-from utils.filer import touch_dir, Dpl
+from common.file import Dpl
 
 formats = {'.mp4', '.flv', '.ts', '.wmv'}
 numbers = ['零', '一', '二', '三', '四', '五', '六', '七', '八', '九', '十']

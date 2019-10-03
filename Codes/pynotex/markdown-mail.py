@@ -6,10 +6,11 @@ import markdown
 from markdown.extensions.fenced_code import FencedCodeExtension
 from markdown.extensions.tables import TableExtension
 
-from utils.config import Config
+from common.app import App
 from utils.smtp import SMTP
 
-CONFIG = Config("markdown-mail").conf
+app_name = "markdown-mail"
+CONFIG = App(app_name).config
 
 
 def get_title(title, markdown_txt):

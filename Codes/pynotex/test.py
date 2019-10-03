@@ -1,19 +1,16 @@
 import time
 import os
 
-from utils.config import Config
+from common.config import Config
 from utils.smtp import SMTP
 from utils.loop import Loop
 from utils.ssh import Server
-from utils.filer import touch_dir
-from utils.async_lib.utils import Task
-from utils.video_editor import FFmpeg
+from common.file import touch_dir
+from async_lib.utils import Task
+from drivers.ffmpeg import FFmpeg
 from utils.db import SQLite, IntegerField, StringField, FloatField, Model
-from utils.common import console
+from common import console
 
-CONFIGs = {}
-CONFIGs['smtp'] = Config('smtp').conf
-CONFIGs['ssh'] = Config('ssh').conf
 
 def test():
     print(1)
