@@ -1,6 +1,6 @@
 import time
 
-from .async_lib.utils import Task
+from async_lib.utils import Task
 
 
 class Loop():
