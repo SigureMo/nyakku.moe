@@ -1,10 +1,11 @@
 import argparse
 
-from utils.config import Config
+from common.app import App
 from utils.ssh import Server, LoginError
 
 
-CONFIG = Config('ssh').conf
+app_name = "sshell"
+CONFIG = App(app_name).config
 
 def login(host, port, username, password):
     try:

@@ -3,15 +3,14 @@ import json
 import os
 import re
 
-from utils.config import Config
 from utils.crawler import Crawler
-from utils.filer import touch_dir
-from utils.imager import imgs2pdf
+from common.file import touch_dir
+from common.image import imgs2pdf
+from common.app import App
 
-CONFIG = Config('wenku').conf
+app_name = "wenku"
+APP = App(app_name)
 spider = Crawler()
-touch_dir(CONFIG['tmp_dir'])
-touch_dir(CONFIG['data_dir'])
 
 
 class ParseError(Exception):
@@ -49,7 +48,7 @@ def parse(url):
     params = (name, doc_info)
     try:
         parse_func(doc_id, *params)
-        print('Successful! Please visit {}'.format(CONFIG['data_dir'] + name))
+        print('Successful! Please visit {}'.format(APP.data_dir.join(name)))
     except ParseError as e:
         print('Failed! {}'.format(e.message))
 
@@ -69,11 +68,11 @@ def parse_ppt(doc_id, *params):
     for page_info in spider.get(pics_url_api.format(doc_id)).json():
         zoom, page = page_info.values()
         img_data = spider.get(zoom).content
-        img_path = '{}{}{:02}.jpg'.format(CONFIG['tmp_dir'], name, page)
+        img_path = APP.tmp_dir.join('{}{:02}.jpg'.format(name, page))
         img_path_list.append(img_path)
         with open(img_path, 'wb') as f:
             f.write(img_data)
-    imgs2pdf(img_path_list, CONFIG['data_dir']+name+'.pdf')
+    imgs2pdf(img_path_list, APP.data_dir.join(name+'.pdf'))
 
 
 def parse_doc(doc_id, *params):
@@ -92,7 +91,7 @@ def parse_doc(doc_id, *params):
             if segment['ps'] and segment['ps']['_enter'] == 1 and i < len(json_data['body']):
                 # TODO 由于换页会加换行符，所以暂且当做最后一行没有换行符，也许会修正
                 texts += '\n'
-    with open(CONFIG['data_dir'] + name + '.txt', 'w', encoding='utf8') as f:
+    with open(APP.data_dir.join(name + '.txt'), 'w', encoding='utf8') as f:
         f.write(texts)
 
 
@@ -110,7 +109,7 @@ def parse_txt(doc_id, *params):
     for page_info in json_data:
         for parag in page_info['parags']:
             texts += parag['c']
-    with open(CONFIG['data_dir'] + name + '.txt', 'w', encoding='utf8') as f:
+    with open(APP.data_dir.join(name + '.txt'), 'w', encoding='utf8') as f:
         f.write(texts)
 
 
@@ -126,12 +125,12 @@ def parse_pdf(doc_id, *params):
         if re.match('https.*?0.png.*?', item):
             png_url = item.replace("\\", "")
             img_data = spider.get(png_url).content
-            img_path = '{}{}{:02}.png'.format(CONFIG['tmp_dir'], name, cnt)
+            img_path = APP.tmp_dir.join('{}{:02}.png'.format(name, cnt))
             img_path_list.append(img_path)
             with open(img_path, 'wb') as f:
                 f.write(img_data)
             cnt += 1
-    imgs2pdf(img_path_list, CONFIG['data_dir']+name+'.pdf')
+    imgs2pdf(img_path_list, APP.data_dir.join(name+'.pdf'))
 
 
 def parse_xxx(doc_id, *params):
