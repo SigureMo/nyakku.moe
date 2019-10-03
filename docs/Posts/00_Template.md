@@ -33,9 +33,15 @@ tags:
 ![<noteName><imgCnt>](https://raw.githubusercontent.com/SigureMo/notev/master/docs/Images/<noteName><imgCnt>.<ext>)
 ```
 
+使用 `git-lfs` 时
+
+```md
+![<noteName><imgCnt>](https://media.githubusercontent.com/media/SigureMo/notev/master/docs/Images/<noteName><imgCnt>.<ext>)
+```
+
 ::: warning
 
-由于已经取消对 Images/ 文件夹的上传，所以本静态网站将不提供外部图片路径
+当前使用 `git-lfs` 上传图片文件，所以后者才是有效链接
 
 :::
 
