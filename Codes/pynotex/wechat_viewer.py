@@ -15,18 +15,17 @@ except ImportError:
     import pyscreenshot as ImageGrab
 
 from utils.compress import zip
-from utils.config import Config
-from utils.filer import touch_dir
+from common.app import App
 
-CONFIG = Config('wechat_viewer').conf
-TMP_DIR = touch_dir(CONFIG['tmp_dir'])
+app_name = 'wechat_viewer'
+APP = App(app_name)
 
 Help_Msg = """Wechat Viewer is running ...
 - help
 - prtsc
 - prtph
 - fget <file_path>
-- $ <cmd_string>
+- > <cmd_string>
 """
 
 @itchat.msg_register('Text')
@@ -41,13 +40,13 @@ def text_reply(msg):
         elif message == "prtph":
             cap = cv2.VideoCapture(0)
             ret, img = cap.read()
-            cv2.imwrite(os.path.join(TMP_DIR, "prtph.png"), img)
-            itchat.send('@img@%s' % os.path.join(TMP_DIR, "prtph.png"), 'filehelper')
+            cv2.imwrite(APP.tmp_dir.join("prtph.png"), img)
+            itchat.send('@img@%s' % APP.tmp_dir.join("prtph.png"), 'filehelper')
             cap.release()
         elif message == "prtsc":
-            ImageGrab.grab().save(os.path.join(TMP_DIR, "prtsc.png"))
-            itchat.send('@img@%s' % os.path.join(TMP_DIR, "prtsc.png"), 'filehelper')
-        elif message.startswith("$ "):
+            ImageGrab.grab().save(APP.tmp_dir.join("prtsc.png"))
+            itchat.send('@img@%s' % APP.tmp_dir.join("prtsc.png"), 'filehelper')
+        elif message.startswith("> "):
             cmd = message[2: ]
             print(message)
             res = subprocess.run(cmd, stdout=subprocess.PIPE, shell=True)
@@ -60,7 +59,7 @@ def text_reply(msg):
                 if os.path.isfile(path):
                     filepath = path
                 elif os.path.isdir(path):
-                    filepath = os.path.join(TMP_DIR, "tmp.zip")
+                    filepath = APP.tmp_dir.join("tmp.zip")
                     zip(path, filepath)
                 itchat.send_file(u"%s" % filepath, toUserName='filehelper')
             else:
@@ -70,6 +69,6 @@ def text_reply(msg):
 
 
 if __name__ == '__main__':
-    itchat.auto_login(hotReload=True, statusStorageDir=os.path.join(TMP_DIR, "itchat.pkl"))
+    itchat.auto_login(hotReload=True, statusStorageDir=APP.tmp_dir.join("itchat.pkl"))
     itchat.send(Help_Msg, "filehelper")
     itchat.run()
