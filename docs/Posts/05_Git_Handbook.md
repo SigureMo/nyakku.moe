@@ -7,7 +7,9 @@ tags:
    - Git
 ---
 
-## 1 Gitmoji 规范
+## Git Commit 规范
+
+### Gitmoji
 
 | view                        | code                          | mean                                         | translate                            |
 | --------------------------- | ----------------------------- | -------------------------------------------- | ------------------------------------ |
@@ -74,7 +76,7 @@ tags:
 | :wheel_of_dharma:           | `:wheel_of_dharma:`           | Work about Kubernetes                        | Kubernetes 相关工作                  |
 | :label:                     | `:label:`                     | Adding or updating types (Flow, TypesScript) | 添加或更新类型声明(Flow、TypeScript) |
 
-## 2 Commit Message 规范
+### Commit Message 规范
 
 组成： header 、 body 、 footer
 即
@@ -87,40 +89,40 @@ tags:
 <footer>
 ```
 
-### Header
+#### Header
 
-#### type
+-  type
 
--  ==feat==：新功能（feature）
--  ==fix==：修补 bug
--  ==docs==：文档（documentation）
--  ==style==： 格式（不影响代码运行的变动）
--  ==refactor==：重构（即不是新增功能，也不是修改 bug 的代码变动）
--  ==test==：增加测试
--  ==chore==：构建过程或辅助工具的变动
+   -  ==feat==：新功能（feature）
+   -  ==fix==：修补 bug
+   -  ==docs==：文档（documentation）
+   -  ==style==： 格式（不影响代码运行的变动）
+   -  ==refactor==：重构（即不是新增功能，也不是修改 bug 的代码变动）
+   -  ==test==：增加测试
+   -  ==chore==：构建过程或辅助工具的变动
 
-#### scope
+-  scope
 
-scope 用于说明 commit 影响的范围，如果你的修改影响了不止一个 scope ，你可以使用 `*` 代替
+   scope 用于说明 commit 影响的范围，如果你的修改影响了不止一个 scope ，你可以使用 `*` 代替
 
-#### subject
+-  subject
 
-subject 是 commit 目的的简短描述，不超过 50 个字符
+   subject 是 commit 目的的简短描述，不超过 50 个字符
 
--  以动词开头，使用第一人称现在时，比如 change，而不是 changed 或 changes
--  第一个字母小写
--  结尾不加句号（.）
+   -  以动词开头，使用第一人称现在时，比如 change，而不是 changed 或 changes
+   -  第一个字母小写
+   -  结尾不加句号（.）
 
-### Body
+#### Body
 
 Body 是详细描述
 
-### Footer
+#### Footer
 
 -  不兼容变动
 -  关闭 Issue 如 `Closes #234`
 
-### Revert
+#### Revert
 
 用于撤销之前的某次 commit ，以 `revert` 开头，后面跟着被撤销 Commit 的 Header ，如
 
@@ -130,9 +132,83 @@ revert: feat(pencil): add 'graphiteWidth' option
 This reverts commit 667ecc1654a317a13331b17617d973392f415f02.
 ```
 
+## 合并 PR
+
+### 放在新的分支
+
+比如有这样的一个 PR `https://github.com/SigureMo/course-crawler/pull/6` ，我们可以看到它的 PR id 为 6
+
+那么我们就可以
+
+```bash
+git fetch origin pull/6/head:dev
+```
+
+这样就创建了一个新的分支 `dev` 用以保存新的 PR 分支， `checkout` 过去就可以看到该分支下的具体内容了，修改好后返回 `master` 并 `merge` 即可
+
+### 使用一个 commit 合并所有内容
+
+如果想要只使用一个 commit 提交所有内容，可以在回到 `master` 后 `merge` 的时候加一个参数 `squash` ，之后再提交
+
+```bash
+git merge dev --squash
+git commit
+```
+
+## 同步原作者代码
+
+### 添加 upstream remote
+
+-  使用 git remote -v 查看远程状态
+
+   ```bash
+   git remote -v
+   ```
+
+-  添加原作者的远程仓库到 `remote` （本例使用 `upstream` 作为远程仓库名）
+
+   ```bash
+   git remote add upstream <原作者远程仓库地址>
+   ```
+
+### 同步 fork
+
+-  从上游仓库 fetch 分支和提交点，传送到本地，并会被存储在一个本地分支 upstream/master
+
+   ```bash
+   git fetch upstream
+   ```
+
+-  切换到本地主分支
+
+   ```bash
+   git checkout master
+   ```
+
+-  把 `upstream/master` 分支合并到本地 `master`
+   ```bash
+   git merge upstream/master
+   ```
+-  push 到远程仓库
+   ```bash
+   git push origin master
+   ```
+
+### 解决冲突
+
+直接编辑冲突文件，然后提交更改重新 `push` 即可
+
+### 如何删除已经添加的远程仓库
+
+```bash
+git remote rm <remoteRep>
+```
+
 # Reference
 
 1. [程序员提交代码的 emoji 指南——原来表情文字不能乱用](https://www.h5jun.com/post/gitmoji.html)
 2. [Gitmoji](http://gitmoji.carloscuesta.me/)
 3. [用 gitmoji 来提交你的 git commit 吧](https://github.com/mytac/blogs/issues/2)
 4. [git commit 规范指南](https://segmentfault.com/a/1190000009048911?utm_source=tag-newest)
+5. [拉取 Github PR 代码到本地分支](https://www.huangyunkun.com/2018/06/15/pull-github-pr-to-local-branch/)
+6. [github 同步原作者代码](https://blog.csdn.net/lym152898/article/details/80505406)
