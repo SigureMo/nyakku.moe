@@ -27,7 +27,7 @@ class Turing():
         return res
 
     def set_city(self, city, province='', street=''):
-        data['perception']['selfInfo'] = {
+        self.data['perception']['selfInfo'] = {
             'location': {
                 'city': city,
                 'province': province,
@@ -41,4 +41,4 @@ class Turing():
 if __name__ == '__main__':
     apikey = '55592cf090974e4f906e3311605e8873'
     mybot = Turing(apikey)
-    mybot.send_text('你好')
+    print(mybot.send_text('你好'))
