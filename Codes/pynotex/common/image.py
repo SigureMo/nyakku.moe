@@ -28,7 +28,7 @@ def tailor(im, shape):
     return region
 
 def reshape_circle(im):
-    """ 将图片变成原形 """
+    """ 将图片变成圆形 """
     circle = lambda x, y, size :(x-size/2)**2 + (y-size/2)**2 < (size/2)**2
     im = im.convert("RGBA")
     size = min(im.size)
