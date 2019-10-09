@@ -793,6 +793,51 @@ cout << bitset4 << endl;　　//0000000010101
 -  `set(int idx, int value)` 将 `idx` 处的值置 `value` ，如果不指定 `value` 则置 `1` ，如果不指定 `idx` 则每一位都修改
 -  `reset(int idx)` 将 `idx` 处的值置 `0` ，如果不指定 `idx` ，则每一位都置 `0`
 
+### 堆 heap
+
+> 需 `#include <algorithm>`
+
+STL 中封装了四个有关堆的函数，分别是
+
+-  `make_heap(first, last, comp);` 建立一个空堆
+-  `push_heap(first, last, comp);` 向堆中插入一个新元素
+-  `pop_heap(first, last, comp);` 移除当前堆顶元素的值（到堆底之后）
+-  `sort_heap(first, last, comp);` 对当前堆进行排序
+
+我们可以利用它对数组进行操作
+
+> 注意这里的数组不需要将第一位空出来
+
+```cpp
+const int MaxSize = 10;
+int size = 5;
+int a[MaxSize] = {1, 5, 6, 2, 9};
+// 建堆（使用仿函数 greater 快速建立最小堆，默认为最大堆）
+make_heap(a, a+size, greater<int>());
+// 添加元素（先添加，后使用堆的函数调整）
+a[size++] = 7;
+push_heap(a, a+size, greater<int>());
+// 移除元素（先使用堆的函数将堆顶元素移到堆底，然后取走并移除）
+pop_heap(a, a+size, greater<int>());
+cout << a[--size] << endl;
+```
+
+另外，我们可以使用 `vector` 获得更好的效果（更加动态，不需要考虑堆是否会满等等问题）
+
+```cpp
+int a[] = {1, 5, 6, 2, 9};
+vector<int> v(a, a+5);
+// 建堆（使用仿函数 greater 快速建立最小堆，默认为最大堆）
+make_heap(v.begin(), v.end(), greater<int>());
+// 添加元素（先添加，后使用堆的函数调整）
+v.push_back(7);
+push_heap(v.begin(), v.end(), greater<int>());
+// 移除元素（先使用堆的函数将堆顶元素移到堆底，然后取走并移除）
+pop_heap(v.begin(), v.end(), greater<int>());
+cout << v.back() << endl;
+v.pop_back();
+```
+
 ### 排序 sort
 
 > 需 `#include <algorithm>`
@@ -842,6 +887,20 @@ sort(a, a+10, cmp);
 ```
 
 使用 Lambda 表达式可以避免额外在函数体外新建函数，增加了代码的可读性
+
+#### 使用仿函数
+
+如果只是简单的比较大小的话，有没有更加简单的方法呢？
+
+当然有啦， STL 中可不止容器和算法，还有很多新奇玩意呢，比如说这个仿函数，当然我们现在不需要了解太多，只需要知道我们可以使用仿函数 `greater<int>()` 以及 `less<int>()` 这样简单的函数进行排序就好了
+
+现在我们想要进行从大到小排序，只需要
+
+```cpp
+sort(a, a+10, greater<int>());
+```
+
+比 Lambda 还优雅呢~当然，这仅限于简单函数，复杂函数建议使用 Lambda 表达式
 
 ---
 
