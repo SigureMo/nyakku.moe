@@ -4,8 +4,8 @@ using namespace std;
 typedef int ElemType;
 typedef struct _node {
   ElemType data;
-  struct _node *lchild;
-  struct _node *rchild;
+  struct _node *left;
+  struct _node *right;
 } TNode, *BinTree;
 
 BinTree FindMin(BinTree BST);
@@ -20,9 +20,9 @@ int main() {
   for (auto x: a) {
     BST = Insert(BST, x);
   }
-  cout << BST->rchild->lchild->data << endl;
+  cout << BST->right->left->data << endl;
   BST = Delete(BST, 5);
-  cout << BST->rchild->data << endl;
+  cout << BST->right->data << endl;
   return 0;
 }
 
@@ -31,12 +31,12 @@ BinTree Insert(BinTree BST, ElemType x) {
   if (!BST) {
     BST = (BinTree)malloc(sizeof(TNode));
     BST->data = x;
-    BST->lchild = NULL;
-    BST->rchild = NULL;
+    BST->left = NULL;
+    BST->right = NULL;
   }
   else {
-    if (x < BST->data) BST->lchild = Insert(BST->lchild, x);
-    else if (x > BST->data) BST->rchild = Insert(BST->rchild, x);
+    if (x < BST->data) BST->left = Insert(BST->left, x);
+    else if (x > BST->data) BST->right = Insert(BST->right, x);
   }
   return BST;
 }
@@ -44,22 +44,22 @@ BinTree Insert(BinTree BST, ElemType x) {
 BinTree FindMin(BinTree BST) {
   /** 获取最小结点（非递归） */
   if (BST)
-    while (BST->lchild) BST = BST->lchild;
+    while (BST->left) BST = BST->left;
   return BST;
 }
 
 BinTree FindMax(BinTree BST) {
   /** 获取最大结点（非递归） */
   if (BST)
-    while (BST->rchild) BST = BST->rchild;
+    while (BST->right) BST = BST->right;
   return BST;
 }
 
 BinTree Search(BinTree BST, ElemType x) {
   /** 搜索值为 x 的结点（非递归） */
   while (BST) {
-    if (BST->data < x) BST = BST->lchild;
-    else if (BST->data > x) BST = BST->rchild;
+    if (BST->data < x) BST = BST->left;
+    else if (BST->data > x) BST = BST->right;
     else return BST;
   }
   return NULL;
@@ -74,18 +74,18 @@ BinTree Delete(BinTree BST, ElemType x) {
   **/
   BinTree Tmp;
   if (!BST) throw "Not Found!";
-  else if (x < BST->data) BST->lchild = Delete(BST->lchild, x);
-  else if (x > BST->data) BST->rchild = Delete(BST->rchild, x);
+  else if (x < BST->data) BST->left = Delete(BST->left, x);
+  else if (x > BST->data) BST->right = Delete(BST->right, x);
   else {
-    if (BST->lchild && BST->rchild) {
-      Tmp = FindMin(BST->rchild);
+    if (BST->left && BST->right) {
+      Tmp = FindMin(BST->right);
       BST->data = Tmp->data;
-      BST->rchild = Delete(BST->rchild, BST->data);
+      BST->right = Delete(BST->right, BST->data);
     }
     else {
       Tmp = BST;
-      if (!BST->lchild) BST = BST->rchild;
-      else if (!BST->rchild) BST = BST->lchild;
+      if (!BST->left) BST = BST->right;
+      else if (!BST->right) BST = BST->left;
       free(Tmp);
     }
   }
