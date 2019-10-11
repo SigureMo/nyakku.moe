@@ -44,7 +44,16 @@ module.exports = {
     // 开启 PWA
     "@vuepress/pwa",
     // 启用图片缩放
-    "@vuepress/medium-zoom"
+    "@vuepress/medium-zoom",
+    // 彩带背景
+    [
+      "ribbon",
+      {
+        size: 90,
+        opacity: 0.4,
+        zIndex: -1
+      }
+    ]
   ],
 
   // 主题配置
