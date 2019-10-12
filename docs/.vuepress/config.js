@@ -53,6 +53,15 @@ module.exports = {
         opacity: 0.4,
         zIndex: -1
       }
+    ],
+    // live2d
+    [
+      "live2d",
+      {
+        modelName: "miku",
+        position: "left",
+        mobileShow: false
+      }
     ]
   ],
 
@@ -121,7 +130,10 @@ module.exports = {
     },
     valineConfig: {
       appId: "bIyWjVy2YdU6OAzJsE1HGbz3-MdYXbMMI",
-      appKey: "40tBaHyy66LcTgfaTUc5C1qg"
+      appKey: "40tBaHyy66LcTgfaTUc5C1qg",
+      placeholder: "(´-ωก`)",
+      notify: true,
+      recordIP: true
     },
 
     lastUpdated: "Last Updated", // string | boolean
