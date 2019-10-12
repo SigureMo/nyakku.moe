@@ -10,31 +10,32 @@ sidebar: false
   <a href="tencent://AddContact/?fromId=45&fromSubId=1&subcmd=all&uin=240377379&website=www.oicqzone.com" class="zi zi_tmQq"></a>
 </p>
 
-Sigure_Mo，材料喵，拟跨考 CS ε≡٩(๑>₃<)۶ ~
+Sigure_Mo，小辣鸡一枚，本科材料喵，拟跨考 CS ε≡٩(๑>₃<)۶ ~
 
 已成功入坑 {{ dist_times }} ~
 
--  主要方向
-   -  DeepLearning
-   -  Spider
--  主要语言
-   -  Python
-   -  C++
+## 会点啥？
 
-## Status
+-  前端啥也不会
+-  后端啥也不懂
+-  入门时候学了点爬虫
+-  最近学了点 DeepLearning 也不太会用
 
--  偶尔写写 各种小脚本 ~
--  偶尔学学 DL ~
--  偶尔刷刷 PAT ~
--  偶尔卖卖 萌 :joy: ~
--  一直在学习 ……（手动滑稽）
+## 没事都干嘛？
 
-## Projects
+-  使用 Python 做做爬虫相关以及小的 DL 项目
+-  最近在用 C++ 刷题
+-  有时候也用 JS 以及 Vue 完善博客
+-  没事在 GitHub 仰望各位 dalao
+-  还能干嘛？
+
+## 做过些啥？
 
 -  [Course Crawler](https://www.sigure.xyz/course-crawler/) 慕课课程下载工具，Fork 于 Foair
 -  [Shoeprint Recognition](https://www.sigure.xyz/shoeprint-recognition/) “恒锐杯”鞋印花纹图像类别判定挑战赛
+-  [vuepress-plugin-ribbon](https://github.com/SigureMo/vuepress-plugin-ribbon) vuepress 彩带背景插件
 
-## Statement
+## 还想说点啥？
 
 本仓库全部代码使用 [MIT](https://github.com/SigureMo/notev/blob/master/LICENSE) 协议进行开源，但是本仓库全部文档内容使用 [CC 4.0 BY-SA](https://creativecommons.org/licenses/by-sa/4.0/) 协议进行发布
 
@@ -63,6 +64,7 @@ export default {
       }
    },
    mounted () {
+      this.refresh();
       setInterval(this.refresh, 1000);
    }
 }

@@ -9,7 +9,7 @@
    <a href="https://github.com/SigureMo/notev" target="_blank"><img alt="GitHub" src="https://img.shields.io/badge/GitHub-notev-black?style=flat-square&logo=github"></a>
 </p>
 
-以学习笔记为核心，代码为辅，搭建个人笔记平台~
+既有笔记，又有相关代码~
 
 ## Scripts
 
@@ -25,7 +25,7 @@
    <img alt="matlab" src="https://img.shields.io/badge/matlab-math-e16737?style=flat-square&logo=mathworks">
 </p>
 
-内含各种实用小脚本，提供更好的学习环境~
+然后还有各种平时会用到的小脚本~
 
 ## Static Blog
 
@@ -34,7 +34,7 @@
    <a href="https://github.com/vuepress-reco/vuepress-theme-reco" target="_blank"><img alt="vuepress" src="https://img.shields.io/badge/reco-theme-26a2ff?style=flat-square&logo=vue.js"></a>
 </p>
 
-使用 [vuepress](https://github.com/vuejs/vuepress) 生成静态网站，并选择主题 [reco](https://github.com/vuepress-reco/vuepress-theme-reco)~
+博客生成器的话，用的是 [vuepress](https://github.com/vuejs/vuepress) ，配合主题 [reco](https://github.com/vuepress-reco/vuepress-theme-reco) 打造清爽的静态笔记博客~
 
 ## Supports
 
@@ -42,10 +42,9 @@
    <img alt="Windows 10" src="https://img.shields.io/badge/Windows-10-purple?style=flat-square&logo=Windows">
    <img alt="Deepin 15.11" src="https://img.shields.io/badge/Deepin-15.11-blue?style=flat-square&logo=deepin">
    <img alt="MacOS 10.14" src="https://img.shields.io/badge/MacOS-10.14-red?style=flat-square&logo=apple">
-   <img alt="Ubuntu 16.04" src="https://img.shields.io/badge/Ubuntu_Server-16.04-orange?style=flat-square&logo=ubuntu">
 </p>
 
-多系统共同维护与测试~
+没事就换个系统折腾折腾~
 
 ## Licenses
 
@@ -56,4 +55,4 @@
 
 代码使用 MIT 开源协议，文章、博客内容使用 CC4.0 BY-SA 知识共享协议
 
-> Just for fun.
+> 你以为我放这么多徽章是说明我这些都会吗？当然不是啦~只是第一次玩徽章，感觉怪好看的，而且……强迫症，弄了一个就想弄弄第 100 个 :joy:
