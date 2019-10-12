@@ -51,7 +51,7 @@
 
 <p align="center">
    <a href="LICENSE"><img alt="LICENSE" src="https://img.shields.io/badge/License-MIT-orange?style=flat-square"></a>
-   <a href="LICENSE"><img alt="CC4.0 BY-SA" src="https://img.shields.io/static/v1?label=CC4.0&message=BY-SA&color=yellow&style=flat-square"></a>
+   <a href="https://creativecommons.org/licenses/by-sa/4.0/"><img alt="CC4.0 BY-SA" src="https://img.shields.io/static/v1?label=CC4.0&message=BY-SA&color=yellow&style=flat-square"></a>
 </p>
 
 代码使用 MIT 开源协议，文章、博客内容使用 CC4.0 BY-SA 知识共享协议
