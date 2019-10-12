@@ -63,6 +63,10 @@ module.exports = {
         mobileShow: false
       }
     ]
+    // 看板娘插件
+    // [
+    //   "kan-ban-niang"
+    // ]
   ],
 
   // 主题配置
@@ -70,6 +74,7 @@ module.exports = {
   themeConfig: {
     // 博客配置
     type: "blog",
+    logo: "/sigure_mo.png",
     blogConfig: {
       category: {
         location: 2, // 在导航栏菜单中所占的位置，默认2
