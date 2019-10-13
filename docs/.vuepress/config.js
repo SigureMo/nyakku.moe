@@ -1,6 +1,6 @@
 module.exports = {
   title: "Notev",
-  description: "一个小透明的透明世界🌌",
+  description: "一个小透明的透明世界",
   head: [
     [
       "meta",
@@ -16,7 +16,9 @@ module.exports = {
         rel: "stylesheet",
         href: "https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/katex.min.css"
       }
-    ]
+    ],
+    ["link", { rel: "manifest", href: "/manifest.json" }],
+    ["meta", { name: "theme-color", content: "#222222" }]
   ],
 
   markdown: {
@@ -42,7 +44,13 @@ module.exports = {
     // 页面滚动时自动激活侧边栏链接
     "@vuepress/active-header-links",
     // 开启 PWA
-    "@vuepress/pwa",
+    [
+      "@vuepress/pwa",
+      {
+        serviceWorker: true,
+        updatePopup: true
+      }
+    ],
     // 启用图片缩放
     "@vuepress/medium-zoom",
     // 彩带背景
@@ -50,7 +58,7 @@ module.exports = {
       "ribbon",
       {
         size: 90,
-        opacity: 0.4,
+        opacity: 0.8,
         zIndex: -1
       }
     ],
@@ -130,9 +138,6 @@ module.exports = {
     ],
     sidebarDepth: 1,
     sidebar: "auto",
-    serviceWorker: {
-      updatePopup: true // Boolean | Object, 默认值是 undefined.
-    },
     valineConfig: {
       appId: "bIyWjVy2YdU6OAzJsE1HGbz3-MdYXbMMI",
       appKey: "40tBaHyy66LcTgfaTUc5C1qg",
