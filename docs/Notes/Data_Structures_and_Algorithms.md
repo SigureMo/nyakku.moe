@@ -1232,6 +1232,23 @@ T2   T3                           T3  T4
 
 有边就是 1 ，无边就是 0 ，如果是无权图则用权重代替，非常简单的表示方法
 
+<<< @/Codes/Data_Structures_and_Algorthms/Chapter_07_Graph/01_Adjacency_Matrix.cpp
+
+-  使用一个顶点表和一个边表，简单应用时可仅使用一个二维数组作为边表即可
+-  无向图的邻接矩阵是对称矩阵，可参考 2.3.5 进行压缩存储
+-  稠密图比较合适
+-  需存储空间 $O(|V| + 2 |E|)$
+
+#### 7.2.2 邻接表法
+
+每个顶点的各个边使用一个链表进行记录
+
+<<< @/Codes/Data_Structures_and_Algorthms/Chapter_07_Graph/02_Adjacency_List.cpp
+
+-  需存储空间 $O(|V| + |E|)$
+-  足够稀疏才合适
+-  很多操作是很困难的，比如计算有向图的“入度”、检查任意一对顶点间是否存在边
+
 ---
 
 新旧分界线
@@ -1239,23 +1256,6 @@ T2   T3                           T3  T4
 ---
 
 ## 8 图（Graph）
-
-### 8.1 What's the graph?
-
-#### 8.1.1 The definition of the graph
-
-#### 8.1.2 Adjacency matrix representation
-
-既然是图，那么就多来几张图吧( • ̀ω•́ )✧
-![Data_Structures03](../Images/Data_Structures03.png)
-[Adjacency_Matrix.c](https://github.com/SigureMo/notev/tree/master/Codes/Data_Structures/Chapter_8_Graph/Adjacency_Matrix.c)
-优点很明显呀，就是简单易操作，但是对于稀疏图来说就很浪费空间与时间了，于是就有了下面这种
-
-#### 8.1.3 Adjacency list representation
-
-![Data_Structures04](../Images/Data_Structures04.png)
-[Adjacency_List.c](https://github.com/SigureMo/notev/tree/master/Codes/Data_Structures/Chapter_8_Graph/Adjacency_List.c)
-也就稀疏才合算啦，不然还是很浪费的，而且很多操作是很困难的，比如计算有向图的“入度”、检查任意一对顶点间是否存在边
 
 ### 8.2 Traversing graph
 
