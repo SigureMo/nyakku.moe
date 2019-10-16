@@ -1,5 +1,6 @@
 import zipfile
 import tarfile
+import rarfile
 import os
 
 def unzip(path, target_dir=None):
@@ -52,8 +53,16 @@ def tgz(path, target_path=None):
     t.add(root, troot)
     t.close()
 
+def unrar(path, target_dir=None):
+    if target_dir is None:
+        target_dir = os.path.dirname(path)
+    print(path, target_dir)
+    r = rarfile.RarFile(path)
+    r.extractall(target_dir)
+
 if __name__ == '__main__':
     tgz('tmp/test/')
     zip('tmp/test/')
     untgz('tmp/test.tar.gz')
     unzip('tmp/test.zip')
+    unrar('tmp/test.rar')
