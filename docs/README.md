@@ -1,8 +1,8 @@
 ---
 home: true
-bgImage: '/bg.svg'
+bgImage: '/bg.jpg'
 bgImageStyle: {
-  height: '400px'
+  height: '350px'
 }
 faceImage: '/sigure_mo.png'
 ---
