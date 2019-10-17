@@ -355,6 +355,12 @@ module.exports = {
 };
 ```
 
+其他推荐的插件
+
+-  `vuepress-plugin-ribbon` 在背景中加入一条彩带
+-  `vuepress-plugin-live2d` 在博客中添加一个看板娘
+-  `@vuepress/pwa` 启用 PWA
+
 ### Markdown 插件的添加
 
 通过安装并配置 `markdown-it` 插件便可在 Markdown 中使用新的 Mardown 特性
@@ -400,7 +406,7 @@ module.exports = {
 ::: warning
 在 `config.js` 中配置的 markdown 配置都是在编译时便解析完成的，所以配置 `markdown-it-katex` 后可能会导致编译时间特别长，但是当前其是一个非常有效的方式
 
-另外也可以使用插件 `vuepress-plugin-mathjax` （是 vuepress 插件不是 markdown-it 插件）在前端进行渲染，但是我在使用的时候发生了一些问题，尚待解决
+另外也可以使用插件 `vuepress-plugin-mathjax` 进行渲染，但是我在使用的时候发生了一些问题，尚待解决
 :::
 
 ### 配置主题颜色
