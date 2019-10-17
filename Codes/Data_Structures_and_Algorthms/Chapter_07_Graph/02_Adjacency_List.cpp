@@ -1,11 +1,13 @@
 #define MaxVertexNum 100
 
 typedef char VertexType;
+typedef int InfoType;
 
 // 边结点，每条边指示下一条边
-typedef struct ArcNode {
+typedef struct _arcnode {
   int adjvex;
-  struct ArcNode *next;
+  struct _arcnode *next;
+  InfoType info;
 } ArcNode;
 
 // 顶点结点，每个顶点有着第一条指向的边
