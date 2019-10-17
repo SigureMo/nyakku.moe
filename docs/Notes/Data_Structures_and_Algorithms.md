@@ -1250,6 +1250,86 @@ T2   T3                           T3  T4
 -  足够稀疏才合适
 -  很多操作是很困难的，比如计算有向图的“入度”、检查任意一对顶点间是否存在边
 
+#### 7.2.3 十字链表
+
+与邻接表不同的是，每个结点有两条链，一条用于表示入度的边，一条表示出度的边
+
+具体实现
+
+-  边结点 5 个域
+   -  头域和尾域 分别指示边两端顶点在图中的索引
+   -  链域 hlink 和 tlink 分别指向下一个出度和入度的边结点
+   -  信息域 info 顾名思义
+-  顶点结点 3 个域
+   -  数据域 data
+   -  入度首结点指针和出度首结点指针 headvex 和 tailvex
+
+![DS06](../Images/DS06.png)
+
+<<< @/Codes/Data_Structures_and_Algorthms/Chapter_07_Graph/03_Orthogonal_Linked_List.cpp
+
+-  由它的表示方式可知，它使得入度和出度都容易计算了
+
+#### 7.2.4 邻接多重表
+
+每条边记录着与之关联的两个顶点
+
+具体实现
+
+-  边结点 6 个域
+   -  标志域 mark ，用于标记该条边是否被搜索过
+   -  ivex 和 jvex 分别为该边依附的两个顶点在图中的位置
+   -  ilink 和 jlink 分别指向下一条依附于 ivex 的边和下一条依附于 jvex 的边
+   -  信息域 info
+-  顶点结点 2 个域
+   -  firstedge 指示第一条依附于该顶点的边
+   -  数据域 data
+
+![DS07](../Images/DS07.png)
+
+<<< @/Codes/Data_Structures_and_Algorthms/Chapter_07_Graph/04_Djacency_Multiple_List.cpp
+
+### 7.3 图的遍历
+
+从图中的某一顶点出发，按照某种搜索方法沿着图中的边对图中**所有**顶点访问**一次**且仅访问一次
+
+主要有两种 —— BFS 和 DFS —— BFS 应用较早，比如在研究迷宫问题上，而 DFS 应用稍微晚一些，那时候主要应用在 AI
+
+BFS 和 DFS 都可以抽象为优先级搜索，只不过 BFS 认为离起点越近优先级越高，DFS 反之
+
+#### 7.3.1 广度优先搜索（BFS）
+
+广度优先搜索（Breadth-First-Search）
+
+首先从结点 $v$ 开始，依次访问其邻接顶点，然后依次访问其邻接顶点的未被访问过的邻接顶点……
+
+是不是很像二叉树的**层序遍历**算法呀？在层序遍历是一层一层遍历的，而 BFS 是一圈一圈扩散开来的~
+
+![DS08_from_https://www.jianshu.com/p/03de0db4b857](../Images/DS08.png)
+
+由于我们不能像二叉树那样直观的知道哪个被访问过了，所以我们需要增加一个数组（`visited[]`）用于标志哪个顶点被访问过了
+
+性能分析
+
+-  空间复杂度 最坏情况 $O(|V|)$
+-  时间复杂度
+   -  邻接表 每个顶点均需搜索一次，而在搜索任一顶点的邻接点时，每条边至少访问一次，故总时间复杂度为 $O(|V|+|E|)$
+   -  邻接矩阵 查找每个顶点的邻接点所需的时间为 $O(|V|)$ ，故总时间复杂度为 $O(|V|^2)$
+
+#### 7.3.2 深度优先搜索（DFS）
+
+深度优先搜索（Depth-First-Search）
+
+它会尽可能深得搜索一个图，首先从结点 $v$ 开始，访问 $v$ 的邻接顶点 $w$，然后继续访问 $w$ 的邻接顶点……直到当前顶点所有邻接顶点全部已经访问过，就需要回退回退~直到找到没被访问过的顶点继续~
+
+其实很明显啦，用递归很容易实现的，它其实很像二叉树的**先序遍历**
+
+![DS09_from_https://www.jianshu.com/p/03de0db4b857](../Images/DS09.png)
+
+<<< @/Codes/Data_Structures_and_Algorthms/Chapter_07_Graph/05_Traverse.cpp
+
+// 未完待续 （性能分析、图不连通怎么办系列，马上没电了……）
+
 ---
 
 新旧分界线
@@ -1259,16 +1339,6 @@ T2   T3                           T3  T4
 ## 8 图（Graph）
 
 ### 8.2 Traversing graph
-
-#### 8.2.1 DFS
-
-深度优先搜索（Depth First Search）
-![Data_Structures05](../Images/Data_Structures05.png)
-
-#### 8.2.2 BFS
-
-广度优先搜索（Breadth First Search）
-![Data_Structures06](../Images/Data_Structures06.png)
 
 #### 8.2.3 What if the graph doesn't connect?
 
