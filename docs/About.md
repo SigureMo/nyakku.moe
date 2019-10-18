@@ -10,6 +10,12 @@ sidebar: false
   <a href="tencent://AddContact/?fromId=45&fromSubId=1&subcmd=all&uin=240377379&website=www.oicqzone.com" class="zi zi_tmQq"></a>
 </p>
 
+::: tip status
+
+博客建设中……
+
+:::
+
 Sigure_Mo，小辣鸡一枚，本科材料喵，拟跨考 CS ε≡٩(๑>₃<)۶ ~
 
 已成功入坑 {{ dist_times }} ~
@@ -38,6 +44,12 @@ Sigure_Mo，小辣鸡一枚，本科材料喵，拟跨考 CS ε≡٩(๑>₃<)۶
 ## 还想说点啥？
 
 本仓库全部代码使用 [MIT](https://github.com/SigureMo/notev/blob/master/LICENSE) 协议进行开源，但是本仓库全部文档内容使用 [CC 4.0 BY-SA](https://creativecommons.org/licenses/by-sa/4.0/) 协议进行发布
+
+## 有啥愿望吗？
+
+-  想学的有好多啊，想有空玩玩前端，还想把 ML 系统学一下，还想学一下编译原理，还想……（想 peach 去吧）
+-  新的 N 年后能拥有属于自己的 MacBook
+-  新的一年能早一分钟睡（反正别越睡越晚就行啦 :joy:）
 
 <script>
 export default {

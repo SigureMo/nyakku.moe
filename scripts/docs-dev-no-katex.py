@@ -46,7 +46,9 @@ def docs_dev():
 
 if __name__ == '__main__':
 
-    backup()
-    remove_katex()
-    docs_dev()
-    restore()
+    try:
+        backup()
+        remove_katex()
+        docs_dev()
+    finally:
+        restore()
