@@ -70,7 +70,9 @@ module.exports = {
         position: "left",
         mobileShow: false
       }
-    ]
+    ],
+    // 鼠标特效插件
+    ["cursor-effects"]
     // 看板娘插件
     // [
     //   "kan-ban-niang"
@@ -138,12 +140,13 @@ module.exports = {
     ],
     sidebarDepth: 1,
     sidebar: "auto",
-    valineConfig: {
-      appId: "bIyWjVy2YdU6OAzJsE1HGbz3-MdYXbMMI",
-      appKey: "40tBaHyy66LcTgfaTUc5C1qg",
-      placeholder: "(´-ωก`)",
-      notify: true,
-      recordIP: true
+    vssueConfig: {
+      title: "Notev",
+      platform: "github",
+      owner: "SigureMo",
+      repo: "Notev",
+      clientId: "02c64bbb4f2a3b0ec621",
+      clientSecret: "fb5ea1b5e6117ae25abb0459489f6a0359048d7f"
     },
 
     lastUpdated: "Last Updated", // string | boolean
