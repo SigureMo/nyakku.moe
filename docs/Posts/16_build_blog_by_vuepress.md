@@ -238,7 +238,7 @@ module.exports = {
 }
 ```
 
-### 文章前加 YAML
+### 文章前加 front matter
 
 之后只需要在书写的文章中增加分类以及标签即可
 
