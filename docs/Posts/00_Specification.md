@@ -31,7 +31,7 @@ tags:
 
 偶然间发现了 Vuepress ，不过该框架是在当年 4 月刚刚诞生（搜尤大微博就能看到啦），此时 1.0.0 还仅仅是 alpha 阶段，我试着按照文档搭建了一个，效果非常满意，虽然只是文档格式，但是其实我根本就没想过搭建博客啦，我只想写写笔记什么的
 
-不过新也挺好的啊，我能和它一起成长嘛（学会了查阅技术文档，也认识到了项目文档的重要性）~之后就是各种折腾咯~
+不过新也挺好的啊，我能和它一起成长嘛（学会了查阅技术文档，也认识到了项目文档的重要性）\~ 之后就是各种折腾咯\~
 
 后来我又用 Vuepress 写了好几个项目文档，用起来非常顺手~
 
@@ -49,63 +49,31 @@ tags:
 
 在一些需要图形描述时，可以添加图片，图片等二进制文件默认以 LFS 形式存储，如果没有加入 LFS 不得提交，图片应尽量少
 
-## 图片路径怎么使用
+在任何文章底部应注明参考链接，代码亦然，即便参考内容作者没有做出声明或者使用比较宽松的协议（比如 CC 中的 CC0、开源协议中的 MIT），也应尊重人家的知识产权
 
-## 插入图片
+## 代码规范
 
-1. 使用相对路径
+每种语言都有自己的格式规范，掌握一种语言的规范可以先从它的缩进开始，然后逐步了解一些语法特性，当熟悉了每种语言之后，应当逐渐写出对应语言风格的代码，而不是使用自己的一套代码风格保留在各种语言内，这样对读代码的人会很不友好，而且很可能会降低运行效率（比如用 C 的方法在 Python 里写代码）
 
-```md
-![<noteName><imgCnt>](../Images/<noteName><imgCnt>.<ext>)
-```
+不仅代码的格式有规范，在写代码的时候应该时刻考虑代码的运行效率等问题（就是算法问题），在比较“高级“的语言中如果有可以调用的函数尽量不要使用该语言自己的方法进行实现，应尽量使用内置函数，任何在堆内申请的内存（包括”高级“语言申请的对象），应注重内存回收，不应将无用内存保留到最后
 
-2. 使用外部路径
+## Markdown 语法
 
-```md
-![<noteName><imgCnt>](https://github.com/SigureMo/notev/blob/master/docs/Images/<noteName><imgCnt>.<ext>?raw=true)
+Vuepress 集成了很多易用的 Markdown 语法，配合一些其他插件写笔记会非常方便，这里简单介绍下几个常用且容易忘记的
 
-<!-- or -->
+### 引用代码
 
-![<noteName><imgCnt>](https://raw.githubusercontent.com/SigureMo/notev/master/docs/Images/<noteName><imgCnt>.<ext>)
-```
-
-使用 `git-lfs` 时
-
-```md
-![<noteName><imgCnt>](https://media.githubusercontent.com/media/SigureMo/notev/master/docs/Images/<noteName><imgCnt>.<ext>)
-```
-
-::: warning
-
-当前使用 `git-lfs` 上传图片文件，所以后者才是有效链接
-
-:::
-
-## 引用代码
-
-1. 引用外部代码
-
-```md
-![<codename>.<ext>](https://github.com/SigureMo/notev/blob/master/Codes/<notename>/.../<codename>.<ext>)
-```
-
-2. 引用外部代码目录
-
-```md
-![<codename>.<ext>](https://github.com/SigureMo/notev/tree/master/Codes/<notename>/.../)
-```
-
-3. 导入代码块
+-  导入代码块
 
 ```md
 <<< @/Codes/<noteName>/.../<codename>{<hightlight_line1>,<hightlight_line2>}
 ```
 
-4. 代码高亮
+-  代码高亮
 
-[Vuepress 支持高亮的语言](https://prismjs.com/#languages-list)
+Vuepress 使用[prismjs](https://prismjs.com/#languages-list)进行代码高亮
 
-## 数学公式($\KaTeX$)
+### 数学公式($\KaTeX$)
 
 我们可以渲染公式例如：$x_i + y_i = z_i$和$\sum_{i=1}^n a_i=0$
 我们也可以单行渲染
@@ -125,7 +93,7 @@ $$
 
 :::
 
-## Emoji:smiley:
+### Emoji:smiley:
 
 使用 emoji 使文档更加生动~
 
@@ -135,37 +103,19 @@ $$
 
 更多请查看[Gitmoji 官网](http://gitmoji.carloscuesta.me/)和[Emoji 官网](https://emojipedia.org/)
 
-## Badge <Badge text="beta" type="warn"/> <Badge text="0.10.1+"/>
+### Badge <Badge text="beta" type="warn"/> <Badge text="0.10.1+"/>
 
 这是 Vuepress 中的内置组件，可以通过这种方式使用：
 
 ```md
-## Badge <Badge text="beta" type="warn"/> <Badge text="0.10.1+"/>
+### Badge <Badge text="beta" type="warn"/> <Badge text="0.10.1+"/>
 ```
 
 渲染出来的效果当然就是标题这种啦~
 
 更多选项参考[Vuepress 文档](https://vuepress.vuejs.org/zh/guide/using-vue.html)
 
-::: tip
-
-今后将使用其作为笔记状态标记，暂定以下规则：
-
-1. <Badge text="alpha" type="warn"/> <Badge text="0.10.1"/>为 Studying 类（正在编写与学习中）的标记
-2. <Badge text="beta" type="tip"/> <Badge text="1.10.1"/>为 Debugging 类（基本框架完成，待补充完善）的标记
-3. <Badge text="2.10.1" type="error" />为 Discarded 类（中途停止继续记录，可能使用新框架重写）的标记
-
-:::
-
-## ==Mark==
-
-使用 `markdown-it` 扩展中的 `markdown-it-mark` 扩展，只需要在需要==高亮==的文本两侧加`==`，便可实现 `<mark>` 效果，增加笔记的可读性
-
-## Prettier
-
-使用 Prettier 对文档进行优化，使用 husky 配合 pretty-quick 钩子，详情请见[Prettier 官网](https://prettier.io/)
-
-## Matplotlib
+### Matplotlib
 
 使用 `Python` 库 `matplotlib` 愉快地生成函数等图像！
 
@@ -184,12 +134,16 @@ plt.savefig("../Images/example.png")
 
 ![example](../Images/example.png)
 
-# Change Log
+## Git Commit 规范
 
-1. 18xxxx Init
-2. 18xxxx Add #0 #1
+当前使用规范如下
 
-# Reference
+```
+<gitmoji> <header>(<scope>) subject
 
-1. XXX 老师课程
-2. [url](/)
+body
+
+footer
+```
+
+其中详情见 [Git Commit](05_Git_Handbook.md)
