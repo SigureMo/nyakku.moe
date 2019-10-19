@@ -9,7 +9,6 @@ module.exports = {
         content: "width=device-width,initial-scale=1,user-scalable=no"
       }
     ],
-    ["link", { rel: "icon", href: "/sigure_mo.png" }],
     [
       "link",
       {
@@ -72,7 +71,18 @@ module.exports = {
       }
     ],
     // 鼠标特效插件
-    ["cursor-effects"]
+    ["cursor-effects"],
+    // 离开页面标题变化
+    [
+      "dynamic-title",
+      {
+        showIcon: "/favicon.ico",
+        showText: "(/≧▽≦/)咦！又好了！",
+        hideIcon: "/failure.ico",
+        hideText: "(●—●)喔哟，崩溃啦！",
+        recoverTime: 2000
+      }
+    ]
     // 看板娘插件
     // [
     //   "kan-ban-niang"
@@ -141,7 +151,6 @@ module.exports = {
     sidebarDepth: 1,
     sidebar: "auto",
     vssueConfig: {
-      title: "Notev",
       platform: "github",
       owner: "SigureMo",
       repo: "Notev",
