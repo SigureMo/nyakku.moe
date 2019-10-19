@@ -1,5 +1,5 @@
 ---
-title: Cmder
+title: 初窥 Cmder
 date: 2018-10-01
 categories:
    - 雁影·留
@@ -9,25 +9,25 @@ tags:
    - VSCode
 ---
 
-## 1 Start
+## 1 起因
 
 果然是一折腾就停不下来呀，刚重装了系统，又打起了原来没用明白的 cmder 的主意
 
-### 1.1 Merge
+### 1.1 合并各种”命令行“
 
 重装系统后装机的话，第一个想到的就是 Git 呀，往回迁移资源的时候因为 U 盘挂掉了，所以不少项目文件没了，不过还好有不少在 GitHub 上有备份。
 
 不过这次我在安装 Gitbash 前想到了 cmder，之前用 GitBash、cmd、Powershell 的时候总是忙于三者的切换，曾经试过 cmder 但没用明白，就搁置了下来，但是这次我可不会傻下去了
 
-### 1.2 PATH
+### 1.2 配置环境变量
 
 将 Cmder 加入环境变量 PATH 中，这个就不赘述了
 
-### 1.3 Context menu
+### 1.3 加入右键菜单
 
 加入右键菜单，要在管理员权限下输入`Cmder.exe /REGISTER ALL`
 
-### 1.4 alias
+### 1.4 自定义短命令
 
 自定义短命令，在 Environment 里添加
 
@@ -44,11 +44,11 @@ pwd=cd
 clear=cls
 ```
 
-## 2 VS code & Cmder
+## 2 配合 VSCode 使用
 
 最近迷上了 VS code，所以开始对 VS code 进行了简单的配置，但是怎么直接从 VS code 里面的终端使用 cmder 呢，经过简单的搜索找到了答案
 
-### 2.1 Creat a bat
+### 2.1 创建一个 bat 文件
 
 创建一个批处理文件，内容如下：
 
@@ -63,7 +63,7 @@ SET CMDER_ROOT=<CmderPath>
 将`<CmderPath>`替换成你的 cmder.exe 所在目录
 :::
 
-### 2.2 Change the settings
+### 2.2 修改配置
 
 使用快捷键`Ctrl + Shift + P`，在弹出的命令框内输入`settings`，找到 User Settings，然后在 settings.json 里面编辑它，在右侧替换框内添加：
 

@@ -49,7 +49,13 @@ tags:
 
 在一些需要图形描述时，可以添加图片，图片等二进制文件默认以 LFS 形式存储，如果没有加入 LFS 不得提交，图片应尽量少
 
-在任何文章底部应注明参考链接，代码亦然，即便参考内容作者没有做出声明或者使用比较宽松的协议（比如 CC 中的 CC0、开源协议中的 MIT），也应尊重人家的知识产权
+## 来源声明
+
+在任何文章底部应注明参考链接，即便参考内容作者没有做出声明或者使用比较宽松的协议（比如 CC 中的 CC0、开源协议中的 MIT），也应尊重人家的知识产权
+
+类似地，有参考的代码应当在代码顶部写明参考链接，如果在文章中引用了非参考链接中来源的图片，应当在图片的 `alt` 属性中注明来源
+
+另外，有些资源并非来源于网络或者没有直接的网络链接，也应一一注明，比如某某书籍的启蒙指导、某某老师的授课之恩
 
 ## 代码规范
 
@@ -65,13 +71,13 @@ Vuepress 集成了很多易用的 Markdown 语法，配合一些其他插件写�
 
 -  导入代码块
 
-```md
-<<< @/Codes/<noteName>/.../<codename>{<hightlight_line1>,<hightlight_line2>}
-```
+   ```md
+   <<< @/Codes/<noteName>/.../<codename>{<hightlight_line1>,<hightlight_line2>}
+   ```
 
 -  代码高亮
 
-Vuepress 使用[prismjs](https://prismjs.com/#languages-list)进行代码高亮
+   Vuepress 使用[prismjs](https://prismjs.com/#languages-list)进行代码高亮
 
 ### 数学公式($\KaTeX$)
 
@@ -117,7 +123,7 @@ $$
 
 ### Matplotlib
 
-使用 `Python` 库 `matplotlib` 愉快地生成函数等图像！
+使用 `Python` 库 `matplotlib` 可以更加方便快捷地生成函数等图像！
 
 基于`VS Code` 插件 [Markdown Preview Enhanced](https://shd101wyy.github.io/markdown-preview-enhanced/#/zh-cn/code-chunk) ，首先打开 `VS Code` 设置中的 `enableScriptExecution` ，之后便可以通过快捷键 `shift-enter` 运行当前代码块、快捷键 `ctrl-shift-enter` 运行全部代码块
 
