@@ -6,6 +6,7 @@ categories:
 tags:
    - front end
    - blog
+   - Vuepress
 ---
 
 ::: tip
