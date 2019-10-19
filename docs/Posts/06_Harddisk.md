@@ -1,5 +1,5 @@
 ---
-title: Harddisk
+title: Diskpart 的简单使用
 date: 2018-10-01
 categories:
    - 雁影·留
@@ -8,15 +8,17 @@ tags:
    - Windows
 ---
 
-## 1 Reinstall OS
-
-### 1.1 Start
+::: tip
 
 前段时间装了 SSD 后使用软件直接迁移的系统，之后出现了很多问题（比如经常莫名其妙音频服务未运行），所以昨晚一回到家就把硬盘通过局域网备份到另外一台电脑上，开始重装（emmm 我是想把 HHD 的混乱分区也弄一下的）。
 
-做完系统 U 盘并设为启动盘后就进入了熟悉的界面啦，但是这次选择分区不顺利呀，“Windows 无法安装到 GPT 分区形式磁盘”，这要怎么办呀？搜了下，了解到了 diskpart 这个小工具。下面就介绍下简单的使用方法啦。
+做完系统 U 盘并设为启动盘后就进入了熟悉的界面啦，但是这次选择分区不顺利呀，“Windows 无法安装到 GPT 分区形式磁盘”，这要怎么办呀？搜了下，了解到了 diskpart 这个小工具。下面就介绍下简单的使用方法啦
 
-### 1.2 diskpart
+:::
+
+<!-- more -->
+
+## 如何使用？
 
 1. 在那一步按住“shift + F10”，便出现了 CMD 命令行
 2. 输入`diskpart`，进入 diskpart
@@ -28,6 +30,8 @@ tags:
 8. 输入`format fs=ntfs quick`，格式化磁盘为 ntfs
 9. 输入`exit`，退出 diskpart
 10.   输入`exit`，退出 cmd
+
+## 关于 4K 对齐
 
 emmm，上面都摘自 Reference，因为之前稍稍了解到 4K 对齐，所以我对这个还是有执念的，经过一番搜索，发现只需要加`align=4096`参数就好，而且 size 参数也可以省略的，也就是，Step7 使用`create partition primary align=4096`替换
 
