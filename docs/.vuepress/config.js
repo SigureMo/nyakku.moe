@@ -76,13 +76,15 @@ module.exports = {
     [
       "dynamic-title",
       {
-        showIcon: "/favicon.ico",
+        showIcon: "/favicon.png",
         showText: "(/≧▽≦/)咦！又好了！",
         hideIcon: "/failure.ico",
         hideText: "(●—●)喔哟，崩溃啦！",
         recoverTime: 2000
       }
-    ]
+    ],
+    // 悬挂小猫返回顶部
+    ["go-top"]
     // 看板娘插件
     // [
     //   "kan-ban-niang"
@@ -156,6 +158,9 @@ module.exports = {
       repo: "Notev",
       clientId: "02c64bbb4f2a3b0ec621",
       clientSecret: "fb5ea1b5e6117ae25abb0459489f6a0359048d7f"
+    },
+    BackToTopConfig: {
+      visibilityHeight: -1
     },
 
     lastUpdated: "Last Updated", // string | boolean
