@@ -1,11 +1,20 @@
 ---
 title: Discrete Mathematics
+date: 2019-04-25
 categories:
    - 经纶·注
 tags:
    - Math
    - CS
 ---
+
+::: tip
+
+《离散数学及其应用》笔记
+
+:::
+
+<!-- more -->
 
 ## 0 引
 

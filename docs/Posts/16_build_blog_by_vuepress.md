@@ -10,7 +10,9 @@ tags:
 ---
 
 ::: tip
+
 静态博客并不难搭建，但是对前端什么都不懂的我还是走了很多的弯路，而且 `vuepress` 是一个比较新的框架，网上的资源还是较少的，能用的资源基本只有文档，本文跟随源文档，以最简的方式搭建一个简单的文档 demo ，进而搭建一个属于你自己的 blog
+
 :::
 
 <!-- more -->
@@ -387,7 +389,7 @@ module.exports = {
 
 下面推荐几个有用的插件
 
--  `markdown-it-mark` 在词语两侧添加 `==` 即可对其实现==高亮==的效果，非常简单实用
+-  `markdown-it-mark` 在词语两侧添加 `==` 即可对其实现 ==高亮== 的效果，非常简单实用
 -  `@iktakahiro/markdown-it-katex` 可在 Markdown 内解析 $\KaTeX$，但是其依赖 `CSS`，所以需要额外配置下 `docs/.vuepress/config.js`
 
 ```js

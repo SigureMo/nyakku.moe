@@ -1,11 +1,20 @@
 ---
 title: Principle of Metal Plastic Working
+date: 2018-10-01
 categories:
    - 经纶·注
 tags:
    - Material Science
    - Required Course
 ---
+
+::: tip
+
+《金属塑性加工原理》课程笔记
+
+:::
+
+<!-- more -->
 
 ## 1 金属冷态下塑性变形
 
