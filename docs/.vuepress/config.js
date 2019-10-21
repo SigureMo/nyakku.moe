@@ -17,7 +17,22 @@ module.exports = {
       }
     ],
     ["link", { rel: "manifest", href: "/manifest.json" }],
-    ["meta", { name: "theme-color", content: "#222222" }]
+    ["meta", { name: "theme-color", content: "#222222" }],
+    ["meta", { name: "apple-mobile-web-app-capable", content: "yes" }],
+    [
+      "meta",
+      { name: "apple-mobile-web-app-status-bar-style", content: "black" }
+    ],
+    ["link", { rel: "apple-touch-icon", href: "/icons/favicon152.png" }],
+    [
+      "link",
+      { rel: "mask-icon", href: "/icons/favicon152.png", color: "#3eaf7c" }
+    ],
+    [
+      "meta",
+      { name: "msapplication-TileImage", content: "/icons/favicon144.png" }
+    ],
+    ["meta", { name: "msapplication-TileColor", content: "#000000" }]
   ],
 
   markdown: {
@@ -76,10 +91,10 @@ module.exports = {
     [
       "dynamic-title",
       {
-        showIcon: "/favicon.png",
-        showText: "(/≧▽≦/)咦！又好了！",
+        showIcon: "/favicon.ico",
+        showText: "(ฅ>ω<*ฅ)欢迎回来！",
         hideIcon: "/failure.ico",
-        hideText: "(●—●)喔哟，崩溃啦！",
+        hideText: "( ๑ˊ•̥▵•)੭₎₎不要走呀！",
         recoverTime: 2000
       }
     ],
