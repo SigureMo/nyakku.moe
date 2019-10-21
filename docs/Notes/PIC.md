@@ -1,11 +1,20 @@
 ---
 title: PIC
+date: 2018-09-12
 categories:
    - 经纶·注
 tags:
    - CS
    - Optional Course
 ---
+
+::: tip
+
+《PIC 单片机》课程笔记
+
+:::
+
+<!-- more -->
 
 ## 0 PIC 绪论
 

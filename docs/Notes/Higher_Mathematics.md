@@ -1,5 +1,6 @@
 ---
 title: Higher Mathematics
+date: 2019-02-27
 categories:
    - 经纶·注
 tags:
@@ -7,6 +8,14 @@ tags:
    - Math
    - kaoyan
 ---
+
+::: warning
+
+《高等数学》复习笔记
+
+:::
+
+<!-- more -->
 
 ## 1 基础
 

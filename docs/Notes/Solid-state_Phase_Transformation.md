@@ -1,11 +1,20 @@
 ---
 title: Solid-state Phase Transformation
+date: 2018-11-21
 categories:
    - 经纶·注
 tags:
    - Material Science
    - Required Course
 ---
+
+::: tip
+
+《固态相变》课程笔记
+
+:::
+
+<!-- more -->
 
 ## Part 1 固态相变理论基础
 

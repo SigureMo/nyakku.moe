@@ -1,5 +1,6 @@
 ---
 title: Linear Algebra
+date: 2019-05-27
 categories:
    - 经纶·注
 tags:
@@ -7,6 +8,14 @@ tags:
    - Math
    - kaoyan
 ---
+
+::: warning
+
+《线性代数》复习笔记
+
+:::
+
+<!-- more -->
 
 ## 1 行列式
 

@@ -43,7 +43,7 @@ tags:
 
 ## 可解释性与什么有关？
 
-可解释性的影响因素问题可参考 $Network Dissection: Quantifying Interpretability of Deep Visual Representations$
+可解释性的影响因素问题可参考 `Network Dissection: Quantifying Interpretability of Deep Visual Representations`
 
 ### 网络结构和监督对可解释性的影响
 
@@ -57,7 +57,7 @@ tags:
 
 ![Explainable_AI_04](../Images/Explainable_AI_04.png)
 
-可以发现，无 dropout 会有着很多的纹理检测器，而 BN 的各个层次检测器都很少，可解释性很差，虽然其加速了训练，但是它会对每层的响应进行白化，平滑了他们的 scale，网络能够在训练过程中更容易地旋转中间表征，从而有了前面提到的旋转对可解释性造成了影响
+可以发现，无 dropout 会有着很多的纹理检测器，而 BN 的各个层次检测器都很少，可解释性很差，虽然其加速了训练，但是它会对每层的响应进行白化，平滑了他们的 scale，网络能够在训练过程中更容易地旋转中间表征，直接导致了旋转对可解释性会造成影响
 
 # References
 

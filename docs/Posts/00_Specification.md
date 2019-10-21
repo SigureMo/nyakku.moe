@@ -140,7 +140,9 @@ plt.savefig("../Images/example.png")
 
 ![example](../Images/example.png)
 
-## Git Commit 规范
+## Git 规范
+
+### Git Commit 规范
 
 当前使用规范如下
 
@@ -152,4 +154,10 @@ body
 footer
 ```
 
+header 仅可使用英文，由于当前英文还不好， body 中应使用中文进行详细的描述
+
 其中详情见 [Git Commit](05_Git_Handbook.md)
+
+### 对大文件的管理
+
+在源码存在的情况下，不应当提交编译后的文件，编译后的结果一般并非可读的，而且文件也较大，本 Repo 是一个长期项目，其中不应当存在二进制文件，如果一定要提交二进制文件，需要使用 LFS 进行管理
