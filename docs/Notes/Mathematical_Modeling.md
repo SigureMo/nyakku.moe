@@ -1,11 +1,20 @@
 ---
 title: Mathematical Modeling
+date: 2018-11-21
 categories:
    - 经纶·注
 tags:
    - Basic Subject
    - Math
 ---
+
+::: warning
+
+《数学建模》慕课笔记
+
+:::
+
+<!-- more -->
 
 ## Part 1 案例部分
 

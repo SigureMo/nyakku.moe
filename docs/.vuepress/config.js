@@ -84,7 +84,9 @@ module.exports = {
       }
     ],
     // 悬挂小猫返回顶部
-    ["go-top"]
+    ["go-top"],
+    // 禁用主题内置的默认 back-to-top
+    ["@vuepress-reco/back-to-top", false]
     // 看板娘插件
     // [
     //   "kan-ban-niang"
@@ -158,9 +160,6 @@ module.exports = {
       repo: "Notev",
       clientId: "02c64bbb4f2a3b0ec621",
       clientSecret: "fb5ea1b5e6117ae25abb0459489f6a0359048d7f"
-    },
-    BackToTopConfig: {
-      visibilityHeight: -1
     },
 
     lastUpdated: "Last Updated", // string | boolean

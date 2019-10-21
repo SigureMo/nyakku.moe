@@ -1,11 +1,20 @@
 ---
 title: Operating System
+date: 2019-02-28
 categories:
    - 经纶·注
 tags:
    - CS
    - kaoyan
 ---
+
+::: tip
+
+《计算机操作系统》课程笔记
+
+:::
+
+<!-- more -->
 
 ## 1 操作系统引论
 
