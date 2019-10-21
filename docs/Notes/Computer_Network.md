@@ -1,11 +1,20 @@
 ---
 title: Computer Network
+date: 2019-09-18
 categories:
    - 经纶·注
 tags:
    - CS
    - kaoyan
 ---
+
+::: warning ♻️ Reviewing
+
+《计算机网络》复习笔记
+
+:::
+
+<!-- more -->
 
 ## 1 计算机网络体系结构
 
