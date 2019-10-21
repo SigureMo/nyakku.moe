@@ -1,11 +1,20 @@
 ---
 title: Data Structures and Algorthms
+date: 2019-08-21
 categories:
    - 经纶·注
 tags:
    - CS
    - kaoyan
 ---
+
+::: warning ♻️ Reviewing
+
+《数据结构》复习笔记
+
+:::
+
+<!-- more -->
 
 -  Data Structures
 
@@ -414,7 +423,7 @@ typedef struct {
 } SString;
 ```
 
-::: warning
+::: warninging
 
 这里的 `ch` 只是个字符数组，并不是 `C` 语言中的字符串，所以也就没有 `‘\0’`
 
@@ -1375,7 +1384,7 @@ for (int i = 0; i < G.vexnum; i++) {
 
    ![DS10_from_Wangdao](../Images/DS10.png)
 
-   首先向空树 $T = (V_T, E_T)$ 中添加图 $G = (V, E)$ 的任一顶点 $u_0$ ，使 $V_T = u_0$ ，$E_T = \varnothing$ ，之后不断从图 $G$ 中选择满足 $\{(u, v)| u \in V_T, v \in V - V_T\}$ ，且具有最小权值的边 $(u, v)$ ，并置 $V_T = V_T \cup \{v\}$ ，$E_T = E_T \cup \{(u, v)\}$
+   首先向空树 $T = (V_T, E_T)$ 中添加图 $G = (V, E)$ 的任一顶点 $u_0$ ，使 $V_T = u_0$ ，$E_T = \varnothing$ ，之后不断从图 $G$ 中选择**满足 $\{(u, v)| u \in V_T, v \in V - V_T\}$ ，且具有最小权值的边 $(u, v)$**，并置 $V_T = V_T \cup \{v\}$ ，$E_T = E_T \cup \{(u, v)\}$
 
    ```cpp
    void Prim(G, T) {
@@ -1391,6 +1400,64 @@ for (int i = 0; i < G.vexnum; i++) {
 
    时间复杂度为 $O(|V|^2)$ ，不依赖于 $|E|$ ，适用于求解边稠密图的最小生成树
 
+-  **Kruskal 算法**
+
+   (๑╹◡╹)ﾉ"""将森林合并成树
+
+   首先我们认为每一个 Vertex 都是一个树 Node，那么我们整个过程就是不断地将森林合并成树了
+
+   ![DS11_from_Wangdao](../Images/DS11.png)
+
+   首先令 $V_T = V$ ， $E_T = \varnothing$ ，$T$ 此时是一个仅含 $|V|$ 个顶点的森林，之后**不断从 $E - E_T$ 中选择权值最小的那条边**，如果将该边加入 $T$ 后**不构成回路**，则将其加入 $E_T$ ，否则舍弃，直到 $E_T$ 中含有 $n-1$ 条边
+
+   ```cpp
+   void Kruskal(V, T) {
+      T = V;                                 // 初始化树 T，仅含顶点
+      numS = n;                              // 连通分量数
+      while (numS > 1) {
+         从 E 中取出权值最小的边 (v, u);        // 可利用最小堆
+         if (v 和 u 属于 T 中不同的连通分量) {  // 可利用并查集
+            T = T 并 {(v, u)};               // 将此边加入生成树中
+            numS--;
+         }
+      }
+   }
+   ```
+
+   采用堆存放边的集合可将选择最小权值的边的时间降到 $O(\log |E|)$ ，这样总时间复杂度为 $O(|E| \log |E|)$ ，可以看出 Kruskal 算法很适合边稀疏而顶点较多的图
+
+::: tip 为什么 Prim 算法不需要判断是否会形成回路呢？
+
+虽然 Prim 算法也是一个一个挑选边，但是在实际操作时是先考虑顶点，然后再考虑该顶点与已收录部分的生成树之间的边的，所以 Prim 算法相当于将一个一个顶点加入生成树中，这样是不会产生回路的，这也说明了为什么 Prim 算法的复杂度并不依赖于 $|E|$
+
+:::
+
+#### 7.4.2 最短路径
+
+-  无权图的单源最短路径
+
+   使用 **BFS** 对图上各顶点进行遍历，对每个未访问过的邻接点标记 `dist[]`（记录从源点到各顶点的最短路径长度） 和 `path[]`（表示从源点到该点的最短路径的前驱结点），由于 BFS 总是从近到远进行遍历，所以实现起来很简单
+
+   ```cpp
+   void Unweighted(Vertex S) {
+      Enqueue(S, Q);
+      while (IsEmpty(Q)) {
+         V = Dequeue(Q);
+         for (V 的每个邻接点 W) {
+            if (dist[W] == -1) {
+               dist[W] = dist[V] + 1;
+               path[W] = V;
+               Enqueue(W, Q);
+            }
+         }
+      }
+   }
+   ```
+
+-  有权图的单元最短路径
+
+   使用 **Dijkstra 算法**
+
 ---
 
 新旧分界线
@@ -1400,25 +1467,6 @@ for (int i = 0; i < G.vexnum; i++) {
 ## 8 图（Graph）
 
 ### 8.3 Shortest Path Problem
-
-#### 8.3.1 Single-source shortest Path of Unweighted Graph
-
-使用 BFS 对图上各顶点进行遍历，对每个未访问过的邻接点标记 dist 和 path
-
-```
-void Unweighted (Vertex S){
-    Enqueue(S, Q);
-    while (!IsEmpty(Q)){
-        V = Dequeue(Q);
-        for ( V 的每个邻接点 W)
-            if (dist[W] == -1){
-                dist[W] = dist[V] + 1;
-                path[W] = V;
-                Enqueue(W, Q);
-            }
-    }
-}
-```
 
 #### 8.3.2 Single-source shortest Path of Weighted Graph
 
@@ -1466,30 +1514,6 @@ void Floyd(){
                     D[i][j] = D[i][k] + D[k][j];
                     path[i][j] = k;
                 }
-}
-```
-
-### 8.4 Minimum Spanning Tree
-
-#### 8.4.4 Kruskal Algorithm
-
-(๑╹◡╹)ﾉ"""将森林合并成树
-
-> 首先我们认为每一个 Vertex 都是一个树 Node，那么我们整个过程就是不断地将森林合并成树了
-
-```
-void Kruskal (Graph G){
-    MST = {};
-    while (MST 中不到|V|-1条边 && E中还有边){
-        从E中取一条权重最小的边Ev,w; // 最小堆
-        将Ev,w从E中删除;
-        if (Ev,w不在MST中构成回路) // 并查集
-            将Ev,w加入MST;
-        else
-            彻底无视Ev,w;
-    }
-    if (MST中不到|V|-1条边)
-        Error("生成树不存在");
 }
 ```
 

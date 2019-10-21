@@ -1,11 +1,20 @@
 ---
 title: Principles of Computer Composition
+date: 2018-09-05
 categories:
    - 经纶·注
 tags:
    - CS
    - kaoyan
 ---
+
+::: tip
+
+《计算机组成原理》慕课笔记
+
+:::
+
+<!-- more -->
 
 ## 1 计算机系统概论
 
