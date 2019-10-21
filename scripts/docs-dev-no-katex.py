@@ -36,7 +36,8 @@ def restore():
     # os.remove(bak_file)
 
 def docs_dev():
-    p = subprocess.Popen(["vuepress", "dev", "docs"], shell=True)
+    shell = os.name == "nt"
+    p = subprocess.Popen(["vuepress", "dev", "docs"], shell=shell)
     while True:
         try:
             time.sleep(1)
