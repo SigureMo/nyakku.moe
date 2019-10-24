@@ -146,7 +146,9 @@ Makefile.win
 *.txt
 
 # vuepress
-/.vuepress/dist/
+docs/.vuepress/dist/
+docs/.vuepress/plugins/
+docs/.vuepress/theme/
 /node_modules/
 
 # temp
