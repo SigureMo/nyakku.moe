@@ -65,8 +65,15 @@ module.exports = {
         updatePopup: true
       }
     ],
-    // 启用图片缩放
-    "@vuepress/medium-zoom",
+    // live2d
+    // [
+    //   "live2d",
+    //   {
+    //     modelName: "miku",
+    //     position: "left",
+    //     mobileShow: false
+    //   }
+    // ],
     // 彩带背景
     [
       "ribbon",
@@ -74,15 +81,6 @@ module.exports = {
         size: 90,
         opacity: 0.8,
         zIndex: -1
-      }
-    ],
-    // live2d
-    [
-      "live2d",
-      {
-        modelName: "miku",
-        position: "left",
-        mobileShow: false
       }
     ],
     // 鼠标特效插件
@@ -101,15 +99,21 @@ module.exports = {
     // 悬挂小猫返回顶部
     ["go-top"],
     // 禁用主题内置的默认 back-to-top
-    ["@vuepress-reco/back-to-top", false]
+    ["@vuepress-reco/back-to-top", false],
+    // 流程图
+    ["flowchart"],
     // 看板娘插件
-    // [
-    //   "kan-ban-niang"
-    // ]
+    [
+      // require('./plugins/@vuepress-reco/vuepress-plugin-kan-ban-niang/index.js'),
+      "@vuepress-reco/vuepress-plugin-kan-ban-niang",
+      {
+        theme: ["miku"]
+      }
+    ]
   ],
 
   // 主题配置
-  theme: "reco",
+  // theme: "reco",
   themeConfig: {
     // 博客配置
     type: "blog",
