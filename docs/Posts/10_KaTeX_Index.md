@@ -9,7 +9,9 @@ tags:
 
 ::: tip
 
-一份个人 \KaTeX 常用公式索引表，持续更新~
+一份个人 $\KaTeX$ 常用公式索引表，持续更新~
+
+> [$\KaTeX$ 支持的公式](https://katex.org/docs/supported.html)
 
 :::
 

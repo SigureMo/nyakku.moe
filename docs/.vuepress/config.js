@@ -13,7 +13,7 @@ module.exports = {
       "link",
       {
         rel: "stylesheet",
-        href: "https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/katex.min.css"
+        href: "https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.css"
       }
     ],
     ["link", { rel: "manifest", href: "/manifest.json" }],
