@@ -65,15 +65,6 @@ module.exports = {
         updatePopup: true
       }
     ],
-    // live2d
-    // [
-    //   "live2d",
-    //   {
-    //     modelName: "miku",
-    //     position: "left",
-    //     mobileShow: false
-    //   }
-    // ],
     // 彩带背景
     [
       "ribbon",
@@ -104,10 +95,18 @@ module.exports = {
     ["flowchart"],
     // 看板娘插件
     [
-      // require('./plugins/@vuepress-reco/vuepress-plugin-kan-ban-niang/index.js'),
-      "@vuepress-reco/vuepress-plugin-kan-ban-niang",
+      require("./plugins/@vuepress-reco/vuepress-plugin-kan-ban-niang/index.js"),
+      // "@vuepress-reco/vuepress-plugin-kan-ban-niang",
       {
-        theme: ["miku"]
+        theme: ["miku"],
+        clean: true,
+        modelStyle: {
+          position: "fixed",
+          left: "0px",
+          bottom: "0px",
+          opacity: "0.9",
+          zIndex: 99999
+        }
       }
     ]
   ],
@@ -118,6 +117,7 @@ module.exports = {
     // 博客配置
     type: "blog",
     logo: "/sigure_mo.png",
+    autoHideNavbar: true,
     blogConfig: {
       category: {
         location: 2, // 在导航栏菜单中所占的位置，默认2
@@ -136,6 +136,24 @@ module.exports = {
     nav: [
       { text: "Home", link: "/", icon: "reco-home" },
       { text: "TimeLine", link: "/TimeLine/", icon: "reco-date" },
+      {
+        text: "Experiments",
+        icon: "reco-api",
+        items: [
+          {
+            text: "🎓 Course Crawler",
+            link: "https://www.sigure.xyz/course-crawler/"
+          },
+          {
+            text: "👣 Shoeprint Recognition",
+            link: "https://www.sigure.xyz/shoeprint-recognition/"
+          },
+          {
+            text: "🎨 vuepress reco",
+            link: "https://vuepress-theme-reco.recoluan.com/"
+          }
+        ]
+      },
       { text: "About", link: "/About.html", icon: "reco-account" },
       {
         text: "Contact",
