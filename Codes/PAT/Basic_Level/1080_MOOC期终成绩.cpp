@@ -39,15 +39,11 @@ int main() {
     }
     score_map[id][type] = score;
   }
-  for (auto it = score_map.begin(); it != score_map.end(); ) {
+  for (auto it = score_map.begin(); it != score_map.end(); it++) {
     it->second[3] = it->second[1] > it->second[2] ?
                     it->second[1] * 0.4 + it->second[2] * 0.6 + 0.5 : it->second[2];
-    if (it->second[0] < 200 || it->second[3] < 60) {
-      score_map.erase(it++);
-    }
-    else {
+    if (it->second[0] >= 200 && it->second[3] >= 60) {
       score_vector.push_back(Score(it->first, it->second[0], it->second[1], it->second[2], it->second[3]));
-      it++;
     }
   }
   auto cmp = [](Score a, Score b) -> bool {
