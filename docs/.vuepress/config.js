@@ -96,8 +96,7 @@ module.exports = {
     ["flowchart"],
     // 看板娘插件
     [
-      require("./plugins/@vuepress-reco/vuepress-plugin-kan-ban-niang/index.js"),
-      // "@vuepress-reco/vuepress-plugin-kan-ban-niang",
+      "@vuepress-reco/vuepress-plugin-kan-ban-niang",
       {
         theme: ["miku"],
         clean: true,
@@ -113,7 +112,7 @@ module.exports = {
   ],
 
   // 主题配置
-  // theme: "reco",
+  theme: "reco",
   themeConfig: {
     // 博客配置
     type: "blog",
