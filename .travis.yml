@@ -1,0 +1,16 @@
+language: node_js
+node_js:
+  - lts/*
+script:
+  - npm run docs:build
+deploy:
+  repo: SigureMo/siguremo.github.io
+  target_branch: master
+  keep_history: true
+  skip-cleanup: true
+  provider: pages
+  local_dir: docs/.vuepress/dist
+  github-token: $GITHUB_TOKEN
+  keep-history: true
+  on:
+    branch: master
