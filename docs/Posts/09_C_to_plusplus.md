@@ -1,6 +1,6 @@
 ---
 title: C to ++
-date: 2019-04-27
+date: 2019-10-04
 categories:
    - 雁影·留
 tags:
@@ -696,7 +696,7 @@ if (m.find(key) != m.end()) {
 }
 ```
 
-#### C++17 中更加优雅的遍历方法 <Badge text="C++11" type="tip"/>
+#### C++17 中更加优雅的遍历方法 <Badge text="C++17" type="tip"/>
 
 在 C++11 中我们如何遍历一个 map 呢？
 
