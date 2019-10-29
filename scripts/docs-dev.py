@@ -1,6 +1,8 @@
 """
-由于现阶段 KaTeX 作为插件会使得文档 dev 无法进行，
-所以做一个临时移除 KaTeX 进行 dev 的脚本
+为了方便部署与 dev 使用不同的配置，这里在 dev 的时候临时修改部分配置
+比如
+    - 移除 markdown-it-katex 以防止 dev 无法进行
+    - 移除 node 主题配置 reco
 """
 
 import re
@@ -11,7 +13,9 @@ import time
 
 config_file = "docs/.vuepress/config.js"
 bak_file = "data/config.js"
-re_remove = re.compile(r"md\.use\(require\(\"@iktakahiro/markdown-it-katex\"\), \{[\s\S]+?\}\);")
+re_katex = re.compile(r"md\.use\(require\(\"@iktakahiro/markdown-it-katex\"\), \{[\s\S]+?\}\);")
+re_theme = re.compile(r"theme: \"reco\",")
+replace_list = [re_katex, re_theme]
 
 def backup():
     print("已备份 config.js")
@@ -20,18 +24,19 @@ def backup():
     with open(bak_file, "w", encoding="utf8") as f:
         f.write(config_text)
 
-def remove_katex():
+def gen_dev_config():
     with open(config_file, "r", encoding="utf8") as f:
         config_text = f.read()
-    config_text_no_katex = re_remove.sub("", config_text)
+    for re_replace in replace_list:
+        config_text = re_replace.sub("", config_text)
     with open(config_file, "w", encoding="utf8") as f:
-        f.write(config_text_no_katex)
+        f.write(config_text)
 
 def restore():
     print("已还原 config.js")
     with open(bak_file, "r", encoding="utf8") as f:
         config_text = f.read()
-    with open(config_file, "w", encoding="utf8") as f:
+    with open(config_file, "w", encoding="utf8", newline="\n") as f:
         f.write(config_text)
     # os.remove(bak_file)
 
@@ -49,7 +54,7 @@ if __name__ == '__main__':
 
     try:
         backup()
-        remove_katex()
+        gen_dev_config()
         docs_dev()
     finally:
         restore()
