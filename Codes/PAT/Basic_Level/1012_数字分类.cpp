@@ -3,81 +3,49 @@
 using namespace std;
 
 int main() {
-  int a1_cnt = 0, a1 = 0;
-  int a2_cnt = 0, a2 = 0;
-  int a3_cnt = 0, a3 = 0;
-  int a4_cnt = 0, a4 = 0;
-  int a5_cnt = 0, a5 = 0;
+  int a[5] = {0}, cnt[5] = {0};
   int n;
   cin >> n;
   while (n--) {
     int num;
     cin >> num;
     if (num % 5 == 0 && num % 2 == 0) {
-      a1_cnt++;
-      a1 += num;
+      cnt[0]++;
+      a[0] += num;
     }
     if (num % 5 == 1) {
-      if (a2_cnt % 2 == 0) {
-        a2 += num;
+      if (cnt[1] % 2 == 0) {
+        a[1] += num;
       }
       else {
-        a2 -= num;
+        a[1] -= num;
       }
-      a2_cnt++;
+      cnt[1]++;
     }
     if (num % 5 == 2) {
-      a3_cnt++;
-      a3++;
+      cnt[2]++;
+      a[2]++;
     }
     if (num % 5 == 3) {
-      a4_cnt++;
-      a4 += num;
+      cnt[3]++;
+      a[3] += num;
     }
     if (num % 5 == 4) {
-      if (num > a5) {
-        a5_cnt++;
-        a5 = num;
+      if (num > a[4]) {
+        cnt[4]++;
+        a[4] = num;
       }
     }
   }
-  if (a1_cnt) {
-    cout << a1;
-  }
-  else {
-    cout << "N";
-  }
-  cout << " ";
-
-  if (a2_cnt) {
-    cout << a2;
-  }
-  else {
-    cout << "N";
-  }
-  cout << " ";
-
-  if (a3_cnt) {
-    cout << a3;
-  }
-  else {
-    cout << "N";
-  }
-  cout << " ";
-
-  if (a4_cnt) {
-    printf("%.1f", 1.0 * a4 / a4_cnt);
-  }
-  else {
-    cout << "N";
-  }
-  cout << " ";
-
-  if (a5_cnt) {
-    cout << a5;
-  }
-  else {
-    cout << "N";
+  for (int i = 0; i < 5; i++) {
+    if (cnt[i]) {
+      if (i == 3) printf("%.1f", 1.0 * a[i] / cnt[i]);
+      else cout << a[i];
+    }
+    else {
+      cout << "N";
+    }
+    if (i != 4) cout << " ";
   }
   return 0;
 }
