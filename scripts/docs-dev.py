@@ -3,6 +3,7 @@
 比如
     - 移除 markdown-it-katex 以防止 dev 无法进行
     - 移除 node 主题配置 reco
+并且支持传入参数，以定制化 dev 时候的操作
 """
 
 import re
@@ -13,9 +14,10 @@ import time
 
 config_file = "docs/.vuepress/config.js"
 bak_file = "data/config.js"
-re_katex = re.compile(r"md\.use\(require\(\"@iktakahiro/markdown-it-katex\"\), \{[\s\S]+?\}\);")
-re_theme = re.compile(r"theme: \"reco\",")
-replace_list = [re_katex, re_theme]
+replaces = {
+    "katex": re.compile(r"md\.use\(require\(\"@iktakahiro/markdown-it-katex\"\), \{[\s\S]+?\}\);"),
+    "theme": re.compile(r"theme: \"reco\","),
+}
 
 def backup():
     print("已备份 config.js")
@@ -24,11 +26,11 @@ def backup():
     with open(bak_file, "w", encoding="utf8") as f:
         f.write(config_text)
 
-def gen_dev_config():
+def gen_dev_config(keys):
     with open(config_file, "r", encoding="utf8") as f:
         config_text = f.read()
-    for re_replace in replace_list:
-        config_text = re_replace.sub("", config_text)
+    for key in keys:
+        config_text = replaces[key].sub("", config_text)
     with open(config_file, "w", encoding="utf8") as f:
         f.write(config_text)
 
@@ -52,9 +54,13 @@ def docs_dev():
 
 if __name__ == '__main__':
 
+    allow_keys = replaces.keys()
+    keys = list(map(lambda arg: arg.lstrip('--no-'), sys.argv[1: ]) if sys.argv[1: ] else allow_keys)
+    assert all([key in allow_keys for key in keys])
+
     try:
         backup()
-        gen_dev_config()
+        gen_dev_config(keys)
         docs_dev()
     finally:
         restore()
