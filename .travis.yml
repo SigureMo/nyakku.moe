@@ -6,7 +6,6 @@ script:
 deploy:
   repo: SigureMo/siguremo.github.io
   target_branch: master
-  keep_history: true
   skip-cleanup: true
   provider: pages
   local_dir: docs/.vuepress/dist

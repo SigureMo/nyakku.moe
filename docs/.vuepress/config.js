@@ -108,7 +108,32 @@ module.exports = {
           zIndex: 99999
         }
       }
+    ],
+    // details 容器
+    [
+      "container",
+      {
+        type: "details",
+        before: info => `<details><summary>${info}</summary>`,
+        after: "</details>"
+      }
     ]
+    // 启用 RSS
+    // [
+    //   require("./plugins/vuepress-plugin-rss/index.js"),
+    //   {
+    //     base_url: '/', // required
+    //     site_url: 'https://www.sigure.xyz', // required
+    //     copyright: '2019 SigureMo', // optional
+    //     // filter some post
+    //     filter: (frontmatter) => {
+    //       const { title, home, date, publish, categories } = frontmatter
+    //       return !(home == true || title == undefined || date === undefined || publish === false)
+    //     },
+    //     // How much articles
+    //     count: 20
+    //   }
+    // ],
   ],
 
   // 主题配置

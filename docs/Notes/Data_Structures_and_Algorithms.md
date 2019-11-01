@@ -64,7 +64,7 @@ tags:
 
 ### 2.1 定义
 
-线性表是具有==相同数据类型==的 $n$ 个==数据元素==的==有限序列==
+线性表是具有**相同数据类型**的 $n$ 个**数据元素**的**有限序列**
 
 ### 2.2 顺序表示（Sequence List） <Badge text="!" type="error"/>
 
@@ -77,7 +77,11 @@ tags:
 
 :::
 
+::: details 顺序表示代码示例
+
 <<< @/Codes/Data_Structures_and_Algorthms/Chapter_02_Linear_List/01_Sequence_List.cpp
+
+:::
 
 ### 2.3 链式表示（Linked List） <Badge text="!" type="error"/>
 
@@ -92,7 +96,11 @@ tags:
 
 #### 2.3.1 单链表（Single Linked List）
 
+::: details 单链表代码示例
+
 <<< @/Codes/Data_Structures_and_Algorthms/Chapter_02_Linear_List/02_Single_Linked_List.cpp
+
+:::
 
 ::: tip 做题时经常遇到的问题
 
@@ -347,7 +355,7 @@ bool match(char exp[], int n) {
 
 ::: tip 为什么带头结点更容易操作？
 
-不带头结点的时候，初始情况 front 与 rear 都是 NULL，加第一个结点需要将两个指针都指向它，而之后再加结点就只需要操作 rear 了，也就是说入队操作需要判断是否是初始情况，相应的出队操作需要判断是否会回归初始情况，这将使得代码写起来更麻烦，所以==一般都会使用带头结点的链队，这样无论是否是初始情况，操作都是统一的==，没有头结点的话一般会建立临时头结点
+不带头结点的时候，初始情况 front 与 rear 都是 NULL，加第一个结点需要将两个指针都指向它，而之后再加结点就只需要操作 rear 了，也就是说入队操作需要判断是否是初始情况，相应的出队操作需要判断是否会回归初始情况，这将使得代码写起来更麻烦，所以**一般都会使用带头结点的链队，这样无论是否是初始情况，操作都是统一的**，没有头结点的话一般会建立临时头结点
 
 :::
 
@@ -1579,6 +1587,38 @@ $AOE$ 网有什么性质呢？
 #### 8.1.1 顺序查找
 
 -  一般线性表的顺序查找
+
+   很简单的方法，不需要提前排序，直接从一端找到另一端就好了，虽然不难，但是有一个技巧，就是在另一端放一个“哨兵”（即待查找元素值），这样就不需要判断数组是否越界了
+
+-  有序表的顺序查找
+
+   还是按一般的查找方式进行查找，但是一旦查找到一个当前位置比它大，下一个位置比它小的位置，那么就可以马上判定查找失败，降低失败的平均查找长度
+
+#### 8.1.2 折半查找
+
+即二分查找，当然只适用于有序表
+
+::: details 二分查找代码示例
+
+```cpp
+int Binary_Search(SeqList L, ElemType key) {
+   int low = 0, high = L.TableSize - 1, mid;
+   while (low <= high) {
+      mid = (low + high) / 2;
+      if (L.elem[mid] == key)
+         return mid;
+      else if (L.elem[mid] > key) {
+         high = mid - 1;
+      }
+      else {
+         low = mid + 1;
+      }
+   }
+   return -1;
+}
+```
+
+:::
 
 ### 8.4 散列表
 
