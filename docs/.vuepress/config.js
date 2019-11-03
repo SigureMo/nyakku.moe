@@ -51,6 +51,7 @@ module.exports = {
         errorColor: " #cc0000"
       });
       md.use(require("markdown-it-mark"));
+      md.use(require("markdown-it-task-lists"));
     }
   },
 
