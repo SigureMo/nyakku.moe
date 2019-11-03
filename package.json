@@ -1,6 +1,6 @@
 {
   "name": "notev",
-  "version": "1.7.0-alpha.21",
+  "version": "1.7.0-alpha.22",
   "description": "Sigure_Mo's Notes",
   "main": "index.js",
   "scripts": {
@@ -36,6 +36,7 @@
     "leancloud-storage": "3.13.2",
     "markdown-it": "^10.0.0",
     "markdown-it-mark": "^3.0.0",
+    "markdown-it-task-lists": "^2.1.1",
     "moment": "^2.24.0",
     "prettier": "^1.18.2",
     "pretty-quick": "^2.0.0",
@@ -46,6 +47,6 @@
     "vuepress-plugin-flowchart": "^1.4.3",
     "vuepress-plugin-go-top": "^0.0.1",
     "vuepress-plugin-ribbon": "^0.0.6",
-    "vuepress-theme-reco": "^1.1.1-alpha.2"
+    "vuepress-theme-reco": "^1.1.1"
   }
 }
