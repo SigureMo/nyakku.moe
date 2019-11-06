@@ -207,6 +207,13 @@ footer: MIT Licensed | Copyright © 2018-present Evan You
 
 这里使用主题 `vuepress-theme-reco` ，文档见 [ref2](#reference)，当然也可以使用其他主题
 
+### 安装主题
+
+```bash
+yarn add -D vuepress-theme-reco
+# OR npm install -D vuepress-theme-reco
+```
+
 ### 博客配置
 
 在 `docs/.vuepress/config.js` 中添加主题配置如下
@@ -221,24 +228,25 @@ module.exports = {
 
 ```js
 module.exports = {
-  themeConfig: {
-    // 博客配置
-    blogConfig: {
-      category: {
-        location: 2, // 在导航栏菜单中所占的位置，默认2
-        text: "Category" // 默认文案 “分类”
+   themeConfig: {
+      // 博客配置
+      blogConfig: {
+         category: {
+            location: 2, // 在导航栏菜单中所占的位置，默认2
+            text: "Category" // 默认文案 “分类”
+         },
+         tag: {
+            location: 3, // 在导航栏菜单中所占的位置，默认3
+            text: "Tag" // 默认文案 “标签”
+         }
       },
-      tag: {
-        location: 3, // 在导航栏菜单中所占的位置，默认3
-        text: "Tag" // 默认文案 “标签”
-      }
-    },
-    nav: [
-      { text: "Home", link: "/", icon: "reco-home" },
-      { text: "Guide", link: "/Guide/", icon: "reco-eye" },
-    ],
-    sidebar: "auto",
-}
+      nav: [
+         { text: "Home", link: "/", icon: "reco-home" },
+         { text: "Guide", link: "/Guide/", icon: "reco-eye" }
+      ],
+      sidebar: "auto"
+   }
+};
 ```
 
 ### 文章前加 front matter
@@ -285,7 +293,7 @@ faceImage: '/head.png'
 ---
 ```
 
-这里两个图片都是相对于 `docs/.vuepress/public/` 的子路径
+这里两个图片都以 `docs/.vuepress/public/` 为根目录
 
 ## 部署
 
