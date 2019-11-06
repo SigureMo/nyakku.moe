@@ -77,7 +77,12 @@ module.exports = {
       }
     ],
     // 鼠标特效插件
-    ["cursor-effects"],
+    [
+      "cursor-effects",
+      {
+        shape: "star"
+      }
+    ],
     // 离开页面标题变化
     [
       "dynamic-title",
