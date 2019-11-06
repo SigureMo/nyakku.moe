@@ -46,7 +46,10 @@ module.exports = {
     // markdown 插件
     extendMarkdown: md => {
       md.set({ html: true });
-
+      md.use(require("@iktakahiro/markdown-it-katex"), {
+        throwOnError: false,
+        errorColor: " #cc0000"
+      });
       md.use(require("markdown-it-mark"));
       md.use(require("markdown-it-task-lists"));
     }
@@ -140,7 +143,7 @@ module.exports = {
   ],
 
   // 主题配置
-
+  theme: "reco",
   themeConfig: {
     // 博客配置
     type: "blog",
