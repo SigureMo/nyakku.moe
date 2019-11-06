@@ -58,9 +58,17 @@ git checkout -b dev
 
 ```bash
 git checkout master
-git merge dev                    # 将 dev 合并回 master
+git merge --no-ff dev            # 将 dev 合并回 master
 git branch -d dev                # 移除无用的 dev 分支
 ```
+
+::: tip 参数 --no-ff 的作用
+
+如果你想保留下来临时分支的信息，可以增加 `--no-ff` 参数，这将把临时分支的信息作为一次 commit 合并到目标分支，但同时也会保留临时分支的过程，下面的图一目了然
+
+![24_Git01.png](../Images/24_Git01.png)
+
+:::
 
 ## 如何对待一个 fork 后的仓库
 
@@ -106,7 +114,8 @@ git push origin feature/sigure   # 将 feature/sigure 推送到 origin （也就
 如果你的修改想要合并回原作者分支，那么就发起 PR 吧，如果原作者 merge 了，你的 `feature/sigure` 也可以删除了，后续从原作者那里重新获取 `master` 就能拥有你的改动了
 
 ```bash
-git branch -d feature/sigure     # 如果该分支已经没有作用了，可以直接删除
+git branch -d feature/sigure              # 如果该分支已经没有作用了，可以直接删除
+git push origin --delete feature/sigure   # 同时删除远程分支
 ```
 
 ### 同步原作者更改
@@ -175,3 +184,7 @@ git push origin feature/sigure
 ### 同步更改
 
 由于你的 `master` 与 `dev` 都是相当干净（自己没做过改动）的，你可以和前面一样 `fetch` 并 `merge` 即可
+
+# Reference
+
+1. [Git 常用命令和 Git Flow 梳理](https://www.cnblogs.com/ldy-blogs/p/10529946.html#4416607)
