@@ -1,11 +1,12 @@
 {
   "name": "notev",
-  "version": "1.7.0-alpha.26",
+  "version": "1.7.0",
   "description": "Sigure_Mo's Notes",
   "main": "index.js",
   "scripts": {
     "docs:dev": "python3 scripts/docs-dev.py",
     "docs:build": "vuepress build docs",
+    "docs:test": "vuepress build docs && node scripts/vuepress-server.js docs",
     "deploy": "bash scripts/deploy.sh",
     "calc": "bash scripts/calc.sh",
     "clear": "rm -r tmp/* ",
