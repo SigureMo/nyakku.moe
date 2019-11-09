@@ -3,7 +3,6 @@
 > Note for develope.
 
 <p align="center">
-   <img alt="travis" src="https://travis-ci.com/SigureMo/notev.svg?branch=master">
    <a href="https://www.sigure.xyz/" target="_blank"><img alt="Read the Docs" src="https://img.shields.io/badge/docs-GetStarted-red?style=flat-square&logo=read-the-docs"></a>
    <a href="https://github.com/SigureMo/notev" target="_blank"><img alt="GitHub" src="https://img.shields.io/badge/GitHub-notev-black?style=flat-square&logo=github"></a>
    <br/>
