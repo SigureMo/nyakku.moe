@@ -57,8 +57,6 @@ module.exports = {
 
   // 插件
   plugins: [
-    // 页面滚动时自动激活侧边栏链接
-    "@vuepress/active-header-links",
     // 开启 PWA
     [
       "@vuepress/pwa",
@@ -123,23 +121,16 @@ module.exports = {
         before: info => `<details><summary>${info}</summary>`,
         after: "</details>"
       }
-    ]
+    ],
     // 启用 RSS
-    // [
-    //   require("./plugins/vuepress-plugin-rss/index.js"),
-    //   {
-    //     base_url: '/', // required
-    //     site_url: 'https://www.sigure.xyz', // required
-    //     copyright: '2019 SigureMo', // optional
-    //     // filter some post
-    //     filter: (frontmatter) => {
-    //       const { title, home, date, publish, categories } = frontmatter
-    //       return !(home == true || title == undefined || date === undefined || publish === false)
-    //     },
-    //     // How much articles
-    //     count: 20
-    //   }
-    // ],
+    [
+      "@vuepress-reco/vuepress-plugin-rss",
+      {
+        site_url: "https://www.sigure.xyz",
+        copyright: "2019 SigureMo",
+        count: 20
+      }
+    ]
   ],
 
   // 主题配置
