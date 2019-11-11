@@ -8,16 +8,18 @@ const path = require("path");
 const docs = process.argv[2];
 const docsDir = path.resolve(process.cwd(), docs);
 const config = require(`${docsDir}/.vuepress/config.js`);
-const { dest = ".vuepress/dist" } = config;
+const { dest = ".vuepress/dist", base = "/" } = config;
 const root = path.join(docsDir, dest);
 const port = 8090;
 
 let server = http.createServer(function(request, response) {
-  let pathname = url.parse(request.url, true).pathname;
-  filePath = path.join(root, pathname);
+  let pathname = url.parse(request.url, true).pathname.replace(base, "/");
+  let filePath = path.join(root, pathname);
   if (pathname == "/") {
     filePath = path.join(filePath, "/index.html");
   }
+  console.log(pathname);
+  console.log(filePath);
 
   fs.readFile(filePath, function(err, data) {
     if (err) {
@@ -42,4 +44,6 @@ let server = http.createServer(function(request, response) {
   });
 });
 server.listen(port);
-console.log(`> VuePress test server listening at http://localhost:${port}/`);
+console.log(
+  `> VuePress test server listening at http://localhost:${port}${base}`
+);
