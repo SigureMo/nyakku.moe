@@ -25,6 +25,7 @@ def backup():
         config_text = f.read()
     with open(bak_file, "w", encoding="utf8") as f:
         f.write(config_text)
+    return config_text
 
 def gen_dev_config(keys):
     with open(config_file, "r", encoding="utf8") as f:
@@ -34,10 +35,8 @@ def gen_dev_config(keys):
     with open(config_file, "w", encoding="utf8") as f:
         f.write(config_text)
 
-def restore():
+def restore(config_text):
     print("已还原 config.js")
-    with open(bak_file, "r", encoding="utf8") as f:
-        config_text = f.read()
     with open(config_file, "w", encoding="utf8", newline="\n") as f:
         f.write(config_text)
     # os.remove(bak_file)
@@ -59,8 +58,8 @@ if __name__ == '__main__':
     assert all([key in allow_keys for key in keys])
 
     try:
-        backup()
+        config_text = backup()
         gen_dev_config(keys)
         docs_dev()
     finally:
-        restore()
+        restore(config_text)
