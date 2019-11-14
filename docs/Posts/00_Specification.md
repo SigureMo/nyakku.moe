@@ -133,6 +133,14 @@ $$
 
 更多选项参考[Vuepress 文档](https://vuepress.vuejs.org/zh/guide/using-vue.html)
 
+::: tip 部分笔记使用该方式来标注重点
+
+-  了解即可 <Badge text="~" type="tip"/>
+-  比较重要 <Badge text="*" type="warn"/>
+-  非常重要 <Badge text="!" type="error"/>
+
+:::
+
 ### Matplotlib
 
 使用 `Python` 库 `matplotlib` 可以更加方便快捷地生成函数等图像！
