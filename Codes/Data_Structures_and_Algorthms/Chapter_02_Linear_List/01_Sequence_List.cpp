@@ -2,6 +2,8 @@
 #define MaxSize 50
 
 using namespace std;
+
+// :::
 typedef int ElemType;
 typedef struct {
   ElemType data[MaxSize];
@@ -100,3 +102,4 @@ int Locate(SqList PtrL, ElemType e) {
   }
   return 0;
 }
+// :::
