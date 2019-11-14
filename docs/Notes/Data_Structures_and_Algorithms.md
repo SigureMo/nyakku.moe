@@ -333,7 +333,7 @@ bool match(char exp[], int n) {
 
 #### 4.2.1 循环队列
 
-![DS01.jpeg](../Images/DS01.jpeg)
+![DS01.jpeg{copyright:BaiduImage}](../Images/DS01.jpeg)
 
 首尾相接，围一个圈圈，这样就可以更加充分地利用数组空间了，但是还有一个小问题，什么时候队空？什么时候队满？可以发现在空/真正的满的情况下，两个指针都是重合的，也就是 `front == rear`，究其原因，是因为不能用 $n$ 个队列的状态表示 $n+1$ 种状态，那么要如何解决呢？
 
@@ -346,7 +346,7 @@ bool match(char exp[], int n) {
 
 ### 4.3 链式存储
 
-![DS02.jpeg](../Images/DS02.jpeg)
+![DS02.jpeg{copyright:BaiduImage}](../Images/DS02.jpeg)
 
 和链栈一样，如若需要删除操作的 front 在链尾则难以继续对新的链尾进行操作，故 front 在链首
 
@@ -1106,7 +1106,7 @@ T2   T3                           T3  T4
 
       那么，怎么调整？我们可以从堆底依次向前进行调整，堆的最后一个结点是第 $\lfloor n / 2\rfloor$ 个结点的孩子，我们考察第 $\lfloor n / 2\rfloor$ 个结点及其两个孩子，将三个结点中最大的放到根的位置上，这个过程是将根结点向下调整的过程，所以也叫向下调整法，调整之后，继续考察第 $\lfloor n / 2 - 1\rfloor$ 个结点，依次类推，不过值得注意的是，当调整上层的时候可能会破坏下层，需要不断向下调整到堆底
 
-      ![DS04](../Images/DS04.png)
+      ![DS04{copyright:Wangdao}](../Images/DS04.png)
 
 -  插入元素 将新的元素放在堆的末端，然后针对它向上调整即可
 -  删除堆顶元素 将堆末元素放在堆顶，然后针对根结点向下调整即可
@@ -1133,7 +1133,7 @@ T2   T3                           T3  T4
 
 但是如何最快地找到权值最小的两棵树呢？这可以**利用最小堆，堆的数据域数组存储树结点，以权值为 key 进行初始化排序**
 
-![DS05](../Images/DS05.jpeg)
+![DS05{copyright:BaiduImage}](../Images/DS05.jpeg)
 
 -  哈夫曼树的特点
    -  每个初始结点最终都成为叶子结点，且权值越小的结点到根结点的路径长度越大
@@ -1257,7 +1257,7 @@ T2   T3                           T3  T4
    -  数据域 data
    -  入度首结点指针和出度首结点指针 headvex 和 tailvex
 
-![DS06](../Images/DS06.png)
+![DS06{copyright:Wangdao}](../Images/DS06.png)
 
 <<< @/Codes/Data_Structures_and_Algorthms/Chapter_07_Graph/03_Orthogonal_Linked_List.cpp
 
@@ -1278,7 +1278,7 @@ T2   T3                           T3  T4
    -  firstedge 指示第一条依附于该顶点的边
    -  数据域 data
 
-![DS07](../Images/DS07.png)
+![DS07{copyright:Wangdao}](../Images/DS07.png)
 
 <<< @/Codes/Data_Structures_and_Algorthms/Chapter_07_Graph/04_Djacency_Multiple_List.cpp
 
@@ -1300,7 +1300,7 @@ BFS 和 DFS 都可以抽象为优先级搜索，只不过 BFS 认为离起点越
 
 是不是很像二叉树的**层序遍历**算法呀？在层序遍历是一层一层遍历的，而 BFS 是一圈一圈扩散开来的~
 
-![DS08_from_https://www.jianshu.com/p/03de0db4b857](../Images/DS08.png)
+![DS08{copyright:https://www.jianshu.com/p/03de0db4b857}](../Images/DS08.png)
 
 由于我们不能像二叉树那样直观的知道哪个被访问过了，所以我们需要增加一个数组（`visited[]`）用于标志哪个顶点被访问过了
 
@@ -1312,7 +1312,7 @@ BFS 和 DFS 都可以抽象为优先级搜索，只不过 BFS 认为离起点越
 
 其实很明显啦，用递归很容易实现的，不过这就需要一个**递归工作栈**，它其实很像二叉树的**先序遍历**
 
-![DS09_from_https://www.jianshu.com/p/03de0db4b857](../Images/DS09.png)
+![DS09{copyright:https://www.jianshu.com/p/03de0db4b857}](../Images/DS09.png)
 
 <<< @/Codes/Data_Structures_and_Algorthms/Chapter_07_Graph/05_Traverse.cpp
 
@@ -1362,7 +1362,7 @@ for (int i = 0; i < G.vexnum; i++) {
 
    基本实现和下面的 Dijkstra 算法相似，都是从未收录 Vertex 中找 dist 最小的，将对应的边与顶点收入生成树中
 
-   ![DS10_from_Wangdao](../Images/DS10.png)
+   ![DS10{copyright:Wangdao}](../Images/DS10.png)
 
    首先向空树 $T = (V_T, E_T)$ 中添加图 $G = (V, E)$ 的任一顶点 $u_0$ ，使 $V_T = u_0$ ，$E_T = \varnothing$ ，之后不断从图 $G$ 中选择**满足 $\{(u, v)| u \in V_T, v \in V - V_T\}$ ，且具有最小权值的边 $(u, v)$**，并置 $V_T = V_T \cup \{v\}$ ，$E_T = E_T \cup \{(u, v)\}$
 
@@ -1386,7 +1386,7 @@ for (int i = 0; i < G.vexnum; i++) {
 
    首先我们认为每一个 Vertex 都是一个树 Node，那么我们整个过程就是不断地将森林合并成树了
 
-   ![DS11_from_Wangdao](../Images/DS11.png)
+   ![DS11{copyright:Wangdao}](../Images/DS11.png)
 
    首先令 $V_T = V$ ， $E_T = \varnothing$ ，$T$ 此时是一个仅含 $|V|$ 个顶点的森林，之后**不断从 $E - E_T$ 中选择权值最小的那条边**，如果将该边加入 $T$ 后**不构成回路**，则将其加入 $E_T$ ，否则舍弃，直到 $E_T$ 中含有 $n-1$ 条边
 
@@ -1442,7 +1442,7 @@ for (int i = 0; i < G.vexnum; i++) {
 
    之后从未收录顶点 $V - S$ 中选取一条最短路径（`dist[]` 最小的那个），然后更新这个点周围的最短路径长度，如此反复，直到所有顶点都包含在 $S$ 中
 
-   ![DS12_from_Wangdao](../Images/DS12.png)
+   ![DS12{copyright:Wangdao}](../Images/DS12.png)
 
    值得注意的是
 
@@ -1515,7 +1515,7 @@ for (int i = 0; i < G.vexnum; i++) {
 
 很简单，**每次从图中选一个没有前驱顶点的顶点拿出来，并将以其为起点的有向边删除**，如此反复，就得到一个拓扑排序序列啦
 
-![DS13_from_Wangdao](../Images/DS13.png)
+![DS13{copyright:Wangdao}](../Images/DS13.png)
 
 ```cpp
 void TopSort(){
