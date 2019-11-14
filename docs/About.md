@@ -11,12 +11,6 @@ publish: false
   <a href="tencent://AddContact/?fromId=45&fromSubId=1&subcmd=all&uin=240377379&website=www.oicqzone.com" class="zi zi_tmQq"></a>
 </p>
 
-::: tip status
-
-博客建设中，部分效果为开发预览版（反正没人看系列）……
-
-:::
-
 Sigure_Mo，小辣鸡一枚，本科材料喵，拟跨考 CS ε≡٩(๑>₃<)۶ ~
 
 已成功入坑 {{ dist_times }} ~
