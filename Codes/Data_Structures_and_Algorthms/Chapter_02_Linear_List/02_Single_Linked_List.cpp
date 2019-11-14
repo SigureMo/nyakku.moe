@@ -1,6 +1,7 @@
 #include <iostream>
 
 using namespace std;
+// :::
 typedef int ElemType;
 typedef struct _node {
   ElemType data;
@@ -157,3 +158,4 @@ int Length(LinkList PtrL) {
   }
   return i;
 }
+// :::

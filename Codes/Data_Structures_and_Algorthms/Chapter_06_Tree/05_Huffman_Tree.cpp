@@ -59,7 +59,7 @@ int main() {
   HuffmanTree HT = Huffman(a, 5);
   return 0;
 }
-
+// :::
 HuffmanTree Huffman(int a[], int len) {
   /** 建立哈夫曼树 */
   Node *n[len];
@@ -81,7 +81,7 @@ HuffmanTree Huffman(int a[], int len) {
   }
   return H.pop();
 }
-
+// :::
 ostream &operator<<(ostream &os, const Node &node) {
   /** 重载 << 以获得方便的数据显示方法 */
   os << node.weight;
