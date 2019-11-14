@@ -1,6 +1,6 @@
 {
   "name": "notev",
-  "version": "1.7.23",
+  "version": "1.7.24",
   "description": "Sigure_Mo's Notes",
   "main": "index.js",
   "scripts": {
@@ -39,6 +39,7 @@
     "markdown-it": "^10.0.0",
     "markdown-it-mark": "^3.0.0",
     "markdown-it-task-lists": "^2.1.1",
+    "markdown-it-vuepress-code-snippet-enhanced": "^1.0.1",
     "moment": "^2.24.0",
     "prettier": "^1.18.2",
     "pretty-quick": "^2.0.0",
