@@ -77,11 +77,9 @@ tags:
 
 :::
 
-::: details 顺序表示代码示例
+<!-- <<< @/Codes/Data_Structures_and_Algorthms/Chapter_02_Linear_List/01_Sequence_List.cpp -->
 
-<<< @/Codes/Data_Structures_and_Algorthms/Chapter_02_Linear_List/01_Sequence_List.cpp
-
-:::
+@[code transcludeWith=:::](@/Codes/Data_Structures_and_Algorthms/Chapter_02_Linear_List/01_Sequence_List.cpp)
 
 ### 2.3 链式表示（Linked List） <Badge text="!" type="error"/>
 
@@ -96,11 +94,9 @@ tags:
 
 #### 2.3.1 单链表（Single Linked List）
 
-::: details 单链表代码示例
+<!-- <<< @/Codes/Data_Structures_and_Algorthms/Chapter_02_Linear_List/02_Single_Linked_List.cpp -->
 
-<<< @/Codes/Data_Structures_and_Algorthms/Chapter_02_Linear_List/02_Single_Linked_List.cpp
-
-:::
+@[code transcludeWith=:::](@/Codes/Data_Structures_and_Algorthms/Chapter_02_Linear_List/02_Single_Linked_List.cpp)
 
 ::: tip 做题时经常遇到的问题
 
@@ -110,7 +106,9 @@ tags:
 
 #### 2.3.2 双链表(Double Linked List)
 
-<<< @/Codes/Data_Structures_and_Algorthms/Chapter_02_Linear_List/03_Double_Linked_List.cpp
+<!-- <<< @/Codes/Data_Structures_and_Algorthms/Chapter_02_Linear_List/03_Double_Linked_List.cpp -->
+
+@[code](@/Codes/Data_Structures_and_Algorthms/Chapter_02_Linear_List/03_Double_Linked_List.cpp)
 
 #### 2.3.3 循环链表(Circular Linked List)
 
@@ -124,7 +122,9 @@ tags:
 
 使用**数组**存储，指针域实际存储的是数组**下标**
 
-<<< @/Codes/Data_Structures_and_Algorthms/Chapter_02_Linear_List/04_Static_Linked_List.cpp
+<!-- <<< @/Codes/Data_Structures_and_Algorthms/Chapter_02_Linear_List/04_Static_Linked_List.cpp -->
+
+@[code](@/Codes/Data_Structures_and_Algorthms/Chapter_02_Linear_List/04_Static_Linked_List.cpp)
 
 #### 2.3.5 多重链表（Multiple List）
 
@@ -156,7 +156,9 @@ tags:
 
 广义表是线性表的推广,其数据域不仅可以是单元素，也可以是另一个广义表
 
-<<< @/Codes/Data_Structures_and_Algorthms/Chapter_02_Linear_List/05_Generalized_List.cpp
+<!-- <<< @/Codes/Data_Structures_and_Algorthms/Chapter_02_Linear_List/05_Generalized_List.cpp -->
+
+@[code](@/Codes/Data_Structures_and_Algorthms/Chapter_02_Linear_List/05_Generalized_List.cpp)
 
 ## 3 堆栈（Stack）
 
@@ -189,11 +191,15 @@ $$
 
 使用顺序结构存储的栈
 
-<<< @/Codes/Data_Structures_and_Algorthms/Chapter_03_Stack/01_Sequence_Stack.cpp{42,50,59}
+<!-- <<< @/Codes/Data_Structures_and_Algorthms/Chapter_03_Stack/01_Sequence_Stack.cpp{42,50,59} -->
+
+@[code highlight={42,50,59}](@/Codes/Data_Structures_and_Algorthms/Chapter_02_Linear_List/05_Generalized_List.cpp)
 
 OOP 版：
 
-<<< @/Codes/Data_Structures_and_Algorthms/Chapter_03_Stack/04_Sequence_Stack_oop.cpp
+<!-- <<< @/Codes/Data_Structures_and_Algorthms/Chapter_03_Stack/04_Sequence_Stack_oop.cpp -->
+
+@[code](@/Codes/Data_Structures_and_Algorthms/Chapter_03_Stack/04_Sequence_Stack_oop.cpp)
 
 ::: danger 考题中如何使用
 
@@ -861,6 +867,20 @@ typedef struct _node {
 
 根据定义，我们可以很容易地写出其递归实现，但是递归实现调用系统栈导致较大的开销，我们可以自己利用栈进行非递归的实现以提高效率
 
+-  递归实现
+
+@[code transcludeWith=PRE_ORDER_BLOCK](@/Codes/Data_Structures_and_Algorthms/Chapter_06_Tree/01_Binary_Tree.cpp)
+@[code transcludeWith=IN_ORDER_BLOCK](@/Codes/Data_Structures_and_Algorthms/Chapter_06_Tree/01_Binary_Tree.cpp)
+@[code transcludeWith=POST_ORDER_BLOCK](@/Codes/Data_Structures_and_Algorthms/Chapter_06_Tree/01_Binary_Tree.cpp)
+
+---
+
+-  非递归实现
+
+@[code transcludeWith=PRE_ORDER_NOREC_BLOCK](@/Codes/Data_Structures_and_Algorthms/Chapter_06_Tree/01_Binary_Tree.cpp)
+@[code transcludeWith=IN_ORDER_NOREC_BLOCK](@/Codes/Data_Structures_and_Algorthms/Chapter_06_Tree/01_Binary_Tree.cpp)
+@[code hightlight={14,17,25,27,30} transcludeWith=POST_ORDER_NOREC_BLOCK](@/Codes/Data_Structures_and_Algorthms/Chapter_06_Tree/01_Binary_Tree.cpp)
+
 #### 6.4.2 层序遍历
 
 逐层从左到右进行遍历，使二叉树**线性化**
@@ -870,7 +890,9 @@ typedef struct _node {
    2. 循环：结点出队，访问该结点，其左右儿子入队
 -  堆栈实现 基本同上，只不过由于栈的特性，需要先右儿子入栈，后左儿子入栈
 
-<<< @/Codes/Data_Structures_and_Algorthms/Chapter_06_Tree/01_Binary_Tree.cpp{174,177,185,187,190}
+<!-- <<< @/Codes/Data_Structures_and_Algorthms/Chapter_06_Tree/01_Binary_Tree.cpp{174,177,185,187,190} -->
+
+@[code transcludeWith=LEVEL_ORDER_BLOCK](@/Codes/Data_Structures_and_Algorthms/Chapter_06_Tree/01_Binary_Tree.cpp)
 
 #### 6.4.3 遍历的应用
 
@@ -978,7 +1000,9 @@ BST ，也译作二叉查找树，有时也称二叉排序树（Binary Sort Tree
 
 相关操作：
 
-<<< @/Codes/Data_Structures_and_Algorthms/Chapter_06_Tree/03_Binary_Search_Tree.cpp
+<!-- <<< @/Codes/Data_Structures_and_Algorthms/Chapter_06_Tree/03_Binary_Search_Tree.cpp -->
+
+@[code transcludeWith=:::](@/Codes/Data_Structures_and_Algorthms/Chapter_06_Tree/03_Binary_Search_Tree.cpp)
 
 #### 6.6.2 平衡二叉树（Banlanced Binary Tree）
 
@@ -1155,7 +1179,9 @@ T2   T3                           T3  T4
 
    > 为了使得主算法代码更加清晰，使用 C++ 风格对 STL 中的堆封装了一下
 
-   <<< @/Codes/Data_Structures_and_Algorthms/Chapter_06_Tree/05_Huffman_Tree.cpp{74,75,76,77,78,79}
+   <!-- <<< @/Codes/Data_Structures_and_Algorthms/Chapter_06_Tree/05_Huffman_Tree.cpp{74,75,76,77,78,79} -->
+
+   @[code highlight={12-17} transcludeWith=:::](@/Codes/Data_Structures_and_Algorthms/Chapter_06_Tree/05_Huffman_Tree.cpp)
 
 ## 7 图（Graph）
 
@@ -1304,6 +1330,8 @@ BFS 和 DFS 都可以抽象为优先级搜索，只不过 BFS 认为离起点越
 
 由于我们不能像二叉树那样直观的知道哪个被访问过了，所以我们需要增加一个数组（`visited[]`）用于标志哪个顶点被访问过了
 
+@[code transcludeWith=BFS_BLOCK](@/Codes/Data_Structures_and_Algorthms/Chapter_07_Graph/05_Traverse.cpp)
+
 #### 7.3.2 深度优先搜索（DFS）
 
 深度优先搜索（Depth-First-Search）
@@ -1314,7 +1342,9 @@ BFS 和 DFS 都可以抽象为优先级搜索，只不过 BFS 认为离起点越
 
 ![DS09{copyright:https://www.jianshu.com/p/03de0db4b857}](../Images/DS09.png)
 
-<<< @/Codes/Data_Structures_and_Algorthms/Chapter_07_Graph/05_Traverse.cpp
+<!-- <<< @/Codes/Data_Structures_and_Algorthms/Chapter_07_Graph/05_Traverse.cpp -->
+
+@[code transcludeWith=DFS_BLOCK](@/Codes/Data_Structures_and_Algorthms/Chapter_07_Graph/05_Traverse.cpp)
 
 #### 7.3.3 性能分析
 
@@ -1881,13 +1911,46 @@ B 树即 B-tree ，B 是指 Balanced ，因为 B-tree 嘛，就有人将其译�
 
 ### 8.5 [串的模式匹配](#_5-4-串的模式匹配)
 
+## 9 排序（Sort）
+
+-  基本概念
+   -  稳定性 若待排序表中有两个元素对应的关键字相等，排序前后相对位置不变，则称该排序算法稳定
+   -  衡量标准 时、空复杂度
+-  内部排序 大多基于**比较**和**移动**（基数排序不基于比较）
+   -  插入排序
+      -  直接插入排序
+      -  折半插入排序
+      -  希尔排序
+   -  交换排序
+      -  冒泡排序
+      -  快速排序
+   -  选择排序
+      -  简单选择排序
+      -  堆排序
+   -  归并排序
+   -  基数排序
+-  外部排序——多路归并排序
+
+### 9.1 插入排序
+
+#### 9.1.1 直接插入排序
+
+<!-- <<< @/Codes/Data_Structures_and_Algorthms/Chapter_09_Sort/01_Insertion_Sort.cpp -->
+
+@[code transcludeWith=:::](@/Codes/Data_Structures_and_Algorthms/Chapter_09_Sort/01_Insertion_Sort.cpp)
+
+类似于排扑克牌，将该牌与左面的所有牌比较
+
+-  空间复杂度 $O(1)$
+-  时间复杂度 $O(n^2)$
+-  稳定性 稳定
+-  适用性 适用于顺序和链式存储
+
 ---
 
 新旧分界线
 
 ---
-
-## 9 排序（Sort）
 
 ### 9.1 简单排序
 
