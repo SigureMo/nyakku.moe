@@ -77,7 +77,7 @@ void Visit(BinTree BT) {
    */
   printf("\t%d", BT->data);
 }
-
+// PRE_ORDER_BLOCK
 void PreOrderTraversal(BinTree BT) {
   /** 先序遍历的递归实现 */
   if (BT) {
@@ -86,7 +86,8 @@ void PreOrderTraversal(BinTree BT) {
     PreOrderTraversal(BT->right);
   }
 }
-
+// PRE_ORDER_BLOCK
+// IN_ORDER_BLOCK
 void InOrderTraversal(BinTree BT) {
   /** 中序遍历的递归实现 */
   if (BT) {
@@ -95,7 +96,8 @@ void InOrderTraversal(BinTree BT) {
     InOrderTraversal(BT->right);
   }
 }
-
+// IN_ORDER_BLOCK
+// POST_ORDER_BLOCK
 void PostOrderTraversal(BinTree BT) {
   /** 后序遍历的递归实现 */
   if (BT) {
@@ -104,7 +106,8 @@ void PostOrderTraversal(BinTree BT) {
     Visit(BT);
   }
 }
-
+// POST_ORDER_BLOCK
+// LEVEL_ORDER_BLOCK
 void LevelOrderTraversal(BinTree BT) {
   /** 层序遍历 */
   queue<BinTree> Q;   // 为了方便测试，这里直接使用 C++ STL 中的 queue
@@ -120,7 +123,8 @@ void LevelOrderTraversal(BinTree BT) {
     if (p->right) Q.push(p->right);
   }
 }
-
+// LEVEL_ORDER_BLOCK
+// PRE_ORDER_NOREC_BLOCK
 void PreOrderTraversalNonRecursion(BinTree BT) {
   /** 先序遍历的非递归实现 */
   stack<BinTree> S;
@@ -138,7 +142,8 @@ void PreOrderTraversalNonRecursion(BinTree BT) {
     }                         // 到啦！这是个什么样的地方呢？
   }                           // 既没有落脚点，也没退路了，不过这一路好开心的说！
 }
-
+// PRE_ORDER_NOREC_BLOCK
+// IN_ORDER_NOREC_BLOCK
 void InOrderTraversalNonRecursion(BinTree BT) {
   /** 中序遍历的非递归实现 */
   stack<BinTree> S;
@@ -156,7 +161,8 @@ void InOrderTraversalNonRecursion(BinTree BT) {
     }                         // 到啦！这是个什么样的地方呢？
   }                           // 既没有落脚点，也没退路了，不过这一路好开心的说！
 }
-
+// IN_ORDER_NOREC_BLOCK
+// POST_ORDER_NOREC_BLOCK
 void PostOrderTraversalNonRecursion(BinTree BT) {
   /** 后序遍历的非递归实现
    * 基本上将大部分特殊情况都标出来了，三次遇到以及需要回退的空指针情况
@@ -192,3 +198,4 @@ void PostOrderTraversalNonRecursion(BinTree BT) {
     }                                   // 到啦！这是个什么样的地方呢？
   }                                     // 既没有落脚点，也没退路了，不过这一路好开心的说！
 }
+// POST_ORDER_NOREC_BLOCK

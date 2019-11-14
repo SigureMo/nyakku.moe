@@ -25,7 +25,7 @@ int main() {
   cout << BST->right->data << endl;
   return 0;
 }
-
+// :::
 BinTree Insert(BinTree BST, ElemType x) {
   /** 插入元素 x */
   if (!BST) {
@@ -91,3 +91,4 @@ BinTree Delete(BinTree BST, ElemType x) {
   }
   return BST;
 }
+// :::
