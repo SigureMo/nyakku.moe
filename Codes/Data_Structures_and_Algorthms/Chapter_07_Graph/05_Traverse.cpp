@@ -77,7 +77,7 @@ int main() {
   cout << endl;
   return 0;
 }
-
+// BFS_BLOCK
 void BFS(Graph G, Vertex v) {
   /** 从顶点 v 开始对图 G 进行广度优先遍历 */
   queue<Vertex> Q;
@@ -96,7 +96,8 @@ void BFS(Graph G, Vertex v) {
     }
   }
 }
-
+// BFS_BLOCK
+// DFS_BLOCK
 void DFS(Graph G, Vertex v) {
   /** 从顶点 v 开始对图 G 进行深度优先遍历 */
   visit(v);
@@ -107,7 +108,7 @@ void DFS(Graph G, Vertex v) {
     }
   }
 }
-
+// DFS_BLOCK
 void visit(Vertex v) {
   /** 访问顶点 v */
   cout << v << "\t";
