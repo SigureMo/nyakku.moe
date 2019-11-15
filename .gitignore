@@ -169,3 +169,6 @@ MSSCCPRJ.SCC
 
 # private post
 docs/Posts/*__*.md
+
+# data
+*.csv
