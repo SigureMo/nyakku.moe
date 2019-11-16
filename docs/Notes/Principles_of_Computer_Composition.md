@@ -1,6 +1,6 @@
 ---
 title: Principles of Computer Composition
-date: 2018-09-05
+date: 2019-11-17
 categories:
    - 经纶·注
 tags:
@@ -8,13 +8,19 @@ tags:
    - kaoyan
 ---
 
-::: tip
+::: warning ♻️ Reviewing
 
-《计算机组成原理》慕课笔记
+《计算机组成原理》复习笔记
 
 :::
 
 <!-- more -->
+
+---
+
+新旧分界线
+
+---
 
 ## 1 计算机系统概论
 
@@ -1994,29 +2000,10 @@ CPU 内部结构采用非总线方式
 
 略，有点长
 
-# Change Log
-
-1. 180914 #2 Finished
-2. 180918 #3 Finished
-3. 180921 #4.1 #4.2 Finished
-4. 180928 #4 Finished
-5. 181005 #5 Finished
-6. 181008 #6.1 #6.2 Finished
-7. 181012 #6.3 Finished
-8. 181016 #6 Finished
-9. 181025 #7 Finished
-10.   181101 #8 Finished
-11.   181109 #9 Finished
-12.   181113 #10 Finished
-
-# Extends
-
-1. [说了好多年的 RISC 和 CISC，其实也在走向融合！](http://www.sohu.com/a/153527985_505803)
-
 # Reference
 
 1. 丁男老师课程
 2. [计算机组成原理（上） - 哈尔滨工业大学 - 中国大学 MOOC](https://www.icourse163.org/course/HIT-309001)
 3. [计算机组成原理（下） - 哈尔滨工业大学 - 中国大学 MOOC](https://www.icourse163.org/course/HIT-1001527001)
-
-[^1]: 机器语言程序员
+4. 2020 年计算机组成原理考研复习指导 - 王道
+5. 《Computer Organization and Design (The Hardware/Software Interface)》 David A. Patterson, John L. Hennessy

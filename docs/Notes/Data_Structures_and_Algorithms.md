@@ -1934,7 +1934,7 @@ B 树即 B-tree ，B 是指 Balanced ，因为 B-tree 嘛，就有人将其译�
 
 <!-- <<< @/Codes/Data_Structures_and_Algorthms/Chapter_09_Sort/01_Insertion_Sort.cpp -->
 
-@[code transcludeWith=SIMPLE_INSERT](@/Codes/Data_Structures_and_Algorthms/Chapter_09_Sort/01_Insertion_Sort.cpp)
+@[code transcludeWith=SIMPLE_INSERT](@/Codes/Data_Structures_and_Algorthms/Chapter_09_Sort/01_Sort.cpp)
 
 类似于排扑克牌，将该牌与左面的所有牌比较
 
@@ -1947,7 +1947,7 @@ B 树即 B-tree ，B 是指 Balanced ，因为 B-tree 嘛，就有人将其译�
 
 因为排序过程中有一部分是有序的，所以就可以直接使用二分查找找到位置，当然，**这不会减少移动的次数，但是减少了比较的次数**
 
-@[code transcludeWith=HALF_INSERT](@/Codes/Data_Structures_and_Algorthms/Chapter_09_Sort/01_Insertion_Sort.cpp)
+@[code transcludeWith=HALF_INSERT](@/Codes/Data_Structures_and_Algorthms/Chapter_09_Sort/01_Sort.cpp)
 
 -  空间复杂度 $O(1)$
 -  时间复杂度 $O(n^2)$
@@ -1962,7 +1962,7 @@ B 树即 B-tree ，B 是指 Balanced ，因为 B-tree 嘛，就有人将其译�
 
 > 增量序列要互质才能体现其效果
 
-@[code transcludeWith=SHELL_INSERT](@/Codes/Data_Structures_and_Algorthms/Chapter_09_Sort/01_Insertion_Sort.cpp)
+@[code transcludeWith=SHELL_INSERT](@/Codes/Data_Structures_and_Algorthms/Chapter_09_Sort/01_Sort.cpp)
 
 -  空间复杂度 $O(1)$
 -  时间复杂度 约为 $O(n^{1.3})$ ，最坏 $O(n^2)$
@@ -1973,208 +1973,167 @@ B 树即 B-tree ，B 是指 Balanced ，因为 B-tree 嘛，就有人将其译�
 
 #### 9.2.1 冒泡排序
 
-@[code transcludeWith=BUBBLE_SWAP](@/Codes/Data_Structures_and_Algorthms/Chapter_09_Sort/01_Insertion_Sort.cpp)
+@[code transcludeWith=BUBBLE_SWAP](@/Codes/Data_Structures_and_Algorthms/Chapter_09_Sort/01_Sort.cpp)
 
-<!-- 待补全 -->
+从左向右进行遍历，每次遍历比较相邻的元素，如果为逆序，则交换，这样一轮下来，最大值就到了最右面，下次只需要排剩下的元素即可
 
----
+如果中途某次遍历已经得到排序好的数组，那么可通过一个 flag 直接退出
 
-新旧分界线
+-  空间复杂度 $O(1)$
+-  时间复杂度 $O(n^2)$
+-  稳定性 稳定
+-  适用性 适用于顺序和链式存储，且其真正价值在于链表的排序
 
----
+#### 9.2.2 快速排序
 
-### 9.1 简单排序
+-  基本思想 分而治之
 
-#### 9.1.1 前提
+   -  从待排序列表中选一个主元
+   -  对小于主元的列表递归的进行快速排序
+   -  对大于主元的列表递归的进行快速排序
 
-`void X_Sort(ElementType A[], int N)`
+   通过一次排序后， pivot 左侧全部小于 pivot ，右侧全部大于 pivot ，即放在了最终的位置上，之后递归的对子表重复，更多的元素被放在了最终的位置上
 
--  大多数情况下，为简单起见，讨论从小到大的证书排序
--  N 是正整数
--  只讨论基于比较的排序（>=<有定义）
--  只讨论内部排序
--  稳定性：任意两个相等的数据，排序前后的相对位置不发生改变
--  没有一种排序是任何情况下都表现最好的
+-  选主元
 
-#### 9.1.2 冒泡排序
+   主元如果是中间的值，才是最好的情况，但一旦选到了最小的值那可以说是非常糟糕了，所以，选主元很关键，不过要真么做呢？试试玄学用 random？那也很耗时间，**通常，我们选取首中尾的中位数**：
 
-```C
-void Bubble_Sort(ElementType A[], int N){
-    for (P = N - 1; P >= 0; P--){
-        flag = 0;
-        for (i = 0; i < P; i++){
-            if (A[i] > A[i+1]){
-                Swap(A[i], A[i+1]);
-                flag = 1;
-            }
-        }
-        if (flag == 0) break;
-    }
-}
-```
+@[code transcludeWith=QUICK_SWAP_PIVOT](@/Codes/Data_Structures_and_Algorthms/Chapter_09_Sort/01_Sort.cpp)
 
-> 每次排指针前后的元素，指针每次遍历后会将遍历数组部分的最大值排到最后，故下次只需要排去掉最后一个的
+-  子集划分
 
-> 如果中途某次遍历已经得到排序好的数组，那么可通过一个 flag 直接退出
+   1. 设两个指针 i、j，分别指在左右两侧
+   2. 一侧指针该位置处的值是否“应该”在该位置（与主元比较，比主元小应该在左侧，否则在右侧），如果对则继续移动，否则另外一个指针开始校验
+   3. 当两个指针都指向不“应该”的值的时候，将两个指针所指的值交换，然后重复 2、3
+   4. 如果 i < j，退出
+   5. 然后将主元交换到 i 的位置，此时**主元已经放到了最终的正确的位置**，所以快速排序才能说是快速的排序方法
 
-> 其真正价值在于链表的排序
+   ::: tip
 
-> 大于时候才交换保证了**稳定性**
+   -  如果有元素等于 pivot，那么最好是交换，这样保证了最终的指针指在了正确的位置
+   -  对小规模数据可以采用插入排序，因为用递归的话出栈入栈很废资源，也很慢
 
-#### 9.1.3 插入排序
+   :::
 
-```C
-void Insertion_Sort(ElementType A[], int N){
-    for (P = 1; i > 0; P++){
-        Tmp = A[P];
-        for (i = P; i > 0 && A[i-1] > Tmp; i--){
-            A[i] = A[i-1];
-        }
-        A[i] = Tmp;
-    }
-}
-```
+@[code transcludeWith=QUICK_SWAP_DIVIDE](@/Codes/Data_Structures_and_Algorthms/Chapter_09_Sort/01_Sort.cpp)
 
-> 类似于排扑克牌，将该牌与左面的所有牌比较
+-  主函数
 
-> ~~猜想：与冒泡的区别大概就是一个从 0 到 N 一个从 N 到 0，但是插入排序很容易利用当前所有牌已经排好序了的性质进行分治插入呀~~
-> emmm 当初多动下脑子就应该想到，这是不可行的，无论是数组实现还是链表实现
+@[code transcludeWith=QUICK_SWAP_MAIN](@/Codes/Data_Structures_and_Algorthms/Chapter_09_Sort/01_Sort.cpp)
 
-#### 9.1.4 时间复杂度下界
+-  空间复杂度 $O(\log_2 n)$ （因为需要用递归工作栈）
+-  时间复杂度 最坏 $O(n^2)$ ，如果每次都能刚好将其划分为两个等大小的子集的话，则能降低到 $O(n \log_2 n)$，另外它也是平均性能最优的排序算法
+-  稳定性 不稳定
 
-每次**交换相邻两个元素**只能消去一个**逆序对**，时间复杂度将达到$O(N^2)$，故，要争取一次交换较远的元素以消去更多逆序对
+### 9.3 选择排序
 
-### 9.2 希尔排序
+#### 9.3.1 简单选择排序
 
-> 就是先定义一个增量序列（递减），根据增量序列进行插入排序，这就使得最终使用增量为 1 排序的时候整体上大体有序（递减的增量序列不会破坏之前排好的序列）
+遍历未排序部分寻找最小元，之后将最小元换到有序部分的后一个位置
 
-> 增量序列要互质才能体现其效果
+@[code transcludeWith=SIMPLE_SELECT](@/Codes/Data_Structures_and_Algorthms/Chapter_09_Sort/01_Sort.cpp)
 
-### 9.3 堆排序
-
-#### 9.3.1 选择排序
-
-遍历未排序部分寻找最小元，之后将最小元换到有序部分的最后位置，但是如果真的这样遍历，那将会达到$O(N^2)$，无所谓最好最坏情况
+-  空间复杂度 $O(1)$
+-  时间复杂度 无所谓最好最坏情况，时间复杂度始终为 $O(n^2)$
+-  稳定性 不稳定
 
 #### 9.3.2 堆排序
 
 我们可以建立一个最小堆寻找最小元，但是那样额外需要一个数组，我们可以把所有的操作放在一个数组里
 
-比如说，建立一个最大堆，那么 root 一定最大，将它和最后元素交换，之后将除了最后一个元素再调整为最大堆，如此反复。虽然时间复杂度比较低，但是实际效果一般
+比如说，建立一个**最大堆**，那么 root 一定最大，将它和最后元素交换，之后将除了最后一个元素再调整为最大堆，如此反复
+
+该方法虽然时间复杂度比较低，但是实际效果一般
+
+使用 C++ 内置算法可以这样描述：
+
+@[code transcludeWith=HEAP_SELECT](@/Codes/Data_Structures_and_Algorthms/Chapter_09_Sort/01_Sort.cpp)
+
+更多详情见[堆](#_6-6-3-堆（heap）)
+
+-  空间复杂度 $O(1)$
+-  时间复杂度 无所谓最好最坏情况，时间复杂度始终为 $O(n \log_2 n)$
+-  稳定性 不稳定
 
 ### 9.4 归并排序
+
+> 这里使用二路归并
+
+如何对一个表进行排序？对左半部分排好序，对右半部分排好序，因为左右都是有序的，合并起来就非常方便了（两个有序子串合并）
+
+那……怎么对左半部分排序？使用同样的方法啦，也就是递归咯……
 
 #### 9.4.1 有序子列的归并
 
 利用三个指针即可
 
+@[code transcludeWith=MERGE_SORT_MERGE](@/Codes/Data_Structures_and_Algorthms/Chapter_09_Sort/01_Sort.cpp)
+
 #### 9.4.2 递归算法
 
 先利用该算法解决两部分，然后 Merge，另外可以全程使用一个临时数组以减少反复开辟空间的开销
+
+@[code transcludeWith=MERGE_SORT_SUB](@/Codes/Data_Structures_and_Algorthms/Chapter_09_Sort/01_Sort.cpp)
+
+@[code transcludeWith=MERGE_SORT_MAIN](@/Codes/Data_Structures_and_Algorthms/Chapter_09_Sort/01_Sort.cpp)
 
 #### 9.4.3 非递归算法
 
 不断增加步长并 Merge
 
-### 9.5 快速排序
+#### 9.4.4 性能分析
+
+-  空间复杂度 $O(n)$
+-  时间复杂度 $O(n \log_2 n)$
+-  稳定性 稳定
+
+### 9.5 表排序 <Badge text="~" type="tip"/>
 
 #### 9.5.1 算法概述
 
-分而治之
-
--  从待排序列表中选一个主元
--  对小于主元的列表递归的进行快速排序
--  对大于主元的列表递归的进行快速排序
-
-#### 9.5.2 选主元
-
-主元如果是中间的值，才是最好的情况，但一旦选到了最小的值那可以说是非常糟糕了，所以，选主元很关键，不过要真么做呢？试试玄学用 rand？那也很耗时间，**通常，我们选取首中尾的中位数**：
-
-```C
-ElementType Median3(ElementType A[], int Left, int Right){
-    int Center = (Left + Right) / 2;
-    if (A[Left] > A[Center])
-        Swap(&A[Left], &A[Center]);
-    if (A[Left] > A[Right])
-        Swap(&A[Left], &A[Right]);
-    if (A[Center] > A[Right])
-        Swap(&A[Center], &A[Right]);
-    Swap(&A[Center], &A[Right-1]);
-    // 只需考虑A[Left+1]...A[Right-2]
-    return A[Right-1];
-}
-```
-
-#### 9.5.3 子集划分
-
-1. 设两个指针 i、j，分别指在左右两侧
-2. 一侧指针该位置处的值是否“应该”在该位置（与主元比较，比主元小应该在左侧，否则在右侧），如果对则继续移动，否则另外一个指针开始校验
-3. 当两个指针都指向不“应该”的值的时候，将两个指针所指的值交换，然后重复 2、3
-4. 如果 i<j，退出
-5. 然后将主元交换到 i 的位置，此时**主元已经放到了最终的正确的位置**，所以快速排序才能说是快速的排序方法
-
-> 几点要注意的：
-
-    1. 如果有元素等于pivot，那么最好是交换，这样保证了最终的指针指在了正确的位置
-    2. 对小规模数据可以采用插入排序，因为用递归的话出栈入栈很废资源，也很慢
-
-#### 9.5.4 算法实现
-
-又到了喜闻乐见的，抄代码时间了
-
-```C
-void Quick_Sort(ElementType A[], int N){
-    Quicksort(A, 0, N-1);
-}
-
-void Quicksort(ElementType A[], int Left, int Right){
-    if (Cutoff <= Right - Left){
-        Pivot = Median3(A, Left, Right);
-        i = Left;
-        j = Right - 1;
-        for (; ; ) {
-            while (A[++i] < Pivot) { }
-            while (A[--j] > Pivot) { }
-            if (i < j)
-                Swap(&A[i], &A[j]);
-            else break;
-        }
-        Swap(&A[i], &A[Right - 1]);
-        Quicksort(A, Left, i-1);
-        Quicksort(A, i+1, Right);
-    }
-    else
-        Insertion_Sort(A+Left, Right-Left+1);
-}
-```
-
-### 9.6 表排序
-
-#### 9.6.1 算法概述
-
 就是用来排序比较复杂的结构，比如结构体，将整个数据进行改动比较复杂，所以可以使用一个 table 存储其指针，然后根据这个指针索引真正的数据，进行排序，并对 table 的内容进行排序，不需要移动原来的数据
 
-#### 9.6.2 物理排序
+#### 9.5.2 物理排序
 
 -  当我们需要把复杂的数据结构排列到准确的位置的时候，我们可以在使用表排序之后再对数据进行排序
 -  我们可以发现，表排序之后，表和对应下标形成若干个独立的环，那么我们可以利用这个性质，对每个环进行物理排序
 
-### 9.7 基数排序
+### 9.6 基数排序
 
-#### 9.7.1 桶排序
+#### 9.6.1 桶排序 <Badge text="~" type="tip"/>
 
--  就是创建一个所有取值的数组，下标就是要比较的 key，扫描输入的所有元素，把元素存入以 key 为下标的位置，不过存的是链表哦，因为该位置可能还存别的元素，等把所有元素读入后，按数组逐个扫描，如果有存指针则把该链表都读出来
--  如果所有可能的取值太多，那么就尴尬了
+就是创建一个所有取值的数组，下标就是要比较的 key，扫描输入的所有元素，把元素存入以 key 为下标的位置，不过存的是链表哦，因为该位置可能还存别的元素，等把所有元素读入后，按数组逐个扫描，如果有存指针则把该链表都读出来
 
-#### 9.7.2 多关键字的排序
+比如，对关键字数组 `{9, 28, 98, 17, 0, 8}` 排序，可以 `int a[100]` ，然后将 `9` 存入 `a[9]` ……最后顺序读出即为按关键字排序好的序列
+
+不过如果所有可能的取值太多，就尴尬了
+
+#### 9.6.2 多关键字的排序
 
 继续前面的问题，我们如何如果可能的取值太多，难道我们要做那么多的“桶”吗，那会有很多的空桶的哦
+
 如果我们排数字的话（假设 0-999），很明显最重要的是百位，其次看十位，最后看个位，我们可以将 10 作为基数，百位看做主关键字，十位个位为次关键字
 
 -  LSD 次位优先，为优先级最低的关键字建立一组桶，并按读入顺序依次放入桶内，然后建立次低优先级的一组桶，并从前一组桶中顺序读入数据，以此类推，直到主关键字
 -  MSD 主位优先，与上述过程相反
 
-### 9.8 排序算法的比较
+![DS21.png{copyright:Wangdao}](../Images/DS21.png)
+
+-  空间复杂度 $O(r)$
+-  时间复杂度 $O(d(n + r))$
+-  稳定性 稳定
+
+---
+
+新旧分界线
+
+-  TODO
+   -  [ ] 内部排序算法比较及应用
+   -  [ ] 外部排序
+
+---
+
+### 9.7 排序算法的比较
 
 | 排序算法     | 平均时间复杂度 | 最坏情况下时间复杂度 | 额外空间复杂度 | 稳定性 |
 | ------------ | -------------- | -------------------- | -------------- | ------ |
@@ -2186,6 +2145,8 @@ void Quicksort(ElementType A[], int Left, int Right){
 | 快速排序     | $NlogN$        | $O(N^2)$             | $NlogN$        | 不稳定 |
 | 归并排序     | $NlogN$        | $NlogN$              | $O(N)$         | 稳定   |
 | 基数排序     | $O(P(N+B))$    | $O(P(N+B))$          | $O(N+B)$       | 稳定   |
+
+### 9.8 外部排序
 
 # Reference
 
