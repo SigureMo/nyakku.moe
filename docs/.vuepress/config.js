@@ -212,6 +212,7 @@ module.exports = {
         ]
       }
     ],
+    friendLink: [],
     sidebarDepth: 1,
     sidebar: "auto",
     vssueConfig: {
