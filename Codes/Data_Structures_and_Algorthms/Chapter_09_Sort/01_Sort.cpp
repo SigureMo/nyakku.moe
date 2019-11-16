@@ -7,22 +7,22 @@ using namespace std;
 // SIMPLE_INSERT
 template<typename T>
 void Insertion_Sort(T a[], int N){
-	int i;
-	for (int P = 1; P < N; P++){
-		T tmp = a[P];
-		for (i = P; i > 0 && a[i-1] > tmp; i--){
-			a[i] = a[i-1];
-		}
-		a[i] = tmp;
-	}
+  int i;
+  for (int P = 1; P < N; P++){
+    T tmp = a[P];
+    for (i = P; i > 0 && a[i-1] > tmp; i--){
+      a[i] = a[i-1];
+    }
+    a[i] = tmp;
+  }
 }
 // SIMPLE_INSERT
 // HALF_INSERT
 template<typename T>
 void Half_Insertion_Sort(T a[], int N) {
-	int i, low, high, mid;
-	for (int P = 1; P < N; P++) {
-		T tmp = a[P];
+  int i, low, high, mid;
+  for (int P = 1; P < N; P++) {
+    T tmp = a[P];
     low = 0;
     high = P;
     while (low <= high) {
@@ -30,42 +30,42 @@ void Half_Insertion_Sort(T a[], int N) {
       if (tmp < a[mid]) high = mid - 1;
       else low = mid + 1;
     }
-		for (i = P; i > low; i--) {
-			a[i] = a[i-1];
-		}
-		a[i] = tmp;
-	}
+    for (i = P; i > low; i--) {
+      a[i] = a[i-1];
+    }
+    a[i] = tmp;
+  }
 }
 // HALF_INSERT
 // SHELL_INSERT
 template<typename T>
 void Shell_Sort(T a[], int N) {
-	int i;
-	for (int D = N/2; D > 0; D /= 2) {
-		for (int P = D; P < N; P++){
-		    T tmp = a[P];
-		    for (i = P; i >= D && a[i-D] > tmp; i-=D) {
-			    a[i] = a[i-D];
-		    }
-		    a[i] = tmp;
-	    }
-	}
+  int i;
+  for (int D = N/2; D > 0; D /= 2) {
+    for (int P = D; P < N; P++) {
+      T tmp = a[P];
+      for (i = P; i >= D && a[i-D] > tmp; i-=D) {
+        a[i] = a[i-D];
+      }
+      a[i] = tmp;
+    }
+  }
 }
 // SHELL_INSERT
 // BUBBLE_SWAP
 template<typename T>
 void Bubble_Sort(T a[], int N) {
-	for (int P = N-1; P >= 0; P--) {
-		bool flag = false;
-		for (int i = 0; i < P; i++) {
-			if (a[i] > a[i+1]) {
+  for (int P = N-1; P >= 0; P--) {
+    bool flag = false;
+    for (int i = 0; i < P; i++) {
+      if (a[i] > a[i+1]) {
         swap(a[i], a[i+1]);
-				flag = true;
-		  }
-		}
-		if (!flag)
-			break;
-	}
+        flag = true;
+      }
+    }
+    if (!flag)
+      break;
+  }
 }
 // BUBBLE_SWAP
 // QUICK_SWAP_PIVOT
@@ -114,23 +114,23 @@ void Quick_Sort(T a[], int N) {
 // SIMPLE_SELECT
 template<typename T>
 void Select_Sort(T a[], int N) {
-	for (int i = 0; i < N; i++) {
-		int idx_min = i;
+  for (int i = 0; i < N; i++) {
+    int idx_min = i;
     T ele_min = a[idx_min];
-		for (int j = i; j < N; j++) {
-			if (a[j] < ele_min) {
-				ele_min = a[j];
+    for (int j = i; j < N; j++) {
+      if (a[j] < ele_min) {
+        ele_min = a[j];
         idx_min = j;
-		  }
-		}
-		swap(a[i], a[idx_min]);
-	}
+      }
+    }
+    swap(a[i], a[idx_min]);
+  }
 }
 // SIMPLE_SELECT
 // HEAP_SELECT
 template<typename T>
 void Heap_Sort(T a[], int N) {
-	make_heap(a, a+N);
+  make_heap(a, a+N);
   for (int i = 0; i < N; i++) {
     pop_heap(a, a+N-i);
   }
@@ -167,7 +167,7 @@ void MergeSort(T a[], T b[], int low, int high) {
 template<typename T>
 void Merge_Sort(T a[], int N) {
   T b[N];         // 辅助数组，合并专用
-	MergeSort(a, b, 0, N-1);
+  MergeSort(a, b, 0, N-1);
 }
 // MERGE_SORT_MAIN
 
