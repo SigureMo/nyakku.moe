@@ -131,7 +131,9 @@ module.exports = {
         copyright: "2019 SigureMo",
         count: 20
       }
-    ]
+    ],
+    // 导出为 PDF
+    ["export"]
   ],
 
   // 主题配置
