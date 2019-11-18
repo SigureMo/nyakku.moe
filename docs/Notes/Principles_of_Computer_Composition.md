@@ -2037,8 +2037,9 @@ CPU 内部结构采用非总线方式
 
 # Reference
 
-1. 丁男老师课程
+1. 2020 年计算机组成原理考研复习指导 - 王道
 2. [计算机组成原理（上） - 哈尔滨工业大学 - 中国大学 MOOC](https://www.icourse163.org/course/HIT-309001)
 3. [计算机组成原理（下） - 哈尔滨工业大学 - 中国大学 MOOC](https://www.icourse163.org/course/HIT-1001527001)
-4. 2020 年计算机组成原理考研复习指导 - 王道
-5. 《Computer Organization and Design (The Hardware/Software Interface)》 David A. Patterson, John L. Hennessy
+4. 《Computer Organization and Design (The Hardware/Software Interface)》 David A. Patterson, John L. Hennessy
+5. 《计算机科学导论》 佛罗赞、莫沙拉夫
+6. 丁男老师课程
