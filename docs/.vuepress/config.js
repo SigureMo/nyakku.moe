@@ -46,10 +46,7 @@ module.exports = {
     // markdown 插件
     extendMarkdown: md => {
       md.set({ html: true });
-      md.use(require("@iktakahiro/markdown-it-katex"), {
-        throwOnError: false,
-        errorColor: " #cc0000"
-      });
+      md.use(require("@iktakahiro/markdown-it-katex"));
       md.use(require("markdown-it-mark"));
       md.use(require("markdown-it-task-lists"));
       md.use(require("markdown-it-vuepress-code-snippet-enhanced"));
