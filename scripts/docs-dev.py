@@ -15,7 +15,7 @@ import time
 config_file = "docs/.vuepress/config.js"
 bak_file = "data/config.js"
 replaces = {
-    "katex": re.compile(r"md\.use\(require\(\"@iktakahiro/markdown-it-katex\"\), \{[\s\S]+?\}\);"),
+    "katex": re.compile(r"md\.use\(require\(\"@iktakahiro/markdown-it-katex\"\)(,\s?\{[\s\S]+?\})?\);"),
     "theme": re.compile(r"theme: \"reco\","),
 }
 
