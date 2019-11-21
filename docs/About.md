@@ -11,6 +11,12 @@ publish: false
   <a href="tencent://AddContact/?fromId=45&fromSubId=1&subcmd=all&uin=240377379&website=www.oicqzone.com" class="zi zi_tmQq"></a>
 </p>
 
+::: tip Status
+
+闭关，短期内不再参与任何前端与爬虫相关项目，可能会参与某些 CV & DL 项目
+
+:::
+
 Sigure_Mo，小辣鸡一枚，本科材料喵，拟跨考 CS ε≡٩(๑>₃<)۶ ~
 
 已成功入坑 {{ dist_times }} ~
@@ -34,7 +40,7 @@ Sigure_Mo，小辣鸡一枚，本科材料喵，拟跨考 CS ε≡٩(๑>₃<)۶
 
 -  [Course Crawler](https://www.sigure.xyz/course-crawler/) 慕课课程下载工具，Fork 于 Foair
 -  [Shoeprint Recognition](https://www.sigure.xyz/shoeprint-recognition/) “恒锐杯”鞋印花纹图像类别判定挑战赛
--  [vuepress-reco](https://github.com/vuepress-reco) vuepress 主题 reco 及插件相关开发
+-  [vuepress-reco](https://github.com/vuepress-reco) vuepress 主题 reco :bug: 修复、文档撰写及插件相关开发
 
 ## 还想说点啥？
 
