@@ -156,6 +156,7 @@ tmp/
 /tests/
 /data/
 /tools/
+/docs/Images_bak/
 
 # Mac
 .DS_Store
