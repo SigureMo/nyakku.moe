@@ -6,6 +6,8 @@ from cv2 import cv2
 img_dir = "docs/Images/"
 bak_dir = "docs/Images_bak/"
 img_names = sys.argv[1: ]
+if not os.path.exists(bak_dir):
+    os.mkdir(bak_dir)
 
 W = 800
 
@@ -31,6 +33,8 @@ def process(img_name):
     img = cv2.cvtColor(img, cv2.COLOR_RGB2GRAY)
     # 过滤背景
     img[img > 220] = 255
+    # 文字增强
+    img[img < 30] = 0
     # 展示
     cv2.imshow('im', img)
     cv2.waitKey(0)
