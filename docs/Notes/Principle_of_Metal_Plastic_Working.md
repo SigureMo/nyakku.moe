@@ -92,7 +92,7 @@ tags:
 
 ### 2.7 热加工对金属组织、性能的影响 <Badge text="!" type="error"/>
 
-![Principle_of_Metal_Plastic_Working01](../Images/Principle_of_Metal_Plastic_Working01.jpg)
+![PMPW01](../Images/PMPW01.jpg)
 
 ### 2.8 叙述晶粒随着温度的升高而长大是一种必然现象
 
@@ -100,7 +100,7 @@ tags:
 
 ### 2.9 塑性变形与内能、晶粒大小、性能的关系
 
-![Principle_of_Metal_Plastic_Working01](../Images/Principle_of_Metal_Plastic_Working02.png)
+![PMPW01](../Images/PMPW02.png)
 冷塑型变形过程中机械加工部分能量会使金属内能增加，这使得再结晶过程发生，会生成新的等轴晶，降低金属的加工硬化程度
 
 ### 2.10 动态回复与动态再结晶的区别 <Badge text="~" type="tip"/>
@@ -169,7 +169,7 @@ tags:
 ### 4.2 影响金属塑性的外部因素 <Badge text="!" type="error"/>
 
 1. **变形温度**
-   ![Principle_of_Metal_Plastic_Working03](../Images/Principle_of_Metal_Plastic_Working03.png)
+   ![PMPW03](../Images/PMPW03.png)
    -  塑性提高区
       -  1 区（100~200℃） 原子热振动能力
       -  2 区（700-800℃） 回复和再结晶
@@ -198,7 +198,7 @@ tags:
    -  热变形
    -  难变形材料
 6. **尺寸因素的影响（组织缺陷、应力不均匀**
-   ![Principle_of_Metal_Plastic_Working04](../Images/Principle_of_Metal_Plastic_Working04.png)
+   ![PMPW04](../Images/PMPW04.png)
 7. **其他（介质、气氛等）**
    脆性相、腐蚀、润滑
 
@@ -368,7 +368,7 @@ $$
 其中$l$、$m$、$n$均为方向余弦
 
 -  例题：
-   ![Principle_of_Metal_Plastic_Working05](../Images/Principle_of_Metal_Plastic_Working05.png)
+   ![PMPW05](../Images/PMPW05.png)
 
 #### 7.2.2 应力张量不变量 <Badge text="!" type="error"/>
 
@@ -406,9 +406,9 @@ $$
 $$
 
 -  例题 1
-   ![Principle_of_Metal_Plastic_Working06](../Images/Principle_of_Metal_Plastic_Working06.png)
+   ![PMPW06](../Images/PMPW06.png)
 -  例题 2
-   ![Principle_of_Metal_Plastic_Working07](../Images/Principle_of_Metal_Plastic_Working07.png)
+   ![PMPW07](../Images/PMPW07.png)
 
 ## 8 屈服准则
 

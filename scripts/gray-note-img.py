@@ -32,7 +32,7 @@ def process(img_name):
     # 转为灰度
     img = cv2.cvtColor(img, cv2.COLOR_RGB2GRAY)
     # 过滤背景
-    img[img > 220] = 255
+    img[img > 200] = 255
     # 文字增强
     img[img < 30] = 0
     # 展示
