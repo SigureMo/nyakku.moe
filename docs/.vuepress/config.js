@@ -46,7 +46,7 @@ module.exports = {
     // markdown 插件
     extendMarkdown: md => {
       md.set({ html: true });
-      md.use(require("@iktakahiro/markdown-it-katex"));
+
       md.use(require("markdown-it-mark"));
       md.use(require("markdown-it-task-lists"));
       md.use(require("markdown-it-vuepress-code-snippet-enhanced"));
@@ -134,7 +134,7 @@ module.exports = {
   ],
 
   // 主题配置
-  theme: "reco",
+
   themeConfig: {
     // 博客配置
     type: "blog",
@@ -171,8 +171,8 @@ module.exports = {
             link: "https://www.sigure.xyz/shoeprint-recognition/"
           },
           {
-            text: "🎨 vuepress reco",
-            link: "https://vuepress-theme-reco.recoluan.com/"
+            text: "🍰 VuePress Lovely Plugins",
+            link: "https://www.sigure.xyz/vuepress-lovely-plugins/"
           }
         ]
       },

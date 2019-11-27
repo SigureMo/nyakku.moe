@@ -13,7 +13,7 @@ publish: false
 
 ::: tip Status
 
-闭关，短期内不再参与任何前端与爬虫相关项目，可能会参与某些 CV & DL 项目
+Focus on CV & DL
 
 :::
 
@@ -31,8 +31,8 @@ Sigure_Mo，小辣鸡一枚，本科材料喵，拟跨考 CS ε≡٩(๑>₃<)۶
 ## 没事都干嘛？
 
 -  使用 Python 做做爬虫相关以及小的 DL 项目
--  最近在用 C++ 刷题
--  有时候也用 JS 以及 Vue 完善博客
+-  有时使用 C++ 刷题
+-  还有时也用 JS 以及 Vue 完善博客
 -  没事在 GitHub 仰望各位 dalao
 -  还能干嘛？
 
@@ -40,17 +40,11 @@ Sigure_Mo，小辣鸡一枚，本科材料喵，拟跨考 CS ε≡٩(๑>₃<)۶
 
 -  [Course Crawler](https://www.sigure.xyz/course-crawler/) 慕课课程下载工具，Fork 于 Foair
 -  [Shoeprint Recognition](https://www.sigure.xyz/shoeprint-recognition/) “恒锐杯”鞋印花纹图像类别判定挑战赛
--  [vuepress-reco](https://github.com/vuepress-reco) vuepress 主题 reco :bug: 修复、文档撰写及插件相关开发
+-  [VuePress Lovely Plugins](https://www.sigure.xyz/vuepress-lovely-plugins/) vuepress 相关插件开发
 
 ## 还想说点啥？
 
 本仓库全部代码使用 [MIT](https://github.com/SigureMo/notev/blob/master/LICENSE) 协议进行开源，但是本仓库全部文档内容使用 [CC 4.0 BY-SA](https://creativecommons.org/licenses/by-sa/4.0/) 协议进行发布
-
-## 有啥愿望吗？
-
--  想学的有好多啊，想有空玩玩前端，还想把 ML 系统学一下，还想学一下编译原理，还想……（想 peach 去吧）
--  新的 N 年后能拥有属于自己的 MacBook
--  新的一年能早一分钟睡（反正别越睡越晚就行啦 :joy:）
 
 <script>
 export default {
