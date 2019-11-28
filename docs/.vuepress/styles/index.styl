@@ -1,12 +1,54 @@
+// 鼠标指针
 body
   cursor: url('/pointer/default.cur'), auto;
 a, button, #goTop, .jump
   cursor: url('/pointer/link.cur'), auto;
 
+// 首页标题
 .home-blog
   .hero
     h1, .description, .action, .huawei
       color #000!important
       text-shadow 2px 2px 1px #888
+
+// 页面去背景
 .page
-  background #fff
+  background var(--background-color)
+
+// 评论
+.vssue
+  border-radius: $borderRadius
+  background rgba(0, 0, 0, 0.05)
+  .vssue-header
+  .vssue-body
+    .vssue-new-comment
+      .vssue-comment-avatar
+        img
+          border-radius: $borderRadius
+          box-shadow: $boxShadow
+      .vssue-new-comment-body
+        box-shadow: $boxShadow
+        background: #f6f8fa
+        .vssue-new-comment-input
+          border-radius: $borderRadius
+    .vssue-comments
+      .vssue-comment
+        .vssue-comment-avatar
+          img
+            border-radius: $borderRadius
+            box-shadow: $boxShadow
+        .vssue-comment-body
+          box-shadow: $boxShadow
+          .vssue-comment-header
+            background: #f0f2f4
+          .vssue-comment-main
+            background: #f6f8fa
+          .vssue-comment-footer
+            background: #f0f2f4
+
+// 时间轴
+.timeline-wrapper
+  .year
+    background var(--background-color)
+  .year-wrapper
+    background var(--background-color)
