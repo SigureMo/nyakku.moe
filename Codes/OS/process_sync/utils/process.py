@@ -8,6 +8,7 @@ class Process(Thread):
 
     def __init__(self):
         super().__init__()
+        self.setDaemon(True)
         self.__flag = Event()
         self.__flag.set()
 
@@ -23,5 +24,14 @@ class Process(Thread):
 def all_start(*pros):
     for pro in pros:
         pro.start()
-    for pro in pros:
-        pro.join()
+
+    try:
+        for pro in pros:
+            while True:
+                pro.join(2)
+                if not pro.isAlive:
+                    break
+    except (SystemExit, KeyboardInterrupt):
+        print("Ctrl-C pressed")
+
+
