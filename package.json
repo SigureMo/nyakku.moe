@@ -1,6 +1,6 @@
 {
   "name": "notev",
-  "version": "1.8.2",
+  "version": "1.8.3",
   "description": "Sigure_Mo's Notes",
   "main": "index.js",
   "scripts": {
@@ -52,6 +52,6 @@
     "vuepress-plugin-flowchart": "^1.4.3",
     "vuepress-plugin-go-top": "^0.0.1",
     "vuepress-plugin-ribbon": "^1.0.0",
-    "vuepress-theme-reco": "^1.2.0-alpha.1"
+    "vuepress-theme-reco": "^1.2.0-alpha.2"
   }
 }

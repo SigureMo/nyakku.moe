@@ -12,6 +12,9 @@ from utils.process import Process, all_start
 根据 Debug 的 print 内容，容易看出最多 RN 个读者同时读， 1 个写者在写
 """
 
+file = "tmp/test.txt"
+open(file, 'w').close()
+
 class Reader(Process):
 
     def __init__(self, num):
@@ -29,7 +32,9 @@ class Reader(Process):
 
     def read(self):
         rlist.append(self.num)
-        print("Reader %s is reading..." % self.num)
+        # print("Reader %s is reading..." % self.num)
+        with open(file, 'r') as f:
+            print("Reader %s get %s" % (self.num, f.read()))
         time.sleep(random.randint(0, 20) / 1000)
         print('r:{}, w:{}'.format(rlist, wlist))
         rlist.pop(rlist.index(self.num))
@@ -52,6 +57,8 @@ class Writer(Process):
     def write(self):
         wlist.append(self.num)
         print("Writer %s is writing..." % self.num)
+        with open(file, 'w') as f:
+            f.write("I'm writer%02d" % self.num)
         time.sleep(random.randint(0, 1000) / 1000)
         print('r:{}, w:{}'.format(rlist, wlist))
         wlist.pop(wlist.index(self.num))
