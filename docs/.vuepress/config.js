@@ -168,7 +168,7 @@ module.exports = {
           },
           {
             text: "👣 Shoeprint Recognition",
-            link: "https://www.sigure.xyz/shoeprint-recognition/"
+            link: "https://zsync.github.io/shoeprint-recognition/"
           },
           {
             text: "🍰 VuePress Lovely Plugins",
