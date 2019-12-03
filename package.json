@@ -1,6 +1,6 @@
 {
   "name": "notev",
-  "version": "1.8.5",
+  "version": "1.8.6",
   "description": "Sigure_Mo's Notes",
   "main": "index.js",
   "scripts": {
@@ -26,7 +26,7 @@
   "license": "MIT",
   "husky": {
     "hooks": {
-      "pre-commit": "pretty-quick --staged && node scripts/version_inc.js"
+      "pre-commit": "pretty-quick --staged && node scripts/version-inc.js"
     }
   },
   "dependencies": {
