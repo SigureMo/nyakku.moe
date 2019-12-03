@@ -39,7 +39,7 @@ Sigure_Mo，小辣鸡一枚，本科材料喵，拟跨考 CS ε≡٩(๑>₃<)۶
 ## 做过些啥？
 
 -  [Course Crawler](https://www.sigure.xyz/course-crawler/) 慕课课程下载工具，Fork 于 Foair
--  [Shoeprint Recognition](https://www.sigure.xyz/shoeprint-recognition/) “恒锐杯”鞋印花纹图像类别判定挑战赛
+-  [Shoeprint Recognition](https://zsync.github.io/shoeprint-recognition/) “恒锐杯”鞋印花纹图像类别判定挑战赛
 -  [VuePress Lovely Plugins](https://www.sigure.xyz/vuepress-lovely-plugins/) vuepress 相关插件开发
 
 ## 还想说点啥？
