@@ -92,45 +92,11 @@ module.exports = {
     ],
     // 悬挂小猫返回顶部
     ["go-top"],
-    // 禁用主题内置的默认 back-to-top
+    // 禁用无用插件
     ["@vuepress-reco/back-to-top", false],
+    ["@vuepress-reco/extract-code", false],
     // 流程图
-    ["flowchart"],
-    // 看板娘插件
-    [
-      "@vuepress-reco/vuepress-plugin-kan-ban-niang",
-      {
-        theme: ["miku"],
-        clean: true,
-        modelStyle: {
-          position: "fixed",
-          left: "0px",
-          bottom: "0px",
-          opacity: "0.9",
-          zIndex: 99999
-        }
-      }
-    ],
-    // details 容器
-    [
-      "container",
-      {
-        type: "details",
-        before: info => `<details><summary>${info}</summary>`,
-        after: "</details>"
-      }
-    ],
-    // 启用 RSS
-    [
-      "@vuepress-reco/vuepress-plugin-rss",
-      {
-        site_url: "https://www.sigure.xyz",
-        copyright: "2019 SigureMo",
-        count: 20
-      }
-    ],
-    // 导出为 PDF
-    ["export"]
+    ["flowchart"]
   ],
 
   // 主题配置
