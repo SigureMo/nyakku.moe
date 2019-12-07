@@ -2,6 +2,11 @@ module.exports = {
   title: "Notev",
   description: "一个小透明的透明世界",
   evergreen: true,
+  locales: {
+    "/": {
+      lang: "zh-CN"
+    }
+  },
   head: [
     [
       "meta",

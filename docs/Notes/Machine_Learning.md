@@ -122,6 +122,13 @@ Loop：
 
 多元正态分布是将所有特征看成一个分布，这可以使得其更容易捕捉特征之间的关联，但计算量较大，在数据量较大时才会采用，否则可通过手动组合特征（非线性）来弥补特征的关联性
 
+## 半监督学习
+
+## 强化学习
+
+## 元学习
+
 # Reference
 
 1. [机器学习 - Andrew Ng - 网易云课堂](https://study.163.com/course/courseLearn.htm?courseId=1004570029)
+2. [ML & MLDS - Hung-yi Lee - 台湾大学](http://speech.ee.ntu.edu.tw/~tlkagk/courses.html)
