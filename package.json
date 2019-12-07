@@ -1,6 +1,6 @@
 {
   "name": "notev",
-  "version": "1.8.7",
+  "version": "1.8.8",
   "description": "Sigure_Mo's Notes",
   "main": "index.js",
   "scripts": {
@@ -43,8 +43,8 @@
     "vuepress-plugin-cursor-effects": "^0.0.4",
     "vuepress-plugin-dynamic-title": "^0.0.5",
     "vuepress-plugin-flowchart": "^1.4.3",
-    "vuepress-plugin-go-top": "^0.0.1",
+    "vuepress-plugin-go-top": "^0.0.2",
     "vuepress-plugin-ribbon": "^1.0.0",
-    "vuepress-theme-reco": "^1.2.0-alpha.4"
+    "vuepress-theme-reco": "^1.1.4"
   }
 }
