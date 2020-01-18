@@ -22,7 +22,9 @@ module.exports = {
         href: "https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.css"
       }
     ],
-    ["link", { rel: "manifest", href: "/manifest.json" }],
+    ["meta", { property: "og:image", content: "/sigure_mo.png" }][
+      ("link", { rel: "manifest", href: "/manifest.json" })
+    ],
     ["meta", { name: "theme-color", content: "#222222" }],
     ["meta", { name: "apple-mobile-web-app-capable", content: "yes" }],
     [
