@@ -2,7 +2,7 @@
 title: VSCode 插件集合
 date: 2019-09-11
 categories:
-   - 雁影·留
+   - 忆
 tags:
    - VSCode
 ---
@@ -19,6 +19,7 @@ tags:
 
 -  Python
 -  C/C++
+-  Cython
 -  ESLint
 -  JavaScript (ES6) code snippets
 -  Matlab
@@ -30,6 +31,7 @@ tags:
 -  **EditorConfig for VS Code**
 -  **GitLens — Git supercharged**
 -  **Remote Development**
+-  Word Count CJK
 -  hexdump for vscode
 -  Excel Viewer
 -  LaTeX Workshop

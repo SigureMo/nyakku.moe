@@ -2,7 +2,7 @@
 title: Neural Network Control
 date: 2019-06-09
 categories:
-   - 倏尔·论
+   - 思
 tags:
    - DL
 ---

@@ -2,7 +2,7 @@
 title: Computer Network
 date: 2019-09-18
 categories:
-   - 经纶·注
+   - 记
 tags:
    - CS
    - kaoyan

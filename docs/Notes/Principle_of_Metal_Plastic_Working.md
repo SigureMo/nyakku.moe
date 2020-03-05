@@ -2,7 +2,7 @@
 title: Principle of Metal Plastic Working
 date: 2018-10-01
 categories:
-   - 经纶·注
+   - 记
 tags:
    - Material Science
    - Required Course
