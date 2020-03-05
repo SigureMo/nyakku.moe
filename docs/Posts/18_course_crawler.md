@@ -2,7 +2,7 @@
 title: 如何轻松下载各种慕课课程
 date: 2019-08-25
 categories:
-   - 趣笔·书
+   - 游
 tags:
    - Python
    - Crawler

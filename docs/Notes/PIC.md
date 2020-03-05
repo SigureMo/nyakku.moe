@@ -2,7 +2,7 @@
 title: PIC
 date: 2018-09-12
 categories:
-   - 经纶·注
+   - 记
 tags:
    - CS
    - Optional Course

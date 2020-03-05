@@ -2,7 +2,7 @@
 title: 在个人 Blog 主页中添加各种联络链接
 date: 2019-08-17
 categories:
-   - 趣笔·书
+   - 游
 tags:
    - front end
 ---

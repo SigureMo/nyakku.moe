@@ -2,7 +2,7 @@
 title: English
 date: 2019-02-27
 categories:
-   - 经纶·注
+   - 记
 tags:
    - Basic Subject
    - kaoyan

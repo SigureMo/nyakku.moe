@@ -2,7 +2,7 @@
 title: Maxout 的简单理解与实现
 date: 2019-07-01
 categories:
-   - 倏尔·论
+   - 思
 tags:
    - DL
 ---

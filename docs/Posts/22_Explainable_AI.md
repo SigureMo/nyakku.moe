@@ -2,7 +2,7 @@
 title: 人工智能的可解释性
 date: 2019-10-20
 categories:
-   - 倏尔·论
+   - 思
 tags:
    - DL
 ---
