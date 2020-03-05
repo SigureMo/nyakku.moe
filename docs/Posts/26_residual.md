@@ -2,7 +2,7 @@
 title: 残差结构的作用
 date: 2020-01-18
 categories:
-   - 倏尔·论
+   - 思
 tags:
    - DL
 ---

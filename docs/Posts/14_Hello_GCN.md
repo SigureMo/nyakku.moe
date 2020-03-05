@@ -2,7 +2,7 @@
 title: 初识图卷积神经网络（GCN）
 date: 2019-08-16
 categories:
-   - 倏尔·论
+   - 思
 tags:
    - DL
    - GCN
