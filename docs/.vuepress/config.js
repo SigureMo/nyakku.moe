@@ -174,11 +174,6 @@ module.exports = {
             link:
               "http://qr.topscan.com/api.php?text=https://u.wechat.com/EPDjgRrQutXUU-K1XzT9X_0",
             icon: "reco-wechat"
-          },
-          {
-            text: "CSDN",
-            link: "https://blog.csdn.net/qq_41819321",
-            icon: "reco-csdn"
           }
         ]
       }

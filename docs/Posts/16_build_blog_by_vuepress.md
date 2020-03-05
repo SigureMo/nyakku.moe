@@ -2,7 +2,7 @@
 title: 使用 Vuepress 搭建个人静态 Blog
 date: 2019-08-17
 categories:
-   - 趣笔·书
+   - 游
 tags:
    - front end
    - blog
@@ -166,7 +166,10 @@ module.exports = {
 ```js
 module.exports = {
    themeConfig: {
-      nav: [{ text: "Home", link: "/" }, { text: "Guide", link: "/guide/" }],
+      nav: [
+         { text: "Home", link: "/" },
+         { text: "Guide", link: "/guide/" }
+      ],
       sidebar: {
          "/guide/": ["", "getting_started"],
          "/": ["", "config"]
@@ -258,7 +261,7 @@ module.exports = {
 title: 使用 Vuepress 搭建个人静态 Blog
 date: 2019-08-17
 categories:
-   - 趣笔·书
+   - 趣
 tags:
    - front_end
    - blog
@@ -285,12 +288,11 @@ module.exports = {
 ```yaml
 ---
 home: true
-bgImage: '/bg.png'
-bgImageStyle: {
-  height: '350px'
-}
-faceImage: '/head.png'
+bgImage: "/bg.png"
+bgImageStyle: { height: "350px" }
+faceImage: "/head.png"
 ---
+
 ```
 
 这里两个图片都以 `docs/.vuepress/public/` 为根目录
