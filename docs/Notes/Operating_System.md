@@ -2,7 +2,7 @@
 title: Operating System
 date: 2019-02-28
 categories:
-   - 经纶·注
+   - 记
 tags:
    - CS
    - kaoyan

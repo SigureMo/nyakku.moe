@@ -2,7 +2,7 @@
 title: 注意力机制与 Mask 机制
 date: 2020-01-18
 categories:
-   - 倏尔·论
+   - 思
 tags:
    - DL
 ---

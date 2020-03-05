@@ -2,7 +2,7 @@
 title: Data Structures and Algorthms
 date: 2019-08-21
 categories:
-   - 经纶·注
+   - 记
 tags:
    - CS
    - kaoyan

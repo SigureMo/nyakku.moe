@@ -2,7 +2,7 @@
 title: Deep Learning
 date: 2018-10-14
 categories:
-   - 经纶·注
+   - 记
 tags:
    - CS
    - DL

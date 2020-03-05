@@ -2,7 +2,7 @@
 title: 用可爱的插件装饰你的 Vuepress~
 date: 2019-10-21
 categories:
-   - 趣笔·书
+   - 游
 tags:
    - front end
    - blog
@@ -118,12 +118,6 @@ module.exports = {
 相信你看到这个位置应该已经能看到它啦，点一下就可以返回顶部哦~
 
 都到现在了，应该不需要我说怎么安装了吧？也是没有额外的配置项的，也许以后会添加~
-
-## 添加音乐播放插件 <Badge text="alpha" type="error"/>
-
-[@vuepress-reco/vuepress-plugin-music](https://github.com/vuepress-reco/vuepress-plugin-music)
-
-[reco 主题](https://github.com/vuepress-reco)成员[橘子](https://github.com/smallsunnyfox)正在开发中，请期待……
 
 ## 添加一个萌萌哒看板娘
 
