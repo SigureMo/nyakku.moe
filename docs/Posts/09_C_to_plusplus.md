@@ -2,7 +2,7 @@
 title: C to ++
 date: 2019-10-04
 categories:
-   - 忆
+   - 迹
 tags:
    - C
    - C++

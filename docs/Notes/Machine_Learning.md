@@ -2,7 +2,7 @@
 title: Machine Learning
 date: 2019-12-02
 categories:
-   - 记
+   - 墨
 tags:
    - CS
    - ML
