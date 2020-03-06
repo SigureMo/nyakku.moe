@@ -2,7 +2,7 @@
 title: Git 提交说明
 date: 2018-09-16
 categories:
-   - 忆
+   - 迹
 tags:
    - Git
 ---
