@@ -2,7 +2,7 @@
 title: 启动器折腾笔记
 date: 2019-09-19
 categories:
-   - 忆
+   - 迹
 tags:
    - MacOS
    - Windows

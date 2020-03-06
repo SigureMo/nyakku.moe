@@ -2,7 +2,7 @@
 title: Mathematical Modeling
 date: 2018-11-21
 categories:
-   - 记
+   - 墨
 tags:
    - Basic Subject
    - Math
