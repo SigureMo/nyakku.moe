@@ -2,7 +2,7 @@
 title: 初窥 Cmder
 date: 2018-10-01
 categories:
-   - 忆
+   - 迹
 tags:
    - Tool
    - Windows

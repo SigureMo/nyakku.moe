@@ -2,7 +2,7 @@
 title: KaTeX 索引表
 date: 2019-05-19
 categories:
-   - 忆
+   - 迹
 tags:
    - KaTeX
 ---

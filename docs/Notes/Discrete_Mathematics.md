@@ -2,7 +2,7 @@
 title: Discrete Mathematics
 date: 2019-04-25
 categories:
-   - 记
+   - 墨
 tags:
    - Math
    - CS

@@ -2,7 +2,7 @@
 title: VSCode 插件集合
 date: 2019-09-11
 categories:
-   - 忆
+   - 迹
 tags:
    - VSCode
 ---
