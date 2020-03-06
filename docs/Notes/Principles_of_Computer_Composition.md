@@ -2,7 +2,7 @@
 title: Principles of Computer Composition
 date: 2019-11-17
 categories:
-   - 记
+   - 墨
 tags:
    - CS
    - kaoyan

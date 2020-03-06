@@ -2,7 +2,7 @@
 title: Linux 上使用源码编译程序
 date: 2020-03-06
 categories:
-   - 忆
+   - 迹
 tags:
    - Linux
 ---

@@ -2,7 +2,7 @@
 title: PIC
 date: 2018-09-12
 categories:
-   - 记
+   - 墨
 tags:
    - CS
    - Optional Course
