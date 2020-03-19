@@ -20,5 +20,4 @@ about: Create a report to help us improve
 -  Your OS:
 -  Node.js version:
 -  VuePress version:
--  VuePress-theme-reco version:
 -  Which package manager did you use for the install(npm/cnpm/yarn)?
