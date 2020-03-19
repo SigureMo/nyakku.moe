@@ -98,117 +98,102 @@ module.exports = {
     ],
     // 悬挂小猫返回顶部
     ["go-top"],
-    // 禁用无用插件
-    ["@vuepress-reco/back-to-top", false],
-    ["@vuepress-reco/extract-code", false],
     // 流程图
     ["flowchart"]
   ],
 
   // 主题配置
-  theme: "reco",
+  theme: "meteorlxy",
   themeConfig: {
-    // 博客配置
-    type: "blog",
-    logo: "/sigure_mo.png",
-    autoHideNavbar: true,
-    blogConfig: {
-      category: {
-        location: 2, // 在导航栏菜单中所占的位置，默认2
-        text: "Category" // 默认文案 “分类”
-      },
-      tag: {
-        location: 3, // 在导航栏菜单中所占的位置，默认3
-        text: "Tag" // 默认文案 “标签”
+    lang: "en-US",
+    personalInfo: {
+      // 昵称
+      nickname: "SigureMo",
+      // 个人简介 (支持 HTML)
+      description: "一个小透明的透明世界",
+      // 电子邮箱
+      email: "sigure@163.com",
+      // 所在地
+      location: "DLC, China",
+      // 组织
+      organization: "Dalian University of Technology",
+      // 头像
+      avatar: "/sigure_mo.png",
+      // 社交平台帐号信息
+      sns: {
+        // Github 帐号和链接
+        github: {
+          account: "meteorlxy",
+          link: "https://github.com/meteorlxy"
+        }
       }
     },
-    author: "SigureMo",
-    // 备案号
-    record: "辽ICP备19014250号-1",
-    // 项目开始时间，只填写年份
-    startYear: "2018",
-    nav: [
-      { text: "Home", link: "/", icon: "reco-home" },
-      { text: "TimeLine", link: "/TimeLine/", icon: "reco-date" },
-      {
-        text: "Experiments",
-        icon: "reco-api",
-        items: [
-          {
-            text: "🎓 Course Crawler",
-            link: "https://www.sigure.xyz/course-crawler/"
-          },
-          {
-            text: "👣 Shoeprint Recognition",
-            link: "https://zsync.github.io/shoeprint-recognition/"
-          },
-          {
-            text: "🍰 VuePress Lovely Plugins",
-            link: "https://www.sigure.xyz/vuepress-lovely-plugins/"
-          }
-        ]
+
+    // 上方 header 的相关设置 (可选)
+    header: {
+      // header 的背景，可以使用图片，或者随机变化的图案（geopattern）
+      background: {
+        // 使用图片的 URL，如果设置了图片 URL，则不会生成随机变化的图案，下面的 useGeo 将失效
+        url: "/bg.jpg"
       },
-      { text: "About", link: "/About.html", icon: "reco-account" },
-      {
-        text: "Contact",
-        icon: "reco-message",
-        items: [
-          {
-            text: "Github",
-            link: "https://github.com/SigureMo",
-            icon: "reco-github"
-          },
-          {
-            text: "Email",
-            link: "mailto:sigure_mo@163.com",
-            icon: "reco-message"
-          },
-          {
-            text: "QQ",
-            link:
-              "http://qr.topscan.com/api.php?text=http://qm.qq.com/cgi-bin/qm/qr?k=1PbIl8QPOkF0ErJKX-GmjA-E8e53djl4",
-            icon: "reco-qq"
-          },
-          {
-            text: "Wechat",
-            link:
-              "http://qr.topscan.com/api.php?text=https://u.wechat.com/EPDjgRrQutXUU-K1XzT9X_0",
-            icon: "reco-wechat"
-          }
-        ]
+      // 是否在 header 显示标题
+      showTitle: true
+    },
+
+    // 底部 footer 的相关设置 (可选)
+    footer: {
+      // 是否显示 Powered by VuePress
+      poweredBy: true,
+      // 是否显示使用的主题
+      poweredByTheme: true,
+      // 添加自定义 footer (支持 HTML)
+      custom:
+        'Copyright 2018-present <a href="https://github.com/SigureMo" target="_blank">SigureMo</a> | MIT License'
+    },
+
+    // 个人信息卡片相关设置 (可选)
+    infoCard: {
+      // 卡片 header 的背景，可以使用图片，或者随机变化的图案（geopattern）
+      headerBackground: {
+        // 使用图片的 URL，如果设置了图片 URL，则不会生成随机变化的图案，下面的 useGeo 将失效
+        // url: '/bg.jpg',
+        // 使用随机变化的图案，如果设置为 false，且没有设置图片 URL，将显示为空白背景
+        useGeo: true
       }
+    },
+
+    // 是否显示文章的最近更新时间
+    lastUpdated: true,
+
+    // 顶部导航栏内容
+    nav: [
+      { text: "Home", link: "/", exact: true },
+      { text: "Posts", link: "/posts/", exact: false },
+      { text: "About", link: "/About.html", exact: false }
     ],
-    friendLink: [],
-    sidebarDepth: 1,
-    sidebar: "auto",
-    vssueConfig: {
-      platform: "github",
+
+    // 评论配置，参考下方 [页面评论] 章节
+    comments: {
       owner: "SigureMo",
-      repo: "Notev",
+      repo: "notev",
       clientId: "02c64bbb4f2a3b0ec621",
       clientSecret: "fb5ea1b5e6117ae25abb0459489f6a0359048d7f"
     },
 
-    lastUpdated: "Last Updated", // string | boolean
+    // 分页配置 (可选)
+    pagination: {
+      perPage: 5
+    },
 
-    // 假定是 GitHub. 同时也可以是一个完整的 GitLab URL
-    repo: "SigureMo/notev",
-    // 自定义仓库链接文字。默认从 `themeConfig.repo` 中自动推断为
-    // "GitHub"/"GitLab"/"Bitbucket" 其中之一，或是 "Source"。
-    repoLabel: "Repo",
-
-    // 以下为可选的编辑链接选项
-
-    // 假如你的文档仓库和项目本身不在一个仓库：
-    docsRepo: "SigureMo/notev",
-    // 假如文档不是放在仓库的根目录下：
-    docsDir: "docs",
-    // 假如文档放在一个特定的分支下：
-    docsBranch: "master",
-    // 默认是 false, 设置为 true 来启用
-    editLinks: true,
-    // 默认为 "Edit this page"
-    editLinkText: "在GitHub上编辑此页！",
+    // 默认页面（可选，默认全为 true）
+    defaultPages: {
+      // 是否允许主题自动添加 Home 页面 (url: /)
+      home: true,
+      // 是否允许主题自动添加 Posts 页面 (url: /posts/)
+      posts: true
+    },
+    sidebarDepth: 1,
+    sidebar: "auto",
     // Service Worker 的配置
     serviceWorker: {
       updatePopup: true
