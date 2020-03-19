@@ -18,8 +18,6 @@ let server = http.createServer(function(request, response) {
   if (pathname == "/") {
     filePath = path.join(filePath, "/index.html");
   }
-  console.log(pathname);
-  console.log(filePath);
 
   fs.readFile(filePath, function(err, data) {
     if (err) {

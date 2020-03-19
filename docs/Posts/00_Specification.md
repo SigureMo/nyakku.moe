@@ -29,15 +29,9 @@ tags:
 
 不过新也挺好的啊，我能和它一起成长嘛（学会了查阅技术文档，也认识到了项目文档的重要性）\~ 之后就是各种折腾咯\~
 
-随后我又用 Vuepress 写了好几个项目文档，用起来非常顺手~
-
-19 年 8 月，偶然间发现了 reco 这个博客主题，看着还不错，继而又是折腾一番，当然这对我来说已经没啥难度了，自此本笔记 repo 正式转为博客 repo
-
-不过 reco 也是个比较新的主题呀，我又见证了一个项目的一步一步成长 :joy: ，也略微尝试了些前端的东西
-
 ## 从文档开始
 
-本 Repo 的 Markdown 等语法基于 [Vuepress 文档](https://vuepress.vuejs.org/) 、 [vuepress-theme-reco 文档](https://vuepress-theme-reco.recoluan.com/) ，查文档是一种最基础的能力
+本 Repo 的 Markdown 等语法基于 [Vuepress 文档](https://vuepress.vuejs.org/)，查文档是一种最基础的能力
 
 ## 如何书写文章
 
