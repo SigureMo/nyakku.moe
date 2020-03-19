@@ -1,8 +1,7 @@
 ---
 title: Deep Learning
 date: 2018-10-14
-categories:
-   - 墨
+category: 墨
 tags:
    - CS
    - DL

@@ -1,8 +1,7 @@
 ---
 title: C to ++
 date: 2019-10-04
-categories:
-   - 迹
+category: 迹
 tags:
    - C
    - C++

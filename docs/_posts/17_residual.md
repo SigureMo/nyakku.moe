@@ -1,8 +1,7 @@
 ---
 title: 残差结构的作用
 date: 2020-01-18
-categories:
-   - 思
+category: 思
 tags:
    - DL
 ---

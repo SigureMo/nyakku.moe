@@ -1,8 +1,7 @@
 ---
 title: 在线工具集合
 date: 2019-11-10
-categories:
-   - 迹
+category: 迹
 tags:
    - Bookmarks
 ---

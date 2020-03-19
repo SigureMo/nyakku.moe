@@ -1,8 +1,7 @@
 ---
 title: Git 协作模式
 date: 2019-10-26
-categories:
-   - 思
+category: 思
 tags:
    - Git
 ---

@@ -1,8 +1,7 @@
 ---
 title: 使用 Python 爬取 B 站视频
 date: 2019-08-18
-categories:
-   - 游
+category: 游
 tags:
    - Python
    - Crawler

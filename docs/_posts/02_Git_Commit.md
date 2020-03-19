@@ -1,8 +1,7 @@
 ---
 title: Git 提交说明
 date: 2018-09-16
-categories:
-   - 迹
+category: 迹
 tags:
    - Git
 ---

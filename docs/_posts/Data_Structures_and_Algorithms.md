@@ -1,8 +1,7 @@
 ---
 title: Data Structures and Algorthms
 date: 2019-08-21
-categories:
-   - 墨
+category: 墨
 tags:
    - CS
    - kaoyan

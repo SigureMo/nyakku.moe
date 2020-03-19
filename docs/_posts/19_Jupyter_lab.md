@@ -1,8 +1,7 @@
 ---
 title: 使用 JupyterLab 开启全新的炼丹之旅
 date: 2020-03-06
-categories:
-   - 迹
+category: 迹
 tags:
    - DL
 ---

@@ -1,8 +1,7 @@
 ---
 title: Operating System
 date: 2019-02-28
-categories:
-   - 墨
+category: 墨
 tags:
    - CS
    - kaoyan

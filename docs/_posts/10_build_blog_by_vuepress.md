@@ -1,8 +1,7 @@
 ---
 title: 使用 Vuepress 搭建个人静态 Blog
 date: 2019-08-17
-categories:
-   - 游
+category: 游
 tags:
    - front end
    - blog

@@ -1,8 +1,7 @@
 ---
 title: Computer Network
 date: 2019-09-18
-categories:
-   - 墨
+category: 墨
 tags:
    - CS
    - kaoyan

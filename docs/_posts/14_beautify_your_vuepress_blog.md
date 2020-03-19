@@ -1,8 +1,7 @@
 ---
 title: 用可爱的插件装饰你的 Vuepress~
 date: 2019-10-21
-categories:
-   - 游
+category: 游
 tags:
    - front end
    - blog

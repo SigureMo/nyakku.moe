@@ -1,8 +1,7 @@
 ---
 title: Discrete Mathematics
 date: 2019-04-25
-categories:
-   - 墨
+category: 墨
 tags:
    - Math
    - CS

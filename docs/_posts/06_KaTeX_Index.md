@@ -1,8 +1,7 @@
 ---
 title: KaTeX 索引表
 date: 2019-05-19
-categories:
-   - 迹
+category: 迹
 tags:
    - KaTeX
 ---

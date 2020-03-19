@@ -1,8 +1,7 @@
 ---
 title: Diskpart 的简单使用
 date: 2018-10-01
-categories:
-   - 迹
+category: 迹
 tags:
    - OS
    - Windows

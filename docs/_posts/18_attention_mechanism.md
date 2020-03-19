@@ -1,8 +1,7 @@
 ---
 title: 注意力机制与 Mask 机制
 date: 2020-01-18
-categories:
-   - 思
+category: 思
 tags:
    - DL
 ---
