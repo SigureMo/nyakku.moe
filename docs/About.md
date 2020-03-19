@@ -1,7 +1,7 @@
 ---
 title: About me
 sidebar: false
-publish: false
+layout: AboutLayout
 ---
 
 <p align="center"><img :src="$withBase('/sigure_mo.png')" alt="SigureMo" height=200 width=200></p>
