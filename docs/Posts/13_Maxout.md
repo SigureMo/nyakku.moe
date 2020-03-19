@@ -43,65 +43,45 @@ Maxout 可以说是一个激活函数，但与其他激活函数所不同的是�
 
 ## 2 如何实现 Maxout
 
-首先令前层单元数为 $d$，后层单元数为 $m$，$Maxout$ 单元扩增倍数为 $k$ （即每 $k$ 个单元“连接”到一个单元）
+一种很直觉的方法就是，我们先将原本的 $m$ 个参数改为 $m \times k$ 个参数，之后每组挑取最大的，但是这样的话，就需要预先用一个矩阵对原先的参数进行线性变换，增加了实现的复杂性
 
-那么我们要怎么实现这样的 $Maxout$ 激活呢？
-
-### 2.1 构建网络层时直接使用新的结构
-
-一种方式是对整个网络层进行重构，原来，即原本 $d \times m$ 个参数改为 $d \times m \times k$ 个参数，之后从中挑选出最大的即可，比如下面的代码
-
-```Python
-import tensorflow as tf
-
-
-x = tf.random_normal([1,3])
-m = 3
-k = 2
-
-d = x.get_shape().as_list()[-1]
-
-W = tf.Variable(tf.random_normal(shape=[d, m, k]))
-b = tf.Variable(tf.random_normal(shape = [m, k]))
-dot_z = tf.tensordot(x, W, axes=1) + b
-z = tf.reduce_max(dot_z, axis=2)
-
-with tf.Session() as sess:
-    sess.run(tf.global_variables_initializer())
-    print(sess.run([x, dot_z, z]))
-```
-
-### 2.2 将 Maxout 作为一个激活函数进行使用
-
-另一种方式是按照 $Maxout$ 为一个激活函数，搭建完线性变换部分（$d$ 个单元连接到 $k \times m$ 个单元）后，再进行 $Reshape$ 分为 $k$ 组，之后每组挑选出最大的即可，参考 `tf.contrib.layers.maxout` ，实现如下
+我们反过来想，如果前一层的输出已经是 $m \times k$ 个参数了呢？很简单。我们 $Maxout$ 只需要分组并每个组选一个最大值就好了嘛~这里参考 TensorFlow1.13 版本的 `tf.contrib.layers.maxout` ，使用 TensorFlow2.0 的 `tf.keras.layers.Layer` API 重写了下
 
 ```python
-def maxout(inputs, num_units, axis=None):
-    """ 将前层部分参数作为 maxout 的参数进行处理 """
-    shape = inputs.get_shape().as_list()
-    if axis is None:
-        # Assume that channel is the last dimension
-        axis = -1
-    num_channels = shape[axis]
-    if num_channels % num_units:
-        raise ValueError('number of features({}) is not a multiple of num_units({})'
-             .format(num_channels, num_units))
-    shape[axis] = num_units
-    shape += [num_channels // num_units]
-    for i in range(len(shape)):
-        if shape[i] is None:
-            shape[i] = -1
-    outputs = tf.reduce_max(tf.reshape(inputs, shape), -1, keepdims=False)
-    return outputs
+import tensorflow as tf
 
-# X.shape = (..., d)
-X = tf.layers.conv2d(inputs=X, filters=k * m, kernel_size, strides, padding)
-# X.shape = (..., m*k)
-X = maxout(inputs=X, num_units=m)
-# X.shape = (..., m)
+class Maxout(tf.keras.layers.Layer):
+    def __init__(self, units, axis=None):
+        super().__init__()
+        self.units = units
+        self.axis = axis
+        if axis is None:
+            self.axis = -1
+
+    def build(self, input_shape):
+
+        self.num_channels = input_shape[self.axis]
+        assert self.num_channels % self.units == 0
+        self.out_shape = input_shape.as_list()
+        self.out_shape[self.axis] = self.units
+        self.out_shape += [self.num_channels // self.units]
+        for i in range(len(self.out_shape)):
+            if self.out_shape[i] is None:
+                self.out_shape[i] = -1
+
+    def call(self, inputs):
+
+        x = tf.reduce_max(tf.reshape(inputs, self.out_shape), axis=-1)
+        return x
+
+# x.shape = (..., d)
+x = tf.keras.layers.Conv2d(k * m, kernel_size, strides, padding)(x)
+# x.shape = (..., m*k)
+x = Maxout(num_units=m)(x)
+# x.shape = (..., m)
 ```
 
-相比于前一种方式，这种方式操作起来更加方便，可以不对原有网络结构进行改变便可实现 $Maxout$ 激活，但是要注意的一点是，前面的线性变换输出单元数是 $m \times k$ 而不是 $m$ ，经过 $Maxout$ 激活后输出单元数才是 $m$
+这种实现方式可以让我们像加一个激活函数一样把 $Maxout$ 加到网络中，但是值得注意的是，这样的 $Maxout$ 实现会将 $m \times k$ 个单元减少为 $m$ 个
 
 # Reference
 

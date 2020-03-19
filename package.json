@@ -1,6 +1,6 @@
 {
   "name": "notev",
-  "version": "1.8.14",
+  "version": "1.8.15",
   "description": "Sigure_Mo's Notes",
   "main": "index.js",
   "scripts": {
@@ -8,11 +8,7 @@
     "docs:build": "vuepress build docs",
     "docs:test": "vuepress build docs && node scripts/vuepress-server.js docs",
     "deploy": "bash scripts/deploy.sh",
-    "clear": "rm -r tmp/* ",
-    "wv": "python3 Codes/pynotex/wechat_viewer.py",
     "time:check": "python3 scripts/check-time.py",
-    "push": "git push & yarn deploy",
-    "grm": "bash scripts/grm.sh",
     "r": "python3 scripts/run.py"
   },
   "keywords": [
@@ -38,7 +34,7 @@
     "markdown-it-vuepress-code-snippet-enhanced": "^1.0.1",
     "prettier": "1.19.1",
     "pretty-quick": "^2.0.1",
-    "vuepress": "^1.2.0",
+    "vuepress": "^1.4.0",
     "vuepress-plugin-cursor-effects": "^0.0.4",
     "vuepress-plugin-dynamic-title": "^0.0.5",
     "vuepress-plugin-flowchart": "^1.4.3",
