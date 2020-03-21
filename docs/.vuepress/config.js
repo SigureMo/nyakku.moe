@@ -99,18 +99,27 @@ module.exports = {
     // 悬挂小猫返回顶部
     ["go-top"],
     // 流程图
-    ["flowchart"]
+    ["flowchart"],
+    // RSS 插件
+    [
+      "feed",
+      {
+        canonical_base: "https://www.sigure.xyz"
+      }
+    ]
   ],
 
   // 主题配置
   theme: "meteorlxy",
   themeConfig: {
-    lang: "en-US",
+    lang: Object.assign(require("vuepress-theme-meteorlxy/lib/langs/en-US"), {
+      home: "一个小透明的透明世界"
+    }),
     personalInfo: {
       // 昵称
       nickname: "SigureMo",
       // 个人简介 (支持 HTML)
-      description: "一个小透明的透明世界",
+      description: "喵喵喵？",
       // 电子邮箱
       email: "sigure@163.com",
       // 所在地
@@ -169,7 +178,8 @@ module.exports = {
     nav: [
       { text: "Home", link: "/", exact: true },
       { text: "Posts", link: "/posts/", exact: false },
-      { text: "About", link: "/About.html", exact: false }
+      { text: "About", link: "/About.html", exact: false },
+      { text: "Github", link: "https://github.com/SigureMo/notev" }
     ],
 
     // 评论配置，参考下方 [页面评论] 章节
