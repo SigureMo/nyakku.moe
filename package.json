@@ -1,6 +1,6 @@
 {
   "name": "notev",
-  "version": "2.0.0-alpha.0",
+  "version": "2.0.0-alpha.1",
   "description": "Sigure_Mo's Notes",
   "main": "index.js",
   "scripts": {
@@ -37,8 +37,9 @@
     "vuepress": "^1.4.0",
     "vuepress-plugin-cursor-effects": "^0.0.4",
     "vuepress-plugin-dynamic-title": "^0.0.5",
+    "vuepress-plugin-feed": "^0.1.8",
     "vuepress-plugin-flowchart": "^1.4.3",
-    "vuepress-plugin-go-top": "^0.0.2",
+    "vuepress-plugin-go-top": "^1.0.0",
     "vuepress-plugin-ribbon": "^1.0.0",
     "vuepress-theme-meteorlxy": "^1.8.0"
   }
