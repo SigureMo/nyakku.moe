@@ -3,6 +3,11 @@ MSSCCPRJ.SCC
 *.vbw
 *.log
 
+# dev-c++
+libcalc.def
+Makefile.win
+*.layout
+
 # calc
 /05_calc/calculate/tmp/
 
