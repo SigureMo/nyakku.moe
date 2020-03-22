@@ -137,11 +137,6 @@ hs_err_pid*
 *.a
 bin/
 
-# dev-c++
-libcalc.def
-Makefile.win
-*.layout
-
 # text
 *.txt
 
@@ -163,13 +158,3 @@ tmp/
 
 # .vscode
 /.vscode/
-
-# vb
-MSSCCPRJ.SCC
-*.vbw
-
-# private post
-docs/Posts/*__*.md
-
-# data
-*.csv
