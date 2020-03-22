@@ -4,20 +4,13 @@ sidebar: false
 layout: AboutLayout
 ---
 
-<p align="center"><img :src="$withBase('/sigure_mo.png')" alt="SigureMo" height=200 width=200></p>
-<p align="center">
-  <a href="https://github.com/SigureMo" class="zi zi_tmGithub"></a>
-  <a href="mailto:sigure_mo@163.com" class="zi zi_envelope"></a>
-  <a href="tencent://AddContact/?fromId=45&fromSubId=1&subcmd=all&uin=240377379&website=www.oicqzone.com" class="zi zi_tmQq"></a>
-</p>
+SigureMo，小辣鸡一枚，本科材料喵，拟跨考 CS ε≡٩(๑>₃<)۶ ~
 
 ::: tip Status
 
 Focus on CV & DL
 
 :::
-
-SigureMo，小辣鸡一枚，本科材料喵，拟跨考 CS ε≡٩(๑>₃<)۶ ~
 
 已成功入坑 {{ dist_times }} ~
 
