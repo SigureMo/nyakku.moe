@@ -148,4 +148,4 @@ python mooc.py https://www.icourse163.org/course/TONGJI-53004 -d "G:\MOOCs"
 ## 推荐
 
 -  [mooc-dl](https://github.com/SigureMo/mooc-dl) 使用手机端接口的中国大学 MOOC 课件爬虫
--  [bilili-dl](https://github.com/SigureMo/bilili-dl) B 站视频爬虫
+-  [bilili](https://github.com/SigureMo/bilili) B 站视频爬虫
