@@ -88,6 +88,8 @@ jupyter lab --ip=0.0.0.0
 
 ```bash
 nohup jupyter lab --ip=0.0.0.0 &
+# nohup jupyter lab --ip=0.0.0.0 >/dev/null 2>log & # 只输出错误信息到日志文件
+# nohup jupyter lab --ip=0.0.0.0 >/dev/null 2>&1 & # 什么信息也不要
 ```
 
 关于 `nohup` 的更多使用方法可见 Ref3
@@ -104,3 +106,4 @@ nohup jupyter lab --ip=0.0.0.0 &
 2. [JupyterLab 远程访问配置方法（CentOS7）](https://www.cnblogs.com/ratels/p/11387740.html)
 3. [Linux nohup 实现后台运行程序及查看（nohup 与 &）](https://www.jb51.net/article/169783.htm)
 4. [15 个好用到爆炸的 Jupyter Lab 插件](https://zhuanlan.zhihu.com/p/101070029)
+5. [Nohup 过大的清理](https://blog.csdn.net/crisschan/article/details/72967027)
