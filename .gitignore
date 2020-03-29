@@ -142,9 +142,12 @@ bin/
 
 # vuepress
 docs/.vuepress/dist/
-docs/.vuepress/plugins/
+docs/.vuepress/plugins/vuepress-plugin-cursor-effects/
+docs/.vuepress/plugins/vuepress-plugin-dynamic-title/
+docs/.vuepress/plugins/vuepress-plugin-go-top/
+docs/.vuepress/plugins/vuepress-plugin-ribbon/
 docs/.vuepress/theme/
-/node_modules/
+node_modules/
 
 # temp
 tmp/
