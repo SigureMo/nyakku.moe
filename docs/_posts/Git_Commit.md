@@ -71,13 +71,14 @@ tags:
 | :see_no_evil:               | `:see_no_evil:`               | Adding or updating a .gitignore file          | 添加或更新.gitignore 文件            |
 | :camera_flash:              | `:camera_flash:`              | Adding or updating snapshots                  | 添加或更新快照                       |
 | :alembic:                   | `:alembic:`                   | Experimenting new things                      | 尝试新事物                           |
-| :mag:                       | `:mag:`                       | Improving SEO                                 | 搜索优化                             |
+| :mag:                       | `:mag:`                       | Improving SEO                                 | SEO 优化                             |
 | :wheel_of_dharma:           | `:wheel_of_dharma:`           | Work about Kubernetes                         | Kubernetes 相关工作                  |
 | :label:                     | `:label:`                     | Adding or updating types (Flow, TypesScript)  | 添加或更新类型声明(Flow、TypeScript) |
 | :seedling:                  | `:seedling:`                  | Adding or updating seed files                 | 添加或更新种子文件                   |
 | :triangular_flag_on_post:   | `:triangular_flag_on_post:`   | Adding, updating, or removing feature flags   | 添加、更新或删除功能标志             |
 | :goal_net:                  | `:goal_net:`                  | Catching errors                               | 发现错误                             |
 | :dizzy:                     | `:dizzy:`                     | Adding or updating animations and transitions | 添加或更新动画和过渡                 |
+| :wastebasket:               | `:wastebasket:`               | Deprecating code that needs to be cleaned up. | 清理冗余代码                         |
 
 ### Commit Message 规范
 
