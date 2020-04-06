@@ -106,6 +106,13 @@ module.exports = {
       {
         canonical_base: "https://www.sigure.xyz"
       }
+    ],
+    // sitemap 插件
+    [
+      "sitemap",
+      {
+        hostname: "https://www.sigure.xyz"
+      }
     ]
   ],
 
@@ -132,8 +139,8 @@ module.exports = {
       sns: {
         // Github 帐号和链接
         github: {
-          account: "meteorlxy",
-          link: "https://github.com/meteorlxy"
+          account: "SigureMo",
+          link: "https://github.com/SigureMo"
         }
       }
     },

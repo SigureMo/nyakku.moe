@@ -1,0 +1,221 @@
+---
+title: Manjaro 初体验
+date: 2020-04-06
+category: 迹
+tags:
+   - Linux
+   - Manjaro
+---
+
+::: tip
+
+虽然接触 Linux 挺久了，但主要还是作为备用系统来用，主要原因不好看……虽然用过一段时间 deepin，但是有很多细节上有 bug，体验并不是很好
+
+前段时间了解到了 Manjaro 这个 Linux 发行版，可以非常方便地安装软件，所以决定尝试一下下～
+
+:::
+
+<!-- more -->
+
+```
+ ██████████████████  ████████     sigure@sigure-li
+ ██████████████████  ████████     OS: Manjaro 19.0.2 Kyria
+ ██████████████████  ████████     Kernel: x86_64 Linux 5.4.28-1-MANJARO
+ ██████████████████  ████████     Uptime: 41m
+ ████████            ████████     Packages: 1270
+ ████████  ████████  ████████     Shell: zsh 5.8
+ ████████  ████████  ████████     Resolution: 1920x1080
+ ████████  ████████  ████████     DE: KDE 5.68.0 / Plasma 5.18.3
+ ████████  ████████  ████████     WM: KWin
+ ████████  ████████  ████████     GTK Theme: Breath [GTK2/3]
+ ████████  ████████  ████████     Icon Theme: McMojave-circle-dark
+ ████████  ████████  ████████     Disk: 700G / 1.1T (68%)
+ ████████  ████████  ████████     CPU: Intel Core i5-4200H @ 4x 3.4GHz [57.0°C]
+ ████████  ████████  ████████     GPU: GeForce GTX 950M
+                                  RAM: 3126MiB / 7853MiB
+```
+
+## Manjaro 的安装
+
+首先在[官网下载](https://manjaro.org/get-manjaro/)镜像，我选择的桌面环境是 KDE。使用 Rufus 以 DD 模式写入，然后就可以用 U 盘启动啦。
+
+U 盘启动后会有时区、键盘、驱动的配置，之后的 Boot 不是配置项，在选择它之前先修改下前几项
+
+```
+tz = Asia/Shanghai
+keytable = us
+driver = non-free
+```
+
+由于深度学习的显卡加速需要闭源驱动，这里直接选 non-free 就好
+
+之后会进入桌面环境，会有些配置选项，这些简单配置下就好，其中分区需要注意一下，最好自己分一下区吧，顺便把 swap 分区挂载上
+
+之后直接安装就好啦～静待片刻，Manjaro 之旅就正式开始啦～
+
+## 换源
+
+二话不说，先换个源
+
+```bash
+sudo pacman-mirrors -i -c China -m rank   # 更新镜像排名
+sudo pacman -Syy                          # 更新数据源
+```
+
+## 安装软件
+
+### 使用 pacman 安装
+
+`pacman` 是 Manjaro 下的软件包管理器，有点类似于 Ubuntu 下的 `apt`，只不过参数稍稍不一样，安装软件需要这样
+
+```bash
+sudo pacman -S <package_names>
+```
+
+### 使用 yay 安装
+
+`yay` 是 AUR 仓库的包管理器，那么什么是 AUR 呢？AUR 是 Arch 的社区维护软件仓库，而不是官方的，所以如果 `pacman` 有下不到的软件可以使用 `yay` 试一下
+
+用 `yay` 之前先开启 AUR，软件包管理器 -> 首选项 -> 高级 -> AUR -> 启用 AUR 支持
+
+之后需要安装 `yay`
+
+```bash
+sudo pacman -S yay
+```
+
+然后就可以使用 `yay` 愉快地安装各种软件啦
+
+```bash
+yay -S <package_name>
+```
+
+### 安装 deb 包
+
+有些软件只提供 debian 系的包，但我们可以使用 debtap 将其转换为 Arch package（debtap 是 DEB To Arch (Linux) Package 的缩写），然后再进行安装
+
+```bash
+# 安装 debtap
+yay -S debtap
+# 更新 debtap
+sudo debtap -u
+# 使用 debtap 进行转换（Licence 可以填 GPL）
+sudo debtap <package_name>.deb
+# 使用 pacman 安装
+sudo pacman -U <package_name>.tar.xz
+```
+
+### 一些常用软件及安装方式
+
+-  vim
+
+   ```
+   sudo pacman -S vim
+   ```
+
+-  Sunpinyin
+
+   听说 Linux 版搜狗输入法有点问题，之前在 Deepin 下确实遇到些 Bug，所以就不选了，这里用 `Sunpinyin` 配合 `Cloudpinyin`，在那之前需要先安装输入法管理器 `fcitx`
+
+   ```
+   sudo pacman -S fcitx-im
+   sudo pacman -S fcitx-configtool
+   sudo pacman -S fcitx-sunpinyin
+   sudo pacman -S fcitx-cloudpinyin
+   ```
+
+   之后在 fcitx 将 `Sunpinyin` 调整为第二输入法并移除多余输入法即可
+
+-  chrome
+
+   ```
+   sudo pacman -S google-chrome
+   ```
+
+-  网易云音乐
+
+   ```bash
+   yay -S netease-cloud-music
+   ```
+
+-  vscode
+
+   ```bash
+   sudo pacman -S visual-studio-code-bin
+   ```
+
+-  WPS
+
+   ```bash
+   yay -S wps-office
+   yay -S ttf-wps-fonts
+   ```
+
+## 美化
+
+### Shell 美化
+
+zsh 相对于 bash 拥有更强的功能，而且也更加美观
+
+参考 [`os-my-zsh` 官网](https://ohmyz.sh/)，输入下面的命令就可以美化优化 zsh 了
+
+```
+sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+```
+
+然后编辑 `~/.zshrc`，修改下主题就能拥有更加美观的 zsh 了（暂时使用的是 `agnoster`）
+
+::: tip
+
+有些主题在 VSCode 里不能正确显示，需要修改下 Terminal 的字体，我改成了 `Menlo for Powerline`，之后重启一下就好了
+
+:::
+
+### Dock
+
+首先安装一个 `Dock`
+
+```bash
+sudo pacman -S latte-dock
+```
+
+略作配置即可
+
+现在底部的面板就有点多余了，移到上面去～然后将无用的部件也都去掉
+
+### 主题更换
+
+KDE 的主题更换都超简单，直接在设置里就能完成
+
+设置 -> 系统设置 -> 外观 -> 全局主题
+
+在这里不仅可以修改主题，还可以在主题库中搜索主题哦，更重要的是，不止全局主题可以，鼠标样式、图标样式等等都可以在丰富的库中寻找资源，一键即可美化系统～
+
+## 一些小问题
+
+### 双系统时间差问题
+
+由于 Windows 与 Linux 显示时间的方式不太一样，所以每次切换系统总是需要改一下时间，如果让这两个系统任意一个妥协使用对方的计时标准即可，这里因为 Manjaro 操作方便，就在 Manjaro 修改了
+
+```bash
+sudo timedatectl set-local-rtc true
+```
+
+### 卡在开机界面
+
+emmmm，刚折腾一天把所有基本该折腾的折腾完了，我突然想把 Krunner 给卸了，然后居然把整个 KDE 给卸了，结果再开机我就卡在登陆界面了
+
+为了能够重新安装 KDE，首先需要进入终端，在卡住的界面按 `Alt+Ctrl+F4` 进入 tty4，然后输入用户名和密码登陆
+
+为了能够联网下载，需要使用 `ifconfig` 开启无线网卡，但如果 `ifconfig` 也没有安装怎么办……一种解决方法是通过数据线将 Android 手机与电脑相连接，在手机上开启 USB 共享网络即可
+
+之后重装 KDE 并重启就又看到了熟悉的开机界面了
+
+# References
+
+1. [Manjaro 美化与调优](https://juejin.im/post/5c6d0a1051882561ad329255)
+2. [Manjaro-Kde 美化](https://www.bilibili.com/video/BV1pJ411N75i)
+3. [manjaro 安装 deb 包](https://zhuanlan.zhihu.com/p/83335242)
+4. [如何解决 Windows 和 Manjaro 双系统时间差 8 小时的问题](https://www.itdaan.com/blog/2017/12/02/2be8e9eaf332561e7ed94c35ba57e757.html)
+5. [安装 Manjaro Linux 的详细步骤](https://ywnz.com/linuxaz/3504.html)
+6. [记 manjaro 图形驱动删除后的一次补救](https://www.cnblogs.com/comixH/p/12232252.html)
