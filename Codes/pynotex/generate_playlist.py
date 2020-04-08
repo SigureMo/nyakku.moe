@@ -1,8 +1,9 @@
 import sys
 import os
 import re
+import argparse
 
-from common.file import Dpl
+from common.file import Dpl, M3u
 
 formats = {'.mp4', '.flv', '.ts', '.wmv'}
 numbers = ['零', '一', '二', '三', '四', '五', '六', '七', '八', '九', '十']
@@ -22,8 +23,9 @@ def listdir(dirname, order = lambda x: x):
             filepaths.extend(listdir(path, order=order))
     return filepaths
 
-def create_playlist(base_dir, playlist_path, path_type='RP', order=lambda x: x):
-    playlist = Dpl(os.path.join(base_dir, 'Playlist.dpl'), path_type=path_type)
+def gen_playlist(base_dir, playlist_path, playlist_type='dpl', path_type='RP', order=lambda x: x):
+    Playlist = Dpl if playlist_type == 'dpl' else M3u
+    playlist = Playlist(playlist_path, path_type=path_type)
     for path in listdir(base_dir, order=order):
         playlist.write_path(path)
 
@@ -41,6 +43,15 @@ def order(paths):
     return paths
 
 if __name__ == '__main__':
-    base_dirs = sys.argv[1:]
-    for base_dir in base_dirs:
-        create_playlist(base_dir, os.path.join(base_dir, 'Playlist.dpl'), order=order)
+    parser = argparse.ArgumentParser(description='wenku')
+    parser.add_argument('dir', help='待生成的 dir')
+    parser.add_argument('--playlist-type', default='dpl', choices=['dpl', 'm3u'], help='生成播放列表类型')
+    parser.add_argument('--path-type', default='rp', choices=['rp', 'ap'], help='播放列表绝对路径/相对路径')
+    parser.add_argument('--inner', action='store_true', help='是否存储在内部')
+    args = parser.parse_args()
+    base_dir = args.dir
+    playlist_name = 'Playlist.'+args.playlist_type
+    playlist_path = os.path.join(base_dir, playlist_name) if args.inner else \
+                    os.path.join(os.path.dirname(base_dir), playlist_name)
+    gen_playlist(base_dir, playlist_path, playlist_type=args.playlist_type,
+                path_type=args.path_type.upper(), order=order)
