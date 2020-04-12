@@ -74,7 +74,7 @@ c.NotebookApp.allow_remote_access = True
 
 接下来就可以运行啦~
 
-### 2.2 使用
+### 2.3 使用
 
 ```bash
 jupyter lab --ip=0.0.0.0
@@ -96,6 +96,14 @@ nohup jupyter lab --ip=0.0.0.0 &
 
 :::
 
+### 2.4 环境切换
+
+如何在 JupyterLab 轻松地切换环境呢？总不能每个环境都安装配置一遍 JupyterLab 吧？这个很简单，只需要安装 `nb_conda_kernels` 就好了
+
+```bash
+conda install nb_conda_kernels
+```
+
 ## 3 丰富的扩展
 
 暂未深入体验，可参见 Ref4
@@ -107,3 +115,4 @@ nohup jupyter lab --ip=0.0.0.0 &
 3. [Linux nohup 实现后台运行程序及查看（nohup 与 &）](https://www.jb51.net/article/169783.htm)
 4. [15 个好用到爆炸的 Jupyter Lab 插件](https://zhuanlan.zhihu.com/p/101070029)
 5. [Nohup 过大的清理](https://blog.csdn.net/crisschan/article/details/72967027)
+6. [多个 conda 环境共享 jupyter notebook(notebook 添加 conda 环境)](https://blog.csdn.net/fengzhongluoleidehua/article/details/84614736)
