@@ -1,6 +1,6 @@
 {
   "name": "notev",
-  "version": "2.0.0-alpha.7",
+  "version": "2.0.0-alpha.8",
   "description": "Sigure_Mo's Notes",
   "main": "index.js",
   "scripts": {
@@ -27,13 +27,10 @@
     "@iktakahiro/markdown-it-katex": "^3.1.0",
     "@vuepress/plugin-active-header-links": "^1.2.0",
     "@vuepress/plugin-pwa": "^1.2.0",
-    "husky": "^3.0.9",
     "markdown-it": "^10.0.0",
     "markdown-it-mark": "^3.0.0",
     "markdown-it-task-lists": "^2.1.1",
     "markdown-it-vuepress-code-snippet-enhanced": "^1.0.1",
-    "prettier": "1.19.1",
-    "pretty-quick": "^2.0.1",
     "vuepress": "^1.4.0",
     "vuepress-plugin-cursor-effects": "^0.0.4",
     "vuepress-plugin-dynamic-title": "^0.0.5",
@@ -43,5 +40,10 @@
     "vuepress-plugin-ribbon": "^1.0.0",
     "vuepress-plugin-sitemap": "^2.3.1",
     "vuepress-theme-meteorlxy": "^1.8.0"
+  },
+  "devDependencies": {
+    "husky": "^4.2.5",
+    "prettier": "^2.0.4",
+    "pretty-quick": "^2.0.1"
   }
 }
