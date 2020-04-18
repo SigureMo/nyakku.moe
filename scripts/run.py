@@ -41,7 +41,7 @@ def run(argv):
         run_cmds(cmd_list)
     elif ext == ".py":
         cmd_list = [
-            ["python3", file_path, *args]
+            ["python", file_path, *args]
         ]
         run_cmds(cmd_list)
     elif ext == ".js":
