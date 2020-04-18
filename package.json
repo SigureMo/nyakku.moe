@@ -1,15 +1,15 @@
 {
   "name": "notev",
-  "version": "2.0.0-alpha.8",
+  "version": "2.0.0-alpha.10",
   "description": "Sigure_Mo's Notes",
   "main": "index.js",
   "scripts": {
-    "docs:dev": "python3 scripts/docs-dev.py",
+    "docs:dev": "python scripts/docs-dev.py",
     "docs:build": "vuepress build docs",
     "docs:test": "vuepress build docs && node scripts/vuepress-server.js docs",
     "deploy": "bash scripts/deploy.sh",
-    "time:check": "python3 scripts/check-time.py",
-    "r": "python3 scripts/run.py"
+    "time:check": "python scripts/check-time.py",
+    "r": "python scripts/run.py"
   },
   "keywords": [
     "note",
@@ -25,13 +25,13 @@
   },
   "dependencies": {
     "@iktakahiro/markdown-it-katex": "^3.1.0",
-    "@vuepress/plugin-active-header-links": "^1.2.0",
-    "@vuepress/plugin-pwa": "^1.2.0",
+    "@vuepress/plugin-active-header-links": "^1.4.1",
+    "@vuepress/plugin-pwa": "^1.4.1",
     "markdown-it": "^10.0.0",
     "markdown-it-mark": "^3.0.0",
     "markdown-it-task-lists": "^2.1.1",
     "markdown-it-vuepress-code-snippet-enhanced": "^1.0.1",
-    "vuepress": "^1.4.0",
+    "vuepress": "^1.4.1",
     "vuepress-plugin-cursor-effects": "^0.0.4",
     "vuepress-plugin-dynamic-title": "^0.0.5",
     "vuepress-plugin-feed": "^0.1.8",

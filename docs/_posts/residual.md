@@ -26,7 +26,7 @@ tags:
 
 此外，ResNet 能够组合的层次仅仅限于第 n 层与第 n+2 层之间，如果我们每一层就建立一个残差而不是像 ResNet 中每两层建立一个残差，另外，我们可以认为不加激活的线性变换就可以称之为残差，那么每一层就成了 $g(w_1x) + w_2x$，那么低层次完全有可能流到更高的层次去，使得网络能够更加轻易的学到更加复杂的特征
 
-> 基于上面的想法以及卷积空间上面的一些心得，我在“恒锐杯”竞赛中建立了[一种网络结构](https://zsync.github.io/shoeprint-recognition/#/model?id=???)
+> 基于上面的想法以及卷积空间上面的一些心得，我在“恒锐杯”竞赛中建立了[一种网络结构](https://cattidea.github.io/shoeprint-recognition/#/model?id=???)
 
 ## DenseNet 结构
 
