@@ -97,13 +97,13 @@ tags:
 
 -  type
 
-   -  ==feat==：新功能（feature）
-   -  ==fix==：修补 bug
-   -  ==docs==：文档（documentation）
-   -  ==style==： 格式（不影响代码运行的变动）
-   -  ==refactor==：重构（即不是新增功能，也不是修改 bug 的代码变动）
-   -  ==test==：增加测试
-   -  ==chore==：构建过程或辅助工具的变动
+   -  ==feat==：添加新功能
+   -  ==fix==：修复 bug
+   -  ==docs==：文档修改
+   -  ==style==： 代码格式修改（不影响代码运行的变动）
+   -  ==refactor==：代码重构（即不是新增功能，也不是修改 bug 的代码变动）
+   -  ==test==：测试用例修改
+   -  ==chore==：其他修改, 比如构建流程、辅助工具、依赖等等的管理
 
 -  scope
 
@@ -142,3 +142,4 @@ This reverts commit 667ecc1654a317a13331b17617d973392f415f02.
 2. [Gitmoji](http://gitmoji.carloscuesta.me/)
 3. [用 gitmoji 来提交你的 git commit 吧](https://github.com/mytac/blogs/issues/2)
 4. [git commit 规范指南](https://segmentfault.com/a/1190000009048911?utm_source=tag-newest)
+5. [优雅地提交你的 Git Commit Message](https://juejin.im/post/5afc5242f265da0b7f44bee4)
