@@ -4,7 +4,7 @@ sidebar: false
 layout: AboutLayout
 ---
 
-SigureMo，小辣鸡一枚，本科材料喵，拟跨考 CS ε≡٩(๑>₃<)۶ ~
+SigureMo（<ruby> 時 <rp>(</rp><rt>し</rt><rp>)</rp> 雨 <rp>(</rp><rt>ぐれ</rt><rp>)</rp> Mo </ruby>），小辣鸡一枚，本科材料喵，拟跨考 CS ε≡٩(๑>₃<)۶ ~
 
 ::: tip Status
 
@@ -31,8 +31,9 @@ Focus on CV & DL
 
 ## 做过些啥？
 
--  [Course Crawler](https://www.sigure.xyz/course-crawler/) 慕课课程下载工具，Fork 于 Foair
--  [Shoeprint Recognition](https://zsync.github.io/shoeprint-recognition/) “恒锐杯”鞋印花纹图像类别判定挑战赛
+-  [Bilili](https://github.com/SigureMo/bilili) B 站视频、弹幕下载工具
+- [mooc-dl](https://github.com/SigureMo/mooc-dl) 中国大学 MOOC 全课件下载器
+-  [Shoeprint Recognition](https://cattidea.github.io/shoeprint-recognition/) “恒锐杯”鞋印花纹图像类别判定挑战赛
 -  [VuePress Lovely Plugins](https://www.sigure.xyz/vuepress-lovely-plugins/) 一些 VuePress 小插件
 
 ## 还想说点啥？
