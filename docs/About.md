@@ -32,7 +32,7 @@ Focus on CV & DL
 ## 做过些啥？
 
 -  [Bilili](https://github.com/SigureMo/bilili) B 站视频、弹幕下载工具
-- [mooc-dl](https://github.com/SigureMo/mooc-dl) 中国大学 MOOC 全课件下载器
+-  [mooc-dl](https://github.com/SigureMo/mooc-dl) 中国大学 MOOC 全课件下载器
 -  [Shoeprint Recognition](https://cattidea.github.io/shoeprint-recognition/) “恒锐杯”鞋印花纹图像类别判定挑战赛
 -  [VuePress Lovely Plugins](https://www.sigure.xyz/vuepress-lovely-plugins/) 一些 VuePress 小插件
 
@@ -70,5 +70,3 @@ export default {
    }
 }
 </script>
-
-<link rel="stylesheet" href="https://ico.z01.com/zico.min.css">
