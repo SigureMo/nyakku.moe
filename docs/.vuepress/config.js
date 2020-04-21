@@ -183,7 +183,7 @@ module.exports = {
     nav: [
       { text: "Home", link: "/", exact: true },
       { text: "Posts", link: "/posts/", exact: false },
-      { text: "About", link: "/About.html", exact: false },
+      { text: "About", link: "/about.html", exact: false },
       { text: "Github", link: "https://github.com/SigureMo/notev" },
     ],
 
