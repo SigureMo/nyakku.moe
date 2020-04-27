@@ -100,6 +100,21 @@ module.exports = {
     ["go-top"],
     // 流程图
     ["flowchart"],
+    // 看板娘插件
+    [
+      "@vuepress-reco/vuepress-plugin-kan-ban-niang",
+      {
+        theme: ["miku"],
+        clean: true,
+        modelStyle: {
+          position: "fixed",
+          left: "0px",
+          bottom: "0px",
+          opacity: "0.9",
+          zIndex: 99999,
+        },
+      },
+    ],
     // RSS 插件
     [
       "feed",
@@ -128,7 +143,7 @@ module.exports = {
       // 个人简介 (支持 HTML)
       description: "喵喵喵？",
       // 电子邮箱
-      email: "sigure@163.com",
+      email: "sigure.qaq@gmail.com",
       // 所在地
       location: "DLC, China",
       // 组织
