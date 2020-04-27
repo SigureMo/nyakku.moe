@@ -1,6 +1,6 @@
 {
   "name": "notev",
-  "version": "2.0.0-alpha.12",
+  "version": "2.0.0-alpha.13",
   "description": "Sigure_Mo's Notes",
   "main": "index.js",
   "scripts": {
@@ -25,6 +25,7 @@
   },
   "dependencies": {
     "@iktakahiro/markdown-it-katex": "^3.1.0",
+    "@vuepress-reco/vuepress-plugin-kan-ban-niang": "^1.0.5",
     "@vuepress/plugin-active-header-links": "^1.4.1",
     "@vuepress/plugin-pwa": "^1.4.1",
     "markdown-it": "^10.0.0",
@@ -36,7 +37,7 @@
     "vuepress-plugin-dynamic-title": "^0.0.5",
     "vuepress-plugin-feed": "^0.1.8",
     "vuepress-plugin-flowchart": "^1.4.3",
-    "vuepress-plugin-go-top": "^1.0.0",
+    "vuepress-plugin-go-top": "^1.0.1",
     "vuepress-plugin-ribbon": "^1.0.0",
     "vuepress-plugin-sitemap": "^2.3.1",
     "vuepress-theme-meteorlxy": "^1.8.0"
