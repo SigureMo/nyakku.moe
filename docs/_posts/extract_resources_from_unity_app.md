@@ -24,8 +24,8 @@ tags:
 
 解压后的目录层次很清晰，我在 `assets/sound` 下找到了我想要的音乐，但是这些文件都是 `.dat` 的，尝试直接修改 `.wav`、`.m4a`、`.mp3` 均无效，所以开始尝试查看其二进制格式
 
-使用 VSCode 插件 `hexdump` 查看其二进制内容，发现开头的关键字是 `UnityFS`，便知道该文件是使用 Unity 打包的文件，因此寻找解包方法
+使用 VSCode 插件 `hexdump` 查看其二进制内容，发现开头的关键字是 `UnityFS`，便知道该文件是使用 Unity 打包的，遂寻找相应的解包方法
 
 ## 解包 Unity 文件
 
-经过搜索找到了[AssetStudio](https://github.com/Perfare/AssetStudio)，直接在 releases 里下载就好，因为有 GUI，操作起来很方便，可以轻松将需要的内容解包出来，之后就可以愉快地享受音乐啦 (ฅ>ω<\*ฅ)
+经过搜索找到了 [AssetStudio](https://github.com/Perfare/AssetStudio)，直接在 releases 里下载就好，因为有 GUI，操作起来很方便，可以轻松将需要的内容解包出来，之后就可以愉快地享受音乐啦 (ฅ>ω<\*ฅ)

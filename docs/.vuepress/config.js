@@ -179,7 +179,7 @@ module.exports = {
       poweredByTheme: true,
       // 添加自定义 footer (支持 HTML)
       custom:
-        'Copyright 2018-present <a href="https://github.com/SigureMo" target="_blank">SigureMo</a> | MIT License',
+        'Copyright 2018-present <a href="https://github.com/SigureMo" target="_blank">SigureMo</a> | MIT License</br>辽ICP备19014250号',
     },
 
     // 个人信息卡片相关设置 (可选)
