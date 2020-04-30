@@ -135,7 +135,6 @@ hs_err_pid*
 *.dll
 *.o
 *.a
-bin/
 
 # text
 *.txt
@@ -148,6 +147,7 @@ docs/.vuepress/plugins/vuepress-plugin-go-top/
 docs/.vuepress/plugins/vuepress-plugin-ribbon/
 docs/.vuepress/theme/
 node_modules/
+yarn.lock
 
 # temp
 tmp/
