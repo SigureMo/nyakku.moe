@@ -19,7 +19,6 @@ export default {
   },
 
   mounted() {
-    console.log(APLAYER_OPTIONS);
     if (this.meta.auto) this._parse_link();
 
     const params = {
