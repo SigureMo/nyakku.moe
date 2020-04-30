@@ -100,21 +100,6 @@ module.exports = {
     ["go-top"],
     // 流程图
     ["flowchart"],
-    // 看板娘插件
-    [
-      "@vuepress-reco/vuepress-plugin-kan-ban-niang",
-      {
-        theme: ["miku"],
-        clean: true,
-        modelStyle: {
-          position: "fixed",
-          left: "0px",
-          bottom: "0px",
-          opacity: "0.9",
-          zIndex: 99999,
-        },
-      },
-    ],
     // RSS 插件
     [
       "feed",
@@ -127,6 +112,22 @@ module.exports = {
       "sitemap",
       {
         hostname: "https://www.sigure.xyz",
+      },
+    ],
+    // GA 插件
+    [
+      "@vuepress/google-analytics",
+      {
+        ga: "UA-164960376-1",
+      },
+    ],
+    // Meting 插件
+    [
+      require("./plugins/vuepress-plugin-meting/index.js"),
+      {
+        server: "netease",
+        type: "playlist",
+        id: "2539599584",
       },
     ],
   ],
