@@ -50,5 +50,6 @@ tags:
 
 ## 其他扩展
 
+-  **WakaTime**
 -  **VSC Netease Music**
 -  Chinese (Simplified) Language Pack for Visual Studio Code
