@@ -123,11 +123,16 @@ module.exports = {
     ],
     // Meting 插件
     [
-      require("./plugins/vuepress-plugin-meting/index.js"),
+      "meting",
       {
-        server: "netease",
-        type: "playlist",
-        id: "2539599584",
+        meting: {
+          server: "netease",
+          type: "playlist",
+          mid: "2539599584",
+        },
+        aplayer: {
+          lrcType: 3,
+        },
       },
     ],
   ],
