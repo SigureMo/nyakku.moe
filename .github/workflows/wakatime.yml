@@ -1,0 +1,16 @@
+name: WakaTime
+
+on:
+  schedule:
+    - cron: "15 0 * * *"
+
+jobs:
+  update-gist:
+    runs-on: ubuntu-latest
+    steps:
+      - name: waka-box
+        uses: matchai/waka-box@v4.0.3
+        env:
+          GH_TOKEN: ${{ secrets.GH_TOKEN }}
+          GIST_ID: cd776acfe29d5d4001d0dec49fb478e5
+          WAKATIME_API_KEY: ${{ secrets.WAKATIME_API_KEY }}
