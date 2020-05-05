@@ -82,6 +82,7 @@ module.exports = {
     [
       "cursor-effects",
       {
+        size: 1.75,
         shape: "star",
       },
     ],

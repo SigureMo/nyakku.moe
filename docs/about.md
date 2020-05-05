@@ -19,6 +19,7 @@ SigureMo（<ruby> 時 <rp>(</rp><rt>し</rt><rp>)</rp> 雨 <rp>(</rp><rt>ぐれ<
 -  [QQ](tencent://AddContact/?fromId=45&fromSubId=1&subcmd=all&uin=240377379&website=www.oicqzone.com)
 -  [NPM](https://www.npmjs.com/~sigure_mo)
 -  [Mail](mailto:sigure.qaq@gmail.com)
+-  [Bilibili](https://space.bilibili.com/100969474)
 
 ## 音乐～
 
