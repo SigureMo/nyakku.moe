@@ -1,6 +1,6 @@
 {
   "name": "notev",
-  "version": "2.0.0-alpha.20",
+  "version": "2.0.0-alpha.21",
   "description": "Sigure_Mo's Notes",
   "main": "index.js",
   "scripts": {
@@ -38,7 +38,7 @@
     "vuepress-plugin-feed": "^0.1.8",
     "vuepress-plugin-flowchart": "^1.4.3",
     "vuepress-plugin-go-top": "^1.0.1",
-    "vuepress-plugin-meting": "^0.0.3",
+    "vuepress-plugin-meting": "^0.0.4",
     "vuepress-plugin-ribbon": "^1.0.0",
     "vuepress-plugin-sitemap": "^2.3.1",
     "vuepress-theme-meteorlxy": "^1.9.0"
