@@ -9,15 +9,10 @@ jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@master
-      - name: git-lfs
-        run: |
-          git lfs install
-          git lfs pull
-      - name: git-submodule
-        run: |
-          git submodule init
-          git submodule update
+      - uses: actions/checkout@v2
+        with:
+          lfs: true
+          submodules: true
       - uses: actions/setup-node@master
       - name: deploy
         run: |
