@@ -1,0 +1,3 @@
+[submodule "docs/img"]
+	path = docs/img
+	url = git@github.com:SigureMo/image-hosting.git
