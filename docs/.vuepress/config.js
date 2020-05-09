@@ -186,7 +186,7 @@ module.exports = {
       poweredByTheme: true,
       // 添加自定义 footer (支持 HTML)
       custom:
-        'Copyright 2018-present <a href="https://github.com/SigureMo" target="_blank">SigureMo</a> | MIT License</br>辽ICP备19014250号',
+        'Copyright 2018-present <a href="https://github.com/SigureMo" target="_blank">SigureMo</a> | MIT License</br><a href="http://www.beian.miit.gov.cn/" target="_blank">辽ICP备19014250号</a>',
     },
 
     // 个人信息卡片相关设置 (可选)
