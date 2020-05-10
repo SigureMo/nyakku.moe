@@ -1,6 +1,6 @@
 {
   "name": "notev",
-  "version": "2.0.0-alpha.27",
+  "version": "2.0.0",
   "description": "Sigure_Mo's Notes",
   "main": "index.js",
   "scripts": {
@@ -8,7 +8,6 @@
     "docs:build": "vuepress build docs",
     "docs:test": "vuepress build docs && node scripts/vuepress-server.js docs",
     "deploy": "bash scripts/deploy.sh",
-    "time:check": "python scripts/check-time.py",
     "r": "python scripts/run.py"
   },
   "keywords": [
