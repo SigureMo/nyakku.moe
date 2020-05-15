@@ -108,13 +108,6 @@ module.exports = {
         canonical_base: "https://www.sigure.xyz",
       },
     ],
-    // sitemap 插件
-    [
-      "sitemap",
-      {
-        hostname: "https://www.sigure.xyz",
-      },
-    ],
     // GA 插件
     [
       "@vuepress/google-analytics",

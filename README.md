@@ -11,6 +11,9 @@
    <br/>
    <a href="LICENSE"><img alt="LICENSE" src="https://img.shields.io/badge/License-MIT-orange?style=flat-square"></a>
    <a href="https://creativecommons.org/licenses/by-sa/4.0/"><img alt="CC4.0 BY-SA" src="https://img.shields.io/static/v1?label=CC4.0&message=BY-SA&color=yellow&style=flat-square"></a>
+   <br/>
+   <a href="https://github.com/SigureMo/notev/actions?query=workflow%3A%22Vuepress+Deploy%22" target="_blank"><img alt="Vuepress Deploy" src="https://github.com/SigureMo/notev/workflows/Vuepress%20Deploy/badge.svg"></img></a>
+   <a href="https://wakatime.com/badge/github/SigureMo/notev" target="_blank"><img alt="WakaTime" src="https://wakatime.com/badge/github/SigureMo/notev.svg"></a>
 </p>
 
 一个方便个人写些笔记和小脚本的环境，以静态博客的形式发布~
