@@ -1,6 +1,6 @@
 {
   "name": "notev",
-  "version": "2.0.1",
+  "version": "2.0.7",
   "description": "Sigure_Mo's Notes",
   "main": "index.js",
   "scripts": {
@@ -24,14 +24,14 @@
   },
   "dependencies": {
     "@iktakahiro/markdown-it-katex": "^3.1.0",
-    "@vuepress/plugin-active-header-links": "^1.4.1",
-    "@vuepress/plugin-google-analytics": "^1.4.1",
-    "@vuepress/plugin-pwa": "^1.4.1",
+    "@vuepress/plugin-active-header-links": "^1.5.0",
+    "@vuepress/plugin-google-analytics": "^1.5.0",
+    "@vuepress/plugin-pwa": "^1.5.0",
     "markdown-it": "^10.0.0",
     "markdown-it-mark": "^3.0.0",
     "markdown-it-task-lists": "^2.1.1",
     "markdown-it-vuepress-code-snippet-enhanced": "^1.0.1",
-    "vuepress": "^1.4.1",
+    "vuepress": "1.4.1",
     "vuepress-plugin-cursor-effects": "^0.0.4",
     "vuepress-plugin-dynamic-title": "^0.0.5",
     "vuepress-plugin-feed": "^0.1.8",
@@ -39,12 +39,11 @@
     "vuepress-plugin-go-top": "^1.0.1",
     "vuepress-plugin-meting": "^0.0.4",
     "vuepress-plugin-ribbon": "^1.0.0",
-    "vuepress-plugin-sitemap": "^2.3.1",
     "vuepress-theme-meteorlxy": "^1.9.0"
   },
   "devDependencies": {
     "husky": "^4.2.5",
-    "prettier": "^2.0.4",
+    "prettier": "^2.0.5",
     "pretty-quick": "^2.0.1"
   }
 }

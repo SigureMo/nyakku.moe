@@ -52,7 +52,7 @@ def docs_dev():
 if __name__ == '__main__':
 
     allow_keys = replaces.keys()
-    keys = list(map(lambda arg: arg.lstrip('--no-'), sys.argv[1: ]) if sys.argv[1: ] else allow_keys)
+    keys = list(map(lambda arg: arg.lstrip('--no-'), sys.argv[1: ]) if sys.argv[1: ] else [])
     assert all([key in allow_keys for key in keys])
 
     try:
