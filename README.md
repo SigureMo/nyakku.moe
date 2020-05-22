@@ -1,6 +1,6 @@
 # Notev
 
-> Note for develope.
+> Notes for develope.
 
 <p align="center">
    <a href="https://www.sigure.xyz/" target="_blank"><img alt="Read the Docs" src="https://img.shields.io/badge/Blog-Notev-red?style=flat-square&logo=read-the-docs"></a>

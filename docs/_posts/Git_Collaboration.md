@@ -8,9 +8,7 @@ tags:
 
 ::: tip
 
-虽然用 Git 也有一年多了，但是平时只用那些简单的常用命令(`add`、`commit`、`push`)，导致我平时连个 `merge` 都需要再去网上查，效率极低
-
-这两天在 `vuepress-reco` 下修复了几个 bug ，经过多次的练习，我大概知道一般 Git 团队协作模式了，为了防止以后忘记，还是在这里简单记录下
+虽然平时写个笔记都会使用 Git 来保存，但常用的也就只有 `add`、`commit`、`push` 等等简单的命令啦，偶尔出点问题都需要去现查，为了提高效率，我在这里整理一下简单的 Git 协作命令，以备不时之需ヽ(✿ ﾟ ▽ ﾟ)ノ
 
 :::
 
@@ -76,7 +74,7 @@ git branch -d dev                # 移除无用的 dev 分支
 ### 首先 clone 下来你的 repo
 
 ```bash
-git clone git@github.com:SigureMo/vuepress-theme-reco.git
+git clone git@github.com:SigureMo/vuepress.git
 ```
 
 当然，该 `repo` 已经绑定在远程仓库 `origin` 上了
@@ -84,7 +82,7 @@ git clone git@github.com:SigureMo/vuepress-theme-reco.git
 ### 将原分支绑定在 upstream
 
 ```bash
-git remote add upstream git@github.com:vuepress-reco/vuepress-theme-reco.git
+git remote add upstream git@github.com:vuejs/vuepress.git
 ```
 
 这样，你的 `upstream` 就代表了原作者的远程分支，而 `origin` 就代表了你 fork 后的远程分支
@@ -145,18 +143,28 @@ git fetch origin pull/6/head:dev
 
 ### 使用一个 commit 合并所有内容
 
-如果想要只使用一个 commit 提交所有内容，可以在回到 `master` 后 `merge` 的时候加一个参数 `squash` ，之后再提交
+有时 PR 中 commit 信息太多，直接合并入 master 可能导致 commit 历史可读性降低，这种情况下使用一个 commit 提交所有内容更好些，常用的方法有两种
+
+一种是 `squash`，它比较简单，直接在回到 `master` 后 `merge` 的时候加一个参数 `squash` ，之后再提交即可
 
 ```bash
 git merge dev --squash
 git commit
 ```
 
-::: tip 注意
+但是，该方法在合并的同时也会将作者信息修改为该行为的操作者，贡献者的信息将会消失，很明显这并不是一个比较好的解决方案
 
-该方式可能导致发起 PR 的人的提交信息丢失，谨慎操作
+更常用的解决方案是使用 `rebase` 来合并全部内容
 
-:::
+```
+git checkout dev
+git rebase -i master
+git checkout master
+git merge dev
+git commit
+```
+
+这样不仅可以使得 commit history 清爽简洁，也会保留 PR 发起人重要的贡献信息
 
 ## 团队协作模式
 
@@ -187,3 +195,4 @@ git push origin feature/sigure
 # Reference
 
 1. [Git 常用命令和 Git Flow 梳理](https://www.cnblogs.com/ldy-blogs/p/10529946.html#4416607)
+2. [git merge squash 和 rebase 区别](https://www.jianshu.com/p/684a8ae9dcf1)
