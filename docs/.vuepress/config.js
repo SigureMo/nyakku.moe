@@ -1,6 +1,7 @@
 module.exports = {
   title: "Notev",
   description: "一个小透明的透明世界",
+  port: 1127,
   evergreen: true,
   locales: {
     "/": {
@@ -141,7 +142,7 @@ module.exports = {
       // 昵称
       nickname: "SigureMo",
       // 个人简介 (支持 HTML)
-      description: "喵喵喵？",
+      description: "因为热爱，所以期待～",
       // 电子邮箱
       email: "sigure.qaq@gmail.com",
       // 所在地
