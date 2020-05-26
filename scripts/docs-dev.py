@@ -56,8 +56,10 @@ if __name__ == '__main__':
     assert all([key in allow_keys for key in keys])
 
     try:
-        config_text = backup()
-        gen_dev_config(keys)
+        if keys:
+            config_text = backup()
+            gen_dev_config(keys)
         docs_dev()
     finally:
-        restore(config_text)
+        if keys:
+            restore(config_text)
