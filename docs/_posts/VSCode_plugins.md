@@ -36,6 +36,7 @@ tags:
 -  LaTeX Workshop
 -  Markdown PDF
 -  Prettier - Code formatter
+-  Marp for VS Code
 
 ## 图标主题类扩展
 
