@@ -124,6 +124,14 @@ sudo pacman -U <package_name>.tar.xz
    sudo pacman -S fcitx-cloudpinyin
    ```
 
+   并将以下内容添加到 `/etc/profile`
+
+   ```
+   export GTK_IM_MODULE=fcitx
+   export QT_IM_MODULE=fcitx
+   export XMODIFIERS="@im=fcitx"
+   ```
+
    之后在 fcitx 将 `Sunpinyin` 调整为第二输入法并移除多余输入法即可
 
 -  chrome

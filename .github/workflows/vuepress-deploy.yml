@@ -22,6 +22,7 @@ jobs:
           yarn
           yarn docs:build
           echo www.sigure.xyz > docs/.vuepress/dist/CNAME
+
       - name: Deploy 🚀
         uses: JamesIves/github-pages-deploy-action@releases/v3
         with:

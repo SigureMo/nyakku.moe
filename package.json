@@ -1,6 +1,6 @@
 {
   "name": "notev",
-  "version": "2.0.8",
+  "version": "2.0.9",
   "description": "Sigure_Mo's Notes",
   "main": "index.js",
   "scripts": {
@@ -8,6 +8,7 @@
     "docs:build": "vuepress build docs",
     "docs:test": "vuepress build docs && node scripts/vuepress-server.js docs",
     "deploy": "bash scripts/deploy.sh",
+    "img:commit": "bash scripts/commit-img.sh",
     "r": "python scripts/run.py"
   },
   "keywords": [
