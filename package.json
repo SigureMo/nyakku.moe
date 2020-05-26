@@ -1,6 +1,6 @@
 {
   "name": "notev",
-  "version": "2.0.8",
+  "version": "2.0.11",
   "description": "Sigure_Mo's Notes",
   "main": "index.js",
   "scripts": {
@@ -8,6 +8,7 @@
     "docs:build": "vuepress build docs",
     "docs:test": "vuepress build docs && node scripts/vuepress-server.js docs",
     "deploy": "bash scripts/deploy.sh",
+    "img:commit": "bash scripts/commit-img.sh",
     "r": "python scripts/run.py"
   },
   "keywords": [
@@ -27,7 +28,7 @@
     "@vuepress/plugin-active-header-links": "^1.5.0",
     "@vuepress/plugin-google-analytics": "^1.5.0",
     "@vuepress/plugin-pwa": "^1.5.0",
-    "markdown-it": "^10.0.0",
+    "markdown-it": "^11.0.0",
     "markdown-it-mark": "^3.0.0",
     "markdown-it-task-lists": "^2.1.1",
     "markdown-it-vuepress-code-snippet-enhanced": "^1.0.1",
