@@ -49,9 +49,15 @@ driver = non-free
 
 由于深度学习的显卡加速需要闭源驱动，这里直接选 non-free 就好
 
-之后会进入桌面环境，会有些配置选项，这些简单配置下就好，其中分区需要注意一下，最好自己分一下区吧，顺便把 swap 分区挂载上
+之后会进入桌面环境，会有些配置选项，这些简单配置下就好，其中分区需要注意一下，最好手动分区一下
 
-之后直接安装就好啦～静待片刻，Manjaro 之旅就正式开始啦～
+-  `/` 15-20GB 根目录，由于包含 `/usr` 所以会有安装的各种软件，不能太小
+-  `/boot` 512MB
+-  `/var` 8-12GB，主要是缓存，读写频繁
+-  `swap` 4GB，交换分区
+-  `/home` 剩余全部
+
+再之后直接安装就好啦～静待片刻，Manjaro 之旅就正式开始啦～
 
 ## 换源
 
@@ -122,6 +128,14 @@ sudo pacman -U <package_name>.tar.xz
    sudo pacman -S fcitx-configtool
    sudo pacman -S fcitx-sunpinyin
    sudo pacman -S fcitx-cloudpinyin
+   ```
+
+   并将以下内容添加到 `/etc/profile`
+
+   ```
+   export GTK_IM_MODULE=fcitx
+   export QT_IM_MODULE=fcitx
+   export XMODIFIERS="@im=fcitx"
    ```
 
    之后在 fcitx 将 `Sunpinyin` 调整为第二输入法并移除多余输入法即可
@@ -219,3 +233,4 @@ emmmm，刚折腾一天把所有基本该折腾的折腾完了，我突然想把
 4. [如何解决 Windows 和 Manjaro 双系统时间差 8 小时的问题](https://www.itdaan.com/blog/2017/12/02/2be8e9eaf332561e7ed94c35ba57e757.html)
 5. [安装 Manjaro Linux 的详细步骤](https://ywnz.com/linuxaz/3504.html)
 6. [记 manjaro 图形驱动删除后的一次补救](https://www.cnblogs.com/comixH/p/12232252.html)
+7. [manjaro 安装分区以及配置方案](https://blog.csdn.net/lj402159806/article/details/80218360)
