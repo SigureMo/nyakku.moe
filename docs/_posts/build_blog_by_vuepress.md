@@ -152,7 +152,7 @@ yarn docs:build # 或者：npm run docs:build
 ```js
 module.exports = {
    title: "Hello VuePress",
-   description: "Just playing around"
+   description: "Just playing around",
 };
 ```
 
@@ -167,13 +167,13 @@ module.exports = {
    themeConfig: {
       nav: [
          { text: "Home", link: "/" },
-         { text: "Guide", link: "/guide/" }
+         { text: "Guide", link: "/guide/" },
       ],
       sidebar: {
          "/guide/": ["", "getting_started"],
-         "/": ["", "config"]
-      }
-   }
+         "/": ["", "config"],
+      },
+   },
 };
 ```
 
@@ -222,7 +222,7 @@ yarn add -D vuepress-theme-reco
 
 ```js
 module.exports = {
-   theme: "reco"
+   theme: "reco",
 };
 ```
 
@@ -235,19 +235,19 @@ module.exports = {
       blogConfig: {
          category: {
             location: 2, // 在导航栏菜单中所占的位置，默认2
-            text: "Category" // 默认文案 “分类”
+            text: "Category", // 默认文案 “分类”
          },
          tag: {
             location: 3, // 在导航栏菜单中所占的位置，默认3
-            text: "Tag" // 默认文案 “标签”
-         }
+            text: "Tag", // 默认文案 “标签”
+         },
       },
       nav: [
          { text: "Home", link: "/", icon: "reco-home" },
-         { text: "Guide", link: "/Guide/", icon: "reco-eye" }
+         { text: "Guide", link: "/Guide/", icon: "reco-eye" },
       ],
-      sidebar: "auto"
-   }
+      sidebar: "auto",
+   },
 };
 ```
 
@@ -277,8 +277,8 @@ tags:
 ```js
 module.exports = {
    themeConfig: {
-      type: "blog"
-   }
+      type: "blog",
+   },
 };
 ```
 
@@ -349,11 +349,11 @@ bash scripts/deploy.sh
 
 [源文档](https://v1.vuepress.vuejs.org/zh/plugin/using-a-plugin.html)
 
-比如说启用页面滚动时自动激活侧边栏，首先安装该插件
+比如说在博客背景中添加一条彩带，首先安装该插件
 
 ```bash
-yarn add -D @vuepress/plugin-active-header-links@next
-# OR npm install -D @vuepress/plugin-active-header-links@next
+yarn add -D vuepress-plugin-ribbon
+# OR npm install -D vuepress-plugin-ribbon
 ```
 
 之后在 `docs/.vuepress/config.js` 中添加
@@ -361,16 +361,23 @@ yarn add -D @vuepress/plugin-active-header-links@next
 ```js
 module.exports = {
    plugins: [
-      // 页面滚动时自动激活侧边栏链接
-      "@vuepress/active-header-links"
-   ]
+      // 彩带背景
+      [
+         "ribbon",
+         {
+            size: 90,
+            opacity: 0.8,
+            zIndex: -1,
+         },
+      ],
+   ],
 };
 ```
 
 其他推荐的插件
 
--  `vuepress-plugin-ribbon` 在背景中加入一条彩带
 -  `vuepress-plugin-live2d` 在博客中添加一个看板娘
+-  `@maginapp/vuepress-plugin-katex` 方便使用 KaTeX
 -  `@vuepress/pwa` 启用 PWA
 
 ### Markdown 插件的添加
@@ -385,41 +392,22 @@ yarn add markdown-it-xxx # or npm install markdown-it-xxx
 
 配置 `docs/.vuepress/config.js`
 
-```bash
-module.exports = {
-  markdown: {
-    extendMarkdown: md => {
-      // 使用更多的 markdown-it 插件!
-      md.use(require('markdown-it-xxx'))
-    }
-  }
-}
-```
-
-下面推荐几个有用的插件
-
--  `markdown-it-mark` 在词语两侧添加 `==` 即可对其实现 ==高亮== 的效果，非常简单实用
--  `@iktakahiro/markdown-it-katex` 可在 Markdown 内解析 $\KaTeX$，但是其依赖 `CSS`，所以需要额外配置下 `docs/.vuepress/config.js`
-
 ```js
 module.exports = {
-   head: [
-      [
-         "link",
-         {
-            rel: "stylesheet",
-            href: "https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/katex.min.css"
-         }
-      ]
-   ]
+   markdown: {
+      extendMarkdown: (md) => {
+         // 使用更多的 markdown-it 插件!
+         md.use(require("markdown-it-xxx"));
+      },
+   },
 };
 ```
 
-::: warning
-在 `config.js` 中配置的 markdown 配置都是在编译时便解析完成的，所以配置 `markdown-it-katex` 后可能会导致编译时间特别长，但是当前其是一个非常有效的方式
+几个推荐的插件
 
-另外也可以使用插件 `vuepress-plugin-mathjax` 进行渲染，但是我在使用的时候发生了一些问题，尚待解决
-:::
+-  `markdown-it-mark` 在词语两侧添加 `==` 即可对其实现 ==高亮== 的效果，非常简单实用
+-  `markdown-it-task-lists` 复选框插件
+-  `markdown-it-vuepress-code-snippet-enhanced` vuepress 内置代码块语法提升插件，可以方便地引入某个文件中某个区间内的代码
 
 ### 配置主题颜色
 

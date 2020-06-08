@@ -16,13 +16,6 @@ module.exports = {
         content: "width=device-width,initial-scale=1,user-scalable=no",
       },
     ],
-    [
-      "link",
-      {
-        rel: "stylesheet",
-        href: "https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.css",
-      },
-    ],
     ["meta", { property: "og:image", content: "/sigure_mo.png" }],
     ["link", { rel: "manifest", href: "/manifest.json" }],
     ["meta", { name: "theme-color", content: "#222222" }],
@@ -53,7 +46,6 @@ module.exports = {
     // markdown 插件
     extendMarkdown: (md) => {
       md.set({ html: true });
-      md.use(require("@iktakahiro/markdown-it-katex"));
       md.use(require("markdown-it-mark"));
       md.use(require("markdown-it-task-lists"));
       md.use(require("markdown-it-vuepress-code-snippet-enhanced"));
@@ -130,6 +122,8 @@ module.exports = {
         },
       },
     ],
+    // KaTeX 插件
+    ["@maginapp/vuepress-plugin-katex"],
   ],
 
   // 主题配置
