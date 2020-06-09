@@ -19,7 +19,7 @@ tags:
 | :ambulance:                 | `:ambulance:`                 | Critical hotfix.                              | 修复关键程序                         |
 | :sparkles:                  | `:sparkles:`                  | Introducing new features.                     | 引入新功能                           |
 | :memo:                      | `:memo:`                      | Writing docs.                                 | 写文档                               |
-| :rocket:                    | `:rocket:`                    | Deploying stuff.                              | 部署新功能                           |
+| :rocket:                    | `:rocket:`                    | Deploying stuff.                              | 部署任务                             |
 | :lipstick:                  | `:lipstick:`                  | Updating the UI and style files.              | 升级 UI 和样式文件                   |
 | :tada:                      | `:tada:`                      | Initial commit.                               | 初次提交                             |
 | :white_check_mark:          | `:white_check_mark:`          | Adding tests.                                 | 添加测试用例                         |
