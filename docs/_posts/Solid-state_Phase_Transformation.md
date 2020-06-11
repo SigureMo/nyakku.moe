@@ -124,7 +124,7 @@ $$
 
 $\Delta G < 0$
 
-![](../img/SPT01.png)
+![](../img/Solid-state_Phase_Transformation/SPT01.png)
 
 这个图很重要哟
 
@@ -134,7 +134,7 @@ $\Delta G < 0$
 
 > ==相变势垒== $\Delta g$ 是指相变时晶格改组所必须克服的原子间引力
 
-![](../img/SPT02.png)
+![](../img/Solid-state_Phase_Transformation/SPT02.png)
 
 > 有点像高中化学里学的化学变化所需要的**激活能**，其实都是一样的，就是相变的一个**门槛能量**，而这个小“坑”的存在也是必然的，因为如果没有这么一个“坑”的话，$\gamma$ 相根本不可能稳定存在，有了这么一个小“坑”使得它可以是一个亚稳相而存在
 
@@ -202,7 +202,7 @@ $$
 
 1. 新相形成时无成分变化，只有原子的近程扩散
 
-   ![](../img/SPT03.png)
+   ![](../img/Solid-state_Phase_Transformation/SPT03.png)
 
    还是这张图，母相$\gamma$转变为新相$\alpha$需要先“爬”上$\Delta g$这个小坡，然后就“咻~”滑下去了，既然是扩散，我们就可以利用阿伦尼乌兹公式计算具有这一激活能的概率：
 
@@ -257,7 +257,7 @@ $$
 -  当新相$\alpha$中的溶质原子浓度高于母相$\gamma$中的溶质原子浓度时，相界面处$\gamma$相内的溶质原子浓度比$\gamma$远处的高，所以在$\gamma$相内必然发生浓度驱动的扩散，但是这使得相界面处的浓度差（自由能差=0）发生改变，若需要维持这一浓度差就必然需要继续长大，所以……
 -  当新相低于母相，分析也同上
 
-![](../img/SPT04.png)
+![](../img/Solid-state_Phase_Transformation/SPT04.png)
 
 ### 3.2 相变动力学曲线
 
@@ -265,7 +265,7 @@ $TTT$ 曲线，又称 $C$ 曲线
 
 左侧为*转变开始*线，右侧为*相变终了*线
 
-![](../img/SPT12.png)
+![](../img/Solid-state_Phase_Transformation/SPT12.png)
 
 ---
 
@@ -279,7 +279,7 @@ $TTT$ 曲线，又称 $C$ 曲线
 
 #### 4.1.1 奥氏体形成的温度范围
 
-![](../img/SPT05.jpg)
+![](../img/Solid-state_Phase_Transformation/SPT05.jpg)
 
 由于相图只是**热力学平衡**时的状态图，但我们知道，想要发生相变在动力学上要满足一定的**过热度或者过冷度**，所以相变临界点会有一定的滞后
 
@@ -460,7 +460,7 @@ $TTT$ 曲线，又称 $C$ 曲线
 
 -  ==伪共析转变==
 
-   ![](../img/SPT06.png)
+   ![](../img/Solid-state_Phase_Transformation/SPT06.png)
 
    非共析成分，快速冷却到 $E'SG'$ 区，会同时析出铁素体和渗碳体，全部奥氏体转化为==珠光体型组织==，但是这里面的铁素体和渗碳体的相对含量是和恭喜成分珠光体是不同的
 
@@ -487,7 +487,7 @@ $$
 
 TTT 曲线
 
-![](../img/SPT07.png)
+![](../img/Solid-state_Phase_Transformation/SPT07.png)
 
 虚线为贝氏体和马氏体的
 
@@ -668,7 +668,7 @@ $$
 -  冷时效是指较低温度下发生的时效
 -  温时效是指较高温度下发生的时效
 
-![](../img/SPT08.png)
+![](../img/Solid-state_Phase_Transformation/SPT08.png)
 
 #### 6.3.2 时效硬化机制
 
@@ -792,7 +792,7 @@ $$
 
 -  淬火冷却速度的影响
 
-   ![](../img/SPT09.png)
+   ![](../img/Solid-state_Phase_Transformation/SPT09.png)
 
 -  磁场的影响
    外加磁场将诱发马氏体相变，与不加磁场相比，$M_s$ 点升高，并且相同温度下的马氏体转变量增加
@@ -1038,7 +1038,7 @@ $$
 
 其 $C$ 曲线：
 
-![](../img/SPT10.png)
+![](../img/Solid-state_Phase_Transformation/SPT10.png)
 
 某些钢中的贝氏体等温转变动力学图与珠光体等温转变动力学图部分重叠
 
@@ -1402,7 +1402,7 @@ $\varepsilon$ - 碳化物溶解、 $\theta$ - 碳化物重新从马氏体基体�
 
 当马氏体中含有足够量碳化物形成元素时，在 500℃ 以上回火时将会析出细小的特殊碳化物，导致钢的再度硬化，这种现象称为==二次硬化==（有时二次硬化峰的硬度可能比淬火硬度还高）
 
-![](../img/SPT11.png)
+![](../img/Solid-state_Phase_Transformation/SPT11.png)
 
 -  机理
    二次硬化是由于弥散、细小的**特殊碳化物**（如$Mo_2C$、$W2C$、$VC$、$TiC$、$NbC$等）的析出造成的
