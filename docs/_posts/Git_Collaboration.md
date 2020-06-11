@@ -63,7 +63,7 @@ git branch -d dev                # 移除无用的 dev 分支
 
 如果你想保留下来临时分支的信息，可以增加 `--no-ff` 参数，这将把临时分支的信息作为一次 commit 合并到目标分支，但同时也会保留临时分支的过程，下面的图一目了然
 
-![](../img/24_Git01.png)
+![](../img/Git_Collaboration01.png)
 
 :::
 

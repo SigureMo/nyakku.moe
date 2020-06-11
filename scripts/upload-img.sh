@@ -1,6 +1,7 @@
 cd docs/img
+git pull
 git add -A
 time=$(date "+%Y-%m-%d %H:%M:%S")
-git commit -m "push images @${time}"
+git commit -m ":art: chore: upload images @${time}"
 git push
 cd -
