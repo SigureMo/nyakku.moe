@@ -244,9 +244,85 @@ Ian Goodfellow 在 G 的更新中使用 $\tilde{V} = \frac{1}{m} (- \log (D(x)))
 
 为了区分两者，Ian Goodfellow 将原始的式子 $\tilde{V} = \frac{1}{m} \log (1 - D(x))$ 称为 Minimax GAN（MMGAN），将修改后的 $\tilde{V} = \frac{1}{m} (- \log (D(x)))$ 称为 Non-saturating GAN（NSGAN）
 
+## 算法改进
+
+通常，JS Divergence 并不是特别合适，因为它对两个无重叠的两个分布的测度永远为 $\log 2$，因此梯度永远为 0，G 无法得到更新
+
+换言之，它并不能评估两个无重叠分布之间的“距离”，然而 G 生成分布和真实分布在训练之初基本上不可能重叠，这就导致了当 D 训练地太好时，G 将会没有梯度，训练无法进行下去
+
+![Improving-GAN-01](../img/GAN_started/Improving-GAN-01.png)
+
+为了使 GAN 能够正常训练，就需要一些算法上的一些技巧以及理论改进
+
+### LSGAN（Least Square GAN）
+
+LSGAN 从 D 的分类器角度来进行改进，它认为 D 最终使用的是 Sigmoid 进行激活，会导致两侧梯度较小，进而发生梯度消失的现象，因此……就直接改成线性的了
+
+![Improving-GAN-02](../img/GAN_started/Improving-GAN-02.png)
+
 ### fgan: General Framework of GAN
 
-如果不想使用 JS Divergence 的话，fGAN 给出了其它各种 Divergence 在 GAN 中的使用方法
+如果不想使用 JS Divergence 的话，fGAN 从理论上给出了其它各种 Divergence 在 GAN 中的使用方法
+
+### WGAN（Wasserstein GAN）
+
+WGAN 用了一种新的评估距离方式——Wasserstein 距离，由于它并不是 Divergence，因此 fGAN 中并没有该方式
+
+该方式可以理解为将其中一个分布变成另一个分布所需最少移动次数，它能够表征两个无重叠分布之间的距离
+
+那么，Wasserstein 距离到底要如何计算呢？emm，就像这样
+
+$
+V(G, D) = \max\limits_{D \in 1-Lipschitz} \{ E_{x \sim P_{data}} [D(x)] - E_{x \sim P_G} [D(x)]\}
+$
+
+这里 $1-Lipschitz$ 是约束 D 为一个光滑的函数，它不能变化地太快，那么……如何约束它呢
+
+一是 WGAN 中提出的方法，Weight Clipping，也就是将 weights 截断在某个范围内，防止 weights 太大，从而保证函数不会变化太快
+
+另一个是 WGAN-GP 中提出的方法，是从梯度的角度进行约束，因为 $1-Lipschitz$ 函数满足任意位置导数不大于 1，因此我们可以通过一点约束以使得 D 的导数不大于 1 即可
+
+$
+V(G, D) = \max\limits_{D \in 1-Lipschitz} \{ E_{x \sim P_{data}} [D(x)] - E_{x \sim P_G} [D(x)] - \lambda \int_x \max(0, || \nabla_x D(x) || - 1) dx \}
+$
+
+最后一项的补偿能够保证 D 不大于 1，但……最后一项的要求是对于全部 x 都满足才可以，事实上这也是不可能的，WGAN-GP 中提出只需要使得 $P_{penalty}$ 全部满足就好了，并将从 $P_{data}$ 和 $P_G$ 中 Sample 出来的样本之间连线上随机取样作为 $P_{penalty}$
+
+$
+V(G, D) = \max\limits_{D \in 1-Lipschitz} \{ E_{x \sim P_{data}} [D(x)] - E_{x \sim P_G} [D(x)] - \lambda E_{x \sim P_{penalty}} \max(0, || \nabla_x D(x) || - 1) \}
+$
+
+![Improving-GAN-02](../img/GAN_started/Improving-GAN-03.png)
+
+WGAN-GP 在实际应用中使用的是
+
+$
+V(G, D) = \max\limits_{D \in 1-Lipschitz} \{ E_{x \sim P_{data}} [D(x)] - E_{x \sim P_G} [D(x)] - \lambda E_{x \sim P_{penalty}} (|| \nabla_x D(x) || - 1)^2 \}
+$
+
+因为效果更好一些
+
+算法：
+
+-  在每个迭代
+
+   -  更新 D，重复以下过程 k 次
+      -  从 $P_{data}$ 中选取 $\{x^1, x^2, \cdots, x^m\}$
+      -  从 $P_{prior}(z)$ 中选取 $\{z^1, z^2, \cdots, z^m\}$，喂给 $G$ 获得 $\{\tilde{x}^1, \tilde{x}^2, \cdots, \tilde{x}^m\}$，其中 $\tilde{x}^i = G(z^i)$
+      -  更新 D 的参数 $\theta_d$
+         -  $\tilde{V} = \frac{1}{m} \sum\limits_{i=1}^m D(x^i) - \frac{1}{m} D(\tilde{x}^i)$
+         -  $\theta_d \leftarrow \theta_d + \eta \nabla \tilde{V}(\theta_d)$
+
+   ***
+
+   -  更新 G，重复以下过程 1 次
+
+      -  从 $P_{prior}(z)$ 中选取 $\{z^1, z^2, \cdots, z^m\}$
+      -  更新 G 的参数 $\theta_g$
+         -  $\tilde{V} = -\frac{1}{m} D(G(z^i))$
+         -  $\theta_g \leftarrow \theta_g - \eta \nabla \tilde{V}(\theta_g)$
+
+   -  另外，记得使用 Weight clipping 或者 Gradient Penalty
 
 ## More GANs
 
