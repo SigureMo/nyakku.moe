@@ -338,7 +338,7 @@ bool match(char exp[], int n) {
 
 #### 4.2.1 循环队列
 
-![DS01.jpeg{copyright:BaiduImage}](../img/DS01.jpeg)
+![DS01.jpeg{copyright:BaiduImage}](../img/Data_Structures_and_Algorithms/DS01.jpeg)
 
 首尾相接，围一个圈圈，这样就可以更加充分地利用数组空间了，但是还有一个小问题，什么时候队空？什么时候队满？可以发现在空/真正的满的情况下，两个指针都是重合的，也就是 `front == rear`，究其原因，是因为不能用 $n$ 个队列的状态表示 $n+1$ 种状态，那么要如何解决呢？
 
@@ -351,7 +351,7 @@ bool match(char exp[], int n) {
 
 ### 4.3 链式存储
 
-![DS02.jpeg{copyright:BaiduImage}](../img/DS02.jpeg)
+![DS02.jpeg{copyright:BaiduImage}](../img/Data_Structures_and_Algorithms/DS02.jpeg)
 
 和链栈一样，如若需要删除操作的 front 在链尾则难以继续对新的链尾进行操作，故 front 在链首
 
@@ -862,7 +862,7 @@ typedef struct _node {
 
 其实真正遍历的时候，三种遍历方式是走的相同的路径，而且每个结点都遇到了三次，只不过访问的时机不一样，先序是在第一次遇到就访问，中序后序分别是第二次和第三次
 
-![DS03](../img/DS03.png)
+![DS03](../img/Data_Structures_and_Algorithms/DS03.png)
 
 根据定义，我们可以很容易地写出其递归实现，但是递归实现调用系统栈导致较大的开销，我们可以自己利用栈进行非递归的实现以提高效率
 
@@ -1129,7 +1129,7 @@ T2   T3                           T3  T4
 
       那么，怎么调整？我们可以从堆底依次向前进行调整，堆的最后一个结点是第 $\lfloor n / 2\rfloor$ 个结点的孩子，我们考察第 $\lfloor n / 2\rfloor$ 个结点及其两个孩子，将三个结点中最大的放到根的位置上，这个过程是将根结点向下调整的过程，所以也叫向下调整法，调整之后，继续考察第 $\lfloor n / 2 - 1\rfloor$ 个结点，依次类推，不过值得注意的是，当调整上层的时候可能会破坏下层，需要不断向下调整到堆底
 
-      ![DS04{copyright:Wangdao}](../img/DS04.png)
+      ![DS04{copyright:Wangdao}](../img/Data_Structures_and_Algorithms/DS04.png)
 
 -  插入元素 将新的元素放在堆的末端，然后针对它向上调整即可
 -  删除堆顶元素 将堆末元素放在堆顶，然后针对根结点向下调整即可
@@ -1156,7 +1156,7 @@ T2   T3                           T3  T4
 
 但是如何最快地找到权值最小的两棵树呢？这可以**利用最小堆，堆的数据域数组存储树结点，以权值为 key 进行初始化排序**
 
-![DS05{copyright:BaiduImage}](../img/DS05.jpeg)
+![DS05{copyright:BaiduImage}](../img/Data_Structures_and_Algorithms/DS05.jpeg)
 
 -  哈夫曼树的特点
    -  每个初始结点最终都成为叶子结点，且权值越小的结点到根结点的路径长度越大
@@ -1282,7 +1282,7 @@ T2   T3                           T3  T4
    -  数据域 data
    -  入度首结点指针和出度首结点指针 headvex 和 tailvex
 
-![DS06{copyright:Wangdao}](../img/DS06.png)
+![DS06{copyright:Wangdao}](../img/Data_Structures_and_Algorithms/DS06.png)
 
 <<< @/Codes/Data_Structures_and_Algorthms/Chapter_07_Graph/03_Orthogonal_Linked_List.cpp
 
@@ -1303,7 +1303,7 @@ T2   T3                           T3  T4
    -  firstedge 指示第一条依附于该顶点的边
    -  数据域 data
 
-![DS07{copyright:Wangdao}](../img/DS07.png)
+![DS07{copyright:Wangdao}](../img/Data_Structures_and_Algorithms/DS07.png)
 
 <<< @/Codes/Data_Structures_and_Algorthms/Chapter_07_Graph/04_Djacency_Multiple_List.cpp
 
@@ -1325,7 +1325,7 @@ BFS 和 DFS 都可以抽象为优先级搜索，只不过 BFS 认为离起点越
 
 是不是很像二叉树的**层序遍历**算法呀？在层序遍历是一层一层遍历的，而 BFS 是一圈一圈扩散开来的~
 
-![DS08{copyright:https://www.jianshu.com/p/03de0db4b857}](../img/DS08.png)
+![DS08{copyright:https://www.jianshu.com/p/03de0db4b857}](../img/Data_Structures_and_Algorithms/DS08.png)
 
 由于我们不能像二叉树那样直观的知道哪个被访问过了，所以我们需要增加一个数组（`visited[]`）用于标志哪个顶点被访问过了
 
@@ -1339,7 +1339,7 @@ BFS 和 DFS 都可以抽象为优先级搜索，只不过 BFS 认为离起点越
 
 其实很明显啦，用递归很容易实现的，不过这就需要一个**递归工作栈**，它其实很像二叉树的**先序遍历**
 
-![DS09{copyright:https://www.jianshu.com/p/03de0db4b857}](../img/DS09.png)
+![DS09{copyright:https://www.jianshu.com/p/03de0db4b857}](../img/Data_Structures_and_Algorithms/DS09.png)
 
 <!-- <<< @/Codes/Data_Structures_and_Algorthms/Chapter_07_Graph/05_Traverse.cpp -->
 
@@ -1391,7 +1391,7 @@ for (int i = 0; i < G.vexnum; i++) {
 
    基本实现和下面的 Dijkstra 算法相似，都是从未收录 Vertex 中找 dist 最小的，将对应的边与顶点收入生成树中
 
-   ![DS10{copyright:Wangdao}](../img/DS10.png)
+   ![DS10{copyright:Wangdao}](../img/Data_Structures_and_Algorithms/DS10.png)
 
    首先向空树 $T = (V_T, E_T)$ 中添加图 $G = (V, E)$ 的任一顶点 $u_0$ ，使 $V_T = u_0$ ，$E_T = \varnothing$ ，之后不断从图 $G$ 中选择**满足 $\{(u, v)| u \in V_T, v \in V - V_T\}$ ，且具有最小权值的边 $(u, v)$**，并置 $V_T = V_T \cup \{v\}$ ，$E_T = E_T \cup \{(u, v)\}$
 
@@ -1415,7 +1415,7 @@ for (int i = 0; i < G.vexnum; i++) {
 
    首先我们认为每一个 Vertex 都是一个树 Node，那么我们整个过程就是不断地将森林合并成树了
 
-   ![DS11{copyright:Wangdao}](../img/DS11.png)
+   ![DS11{copyright:Wangdao}](../img/Data_Structures_and_Algorithms/DS11.png)
 
    首先令 $V_T = V$ ， $E_T = \varnothing$ ，$T$ 此时是一个仅含 $|V|$ 个顶点的森林，之后**不断从 $E - E_T$ 中选择权值最小的那条边**，如果将该边加入 $T$ 后**不构成回路**，则将其加入 $E_T$ ，否则舍弃，直到 $E_T$ 中含有 $n-1$ 条边
 
@@ -1471,7 +1471,7 @@ for (int i = 0; i < G.vexnum; i++) {
 
    之后从未收录顶点 $V - S$ 中选取一条最短路径（`dist[]` 最小的那个），然后更新这个点周围的最短路径长度，如此反复，直到所有顶点都包含在 $S$ 中
 
-   ![DS12{copyright:Wangdao}](../img/DS12.png)
+   ![DS12{copyright:Wangdao}](../img/Data_Structures_and_Algorithms/DS12.png)
 
    值得注意的是
 
@@ -1544,7 +1544,7 @@ for (int i = 0; i < G.vexnum; i++) {
 
 很简单，**每次从图中选一个没有前驱顶点的顶点拿出来，并将以其为起点的有向边删除**，如此反复，就得到一个拓扑排序序列啦
 
-![DS13{copyright:Wangdao}](../img/DS13.png)
+![DS13{copyright:Wangdao}](../img/Data_Structures_and_Algorithms/DS13.png)
 
 ```cpp
 void TopSort(){
@@ -1650,7 +1650,7 @@ int Binary_Search(SeqList L, ElemType key) {
 
 将查找表分为若干子块，块内可以无序，块间需要有序，即后面的块每个元素都比前面的块里任意元素大
 
-![DS14.png{copyright:Wangdao}](../img/DS14.png)
+![DS14.png{copyright:Wangdao}](../img/Data_Structures_and_Algorithms/DS14.png)
 
 比如上面的表，将前 6 个元素作为第一个块，所有元素均小于 24 ，第 7 到第 9 个元素为第二个块，所有元素均小于 54 ……这样查找的时候就可以根据大小去查找对应的区间块，大大缩小了搜索范围
 
@@ -1667,7 +1667,7 @@ B 树，又称==多路平衡查找树==，B 树的度即其阶数，所以 B 树
 -  因为结点的子树个数也即划分的子区间个数范围为 $[\lceil m/2 \rceil , m]$ ，所以关键字个数 $k$ 的范围为 $[\lceil m/2-1 \rceil , m-1]$
 -  所有的叶节点都出现在同一层次上，并且不携带信息，即查找失败时结点
 
-![DS15.png{copyright:Wangdao}](../img/DS15.png)
+![DS15.png{copyright:Wangdao}](../img/Data_Structures_and_Algorithms/DS15.png)
 
 比如上图就是一个 3 阶 B 树
 
@@ -1693,7 +1693,7 @@ B 树即 B-tree ，B 是指 Balanced ，因为 B-tree 嘛，就有人将其译�
    -  之后就是插入了，插入后关键字个数仍需满足 $[\lceil m/2-1 \rceil , m-1]$ ，当然这时候只需考虑有没有超过上限，如果超过了，则需对插入结点进行分裂
    -  至于如何分裂，可以将需要分裂的结点从中间拆开，中间关键字($\lceil m/2 \rceil$)放到父结点去，左右各分裂为一个结点，当然，现在父结点也变多了，这个时候就需要……继续查看是否要分裂咯~如果最后连根结点都分裂了，那么 B 树高度增加 1
 
-   ![DS16.png{copyright:Wangdao}](../img/DS16.png)
+   ![DS16.png{copyright:Wangdao}](../img/Data_Structures_and_Algorithms/DS16.png)
 
 -  B 树的删除
 
@@ -1701,18 +1701,18 @@ B 树即 B-tree ，B 是指 Balanced ，因为 B-tree 嘛，就有人将其译�
 
       -  看一下比该关键字大的子树和比该关键字小的子树哪个减少一个关键字之后还满足条件，就直接拿一个关键字上来，然后递归地删除那个拿上来的关键字
       -  如果都不满足，删掉该关键字，直接将两个子树合并
-         ![DS17.png{copyright:Wangdao}](../img/DS17.png)
+         ![DS17.png{copyright:Wangdao}](../img/Data_Structures_and_Algorithms/DS17.png)
 
    -  若所删除的关键字在终端结点
       -  如果直接删去仍满足，则直接删除
       -  如果兄弟有富余，则将其“调整”过来即可
-         ![DS18.png{copyright:Wangdao}](../img/DS18.png)
+         ![DS18.png{copyright:Wangdao}](../img/Data_Structures_and_Algorithms/DS18.png)
       -  如果兄弟没有富余，则需要删除之后将父结点中关键字放到兄弟那里
-         ![DS19.png{copyright:Wangdao}](../img/DS19.png)
+         ![DS19.png{copyright:Wangdao}](../img/Data_Structures_and_Algorithms/DS19.png)
 
 #### 8.3.2 B+ 树的基本概念
 
-![DS20.png{copyright:Wangdao}](../img/DS20.png)
+![DS20.png{copyright:Wangdao}](../img/Data_Structures_and_Algorithms/DS20.png)
 
 很多地方和 B 树类似啦，只不过 B+ 树关键字只是辅助查找的，并不是真正要查找的对象，真正查找的都放在叶子结点啦，所以查找路径是等长哒~
 
@@ -2115,7 +2115,7 @@ B 树即 B-tree ，B 是指 Balanced ，因为 B-tree 嘛，就有人将其译�
 -  LSD 次位优先，为优先级最低的关键字建立一组桶，并按读入顺序依次放入桶内，然后建立次低优先级的一组桶，并从前一组桶中顺序读入数据，以此类推，直到主关键字
 -  MSD 主位优先，与上述过程相反
 
-![DS21.png{copyright:Wangdao}](../img/DS21.png)
+![DS21.png{copyright:Wangdao}](../img/Data_Structures_and_Algorithms/DS21.png)
 
 -  空间复杂度 $O(r)$
 -  时间复杂度 $O(d(n + r))$
@@ -2164,7 +2164,7 @@ B 树即 B-tree ，B 是指 Balanced ，因为 B-tree 嘛，就有人将其译�
 
 这里引入了败者树的概念，将待比较的关键字放在叶结点，每个结点的父结点存储子结点较小值的索引，最终便可找到最小值
 
-![DS22.png{copyright:Wangdao}](../img/DS22.png)
+![DS22.png{copyright:Wangdao}](../img/Data_Structures_and_Algorithms/DS22.png)
 
 上图便是一个五路归并示意，$m$ 路归并的败者树深度只有 $\lceil \log_2 m \rceil$，大大降低了归并时的比较次数
 
@@ -2208,11 +2208,11 @@ FI 自动补足 WA 中的空缺，不赘述
 
 以长度分别为 9,30,12,18,3,17,2,6,24 的初始归并段为例，那么应该如何组织顺序呢？
 
-![DS23.png{copyright:Wangdao}](../img/DS23.png)
+![DS23.png{copyright:Wangdao}](../img/Data_Structures_and_Algorithms/DS23.png)
 
 很容易想到哈夫曼树啦，将段长作为权值，则 WPL 最小的应该就是 I/O 次数最少的**最佳归并树**，当然，现在的哈夫曼树应当是 m 叉树了
 
-![DS24.png{copyright:Wangdao}](../img/DS24.png)
+![DS24.png{copyright:Wangdao}](../img/Data_Structures_and_Algorithms/DS24.png)
 
 值得注意的是，如果初始归并段数不是严格的 m 叉树的话，直接使用哈夫曼树将得到错误的结果，比如将上面的长度为 30 的段去掉，就只有 8 个初始归并段了，这时候应当添加一个长度为 0 的虚段，以保证该结点只出现在离根结点最远处
 

@@ -56,7 +56,7 @@ tags:
 
 -  早期的冯·诺依曼计算机
 
-   ![PCC01.png{copyright:Wangdao}](../img/PCC01.png)
+   ![PCC01.png{copyright:Wangdao}](../img/Principles_of_Computer_Composition/PCC01.png)
 
    -  特点
 
@@ -71,7 +71,7 @@ tags:
 
    以存储器为中心，使 I/O 操作尽可能地绕过 CPU ，直接在 I/O 设备和存储器之间完成，以提高系统的整体运行效率
 
-   ![PCC02.png{copyright:Wangdao}](../img/PCC02.png)
+   ![PCC02.png{copyright:Wangdao}](../img/Principles_of_Computer_Composition/PCC02.png)
 
 -  计算机的功能部件
 
@@ -108,7 +108,7 @@ tags:
       -  程序计数器 PC 用来存放当前欲执行指令的地址，可以自动加一以形成下一条指令的地址，它与主存的 MAR 之间有一条直接通路
       -  指令寄存器 IR 用来存放当前的指令，其内容来自主存的 MDR
 
-   ![PCC03.png{copyright:Wangdao}](../img/PCC03.png)
+   ![PCC03.png{copyright:Wangdao}](../img/Principles_of_Computer_Composition/PCC03.png)
 
    主机包含 CPU 和主存，其他的硬件装置统称外设，主要为外存和 I/O 设备
 
@@ -339,7 +339,7 @@ tags:
 
       :::
 
-      ![PCC04.png{copyright:Wangdao}](../img/PCC04.png)
+      ![PCC04.png{copyright:Wangdao}](../img/Principles_of_Computer_Composition/PCC04.png)
 
    -  将余数拼接在左移后的编码后，这里将 001 拼接在 101001 后，即 101001001
    -  检错和纠错，接收端对接收到的 CRC 码用生成多项式做模 2 除法，若余数为 0 ，则无错，否则余数即指示错误的位
@@ -466,7 +466,7 @@ tags:
 
       $x = -0.1101, y = 0.1011$
 
-      ![PCC11.png{copyright:Wangdao}](../img/PCC11.png)
+      ![PCC11.png{copyright:Wangdao}](../img/Principles_of_Computer_Composition/PCC11.png)
 
       -  符号位由异或求得为 `1`
       -  数值部分为 `0.10001111`
@@ -492,7 +492,7 @@ tags:
 
       $x = -0.1101, y = 0.1011$
 
-      ![PCC12.png{copyright:Wangdao}](../img/PCC12.png)
+      ![PCC12.png{copyright:Wangdao}](../img/Principles_of_Computer_Composition/PCC12.png)
 
       即结果的补码为 `1.01110001`，真值为 `-0.10001111`
 
@@ -517,7 +517,7 @@ tags:
 
          $x = 0.1011, y = 1.0011$
 
-         ![PCC13.png{copyright:Wangdao}](../img/PCC13.png)
+         ![PCC13.png{copyright:Wangdao}](../img/Principles_of_Computer_Composition/PCC13.png)
 
          -  符号位为 `0`
          -  数值部分为 `0.1101` 余 `0.0111`
@@ -541,7 +541,7 @@ tags:
 
          $x = 0.1000, y = -0.1011$
 
-         ![PCC14.png{copyright:Wangdao}](../img/PCC14.png)
+         ![PCC14.png{copyright:Wangdao}](../img/Principles_of_Computer_Composition/PCC14.png)
 
          -  符号位为 `0`
          -  数值部分补码为 `1.0101` 余 `0.0111`
@@ -604,14 +604,14 @@ tags:
 
 -  浮点数表示范围
 
-   ![PCC15.png{copyright:Wangdao}](../img/PCC15.png)
+   ![PCC15.png{copyright:Wangdao}](../img/Principles_of_Computer_Composition/PCC15.png)
 
    -  上溢 需进行溢出处理
    -  下溢 当做机器零处理
 
 -  IEEE 754 标准
 
-   ![PCC16.png{copyright:Wangdao}](../img/PCC16.png)
+   ![PCC16.png{copyright:Wangdao}](../img/Principles_of_Computer_Composition/PCC16.png)
 
    -  数符 1 位
    -  阶码 移码表示
@@ -698,7 +698,7 @@ $char \to int \to long \to double$ 范围和精度都从小到大，可以放心
 
 ALU 核心是一个并行加法器，同时能执行“与或非”等逻辑运算
 
-![PCC17.png{copyright:Wangdao}](../img/PCC17.png)
+![PCC17.png{copyright:Wangdao}](../img/Principles_of_Computer_Composition/PCC17.png)
 
 -  输入
    -  $A_i$ $B_i$，输入变量
@@ -751,9 +751,9 @@ ALU 核心是一个并行加法器，同时能执行“与或非”等逻辑运�
 
 ### 3.1.2 存储器的层次化结构
 
-![PCC05.png{copyright:Wangdao}](../img/PCC05.png)
+![PCC05.png{copyright:Wangdao}](../img/Principles_of_Computer_Composition/PCC05.png)
 
-![PCC06.png{copyright:Wangdao}](../img/PCC06.png)
+![PCC06.png{copyright:Wangdao}](../img/Principles_of_Computer_Composition/PCC06.png)
 
 -  Cache - 主存 层次用于解决 CPU 与主存速度不匹配的问题，由硬件自动完成
 -  主存 - 辅存 层次用于解决存储系统的容量问题，由硬件和操作系统共同完成
@@ -773,7 +773,7 @@ ALU 核心是一个并行加法器，同时能执行“与或非”等逻辑运�
 
 -  半导体存储芯片的基本结构
 
-   ![PCC07.png{copyright:Wangdao}](../img/PCC07.png)
+   ![PCC07.png{copyright:Wangdao}](../img/Principles_of_Computer_Composition/PCC07.png)
 
    -  片选线 确定哪个存储芯片被选中
    -  地址线 单向
@@ -897,19 +897,19 @@ ALU 核心是一个并行加法器，同时能执行“与或非”等逻辑运�
 
       比如用 2 片`1K X 4位`存储芯片组成`1K X 8位`的存储器，需求是 10 根地址线、8 根数据线，材料是 10 根地址线、4 根数据线，所以就需要将两个芯片地址线直接接入，而数据线则是各占一半，以达到对某一地址数据同时进行读写
 
-      ![PCC08.png{copyright:MOOC}](../img/PCC08.png)
+      ![PCC08.png{copyright:MOOC}](../img/Principles_of_Computer_Composition/PCC08.png)
 
    -  字扩展法
 
       比如用 2 片`1K X 8位`存储芯片组成`2K X 8位`的存储器，需求是 11 根地址线、8 根数据线，材料是 10 根地址线、8 根数据线，数据线直接接入就好，而多出来的那根地址线可作为片选择线（CS），便可对两个存储芯片地址进行衔接
 
-      ![PCC09.png{copyright:MOOC}](../img/PCC09.png)
+      ![PCC09.png{copyright:MOOC}](../img/Principles_of_Computer_Composition/PCC09.png)
 
    -  字、位同时扩展法
 
       比如用 8 片`1K X 4位`存储芯片组成`4K X 8位`的存储器，先考虑位扩展，每组用 2 个存储芯片组成`1K X 8位`的存储器，然后再考虑字扩展，利用片选译码将额外两根地址线分配到四组存储器中
 
-      ![PCC10.png{copyright:MOOC}](../img/PCC10.png)
+      ![PCC10.png{copyright:MOOC}](../img/Principles_of_Computer_Composition/PCC10.png)
 
 -  存储器与 CPU 的连接
    -  合理选择存储芯片
@@ -1501,7 +1501,7 @@ s->op1->op2->op3->op4->op4->op5->op6->op7->op8->op9->op10->e
 
    又称中断嵌套，CPU 在执行中断过程中如果出现了新的更高优先级的中断请求，转而执行更高优先级的中断请求
 
-   ![PCC22.png{copyright:Wangdao}](../img/PCC22.png)
+   ![PCC22.png{copyright:Wangdao}](../img/Principles_of_Computer_Composition/PCC22.png)
 
    -  实现多重中断的要求
       -  中断服务程序前进行“开中断”（即上节所述）
@@ -1510,7 +1510,7 @@ s->op1->op2->op3->op4->op4->op5->op6->op7->op8->op9->op10->e
 
       使用实例说明：优先级：$D>A>C>B$，则屏蔽字应为
 
-      ![PCC23.png{copyright:Wangdao}](../img/PCC23.png)
+      ![PCC23.png{copyright:Wangdao}](../img/Principles_of_Computer_Composition/PCC23.png)
 
 ### 5.3 指令执行过程
 
@@ -1523,7 +1523,7 @@ CPU 从主存中每取出并执行一条指令所需的全部时间称为指令�
    -  一个**指令周期**包含若干个**机器周期**
    -  一个**机器周期**包含若干个**时钟周期**
 
-   ![PCC18.png{copyright:Wangdao}](../img/PCC18.png)
+   ![PCC18.png{copyright:Wangdao}](../img/Principles_of_Computer_Composition/PCC18.png)
 
 -  完整的指令周期
 
@@ -1540,7 +1540,7 @@ CPU 从主存中每取出并执行一条指令所需的全部时间称为指令�
 
    任务：根据 PC 中的内容从主存中取出指令代码并存入 IR
 
-   ![PCC19.png{copyright:Wangdao}](../img/PCC19.png)
+   ![PCC19.png{copyright:Wangdao}](../img/Principles_of_Computer_Composition/PCC19.png)
 
    -  $PC \to MAR \to$ 地址总线
    -  $CU$ 发出控制信号 $\to$ 控制总线 $\to$ 主存
@@ -1551,7 +1551,7 @@ CPU 从主存中每取出并执行一条指令所需的全部时间称为指令�
 
    任务：取操作数的有效地址（这里以一次间址为例）
 
-   ![PCC20.png{copyright:Wangdao}](../img/PCC20.png)
+   ![PCC20.png{copyright:Wangdao}](../img/Principles_of_Computer_Composition/PCC20.png)
 
 *  $Ad(IR)$ $\to$ $MAR$ $\to$ 地址总线 $\to$ 主存
 
@@ -1573,7 +1573,7 @@ CPU 从主存中每取出并执行一条指令所需的全部时间称为指令�
 
    任务：处理中断请求，假设程序断点存入堆栈，并用 $SP$ 指示栈顶地址
 
-   ![PCC21.png{copyright:Wangdao}](../img/PCC21.png)
+   ![PCC21.png{copyright:Wangdao}](../img/Principles_of_Computer_Composition/PCC21.png)
 
    -  $CU$ 控制 $SP$ 减一，$SP \to MAR \to$ 地址总线 $\to$ 主存
 
@@ -1611,7 +1611,7 @@ CPU 从主存中每取出并执行一条指令所需的全部时间称为指令�
 
 #### 5.4.2 数据通路的基本结构
 
-![PCC24.png{copyright:Wangdao}](../img/PCC24.png)
+![PCC24.png{copyright:Wangdao}](../img/Principles_of_Computer_Composition/PCC24.png)
 
 -  CPU 内部单总线方式
 
@@ -1668,7 +1668,7 @@ CPU 从主存中每取出并执行一条指令所需的全部时间称为指令�
 
 #### 5.5.1 控制器的结构和功能
 
-![PCC25.png{copyright:Wangdao}](../img/PCC25.png)
+![PCC25.png{copyright:Wangdao}](../img/Principles_of_Computer_Composition/PCC25.png)
 
 #### 5.5.2 硬布线控制器
 
@@ -1676,7 +1676,7 @@ CPU 从主存中每取出并执行一条指令所需的全部时间称为指令�
 
 -  硬布线控制单元图
 
-   ![PCC26.png{copyright:Wangdao}](../img/PCC26.png)
+   ![PCC26.png{copyright:Wangdao}](../img/Principles_of_Computer_Composition/PCC26.png)
 
    CU 的输入信号来源
 
@@ -1726,7 +1726,7 @@ CPU 从主存中每取出并执行一条指令所需的全部时间称为指令�
 
 -  微程序控制的基本概念
 
-   ![PCC27.png{copyright:MOOC}](../img/PCC27.png)
+   ![PCC27.png{copyright:MOOC}](../img/Principles_of_Computer_Composition/PCC27.png)
 
    将每条机器指令编写成一个微程序，每个微程序包含若干微指令，每条微指令对应一个或几个微操作命令
 
@@ -1753,7 +1753,7 @@ CPU 从主存中每取出并执行一条指令所需的全部时间称为指令�
 -  微程序控制器的组成和工作过程
 
    -  基本组成
-      ![PCC28.png{copyright:Wangdao}](../img/PCC28.png)
+      ![PCC28.png{copyright:Wangdao}](../img/Principles_of_Computer_Composition/PCC28.png)
 
       -  控制存储器 CM
       -  微指令寄存器 CMDR
@@ -1870,7 +1870,7 @@ CPU 从主存中每取出并执行一条指令所需的全部时间称为指令�
 -  一次重叠执行方式 $T = (1 + 2n)t$
 -  二次重叠执行方式 $T = (2 + n)t$，只是理想的，因为同时执行的三条指令不可能总是没有冲突
 
-![PCC29.png{copyright:Wangdao}](../img/PCC29.png)
+![PCC29.png{copyright:Wangdao}](../img/Principles_of_Computer_Composition/PCC29.png)
 
 #### 5.6.2 流水线方式的特点
 
@@ -2015,7 +2015,7 @@ CPU 从主存中每取出并执行一条指令所需的全部时间称为指令�
 
    将 CPU、主存、I/O 设备都挂在一组总线上
 
-   ![PCC30.png{copyright:Wangdao}](../img/PCC30.png)
+   ![PCC30.png{copyright:Wangdao}](../img/Principles_of_Computer_Composition/PCC30.png)
 
    ::: tip
 
@@ -2028,7 +2028,7 @@ CPU 从主存中每取出并执行一条指令所需的全部时间称为指令�
    -  主存总线
    -  I/O 总线
 
-   ![PCC31.png{copyright:Wangdao}](../img/PCC31.png)
+   ![PCC31.png{copyright:Wangdao}](../img/Principles_of_Computer_Composition/PCC31.png)
 
    -  优点
       -  将低速 I/O 设备从单总线上分离出来，实现了存储器总线和 I/O 总线分离
@@ -2041,7 +2041,7 @@ CPU 从主存中每取出并执行一条指令所需的全部时间称为指令�
    -  I/O 总线
    -  DMA 总线
 
-   ![PCC32.png{copyright:Wangdao}](../img/PCC32.png)
+   ![PCC32.png{copyright:Wangdao}](../img/Principles_of_Computer_Composition/PCC32.png)
 
    -  优点
       -  提高了 I/O 设备的性能，使其更快地响应命令，提高系统吞吐量
@@ -2070,7 +2070,7 @@ CPU 从主存中每取出并执行一条指令所需的全部时间称为指令�
 -  链式查询方式
 
    所有的部件共用一根总线请求线，I/O 接口通过 BR 请求总线使用，BG 逐个向下查询，总线使用权交给遇到的第一个请求的接口，然后这个接口通过 BS 设置总线忙
-   ![PCC33.png{copyright:Wangdao}](../img/PCC33.png)
+   ![PCC33.png{copyright:Wangdao}](../img/Principles_of_Computer_Composition/PCC33.png)
 
    -  优点
       -  优先级由连接方式事先确定（离总线控制器越近，其优先级越高）
@@ -2082,7 +2082,7 @@ CPU 从主存中每取出并执行一条指令所需的全部时间称为指令�
 -  计数器定时查询方式
 
    I/O 接口通过 BR 请求总线使用，计数器循环累加从**设备地址线**向下查询，直到遇到第一个请求的接口，将总线使用权交由它，然后这个接口通过 BS 设置总线忙
-   ![PCC34.png{copyright:Wangdao}](../img/PCC34.png)
+   ![PCC34.png{copyright:Wangdao}](../img/Principles_of_Computer_Composition/PCC34.png)
 
    -  优点
       -  优先级设置很灵活，甚至可以采用循环方法（每次计数的开始是上一次的终点）
@@ -2092,7 +2092,7 @@ CPU 从主存中每取出并执行一条指令所需的全部时间称为指令�
 -  独立请求方式
 
    每个接口都与控制机构有连接，控制机构有排队器
-   ![PCC35.png{copyright:Wangdao}](../img/PCC35.png)
+   ![PCC35.png{copyright:Wangdao}](../img/Principles_of_Computer_Composition/PCC35.png)
 
    -  优点
       -  响应速度快
@@ -2143,7 +2143,7 @@ CPU 从主存中每取出并执行一条指令所需的全部时间称为指令�
    -  比同步控制方式稍复杂
    -  速度比同步定时方式慢
 
-![PCC36.png{copyright:Wangdao}](../img/PCC36.png)
+![PCC36.png{copyright:Wangdao}](../img/Principles_of_Computer_Composition/PCC36.png)
 
 -  不互锁方式
 -  半互锁方式
@@ -2312,7 +2312,7 @@ CPU 在程序中安排好于某个时刻启动某台外设，然后 CPU **继续
       -  确定数据传送的首地址和长度，修正传送过程中的数据地址和长度
       -  DMA 传送结束时，给出操作完成信号
    -  DMA 接口组成
-      ![PCC37.png{copyright:Wangdao}](../img/PCC37.png)
+      ![PCC37.png{copyright:Wangdao}](../img/Principles_of_Computer_Composition/PCC37.png)
 
 -  DMA 的传送方式
 
