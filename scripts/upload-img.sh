@@ -1,5 +1,5 @@
 cd docs/img
-git pull
+git pull --ff-only
 git add -A
 time=$(date "+%Y-%m-%d %H:%M:%S")
 git commit -m ":art: chore: upload images @${time}"
