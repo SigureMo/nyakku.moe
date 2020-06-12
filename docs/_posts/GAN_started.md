@@ -7,7 +7,7 @@ tags:
    - GAN
 ---
 
-::: warning WIP
+::: tip
 
 最近在 DL 的学习方向上稍有迷茫，毕竟有那么多学习的方向嘛。“开学”那几天初尝 RL 做了个 AlphaZero 五子棋，但理论什么的尚需补足，而且暂时没有什么别的想做的也没继续深入。毕设这段时间主要是学习一些机器学习领域的知识啦，大多是一些浅层神经网络及其优化算法，比如 AutoEncoder 和遗传算法等等，唔，本来兴趣就寥寥，然后毕设凉了就更没动力了……
 
@@ -322,7 +322,8 @@ $
          -  $\tilde{V} = -\frac{1}{m} D(G(z^i))$
          -  $\theta_g \leftarrow \theta_g - \eta \nabla \tilde{V}(\theta_g)$
 
-   -  另外，记得使用 Weight clipping 或者 Gradient Penalty
+   > D 最后不要用 Sigmoid，直接输出即可
+   > 另外，记得使用 Weight clipping 或者 Gradient Penalty
 
 ## More GANs
 
@@ -335,6 +336,42 @@ $
 ### Patch GAN
 
 D 有时不太容易直接判别图片是否为真实，但我们可以让 D 每次只判断图片的某一块
+
+### EBGAN（Energy-based GAN）
+
+使用 Auto Encoder 作为 D，这样使得 D 可以 pretrain，所以在训练之初就可以获得比较好的 G
+
+### Info GAN
+
+使 GAN 的输入 code 各个维度更加正交，将输入 code 分为两部分，一部分带有分类信息 $c$，这个分类信息要求后续 Classifier 能够还原出来，另外一部分就是噪声 $z'$
+
+![InfoGAN](../img/GAN_started/InfoGAN.png)
+
+### VAE-GAN
+
+VAE 与 GAN 的结合，D 需要能够分辨
+
+-  从真实图片经过 VAE 重构后的图片
+-  从噪声经过 G 生成的图片
+-  真实图片
+
+三者
+
+![VAE-GAN](../img/GAN_started/VAE-GAN.png)
+
+### BiGAN
+
+有一个 Encoder，输入图片，输出 code
+
+有一个 Decoder，输入 code，输出图片
+
+有一个 D，输入一对图片与 code，然后判断它们是经由 Encoder 生成还是经由 Decoder 生成
+
+![BiGAN](../img/GAN_started/BiGAN.png)
+
+至于为什么有效，D 使得 Encoder 对应的 distribution $P(x, z)$ 与 Decoder 的 distribution $Q(x, z)$ 尽可能地接近
+
+BiGAN 的训练类似于同时训练一个 Decoder $\to$ Encoder，与一个反向的 Encoder $\to$ Decoder，而 BiGAN 的效果会更好些
 
 # References
 
