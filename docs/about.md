@@ -20,6 +20,7 @@ SigureMo（<ruby> 時 <rp>(</rp><rt>し</rt><rp>)</rp> 雨 <rp>(</rp><rt>ぐれ<
 -  [NPM](https://www.npmjs.com/~sigure_mo)
 -  [Mail](mailto:sigure.qaq@gmail.com)
 -  [Bilibili](https://space.bilibili.com/100969474)
+-  [RSS](https://www.sigure.xyz/feed.atom)
 
 ## 音乐～
 
