@@ -1,6 +1,6 @@
 {
   "name": "notev",
-  "version": "2.1.8",
+  "version": "2.1.9",
   "description": "SigureMo's Notes",
   "scripts": {
     "docs:dev": "vuepress dev docs",
@@ -31,7 +31,7 @@
     "markdown-it-mark": "^3.0.0",
     "markdown-it-task-lists": "^2.1.1",
     "markdown-it-vuepress-code-snippet-enhanced": "^1.0.1",
-    "vuepress": "1.4.1",
+    "vuepress": "^1.5.2",
     "vuepress-plugin-cursor-effects": "^1.0.0",
     "vuepress-plugin-dynamic-title": "^1.0.0",
     "vuepress-plugin-feed": "^0.1.8",
