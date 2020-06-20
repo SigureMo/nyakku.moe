@@ -1,10 +1,9 @@
 {
   "name": "notev",
-  "version": "2.1.7",
-  "description": "Sigure_Mo's Notes",
-  "main": "index.js",
+  "version": "2.1.8",
+  "description": "SigureMo's Notes",
   "scripts": {
-    "docs:dev": "python scripts/docs-dev.py",
+    "docs:dev": "vuepress dev docs",
     "docs:build": "vuepress build docs",
     "docs:test": "vuepress build docs && node scripts/vuepress-server.js docs",
     "deploy": "bash scripts/deploy.sh",

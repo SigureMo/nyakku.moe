@@ -25,6 +25,7 @@ tags:
 
 ## 图片处理
 
+-  PS [Photopea](https://www.photopea.com/)
 -  抠图工具 [稿定抠图](https://www.gaoding.com/koutu)
 
 ## 格式转换
