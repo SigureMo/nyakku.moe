@@ -49,7 +49,7 @@ GAN 是 Generative Adversarial Network 的缩写，也即生成对抗网络，�
 
 ## GAN 与 AutoEncoder
 
-简单地看，GAN 就是个倒过来的 AE 嘛，AE 是 encoder $\to$ decoder，而 GAN 则是 decoder(G) $to$ encoder(D)，当然细节略有区别
+简单地看，GAN 就是个倒过来的 AE 嘛，AE 是 encoder $\to$ decoder，而 GAN 则是 decoder(G) $\to$ encoder(D)，当然细节略有区别
 
 而效果，AE 自然是远不如 GAN，AE 的要求是 encoder 输入与 decoder 输出尽可能相似，而相似性的比较大多使用的是像素级比较，但这往往并不合适，生成的图像大多比较模糊（类似于多个图片的叠加）
 
