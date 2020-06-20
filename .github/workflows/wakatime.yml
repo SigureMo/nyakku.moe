@@ -2,7 +2,7 @@ name: WakaTime
 
 on:
   schedule:
-    - cron: "45 16 * * *"
+    - cron: "0 0/2 * * *"
 
 jobs:
   update-gist:
