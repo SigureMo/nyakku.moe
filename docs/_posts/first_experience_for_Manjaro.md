@@ -68,6 +68,15 @@ sudo pacman-mirrors -i -c China -m rank   # 更新镜像排名
 sudo pacman -Syy                          # 更新数据源
 ```
 
+添加 `archlinuxcn` 镜像，在 `/etc/pacman.conf` 中添加以下内容
+
+```
+[archlinuxcn]
+Server = https://mirrors.tuna.tsinghua.edu.cn/archlinuxcn/$arch
+```
+
+> 更多镜像见 [mirrorlist-repo](https://github.com/archlinuxcn/mirrorlist-repo)
+
 ## 安装软件
 
 ### 使用 pacman 安装

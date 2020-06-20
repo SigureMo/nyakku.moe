@@ -20,9 +20,8 @@ tags:
 -  C/C++
 -  Cython
 -  ESLint
--  JavaScript (ES6) code snippets
--  Matlab
 -  Vetur
+-  stylus
 
 ## 工具类扩展
 
@@ -30,9 +29,11 @@ tags:
 -  **EditorConfig for VS Code**
 -  **GitLens — Git supercharged**
 -  **Remote Development**
+-  Git History
+-  GitHub Pull Requests and Issues
+-  Resource Monitor
 -  Word Count CJK
 -  hexdump for vscode
--  Excel Viewer
 -  LaTeX Workshop
 -  Markdown PDF
 -  Prettier - Code formatter
@@ -40,6 +41,7 @@ tags:
 
 ## 图标主题类扩展
 
+-  Dracula Official
 -  Material Icon Theme
 -  vscode-icons
 -  One Dark Pro
@@ -52,5 +54,4 @@ tags:
 ## 其他扩展
 
 -  **WakaTime**
--  **VSC Netease Music**
 -  Chinese (Simplified) Language Pack for Visual Studio Code
