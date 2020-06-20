@@ -347,7 +347,9 @@ bool match(char exp[], int n) {
 
 常采用后者
 
-<<< @/Codes/Data_Structures_and_Algorthms/Chapter_04_Queue/01_Circular_Queue.cpp{29,30,31,37,43,44,51,52}
+<!-- <<< @/Codes/Data_Structures_and_Algorthms/Chapter_04_Queue/01_Circular_Queue.cpp{29,30,31,37,43,44,51,52} -->
+
+@[code highlight={29,30,31,37,43,44,51,52}](@/Codes/Data_Structures_and_Algorthms/Chapter_04_Queue/01_Circular_Queue.cpp)
 
 ### 4.3 链式存储
 
@@ -365,7 +367,9 @@ bool match(char exp[], int n) {
 
 另外要注意的是，==链队需要定义两个结构体==，这还是遇到的第一个，原因不难想到，因为他需要两个指针，链表本身的一个指针已经不能满足它了
 
-<<< @/Codes/Data_Structures_and_Algorthms/Chapter_04_Queue/02_Linked_Queue.cpp{37,38,39,45}
+<!-- <<< @/Codes/Data_Structures_and_Algorthms/Chapter_04_Queue/02_Linked_Queue.cpp{37,38,39,45} -->
+
+@[code highlight={37,38,39,45}](@/Codes/Data_Structures_and_Algorthms/Chapter_04_Queue/02_Linked_Queue.cpp)
 
 #### 4.3.1 双端队列
 
@@ -1142,7 +1146,9 @@ T2   T3                           T3  T4
 
 :::
 
-<<< @/Codes/Data_Structures_and_Algorthms/Chapter_06_Tree/04_Max_Heap.cpp{56,79,80,114,123}
+<!-- <<< @/Codes/Data_Structures_and_Algorthms/Chapter_06_Tree/04_Max_Heap.cpp{56,79,80,114,123} -->
+
+@[code highlight={56,79,80,114,123}](@/Codes/Data_Structures_and_Algorthms/Chapter_06_Tree/04_Max_Heap.cpp)
 
 #### 6.6.4 哈夫曼树和哈夫曼编码
 
