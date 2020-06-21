@@ -6,83 +6,91 @@ tags:
    - Git
 ---
 
+::: tip
+
+Git Commit Message 虽然可以随意描述，但是应当使用对当前更改最合适的描述才有意义，而且在 review 代码的时候能够最快地找到相关位置，Commit Message 的规范有助于提高其意义，下面会分别介绍通用的规范以及可爱的 Gitmoji 规范
+
+:::
+
+<!-- more -->
+
 ## Git Commit 规范
 
 ### Gitmoji
 
-| view                        | code                          | mean                                          | translate                            |
-| --------------------------- | ----------------------------- | --------------------------------------------- | ------------------------------------ |
-| :art:                       | `:art:`                       | Improving structure / format of the code.     | 改良结构和代码格式                   |
-| :zap:                       | `:zap:`                       | Improving performance.                        | 优化性能                             |
-| :fire:                      | `:fire:`                      | Removing code or files.                       | 移除代码或文件                       |
-| :bug:                       | `:bug:`                       | Fixing a bug.                                 | 修复 bug                             |
-| :ambulance:                 | `:ambulance:`                 | Critical hotfix.                              | 修复关键程序                         |
-| :sparkles:                  | `:sparkles:`                  | Introducing new features.                     | 引入新功能                           |
-| :memo:                      | `:memo:`                      | Writing docs.                                 | 写文档                               |
-| :rocket:                    | `:rocket:`                    | Deploying stuff.                              | 部署任务                             |
-| :lipstick:                  | `:lipstick:`                  | Updating the UI and style files.              | 升级 UI 和样式文件                   |
-| :tada:                      | `:tada:`                      | Initial commit.                               | 初次提交                             |
-| :white_check_mark:          | `:white_check_mark:`          | Adding tests.                                 | 添加测试用例                         |
-| :lock:                      | `:lock:`                      | Fixing security issues.                       | 修复安全问题                         |
-| :apple:                     | `:apple:`                     | Fixing something on macOS.                    | 修复 MacOS 下的问题                  |
-| :penguin:                   | `:penguin:`                   | Fixing something on Linux.                    | 修复 Linux 下的问题                  |
-| :checkered_flag:            | `:checkered_flag:`            | Fixing something on Windows.                  | 修复 Windows 下的问题                |
-| :robot:                     | `:robot:`                     | Fixing something on Android.                  | 修复 Android 下的问题                |
-| :green_apple:               | `:green_apple:`               | Fixing something on iOS.                      | 修复 iOS 下的问题                    |
-| :bookmark:                  | `:bookmark:`                  | Releasing / Version tags.                     | 发版/版本标签                        |
-| :rotating_light:            | `:rotating_light:`            | Removing linter warning.                      | 移除 linter 的警告                   |
-| :construction:              | `:construction:`              | Work in progress.                             | 工作在进行中                         |
-| :green_heart:               | `:green_heart:`               | Fixing CI Build.                              | 修复 CI 构建问题                     |
-| :arrow_down:                | `:arrow_down:`                | Downgrading dependencies.                     | 降级依赖库                           |
-| :arrow_up:                  | `:arrow_up:`                  | Upgrading dependencies.                       | 升级依赖库                           |
-| :pushpin:                   | `:pushpin:`                   | Pinning dependencies to specific versions.    | 将依赖库固定到特定版本               |
-| :construction_worker:       | `:construction_worker:`       | Adding CI build system.                       | 添加 CI 构建系统                     |
-| :chart_with_upwards_trend:  | `:chart_with_upwards_trend:`  | Adding analytics or tracking code.            | 添加分析或跟踪代码。                 |
-| :recycle:                   | `:recycle:`                   | Refactoring code.                             | 重构代码                             |
-| :whale:                     | `:whale:`                     | Work about Docker.                            | Docker 相关工作                      |
-| :heavy_plus_sign:           | `:heavy_plus_sign:`           | Adding a dependency.                          | 添加一个依赖项                       |
-| :heavy_minus_sign:          | `:heavy_minus_sign:`          | Removing a dependency.                        | 删除一个依赖项                       |
-| :wrench:                    | `:wrench:`                    | Changing configuraton files.                  | 改变配置文件                         |
-| :globe_with_meridians:      | `:globe_with_meridians:`      | Internationalization and localization.        | 国际化和本地化                       |
-| :pencil2:                   | `:pencil2:`                   | Fixing typos.                                 | 修复拼写错误                         |
-| :hankey:                    | `:hankey:`                    | Writing bad code that needs to be improved.   | 需要改进的代码                       |
-| :rewind:                    | `:rewind:`                    | Reverting changes.                            | 恢复更改                             |
-| :twisted_rightwards_arrows: | `:twisted_rightwards_arrows:` | Merging branches.                             | 合并分支                             |
-| :package:                   | `:package:`                   | Updating compiled files or packages.          | 更新编译的文件或包                   |
-| :alien:                     | `:alien:`                     | Updating code due to external API changes.    | 由于外部 API 更改而更新代码          |
-| :truck:                     | `:truck:`                     | Moving or renaming files.                     | 移动或重命名文件                     |
-| :page_facing_up:            | `:page_facing_up:`            | Adding or updating license.                   | 添加或更新许可证                     |
-| :boom:                      | `:boom:`                      | Introducing breaking changes.                 | 介绍突破性变化                       |
-| :bento:                     | `:bento:`                     | Adding or updating assets.                    | 添加或更新静态资源                   |
-| :ok_hand:                   | `:ok_hand:`                   | Updating code due to code review changes.     | 由于代码审阅更改而更新代码           |
-| :wheelchair:                | `:wheelchair:`                | Improving accessibility.                      | 提升可访问性                         |
-| :bulb:                      | `:bulb:`                      | Documenting source code.                      | 记录源代码                           |
-| :beers:                     | `:beers:`                     | Writing code drunkenly.                       | 醉醺醺地编写代码                     |
-| :speech_balloon:            | `:speech_balloon:`            | Updating text and literals.                   | 更新文本或字面量                     |
-| :card_file_box:             | `:card_file_box:`             | Performing database related changes.          | 执行与数据库相关的更改               |
-| :loud_sound:                | `:loud_sound:`                | Adding logs.                                  | 添加日志                             |
-| :mute:                      | `:mute:`                      | Removing logs.                                | 删除日志                             |
-| :busts_in_silhouette:       | `:busts_in_silhouette:`       | Adding contributor(s).                        | 添加贡献者                           |
-| :children_crossing:         | `:children_crossing:`         | Improving user experience / usability.        | 改善用户体验/可用性                  |
-| :building_construction:     | `:building_construction:`     | Making architectural changes.                 | 改变架构                             |
-| :iphone:                    | `:iphone:`                    | Working on responsive design.                 | 进行响应式设计                       |
-| :clown_face:                | `:clown_face:`                | Mocking things.                               | 可笑的事情                           |
-| :egg:                       | `:egg:`                       | Adding an easter egg.                         | 加入一个彩蛋                         |
-| :see_no_evil:               | `:see_no_evil:`               | Adding or updating a .gitignore file          | 添加或更新.gitignore 文件            |
-| :camera_flash:              | `:camera_flash:`              | Adding or updating snapshots                  | 添加或更新快照                       |
-| :alembic:                   | `:alembic:`                   | Experimenting new things                      | 尝试新事物                           |
-| :mag:                       | `:mag:`                       | Improving SEO                                 | SEO 优化                             |
-| :wheel_of_dharma:           | `:wheel_of_dharma:`           | Work about Kubernetes                         | Kubernetes 相关工作                  |
-| :label:                     | `:label:`                     | Adding or updating types (Flow, TypesScript)  | 添加或更新类型声明(Flow、TypeScript) |
-| :seedling:                  | `:seedling:`                  | Adding or updating seed files                 | 添加或更新种子文件                   |
-| :triangular_flag_on_post:   | `:triangular_flag_on_post:`   | Adding, updating, or removing feature flags   | 添加、更新或删除功能标志             |
-| :goal_net:                  | `:goal_net:`                  | Catching errors                               | 发现错误                             |
-| :dizzy:                     | `:dizzy:`                     | Adding or updating animations and transitions | 添加或更新动画和过渡                 |
-| :wastebasket:               | `:wastebasket:`               | Deprecating code that needs to be cleaned up. | 清理冗余代码                         |
+| view                        | code                          | mean                                           | translate                                      |
+| --------------------------- | ----------------------------- | ---------------------------------------------- | ---------------------------------------------- |
+| :art:                       | `:art:`                       | Improving structure / format of the code.      | 改良结构和代码格式                             |
+| :zap:                       | `:zap:`                       | Improving performance.                         | 优化性能                                       |
+| :fire:                      | `:fire:`                      | Removing code or files.                        | 移除代码或文件                                 |
+| :bug:                       | `:bug:`                       | Fixing a bug.                                  | 修复 bug                                       |
+| :ambulance:                 | `:ambulance:`                 | Critical hotfix.                               | 修复关键程序                                   |
+| :sparkles:                  | `:sparkles:`                  | Introducing new features.                      | 引入新功能                                     |
+| :pencil:                    | `:pencil:`                    | Writing docs.                                  | 写文档                                         |
+| :rocket:                    | `:rocket:`                    | Deploying stuff.                               | 部署任务                                       |
+| :lipstick:                  | `:lipstick:`                  | Adding or updating the UI and style files.     | 添加或更新 UI 和样式文件                       |
+| :tada:                      | `:tada:`                      | Initial commit.                                | 初次提交                                       |
+| :white_check_mark:          | `:white_check_mark:`          | Adding or updating tests.                      | 添加或更新测试用例                             |
+| :lock:                      | `:lock:`                      | Fixing security issues.                        | 修复安全问题                                   |
+| :apple:                     | `:apple:`                     | Fixing something on macOS.                     | 修复 MacOS 下的问题                            |
+| :penguin:                   | `:penguin:`                   | Fixing something on Linux.                     | 修复 Linux 下的问题                            |
+| :checkered_flag:            | `:checkered_flag:`            | Fixing something on Windows.                   | 修复 Windows 下的问题                          |
+| :robot:                     | `:robot:`                     | Fixing something on Android.                   | 修复 Android 下的问题                          |
+| :green_apple:               | `:green_apple:`               | Fixing something on iOS.                       | 修复 iOS 下的问题                              |
+| :bookmark:                  | `:bookmark:`                  | Releasing / Version tags.                      | 发版/版本标签                                  |
+| :rotating_light:            | `:rotating_light:`            | Removing linter warning.                       | 移除 linter 的警告                             |
+| :construction:              | `:construction:`              | Work in progress.                              | 工作在进行中                                   |
+| :green_heart:               | `:green_heart:`               | Fixing CI Build.                               | 修复 CI 构建问题                               |
+| :arrow_down:                | `:arrow_down:`                | Downgrading dependencies.                      | 降级依赖库                                     |
+| :arrow_up:                  | `:arrow_up:`                  | Upgrading dependencies.                        | 升级依赖库                                     |
+| :pushpin:                   | `:pushpin:`                   | Pinning dependencies to specific versions.     | 将依赖库固定到特定版本                         |
+| :construction_worker:       | `:construction_worker:`       | Adding or updating CI build system.            | 添加或更新 CI 构建系统                         |
+| :chart_with_upwards_trend:  | `:chart_with_upwards_trend:`  | Adding or updating analytics or tracking code. | 添加或更新分析或跟踪代码                       |
+| :recycle:                   | `:recycle:`                   | Refactoring code.                              | 重构代码                                       |
+| :whale:                     | `:whale:`                     | Work about Docker.                             | Docker 相关工作                                |
+| :heavy_plus_sign:           | `:heavy_plus_sign:`           | Adding a dependency.                           | 添加一个依赖项                                 |
+| :heavy_minus_sign:          | `:heavy_minus_sign:`          | Removing a dependency.                         | 删除一个依赖项                                 |
+| :wrench:                    | `:wrench:`                    | Changing configuraton files.                   | 改变配置文件                                   |
+| :globe_with_meridians:      | `:globe_with_meridians:`      | Internationalization and localization.         | 国际化和本地化（i18n）                         |
+| :pencil2:                   | `:pencil2:`                   | Fixing typos.                                  | 修复拼写错误                                   |
+| :poop:                      | `:poop:`                      | Writing bad code that needs to be improved.    | 需要改进的代码                                 |
+| :rewind:                    | `:rewind:`                    | Reverting changes.                             | 恢复更改                                       |
+| :twisted_rightwards_arrows: | `:twisted_rightwards_arrows:` | Merging branches.                              | 合并分支                                       |
+| :package:                   | `:package:`                   | Adding or updating compiled files or packages. | 添加或更新编译的文件或包                       |
+| :alien:                     | `:alien:`                     | Updating code due to external API changes.     | 由于外部 API 更改而更新代码                    |
+| :truck:                     | `:truck:`                     | Moving or renaming files.                      | 移动或重命名文件                               |
+| :page_facing_up:            | `:page_facing_up:`            | Adding or updating license.                    | 添加或更新许可证                               |
+| :boom:                      | `:boom:`                      | Introducing breaking changes.                  | 引入不兼容的变动                               |
+| :bento:                     | `:bento:`                     | Adding or updating assets.                     | 添加或更新静态资源                             |
+| :wheelchair:                | `:wheelchair:`                | Improving accessibility.                       | 提高可访问性                                   |
+| :bulb:                      | `:bulb:`                      | Adding or updating comments in source code.    | 在源代码中添加或更新注释                       |
+| :beers:                     | `:beers:`                     | Writing code drunkenly.                        | 醉醺醺地编写代码                               |
+| :speech_balloon:            | `:speech_balloon:`            | Adding or updating text and literals.          | 添加或更新用于文本、对话框等文本内容相关的更改 |
+| :card_file_box:             | `:card_file_box:`             | Performing database related changes.           | 执行与数据库相关的更改                         |
+| :loud_sound:                | `:loud_sound:`                | Adding or updating logs.                       | 添加或更新日志                                 |
+| :mute:                      | `:mute:`                      | Removing logs.                                 | 删除日志                                       |
+| :busts_in_silhouette:       | `:busts_in_silhouette:`       | Adding or updating contributor(s).             | 添加或更新贡献者                               |
+| :children_crossing:         | `:children_crossing:`         | Improving user experience / usability.         | 改善用户体验/可用性                            |
+| :building_construction:     | `:building_construction:`     | Making architectural changes.                  | 改变架构                                       |
+| :iphone:                    | `:iphone:`                    | Working on responsive design.                  | 进行响应式设计                                 |
+| :clown_face:                | `:clown_face:`                | Mocking things.                                | 可笑的事情                                     |
+| :egg:                       | `:egg:`                       | Adding or updating an easter egg.              | 添加或更新彩蛋内容                             |
+| :see_no_evil:               | `:see_no_evil:`               | Adding or updating a .gitignore file.          | 添加或更新.gitignore 文件                      |
+| :camera_flash:              | `:camera_flash:`              | Adding or updating snapshots.                  | 添加或更新快照                                 |
+| :alembic:                   | `:alembic:`                   | Experimenting new things.                      | 实验性内容                                     |
+| :mag:                       | `:mag:`                       | Improving SEO.                                 | SEO 优化                                       |
+| :wheel_of_dharma:           | `:wheel_of_dharma:`           | Work about Kubernetes.                         | Kubernetes 相关工作                            |
+| :label:                     | `:label:`                     | Adding or updating types (Flow, TypesScript).  | 添加或更新类型声明(Flow、TypeScript)           |
+| :seedling:                  | `:seedling:`                  | Adding or updating seed files.                 | 添加或更新种子文件                             |
+| :triangular_flag_on_post:   | `:triangular_flag_on_post:`   | Adding, updating, or removing feature flags.   | 添加、更新或删除功能标志                       |
+| :goal_net:                  | `:goal_net:`                  | Catching errors.                               | 发现错误                                       |
+| :dizzy:                     | `:dizzy:`                     | Adding or updating animations and transitions. | 添加或更新动画和过渡                           |
+| :wastebasket:               | `:wastebasket:`               | Deprecating code that needs to be cleaned up.  | 清理冗余代码                                   |
 
 ### Commit Message 规范
 
 组成： header 、 body 、 footer
+
 即
 
 ```
@@ -97,13 +105,17 @@ tags:
 
 -  type
 
-   -  ==feat==：添加新功能
-   -  ==fix==：修复 bug
-   -  ==docs==：文档修改
-   -  ==style==： 代码格式修改（不影响代码运行的变动）
-   -  ==refactor==：代码重构（即不是新增功能，也不是修改 bug 的代码变动）
-   -  ==test==：测试用例修改
-   -  ==chore==：其他修改, 比如构建流程、辅助工具、依赖等等的管理
+   -  ==feat==: 添加新功能
+   -  ==fix==: 修复 bug
+   -  ==docs==: 仅对文档进行修改
+   -  ==style==: 对代码语义无影响的格式修改（如去除无用空格、格式化等等修改）
+   -  ==refactor==: 代码重构（即不是新增功能，也不是修改 bug 的代码变动）
+   -  ==perf==: 提高性能的代码修改
+   -  ==test==: 测试用例添加及修改
+   -  ==build==: 影响构建系统或外部依赖关系的更改
+   -  ==ci==: 更改 CI 配置文件和脚本
+   -  ==chore==: 其它不涉及源码以及测试的修改
+   -  ==revert==: 回退到某一个历史版本，下面详述
 
 -  scope
 
@@ -123,7 +135,7 @@ Body 是详细描述
 
 #### Footer
 
--  不兼容变动
+-  不兼容变动（BREAKING CHANGE）
 -  关闭 Issue 如 `Closes #234`
 
 #### Revert
@@ -138,8 +150,9 @@ This reverts commit 667ecc1654a317a13331b17617d973392f415f02.
 
 # Reference
 
-1. [程序员提交代码的 emoji 指南——原来表情文字不能乱用](https://www.h5jun.com/post/gitmoji.html)
+1. [conventional-commit-types](https://github.com/commitizen/conventional-commit-types)
 2. [Gitmoji](http://gitmoji.carloscuesta.me/)
-3. [用 gitmoji 来提交你的 git commit 吧](https://github.com/mytac/blogs/issues/2)
-4. [git commit 规范指南](https://segmentfault.com/a/1190000009048911?utm_source=tag-newest)
-5. [优雅地提交你的 Git Commit Message](https://juejin.im/post/5afc5242f265da0b7f44bee4)
+3. [程序员提交代码的 emoji 指南——原来表情文字不能乱用](https://www.h5jun.com/post/gitmoji.html)
+4. [用 gitmoji 来提交你的 git commit 吧](https://github.com/mytac/blogs/issues/2)
+5. [git commit 规范指南](https://segmentfault.com/a/1190000009048911?utm_source=tag-newest)
+6. [优雅地提交你的 Git Commit Message](https://juejin.im/post/5afc5242f265da0b7f44bee4)
