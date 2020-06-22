@@ -4,7 +4,7 @@ ACCESS_TOKEN=$1
 USERNAME=SigureMo       # 你的用户名
 REPO=""                 # 如果不指定，将发布在 <username>.github.io
 BRANCH=""               # 如果不指定，将发布在 master 分支
-CNAME=www.sigure.xyz    # 你想发布到的域名
+CNAME=sigure.xyz    # 你想发布到的域名
 
 if [ $ACCESS_TOKEN ]
 then TOKEN_PREFIX="${ACCESS_TOKEN}@"

@@ -3,7 +3,7 @@
 > Notes for develope.
 
 <p align="center">
-   <a href="https://www.sigure.xyz/" target="_blank"><img alt="Read the Docs" src="https://img.shields.io/badge/Blog-Notev-red?style=flat-square&logo=read-the-docs"></a>
+   <a href="https://sigure.xyz/" target="_blank"><img alt="Read the Docs" src="https://img.shields.io/badge/Blog-Notev-red?style=flat-square&logo=read-the-docs"></a>
    <a href="https://github.com/SigureMo/notev" target="_blank"><img alt="GitHub" src="https://img.shields.io/badge/GitHub-notev-black?style=flat-square&logo=github"></a>
    <br/>
    <a href="https://github.com/vuejs/vuepress" target="_blank"><img alt="vuepress" src="https://img.shields.io/badge/Vuepress-build-1aad19?style=flat-square&logo=vue.js"></a>
