@@ -112,7 +112,7 @@ jobs:
 
 之后依次进入 `源 repo -> Settings -> Secrets`，点击 `New secret`，Name 字段填写 `ACCESS_TOKEN`，Value 字段粘贴刚刚生成的 token 即可
 
-这样，该 action 在 `${{ secrets.ACCESS_TOKEN }}` 处就可以获得刚刚生成的拥有读写 repo 权限的 token，然后传入该 action 的 ACCESS_TOKEN 参数，进而完成整个部署过程
+这样，该 action 在 `secrets.ACCESS_TOKEN` 处就可以获得刚刚生成的拥有读写 repo 权限的 token，然后传入该 action 的 ACCESS_TOKEN 参数，进而完成整个部署过程
 
 完成这些，就可以重新 push 一下源代码 repo 试一下啦，还可以在源 repo 的 Actions 中可以看到相关进度
 
