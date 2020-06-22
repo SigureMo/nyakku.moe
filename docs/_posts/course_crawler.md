@@ -30,7 +30,7 @@ tags:
       -  `pycryptodome`
    -  `Chrome`
 -  [项目地址](https://github.com/SigureMo/course-crawler)
--  [项目文档](https://www.sigure.xyz/course-crawler/)
+-  [项目文档](https://sigure.xyz/course-crawler/)
 
 ## 支持的课程
 
@@ -86,7 +86,7 @@ python mooc.py https://www.icourse163.org/course/TONGJI-53004
 ```
 
 ::: tip
-这里的 `<url>` 为课程主页的地址，网址的具体要求及课程下载的额外要求详见[分类](https://www.sigure.xyz/course-crawler/courses/icourse163.html)
+这里的 `<url>` 为课程主页的地址，网址的具体要求及课程下载的额外要求详见[分类](https://sigure.xyz/course-crawler/courses/icourse163.html)
 :::
 
 ### 身份验证
@@ -143,7 +143,7 @@ python mooc.py --download-video https://www.icourse163.org/course/TONGJI-53004
 python mooc.py https://www.icourse163.org/course/TONGJI-53004 -d "G:\MOOCs"
 ```
 
-> 更多参数请参见[项目文档](https://www.sigure.xyz/course-crawler/)
+> 更多参数请参见[项目文档](https://sigure.xyz/course-crawler/)
 
 ## 推荐
 

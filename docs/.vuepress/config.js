@@ -98,7 +98,7 @@ module.exports = {
     [
       "feed",
       {
-        canonical_base: "https://www.sigure.xyz",
+        canonical_base: "https://sigure.xyz",
       },
     ],
     // GA 插件
