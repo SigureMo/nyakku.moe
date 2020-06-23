@@ -1,5 +1,5 @@
 VERSION 5.00
-Begin VB.Form Form1 
+Begin VB.Form Form1
    Caption         =   "Form1"
    ClientHeight    =   4950
    ClientLeft      =   120
@@ -8,8 +8,8 @@ Begin VB.Form Form1
    LinkTopic       =   "Form1"
    ScaleHeight     =   4950
    ScaleWidth      =   5985
-   StartUpPosition =   3  '´°¿ÚÈ±Ê¡
-   Begin VB.CommandButton Command1 
+   StartUpPosition =   3  'ï¿½ï¿½ï¿½ï¿½È±Ê¡
+   Begin VB.CommandButton Command1
       Caption         =   "Draw!"
       Height          =   735
       Left            =   3960
@@ -25,18 +25,16 @@ Attribute VB_PredeclaredId = True
 Attribute VB_Exposed = False
 Dim cnt%
 
-' https://github.com/SigureMo/notev/tree/master/Codes/VB
-
 Private Sub Command1_Click()
-    
+
     Dim w%, h%, r%, a!, Color
     w = Form1.Width
     h = Form1.Height
-    r = 1000 '×ÔÐÐÐÞ¸Ä Radius
+    r = 1000 'ï¿½ï¿½ï¿½ï¿½ï¿½Þ¸ï¿½ Radius
     a = Sqr(2) * r
     Form1.Caption = "Canvas"
     Randomize
-    
+
     If cnt Mod 3 = 0 Then
         Command1.Caption = "Draw a rectangle!"
         Color = RGB(Rnd * 255, Rnd * 255, Rnd * 255)
@@ -52,7 +50,7 @@ Private Sub Command1_Click()
         'MsgBox cnt
     End If
     cnt = cnt + 1
-    
+
 End Sub
 
 Private Sub Form_Load()

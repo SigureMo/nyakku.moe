@@ -167,7 +167,3 @@
 
 -  黄阿童学长提供的例程、资料以及理论讲解
 -  《大型铸件凝固进程的数字模拟》 郭可讱
-
----
-
-© 2019 SigureMo [notev](https://github.com/SigureMo/notev/tree/master/Codes/VB/07_temperature_field)
