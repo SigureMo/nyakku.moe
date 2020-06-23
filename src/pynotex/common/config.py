@@ -1,6 +1,6 @@
 import json
 
-CONF_PATH = 'Codes/pynotex/config.json'
+CONF_PATH = 'src/pynotex/config.json'
 
 ''' config.json
 {

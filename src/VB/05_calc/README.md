@@ -54,7 +54,3 @@
 -  由于部分运算尚不稳定，请尽可能地使用括号对歧义处进行包裹
 -  部分运算符的用法更符合数学习惯而不是 win10 calc 的用法
 -  绘制图形时切勿变量前加常数，当前的机制为 VB 中纯字符串替换，类似于宏的原理，dll 中尚不支持变量的使用
-
----
-
-[Open Sourse @ notev](https://github.com/SigureMo/notev/tree/master/Codes/VB)

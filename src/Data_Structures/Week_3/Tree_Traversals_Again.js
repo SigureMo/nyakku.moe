@@ -40,7 +40,7 @@ OUT:
 const readline = require("readline");
 const rl = readline.createInterface({
   input: process.stdin,
-  output: process.stdout
+  output: process.stdout,
 });
 
 var inputs = [];
@@ -55,7 +55,7 @@ function node(num) {
   this.right = null;
 }
 
-rl.on("line", function(line) {
+rl.on("line", function (line) {
   if (lineNum === 0) {
     nodeNum = parseInt(line);
   } else if (lineNum <= nodeNum * 2) {
@@ -69,7 +69,7 @@ rl.on("line", function(line) {
   lineNum++;
 });
 
-rl.on("close", function() {
+rl.on("close", function () {
   process.exit(0);
 });
 
