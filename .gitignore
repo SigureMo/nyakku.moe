@@ -148,7 +148,13 @@ docs/.vuepress/plugins/vuepress-plugin-ribbon/
 docs/.vuepress/plugins/vuepress-plugin-meting/
 docs/.vuepress/theme/
 node_modules/
+
+# yarn
 yarn.lock
+.yarn/*
+.yarnrc.yml
+.pnp.js
+yarn-error.log
 
 # temp
 tmp/
