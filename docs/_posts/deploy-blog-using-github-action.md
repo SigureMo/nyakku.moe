@@ -191,3 +191,4 @@ Coding 是国内的软件开发平台，国内访问速度还不错，因此利�
 
 1. [github-pages-deploy-action](https://github.com/JamesIves/github-pages-deploy-action)
 2. [gitee-pages-action](https://github.com/yanglbme/gitee-pages-action)
+3. [利用 Github 和 Coding 为 Hexo 博客开启 Https](https://zhuanlan.zhihu.com/p/111786790)
