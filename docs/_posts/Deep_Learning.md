@@ -2609,26 +2609,6 @@ $Thank\ you,  Andrew\ Ng$
 
  -->
 
-# Change Log
-
-1. 181014 #1.1 Finished
-2. 181017 #1.2 Finished
-3. 181020 #1.3 Finished
-4. 181021 [Week_3](https://github.com/SigureMo/notev/tree/master/Codes/DeepLearning/Week_3) Finished
-5. 181022 #1.4 Finished
-6. 181028 #2.1 Finished
-7. 181116 #2.2 Finished
-8. 181225 #2.3 Finished
-9. 190130 #3.1 Finished
-10.   190206 #3.2 Finished
-11.   190211 #4.1 Finished
-12.   190224 #4.2 Finished
-13.   190301 #4.3 Finished
-14.   190302 #4.4 Finished
-15.   190310 #5.1 Finished
-16.   190315 #5.2 Finished
-17.   190316 #5.3 Finished
-
 # Reference
 
 1. [深度学习工程师 - deeplearning.ai - 网易云课堂](https://mooc.study.163.com/smartSpec/detail/1001319001.htm)
