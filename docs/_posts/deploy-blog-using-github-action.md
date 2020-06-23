@@ -9,7 +9,7 @@ tags:
 
 ::: tip
 
-博客的部署往往只需要一行命令，但却需要花费我几分钟在本地的构建时间，完成博客内容后本应该放松放松心情，这几分钟的等待显得额外惹人生厌
+博客的部署往往只需要一行命令，但却需要花费我几分钟在本地的构建时间，完成博客内容后本应该放松放松心情，这几分钟的等待显得尤为惹人生厌
 
 那么如何解决这个问题呐？当然是自动化部署啦，这样我们每次只需要将写完的博客 Push 到 Github 上，就可以触发相应的 CI 以完成博客的自动部署咯，所以这里就介绍如何使用 Github Action 来自动化部署博客
 
@@ -17,7 +17,7 @@ tags:
 
 <!-- more -->
 
-## 使用 Github Action 的使用
+## Github Action 的使用
 
 关于自动化部署，起初我接触的是 Travis CI，配置很简单，使用起来非常简单
 
@@ -77,7 +77,7 @@ jobs:
               npm install yarn
               yarn
               yarn docs:build
-              echo www.sigure.xyz > docs/.vuepress/dist/CNAME
+              echo sigure.xyz > docs/.vuepress/dist/CNAME
 
          # 部署到 Github Pages
          - name: Deploy 🚀

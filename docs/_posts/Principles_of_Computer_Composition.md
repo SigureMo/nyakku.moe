@@ -569,11 +569,19 @@ tags:
 
 -  大字长变量向小字长变量转换时（比如 `int` 向 `short`），将会将大字长变量高字节部分直接截断
 
-@[code transcludeWith=LONG_TO_SHORT](@/Codes/PCC/01_type_conversion.c)
+   ```c
+   int x1 = 0x7fffffff;
+   short y1 = (short) x1;
+   printf("%hx\n", y1);        // ffff
+   ```
 
 -  小字长变量向大字长变量转换时（比如 `short` 向 `int`），不仅将低字节部分复制过去，而且要对符号位进行扩展补充，以保证数值是不变的
 
-@[code transcludeWith=SHORT_TO_LONG](@/Codes/PCC/01_type_conversion.c)
+   ```c
+   short x2 = 0x8fff;
+   int y2 = (int) x2;
+   printf("%x\n", y2);         // ffff8fff
+   ```
 
 ### 2.3 浮点数的表示与运算
 
@@ -648,7 +656,11 @@ $char \to int \to long \to double$ 范围和精度都从小到大，可以放心
 
 值得注意的是， $int \to float$ 虽然不会发生溢出，但是是可能进行舍入的，因为 $float$ 尾数部分（24bit）比 $int$ 数值（32bit）少，所以最后几位可能会发生舍入
 
-@[code transcludeWith=INT_TO_FLOAT](@/Codes/PCC/01_type_conversion.c)
+```c
+int x3 = 0x7fffffff;
+float y3 = (float) x3;
+printf("%d %f\n", x3, y3);  // 2147483647 2147483648.000000
+```
 
 ### 2.4 算数逻辑单元（ALU）
 
