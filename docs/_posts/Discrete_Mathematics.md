@@ -91,8 +91,6 @@ tags:
 
 ### 1.1 命题逻辑
 
-[python 测试脚本](https://github.com/SigureMo/notev/tree/master/Codes/DM、01_propositional_logic)
-
 #### 1.1.1 命题
 
 陈述句，非真即假

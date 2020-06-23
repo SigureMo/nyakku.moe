@@ -216,10 +216,6 @@ ReLU(D_hat**-1 * A_hat * X * W)
 
 总的来说，图卷积不过是在前层特征计算完之后再整张图上传播一下（第一步），之后和传统网络并无区别
 
-# Source
-
-[Hello GCN](https://github.com/SigureMo/notev/tree/master/Codes/DeepLearning/GCN/hello_gcn.ipynb)
-
 # Reference
 
 1. [图卷积网络到底怎么做，这是一份极简的 Numpy 实现](https://mp.weixin.qq.com/s/sg9O761F0KHAmCPOfMW_kQ)
