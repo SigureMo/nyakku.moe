@@ -68,8 +68,6 @@ jobs:
          # 使用某个 Repo
          - name: Checkout 🛎️
            uses: actions/checkout@v2
-           with:
-              persist-credentials: false
 
          # 构建静态文件
          - name: Install and Build 🔧
@@ -81,38 +79,48 @@ jobs:
 
          # 部署到 Github Pages
          - name: Deploy 🚀
-           uses: JamesIves/github-pages-deploy-action@releases/v3
+           uses: peaceiris/actions-gh-pages@v3
            with:
-              ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }}
-              REPOSITORY_NAME: SigureMo/SigureMo.github.io
-              BRANCH: master
-              FOLDER: docs/.vuepress/dist
+              personal_token: ${{ secrets.PERSONAL_TOKEN }}
+              publish_dir: docs/.vuepress/dist
+              external_repository: SigureMo/SigureMo.github.io
+              publish_branch: master
+              cname: sigure.xyz
+              user_name: "github-actions[bot]"
+              user_email: "github-actions[bot]@users.noreply.github.com"
 ```
 
 这里第一步是使用你的源代码 repo，其中 uses 是指使用了某个现成的 Action，比如这个 `actions/checkout` 就是 [`github.com/actions/checkout`](https://github.com/actions/checkout) 的 `v2` 版本，如果需要 submodule 或者 lfs 可以在 `with` 下修改参数
 
 第二步是将博客源码构建成静态文件，不同的框架的构建方法自然不同，我这里是以 Vuepress 作为示例
 
-第三步就是将构建好的静态文件 Push 到目标的 Github Pages 对应的 Repo 了，这里使用的是 [`JamesIves/github-pages-deploy-action`](https://github.com/JamesIves/github-pages-deploy-action)，主要参数有
+第三步就是将构建好的静态文件 Push 到目标的 Github Pages 对应的 Repo 了，这里使用的是 [`peaceiris/actions-gh-pages`](https://github.com/peaceiris/actions-gh-pages)，如果你只需要部署到当前 Repo 的 `gh-pages` 分支上的话，你只需要配置以下内容即可
 
--  `BASE_BRANCH` 静态文件所在分支名称
--  `FOLDER` 静态文件所在目录名称
+```yaml
+- name: Deploy 🚀
+  uses: peaceiris/actions-gh-pages@v3
+  with:
+     github_token: ${{ secrets.GITHUB_TOKEN }}
+     publish_dir: docs/.vuepress/dist
+```
 
----
+这里的 `secrets.GITHUB_TOKEN` 不需要配置，Github 会自动提供
 
--  `REPOSITORY_NAME` 想要部署到仓库的名称
--  `BRANCH` 想要部署到的特定分支名称
--  `TARGET_FOLDER` 想要部署到的特定文件夹名称
+但是如果你和我一样想部署到 `<username>.github.io` 的话，就需要稍微改动一下啦，该 Action 提供了非常丰富的参数以供配置
 
-另外，`ACCESS_TOKEN` 需要通过在源仓库 repo 的设置中进行配置，以确保该 Action 能拥有写入目标 Repo 的权限，在配置之前我们需要先获取该 token
+由于目标 Repo 和目标分支都变了，就需要分别设置下 `external_repository` 和 `publish_branch` 这两个参数咯
+
+另外，由于 Push 到外部 Repo 的话 `GITHUB_TOKEN` 的权限不足，因此需要提供其它的验证方式，比如 `personal_token` 和 `deploy_key`，这里提一下 `personal_token` 的生成与配置方式，该方法相比于后者也更方便一些
 
 依次进入`个人 Settings -> Developer settings -> Personal access tokens` 点击 `Generate new token`，随便填写个名字，然后下面勾选 `repo`（权限） 后确认 `Generate token`
 
-生成的 token 只能看一次，请确定复制后再关闭页面
+由于生成的 token 只能看一次，请确定复制后再关闭页面
 
-之后依次进入 `源 repo -> Settings -> Secrets`，点击 `New secret`，Name 字段填写 `ACCESS_TOKEN`，Value 字段粘贴刚刚生成的 token 即可
+之后依次进入 `源 repo -> Settings -> Secrets`，点击 `New secret`，Name 字段填写 `PERSONAL_TOKEN`，Value 字段粘贴刚刚生成的 token 即可
 
-这样，该 action 在 `secrets.ACCESS_TOKEN` 处就可以获得刚刚生成的拥有读写 repo 权限的 token，然后传入该 action 的 ACCESS_TOKEN 参数，进而完成整个部署过程
+这样，该 action 在 `secrets.PERSONAL_TOKEN` 处就可以获得刚刚生成的拥有读写 repo 权限的 token，然后传入该 action 的 ACCESS_TOKEN 参数，进而完成整个部署过程
+
+这样就完成了权限的配置啦，该 Action 还提供了很多比较实用的参数，比如 `cname`，更多详情去看它的文档吧
 
 完成这些，就可以重新 push 一下源代码 repo 试一下啦，还可以在源 repo 的 Actions 中可以看到相关进度
 
@@ -189,6 +197,6 @@ Coding 是国内的软件开发平台，国内访问速度还不错，因此利�
 
 # References
 
-1. [github-pages-deploy-action](https://github.com/JamesIves/github-pages-deploy-action)
+1. [actions-gh-pages](https://github.com/peaceiris/actions-gh-pages)
 2. [gitee-pages-action](https://github.com/yanglbme/gitee-pages-action)
 3. [利用 Github 和 Coding 为 Hexo 博客开启 Https](https://zhuanlan.zhihu.com/p/111786790)
