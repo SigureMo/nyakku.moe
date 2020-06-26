@@ -13,22 +13,23 @@ jobs:
         uses: actions/checkout@v2
         with:
           submodules: true
-          persist-credentials: false
 
       - name: Install and Build 🔧
         run: |
           npm install yarn
           yarn
           yarn docs:build
-          echo sigure.xyz > docs/.vuepress/dist/CNAME
 
       - name: Deploy 🚀
-        uses: JamesIves/github-pages-deploy-action@releases/v3
+        uses: peaceiris/actions-gh-pages@v3
         with:
-          ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }}
-          REPOSITORY_NAME: SigureMo/SigureMo.github.io
-          BRANCH: master
-          FOLDER: docs/.vuepress/dist
+          personal_token: ${{ secrets.PERSONAL_TOKEN }}
+          publish_dir: docs/.vuepress/dist
+          external_repository: SigureMo/SigureMo.github.io
+          publish_branch: master
+          cname: sigure.xyz
+          user_name: "github-actions[bot]"
+          user_email: "github-actions[bot]@users.noreply.github.com"
 
       - name: Sync to Coding 🔀
         uses: wearerequired/git-mirror-action@v1
