@@ -16,7 +16,7 @@ module.exports = {
         content: "width=device-width,initial-scale=1,user-scalable=no",
       },
     ],
-    ["meta", { property: "og:image", content: "/sigure_mo.png" }],
+    ["meta", { property: "og:image", content: "/avatar.jpg" }],
     ["link", { rel: "manifest", href: "/manifest.json" }],
     ["meta", { name: "theme-color", content: "#222222" }],
     ["meta", { name: "apple-mobile-web-app-capable", content: "yes" }],
@@ -144,7 +144,7 @@ module.exports = {
       // 组织
       organization: "Dalian University of Technology",
       // 头像
-      avatar: "/sigure_mo.png",
+      avatar: "/avatar.jpg",
       // 社交平台帐号信息
       sns: {
         // Github 帐号和链接
