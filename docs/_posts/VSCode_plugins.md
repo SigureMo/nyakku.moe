@@ -18,6 +18,7 @@ tags:
 
 -  Python
 -  C/C++
+-  Julia
 -  Cython
 -  ESLint
 -  Vetur
