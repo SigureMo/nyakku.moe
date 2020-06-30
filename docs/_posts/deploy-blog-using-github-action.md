@@ -75,7 +75,6 @@ jobs:
               npm install yarn
               yarn
               yarn docs:build
-              echo sigure.xyz > docs/.vuepress/dist/CNAME
 
          # 部署到 Github Pages
          - name: Deploy 🚀
@@ -90,7 +89,7 @@ jobs:
               user_email: "github-actions[bot]@users.noreply.github.com"
 ```
 
-这里第一步是使用你的源代码 repo，其中 uses 是指使用了某个现成的 Action，比如这个 `actions/checkout` 就是 [`github.com/actions/checkout`](https://github.com/actions/checkout) 的 `v2` 版本，如果需要 submodule 或者 lfs 可以在 `with` 下修改参数
+这里第一步是使用你的源代码 repo，其中 uses 是指使用了某个现成的 Action，比如这个 `actions/checkout` 就是 [`github.com/actions/checkout`](https://github.com/actions/checkout) 的 `v2` 版本，如果需要 submodule 或者 lfs 可以通过 `with` 选项来修改参数
 
 第二步是将博客源码构建成静态文件，不同的框架的构建方法自然不同，我这里是以 Vuepress 作为示例
 
