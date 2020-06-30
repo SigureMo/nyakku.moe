@@ -339,7 +339,7 @@ bool match(char exp[], int n) {
 
 #### 4.2.1 循环队列
 
-![DS01.jpeg{copyright:BaiduImage}](../img/Data_Structures_and_Algorithms/DS01.jpeg)
+![DS01.jpg{copyright:BaiduImage}](../img/Data_Structures_and_Algorithms/DS01.jpg)
 
 首尾相接，围一个圈圈，这样就可以更加充分地利用数组空间了，但是还有一个小问题，什么时候队空？什么时候队满？可以发现在空/真正的满的情况下，两个指针都是重合的，也就是 `front == rear`，究其原因，是因为不能用 $n$ 个队列的状态表示 $n+1$ 种状态，那么要如何解决呢？
 
@@ -354,7 +354,7 @@ bool match(char exp[], int n) {
 
 ### 4.3 链式存储
 
-![DS02.jpeg{copyright:BaiduImage}](../img/Data_Structures_and_Algorithms/DS02.jpeg)
+![DS02.jpg{copyright:BaiduImage}](../img/Data_Structures_and_Algorithms/DS02.jpg)
 
 和链栈一样，如若需要删除操作的 front 在链尾则难以继续对新的链尾进行操作，故 front 在链首
 
@@ -1163,7 +1163,7 @@ T2   T3                           T3  T4
 
 但是如何最快地找到权值最小的两棵树呢？这可以**利用最小堆，堆的数据域数组存储树结点，以权值为 key 进行初始化排序**
 
-![DS05{copyright:BaiduImage}](../img/Data_Structures_and_Algorithms/DS05.jpeg)
+![DS05{copyright:BaiduImage}](../img/Data_Structures_and_Algorithms/DS05.jpg)
 
 -  哈夫曼树的特点
    -  每个初始结点最终都成为叶子结点，且权值越小的结点到根结点的路径长度越大
