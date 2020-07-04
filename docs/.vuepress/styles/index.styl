@@ -1,18 +1,21 @@
 // 鼠标指针
 body
-  background-color #dee;
-  cursor: url('/cursor/default.cur'), auto;
+  background-color #dee
+  cursor url('/cursor/default.cur'), auto
+
 body
   .header
     .banner
-      cursor: url('/cursor/default.cur'), auto;
+      cursor url('/cursor/default.cur'), auto
+
 .container
   aside
     .info-card
       .info-card-body
-        cursor: url('/cursor/default.cur'), auto;
+        cursor url('/cursor/default.cur'), auto
+
 a, button, #goTop, .jump, h1, .info-avatar, .post-tag
-  cursor: url('/cursor/link.cur'), auto;
+  cursor url('/cursor/link.cur'), auto
 
 // 标题
 .header
@@ -24,9 +27,9 @@ a, button, #goTop, .jump, h1, .info-avatar, .post-tag
 // 背景
 body
   .header
-    background-position: top center !important
+    background-position top center !important
   .banner
-    height: 400px !important
+    height 400px !important
 
 // 隐藏原有返回顶部按钮
 .go-to-top
@@ -34,7 +37,14 @@ body
 
 // 修复移动端 & Linux PC（该粗细的字体残缺） 中文不显示粗体的问题
 strong
-  font-weight: bold !important
+  font-weight bold !important
+
+// 优化表格样式
+.main-div
+  table
+    table-layout fixed
+    width 100%
+    text-align center
 
 // 自定义容器块
 .custom-block
@@ -42,3 +52,30 @@ strong
     border-color #ffd564
   &.danger
     border-color #fd383c
+
+// 评论
+.vssue
+  border-radius 5px
+  .vssue-body
+    .vssue-new-comment
+      .vssue-comment-avatar
+        img
+          border-radius 5px
+          box-shadow 0 1px 6px 0 rgba(0, 0, 0, .2)
+          cursor url('/cursor/link.cur'), auto
+    .vssue-comments
+      .vssue-comment
+        .vssue-comment-avatar
+          img
+            border-radius 5px
+            box-shadow 0 1px 6px 0 rgba(0, 0, 0, .2)
+            cursor url('/cursor/link.cur'), auto
+        .vssue-comment-body
+          border-radius 5px
+          box-shadow 0 1px 6px 0 rgba(0, 0, 0, .2)
+          .vssue-comment-header
+            background #f0f2f4
+          .vssue-comment-main
+            background #f6f8fa
+          .vssue-comment-footer
+            background #f0f2f4
