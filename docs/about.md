@@ -1,5 +1,5 @@
 ---
-title: About me
+title: About
 sidebar: false
 layout: AboutLayout
 ---
@@ -8,10 +8,9 @@ SigureMo（<ruby> 時 <rp>(</rp><rt>し</rt><rp>)</rp> 雨 <rp>(</rp><rt>ぐれ<
 
 ## 爱好～
 
--  用爬虫爬取猫猫图片
--  用 DeepLearning 识别猫猫
--  在博客里添加猫猫
--  喵喵喵
+-  写写代码
+-  吸猫猫（暂时只能云吸猫，但总有一天会有猫的）
+-  绘画（曾经）
 
 ## SNS ～
 
@@ -21,13 +20,6 @@ SigureMo（<ruby> 時 <rp>(</rp><rt>し</rt><rp>)</rp> 雨 <rp>(</rp><rt>ぐれ<
 -  [Mail](mailto:sigure.qaq@gmail.com)
 -  [Bilibili](https://space.bilibili.com/100969474)
 -  [RSS](https://sigure.xyz/feed.atom)
-
-## 音乐～
-
-<Meting server="netease"
-        type="playlist"
-        mid="2539599584"
-        :lrc-type="3"/>
 
 ## 尝试～
 
