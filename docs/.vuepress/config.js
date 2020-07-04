@@ -193,6 +193,7 @@ module.exports = {
     nav: [
       { text: "Home", link: "/", exact: true },
       { text: "Posts", link: "/posts/", exact: false },
+      { text: "Friends", link: "/friends.html", exact: false },
       { text: "About", link: "/about.html", exact: false },
       { text: "Github", link: "https://github.com/SigureMo/notev" },
     ],
@@ -223,5 +224,15 @@ module.exports = {
     serviceWorker: {
       updatePopup: true,
     },
+
+    // 友链配置
+    friends: [
+      {
+        name: "SigureMo",
+        url: "https://sigure.xyz/",
+        description: "一个小透明的透明世界",
+        avatar: "https://sigure.xyz/avatar.jpg",
+      },
+    ],
   },
 };
