@@ -37,6 +37,12 @@ img {
   border-radius: 50%;
 }
 
+p {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
 p.friend-name {
   padding-top: 20px;
   font-size: 16px;
