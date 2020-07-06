@@ -225,7 +225,7 @@ exit                                      # 退出 cmd
 
 大功告成～重启就可以发现 BIOS 有新的引导了，将新的引导移到第一位即可默认启动在 SSD 上的 Windows 咯～
 
-# Reference
+# References
 
 1. [Linux 系统目录结构](https://www.runoob.com/linux/linux-system-contents.html)
 2. [硬盘分区、挂载及 Ubuntu 系统安装](https://blog.csdn.net/hurry0808/article/details/78882111)
@@ -235,3 +235,4 @@ exit                                      # 退出 cmd
 6. [SSD 固态硬盘 4K 怎么对齐 SSD 固态硬盘 4K 对齐方法](https://zhuanlan.zhihu.com/p/71386318)
 7. [迁移 win10 的 efi 引导分区到系统固态硬盘](https://blog.csdn.net/Sebastien23/article/details/99691881)
 8. [新加装的硬盘，装上系统后发现 EFI 分区没有被创建，还是用旧硬盘的 EFI 分区](https://blog.csdn.net/u013580080/article/details/51754486)
+9. [电脑基础知识普及：BIOS、EFI 与 UEFI 详解！](https://zhuanlan.zhihu.com/p/54108702)

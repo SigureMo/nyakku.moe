@@ -86,7 +86,7 @@ SET CMDER_ROOT=<CmderPath>
 将`<ScriptPath>`替换成你的.bat 文件的具体路径，注意路径中对某些字符的转义
 :::
 
-# Reference
+# References
 
 1. [Windows 命令行增强 cmder chocolatey 配置指南](https://www.jianshu.com/p/479d974078a7)
 2. [超爽的 Windows 终端 Cmder](http://www.360doc.com/content/17/1122/07/1353678_706036759.shtml)

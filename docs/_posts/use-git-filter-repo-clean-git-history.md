@@ -55,7 +55,7 @@ git filter-repo --path-glob '*.jpg' --invert-paths
 
 当然，这只是 `git filter-repo` 的一个最简单的应用啦，更多使用技巧还是要看文档的～
 
-# Reference
+# References
 
 1. [git-filter-repo GitHub](https://github.com/newren/git-filter-repo)
 2. [git-filter-repo Manual Page](https://htmlpreview.github.io/?https://github.com/newren/git-filter-repo/blob/docs/html/git-filter-repo.html#EXAMPLES)

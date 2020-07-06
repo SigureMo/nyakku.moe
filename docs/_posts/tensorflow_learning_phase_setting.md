@@ -97,6 +97,6 @@ model(data)
 
 由于后者更方便一些，所以我一般选用后者
 
-# Reference
+# References
 
 1. [TensorFlow 2.0+Keras 防坑指南](https://zhuanlan.zhihu.com/p/64310188)
