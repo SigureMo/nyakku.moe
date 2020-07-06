@@ -58,6 +58,6 @@ huanhu ヾ(❀^ω^)ﾉﾞ
 
 此外，QuickPhrase 也是支持 emoji 的，只不过它只支持 shortcode 的输入方式，比如 `:joy:` 对应 :joy:，也就是说即便是在 QuickPhrase 模式下也还是需要先输入 `:` 才能生效，如果你不习惯的话可以用一下 [levinit/fcitx-emoji](https://github.com/levinit/fcitx-emoji)
 
-# Reference
+# References
 
 1. [猫颜文字 For Fcitx QuickPhrase](https://felixc.at/2012/05/kitty-for-fcitx-quickphrase/)
