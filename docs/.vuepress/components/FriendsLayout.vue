@@ -23,7 +23,6 @@ export default {
   name: "FriendsLayout",
   computed: {
     friends() {
-      console.log(this.shuffle(this.$themeConfig.friends));
       return this.shuffle(this.$themeConfig.friends);
     },
 
