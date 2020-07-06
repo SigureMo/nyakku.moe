@@ -420,7 +420,7 @@ $borderColor = #eaecef
 $codeBgColor = #282c34
 ```
 
-# Reference
+# References
 
 1. [Vuepress 1.x 文档](https://v1.vuepress.vuejs.org/zh/)
 2. [vuepress-theme-reco 文档](https://github.com/vuepress-reco/vuepress-theme-reco)

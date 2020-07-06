@@ -192,7 +192,7 @@ git push origin feature/sigure
 
 由于你的 `master` 与 `dev` 都是相当干净（自己没做过改动）的，你可以和前面一样 `fetch` 并 `merge` 即可
 
-# Reference
+# References
 
 1. [Git 常用命令和 Git Flow 梳理](https://www.cnblogs.com/ldy-blogs/p/10529946.html#4416607)
 2. [git merge squash 和 rebase 区别](https://www.jianshu.com/p/684a8ae9dcf1)
