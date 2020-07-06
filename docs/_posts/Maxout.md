@@ -82,7 +82,7 @@ x = Maxout(num_units=m)(x)
 
 这种实现方式可以让我们像加一个激活函数一样把 $Maxout$ 加到网络中，但是值得注意的是，这样的 $Maxout$ 实现会将 $m \times k$ 个单元减少为 $m$ 个
 
-# Reference
+# References
 
 1. [Tensorflow 文档 Maxout](https://tensorflow.google.cn/api_docs/python/tf/contrib/layers/maxout?hl=en)
 2. [Paper: Maxout Networks](https://arxiv.org/abs/1302.4389)

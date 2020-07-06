@@ -170,6 +170,6 @@ python bilili.py <url>
 -  `--no-block` 不使用分段下载器
 -  `--block-size` 指定分段下载器分块的大小，默认为 64MB
 
-# Reference
+# References
 
 1. [Bilibili 视频爬取](https://github.com/1033020837/Bilibili)
