@@ -177,7 +177,7 @@ IMLS
 | 2001–2010   | Vancouver, British Columbia, Canada   |
 | 1987–2000   | Denver, Colorado, United States       |
 
-# Reference
+# References
 
 1. [各大深度学习顶会举办地点](http://ilovin.me/2018-01-02/conference-location/)
 2. [Wikipedia](https://www.wikipedia.org/)

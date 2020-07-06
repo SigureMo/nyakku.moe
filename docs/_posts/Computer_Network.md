@@ -2035,7 +2035,7 @@ PGP 协议，基于 MD5 和 RSA
 1. wireshark 抓包工具
 2. [QQ 是基于 UDP 还是 TCP](https://zhidao.baidu.com/question/136592671.html)
 
-# Reference
+# References
 
 1. 申彦明老师课程
 2. [《计算机网络》及其配套课件 谢希仁](http://yx.51zhy.cn/net.jsp)

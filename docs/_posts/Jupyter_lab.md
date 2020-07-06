@@ -108,7 +108,7 @@ conda install nb_conda_kernels
 
 暂未深入体验，可参见 Ref4
 
-# Reference
+# References
 
 1. [部署自己的交互式 Python 开发环境 JupyterLab](https://tf.wiki/zh/appendix/jupyterlab.html)
 2. [JupyterLab 远程访问配置方法（CentOS7）](https://www.cnblogs.com/ratels/p/11387740.html)

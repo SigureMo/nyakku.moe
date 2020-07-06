@@ -2615,7 +2615,7 @@ $Thank\ you,  Andrew\ Ng$
 
  -->
 
-# Reference
+# References
 
 1. [深度学习工程师 - deeplearning.ai - 网易云课堂](https://mooc.study.163.com/smartSpec/detail/1001319001.htm)
 2. [机器学习初学者](http://www.ai-start.com/)
