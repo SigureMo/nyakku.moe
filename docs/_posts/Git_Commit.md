@@ -148,7 +148,7 @@ revert: feat(pencil): add 'graphiteWidth' option
 This reverts commit 667ecc1654a317a13331b17617d973392f415f02.
 ```
 
-# Reference
+# References
 
 1. [conventional-commit-types](https://github.com/commitizen/conventional-commit-types)
 2. [Gitmoji](http://gitmoji.carloscuesta.me/)

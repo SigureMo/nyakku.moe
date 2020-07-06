@@ -1302,7 +1302,7 @@ memset(a, 0, sizeof(a));
 
 `climits` 中为我们提供了 `INT_MAX` 以及 `INT_MIN` ，这样我们就不用再纠结取哪个值啦
 
-# Reference
+# References
 
 > 初学阶段，需要查阅的太多，不对参考链接进行一一列出
 
