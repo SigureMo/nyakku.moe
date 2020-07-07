@@ -168,3 +168,6 @@ tmp/
 
 # .vscode
 /.vscode/
+
+# Jupyter
+*.ipynb
