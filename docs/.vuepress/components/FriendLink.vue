@@ -1,7 +1,7 @@
 <template>
   <div class="friend-link">
     <a :href="url" :title="name" target="_blank">
-      <img :src="avatar" />
+      <img :src="avatar" :alt="name" />
       <p class="friend-name">{{ name }}</p>
       <p class="friend-description">{{ description }}</p>
     </a>
