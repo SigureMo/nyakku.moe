@@ -1,6 +1,6 @@
 {
   "name": "notev",
-  "version": "2.2.18",
+  "version": "2.2.19",
   "description": "SigureMo's Notes",
   "scripts": {
     "docs:dev": "vuepress dev docs",
@@ -36,8 +36,8 @@
     "vuepress-plugin-feed": "^0.1.8",
     "vuepress-plugin-flowchart": "^1.4.3",
     "vuepress-plugin-go-top": "^1.0.4",
-    "vuepress-plugin-meting": "^0.1.0",
-    "vuepress-plugin-ribbon": "^1.0.0",
+    "vuepress-plugin-meting": "^0.1.1",
+    "vuepress-plugin-ribbon": "^1.0.2",
     "vuepress-theme-meteorlxy": "^1.9.0"
   },
   "devDependencies": {
