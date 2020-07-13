@@ -155,10 +155,10 @@ sudo pacman -U <package_name>.tar.xz
    sudo pacman -S google-chrome
    ```
 
--  网易云音乐
+-  spotify
 
    ```bash
-   yay -S netease-cloud-music
+   yay -S spotify
    ```
 
 -  vscode
