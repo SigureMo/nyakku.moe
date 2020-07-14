@@ -6,11 +6,9 @@ tags:
    - front end
 ---
 
-::: warning 持续更新……
+::: tip
 
-之前已经无数次尝试前端项目，却从未认真学习前端知识（主要是 CSS），未免觉得有些遗憾，最近下定决心（但愿）抽空系统地学习下前端的知识，以免和之前一样只能写写简单的 JS 脚本，连个样式都不会添加，顺便再完善完善博客啥的～
-
-> 主线跟随 [freecodecamp](https://www.freecodecamp.one/)
+虽然此前已经无数次尝试接触前端项目，却从未认真学习 CSS 等前端知识，导致连个样式都不会添加，因此最近下定决心（但愿）抽空系统地学习下前端的知识～
 
 :::
 
@@ -18,104 +16,112 @@ tags:
 
 ## CSS 基础
 
--  选择器
-   -  元素选择器 用元素名标记，如 `p`
-   -  class 选择器 用 `.<class>` 来标记，如 `.cat`
-   -  id 选择器 用 `#<id>` 来标记，如 `#cat`（优先级更高）
-   -  属性选择器 用 `[<attr>=‘<value>’]`来标记，如 `[name=‘cat’]`
--  文本
-   -  颜色 `color`
-      -  名称方式，如 `red`
-      -  十六进制，如 `#FF0000`
-      -  十六进制缩写，如 `#F00`
-      -  rgb(rgba)，如 `rgb(255, 0, 0)` 以及 `rgba(255, 0, 0, 1)`
-      -  hsl(hsla)，如 `hsl(0, 100, 50)` 以及 `rgba(0, 100, 50, 1)`
-   -  字体 `font-family`
-   -  字体大小 `font-size`
--  图片
-   -  大小（`width` 和 `height`）
-      -  绝对单位
-         -  英寸 `in`
-         -  毫米 `mm`
-      -  相对单位
-         -  像素 `px`
-         -  百分比 `%`
-         -  元素
-            -  相对于设置了大小的父级元素 `em`
-            -  相对于根元素 `rem`
-         -  视窗
-            -  视窗宽度 `vw`
-            -  视窗高度 `vh`
-            -  视窗宽高中较小值 `vmin`
-            -  视窗宽高中较大值 `vmmax`
--  边框
+### 选择器
 
-   -  基本用法
+-  元素选择器 用元素名标记，如 `p`
+-  class 选择器 用 `.<class>` 来标记，如 `.cat`
+-  id 选择器 用 `#<id>` 来标记，如 `#cat`（优先级更高）
+-  属性选择器 用 `[<attr>=‘<value>’]`来标记，如 `[name=‘cat’]`
+
+### 文本
+
+-  颜色 `color`
+   -  名称方式，如 `red`
+   -  十六进制，如 `#FF0000`
+   -  十六进制缩写，如 `#F00`
+   -  rgb(rgba)，如 `rgb(255, 0, 0)` 以及 `rgba(255, 0, 0, 1)`
+   -  hsl(hsla)，如 `hsl(0, 100, 50)` 以及 `rgba(0, 100, 50, 1)`
+-  字体 `font-family`
+-  字体大小 `font-size`
+
+### 图片
+
+-  大小（`width` 和 `height`）
+   -  绝对单位
+      -  英寸 `in`
+      -  毫米 `mm`
+   -  相对单位
+      -  像素 `px`
+      -  百分比 `%`
+      -  元素
+         -  相对于设置了大小的父级元素 `em`
+         -  相对于根元素 `rem`
+      -  视窗
+         -  视窗宽度 `vw`
+         -  视窗高度 `vh`
+         -  视窗宽高中较小值 `vmin`
+         -  视窗宽高中较大值 `vmmax`
+
+### 边框
+
+基本用法
+
+```css
+.thin-red-border {
+   border-color: red;
+   border-width: 5px;
+   border-style: solid;
+}
+```
+
+加个圆角 `border-radius: 15px`，进一步，设置值为 `50%` 的话，就是个圆咯～
+
+### 盒模型
+
+-  内容 `content`
+-  内边距 `padding` 也即边框到内容之间填充的距离
+-  边框 `border`
+-  外边距 `margin` 也即边框到相邻元素或者父容器之间的距离，还可以设置为负值以达到灵活的定位效果～
+
+---
+
+-  （内/外）边距的设置
+
+   -  分别设置
 
       ```css
-      .thin-red-border {
-         border-color: red;
-         border-width: 5px;
-         border-style: solid;
+      div {
+         margin-top: 10px;
+         margin-right: 20px;
+         margin-bottom: 30px;
+         margin-left: 40px;
       }
       ```
 
-   -  加个圆角 `border-radius: 15px`，进一步，设置值为 `50%` 的话，就是个圆咯～
+   -  按照顺时针设置
 
--  盒模型
-
-   -  内容 `content`
-   -  内边距 `padding` 也即边框到内容之间填充的距离
-   -  边框 `border`
-   -  外边距 `margin` 也即边框到相邻元素或者父容器之间的距离，还可以设置为负值以达到灵活的定位效果～
-
-   ***
-
-   -  （内/外）边距的设置
-
-      -  分别设置
+      -  写 1 个自然四周都一样
+      -  写 4 个将会按顺时针（上右下左）来分配
 
          ```css
          div {
-            margin-top: 10px;
-            margin-right: 20px;
-            margin-bottom: 30px;
-            margin-left: 40px;
+            margin: 10px 20px 30px 40px;
          }
          ```
 
-      -  按照顺时针设置
+      -  写 2 个分别表示上下和左右
+      -  写 3 个分别表示上、左右、下
 
-         -  写 1 个自然四周都一样
-         -  写 4 个将会按顺时针（上右下左）来分配
+### 样式优先级
 
-            ```css
-            div {
-               margin: 10px 20px 30px 40px;
-            }
-            ```
+-  important 声明
+-  内联样式
+-  ID 选择器
+-  Class 选择器
+-  继承样式
 
-         -  写 2 个分别表示上下和左右
-         -  写 3 个分别表示上、左右、下
+### 变量
 
--  样式优先级
-   -  important 声明
-   -  内联样式
-   -  ID 选择器
-   -  Class 选择器
-   -  继承样式
--  变量
-
-   ```css
-   .theme {
-      /* 该类的元素才可以使用，为了保证变量全局有效，
-      常在 :root 下创建全局变量 */
-      --accent-color: #3eaf7c;
-   }
-   .logo {
-      background-color: var(--accent-color);
-   }
-   ```
+```css
+.theme {
+   /* 该类的元素才可以使用，为了保证变量全局有效，
+   常在 :root 下创建全局变量 */
+   --accent-color: #3eaf7c;
+}
+.logo {
+   background-color: var(--accent-color);
+}
+```
 
 ## 应用视觉设计
 
@@ -174,45 +180,47 @@ tags:
 
 ## 响应式设计
 
--  媒体查询
+### 媒体查询
 
-   ```css
+```css
+img {
+   width: 100px;
+}
+
+@media (min-width: 500px) {
    img {
-      width: 100px;
+      width: 300px;
    }
+}
 
-   @media (min-width: 500px) {
-      img {
-         width: 300px;
-      }
-   }
-
-   @media (min-width: 300px) {
-      img {
-         width: 200px;
-      }
-   }
-   ```
-
--  自适应大小
-
-   ```css
+@media (min-width: 300px) {
    img {
-      max-width: 100%;
-      display: block;
-      height: auto;
+      width: 200px;
    }
-   ```
+}
+```
 
--  使用相对视窗大小单位（`vw` 等）
+### 自适应大小
 
-   ```css
-   img {
-      width: 80vw;
-   }
-   ```
+```css
+img {
+   max-width: 100%;
+   display: block;
+   height: auto;
+}
+```
+
+### 使用相对视窗大小单位（`vw` 等）
+
+```css
+img {
+   width: 80vw;
+}
+```
 
 ## 弹性盒子布局
+
+### 容器属性
 
 想要使用弹性布局很简单，只需要修改 `display` 属性即可
 
@@ -278,7 +286,7 @@ tags:
 
 另外，默认值是 `nowrap` 不换行，此外还可以使用 `wrap-reverse` 反序排列换行
 
----
+### 子元素属性
 
 至今为止都是设定的容器元素的属性，这样子元素的“个性”还没有彰显，那么子元素有什么特性呢？比如在容器收缩的时候，可以设定两者各自的收缩比，反之在容器拉伸时，可以设定两者各自的生长比，另外还可以设定在伸缩之前的初始大小
 
@@ -333,6 +341,8 @@ tags:
 ```
 
 ## 网格布局
+
+### 容器属性
 
 与弹性盒子布局一样，只需要将容器的 `display` 属性修改即可启用该布局模式
 
@@ -437,7 +447,7 @@ tags:
 
 > 当然元素也可以分别指定，使用属性 `justify-self` 和 `align-self`
 
----
+### 子元素属性
 
 当然，各个元素的个性我们还没有提
 
@@ -515,6 +525,177 @@ tags:
 ```
 
 最后，grid 是可以嵌套的哦，一个格子也可以成为一个新的容器～
+
+## Sass 预处理器
+
+Sass 是一个 CSS 的预处理器，我们可以在 Sass 里写更加方便的语法（变量、嵌套以及逻辑语句），而 Sass 会帮助我们将这些语法编译为纯 CSS，以供浏览器渲染
+
+### 变量
+
+变量是各种 CSS 预处理器的核心，Sass 的变量使用 `$` 来标记，定义与使用都远比 CSS 内置的变量方便地多
+
+```scss
+$text-color: red;
+
+.blog-post,
+h2 {
+   color: $text-color;
+}
+```
+
+### 嵌套
+
+CSS 语法并不支持嵌套结构，这就使得大型项目 CSS 规则需要写很多重复的选择器，Sass 的嵌套语法可以极大简化代码
+
+```css
+nav {
+   background-color: red;
+}
+
+nav ul {
+   list-style: none;
+}
+
+nav ul li {
+   display: inline-block;
+}
+```
+
+上面的代码用 Sass 来改写只需要
+
+```scss
+nav {
+   background-color: red;
+
+   ul {
+      list-style: none;
+
+      li {
+         display: inline-block;
+      }
+   }
+}
+```
+
+### Mixins
+
+Mixin 类似于函数
+
+```css
+div {
+   -webkit-box-shadow: 0px 0px 4px #fff;
+   -moz-box-shadow: 0px 0px 4px #fff;
+   -ms-box-shadow: 0px 0px 4px #fff;
+   box-shadow: 0px 0px 4px #fff;
+}
+```
+
+上面的代码可以简单得替换为下面的代码，当然如果只使用这一次是看不出来优势的，但如果要反复调用其优势不言而喻
+
+```scss
+@mixin box-shadow($x, $y, $blur, $c) {
+   -webkit-box-shadow: $x, $y, $blur, $c;
+   -moz-box-shadow: $x, $y, $blur, $c;
+   -ms-box-shadow: $x, $y, $blur, $c;
+   box-shadow: $x, $y, $blur, $c;
+}
+
+div {
+   @include box-shadow(0px, 0px, 4px, #fff);
+}
+```
+
+### if / else
+
+简单的示例就可以知道怎么用啦
+
+```scss
+@mixin text-effect($val) {
+   @if $val == danger {
+      color: red;
+   } @else if $val == alert {
+      color: yellow;
+   } @else if $val == success {
+      color: green;
+   } @else {
+      color: black;
+   }
+}
+```
+
+### for 循环
+
+理解起来也很容易，注意在选择器中使用变量的方式
+
+```scss
+@for $i from 1 through 12 {
+   .col-#{$i} {
+      width: 100%/12 * $i;
+   }
+}
+```
+
+除了 `from through` 还有 `from to`，前者包含最后的数字，后者不包含
+
+### each 循环
+
+for 循环的劣势在于只能遍历数字，而 each 循环可以遍历一个列表
+
+```scss
+@each $color in blue, red, green {
+   .#{$color}-text {
+      color: $color;
+   }
+}
+```
+
+也可以将列表单独设为一个变量
+
+```scss
+$colors: (
+   color1: blue,
+   color2: red,
+   color3: green,
+);
+
+@each $key, $color in $colors {
+   .#{$color}-text {
+      color: $color;
+   }
+}
+```
+
+### while 循环
+
+while 循环也即如我们熟知的那个 while 循环，如果不注意很容易写成死循环
+
+```scss
+$x: 1;
+@while $x< 13 {
+   .col-#{$x} {
+      width: 100%/12 * $x;
+   }
+   $x: $x + 1;
+}
+```
+
+### 样式扩展
+
+如果有一个样式与已存在的某个样式基本相同，可以通过 `extend` 来复用已经写好的样式
+
+```scss
+.panel {
+   background-color: red;
+   height: 70px;
+   border: 2px solid green;
+}
+
+.big-panel {
+   @extend .panel;
+   width: 150px;
+   font-size: 2em;
+}
+```
 
 # References
 
