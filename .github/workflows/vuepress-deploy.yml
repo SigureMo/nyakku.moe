@@ -30,3 +30,11 @@ jobs:
           cname: sigure.xyz
           user_name: "github-actions[bot]"
           user_email: "github-actions[bot]@users.noreply.github.com"
+
+      - name: Sync to Coding 🔀
+        uses: wearerequired/git-mirror-action@v1
+        env:
+          SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
+        with:
+          source-repo: "git@github.com:SigureMo/SigureMo.github.io.git"
+          destination-repo: "git@e.coding.net:sigure/notev/notev.git"
