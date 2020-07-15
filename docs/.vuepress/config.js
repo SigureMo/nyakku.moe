@@ -182,7 +182,7 @@ module.exports = {
       // 卡片 header 的背景，可以使用图片，或者随机变化的图案（geopattern）
       headerBackground: {
         // 使用图片的 URL，如果设置了图片 URL，则不会生成随机变化的图案，下面的 useGeo 将失效
-        url: "/info_bg.jpg",
+        url: "/info-bg.jpg",
       },
     },
 
