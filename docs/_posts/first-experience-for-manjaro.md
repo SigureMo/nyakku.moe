@@ -174,6 +174,18 @@ sudo pacman -U <package_name>.tar.xz
    yay -S ttf-wps-fonts
    ```
 
+-  flameshot
+
+   ```bash
+   yay -S flameshot
+   ```
+
+-  simplescreenrecorder
+
+   ```bash
+   yay -S simplescreenrecorder
+   ```
+
 ## 美化
 
 ### Shell 美化
@@ -243,3 +255,4 @@ emmmm，刚折腾一天把所有基本该折腾的折腾完了，我突然想把
 5. [安装 Manjaro Linux 的详细步骤](https://ywnz.com/linuxaz/3504.html)
 6. [记 manjaro 图形驱动删除后的一次补救](https://www.cnblogs.com/comixH/p/12232252.html)
 7. [manjaro 安装分区以及配置方案](https://blog.csdn.net/lj402159806/article/details/80218360)
+8. [调教你的 manjaro，配合微信、TIM 食用，让它比 windows 还好用！](https://www.bilibili.com/video/av60476406/)
