@@ -29,14 +29,9 @@ Git Commit Message 虽然可以随意描述，但是应当使用对当前更改�
 | :pencil:                    | `:pencil:`                    | Writing docs.                                  | 写文档                                         |
 | :rocket:                    | `:rocket:`                    | Deploying stuff.                               | 部署任务                                       |
 | :lipstick:                  | `:lipstick:`                  | Adding or updating the UI and style files.     | 添加或更新 UI 和样式文件                       |
-| :tada:                      | `:tada:`                      | Initial commit.                                | 初次提交                                       |
+| :tada:                      | `:tada:`                      | Beginning a project.                           | 开始一个项目                                   |
 | :white_check_mark:          | `:white_check_mark:`          | Adding or updating tests.                      | 添加或更新测试用例                             |
 | :lock:                      | `:lock:`                      | Fixing security issues.                        | 修复安全问题                                   |
-| :apple:                     | `:apple:`                     | Fixing something on macOS.                     | 修复 MacOS 下的问题                            |
-| :penguin:                   | `:penguin:`                   | Fixing something on Linux.                     | 修复 Linux 下的问题                            |
-| :checkered_flag:            | `:checkered_flag:`            | Fixing something on Windows.                   | 修复 Windows 下的问题                          |
-| :robot:                     | `:robot:`                     | Fixing something on Android.                   | 修复 Android 下的问题                          |
-| :green_apple:               | `:green_apple:`               | Fixing something on iOS.                       | 修复 iOS 下的问题                              |
 | :bookmark:                  | `:bookmark:`                  | Releasing / Version tags.                      | 发版/版本标签                                  |
 | :rotating_light:            | `:rotating_light:`            | Removing linter warning.                       | 移除 linter 的警告                             |
 | :construction:              | `:construction:`              | Work in progress.                              | 工作在进行中                                   |
@@ -47,10 +42,10 @@ Git Commit Message 虽然可以随意描述，但是应当使用对当前更改�
 | :construction_worker:       | `:construction_worker:`       | Adding or updating CI build system.            | 添加或更新 CI 构建系统                         |
 | :chart_with_upwards_trend:  | `:chart_with_upwards_trend:`  | Adding or updating analytics or tracking code. | 添加或更新分析或跟踪代码                       |
 | :recycle:                   | `:recycle:`                   | Refactoring code.                              | 重构代码                                       |
-| :whale:                     | `:whale:`                     | Work about Docker.                             | Docker 相关工作                                |
 | :heavy_plus_sign:           | `:heavy_plus_sign:`           | Adding a dependency.                           | 添加一个依赖项                                 |
 | :heavy_minus_sign:          | `:heavy_minus_sign:`          | Removing a dependency.                         | 删除一个依赖项                                 |
-| :wrench:                    | `:wrench:`                    | Changing configuraton files.                   | 改变配置文件                                   |
+| :wrench:                    | `:wrench:`                    | Adding or updating configuration files.        | 添加或改变配置文件                             |
+| :hammer:                    | `:hammer:`                    | Adding or updating build scripts.              | 添加或更新构建脚本                             |
 | :globe_with_meridians:      | `:globe_with_meridians:`      | Internationalization and localization.         | 国际化和本地化（i18n）                         |
 | :pencil2:                   | `:pencil2:`                   | Fixing typos.                                  | 修复拼写错误                                   |
 | :poop:                      | `:poop:`                      | Writing bad code that needs to be improved.    | 需要改进的代码                                 |
@@ -79,7 +74,6 @@ Git Commit Message 虽然可以随意描述，但是应当使用对当前更改�
 | :camera_flash:              | `:camera_flash:`              | Adding or updating snapshots.                  | 添加或更新快照                                 |
 | :alembic:                   | `:alembic:`                   | Experimenting new things.                      | 实验性内容                                     |
 | :mag:                       | `:mag:`                       | Improving SEO.                                 | SEO 优化                                       |
-| :wheel_of_dharma:           | `:wheel_of_dharma:`           | Work about Kubernetes.                         | Kubernetes 相关工作                            |
 | :label:                     | `:label:`                     | Adding or updating types (Flow, TypesScript).  | 添加或更新类型声明(Flow、TypeScript)           |
 | :seedling:                  | `:seedling:`                  | Adding or updating seed files.                 | 添加或更新种子文件                             |
 | :triangular_flag_on_post:   | `:triangular_flag_on_post:`   | Adding, updating, or removing feature flags.   | 添加、更新或删除功能标志                       |
@@ -150,8 +144,8 @@ This reverts commit 667ecc1654a317a13331b17617d973392f415f02.
 
 # References
 
-1. [conventional-commit-types](https://github.com/commitizen/conventional-commit-types)
-2. [Gitmoji](http://gitmoji.carloscuesta.me/)
+1. [conventional-commit-types @d1fb9cc](https://github.com/commitizen/conventional-commit-types)
+2. [gitmoji @a0bc4d6](http://gitmoji.carloscuesta.me/)
 3. [程序员提交代码的 emoji 指南——原来表情文字不能乱用](https://www.h5jun.com/post/gitmoji.html)
 4. [用 gitmoji 来提交你的 git commit 吧](https://github.com/mytac/blogs/issues/2)
 5. [git commit 规范指南](https://segmentfault.com/a/1190000009048911?utm_source=tag-newest)

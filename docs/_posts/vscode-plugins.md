@@ -26,10 +26,11 @@ tags:
 
 ## 工具类扩展
 
--  **Markdown Preview Enhanced**
+-  **Markdown All in One**
 -  **EditorConfig for VS Code**
 -  **GitLens — Git supercharged**
 -  **Remote Development**
+-  Markdown Emoji
 -  Git History
 -  GitHub Pull Requests and Issues
 -  Resource Monitor
