@@ -202,7 +202,16 @@ sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.
 
 ::: tip
 
-有些主题在 VSCode 里不能正确显示，需要修改下 Terminal 的字体，我改成了 `Menlo for Powerline`，之后重启一下就好了
+有些主题在 VSCode 里不能正确显示，需要修改下 Terminal 的字体，我改成了 `Menlo for Powerline`，如果没有该字体，下载并安装下即可
+
+```bash
+git clone https://github.com/abertsch/Menlo-for-Powerline.git  # 下载字体
+cd Menlo-for-Powerline
+sudo cp *.ttf* /usr/share/fonts/TTF/                           # 手动安装到字体文件夹
+sudo fc-cache -f -v                                            # 刷新字体
+```
+
+之后修改 VSCode Settings 中 Terminal 的 Font Family 即可
 
 :::
 
@@ -256,3 +265,4 @@ emmmm，刚折腾一天把所有基本该折腾的折腾完了，我突然想把
 6. [记 manjaro 图形驱动删除后的一次补救](https://www.cnblogs.com/comixH/p/12232252.html)
 7. [manjaro 安装分区以及配置方案](https://blog.csdn.net/lj402159806/article/details/80218360)
 8. [调教你的 manjaro，配合微信、TIM 食用，让它比 windows 还好用！](https://www.bilibili.com/video/av60476406/)
+9. [Manjaro 下 vscode 中 zsh 乱码](https://www.jianshu.com/p/c2f8bc4e19c0)
