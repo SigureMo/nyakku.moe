@@ -1,3 +1,4 @@
+<!-- ref: https://diygod.me/friends/ -->
 <template>
   <div class="friend-link">
     <a :href="url" :title="name" target="_blank">
