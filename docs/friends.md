@@ -12,7 +12,7 @@ layout: FriendsLayout
 {
    "name": "SigureMo",
    "url": "https://sigure.xyz",
-   "descripiton": "一个小透明的透明世界",
+   "description": "一个小透明的透明世界",
    "avatar": "https://sigure.xyz/avatar.jpg"
 }
 ```
