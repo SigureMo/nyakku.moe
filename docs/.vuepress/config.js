@@ -228,10 +228,10 @@ module.exports = {
     // 友链配置
     friends: [
       {
-        name: "SigureMo",
-        url: "https://sigure.xyz/",
-        description: "一个小透明的透明世界",
-        avatar: "https://sigure.xyz/avatar.jpg",
+        name: "ClariS",
+        url: "https://wryyy.life/",
+        description: "Querying for a variable and seizing the time",
+        avatar: "https://wryyy.life/avatar.png",
       },
     ],
   },
