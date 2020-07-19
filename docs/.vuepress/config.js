@@ -173,8 +173,8 @@ module.exports = {
       // 是否显示使用的主题
       poweredByTheme: true,
       // 添加自定义 footer (支持 HTML)
-      custom:
-        'Copyright 2018-present <a href="https://github.com/SigureMo" target="_blank">SigureMo</a> | MIT License</br><a href="http://www.beian.miit.gov.cn/" target="_blank">辽ICP备19014250号</a>',
+      custom: `Copyright 2018-present <a href="https://github.com/SigureMo" target="_blank">SigureMo</a> | <a href="https://creativecommons.org/licenses/by-sa/4.0/">CC 4.0 BY-SA</a><br/>
+        <a href="http://www.beian.miit.gov.cn/" target="_blank">辽ICP备19014250号</a>`,
     },
 
     // 个人信息卡片相关设置 (可选)
