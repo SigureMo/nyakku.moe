@@ -6,6 +6,8 @@ layout: AboutLayout
 
 SigureMo（<ruby> 時 <rp>(</rp><rt>し</rt><rp>)</rp> 雨 <rp>(</rp><rt>ぐれ</rt><rp>)</rp> Mo </ruby>），一个透明的小可爱～
 
+> 嘛……我也知道 Sigure 本应拼成 Shigure 啦，不过当时取名字的时候没注意到，之后用了太久就不想改啦，而且这样更短，写成英文看起来也更好看的说（强行解释）
+
 ## 我都喜欢些什么？
 
 -  写写代码
