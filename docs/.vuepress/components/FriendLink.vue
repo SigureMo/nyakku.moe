@@ -16,12 +16,18 @@ export default {
 };
 </script>
 
-<style scoped>
+<style lang="stylus" scoped>
 div.friend-link {
   width: 50%;
   float: left;
   position: relative;
   padding-left: 100px;
+}
+
+@media (max-width: $MQMobile) {
+  div.friend-link {
+    width: 100%;
+  }
 }
 
 div.friend-link:hover {

@@ -1,6 +1,6 @@
 {
   "name": "notev",
-  "version": "2.2.28",
+  "version": "2.2.29",
   "description": "SigureMo's Notes",
   "scripts": {
     "docs:dev": "vuepress dev docs",
