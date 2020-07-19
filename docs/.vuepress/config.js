@@ -204,6 +204,7 @@ module.exports = {
       repo: "notev",
       clientId: "02c64bbb4f2a3b0ec621",
       clientSecret: "fb5ea1b5e6117ae25abb0459489f6a0359048d7f",
+      prefix: "💬 ",
     },
 
     // 分页配置 (可选)
