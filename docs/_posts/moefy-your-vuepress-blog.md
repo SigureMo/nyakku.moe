@@ -12,7 +12,7 @@ tags:
 
 早在一年多以前我就喜欢上了 `hexo-theme-sagiri` 这个主题（效果可以参见 [diygod.me](https://diygod.me/)），不过当时还什么都不懂啦，不会用 GitHub ，更不知道这居然是静态博客做出来的效果（如果当时知道那么简单的话，我也许现在用的就是 hexo 了 :joy:）
 
-前些日子因为机缘巧合发现了 `sagiri` 中的彩带背景的开源实现，原来其出自若干年前尤大的个人主页背景，之后我试着简单阅读 `vuepress-plugin-nest` 插件源码，照喵画虎地摹了个 `vuepress-plugin-ribbon` 插件，居然真的成功了！这使我萌生了把 `sagiri` 中一些小组件作为 Vuepress 插件实现的想法，之后的几天……
+前些日子因为机缘巧合发现了 `sagiri` 中的彩带背景的开源实现，原来其出自若干年前 Evan 的个人主页背景，之后我试着简单阅读 `vuepress-plugin-nest` 插件源码，照喵画虎地摹了个 `vuepress-plugin-ribbon` 插件，居然真的成功了！这使我萌生了把 `sagiri` 中一些小组件作为 Vuepress 插件实现的想法，之后的几天……
 
 废话说太多了，还是说说怎么用吧 :joy:
 
