@@ -124,6 +124,13 @@ module.exports = {
     ],
     // KaTeX 插件
     ["@maginapp/vuepress-plugin-katex"],
+    // zoom 插件配置（覆盖主题内原配置）
+    [
+      "zooming",
+      {
+        selector: ".content :not(a) > img",
+      },
+    ],
   ],
 
   // 主题配置
