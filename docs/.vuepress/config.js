@@ -16,7 +16,11 @@ module.exports = {
         content: "width=device-width,initial-scale=1,user-scalable=no",
       },
     ],
+    ["meta", { property: "og:url", content: "https://sigure.xyz" }],
+    ["meta", { property: "og:site_name", content: "Notev" }],
     ["meta", { property: "og:image", content: "/avatar.jpg" }],
+    ["meta", { property: "og:description", content: "一个小透明的透明世界" }],
+    ["meta", { property: "og:title", content: "Notev" }],
     ["link", { rel: "manifest", href: "/manifest.json" }],
     ["meta", { name: "theme-color", content: "#222222" }],
     ["meta", { name: "apple-mobile-web-app-capable", content: "yes" }],
@@ -143,7 +147,7 @@ module.exports = {
       // 昵称
       nickname: "SigureMo",
       // 个人简介 (支持 HTML)
-      description: "因为热爱，所以期待～",
+      description: "私にとって、本物とはなんですか。",
       // 电子邮箱
       email: "sigure.qaq@gmail.com",
       // 所在地
@@ -154,7 +158,7 @@ module.exports = {
       avatar: "/avatar.jpg",
       // 社交平台帐号信息
       sns: {
-        // Github 帐号和链接
+        // GitHub 帐号和链接
         github: {
           account: "SigureMo",
           link: "https://github.com/SigureMo",
@@ -202,7 +206,7 @@ module.exports = {
       { text: "Posts", link: "/posts/", exact: false },
       { text: "Friends", link: "/friends.html", exact: false },
       { text: "About", link: "/about.html", exact: false },
-      { text: "Github", link: "https://github.com/SigureMo/notev" },
+      { text: "GitHub", link: "https://github.com/SigureMo/notev" },
     ],
 
     // 评论配置，参考下方 [页面评论] 章节

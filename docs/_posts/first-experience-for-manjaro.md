@@ -255,7 +255,7 @@ emmmm，刚折腾一天把所有基本该折腾的折腾完了，我突然想把
 
 之后重装 KDE 并重启就又看到了熟悉的开机界面了
 
-# References
+## References
 
 1. [Manjaro 美化与调优](https://juejin.im/post/5c6d0a1051882561ad329255)
 2. [Manjaro-Kde 美化](https://www.bilibili.com/video/BV1pJ411N75i)
