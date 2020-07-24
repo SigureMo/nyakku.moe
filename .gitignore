@@ -150,7 +150,6 @@ docs/.vuepress/theme/
 node_modules/
 
 # yarn
-yarn.lock
 .yarn/*
 .yarnrc.yml
 .pnp.js

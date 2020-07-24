@@ -1735,7 +1735,7 @@ UNIX 内采用的方法，使用空闲盘块号栈进行分配回收
 
 [本课程配套实验](https://github.com/SigureMo/notev/tree/master/src/OS/Experiment)
 
-# References
+## References
 
 1. 杨志豪老师课程及其[配套课件](http://faculty.dlut.edu.cn/zhyang_CS/zh_CN/jxzy/749840/content/1641.htm)
 2. 《计算机操作系统》 汤小丹 梁红兵 哲凤屏 汤子瀛

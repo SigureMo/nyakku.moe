@@ -98,29 +98,29 @@ IEEE
 
 IEEE
 
-| Conference | Year  | Location |
-| ---------- | ----- | -------- |
-| 21st       | ICPR  | 2012     | Tsukuba Science City, Japan |
-| 20th       | ICPR  | 2010     | Istanbul, Turkey |
-| 19th       | ICPR  | 2008     | Tampa, USA |
-| 18th       | ICPR  | 2006     | Hong Kong, China |
-| 17th       | ICPR  | 2004     | Cambridge, United Kingdom |
-| 16th       | ICPR  | 2002     | Quebec City, Canada |
-| 15th       | ICPR  | 2000     | Barcelona, Spain |
-| 14th       | ICPR  | 1998     | Brisbane, Australia |
-| 13th       | ICPR  | 1996     | Vienna, Austria |
-| 12th       | ICPR  | 1994     | Jerusalem, Israel |
-| 11th       | ICPR  | 1992     | The Hague, Netherlands |
-| 10th       | ICPR  | 1990     | Atlantic City, USA |
-| 9th        | ICPR  | 1988     | Rome, Italy |
-| 8th        | ICPR  | 1986     | Paris, France |
-| 7th        | ICPR  | 1984     | Montreal, Canada |
-| 6th        | ICPR  | 1982     | Munich, Germany |
-| 5th        | ICPR  | 1980     | Miami, USA |
-| 4th        | IJCPR | 1978     | Kyoto, Japan |
-| 3rd        | IJCPR | 1976     | San Diego, USA |
-| 2nd        | IJCPR | 1974     | Copenhagen, Denmark |
-| 1st        | IJCPR | 1973     | Washington, DC, USA |
+|      | Conference | Year | Location                    |
+| ---- | ---------- | ---- | --------------------------- |
+| 21st | ICPR       | 2012 | Tsukuba Science City, Japan |
+| 20th | ICPR       | 2010 | Istanbul, Turkey            |
+| 19th | ICPR       | 2008 | Tampa, USA                  |
+| 18th | ICPR       | 2006 | Hong Kong, China            |
+| 17th | ICPR       | 2004 | Cambridge, United Kingdom   |
+| 16th | ICPR       | 2002 | Quebec City, Canada         |
+| 15th | ICPR       | 2000 | Barcelona, Spain            |
+| 14th | ICPR       | 1998 | Brisbane, Australia         |
+| 13th | ICPR       | 1996 | Vienna, Austria             |
+| 12th | ICPR       | 1994 | Jerusalem, Israel           |
+| 11th | ICPR       | 1992 | The Hague, Netherlands      |
+| 10th | ICPR       | 1990 | Atlantic City, USA          |
+| 9th  | ICPR       | 1988 | Rome, Italy                 |
+| 8th  | ICPR       | 1986 | Paris, France               |
+| 7th  | ICPR       | 1984 | Montreal, Canada            |
+| 6th  | ICPR       | 1982 | Munich, Germany             |
+| 5th  | ICPR       | 1980 | Miami, USA                  |
+| 4th  | IJCPR      | 1978 | Kyoto, Japan                |
+| 3rd  | IJCPR      | 1976 | San Diego, USA              |
+| 2nd  | IJCPR      | 1974 | Copenhagen, Denmark         |
+| 1st  | IJCPR      | 1973 | Washington, DC, USA         |
 
 ## ICML
 
@@ -177,7 +177,7 @@ IMLS
 | 2001–2010   | Vancouver, British Columbia, Canada   |
 | 1987–2000   | Denver, Colorado, United States       |
 
-# References
+## References
 
 1. [各大深度学习顶会举办地点](http://ilovin.me/2018-01-02/conference-location/)
 2. [Wikipedia](https://www.wikipedia.org/)

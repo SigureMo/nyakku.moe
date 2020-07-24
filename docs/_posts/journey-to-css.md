@@ -697,6 +697,6 @@ $x: 1;
 }
 ```
 
-# References
+## References
 
 1. [freecodecamp 中文社区](https://www.freecodecamp.one/)
