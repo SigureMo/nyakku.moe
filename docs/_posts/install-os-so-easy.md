@@ -1,5 +1,5 @@
 ---
-title: 装系统原来如此简单
+title: 我与 OS 的时间之旅
 date: 2020-07-06
 category: 游
 tags:
@@ -10,7 +10,7 @@ tags:
 
 ::: tip
 
-近日 @Ainavo 找我加装固态，不过时间有限，没对他的 HDD 进行备份以及格式化，结果果然出大问题了……Windows 直接用了原来 HDD 上的 EFI 引导，SSD 上就只有个系统分区……为了解决该问题嘛，经过查阅各种资料，重新在 SSD 上建立了一个新的 EFI 启动分区，同时我也成功 Get 新技能：熟练掌握 Diskpart 工具的使用
+近日 @Ainavo 找我加装固态，不过时间有限，没对他的 HDD 进行备份以及格式化，结果果然出大问题了……Windows 直接用了原来 HDD 上的 EFI 引导，SSD 上就只有个系统分区……经过查阅各种资料，只得重新在 SSD 上建立了一个新的 EFI 启动分区，这才解决了该问题
 
 :::
 
@@ -225,7 +225,7 @@ exit                                      # 退出 cmd
 
 大功告成～重启就可以发现 BIOS 有新的引导了，将新的引导移到第一位即可默认启动在 SSD 上的 Windows 咯～
 
-# References
+## References
 
 1. [Linux 系统目录结构](https://www.runoob.com/linux/linux-system-contents.html)
 2. [硬盘分区、挂载及 Ubuntu 系统安装](https://blog.csdn.net/hurry0808/article/details/78882111)

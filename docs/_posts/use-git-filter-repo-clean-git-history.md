@@ -53,9 +53,20 @@ git filter-repo --path-glob '*.jpg' --invert-paths
 
 不仅命令简单，而且速度超快，只不过不能像 `git filter-branch` 一样清楚地了解都清理了哪些文件了
 
+::: tip
+
+如果你不知道哪些历史文件比较大的话，可以运行下面这个命令来查找一下
+
+```bash
+git rev-list --objects --all | grep "$(git verify-pack -v .git/objects/pack/*.idx | sort -k 3 -n | tail -5 | awk '{print$1}')"
+```
+
+:::
+
 当然，这只是 `git filter-repo` 的一个最简单的应用啦，更多使用技巧还是要看文档的～
 
-# References
+## References
 
 1. [git-filter-repo GitHub](https://github.com/newren/git-filter-repo)
 2. [git-filter-repo Manual Page](https://htmlpreview.github.io/?https://github.com/newren/git-filter-repo/blob/docs/html/git-filter-repo.html#EXAMPLES)
+3. [寻找并删除 Git 记录中的大文件](https://harttle.land/2016/03/22/purge-large-files-in-gitrepo.html)
