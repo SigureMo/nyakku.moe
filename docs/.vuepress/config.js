@@ -143,7 +143,7 @@ module.exports = {
       // 昵称
       nickname: "SigureMo",
       // 个人简介 (支持 HTML)
-      description: "因为热爱，所以期待～",
+      description: "私にとって、本物とはなんですか。",
       // 电子邮箱
       email: "sigure.qaq@gmail.com",
       // 所在地
