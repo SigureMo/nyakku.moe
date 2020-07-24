@@ -1253,6 +1253,6 @@ Dijkstra 算法，也就是数据结构中学的有权图的单源最短路径�
 
 适合机械化，可以用于含有任意多个变元的布尔函数
 
-# References
+## References
 
 1. 《离散数学及其应用》 Kenneth H. Rosen
