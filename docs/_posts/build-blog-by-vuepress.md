@@ -18,7 +18,7 @@ tags:
 
 -  预备知识
    -  基本 Markdown 语法
-   -  基本 Github 与 git 操作方式
+   -  基本 GitHub 与 git 操作方式
    -  前端零基础
 -  开发环境
    -  `nodejs 8+` 及 `npm` or `yarn`
@@ -32,7 +32,7 @@ tags:
 
 而静态博客，服务器端只能根据路由返回一个页面，也就是后端基本什么事情都不做，只做了路由这一件事，更别说访问数据库之类的了，所以静态博客是没有数据库的，但是可以在前端使用外部数据库（比如 Valine）
 
-由于不需要后端程序，静态博客可以很容易地部署在 `Github` 等网站上，只需要将静态博客的代码上传到 `Github` 的 `repo` 内即可
+由于不需要后端程序，静态博客可以很容易地部署在 `GitHub` 等网站上，只需要将静态博客的代码上传到 `GitHub` 的 `repo` 内即可
 
 ### Vuepress 是什么
 
@@ -420,7 +420,7 @@ $borderColor = #eaecef
 $codeBgColor = #282c34
 ```
 
-# References
+## References
 
 1. [Vuepress 1.x 文档](https://v1.vuepress.vuejs.org/zh/)
 2. [vuepress-theme-reco 文档](https://github.com/vuepress-reco/vuepress-theme-reco)

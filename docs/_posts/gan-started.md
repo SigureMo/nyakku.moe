@@ -373,7 +373,7 @@ VAE 与 GAN 的结合，D 需要能够分辨
 
 BiGAN 的训练类似于同时训练一个 Decoder $\to$ Encoder，与一个反向的 Encoder $\to$ Decoder，而 BiGAN 的效果会更好些
 
-# References
+## References
 
 1. [Hung-yi Lee MLDS18](http://speech.ee.ntu.edu.tw/~tlkagk/courses_MLDS18.html)
 2. [基于 GAN 的动漫头像生成](https://zhuanlan.zhihu.com/p/76340704)
