@@ -1,6 +1,6 @@
 {
   "name": "notev",
-  "version": "2.2.32",
+  "version": "2.2.40",
   "description": "SigureMo's Notes",
   "scripts": {
     "docs:dev": "vuepress dev docs",
@@ -23,14 +23,14 @@
   },
   "dependencies": {
     "@maginapp/vuepress-plugin-katex": "^1.0.6",
-    "@vuepress/plugin-active-header-links": "^1.5.1",
-    "@vuepress/plugin-google-analytics": "^1.5.1",
-    "@vuepress/plugin-pwa": "^1.5.1",
+    "@vuepress/plugin-active-header-links": "^1.5.3",
+    "@vuepress/plugin-google-analytics": "^1.5.3",
+    "@vuepress/plugin-pwa": "^1.5.3",
     "markdown-it": "^11.0.0",
     "markdown-it-mark": "^3.0.0",
     "markdown-it-task-lists": "^2.1.1",
     "markdown-it-vuepress-code-snippet-enhanced": "^1.0.1",
-    "vuepress": "^1.5.2",
+    "vuepress": "^1.5.3",
     "vuepress-plugin-cursor-effects": "^1.0.0",
     "vuepress-plugin-dynamic-title": "^1.0.0",
     "vuepress-plugin-feed": "^0.1.8",

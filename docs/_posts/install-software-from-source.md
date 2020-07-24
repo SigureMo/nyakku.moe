@@ -69,6 +69,6 @@ export PATH="/home/username/software/node/bin:$PATH"
 source ~/.bashrc
 ```
 
-# References
+## References
 
 1. [linux 为某个用户安装程序](https://blog.csdn.net/qq_21280629/article/details/84962505)
