@@ -154,7 +154,7 @@ module.exports = {
       avatar: "/avatar.jpg",
       // 社交平台帐号信息
       sns: {
-        // Github 帐号和链接
+        // GitHub 帐号和链接
         github: {
           account: "SigureMo",
           link: "https://github.com/SigureMo",
@@ -202,7 +202,7 @@ module.exports = {
       { text: "Posts", link: "/posts/", exact: false },
       { text: "Friends", link: "/friends.html", exact: false },
       { text: "About", link: "/about.html", exact: false },
-      { text: "Github", link: "https://github.com/SigureMo/notev" },
+      { text: "GitHub", link: "https://github.com/SigureMo/notev" },
     ],
 
     // 评论配置，参考下方 [页面评论] 章节

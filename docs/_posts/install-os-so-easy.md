@@ -1,5 +1,5 @@
 ---
-title: 那些年，我装过的操作系统
+title: 我与 OS 的时间之旅
 date: 2020-07-06
 category: 游
 tags:

@@ -30,6 +30,7 @@ layout: AboutLayout
   <a href="https://github.com/SigureMo" target="_blank"><img src="https://img.shields.io/badge/GitHub-000000.svg?&style=flat-square&logo=github&logoColor=white" alt="GitHub"></a>
   <a href="https://space.bilibili.com/100969474" target="_blank"><img src="https://img.shields.io/badge/bilibili-1eabc9.svg?&style=flat-square&logo=bilibili&logoColor=white" alt="Bilibili"></a>
   <a href="https://www.npmjs.com/~sigure_mo" target="_blank"><img src="https://img.shields.io/badge/NPM-ea3b18.svg?&style=flat-square&logo=npm&logoColor=white" alt="NPM"></a>
+  <a href="https://pypi.org/user/SigureMo/" target="_blank"><img src="https://img.shields.io/badge/PyPI-3775a9.svg?&style=flat-square&logo=pypi&logoColor=white" alt="PyPI"></a>
   <br/>
   <a href="mailto:sigure.qaq@gmail.com" target="_blank"><img src="https://img.shields.io/badge/Gmail-c14438.svg?&style=flat-square&logo=gmail&logoColor=white" alt="Gmail"></a>
   <a href="http://qr.topscan.com/api.php?text=http://qm.qq.com/cgi-bin/qm/qr?k=1PbIl8QPOkF0ErJKX-GmjA-E8e53djl4" target="_blank"><img src="https://img.shields.io/badge/QQ-444444.svg?&style=flat-square&logo=tencent%20qq&logoColor=white" alt="qq-240377379"></a>
