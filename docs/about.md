@@ -39,7 +39,7 @@ layout: AboutLayout
 
 ## 我都做过什么？
 
--  [Bilili](https://github.com/SigureMo/bilili) B 站视频、弹幕下载工具
+-  [𝓫𝓲𝓵𝓲𝓵𝓲](https://github.com/SigureMo/bilili) B 站视频、弹幕下载工具
 -  [mooc-dl](https://github.com/SigureMo/mooc-dl) 中国大学 MOOC 全课件下载器
 -  [Shoeprint Recognition](https://cattidea.github.io/shoeprint-recognition/) “恒锐杯”鞋印花纹图像类别判定挑战赛
 -  [moefy vuepress](https://moefyit.github.io/moefy-vuepress/) 一些 VuePress 小插件
