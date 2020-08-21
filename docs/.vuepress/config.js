@@ -18,7 +18,7 @@ module.exports = {
     ],
     ["meta", { property: "og:url", content: "https://sigure.xyz" }],
     ["meta", { property: "og:site_name", content: "Notev" }],
-    ["meta", { property: "og:image", content: "/avatar.jpg" }],
+    ["meta", { property: "og:image", content: "/bg.jpg" }],
     ["meta", { property: "og:description", content: "一个小透明的透明世界" }],
     ["meta", { property: "og:title", content: "Notev" }],
     ["link", { rel: "manifest", href: "/manifest.json" }],
