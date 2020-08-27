@@ -146,7 +146,7 @@ This reverts commit 667ecc1654a317a13331b17617d973392f415f02.
 ## References
 
 1. [conventional-commit-types @d1fb9cc](https://github.com/commitizen/conventional-commit-types)
-2. [gitmoji @2743557](http://gitmoji.carloscuesta.me/)
+2. [gitmoji @f23c222](http://gitmoji.carloscuesta.me/)
 3. [程序员提交代码的 emoji 指南——原来表情文字不能乱用](https://www.h5jun.com/post/gitmoji.html)
 4. [用 gitmoji 来提交你的 git commit 吧](https://github.com/mytac/blogs/issues/2)
 5. [git commit 规范指南](https://segmentfault.com/a/1190000009048911?utm_source=tag-newest)

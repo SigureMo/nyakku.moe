@@ -1,0 +1,263 @@
+html,
+body {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background: rgb(219, 229, 240);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+/* header related */
+.header {
+  background: linear-gradient(
+    rgba(24, 204, 204, 0.774),
+    rgba(138, 217, 255, 1)
+  );
+  font-family: 'Arial', 'Microsoft YaHei', '黑体', '宋体', sans-serif;
+  height: 80px;
+  position: relative;
+  padding: 10px;
+}
+
+.header .nav-wrapper {
+  max-width: 980px;
+  height: 100%;
+  margin: 0 auto;
+  position: relative;
+}
+
+.header .nav-wrapper .logo {
+  margin: 0;
+  font-size: 2rem;
+  position: absolute;
+  bottom: 10px;
+}
+
+.header .nav-wrapper .nav {
+  width: 100%;
+  position: absolute;
+  bottom: 10px;
+}
+
+.header .nav-wrapper .nav ul {
+  margin: 0;
+  padding: 0;
+  float: right;
+}
+
+.header .nav-wrapper a {
+  color: rgb(114, 25, 102);
+  text-decoration: none;
+}
+
+.header .nav-wrapper .nav li {
+  margin-left: 30px;
+  display: inline-block;
+}
+
+.header .github-icon {
+  position: absolute;
+  width: 50px;
+  height: 50px;
+  background: rgb(122, 122, 122);
+  border-radius: 50%;
+  right: 5px;
+  top: 15px;
+  background-image: url('../img/icon-github.png');
+  background-repeat: no-repeat;
+  background-position: center center;
+}
+
+@media (max-width: 1150px) {
+  .header .github-icon {
+    display: none;
+  }
+}
+
+/* banner related */
+.main .banner-container {
+  width: 100%;
+  height: 450px;
+  position: relative;
+}
+
+.main .banner {
+  width: 100%;
+  height: 100%;
+  background-attachment: scroll;
+  background-image: url(https://sigure.xyz/bg.jpg);
+  background-position: top center;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.main .banner-text-wrapper {
+  width: 250px;
+  padding: 10px;
+  background: linear-gradient(white, rgba(255, 255, 255, 0));
+  position: absolute;
+  right: 50px;
+  bottom: 10px;
+}
+
+.main .banner-text-wrapper h4 {
+  margin: 0.5em 0;
+  font-size: 1em;
+}
+
+.main .banner-text-wrapper p {
+  font-size: 0.8em;
+}
+
+/* article related */
+.posts {
+  max-width: 980px;
+  margin: 0 auto;
+  padding: 10px 10px 80px 10px;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.post {
+  width: 300px;
+  font-family: 'Arial', 'Microsoft YaHei', '黑体', '宋体', sans-serif;
+  background: white;
+  border-radius: 5px;
+}
+
+@media (max-width: 980px) {
+  .posts {
+    width: 100%;
+    margin: 0 auto;
+    padding: 10px 10px 80px 10px;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+  .post {
+    width: 100%;
+    margin: 5px;
+  }
+}
+
+.post .post-head-pic {
+  width: 100%;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+}
+
+.post .post-content {
+  padding: 10px 15px;
+}
+
+.post .title {
+  font-size: 1em;
+}
+
+.post .excerpt {
+  font-size: 0.8em;
+}
+
+/* infomation related */
+.infomation {
+  width: 100%;
+  height: 400px;
+  padding: 0 10px;
+  background-color: rgb(255, 255, 255);
+  text-align: center;
+}
+
+.infomation .avatar {
+  margin: -30px 0 10px 0;
+  border-radius: 50%;
+  width: 150px;
+}
+
+.infomation .name {
+  font-size: 1.5em;
+  margin: 15px 0;
+}
+
+.infomation .description {
+  font-size: 1em;
+  margin: 15px auto;
+  max-width: 600px;
+  text-indent: 2em;
+  text-align: justify;
+}
+
+/* footer related */
+.footer {
+  height: 300px;
+  background-color: rgb(15, 15, 15);
+  color: white;
+  text-align: center;
+}
+
+.footer-inner {
+  max-width: 980px;
+  margin: 0 auto;
+}
+
+.footer .footer-nav {
+  padding: 15px 0;
+  border-bottom: 1px solid white;
+}
+
+.footer .footer-nav ul {
+  margin: 0;
+  padding: 0;
+}
+
+.footer .footer-nav li {
+  display: inline-block;
+  margin: 0 10px;
+}
+
+.footer .footer-nav a {
+  text-decoration: none;
+  color: white;
+}
+
+.footer .footer-title {
+  font-size: 0.8em;
+}
+
+.footer .links {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.footer .links .link dt {
+  font-weight: bold;
+  margin: 5px;
+}
+
+.footer .links .link a {
+  text-decoration: none;
+  color: white;
+}
+
+.footer .links .link dd {
+  font-size: 12px;
+  margin: 0;
+}
+
+.footer .copyright {
+  font-size: 0.8em;
+  margin-top: 20px;
+}
+
+.footer .copyright p {
+  margin: 0.5em;
+}
