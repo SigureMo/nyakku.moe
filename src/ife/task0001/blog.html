@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html>
+  <head lang="zh-hans">
+    <meta charset="UTF-8" />
+    <title>TASK 0001</title>
+    <link rel="shortcut icon" href="https://sigure.xyz/favicon.ico" />
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body>
+    <header class="header">
+      <div class="nav-wrapper">
+        <a href="./index.html"><h1 class="logo">Notev</h1></a>
+        <nav class="nav">
+          <ul>
+            <li><a class="header-title" href="./index.html">首页</a></li>
+            <li><a class="header-title" href="./blog.html">文章</a></li>
+            <li><a class="header-title" href="./gallery.html">作品</a></li>
+            <li><a class="header-title" href="./about.html">关于</a></li>
+          </ul>
+        </nav>
+      </div>
+      <a class="github-icon" href="https://github.com/SigureMo" target="_blank">
+        <!-- <img src="./img/icon-github.png" /> -->
+      </a>
+    </header>
+    <main class="main">
+      <div class="blog-container">
+        <div class="blog-content">
+          <article class="blog-card post-card">
+            <div class="post-badge-container">
+              <div class="post-card-date">07-08</div>
+              <div class="post-card-category">迹</div>
+            </div>
+            <h2 class="post-title">Re：从零开始的 CSS 的学习之旅</h2>
+            <h3 class="post-subtitle">XXXXXXXXXXX</h3>
+            <p class="post-excerpt">
+              虽然此前已经无数次尝试接触前端项目，却从未认真学习 CSS
+              等前端知识，导致连个样式都不会添加，因此最近下定决心（但愿）抽空系统地学习下前端的知识～
+            </p>
+            <p class="post-publish-date">SigureMo 发表于 2020-07-08</p>
+          </article>
+          <article class="blog-card post-card">
+            <div class="post-badge-container">
+              <div class="post-card-date">07-06</div>
+              <div class="post-card-category">游</div>
+            </div>
+            <h2 class="post-title">我与 OS 的时间之旅</h2>
+            <h3 class="post-subtitle">XXXXXXXXXXX</h3>
+            <p class="post-excerpt">
+              近日 @Ainavo 找我加装固态，不过时间有限，没对他的 HDD
+              进行备份以及格式化，结果果然出大问题了……Windows 直接用了原来 HDD 上的 EFI 引导，SSD
+              上就只有个系统分区……经过查阅各种资料，只得重新在 SSD 上建立了一个新的 EFI
+              启动分区，这才解决了该问题
+            </p>
+            <p class="post-publish-date">SigureMo 发表于 2020-07-06</p>
+          </article>
+          <article class="blog-card post-card">
+            <div class="post-badge-container">
+              <div class="post-card-date">06-22</div>
+              <div class="post-card-category">迹</div>
+            </div>
+            <h2 class="post-title">采用 GitHub Action 自动化部署博客</h2>
+            <h3 class="post-subtitle">XXXXXXXXXXX</h3>
+            <p class="post-excerpt">
+              博客的部署往往只需要一行命令，但却需要花费我几分钟在本地的构建时间，完成博客内容后本应该放松放松心情，这几分钟的等待显得尤为惹人生厌
+              那么如何解决这个问题呐？当然是自动化部署啦，这样我们每次只需要将写完的博客 Push 到
+              GitHub 上，就可以触发相应的 CI 以完成博客的自动部署咯，所以这里就介绍如何使用 GitHub
+              Action 来自动化部署博客
+            </p>
+            <p class="post-publish-date">SigureMo 发表于 2020-06-22</p>
+          </article>
+          <div class="pagination">
+            <div class="pagination-item pagination-first">第一页</div>
+            <div class="pagination-item pagination-deactive">上一页</div>
+            <div class="pagination-item pagination-active">1</div>
+            <div class="pagination-item pagination-deactive">2</div>
+            <div class="pagination-item pagination-deactive">3</div>
+            <div class="pagination-item pagination-deactive">4</div>
+            <div class="pagination-item pagination-deactive">...</div>
+            <div class="pagination-item pagination-deactive">下一页</div>
+            <div class="pagination-item pagination-last">最后页</div>
+          </div>
+        </div>
+        <aside class="blog-sidebar">
+          <div class="blog-card"></div>
+          <div class="blog-card"></div>
+          <div class="blog-card"></div>
+        </aside>
+        <div class="clearfix"></div>
+      </div>
+    </main>
+    <footer class="footer">
+      <div class="footer-inner">
+        <nav class="footer-nav">
+          <ul>
+            <li><a class="footer-title" href="./index.html">首页</a></li>
+            <li><a class="footer-title" href="./blog.html">文章</a></li>
+            <li><a class="footer-title" href="./gallery.html">作品</a></li>
+            <li><a class="footer-title" href="./about.html">关于</a></li>
+          </ul>
+        </nav>
+        <div class="links">
+          <dl class="link">
+            <dt>学习资料</dt>
+            <dd>学习资料1</dd>
+            <dd>学习资料2</dd>
+            <dd>学习资料3</dd>
+            <dd>学习资料4</dd>
+            <dd>学习资料5</dd>
+          </dl>
+          <dl class="link">
+            <dt>友情链接</dt>
+            <!-- 可怜的我……现在也还只有一个友链 -->
+            <dd>
+              <a href="https://wryyy.life" target="_blank">ClariS ちゃん〜</a>
+            </dd>
+            <dd>
+              <a href="https://wryyy.life" target="_blank">ClariS 小可爱〜</a>
+            </dd>
+            <dd>
+              <a href="https://wryyy.life" target="_blank">ClariS 可愛い〜</a>
+            </dd>
+            <dd>
+              <a href="https://wryyy.life" target="_blank">ClariS 非常可爱〜</a>
+            </dd>
+            <dd>
+              <a href="https://wryyy.life" target="_blank">クラリスちゃん 〜</a>
+            </dd>
+          </dl>
+          <dl class="link">
+            <dt>常用网站</dt>
+            <dd>常用网站1</dd>
+            <dd>常用网站2</dd>
+            <dd>常用网站3</dd>
+            <dd>常用网站4</dd>
+            <dd>常用网站5</dd>
+          </dl>
+          <dl class="link">
+            <dt>不知道写啥了</dt>
+            <dd>不知道写啥了1</dd>
+            <dd>不知道写啥了2</dd>
+            <dd>不知道写啥了3</dd>
+            <dd>不知道写啥了4</dd>
+            <dd>不知道写啥了5</dd>
+          </dl>
+          <dl class="link">
+            <dt>不知道写啥了</dt>
+            <dd>不知道写啥了1</dd>
+            <dd>不知道写啥了2</dd>
+            <dd>不知道写啥了3</dd>
+            <dd>不知道写啥了4</dd>
+            <dd>不知道写啥了5</dd>
+          </dl>
+        </div>
+        <div class="copyright">
+          <p>Powered by 手打 HTML</p>
+          <p>&copy;SigureMo | CC 4.0 BY-SA</p>
+          <p>辽ICP备19014250号</p>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

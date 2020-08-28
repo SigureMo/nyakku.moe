@@ -3,7 +3,7 @@ title: 在 fcitx 中使用颜文字
 date: 2020-04-21
 category: 迹
 tags:
-   - Linux
+  - Linux
 ---
 
 ::: tip
@@ -52,6 +52,21 @@ xianzhuozi （╯‵□′）╯︵┴─┴
 heng (╬ Ò ‸ Ó)
 heng s(・｀ヘ´・;)ゞ
 huanhu ヾ(❀^ω^)ﾉﾞ
+geinixinxin (｡･ω･｡)ﾉ♡
+miao (=・ω・=)
+xinxin ٩(๛ ˘ ³˘)۶❤
+mengmeng (｡･ω･｡)
+heng (๑‾᷅^‾᷅๑)
+kira (・ω< )★
+xixi (๑>؂<๑）
+sahuahua ✿ヽ(°▽°)ノ✿
+hehe （⌒▽⌒）
+meng (｀・ω・´)
+meng (^・ω・^ )
+meng (｡･ω･｡)
+haixiu ✧(≖ ◡ ≖✿)
+bukaixin (´･_･`)
+momotou ( ´･･)ﾉ(._.`)
 ```
 
 修改后重启输入法即可，之后只需要先按下 `;` 键（可在 `fcitx 配置 -> 附加组件` 修改）就能激活 QuickPhrase 模式，再按下映射的提示词就能看到对应的颜文字啦
