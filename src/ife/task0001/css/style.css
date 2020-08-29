@@ -389,6 +389,14 @@ body {
   color: rgb(68, 5, 73);
 }
 
+.post-title a {
+  text-decoration: none;
+}
+
+.post-title a:hover {
+  color: rgb(203, 95, 211);
+}
+
 .post-subtitle {
   font-size: 0.9em;
   color: rgb(79, 69, 80);
@@ -451,4 +459,148 @@ body {
   .post-badge-container {
     display: none;
   }
+}
+
+/* sidebar related */
+.search-card {
+  padding: 10px;
+}
+
+.search-form {
+  border: solid 1px #ccc;
+  padding: 0;
+  position: relative;
+}
+
+.search-form:hover {
+  border: solid 1px #999;
+}
+
+.search-box {
+  width: 150px;
+  height: 3em;
+  display: inline-block;
+  border: none;
+  padding: 5px;
+  outline: none;
+}
+
+.search-btn {
+  height: 3em;
+  width: 50px;
+  background: #e2e2e2;
+  display: inline-block;
+  border: none;
+  position: absolute;
+  right: 0;
+  top: 0;
+}
+
+.search-btn:hover {
+  background: rgb(12, 21, 146);
+  color: white;
+  margin: 0;
+}
+
+.category-card ul {
+  margin: 0;
+  padding: 0;
+}
+
+.category-item {
+  margin: 0;
+  list-style-type: none;
+  height: 3em;
+  border-left: 5px solid #77f;
+  border-bottom: 1px solid #77f;
+  /* line-height: 3em; */
+}
+
+.category-item:hover {
+  border-left: 5px solid #33c;
+}
+
+.category-card a {
+  text-decoration: none;
+}
+
+.category-item {
+  padding-left: 20px;
+  line-height: 3em;
+  color: #77f;
+}
+
+.category-item:hover {
+  color: #33c;
+}
+
+.calendar-card {
+  padding: 20px;
+}
+
+.calendar {
+  margin: auto;
+  border-collapse: collapse;
+  font-family: 'Microsoft YaHei', sans-serif;
+  font-size: 0.8em;
+  line-height: 1.7em;
+  text-align: center;
+  color: #444;
+}
+
+.calendar td:nth-child(1),
+.calendar td:nth-child(7) {
+  color: #f77;
+}
+
+.calendar tr {
+  border-bottom: 1px solid #99f;
+}
+
+.calendar-last-month,
+.calendar-next-month {
+  color: #666;
+}
+
+.calendar td {
+  width: 25px;
+}
+
+.calendar-highlight,
+.calendar-dark {
+  font-weight: bold;
+  color: black;
+}
+
+.calendar-today {
+  color: #fff;
+  background-color: rgb(15, 15, 68);
+}
+
+.tag-card {
+  padding: 15px;
+}
+
+.tag-title {
+  font-size: 0.6em;
+  margin: 0;
+  font-weight: normal;
+  color: #aaa;
+}
+
+.tag-text {
+  text-align: justify;
+  color: rgb(81, 21, 83);
+}
+
+.tag-item-1 {
+  font-size: 2em;
+}
+
+.tag-item-2 {
+  font-size: 1.4em;
+}
+
+.tag-item-3 {
+  font-size: 0.8em;
 }
