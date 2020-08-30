@@ -1,43 +1,34 @@
 module.exports = {
-  title: "Notev",
-  description: "一个小透明的透明世界",
+  title: 'Notev',
+  description: '一个小透明的透明世界',
   port: 1127,
   evergreen: true,
   locales: {
-    "/": {
-      lang: "zh-CN",
+    '/': {
+      lang: 'zh-CN',
     },
   },
   head: [
     [
-      "meta",
+      'meta',
       {
-        name: "viewport",
-        content: "width=device-width,initial-scale=1,user-scalable=no",
+        name: 'viewport',
+        content: 'width=device-width,initial-scale=1,user-scalable=no',
       },
     ],
-    ["meta", { property: "og:url", content: "https://sigure.xyz" }],
-    ["meta", { property: "og:site_name", content: "Notev" }],
-    ["meta", { property: "og:image", content: "/bg.jpg" }],
-    ["meta", { property: "og:description", content: "一个小透明的透明世界" }],
-    ["meta", { property: "og:title", content: "Notev" }],
-    ["link", { rel: "manifest", href: "/manifest.json" }],
-    ["meta", { name: "theme-color", content: "#222222" }],
-    ["meta", { name: "apple-mobile-web-app-capable", content: "yes" }],
-    [
-      "meta",
-      { name: "apple-mobile-web-app-status-bar-style", content: "black" },
-    ],
-    ["link", { rel: "apple-touch-icon", href: "/icons/favicon152.png" }],
-    [
-      "link",
-      { rel: "mask-icon", href: "/icons/favicon152.png", color: "#3eaf7c" },
-    ],
-    [
-      "meta",
-      { name: "msapplication-TileImage", content: "/icons/favicon144.png" },
-    ],
-    ["meta", { name: "msapplication-TileColor", content: "#000000" }],
+    ['meta', { property: 'og:url', content: 'https://sigure.xyz' }],
+    ['meta', { property: 'og:site_name', content: 'Notev' }],
+    ['meta', { property: 'og:image', content: '/bg.jpg' }],
+    ['meta', { property: 'og:description', content: '一个小透明的透明世界' }],
+    ['meta', { property: 'og:title', content: 'Notev' }],
+    ['link', { rel: 'manifest', href: '/manifest.json' }],
+    ['meta', { name: 'theme-color', content: '#222222' }],
+    ['meta', { name: 'apple-mobile-web-app-capable', content: 'yes' }],
+    ['meta', { name: 'apple-mobile-web-app-status-bar-style', content: 'black' }],
+    ['link', { rel: 'apple-touch-icon', href: '/icons/favicon152.png' }],
+    ['link', { rel: 'mask-icon', href: '/icons/favicon152.png', color: '#3eaf7c' }],
+    ['meta', { name: 'msapplication-TileImage', content: '/icons/favicon144.png' }],
+    ['meta', { name: 'msapplication-TileColor', content: '#000000' }],
   ],
 
   markdown: {
@@ -48,11 +39,11 @@ module.exports = {
     // markdown-it-toc 的选项
     toc: { includeLevel: [1, 2, 3] },
     // markdown 插件
-    extendMarkdown: (md) => {
-      md.set({ html: true });
-      md.use(require("markdown-it-mark"));
-      md.use(require("markdown-it-task-lists"));
-      md.use(require("markdown-it-vuepress-code-snippet-enhanced"));
+    extendMarkdown: md => {
+      md.set({ html: true })
+      md.use(require('markdown-it-mark'))
+      md.use(require('markdown-it-task-lists'))
+      md.use(require('markdown-it-vuepress-code-snippet-enhanced'))
     },
   },
 
@@ -60,7 +51,7 @@ module.exports = {
   plugins: [
     // 开启 PWA
     [
-      "@vuepress/pwa",
+      '@vuepress/pwa',
       {
         serviceWorker: true,
         updatePopup: true,
@@ -68,7 +59,7 @@ module.exports = {
     ],
     // 彩带背景
     [
-      "ribbon",
+      'ribbon',
       {
         size: 90,
         opacity: 0.8,
@@ -77,49 +68,49 @@ module.exports = {
     ],
     // 鼠标特效插件
     [
-      "cursor-effects",
+      'cursor-effects',
       {
         size: 1.75,
-        shape: "star",
+        shape: 'star',
       },
     ],
     // 离开页面标题变化
     [
-      "dynamic-title",
+      'dynamic-title',
       {
-        showIcon: "/favicon.ico",
-        showText: "(ฅ>ω<*ฅ)欢迎回来！",
-        hideIcon: "/failure.ico",
-        hideText: "( ๑ˊ•̥▵•)੭₎₎不要走呀！",
+        showIcon: '/favicon.ico',
+        showText: '(ฅ>ω<*ฅ)欢迎回来！',
+        hideIcon: '/failure.ico',
+        hideText: '( ๑ˊ•̥▵•)੭₎₎不要走呀！',
         recoverTime: 2000,
       },
     ],
     // 悬挂小猫返回顶部
-    ["go-top"],
+    ['go-top'],
     // 流程图
-    ["flowchart"],
+    ['flowchart'],
     // RSS 插件
     [
-      "feed",
+      'feed',
       {
-        canonical_base: "https://sigure.xyz",
+        canonical_base: 'https://sigure.xyz',
       },
     ],
     // GA 插件
     [
-      "@vuepress/google-analytics",
+      '@vuepress/google-analytics',
       {
-        ga: "UA-164960376-1",
+        ga: 'UA-164960376-1',
       },
     ],
     // Meting 插件
     [
-      "meting",
+      'meting',
       {
         meting: {
-          server: "netease",
-          type: "playlist",
-          mid: "2539599584",
+          server: 'netease',
+          type: 'playlist',
+          mid: '2539599584',
         },
         aplayer: {
           lrcType: 3,
@@ -127,41 +118,41 @@ module.exports = {
       },
     ],
     // KaTeX 插件
-    ["@maginapp/vuepress-plugin-katex"],
+    ['@maginapp/vuepress-plugin-katex'],
     // zoom 插件配置（覆盖主题内原配置）
     [
-      "zooming",
+      'zooming',
       {
-        selector: ".content :not(a) > img",
+        selector: '.content :not(a) > img',
       },
     ],
   ],
 
   // 主题配置
-  theme: "meteorlxy",
+  theme: 'meteorlxy',
   themeConfig: {
-    lang: Object.assign(require("vuepress-theme-meteorlxy/lib/langs/en-US"), {
-      home: "一个小透明的透明世界",
+    lang: Object.assign(require('vuepress-theme-meteorlxy/lib/langs/en-US'), {
+      home: '一个小透明的透明世界',
     }),
     personalInfo: {
       // 昵称
-      nickname: "SigureMo",
+      nickname: 'SigureMo',
       // 个人简介 (支持 HTML)
-      description: "私にとって、本物とはなんですか。",
+      description: '私にとって、本物とはなんですか。',
       // 电子邮箱
-      email: "sigure.qaq@gmail.com",
+      email: 'sigure.qaq@gmail.com',
       // 所在地
-      location: "DLC, China",
+      location: 'DLC, China',
       // 组织
-      organization: "Dalian University of Technology",
+      organization: 'Dalian University of Technology',
       // 头像
-      avatar: "/avatar.jpg",
+      avatar: '/avatar.jpg',
       // 社交平台帐号信息
       sns: {
         // GitHub 帐号和链接
         github: {
-          account: "SigureMo",
-          link: "https://github.com/SigureMo",
+          account: 'SigureMo',
+          link: 'https://github.com/SigureMo',
         },
       },
     },
@@ -171,7 +162,7 @@ module.exports = {
       // header 的背景，可以使用图片，或者随机变化的图案（geopattern）
       background: {
         // 使用图片的 URL，如果设置了图片 URL，则不会生成随机变化的图案，下面的 useGeo 将失效
-        url: "/bg.jpg",
+        url: '/bg.jpg',
       },
       // 是否在 header 显示标题
       showTitle: true,
@@ -193,7 +184,7 @@ module.exports = {
       // 卡片 header 的背景，可以使用图片，或者随机变化的图案（geopattern）
       headerBackground: {
         // 使用图片的 URL，如果设置了图片 URL，则不会生成随机变化的图案，下面的 useGeo 将失效
-        url: "/info-bg.jpg",
+        url: '/info-bg.jpg',
       },
     },
 
@@ -202,20 +193,20 @@ module.exports = {
 
     // 顶部导航栏内容
     nav: [
-      { text: "Home", link: "/", exact: true },
-      { text: "Posts", link: "/posts/", exact: false },
-      { text: "Friends", link: "/friends.html", exact: false },
-      { text: "About", link: "/about.html", exact: false },
-      { text: "GitHub", link: "https://github.com/SigureMo/notev" },
+      { text: 'Home', link: '/', exact: true },
+      { text: 'Posts', link: '/posts/', exact: false },
+      { text: 'Friends', link: '/friends.html', exact: false },
+      { text: 'About', link: '/about.html', exact: false },
+      { text: 'GitHub', link: 'https://github.com/SigureMo/notev' },
     ],
 
     // 评论配置，参考下方 [页面评论] 章节
     comments: {
-      owner: "SigureMo",
-      repo: "notev",
-      clientId: "02c64bbb4f2a3b0ec621",
-      clientSecret: "fb5ea1b5e6117ae25abb0459489f6a0359048d7f",
-      prefix: "💬 ",
+      owner: 'SigureMo',
+      repo: 'notev',
+      clientId: '02c64bbb4f2a3b0ec621',
+      clientSecret: 'fb5ea1b5e6117ae25abb0459489f6a0359048d7f',
+      prefix: '💬 ',
     },
 
     // 分页配置 (可选)
@@ -231,7 +222,7 @@ module.exports = {
       posts: true,
     },
     sidebarDepth: 1,
-    sidebar: "auto",
+    sidebar: 'auto',
     // Service Worker 的配置
     serviceWorker: {
       updatePopup: true,
@@ -240,11 +231,11 @@ module.exports = {
     // 友链配置
     friends: [
       {
-        name: "ClariS",
-        url: "https://wryyy.life/",
-        description: "Querying for a variable and seizing the time",
-        avatar: "https://wryyy.life/avatar.png",
+        name: 'ClariS',
+        url: 'https://github.com/heavenly-zy',
+        description: 'Querying for a variable and seizing the time',
+        avatar: 'https://github.com/heavenly-zy.png',
       },
     ],
   },
-};
+}
