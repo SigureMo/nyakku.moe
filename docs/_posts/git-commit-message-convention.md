@@ -1,5 +1,5 @@
 ---
-title: Git 提交说明
+title: Git 提交信息规范
 date: 2018-09-16
 category: 迹
 tags:
@@ -8,15 +8,87 @@ tags:
 
 ::: tip
 
-Git Commit Message 虽然可以随意描述，但是应当使用对当前更改最合适的描述才有意义，而且在 review 代码的时候能够最快地找到相关位置，Commit Message 的规范有助于提高其意义，下面会分别介绍通用的规范以及可爱的 Gitmoji 规范
+Git Commit Message 虽然可以随意描述，但使用没有意义的描述对于后续 review 代码以及理解代码用途等方面都会造成巨大的影响。因此 Commit Message 具有意义是最基本的要求，此外，你还应该遵守一定的格式规范，这样能够让大家更快更清晰地了解该 Commit 的详情。这里我主要介绍下常规的 Git Commit 规范和 Gitmoji 规范，最后介绍下我常用的相关配置。
 
 :::
 
 <!-- more -->
 
-## Git Commit 规范
+## 常规 Commit Message 规范
 
-### Gitmoji
+一个 Commit Message 最基本的组成为： `header`、`body`、`footer`
+
+书写起来就是下面这样
+
+```
+<type>(<scope>): <subject>
+<BLANK LINE>
+<body>
+<BLANK LINE>
+<footer>
+```
+
+当然 `header` 就是第一行的内容，它包含了 `type`、`scope` 和 `subject`
+
+### Header
+
+#### type
+
+根据 [conventional-commit-types](https://github.com/commitizen/conventional-commit-types), `type` 的可选值一般来说是有下面几种，
+
+-  ==feat==: 添加新功能
+-  ==fix==: 修复 bug
+-  ==docs==: 仅对文档进行修改
+-  ==style==: 对代码语义无影响的格式修改（如去除无用空格、格式化等等修改）
+-  ==refactor==: 代码重构（即不是新增功能，也不是修改 bug 的代码变动）
+-  ==perf==: 提高性能的代码修改
+-  ==test==: 测试用例添加及修改
+-  ==build==: 影响构建系统或外部依赖关系的更改
+-  ==ci==: 更改 CI 配置文件和脚本
+-  ==chore==: 其它不涉及源码以及测试的修改
+
+#### scope
+
+`scope` 用于说明 commit 影响的范围，如果你的修改影响了不止一个 scope ，你可以使用 `*` 代替，该字段一般可以省略
+
+#### subject
+
+`subject` 是 commit 目的的简短描述，不超过 50 个字符
+
+-  以动词开头，使用第一人称现在时，比如 change，而不是 changed 或 changes
+-  第一个字母小写
+-  结尾不加句号（.）
+
+### Body
+
+`Body` 是详细描述，在这里可以详细介绍该次改动的具体修改内容
+
+### Footer
+
+`Footer` 一般只包含以下两种情况
+
+-  不兼容变动（BREAKING CHANGE）
+-  关闭 Issue 如 `Closes #234`
+
+### Revert
+
+此外，当你使用 `git revert` 撤销之前的某次 commit 时，该次的 Commit Message 应当以 `revert` 开头，后面跟着被撤销 Commit 的 Header ，如
+
+```
+revert: feat(pencil): add 'graphiteWidth' option
+
+This reverts commit 667ecc1654a317a13331b17617d973392f415f02.
+```
+
+## Gitmoji 规范
+
+[Gitmoji](https://gitmoji.carloscuesta.me/) 规范允许你在 Commit Message 中使用 [Emoji](https://emojipedia.org/)，简单的说，你可以用生动形象的 Emoji 来表示该次 Commit 的 type，Gitmoji 推荐的 `header` 格式是
+
+```
+<gitmoji>: <subject>
+```
+
+这里的 subject 首字母仍是大写字母，其它倒与常规的规范没什么区别，`gitmoji` 的具体选值如下
 
 <!-- prettier-ignore -->
 | view                        | code                          | mean                                          | translate                                      |
@@ -80,73 +152,79 @@ Git Commit Message 虽然可以随意描述，但是应当使用对当前更改�
 | :triangular_flag_on_post:   | `:triangular_flag_on_post:`   | Add, update, or remove feature flags.         | 添加、更新或删除功能标志                       |
 | :goal_net:                  | `:goal_net:`                  | Catch errors.                                 | 发现错误                                       |
 | :dizzy:                     | `:dizzy:`                     | Add or update animations and transitions.     | 添加或更新动画和过渡                           |
-| :wastebasket:               | `:wastebasket:`               | Deprecating code that needs to be cleaned up. | 清理冗余代码                                   |
+| :wastebasket:               | `:wastebasket:`               | Deprecate code that needs to be cleaned up. | 清理冗余代码                                   |
 
-### Commit Message 规范
+在提交时你可以按照喜好使用其 code 或者直接使用 emoji，因为 GitHub 是能够正确将这些 code 渲染为对应的 emoji 的
 
-组成： header 、 body 、 footer
+由于 `gitmoji` 有着丰富的类型，你能在其余描述中省去一些内容，但……由于类型实在太多，所以基本每次提交我都得来查一下表格，如果你使用的是 VSCode，建议使用 [gitmoji-vscode](https://github.com/vtrois/gitmoji-vscode) 插件简化操作
 
-即
+## 我自己常用的规范
+
+虽然 gitmoji 很可爱，但总觉得与常规兼容性太差，因此我平时使用的规范是常规规范前面加上一个 `gitmoji`，也就是
 
 ```
-<type>(<scope>): <subject>
+<gitmoji> <type>(<scope>): <subject>
 <BLANK LINE>
 <body>
 <BLANK LINE>
 <footer>
 ```
 
-#### Header
+在不是 `scope` 不太明显的场合，我一般都把 `scope` 省略掉，以免长度过长
 
--  type
+为了能够在每次提交时自动检测我的 commit 是否满足规范，我参考 [vite](https://github.com/vitejs/vite/blob/master/scripts/verifyCommit.js) 中的检测方式，在项目中利用 GitHook 来检测其规范性
 
-   -  ==feat==: 添加新功能
-   -  ==fix==: 修复 bug
-   -  ==docs==: 仅对文档进行修改
-   -  ==style==: 对代码语义无影响的格式修改（如去除无用空格、格式化等等修改）
-   -  ==refactor==: 代码重构（即不是新增功能，也不是修改 bug 的代码变动）
-   -  ==perf==: 提高性能的代码修改
-   -  ==test==: 测试用例添加及修改
-   -  ==build==: 影响构建系统或外部依赖关系的更改
-   -  ==ci==: 更改 CI 配置文件和脚本
-   -  ==chore==: 其它不涉及源码以及测试的修改
-   -  ==revert==: 回退到某一个历史版本，下面详述
+首先使用 npm 或者 yarn 安装 [yorkie](https://github.com/yyx990803/yorkie)，这是 [@Evan](https://github.com/yyx990803) 的一个 [husky](https://github.com/typicode/husky) fork
 
--  scope
-
-   scope 用于说明 commit 影响的范围，如果你的修改影响了不止一个 scope ，你可以使用 `*` 代替
-
--  subject
-
-   subject 是 commit 目的的简短描述，不超过 50 个字符
-
-   -  以动词开头，使用第一人称现在时，比如 change，而不是 changed 或 changes
-   -  第一个字母小写
-   -  结尾不加句号（.）
-
-#### Body
-
-Body 是详细描述
-
-#### Footer
-
--  不兼容变动（BREAKING CHANGE）
--  关闭 Issue 如 `Closes #234`
-
-#### Revert
-
-用于撤销之前的某次 commit ，以 `revert` 开头，后面跟着被撤销 Commit 的 Header ，如
-
+```bash
+yarn add yorkie -D
+# or use npm
+npm i yorkie -D
 ```
-revert: feat(pencil): add 'graphiteWidth' option
 
-This reverts commit 667ecc1654a317a13331b17617d973392f415f02.
+之后在 `package.json` 中添加以下内容
+
+```json
+{
+   "gitHooks": {
+      "commit-msg": "node scripts/verifyCommit.js"
+   }
+}
 ```
+
+当然，我们还需要写 `scripts/verifyCommit.js`
+
+```javascript
+const chalk = require('chalk')
+const msgPath = process.env.GIT_PARAMS
+const msg = require('fs')
+   .readFileSync(msgPath, 'utf-8')
+   .trim()
+
+const releaseRE = /^v\d/
+const commitRE = /^((:.+:)|(\ud83c[\udf00-\udfff])|(\ud83d[\udc00-\ude4f\ude80-\udeff])|[\u2600-\u2B55]) (revert: )?(feat|fix|docs|dx|refactor|perf|test|workflow|build|ci|chore|types|wip|release|deps)(\(.+\))?: .{1,50}/
+
+if (!releaseRE.test(msg) && !commitRE.test(msg)) {
+   console.log()
+   console.error(
+      `  ${chalk.bgRed.white(' ERROR ')} ${chalk.red(`invalid commit message format.`)}\n\n` +
+         chalk.red(
+            `  Proper commit message format is required for automated changelog generation. Examples:\n\n`
+         ) +
+         `    ${chalk.green(`feat: add 'comments' option`)}\n` +
+         `    ${chalk.green(`fix: handle events on blur (close #28)`)}\n\n` +
+         chalk.red(`  See .github/commit-convention.md for more details.\n`)
+   )
+   process.exit(1)
+}
+```
+
+其实关键就是那个正则，我只不过加上了在头部添加 emoji 或者 emoji code 的支持，但还不支持判断该 emoji 是否是 gitmoji
 
 ## References
 
 1. [conventional-commit-types @d1fb9cc](https://github.com/commitizen/conventional-commit-types)
-2. [gitmoji @f23c222](http://gitmoji.carloscuesta.me/)
+2. [gitmoji @c5bc379](http://gitmoji.carloscuesta.me/)
 3. [程序员提交代码的 emoji 指南——原来表情文字不能乱用](https://www.h5jun.com/post/gitmoji.html)
 4. [用 gitmoji 来提交你的 git commit 吧](https://github.com/mytac/blogs/issues/2)
 5. [git commit 规范指南](https://segmentfault.com/a/1190000009048911?utm_source=tag-newest)
