@@ -99,7 +99,7 @@ This reverts commit 667ecc1654a317a13331b17617d973392f415f02.
 | :bug:                       | `:bug:`                       | Fix a bug.                                    | 修复 bug                                       |
 | :ambulance:                 | `:ambulance:`                 | Critical hotfix.                              | 修复关键程序                                   |
 | :sparkles:                  | `:sparkles:`                  | Introduce new features.                       | 引入新功能                                     |
-| :pencil:                    | `:pencil:`                    | Write docs.                                   | 写文档                                         |
+| :memo:                      | `:memo:`                      | Add or update documentation.                  | 添加或更新文档                                  |
 | :rocket:                    | `:rocket:`                    | Deploy stuff.                                 | 部署任务                                       |
 | :lipstick:                  | `:lipstick:`                  | Add or update the UI and style files.         | 添加或更新 UI 和样式文件                       |
 | :tada:                      | `:tada:`                      | Begin a project.                              | 开始一个项目                                   |
@@ -145,9 +145,9 @@ This reverts commit 667ecc1654a317a13331b17617d973392f415f02.
 | :egg:                       | `:egg:`                       | Add or update an easter egg.                  | 添加或更新彩蛋内容                             |
 | :see_no_evil:               | `:see_no_evil:`               | Add or update a .gitignore file.              | 添加或更新.gitignore 文件                      |
 | :camera_flash:              | `:camera_flash:`              | Add or updatesnapshots.                       | 添加或更新快照                                 |
-| :alembic:                   | `:alembic:`                   | Experiment new things.                        | 实验性内容                                     |
+| :alembic:                   | `:alembic:`                   | Perform experiments.                          | 实验性内容                                     |
 | :mag:                       | `:mag:`                       | Improve SEO.                                  | SEO 优化                                       |
-| :label:                     | `:label:`                     | Add or update types (Flow, TypesScript).      | 添加或更新类型声明(Flow、TypeScript)           |
+| :label:                     | `:label:`                     | Add or update types.                          | 添加或更新类型声明                               |
 | :seedling:                  | `:seedling:`                  | Add or update seed files.                     | 添加或更新种子文件                             |
 | :triangular_flag_on_post:   | `:triangular_flag_on_post:`   | Add, update, or remove feature flags.         | 添加、更新或删除功能标志                       |
 | :goal_net:                  | `:goal_net:`                  | Catch errors.                                 | 发现错误                                       |
@@ -224,7 +224,7 @@ if (!releaseRE.test(msg) && !commitRE.test(msg)) {
 ## References
 
 1. [conventional-commit-types @d1fb9cc](https://github.com/commitizen/conventional-commit-types)
-2. [gitmoji @c5bc379](http://gitmoji.carloscuesta.me/)
+2. [gitmoji @e3b7d94](http://gitmoji.carloscuesta.me/)
 3. [程序员提交代码的 emoji 指南——原来表情文字不能乱用](https://www.h5jun.com/post/gitmoji.html)
 4. [用 gitmoji 来提交你的 git commit 吧](https://github.com/mytac/blogs/issues/2)
 5. [git commit 规范指南](https://segmentfault.com/a/1190000009048911?utm_source=tag-newest)

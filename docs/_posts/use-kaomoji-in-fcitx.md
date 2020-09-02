@@ -69,6 +69,9 @@ bukaixin (´･_･`)
 momotou ( ´･･)ﾉ(._.`)
 bukaixin ( •̥́ ˍ •̀ू )
 haixiu  ⁄(⁄ ⁄•⁄ω⁄•⁄ ⁄)⁄
+geinixinxin (´ ｡•ω•｡)っ⌒♡
+kaixin (๑˃◡˂๑)
+anzhongguancha |･ω･｀)
 ```
 
 修改后重启输入法即可，之后只需要先按下 `;` 键（可在 `fcitx 配置 -> 附加组件` 修改）就能激活 QuickPhrase 模式，再按下映射的提示词就能看到对应的颜文字啦
