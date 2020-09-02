@@ -232,9 +232,9 @@ module.exports = {
     friends: [
       {
         name: 'ClariS',
-        url: 'https://github.com/heavenly-zy',
+        url: 'https://heavenly-zy.github.io',
         description: 'Querying for a variable and seizing the time',
-        avatar: 'https://github.com/heavenly-zy.png',
+        avatar: 'https://heavenly-zy.github.io/avatar.png',
       },
     ],
   },

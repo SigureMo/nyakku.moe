@@ -5,7 +5,7 @@
   "scripts": {
     "docs:dev": "vuepress dev docs",
     "docs:build": "vuepress build docs",
-    "docs:test": "vuepress build docs && npx serve docs/.vuepress/dist",
+    "docs:serve": "vuepress build docs && npx serve docs/.vuepress/dist",
     "img:upload": "bash scripts/upload-img.sh",
     "r": "python scripts/run.py"
   },
