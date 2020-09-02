@@ -272,9 +272,7 @@ WGAN 用了一种新的评估距离方式——Wasserstein 距离，由于它并
 
 那么，Wasserstein 距离到底要如何计算呢？emm，就像这样
 
-$
-V(G, D) = \max\limits_{D \in 1-Lipschitz} \{ E_{x \sim P_{data}} [D(x)] - E_{x \sim P_G} [D(x)]\}
-$
+$V(G, D) = \max\limits_{D \in 1-Lipschitz} \{ E_{x \sim P_{data}} [D(x)] - E_{x \sim P_G} [D(x)]\}$
 
 这里 $1-Lipschitz$ 是约束 D 为一个光滑的函数，它不能变化地太快，那么……如何约束它呢
 
@@ -282,23 +280,17 @@ $
 
 另一个是 WGAN-GP 中提出的方法，是从梯度的角度进行约束，因为 $1-Lipschitz$ 函数满足任意位置导数不大于 1，因此我们可以通过一点约束以使得 D 的导数不大于 1 即可
 
-$
-V(G, D) = \max\limits_{D \in 1-Lipschitz} \{ E_{x \sim P_{data}} [D(x)] - E_{x \sim P_G} [D(x)] - \lambda \int_x \max(0, || \nabla_x D(x) || - 1) dx \}
-$
+$V(G, D) = \max\limits_{D \in 1-Lipschitz} \{ E_{x \sim P_{data}} [D(x)] - E_{x \sim P_G} [D(x)] - \lambda \int_x \max(0, || \nabla_x D(x) || - 1) dx \}$
 
 最后一项的补偿能够保证 D 不大于 1，但……最后一项的要求是对于全部 x 都满足才可以，事实上这也是不可能的，WGAN-GP 中提出只需要使得 $P_{penalty}$ 全部满足就好了，并将从 $P_{data}$ 和 $P_G$ 中 Sample 出来的样本之间连线上随机取样作为 $P_{penalty}$
 
-$
-V(G, D) = \max\limits_{D \in 1-Lipschitz} \{ E_{x \sim P_{data}} [D(x)] - E_{x \sim P_G} [D(x)] - \lambda E_{x \sim P_{penalty}} \max(0, || \nabla_x D(x) || - 1) \}
-$
+$V(G, D) = \max\limits_{D \in 1-Lipschitz} \{ E_{x \sim P_{data}} [D(x)] - E_{x \sim P_G} [D(x)] - \lambda E_{x \sim P_{penalty}} \max(0, || \nabla_x D(x) || - 1) \}$
 
 ![Improving-GAN-02](../img/GAN_started/Improving-GAN-03.png)
 
 WGAN-GP 在实际应用中使用的是
 
-$
-V(G, D) = \max\limits_{D \in 1-Lipschitz} \{ E_{x \sim P_{data}} [D(x)] - E_{x \sim P_G} [D(x)] - \lambda E_{x \sim P_{penalty}} (|| \nabla_x D(x) || - 1)^2 \}
-$
+$V(G, D) = \max\limits_{D \in 1-Lipschitz} \{ E_{x \sim P_{data}} [D(x)] - E_{x \sim P_G} [D(x)] - \lambda E_{x \sim P_{penalty}} (|| \nabla_x D(x) || - 1)^2 \}$
 
 因为效果更好一些
 
