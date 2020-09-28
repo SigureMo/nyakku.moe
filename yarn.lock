@@ -1199,6 +1199,13 @@
   dependencies:
     lodash.debounce "^4.0.8"
 
+"@vuepress/plugin-active-header-links@^1.6.0":
+  version "1.6.0"
+  resolved "https://registry.yarnpkg.com/@vuepress/plugin-active-header-links/-/plugin-active-header-links-1.6.0.tgz#7d94db2e34a0b4af10b93171f56e7efc3bb7bd40"
+  integrity sha512-AsbUptcwtBJtlvrcDyiW2HZAHz/tLoYXrGopJVPtWUZ9LzNIcXuSFVIRzKd1Jc+86VPUYLeDhLBIWe0rfsphAQ==
+  dependencies:
+    lodash.debounce "^4.0.8"
+
 "@vuepress/plugin-back-to-top@^1.3.0":
   version "1.5.4"
   resolved "https://registry.yarnpkg.com/@vuepress/plugin-back-to-top/-/plugin-back-to-top-1.5.4.tgz#f7904e1220fcd1cb457a819a6bf963b55c584bea"
@@ -1206,10 +1213,10 @@
   dependencies:
     lodash.debounce "^4.0.8"
 
-"@vuepress/plugin-google-analytics@^1.3.0", "@vuepress/plugin-google-analytics@^1.5.4":
-  version "1.5.4"
-  resolved "https://registry.yarnpkg.com/@vuepress/plugin-google-analytics/-/plugin-google-analytics-1.5.4.tgz#43dff0a84b18b21ea597f3d97281c40d754a5083"
-  integrity sha512-JVmIPBqKNiOVvow+XAZE+jgGvIRMBVxZOpKb5HBQ0xwz/E81Opl7cxdX9VkPKX+i9VoRBPWEiD/874RivzbW1g==
+"@vuepress/plugin-google-analytics@^1.3.0", "@vuepress/plugin-google-analytics@^1.6.0":
+  version "1.6.0"
+  resolved "https://registry.yarnpkg.com/@vuepress/plugin-google-analytics/-/plugin-google-analytics-1.6.0.tgz#1a3960259556016b668276ab00417f1c96ddf4bd"
+  integrity sha512-CPRTQsq6KnZEb4SEB/6KdXHFKGvKdsg0GWtSYpLTbF/aUETVRUVJsqR7i/tLWgtyB8qFMwzPUiTc7KlEFjvYyg==
 
 "@vuepress/plugin-last-updated@1.6.0":
   version "1.6.0"
@@ -1225,12 +1232,12 @@
   dependencies:
     nprogress "^0.2.0"
 
-"@vuepress/plugin-pwa@^1.5.4":
-  version "1.5.4"
-  resolved "https://registry.yarnpkg.com/@vuepress/plugin-pwa/-/plugin-pwa-1.5.4.tgz#97fe6d917f8815cdea7a8025e065c5a08480cd94"
-  integrity sha512-d3XWS0Zbae1c6IDU64BpIAIr78A7kTZTA7qkqk1H5sbO1SqlXMWQVMsiFZuraxiEY2uDc0N5j3Yr4Kkmo+0o0w==
+"@vuepress/plugin-pwa@^1.6.0":
+  version "1.6.0"
+  resolved "https://registry.yarnpkg.com/@vuepress/plugin-pwa/-/plugin-pwa-1.6.0.tgz#4de907286cf5afc6e8ced03625ec7ed66a7c2310"
+  integrity sha512-8Y3KnbEtprolA83AGBcRdzVs64+ZjQRGWaRWAeEZIsWl1gNuwcMT+voS69IpbqMUH7cw8v/KDQdIJkEjvOBe0w==
   dependencies:
-    "@vuepress/shared-utils" "1.5.4"
+    "@vuepress/shared-utils" "1.6.0"
     register-service-worker "^1.7.0"
     workbox-build "^4.3.1"
 
@@ -1246,7 +1253,7 @@
   resolved "https://registry.yarnpkg.com/@vuepress/plugin-search/-/plugin-search-1.6.0.tgz#a064f638a8f30485859b871047deaf9194ffc886"
   integrity sha512-Js7zRmM6/b6dYfnJsSP2MQN0lzjUfSX8l3z9y/QHxK8BaXIx7LdTcQY6FGK4pxuwlWcg02CIUS5BMc1gZKn6Nw==
 
-"@vuepress/shared-utils@1.5.4", "@vuepress/shared-utils@^1.2.0", "@vuepress/shared-utils@^1.3.0":
+"@vuepress/shared-utils@1.5.4":
   version "1.5.4"
   resolved "https://registry.yarnpkg.com/@vuepress/shared-utils/-/shared-utils-1.5.4.tgz#d2c8693b8cd354d3a13a76f8f4259335e5540099"
   integrity sha512-HCeMPEAPjFN1Ongii0BUCI1iB4gBBiQ4PUgh7F4IGG8yBg4tMqWO4NHqCuDCuGEvK7lgHy8veto0SsSvdSKp3g==
