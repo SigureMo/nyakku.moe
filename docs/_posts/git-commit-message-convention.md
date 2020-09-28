@@ -40,7 +40,7 @@ Git Commit Message 虽然可以随意描述，但使用没有意义的描述对�
 -  ==fix==: 修复 bug
 -  ==docs==: 仅对文档进行修改
 -  ==style==: 对代码语义无影响的格式修改（如去除无用空格、格式化等等修改）
--  ==refactor==: 代码重构（即不是新增功能，也不是修改 bug 的代码变动）
+-  ==refactor==: 代码重构（既不是新增功能，也不是修改 bug 的代码变动）
 -  ==perf==: 提高性能的代码修改
 -  ==test==: 测试用例添加及修改
 -  ==build==: 影响构建系统或外部依赖关系的更改
@@ -106,7 +106,7 @@ This reverts commit 667ecc1654a317a13331b17617d973392f415f02.
 | :white_check_mark:          | `:white_check_mark:`          | Add or update tests.                          | 添加或更新测试用例                             |
 | :lock:                      | `:lock:`                      | Fix security issues.                          | 修复安全问题                                   |
 | :bookmark:                  | `:bookmark:`                  | Release / Version tags.                       | 发版/版本标签                                  |
-| :rotating_light:            | `:rotating_light:`            | Remove linter warning.                        | 移除 linter 的警告                             |
+| :rotating_light:            | `:rotating_light:`            | Fix compiler / linter warnings.               | 修复编译器或者 linter 的警告                             |
 | :construction:              | `:construction:`              | Work in progress.                             | 工作在进行中                                   |
 | :green_heart:               | `:green_heart:`               | Fix CI Build.                                 | 修复 CI 构建问题                               |
 | :arrow_down:                | `:arrow_down:`                | Downgrade dependencies.                       | 降级依赖库                                     |
@@ -118,7 +118,7 @@ This reverts commit 667ecc1654a317a13331b17617d973392f415f02.
 | :heavy_plus_sign:           | `:heavy_plus_sign:`           | Add a dependency.                             | 添加一个依赖项                                 |
 | :heavy_minus_sign:          | `:heavy_minus_sign:`          | Remove a dependency.                          | 删除一个依赖项                                 |
 | :wrench:                    | `:wrench:`                    | Add or update configuration files.            | 添加或改变配置文件                             |
-| :hammer:                    | `:hammer:`                    | Add or update build scripts.                  | 添加或更新构建脚本                             |
+| :hammer:                    | `:hammer:`                    | Add or update development scripts.            | 添加或更新构开发脚本                             |
 | :globe_with_meridians:      | `:globe_with_meridians:`      | Internationalization and localization.        | 国际化和本地化（i18n）                         |
 | :pencil2:                   | `:pencil2:`                   | Fix typos.                                    | 修复拼写错误                                   |
 | :poop:                      | `:poop:`                      | Write bad code that needs to be improved.     | 需要改进的代码                                 |
@@ -153,6 +153,8 @@ This reverts commit 667ecc1654a317a13331b17617d973392f415f02.
 | :goal_net:                  | `:goal_net:`                  | Catch errors.                                 | 发现错误                                       |
 | :dizzy:                     | `:dizzy:`                     | Add or update animations and transitions.     | 添加或更新动画和过渡                           |
 | :wastebasket:               | `:wastebasket:`               | Deprecate code that needs to be cleaned up. | 清理冗余代码                                   |
+| :passport_control:          | `:passport_control:`          | Work on code related to authorization, roles and permissions. |
+处理与授权、账户和权限相关的代码                            |
 
 在提交时你可以按照喜好使用其 code 或者直接使用 emoji，因为 GitHub 是能够正确将这些 code 渲染为对应的 emoji 的
 
@@ -224,7 +226,7 @@ if (!releaseRE.test(msg) && !commitRE.test(msg)) {
 ## References
 
 1. [conventional-commit-types @d1fb9cc](https://github.com/commitizen/conventional-commit-types)
-2. [gitmoji @e3b7d94](http://gitmoji.carloscuesta.me/)
+2. [gitmoji @1c23808](http://gitmoji.carloscuesta.me/)
 3. [程序员提交代码的 emoji 指南——原来表情文字不能乱用](https://www.h5jun.com/post/gitmoji.html)
 4. [用 gitmoji 来提交你的 git commit 吧](https://github.com/mytac/blogs/issues/2)
 5. [git commit 规范指南](https://segmentfault.com/a/1190000009048911?utm_source=tag-newest)
