@@ -28,7 +28,7 @@
     "markdown-it-mark": "^3.0.0",
     "markdown-it-task-lists": "^2.1.1",
     "markdown-it-vuepress-code-snippet-enhanced": "^1.0.1",
-    "vuepress": "^1.5.4",
+    "vuepress": "^1.6.0",
     "vuepress-plugin-cursor-effects": "^1.0.0",
     "vuepress-plugin-dynamic-title": "^1.0.0",
     "vuepress-plugin-feed": "^0.1.8",
