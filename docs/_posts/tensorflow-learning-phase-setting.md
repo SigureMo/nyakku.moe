@@ -69,9 +69,9 @@ model(data, training=True)
 
 那么，另外一种改变状态的方式 `tf.keras.backend.set_learning_phase` 是否有效呢？经过测试也是可以的，但是要注意一个问题，当在 `model` 中指定训练状态时，会忽略掉这个设置
 
-也就是说即便之前指定了 `tf.keras.backend.set_learning_phase(True)`，但使用了 `model(data, training=False)` 的话，实际执行的仍然是非训练状态
+这使得即便之前指定了 `tf.keras.backend.set_learning_phase(True)`，若同时使用了 `model(data, training=False)` 的话，实际执行的仍然是非训练状态
 
-也就是说，当 `training` 没有指定（`None`）的时候，会使用 `tf.keras.backend.set_learning_phase` 的值，而指定后则忽略 `tf.keras.backend.set_learning_phase` 的值
+也就是说，只有当 `training` 没有指定（`None`）的时候，才会使用 `tf.keras.backend.set_learning_phase` 的值，而指定后则忽略 `tf.keras.backend.set_learning_phase` 的值
 
 ## 所以要怎么训练？
 
