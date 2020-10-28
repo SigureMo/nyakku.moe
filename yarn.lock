@@ -8007,10 +8007,10 @@ vuepress-plugin-dynamic-title@^1.0.0:
   resolved "https://registry.yarnpkg.com/vuepress-plugin-dynamic-title/-/vuepress-plugin-dynamic-title-1.0.0.tgz#867e7a8b821ad35ccfaaafc2358bc129817d422f"
   integrity sha512-CN1wtkPNG3shGzEFgqOa2dzojSle7SeAaf+Cw77Xmkv8jvB3wO5r2zXkIHTjiclQY1c5q5lE8h2A9vQaLdor2Q==
 
-vuepress-plugin-feed@^0.1.8:
-  version "0.1.8"
-  resolved "https://registry.yarnpkg.com/vuepress-plugin-feed/-/vuepress-plugin-feed-0.1.8.tgz#134c69f98c71994d17f926e3c7c2ad006f573195"
-  integrity sha512-ZDJ2KTAxdeXiykBKOWTht4qleImaY9OEbm9cqQdc/54j0P45ax1PhJjsq5aTs3GcIE1nbZKLCd4fSzhRY6bijg==
+vuepress-plugin-feed@^0.1.9:
+  version "0.1.9"
+  resolved "https://registry.yarnpkg.com/vuepress-plugin-feed/-/vuepress-plugin-feed-0.1.9.tgz#706fc381c1831c110d161b7e892057750c8904da"
+  integrity sha512-iOJkR7zPmJAX0TEVdxNsUT07xNQB6lZFpU7DqsYzO01FhaPkMOOVM5Vx5a/iOOuOggAeoI9H9yuah+cRmCImlw==
   dependencies:
     feed "2.0.4"
     lodash.defaultsdeep "4.6.1"
