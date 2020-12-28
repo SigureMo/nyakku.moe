@@ -1,4 +1,4 @@
-cd docs/img
+cd src/img
 git pull --ff-only
 git add -A
 time=$(date "+%Y-%m-%d %H:%M:%S")
