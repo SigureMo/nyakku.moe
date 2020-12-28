@@ -6,7 +6,7 @@ layout: FriendsLayout
 
 ## 友链互换
 
-按照以下格式留言即可，或者直接向我提交 PR ～（修改 `docs/.vuepress/config.js` 即可）
+按照以下格式留言即可，或者直接向我提交 PR ～（修改 `src/.vuepress/config.js` 即可）
 
 ```json
 {

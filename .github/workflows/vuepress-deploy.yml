@@ -18,23 +18,23 @@ jobs:
         run: |
           npm install yarn
           yarn
-          yarn docs:build
+          yarn build
 
       - name: Deploy 🚀
         uses: peaceiris/actions-gh-pages@v3
         with:
           personal_token: ${{ secrets.PERSONAL_TOKEN }}
-          publish_dir: docs/.vuepress/dist
+          publish_dir: src/.vuepress/dist
           external_repository: SigureMo/SigureMo.github.io
           publish_branch: master
           cname: sigure.xyz
-          user_name: "github-actions[bot]"
-          user_email: "github-actions[bot]@users.noreply.github.com"
+          user_name: 'github-actions[bot]'
+          user_email: 'github-actions[bot]@users.noreply.github.com'
 
       - name: Sync to Coding 🔀
         uses: wearerequired/git-mirror-action@v1
         env:
           SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
         with:
-          source-repo: "git@github.com:SigureMo/SigureMo.github.io.git"
-          destination-repo: "git@e.coding.net:sigure/notev/notev.git"
+          source-repo: 'git@github.com:SigureMo/SigureMo.github.io.git'
+          destination-repo: 'git@e.coding.net:sigure/notev/notev.git'

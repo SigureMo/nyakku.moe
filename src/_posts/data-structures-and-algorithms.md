@@ -76,9 +76,9 @@ tags:
 
 :::
 
-<!-- <<< @/src/Data_Structures_and_Algorthms/Chapter_02_Linear_List/01_Sequence_List.cpp -->
+<!-- <<< @/src/code-snippets/data-structures-and-algorithms/Chapter_02_Linear_List/01_Sequence_List.cpp -->
 
-@[code transcludeWith=:::](@/src/Data_Structures_and_Algorthms/Chapter_02_Linear_List/01_Sequence_List.cpp)
+@[code transcludeWith=:::](@/src/code-snippets/data-structures-and-algorithms/Chapter_02_Linear_List/01_Sequence_List.cpp)
 
 ### 2.3 链式表示（Linked List） <Badge text="!" type="error"/>
 
@@ -93,9 +93,9 @@ tags:
 
 #### 2.3.1 单链表（Single Linked List）
 
-<!-- <<< @/src/Data_Structures_and_Algorthms/Chapter_02_Linear_List/02_Single_Linked_List.cpp -->
+<!-- <<< @/src/code-snippets/data-structures-and-algorithms/Chapter_02_Linear_List/02_Single_Linked_List.cpp -->
 
-@[code transcludeWith=:::](@/src/Data_Structures_and_Algorthms/Chapter_02_Linear_List/02_Single_Linked_List.cpp)
+@[code transcludeWith=:::](@/src/code-snippets/data-structures-and-algorithms/Chapter_02_Linear_List/02_Single_Linked_List.cpp)
 
 ::: tip 做题时经常遇到的问题
 
@@ -105,9 +105,9 @@ tags:
 
 #### 2.3.2 双链表(Double Linked List)
 
-<!-- <<< @/src/Data_Structures_and_Algorthms/Chapter_02_Linear_List/03_Double_Linked_List.cpp -->
+<!-- <<< @/src/code-snippets/data-structures-and-algorithms/Chapter_02_Linear_List/03_Double_Linked_List.cpp -->
 
-@[code](@/src/Data_Structures_and_Algorthms/Chapter_02_Linear_List/03_Double_Linked_List.cpp)
+@[code](@/src/code-snippets/data-structures-and-algorithms/Chapter_02_Linear_List/03_Double_Linked_List.cpp)
 
 #### 2.3.3 循环链表(Circular Linked List)
 
@@ -121,9 +121,9 @@ tags:
 
 使用**数组**存储，指针域实际存储的是数组**下标**
 
-<!-- <<< @/src/Data_Structures_and_Algorthms/Chapter_02_Linear_List/04_Static_Linked_List.cpp -->
+<!-- <<< @/src/code-snippets/data-structures-and-algorithms/Chapter_02_Linear_List/04_Static_Linked_List.cpp -->
 
-@[code](@/src/Data_Structures_and_Algorthms/Chapter_02_Linear_List/04_Static_Linked_List.cpp)
+@[code](@/src/code-snippets/data-structures-and-algorithms/Chapter_02_Linear_List/04_Static_Linked_List.cpp)
 
 #### 2.3.5 多重链表（Multiple List）
 
@@ -156,9 +156,9 @@ tags:
 
 广义表是线性表的推广,其数据域不仅可以是单元素，也可以是另一个广义表
 
-<!-- <<< @/src/Data_Structures_and_Algorthms/Chapter_02_Linear_List/05_Generalized_List.cpp -->
+<!-- <<< @/src/code-snippets/data-structures-and-algorithms/Chapter_02_Linear_List/05_Generalized_List.cpp -->
 
-@[code](@/src/Data_Structures_and_Algorthms/Chapter_02_Linear_List/05_Generalized_List.cpp)
+@[code](@/src/code-snippets/data-structures-and-algorithms/Chapter_02_Linear_List/05_Generalized_List.cpp)
 
 ## 3 堆栈（Stack）
 
@@ -191,15 +191,15 @@ $$
 
 使用顺序结构存储的栈
 
-<!-- <<< @/src/Data_Structures_and_Algorthms/Chapter_03_Stack/01_Sequence_Stack.cpp{42,50,59} -->
+<!-- <<< @/src/code-snippets/data-structures-and-algorithms/Chapter_03_Stack/01_Sequence_Stack.cpp{42,50,59} -->
 
-@[code highlight={42,50,59}](@/src/Data_Structures_and_Algorthms/Chapter_03_Stack/01_Sequence_Stack.cpp)
+@[code highlight={42,50,59}](@/src/code-snippets/data-structures-and-algorithms/Chapter_03_Stack/01_Sequence_Stack.cpp)
 
 OOP 版：
 
-<!-- <<< @/src/Data_Structures_and_Algorthms/Chapter_03_Stack/04_Sequence_Stack_oop.cpp -->
+<!-- <<< @/src/code-snippets/data-structures-and-algorithms/Chapter_03_Stack/04_Sequence_Stack_oop.cpp -->
 
-@[code](@/src/Data_Structures_and_Algorthms/Chapter_03_Stack/04_Sequence_Stack_oop.cpp)
+@[code](@/src/code-snippets/data-structures-and-algorithms/Chapter_03_Stack/04_Sequence_Stack_oop.cpp)
 
 ::: danger 考题中如何使用
 
@@ -234,7 +234,7 @@ x = stack[top--];
 
 一个栈底在左端，一个栈底在右端，可以充分利用数组空间
 
-<<< @/src/Data_Structures_and_Algorthms/Chapter_03_Stack/02_Shared_Stack.cpp
+<<< @/src/code-snippets/data-structures-and-algorithms/Chapter_03_Stack/02_Shared_Stack.cpp
 
 ::: tip
 
@@ -251,7 +251,7 @@ x = stack[top--];
 
 如果使用链尾作为 Top，则难以实现 Pop 操作，故 Top 应在链头
 
-<<< @/src/Data_Structures_and_Algorthms/Chapter_03_Stack/03_Linked_Stack.cpp
+<<< @/src/code-snippets/data-structures-and-algorithms/Chapter_03_Stack/03_Linked_Stack.cpp
 
 ### 3.4 应用
 
@@ -348,9 +348,9 @@ bool match(char exp[], int n) {
 
 常采用后者
 
-<!-- <<< @/src/Data_Structures_and_Algorthms/Chapter_04_Queue/01_Circular_Queue.cpp{29,30,31,37,43,44,51,52} -->
+<!-- <<< @/src/code-snippets/data-structures-and-algorithms/Chapter_04_Queue/01_Circular_Queue.cpp{29,30,31,37,43,44,51,52} -->
 
-@[code highlight={29,30,31,37,43,44,51,52}](@/src/Data_Structures_and_Algorthms/Chapter_04_Queue/01_Circular_Queue.cpp)
+@[code highlight={29,30,31,37,43,44,51,52}](@/src/code-snippets/data-structures-and-algorithms/Chapter_04_Queue/01_Circular_Queue.cpp)
 
 ### 4.3 链式存储
 
@@ -368,9 +368,9 @@ bool match(char exp[], int n) {
 
 另外要注意的是，==链队需要定义两个结构体==，这还是遇到的第一个，原因不难想到，因为他需要两个指针，链表本身的一个指针已经不能满足它了
 
-<!-- <<< @/src/Data_Structures_and_Algorthms/Chapter_04_Queue/02_Linked_Queue.cpp{37,38,39,45} -->
+<!-- <<< @/src/code-snippets/data-structures-and-algorithms/Chapter_04_Queue/02_Linked_Queue.cpp{37,38,39,45} -->
 
-@[code highlight={37,38,39,45}](@/src/Data_Structures_and_Algorthms/Chapter_04_Queue/02_Linked_Queue.cpp)
+@[code highlight={37,38,39,45}](@/src/code-snippets/data-structures-and-algorithms/Chapter_04_Queue/02_Linked_Queue.cpp)
 
 #### 4.3.1 双端队列
 
@@ -873,17 +873,17 @@ typedef struct _node {
 
 -  递归实现
 
-@[code transcludeWith=PRE_ORDER_BLOCK](@/src/Data_Structures_and_Algorthms/Chapter_06_Tree/01_Binary_Tree.cpp)
-@[code transcludeWith=IN_ORDER_BLOCK](@/src/Data_Structures_and_Algorthms/Chapter_06_Tree/01_Binary_Tree.cpp)
-@[code transcludeWith=POST_ORDER_BLOCK](@/src/Data_Structures_and_Algorthms/Chapter_06_Tree/01_Binary_Tree.cpp)
+@[code transcludeWith=PRE_ORDER_BLOCK](@/src/code-snippets/data-structures-and-algorithms/Chapter_06_Tree/01_Binary_Tree.cpp)
+@[code transcludeWith=IN_ORDER_BLOCK](@/src/code-snippets/data-structures-and-algorithms/Chapter_06_Tree/01_Binary_Tree.cpp)
+@[code transcludeWith=POST_ORDER_BLOCK](@/src/code-snippets/data-structures-and-algorithms/Chapter_06_Tree/01_Binary_Tree.cpp)
 
 ---
 
 -  非递归实现
 
-@[code transcludeWith=PRE_ORDER_NOREC_BLOCK](@/src/Data_Structures_and_Algorthms/Chapter_06_Tree/01_Binary_Tree.cpp)
-@[code transcludeWith=IN_ORDER_NOREC_BLOCK](@/src/Data_Structures_and_Algorthms/Chapter_06_Tree/01_Binary_Tree.cpp)
-@[code hightlight={14,17,25,27,30} transcludeWith=POST_ORDER_NOREC_BLOCK](@/src/Data_Structures_and_Algorthms/Chapter_06_Tree/01_Binary_Tree.cpp)
+@[code transcludeWith=PRE_ORDER_NOREC_BLOCK](@/src/code-snippets/data-structures-and-algorithms/Chapter_06_Tree/01_Binary_Tree.cpp)
+@[code transcludeWith=IN_ORDER_NOREC_BLOCK](@/src/code-snippets/data-structures-and-algorithms/Chapter_06_Tree/01_Binary_Tree.cpp)
+@[code hightlight={14,17,25,27,30} transcludeWith=POST_ORDER_NOREC_BLOCK](@/src/code-snippets/data-structures-and-algorithms/Chapter_06_Tree/01_Binary_Tree.cpp)
 
 #### 6.4.2 层序遍历
 
@@ -894,9 +894,9 @@ typedef struct _node {
    2. 循环：结点出队，访问该结点，其左右儿子入队
 -  堆栈实现 基本同上，只不过由于栈的特性，需要先右儿子入栈，后左儿子入栈
 
-<!-- <<< @/src/Data_Structures_and_Algorthms/Chapter_06_Tree/01_Binary_Tree.cpp{174,177,185,187,190} -->
+<!-- <<< @/src/code-snippets/data-structures-and-algorithms/Chapter_06_Tree/01_Binary_Tree.cpp{174,177,185,187,190} -->
 
-@[code transcludeWith=LEVEL_ORDER_BLOCK](@/src/Data_Structures_and_Algorthms/Chapter_06_Tree/01_Binary_Tree.cpp)
+@[code transcludeWith=LEVEL_ORDER_BLOCK](@/src/code-snippets/data-structures-and-algorithms/Chapter_06_Tree/01_Binary_Tree.cpp)
 
 #### 6.4.3 遍历的应用
 
@@ -982,7 +982,7 @@ typedef struct _node {
       -  并 Union 求两个不相交子集合的并集
    -  示例代码
 
-      <<< @/src/Data_Structures_and_Algorthms/Chapter_06_Tree/02_Union_Find_Set.cpp
+      <<< @/src/code-snippets/data-structures-and-algorithms/Chapter_06_Tree/02_Union_Find_Set.cpp
 
    -  其他优化 由于简单的的 Union 很可能会导致树不断长高使得 Find 效率不断降低，所以就需要一种方法减缓树的增长
       -  按秩归并 在 Union 的时候判断两棵树哪个更高，将低的“嫁接”到高的那棵上面就好
@@ -1004,9 +1004,9 @@ BST ，也译作二叉查找树，有时也称二叉排序树（Binary Sort Tree
 
 相关操作：
 
-<!-- <<< @/src/Data_Structures_and_Algorthms/Chapter_06_Tree/03_Binary_Search_Tree.cpp -->
+<!-- <<< @/src/code-snippets/data-structures-and-algorithms/Chapter_06_Tree/03_Binary_Search_Tree.cpp -->
 
-@[code transcludeWith=:::](@/src/Data_Structures_and_Algorthms/Chapter_06_Tree/03_Binary_Search_Tree.cpp)
+@[code transcludeWith=:::](@/src/code-snippets/data-structures-and-algorithms/Chapter_06_Tree/03_Binary_Search_Tree.cpp)
 
 #### 6.6.2 平衡二叉树（Banlanced Binary Tree）
 
@@ -1147,9 +1147,9 @@ T2   T3                           T3  T4
 
 :::
 
-<!-- <<< @/src/Data_Structures_and_Algorthms/Chapter_06_Tree/04_Max_Heap.cpp{56,79,80,114,123} -->
+<!-- <<< @/src/code-snippets/data-structures-and-algorithms/Chapter_06_Tree/04_Max_Heap.cpp{56,79,80,114,123} -->
 
-@[code highlight={56,79,80,114,123}](@/src/Data_Structures_and_Algorthms/Chapter_06_Tree/04_Max_Heap.cpp)
+@[code highlight={56,79,80,114,123}](@/src/code-snippets/data-structures-and-algorithms/Chapter_06_Tree/04_Max_Heap.cpp)
 
 #### 6.6.4 哈夫曼树和哈夫曼编码
 
@@ -1185,9 +1185,9 @@ T2   T3                           T3  T4
 
    > 为了使得主算法代码更加清晰，使用 C++ 风格对 STL 中的堆封装了一下
 
-   <!-- <<< @/src/Data_Structures_and_Algorthms/Chapter_06_Tree/05_Huffman_Tree.cpp{74,75,76,77,78,79} -->
+   <!-- <<< @/src/code-snippets/data-structures-and-algorithms/Chapter_06_Tree/05_Huffman_Tree.cpp{74,75,76,77,78,79} -->
 
-   @[code highlight={12-17} transcludeWith=:::](@/src/Data_Structures_and_Algorthms/Chapter_06_Tree/05_Huffman_Tree.cpp)
+   @[code highlight={12-17} transcludeWith=:::](@/src/code-snippets/data-structures-and-algorithms/Chapter_06_Tree/05_Huffman_Tree.cpp)
 
 ## 7 图（Graph）
 
@@ -1258,7 +1258,7 @@ T2   T3                           T3  T4
 
 有边就是 1 ，无边就是 0 ，如果是无权图则用权重代替，非常简单的表示方法
 
-<<< @/src/Data_Structures_and_Algorthms/Chapter_07_Graph/01_Adjacency_Matrix.cpp
+<<< @/src/code-snippets/data-structures-and-algorithms/Chapter_07_Graph/01_Adjacency_Matrix.cpp
 
 -  使用一个顶点表和一个边表，简单应用时可仅使用一个二维数组作为边表即可
 -  无向图的邻接矩阵是对称矩阵，可参考 2.3.5 进行压缩存储
@@ -1269,7 +1269,7 @@ T2   T3                           T3  T4
 
 每个顶点的各个边使用一个链表进行记录
 
-<<< @/src/Data_Structures_and_Algorthms/Chapter_07_Graph/02_Adjacency_List.cpp
+<<< @/src/code-snippets/data-structures-and-algorithms/Chapter_07_Graph/02_Adjacency_List.cpp
 
 -  需存储空间 $O(|V| + |E|)$
 -  足够稀疏才合适
@@ -1291,7 +1291,7 @@ T2   T3                           T3  T4
 
 ![DS06{copyright:Wangdao}](../img/Data_Structures_and_Algorithms/DS06.png)
 
-<<< @/src/Data_Structures_and_Algorthms/Chapter_07_Graph/03_Orthogonal_Linked_List.cpp
+<<< @/src/code-snippets/data-structures-and-algorithms/Chapter_07_Graph/03_Orthogonal_Linked_List.cpp
 
 -  由它的表示方式可知，它使得入度和出度都容易计算了
 
@@ -1312,7 +1312,7 @@ T2   T3                           T3  T4
 
 ![DS07{copyright:Wangdao}](../img/Data_Structures_and_Algorithms/DS07.png)
 
-<<< @/src/Data_Structures_and_Algorthms/Chapter_07_Graph/04_Djacency_Multiple_List.cpp
+<<< @/src/code-snippets/data-structures-and-algorithms/Chapter_07_Graph/04_Djacency_Multiple_List.cpp
 
 ### 7.3 图的遍历
 
@@ -1336,7 +1336,7 @@ BFS 和 DFS 都可以抽象为优先级搜索，只不过 BFS 认为离起点越
 
 由于我们不能像二叉树那样直观的知道哪个被访问过了，所以我们需要增加一个数组（`visited[]`）用于标志哪个顶点被访问过了
 
-@[code transcludeWith=BFS_BLOCK](@/src/Data_Structures_and_Algorthms/Chapter_07_Graph/05_Traverse.cpp)
+@[code transcludeWith=BFS_BLOCK](@/src/code-snippets/data-structures-and-algorithms/Chapter_07_Graph/05_Traverse.cpp)
 
 #### 7.3.2 深度优先搜索（DFS）
 
@@ -1348,9 +1348,9 @@ BFS 和 DFS 都可以抽象为优先级搜索，只不过 BFS 认为离起点越
 
 ![DS09{copyright:https://www.jianshu.com/p/03de0db4b857}](../img/Data_Structures_and_Algorithms/DS09.png)
 
-<!-- <<< @/src/Data_Structures_and_Algorthms/Chapter_07_Graph/05_Traverse.cpp -->
+<!-- <<< @/src/code-snippets/data-structures-and-algorithms/Chapter_07_Graph/05_Traverse.cpp -->
 
-@[code transcludeWith=DFS_BLOCK](@/src/Data_Structures_and_Algorthms/Chapter_07_Graph/05_Traverse.cpp)
+@[code transcludeWith=DFS_BLOCK](@/src/code-snippets/data-structures-and-algorithms/Chapter_07_Graph/05_Traverse.cpp)
 
 #### 7.3.3 性能分析
 
@@ -1937,9 +1937,9 @@ B 树即 B-tree ，B 是指 Balanced ，因为 B-tree 嘛，就有人将其译�
 
 #### 9.1.1 直接插入排序
 
-<!-- <<< @/src/Data_Structures_and_Algorthms/Chapter_09_Sort/01_Insertion_Sort.cpp -->
+<!-- <<< @/src/code-snippets/data-structures-and-algorithms/Chapter_09_Sort/01_Insertion_Sort.cpp -->
 
-@[code transcludeWith=SIMPLE_INSERT](@/src/Data_Structures_and_Algorthms/Chapter_09_Sort/01_Sort.cpp)
+@[code transcludeWith=SIMPLE_INSERT](@/src/code-snippets/data-structures-and-algorithms/Chapter_09_Sort/01_Sort.cpp)
 
 类似于排扑克牌，将该牌与左面的所有牌比较
 
@@ -1952,7 +1952,7 @@ B 树即 B-tree ，B 是指 Balanced ，因为 B-tree 嘛，就有人将其译�
 
 因为排序过程中有一部分是有序的，所以就可以直接使用二分查找找到位置，当然，**这不会减少移动的次数，但是减少了比较的次数**
 
-@[code transcludeWith=HALF_INSERT](@/src/Data_Structures_and_Algorthms/Chapter_09_Sort/01_Sort.cpp)
+@[code transcludeWith=HALF_INSERT](@/src/code-snippets/data-structures-and-algorithms/Chapter_09_Sort/01_Sort.cpp)
 
 -  空间复杂度 $O(1)$
 -  时间复杂度 $O(n^2)$
@@ -1967,7 +1967,7 @@ B 树即 B-tree ，B 是指 Balanced ，因为 B-tree 嘛，就有人将其译�
 
 > 增量序列要互质才能体现其效果
 
-@[code transcludeWith=SHELL_INSERT](@/src/Data_Structures_and_Algorthms/Chapter_09_Sort/01_Sort.cpp)
+@[code transcludeWith=SHELL_INSERT](@/src/code-snippets/data-structures-and-algorithms/Chapter_09_Sort/01_Sort.cpp)
 
 -  空间复杂度 $O(1)$
 -  时间复杂度 约为 $O(n^{1.3})$ ，最坏 $O(n^2)$
@@ -1978,7 +1978,7 @@ B 树即 B-tree ，B 是指 Balanced ，因为 B-tree 嘛，就有人将其译�
 
 #### 9.2.1 冒泡排序
 
-@[code transcludeWith=BUBBLE_SWAP](@/src/Data_Structures_and_Algorthms/Chapter_09_Sort/01_Sort.cpp)
+@[code transcludeWith=BUBBLE_SWAP](@/src/code-snippets/data-structures-and-algorithms/Chapter_09_Sort/01_Sort.cpp)
 
 从左向右进行遍历，每次遍历比较相邻的元素，如果为逆序，则交换，这样一轮下来，最大值就到了最右面，下次只需要排剩下的元素即可
 
@@ -2003,7 +2003,7 @@ B 树即 B-tree ，B 是指 Balanced ，因为 B-tree 嘛，就有人将其译�
 
    主元如果是中间的值，才是最好的情况，但一旦选到了最小的值那可以说是非常糟糕了，所以，选主元很关键，不过要真么做呢？试试玄学用 random？那也很耗时间，**通常，我们选取首中尾的中位数**：
 
-@[code transcludeWith=QUICK_SWAP_PIVOT](@/src/Data_Structures_and_Algorthms/Chapter_09_Sort/01_Sort.cpp)
+@[code transcludeWith=QUICK_SWAP_PIVOT](@/src/code-snippets/data-structures-and-algorithms/Chapter_09_Sort/01_Sort.cpp)
 
 -  子集划分
 
@@ -2020,11 +2020,11 @@ B 树即 B-tree ，B 是指 Balanced ，因为 B-tree 嘛，就有人将其译�
 
    :::
 
-@[code transcludeWith=QUICK_SWAP_DIVIDE](@/src/Data_Structures_and_Algorthms/Chapter_09_Sort/01_Sort.cpp)
+@[code transcludeWith=QUICK_SWAP_DIVIDE](@/src/code-snippets/data-structures-and-algorithms/Chapter_09_Sort/01_Sort.cpp)
 
 -  主函数
 
-@[code transcludeWith=QUICK_SWAP_MAIN](@/src/Data_Structures_and_Algorthms/Chapter_09_Sort/01_Sort.cpp)
+@[code transcludeWith=QUICK_SWAP_MAIN](@/src/code-snippets/data-structures-and-algorithms/Chapter_09_Sort/01_Sort.cpp)
 
 -  空间复杂度 $O(\log_2 n)$ （因为需要用递归工作栈）
 -  时间复杂度 最坏 $O(n^2)$ ，如果每次都能刚好将其划分为两个等大小的子集的话，则能降低到 $O(n \log_2 n)$，另外它也是平均性能最优的排序算法
@@ -2036,7 +2036,7 @@ B 树即 B-tree ，B 是指 Balanced ，因为 B-tree 嘛，就有人将其译�
 
 遍历未排序部分寻找最小元，之后将最小元换到有序部分的后一个位置
 
-@[code transcludeWith=SIMPLE_SELECT](@/src/Data_Structures_and_Algorthms/Chapter_09_Sort/01_Sort.cpp)
+@[code transcludeWith=SIMPLE_SELECT](@/src/code-snippets/data-structures-and-algorithms/Chapter_09_Sort/01_Sort.cpp)
 
 -  空间复杂度 $O(1)$
 -  时间复杂度 无所谓最好最坏情况，时间复杂度始终为 $O(n^2)$
@@ -2052,7 +2052,7 @@ B 树即 B-tree ，B 是指 Balanced ，因为 B-tree 嘛，就有人将其译�
 
 使用 C++ 内置算法可以这样描述：
 
-@[code transcludeWith=HEAP_SELECT](@/src/Data_Structures_and_Algorthms/Chapter_09_Sort/01_Sort.cpp)
+@[code transcludeWith=HEAP_SELECT](@/src/code-snippets/data-structures-and-algorithms/Chapter_09_Sort/01_Sort.cpp)
 
 更多详情见[堆](#_6-6-3-堆（heap）)
 
@@ -2072,15 +2072,15 @@ B 树即 B-tree ，B 是指 Balanced ，因为 B-tree 嘛，就有人将其译�
 
 利用三个指针即可
 
-@[code transcludeWith=MERGE_SORT_MERGE](@/src/Data_Structures_and_Algorthms/Chapter_09_Sort/01_Sort.cpp)
+@[code transcludeWith=MERGE_SORT_MERGE](@/src/code-snippets/data-structures-and-algorithms/Chapter_09_Sort/01_Sort.cpp)
 
 #### 9.4.2 递归算法
 
 先利用该算法解决两部分，然后 Merge，另外可以全程使用一个临时数组以减少反复开辟空间的开销
 
-@[code transcludeWith=MERGE_SORT_SUB](@/src/Data_Structures_and_Algorthms/Chapter_09_Sort/01_Sort.cpp)
+@[code transcludeWith=MERGE_SORT_SUB](@/src/code-snippets/data-structures-and-algorithms/Chapter_09_Sort/01_Sort.cpp)
 
-@[code transcludeWith=MERGE_SORT_MAIN](@/src/Data_Structures_and_Algorthms/Chapter_09_Sort/01_Sort.cpp)
+@[code transcludeWith=MERGE_SORT_MAIN](@/src/code-snippets/data-structures-and-algorithms/Chapter_09_Sort/01_Sort.cpp)
 
 #### 9.4.3 非递归算法
 

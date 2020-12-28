@@ -140,13 +140,13 @@ hs_err_pid*
 *.txt
 
 # vuepress
-docs/.vuepress/dist/
-docs/.vuepress/plugins/vuepress-plugin-cursor-effects/
-docs/.vuepress/plugins/vuepress-plugin-dynamic-title/
-docs/.vuepress/plugins/vuepress-plugin-go-top/
-docs/.vuepress/plugins/vuepress-plugin-ribbon/
-docs/.vuepress/plugins/vuepress-plugin-meting/
-docs/.vuepress/theme/
+src/.vuepress/dist/
+src/.vuepress/plugins/vuepress-plugin-cursor-effects/
+src/.vuepress/plugins/vuepress-plugin-dynamic-title/
+src/.vuepress/plugins/vuepress-plugin-go-top/
+src/.vuepress/plugins/vuepress-plugin-ribbon/
+src/.vuepress/plugins/vuepress-plugin-meting/
+src/.vuepress/theme/
 node_modules/
 
 # yarn
