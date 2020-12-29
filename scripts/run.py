@@ -234,5 +234,7 @@ def sh(cmd, *args, **kw):
 
 
 if __name__ == "__main__":
+    if not os.path.isdir(TMP_DIR):
+        os.mkdir(TMP_DIR)
     argv = sys.argv
     run(argv[1:])
