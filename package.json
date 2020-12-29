@@ -1,21 +1,13 @@
 {
-  "name": "notev",
-  "version": "2.2.45",
-  "description": "SigureMo's Notes",
   "scripts": {
     "dev": "vuepress dev src",
     "build": "vuepress build src",
     "serve": "vuepress build src && npx serve src/.vuepress/dist",
     "img:upload": "bash scripts/upload-img.sh",
-    "r": "python scripts/run.py"
+    "r": "python3 scripts/run.py"
   },
-  "keywords": [
-    "note",
-    "blog",
-    "codes"
-  ],
   "author": "SigureMo",
-  "license": "MIT",
+  "license": "CC 4.0 BY-SA",
   "gitHooks": {
     "commit-msg": "node scripts/verifyCommit.js"
   },
