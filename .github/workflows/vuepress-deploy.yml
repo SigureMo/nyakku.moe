@@ -2,7 +2,7 @@ name: VuePress Deploy
 
 on:
   push:
-    branches: [master]
+    branches: [main]
   workflow_dispatch:
 
 jobs:
@@ -44,7 +44,7 @@ jobs:
           personal_token: ${{ secrets.PERSONAL_TOKEN }}
           publish_dir: src/.vuepress/dist
           external_repository: SigureMo/SigureMo.github.io
-          publish_branch: master
+          publish_branch: main
           cname: sigure.xyz
           user_name: 'github-actions[bot]'
           user_email: 'github-actions[bot]@users.noreply.github.com'
