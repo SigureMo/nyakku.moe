@@ -152,9 +152,10 @@ This reverts commit 667ecc1654a317a13331b17617d973392f415f02.
 | :triangular_flag_on_post:   | `:triangular_flag_on_post:`   | Add, update, or remove feature flags.         | 添加、更新或删除功能标志                       |
 | :goal_net:                  | `:goal_net:`                  | Catch errors.                                 | 发现错误                                       |
 | :dizzy:                     | `:dizzy:`                     | Add or update animations and transitions.     | 添加或更新动画和过渡                           |
-| :wastebasket:               | `:wastebasket:`               | Deprecate code that needs to be cleaned up. | 清理冗余代码                                   |
-| :passport_control:          | `:passport_control:`          | Work on code related to authorization, roles and permissions. |
-处理与授权、账户和权限相关的代码                            |
+| :wastebasket:               | `:wastebasket:`               | Deprecate code that needs to be cleaned up.   | 清理冗余代码                                   |
+| :passport_control:          | `:passport_control:`          | Work on code related to authorization, roles and permissions. | 处理与授权、账户和权限相关的代码 ｜
+| :adhesive_bandage:          | `:adhesive_bandage:`          | Simple fix for a non-critical issue.          | 简单修复一个非关键问题                         |
+| ::monocle_face:             | `:monocle_face:`              | Data exploration/inspection.                  | 数据探索/检查                         |
 
 在提交时你可以按照喜好使用其 code 或者直接使用 emoji，因为 GitHub 是能够正确将这些 code 渲染为对应的 emoji 的
 
@@ -226,7 +227,7 @@ if (!releaseRE.test(msg) && !commitRE.test(msg)) {
 ## References
 
 1. [conventional-commit-types @d1fb9cc](https://github.com/commitizen/conventional-commit-types)
-2. [gitmoji @1c23808](http://gitmoji.carloscuesta.me/)
+2. [gitmoji @70e137b](http://gitmoji.dev/)
 3. [程序员提交代码的 emoji 指南——原来表情文字不能乱用](https://www.h5jun.com/post/gitmoji.html)
 4. [用 gitmoji 来提交你的 git commit 吧](https://github.com/mytac/blogs/issues/2)
 5. [git commit 规范指南](https://segmentfault.com/a/1190000009048911?utm_source=tag-newest)

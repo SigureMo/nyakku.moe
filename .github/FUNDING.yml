@@ -11,7 +11,7 @@ issuehunt: # Replace with a single IssueHunt username
 otechie: # Replace with a single Otechie username
 custom:
   [
-    "https://afdian.net/@siguremo",
-    "https://img.sigure.xyz/sponsor/alipay.png",
-    "https://img.sigure.xyz/sponsor/wechat.png",
+    'https://afdian.net/@siguremo',
+    'https://img.nyakku.moe/sponsor/alipay.png',
+    'https://img.nyakku.moe/sponsor/wechat.png',
   ]
