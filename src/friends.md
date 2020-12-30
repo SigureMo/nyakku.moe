@@ -11,9 +11,9 @@ layout: FriendsLayout
 ```json
 {
    "name": "SigureMo",
-   "url": "https://sigure.xyz",
+   "url": "https://nyakku.moe",
    "description": "一个小透明的透明世界",
-   "avatar": "https://sigure.xyz/avatar.jpg"
+   "avatar": "https://nyakku.moe/avatar.jpg"
 }
 ```
 

@@ -45,6 +45,6 @@ jobs:
           publish_dir: src/.vuepress/dist
           external_repository: SigureMo/SigureMo.github.io
           publish_branch: main
-          cname: sigure.xyz
+          cname: nyakku.moe
           user_name: 'github-actions[bot]'
           user_email: 'github-actions[bot]@users.noreply.github.com'

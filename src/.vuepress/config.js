@@ -16,7 +16,7 @@ module.exports = {
         content: 'width=device-width,initial-scale=1,user-scalable=no',
       },
     ],
-    ['meta', { property: 'og:url', content: 'https://sigure.xyz' }],
+    ['meta', { property: 'og:url', content: 'https://nyakku.moe' }],
     ['meta', { property: 'og:site_name', content: 'Notev' }],
     ['meta', { property: 'og:image', content: '/bg.jpg' }],
     ['meta', { property: 'og:description', content: '一个小透明的透明世界' }],
@@ -93,7 +93,7 @@ module.exports = {
     [
       'feed',
       {
-        canonical_base: 'https://sigure.xyz',
+        canonical_base: 'https://nyakku.moe',
       },
     ],
     // GA 插件

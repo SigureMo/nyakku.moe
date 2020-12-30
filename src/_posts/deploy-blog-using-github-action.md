@@ -84,9 +84,9 @@ jobs:
               publish_dir: docs/.vuepress/dist
               external_repository: SigureMo/SigureMo.github.io
               publish_branch: master
-              cname: sigure.xyz
-              user_name: "github-actions[bot]"
-              user_email: "github-actions[bot]@users.noreply.github.com"
+              cname: nyakku.moe
+              user_name: 'github-actions[bot]'
+              user_email: 'github-actions[bot]@users.noreply.github.com'
 ```
 
 这里第一步是使用你的源代码 repo，其中 uses 是指使用了某个现成的 Action，比如这个 `actions/checkout` 就是 [`github.com/actions/checkout`](https://github.com/actions/checkout) 的 `v2` 版本，如果需要 submodule 或者 lfs 可以通过 `with` 选项来修改参数
@@ -141,8 +141,8 @@ Coding 是国内的软件开发平台，国内访问速度还不错，因此利�
   env:
      SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
   with:
-     source-repo: "git@github.com:SigureMo/SigureMo.github.io.git"
-     destination-repo: "git@e.coding.net:sigure/notev/notev.git"
+     source-repo: 'git@github.com:SigureMo/SigureMo.github.io.git'
+     destination-repo: 'git@e.coding.net:sigure/notev/notev.git'
 ```
 
 `source-repo` 和 `destination-repo` 自然分别对应 GitHub Pages Repo 和 Coding Pages Repo 的 ssh 地址，后者在 `代码仓库 -> 设置 -> 仓库设置` 下的 `仓库设置` 即可获得
@@ -176,8 +176,8 @@ Coding 是国内的软件开发平台，国内访问速度还不错，因此利�
   env:
      SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
   with:
-     source-repo: "git@github.com:SigureMo/SigureMo.github.io.git"
-     destination-repo: "git@gitee.com:siguremo/SigureMo.git"
+     source-repo: 'git@github.com:SigureMo/SigureMo.github.io.git'
+     destination-repo: 'git@gitee.com:siguremo/SigureMo.git'
 
 # 更新 Gitee Pages
 - name: Build Gitee Pages 👷
