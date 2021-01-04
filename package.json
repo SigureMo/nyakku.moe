@@ -7,7 +7,7 @@
     "r": "python3 scripts/run.py"
   },
   "author": "SigureMo",
-  "license": "CC 4.0 BY-SA",
+  "license": "CC-BY-SA-4.0",
   "gitHooks": {
     "commit-msg": "node scripts/verifyCommit.js"
   },

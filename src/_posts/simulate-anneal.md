@@ -21,7 +21,7 @@ tags:
 
 （这段纯属胡说八道，可以跳过）咦？原来是这样呀，我想了一段时间后得出了结论：概率分布嘛，那感觉有点 Monte Carlo 的感觉了，分子是比较多的嘛，那么整体的能量总会是最低的，就类似于 Ensemble 那样咯，网络宽一些会更好？
 
-咳咳，好了进入正题，今天才发现根据前面的阿伦尼乌兹公式，有着一种启发式搜索算法，其名为模拟退火算法，嗯，一听名字倍感亲切啊，这不就是我专业学的吗，还有篇[笔记](./solid-state-phase-transformation.md)提到了它呢~那么到底什么是模拟退火算法呢？这到底是不是金属热处理中所说的那种退火呢？
+咳咳，好了进入正题，今天才发现根据前面的阿伦尼乌兹公式，有着一种启发式搜索算法，其名为模拟退火算法，嗯，一听名字倍感亲切啊，这不就是我专业学的吗~那么到底什么是模拟退火算法呢？这到底是不是金属热处理中所说的那种退火呢？
 
 ## 啥是退火？
 
@@ -35,9 +35,9 @@ tags:
 
 ## 相变势垒
 
-我们优化时最大的障碍就是局部最优与全局最优之间的一个或多个“势垒”，热力学中也是这样，但分子（或原子）是有能力跨过这个势垒的，这里 copy 了隔壁笔记的图用以说明
+我们优化时最大的障碍就是局部最优与全局最优之间的一个或多个“势垒”，热力学中也是这样，但分子（或原子）是有能力跨过这个势垒的，如下图所示
 
-![SPT02](../img/Solid-state_Phase_Transformation/SPT02.png)
+![SPT02](../img/Simulate_Anneal/SPT02.png)
 
 当分子处于 $\gamma$ 相时，每个分子并不会乖乖地待在原地不动，而是会根据分子的热运动以一定的概率跨过壁垒到达 $\alpha$ 相，这个现象使用阿伦尼乌兹公式描述
 
@@ -47,7 +47,7 @@ $$
 
 其中 $K_0$ 是原 $\gamma$ 相的总分子数，$K$ 是其中转变为 $\alpha$ 相的分子数，由于是分子热运动，$T$ 自然就是温度，另外，由于势垒越高越难以跨越，所以这里的 $Q$ 就是势垒能量值，也就是上图中的 $\Delta g$， $k$ 是一个常数，当然，我们“爬山”的概率就是后面的 $exp[-\frac{Q}{kT}]$ 这一部分
 
-emmmm，那么退火时候为什么总能收敛到全局最优呢？这样看的话，其最主要的原因就是其拥有以一定概率跨过壁垒的能力
+emmmm，那么退火时候为什么总能收敛到全局最优呢？这样看的话，最主要的原因就是其拥有以一定概率跨过壁垒的能力
 
 ## 一般的优化算法
 
@@ -108,43 +108,34 @@ plt.show()
 代码很简单，简单改改就好了
 
 ```diff
+--- sa01.py             2021-01-04 17:04:26.000000000 +0800
++++ sa02.py             2021-01-04 17:06:18.000000000 +0800
+@@ -6,6 +6,8 @@
+ def F(x):
+     return x*(x-1)*(x-2)*(x-4)
 
-...
++t0 = 5.0
++t = t0
+ num_epochs = 10000
+ learning_rate = 0.01
+ x_set = []
+@@ -23,6 +25,17 @@
+         y = y_new
+         x += dx
+         x_set.append(x.copy())
++    # 如果更高则以一定概率移动
++    else:
++        prob = 1.
++        if t != 0:
++            prob = np.exp((y - y_new) / t)
++        if prob >= np.random.random():
++            y = y_new
++            x += dx
++            x_set.append(x.copy())
++    # 冷却
++    t = t0 / np.log(1 + i)
 
-+ t0 = 5.0
-+ t = t0
-  num_epochs = 10000
-  x_set = []
-  initial_value = np.random.uniform(*X_BOUND, size=1)
-
-  x = initial_value.copy()
-  y = F(x)
-
-  for i in range(num_epochs):
-      # 随机移动的方向
-      dx = learning_rate * (X_BOUND[1] - X_BOUND[0]) * (2*np.random.random()-1)
-      y_new = F(x+dx)
-      # 如果更低则移动
-      if y_new < y:
-          y = y_new
-          x += dx
-          x_set.append(x.copy())
-+     # 如果更高则以一定概率移动
-+     else:
-+         prob = 1.
-+         if t != 0:
-+             prob = np.exp((y - y_new) / t)
-+         if prob >= np.random.random():
-+             y = y_new
-+             x += dx
-+             x_set.append(x.copy())
-+
-+     # 冷却
-+     t = t0 / np.log(1 + i)
-
-  best = x + dx
-
-...
+ best = x + dx
 ```
 
 ![SA02](../img/Simulate_Anneal/SA02.png)
@@ -171,36 +162,33 @@ $$
 那么，我们以指数分布得到一个能量值 $Q$ ，将 $E_0 + Q$ 作为当前可能达到的能量值，直接与 sample 到的下一个位置真实能量值作比较，如果比它大则移动，这样实现的话会更加简单些，这里展示下与爬山算法不同的地方
 
 ```diff
+--- sa01.py             2021-01-04 17:04:26.000000000 +0800
++++ sa03.py             2021-01-04 17:07:19.000000000 +0800
+@@ -6,6 +6,8 @@
+ def F(x):
+     return x*(x-1)*(x-2)*(x-4)
 
-...
++t0 = 5.0
++t = t0
+ num_epochs = 10000
+ learning_rate = 0.01
+ x_set = []
+@@ -18,11 +20,15 @@
+     # 随机移动的方向
+     dx = learning_rate * (X_BOUND[1] - X_BOUND[0]) * (2*np.random.random()-1)
+     y_new = F(x+dx)
++    # 分子热运动所带来的“能量”，sample 自指数分布
++    delta_y = np.random.exponential(t, size=1)
+     # 如果更低则移动
+-    if y_new < y:
++    if y_new < y + delta_y:
+         y = y_new
+         x += dx
+         x_set.append(x.copy())
++    # 冷却
++    t = t0 / np.log(1 + i)
 
-+ t0 = 5.0
-+ t = t0
-  num_epochs = 10000
-  x_set = []
-  initial_value = np.random.uniform(*X_BOUND, size=1)
-
-  x = initial_value.copy()
-  y = F(x)
-
-  for i in range(num_epochs):
-      # 随机移动的方向
-      dx = learning_rate * (X_BOUND[1] - X_BOUND[0]) * (2*np.random.random()-1)
-      y_new = F(x+dx)
-+     # 分子热运动所带来的“能量”，sample 自指数分布
-+     delta_y = np.random.exponential(t, size=1)
-      # 如果更低则移动
--     if y_new < y:
-+     if y_new < y + delta_y:
-          y = y_new
-          x += dx
-          x_set.append(x.copy())
-
-+     # 冷却
-+     t = t0 / np.log(1 + i)
-  best = x + dx
-
-...
+ best = x + dx
 ```
 
 ![SA03](../img/Simulate_Anneal/SA03.png)
