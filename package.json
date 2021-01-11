@@ -3,8 +3,7 @@
     "dev": "vuepress dev src",
     "build": "vuepress build src",
     "serve": "vuepress build src && npx serve src/.vuepress/dist",
-    "img:upload": "bash scripts/upload-img.sh",
-    "r": "python3 scripts/run.py"
+    "img:upload": "bash scripts/upload-img.sh"
   },
   "author": "SigureMo",
   "license": "CC-BY-SA-4.0",
