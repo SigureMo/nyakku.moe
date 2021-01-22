@@ -878,10 +878,10 @@
   dependencies:
     "@hapi/hoek" "^8.3.0"
 
-"@maginapp/vuepress-plugin-katex@^1.0.9":
-  version "1.0.9"
-  resolved "https://registry.yarnpkg.com/@maginapp/vuepress-plugin-katex/-/vuepress-plugin-katex-1.0.9.tgz#e4db4aadff2aa8a625d9bca1e83eaed5ce36e707"
-  integrity sha512-LtNveXIQoV+jszBm8ZwoQ7x/Q3eS8t5Lm87r8+m9761Fo1HIw2aO5Xt0k85illEkdt5wyvQ9DDcJZGoYkHpDAg==
+"@maginapp/vuepress-plugin-katex@^1.0.10":
+  version "1.0.10"
+  resolved "https://registry.yarnpkg.com/@maginapp/vuepress-plugin-katex/-/vuepress-plugin-katex-1.0.10.tgz#b62737f1d518db0a502029f5277ff013ba2bde9c"
+  integrity sha512-a5Lghzaoz1dbtE7dl8FXWnhaSC//oJRYv6soYn8cf+Kn23AXci3DX5eq9B+dN44M7uShwhuPPXm0L32mLzxugg==
   dependencies:
     katex "^0.11.1"
     markdown-it-texmath "^0.6.7"
