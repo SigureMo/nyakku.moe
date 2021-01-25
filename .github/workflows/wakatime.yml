@@ -2,14 +2,14 @@ name: WakaTime
 
 on:
   schedule:
-    - cron: "0 0/2 * * *"
+    - cron: '0 0/2 * * *'
 
 jobs:
   update-gist:
     runs-on: ubuntu-latest
     steps:
       - name: waka-box
-        uses: matchai/waka-box@v4.0.3
+        uses: matchai/waka-box@v4.0.5
         env:
           GH_TOKEN: ${{ secrets.GH_TOKEN }}
           GIST_ID: cd776acfe29d5d4001d0dec49fb478e5
