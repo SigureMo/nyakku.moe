@@ -5,6 +5,7 @@ category: 喃
 tags:
    - PAL
    - moments
+draft: true
 ---
 
 ::: tip
