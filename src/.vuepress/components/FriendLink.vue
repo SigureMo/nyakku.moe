@@ -4,16 +4,16 @@
     <a :href="url" :title="name" target="_blank">
       <img :src="avatar" :alt="name" />
       <p class="friend-name">{{ name }}</p>
-      <p class="friend-description">{{ description }}</p>
+      <p class="friend-description">{{ desc }}</p>
     </a>
   </div>
 </template>
 
 <script>
 export default {
-  name: "FriendLink",
-  props: ["name", "url", "description", "avatar"],
-};
+  name: 'FriendLink',
+  props: ['name', 'url', 'desc', 'avatar'],
+}
 </script>
 
 <style lang="stylus" scoped>

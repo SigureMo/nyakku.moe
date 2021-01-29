@@ -6,13 +6,13 @@ layout: FriendsLayout
 
 ## 友链互换
 
-按照以下格式留言即可，或者直接向我提交 PR ～（修改 `src/.vuepress/config.js` 即可）
+按照以下格式留言即可，或者直接向我提交 PR ～（[修改 `src/.vuepress/config.js`](https://github.com/SigureMo/notev/edit/main/src/.vuepress/config.js) 即可）
 
 ```json
 {
-   "name": "SigureMo",
+   "name": "Nyakku",
    "url": "https://nyakku.moe",
-   "description": "一个小透明的透明世界",
+   "desc": "一个小透明的透明世界",
    "avatar": "https://nyakku.moe/avatar.jpg"
 }
 ```
