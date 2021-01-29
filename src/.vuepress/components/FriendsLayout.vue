@@ -5,8 +5,9 @@
         v-for="friend in friends"
         :name="friend.name"
         :url="friend.url"
-        :description="friend.description"
+        :desc="friend.desc"
         :avatar="friend.avatar"
+        :color="friend.color"
       />
     </div>
     <div class="main-div">
@@ -20,10 +21,10 @@
 
 <script>
 export default {
-  name: "FriendsLayout",
+  name: 'FriendsLayout',
   computed: {
     friends() {
-      return this.shuffle(this.$themeConfig.friends);
+      return this.shuffle(this.$themeConfig.friends)
     },
 
     vssue() {
@@ -31,30 +32,28 @@ export default {
         this.$themeConfig.comments !== false &&
         this.$frontmatter.vssue !== false &&
         (this.vssueTitle || this.vssueId)
-      );
+      )
     },
 
     vssueTitle() {
-      return (
-        this.$frontmatter["vssue-title"] || this.$frontmatter.title || undefined
-      );
+      return this.$frontmatter['vssue-title'] || this.$frontmatter.title || undefined
     },
 
     vssueId() {
-      return this.$frontmatter["vssue-id"] || undefined;
+      return this.$frontmatter['vssue-id'] || undefined
     },
   },
 
   methods: {
     shuffle(arr) {
       for (let i = arr.length - 1; i > 0; i--) {
-        const r = Math.floor(Math.random() * i);
-        [arr[i], arr[r]] = [arr[r], arr[i]];
+        const r = Math.floor(Math.random() * i)
+        ;[arr[i], arr[r]] = [arr[r], arr[i]]
       }
-      return arr;
+      return arr
     },
   },
-};
+}
 </script>
 
 <style scoped>

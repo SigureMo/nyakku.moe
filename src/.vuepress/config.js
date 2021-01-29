@@ -231,9 +231,10 @@ module.exports = {
     friends: [
       {
         name: 'ClariS',
-        url: 'https://heavenly-zy.github.io',
-        description: 'Querying for a variable and seizing the time',
-        avatar: 'https://heavenly-zy.github.io/avatar.png',
+        url: 'https://silkyheart.moe/',
+        desc: 'Querying for a variable and seizing the time',
+        avatar:
+          'https://cdn.jsdelivr.net/gh/heavenly-zy/heavenly-zy.github.io@latest/images/avatar.jpg',
       },
     ],
   },
