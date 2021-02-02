@@ -175,7 +175,7 @@ module.exports = {
       // 是否显示使用的主题
       poweredByTheme: true,
       // 添加自定义 footer (支持 HTML)
-      custom: `Copyright 2018-present <a href="https://github.com/SigureMo" target="_blank">SigureMo</a> | <a href="https://creativecommons.org/licenses/by-sa/4.0/">CC-BY-SA-4.0</a>`,
+      custom: `Copyright 2018-present <a href="https://github.com/SigureMo" target="_blank">Nyakku</a> | <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA-4.0</a>`,
     },
 
     // 个人信息卡片相关设置 (可选)
