@@ -61,7 +61,7 @@ console.log(Person.prototype.__proto__.constructor === Object)
 console.log(Person.prototype.__proto__.__proto__ === null)
 ```
 
-当然，上面五个语句返回的都是 `true`，第一个语句没什么可说的，之后的 `__proto__` 是什么鬼，嘛，这就是一个对象用来获取其原型对象的一个属性，比如第二个语句表明了 `person` 是以 `Person.prototype` 为原型的。
+当然，上面五个语句返回的都是 `true`，第一个语句没什么可说的，之后的 `__proto__` 是什么鬼？嘛，这就是一个对象用来获取其原型对象的一个属性，比如第二个语句表明了 `person` 是以 `Person.prototype` 为原型的。
 
 ::: tip 关于 `__proto__`
 
