@@ -44,7 +44,7 @@ yarn add vuepress-plugin-ribbon -D
 module.exports = {
    plugins: [
       [
-         "ribbon",
+         'ribbon',
          {
             size: 90, // 彩带的宽度，默认为 90
             opacity: 0.8, // 彩带的不透明度，默认为 0.3
@@ -52,7 +52,7 @@ module.exports = {
          },
       ],
    ],
-};
+}
 ```
 
 然后再次 `dev` 你就可以发现你的背景多一条彩带啦~
@@ -83,17 +83,17 @@ yarn add vuepress-plugin-dynamic-title -D
 module.exports = {
    plugins: [
       [
-         "dynamic-title",
+         'dynamic-title',
          {
-            showIcon: "/favicon.ico",
-            showText: "(/≧▽≦/)咦！又好了！",
-            hideIcon: "/failure.ico",
-            hideText: "(●—●)喔哟，崩溃啦！",
+            showIcon: '/favicon.ico',
+            showText: '(/≧▽≦/)咦！又好了！',
+            hideIcon: '/failure.ico',
+            hideText: '(●—●)喔哟，崩溃啦！',
             recoverTime: 2000,
          },
       ],
    ],
-};
+}
 ```
 
 ## 增加鼠标点击动效
@@ -108,15 +108,15 @@ module.exports = {
 module.exports = {
    plugins: [
       [
-         "cursor-effects",
+         'cursor-effects',
          {
             size: 2, // 粒子大小
-            shape: "star", // 粒子形状（可选 'star' 和 'circle'）
+            shape: 'star', // 粒子形状（可选 'star' 和 'circle'）
             zIndex: 999999999,
          },
       ],
    ],
-};
+}
 ```
 
 ## 修改你的鼠标为更可爱的样式
@@ -141,8 +141,8 @@ body {
 
 ```js
 module.exports = {
-   plugins: ["go-top"],
-};
+   plugins: ['go-top'],
+}
 ```
 
 值得注意的是，由于猫猫在窄屏设备上很容易遮挡内容，因此设计了两个响应式变化点，当屏幕变窄时会依次显示“猫猫” -> 显示“猫爪爪” -> 不显示，具体的响应式变化点你可以在 `.vuepress/styles/palette.styl` 中自行修改
@@ -162,14 +162,14 @@ $MQMobile ?= 768px
 ```js
 plugins: [
    [
-      "vuepress-plugin-live2d",
+      'vuepress-plugin-live2d',
       {
-         modelName: "", // 模型名称，可传入一个字符串或者数组
+         modelName: '', // 模型名称，可传入一个字符串或者数组
          mobileShow: false, // 是否在移动设备上显示
-         position: "right", // 显示在左下角还是右下角
+         position: 'right', // 显示在左下角还是右下角
       },
    ],
-];
+]
 ```
 
 配置详情请在[项目主页](https://github.com/yanjun0501/vuepress-plugin-live2d)查看
@@ -187,19 +187,19 @@ plugins: [
 ```js
 module.exports = {
    plugins: [
-      "meting",
+      'meting',
       {
          meting: {
-            server: "netease", // 音乐源
-            type: "playlist", // 资源类型
-            mid: "2539599584", // 资源 id
+            server: 'netease', // 音乐源
+            type: 'playlist', // 资源类型
+            mid: '2539599584', // 资源 id
          },
          aplayer: {
             lrcType: 3,
          },
       },
    ],
-};
+}
 ```
 
 另外，它也支持在任何页面单独引入播放器，当然你需要首先在 `config.js` 启用它（但不必填写配置项，配置项只与全局吸底播放器有关，不配置便不会出现该播放器）
