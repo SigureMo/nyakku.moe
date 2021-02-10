@@ -151,9 +151,9 @@ yarn docs:build # 或者：npm run docs:build
 
 ```js
 module.exports = {
-   title: "Hello VuePress",
-   description: "Just playing around",
-};
+   title: 'Hello VuePress',
+   description: 'Just playing around',
+}
 ```
 
 ### 主题配置
@@ -166,15 +166,15 @@ module.exports = {
 module.exports = {
    themeConfig: {
       nav: [
-         { text: "Home", link: "/" },
-         { text: "Guide", link: "/guide/" },
+         { text: 'Home', link: '/' },
+         { text: 'Guide', link: '/guide/' },
       ],
       sidebar: {
-         "/guide/": ["", "getting_started"],
-         "/": ["", "config"],
+         '/guide/': ['', 'getting_started'],
+         '/': ['', 'config'],
       },
    },
-};
+}
 ```
 
 ### 默认首页
@@ -222,8 +222,8 @@ yarn add -D vuepress-theme-reco
 
 ```js
 module.exports = {
-   theme: "reco",
-};
+   theme: 'reco',
+}
 ```
 
 并修改主题配置
@@ -235,20 +235,20 @@ module.exports = {
       blogConfig: {
          category: {
             location: 2, // 在导航栏菜单中所占的位置，默认2
-            text: "Category", // 默认文案 “分类”
+            text: 'Category', // 默认文案 “分类”
          },
          tag: {
             location: 3, // 在导航栏菜单中所占的位置，默认3
-            text: "Tag", // 默认文案 “标签”
+            text: 'Tag', // 默认文案 “标签”
          },
       },
       nav: [
-         { text: "Home", link: "/", icon: "reco-home" },
-         { text: "Guide", link: "/Guide/", icon: "reco-eye" },
+         { text: 'Home', link: '/', icon: 'reco-home' },
+         { text: 'Guide', link: '/Guide/', icon: 'reco-eye' },
       ],
-      sidebar: "auto",
+      sidebar: 'auto',
    },
-};
+}
 ```
 
 ### 文章前加 front matter
@@ -277,9 +277,9 @@ tags:
 ```js
 module.exports = {
    themeConfig: {
-      type: "blog",
+      type: 'blog',
    },
-};
+}
 ```
 
 至于首页内容，类似于前面默认首页的配置，只需要修改下 `docs/README.md` 就好
@@ -287,9 +287,9 @@ module.exports = {
 ```yaml
 ---
 home: true
-bgImage: "/bg.png"
-bgImageStyle: { height: "350px" }
-faceImage: "/head.png"
+bgImage: '/bg.png'
+bgImageStyle: { height: '350px' }
+faceImage: '/head.png'
 ---
 
 ```
@@ -363,7 +363,7 @@ module.exports = {
    plugins: [
       // 彩带背景
       [
-         "ribbon",
+         'ribbon',
          {
             size: 90,
             opacity: 0.8,
@@ -371,7 +371,7 @@ module.exports = {
          },
       ],
    ],
-};
+}
 ```
 
 其他推荐的插件
@@ -397,10 +397,10 @@ module.exports = {
    markdown: {
       extendMarkdown: (md) => {
          // 使用更多的 markdown-it 插件!
-         md.use(require("markdown-it-xxx"));
+         md.use(require('markdown-it-xxx'))
       },
    },
-};
+}
 ```
 
 几个推荐的插件

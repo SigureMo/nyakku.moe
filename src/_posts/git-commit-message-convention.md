@@ -200,9 +200,7 @@ npm i yorkie -D
 ```javascript
 const chalk = require('chalk')
 const msgPath = process.env.GIT_PARAMS
-const msg = require('fs')
-   .readFileSync(msgPath, 'utf-8')
-   .trim()
+const msg = require('fs').readFileSync(msgPath, 'utf-8').trim()
 
 const releaseRE = /^v\d/
 const commitRE = /^((:\S+:)|(\S{1,3})) (revert: )?(feat|fix|docs|dx|refactor|perf|test|workflow|build|ci|chore|types|wip|release|deps)(\(.+\))?: .{1,50}/
