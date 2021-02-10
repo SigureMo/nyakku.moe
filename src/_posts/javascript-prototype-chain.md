@@ -186,7 +186,7 @@ emmm，想要定义在实例上的话，只需要把定义属性这一过程放�
 ```js
 function Person() {
    this.devices = ['Phone']
-   this.sayName = function() {
+   this.sayName = function () {
       console.log('Person')
    }
 }
@@ -205,7 +205,7 @@ console.log(person2.devices) // [ 'Phone' ]
 ```js
 function SuperType() {
    this.name = 'SuperType'
-   this.sayName = function() {
+   this.sayName = function () {
       console.log(this.name)
    }
 }
@@ -241,7 +241,7 @@ function SuperType() {
    this.name = 'SuperType'
 }
 
-SuperType.prototype.sayName = function() {
+SuperType.prototype.sayName = function () {
    console.log(this.name) // 通过构造函数继承 SuperType 的属性
 }
 
