@@ -12,25 +12,23 @@
 
 <script>
 export default {
-  name: "AboutLayout",
+  name: 'AboutLayout',
   computed: {
     vssue() {
       return (
         this.$themeConfig.comments !== false &&
         this.$frontmatter.vssue !== false &&
         (this.vssueTitle || this.vssueId)
-      );
+      )
     },
 
     vssueTitle() {
-      return (
-        this.$frontmatter["vssue-title"] || this.$frontmatter.title || undefined
-      );
+      return this.$frontmatter['vssue-title'] || this.$frontmatter.title || undefined
     },
 
     vssueId() {
-      return this.$frontmatter["vssue-id"] || undefined;
+      return this.$frontmatter['vssue-id'] || undefined
     },
   },
-};
+}
 </script>
