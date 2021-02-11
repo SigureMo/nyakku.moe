@@ -58,7 +58,7 @@ console.log(proxy.age) // '哼！才不告诉你！'
 console.log(target.name) // 'foo'
 ```
 
-这里定义了一个拥有 get 方法的 handler，也就是说我们如果通过 proxy 来访问 target 并且执行的是 GET 操作的话，那么便会执行该函数。很明显，我这样定义后通过 proxy 无论访问任何属性都只能返回「哼！才不告诉你！」。当然，target 对象本身并没有改变，我们仍然可以通过直接访问到任何属性。
+这里定义了一个拥有 get 方法的 handler，也就是说我们如果通过 proxy 来访问 target 并且执行的是 `[[GET]]` 操作的话，那么便会执行该函数。很明显，我这样定义后通过 proxy 无论访问任何属性都只能返回「哼！才不告诉你！」。当然，target 对象本身并没有改变，我们仍然可以通过直接访问到任何属性。
 
 此时代理的功能就显而易见了，它相当于为我们增加了一个操作目标对象的方式，通过该方式操作对象会被 ProxyHandler 所接管，提高了对象的扩展性。另外由于 handler 是定义在 proxy 上的，所以对目标对象是没有任何「污染」的。
 
@@ -68,7 +68,7 @@ console.log(target.name) // 'foo'
 
 ### 默认行为：Reflect
 
-唔，不过我们要如何还原 get 时的行为呢？当然不定义 get 方法就好了……那如果定义了呢？ECMAScript 中还定义了一系列 Reflect API，它们可以看作是在我们不定义时的默认行为，比如下面这样：
+唔，不过我们要如何还原 `[[GET]]` 时的行为呢？当然不定义 get 方法就好了……那如果定义了呢？ECMAScript 中还定义了一系列 Reflect API，它们可以看作是在我们不定义时的默认行为，比如下面这样：
 
 ```js
 const handler = {
@@ -97,7 +97,7 @@ const proxy = new Proxy(target, Reflect)
 
 当然，效果和之前是一样的。
 
-有了 Reflect API 我们就可以做更多有趣的事情了，比如像下面这样在不影响结果的情况下监听 get 事件：
+有了 Reflect API 我们就可以做更多有趣的事情了，比如像下面这样在不影响结果的情况下监听 `[[GET]]` 事件：
 
 ```js
 const handler = {
@@ -373,7 +373,7 @@ export default defineComponent({
          value: 0,
       })
 
-      const onClick = function () {
+      const onClick = function() {
          count.value++
       }
 
@@ -401,7 +401,7 @@ export default defineComponent({
    setup() {
       const count = ref(0)
 
-      const onClick = function () {
+      const onClick = function() {
          count.value++
       }
 
@@ -444,7 +444,7 @@ const count = ref(0)
 console.log(++count.value) // 1
 ```
 
-当然，在 get 和 set 中不要忘记 track 和 trigger。这样我们在调用 `++count.value` 时便成功地调用了 GET 与 SET 方法咯～～～
+当然，在 get 和 set 中不要忘记 track 和 trigger。这样我们在调用 `++count.value` 时便成功地调用了 `[[GET]]` 与 `[[SET]]` 方法咯～～～
 
 不过这样写的话，由于所有方法都是定义在对象其本身上的，所有在创建大量这样的对象时就会造成大量的空间浪费。这个问题的解决方案嘛，当然是通过原型链解决啦，不过我们既然会用语法糖 class 了当然就直接使用 class 咯。
 
@@ -488,7 +488,7 @@ function ref<T>(value: T): Ref<T> {
 
 ![vue3_reactivity_01](../img/proxy-and-vue3-reactivity/vue3_reactivity_01.png)
 
-我们不妨认为整个视图是一个大拼图，其中不同部分依赖着不同的数据，这里 piece2、piece4、piece8 都依赖着数据 `data[key]`，当然，这可能是数据插槽：
+我们不妨认为整个视图是一个大拼图，其中不同部分依赖着不同的数据，这里 piece2、piece4、piece8 都依赖着数据 `data[key]`，当然，这可能是文本插值：
 
 ```vue
 <template>
@@ -518,7 +518,7 @@ View.render = () => {
 
 嗯，很好，我们可以完成数据的首次渲染了，但……响应式呢？？？下次我们如何才能在 `data[key]` 更新时重新渲染这三块拼图呢？
 
-首先，我们先要知道数据 `data[key]` 都被哪几块拼图依赖了，我们要如何追踪这个依赖呢？其实不难发现，依赖 `data[key]` 的拼图是要将 `data[key]` 渲染到 View 上，那么就必然要获取 `data[key]` 的值，也就是必定会执行 GET 操作，因此我们应该在 handler 的 get 中执行相关依赖收集操作，而这个过程则被封装成了 track 函数。
+首先，我们先要知道数据 `data[key]` 都被哪几块拼图依赖了，我们要如何追踪这个依赖呢？其实不难发现，依赖 `data[key]` 的拼图是要将 `data[key]` 渲染到 View 上，那么就必然要获取 `data[key]` 的值，也就是必定会执行 `[[GET]]` 操作，因此我们应该在 handler 的 get 中执行相关依赖收集操作，而这个过程则被封装成了 track 函数。
 
 那么 track 函数如何实现对依赖进行收集呢？很简单，我们建立一个 map，用来存储这个依赖与 `data[key]` 之间的依赖关系就好了。
 
@@ -547,7 +547,7 @@ function track(target: object, type: string, key: unknown) {
 }
 ```
 
-代码很简单，就是普通的建立两层 map 和一层 set 而已。
+代码很简单，就是普通的建立两层 Map 和一层 Set 而已。
 
 但是 `activeEffect` 是什么？
 
@@ -623,7 +623,7 @@ function effect(fn: Function) {
 
 现在依赖应当是被正常收集了～
 
-那么，就差在 trigger 时把依赖都触发了，不过 trigger 中分为 DELETE、SET 和 ADD 方法，比较复杂，这里就只实现最简单的 SET 方法。
+那么，就差在 trigger 时把依赖都触发了，不过 trigger 中分为 `"DELETE"`、`"SET"` 和 `"ADD"`（`[[SET]]` 可能是修改一个属性，也可能是新增一个属性，所以分为 `"SET"` 与 `"ADD"` 两种）方法，比较复杂，这里就只实现最简单的 `"SET"` 方法。
 
 ```ts
 function trigger(target: object, type: string, key: unknown) {
@@ -675,9 +675,9 @@ render: 2
 
 前两行自然就是首次渲染，渲染结果是 0。
 
-3、4 行是 count++ 触发的 GET 与 SET，在 SET 里又触发了语句的重新渲染。
+3、4 行是 count++ 触发的 `[[GET]]` 与 `[[SET]]`，在 `[[SET]]` 里又触发了语句的重新渲染。
 
-5、6 行便是重新渲染时的结果，重新渲染中触发了 GET，渲染结果为 1。
+5、6 行便是重新渲染时的结果，重新渲染中触发了 `[[GET]]`，渲染结果为 1。
 
 最后四行和 3、4、5、6 行完全一样，就不再赘述了……
 
