@@ -39,7 +39,7 @@ module.exports = {
     // markdown-it-toc 的选项
     toc: { includeLevel: [1, 2, 3] },
     // markdown 插件
-    extendMarkdown: md => {
+    extendMarkdown: (md) => {
       md.set({ html: true })
       md.use(require('markdown-it-mark'))
       md.use(require('markdown-it-task-lists'))
