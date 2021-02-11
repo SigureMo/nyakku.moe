@@ -373,7 +373,7 @@ export default defineComponent({
          value: 0,
       })
 
-      const onClick = function() {
+      const onClick = function () {
          count.value++
       }
 
@@ -401,7 +401,7 @@ export default defineComponent({
    setup() {
       const count = ref(0)
 
-      const onClick = function() {
+      const onClick = function () {
          count.value++
       }
 
