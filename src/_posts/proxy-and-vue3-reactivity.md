@@ -149,7 +149,7 @@ function reactive(target: object) {
 }
 ```
 
-当然现在这只是默认行为，我们完全可以根据需要在其中添加代码。在 Vue3 源码中，我们可以发现在 get、has、ownKeys 这种不会对数据进行改变的 handler 中都会调用 track 这个方法，而 set、deleteProperty 这种明显会改变数据的方法中则会调用 trigger 方法。我们先不理会它们的作用，先尝试实现一下。
+当然现在这只是默认行为，我们完全可以根据需要在其中添加代码。在 Vue3 源码中，我们可以发现在 get、has、ownKeys 这些不会对数据进行改变的「读取行为」 handler 中都会调用 track 这个方法，而 set、deleteProperty 这种明显会改变数据的「写入行为」中则会调用 trigger 方法。我们先不理会它们的作用，先尝试实现一下。
 
 ```ts
 function trigger(target: object, type: string, key: unknown) {
