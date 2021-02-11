@@ -71,11 +71,11 @@ CGAN 的 G 是同时需要词语 c 和噪声 z 的，词语 c 自然就是我们
 
 另外，D 的结构如何设计比较好呢？比较多的用法像下面这样，直接吞掉 x 和 c 给出 0 或 1
 
-![CGAN-01](../img/GAN_started/CGAN-01.png)
+![CGAN-01](../img/gan-started/CGAN-01.png)
 
 如果使用上面的结构的话，我们并不知道 0 的情况是因为图片生成的不好还是图片生成错了，为此，我们可以稍微改一下网络结构，就像下面这样，这样看起来会更合理一点
 
-![CGAN-02](../img/GAN_started/CGAN-02.png)
+![CGAN-02](../img/gan-started/CGAN-02.png)
 
 ## Unsupervised Conditional Generation
 
@@ -87,7 +87,7 @@ CGAN 的数据是有明确的标签的，每张图片都有相应的文本一一
 
 所谓直接转换，是指直接 train 一个从 Domain X 到 Domain Y 的 Generator $G_{X \to Y}$，当然结果需要一个 Discriminator $D_Y$ 来评判，就像下面这样
 
-![Unsupervised-CGAN-01](../img/GAN_started/Unsupervised-CGAN-01.png)
+![Unsupervised-CGAN-01](../img/gan-started/Unsupervised-CGAN-01.png)
 
 不过这样虽然能够保证生成的图片是接近于 Domain Y 的，但如何保证能够保留原图的语义信息呢？
 
@@ -99,7 +99,7 @@ CGAN 的数据是有明确的标签的，每张图片都有相应的文本一一
 
 [Yaniv Taigman, et al. Unsupervised Cross-Domain Image Generation, ICLR, 2017](https://arxiv.org/pdf/1611.02200.pdf)
 
-![Unsupervised-CGAN-02](../img/GAN_started/Unsupervised-CGAN-02.png)
+![Unsupervised-CGAN-02](../img/gan-started/Unsupervised-CGAN-02.png)
 
 我们用一个 PreTrain 的 CNN backbone 来提取图片中的表示，然后让原图与生成图在表示空间内尽可能地一致
 
@@ -107,13 +107,13 @@ CGAN 的数据是有明确的标签的，每张图片都有相应的文本一一
 
 [Jun-Yan Zhu, et al. Unpaired Image-to-Image Translation using Cycle-Consistent Adversarial Network, ICCV, 2017](https://arxiv.org/pdf/1703.10593.pdf)
 
-![Unsupervised-CGAN-03](../img/GAN_started/Unsupervised-CGAN-03.png)
+![Unsupervised-CGAN-03](../img/gan-started/Unsupervised-CGAN-03.png)
 
 也就是，除去 $G_{X \to Y}$，再加一个 $G_{Y \to X}$，原图 $x$ 与 $G_{Y \to X}(G_{X \to Y}(x))$ 尽可能相同，以保证这个图片能顺利还原回来
 
 另外，我们可以同时 train $Y \to X$ 的过程，构成一个 Circle
 
-![Unsupervised-CGAN-04](../img/GAN_started/Unsupervised-CGAN-04.png)
+![Unsupervised-CGAN-04](../img/gan-started/Unsupervised-CGAN-04.png)
 
 大功告成，完美～
 
@@ -123,11 +123,11 @@ CGAN 的数据是有明确的标签的，每张图片都有相应的文本一一
 
 那么我们能不能直接在表示空间中进行操作呢？将前面的 $G_{X \to Y}$ 拆开变成一个 $Encoder_X$ 和一个 $Decoder_Y$，那么中间的 embedding 就暴露出来了
 
-![Unsupervised-CGAN-05](../img/GAN_started/Unsupervised-CGAN-05.png)
+![Unsupervised-CGAN-05](../img/gan-started/Unsupervised-CGAN-05.png)
 
 可是，这个怎么 train？emmm，分成两个 auto-encoder（$Encoder_X \to Decoder_X$ 和 $Encoder_Y \to Decoder_Y$），各自在自己的 Domain 里 train……但 auto-encoder 的结果非常模糊呀，要如何解决？emmm，我们可以在这里加个 Discriminator
 
-![Unsupervised-CGAN-06](../img/GAN_started/Unsupervised-CGAN-06.png)
+![Unsupervised-CGAN-06](../img/gan-started/Unsupervised-CGAN-06.png)
 
 我们在最后加一个 Discriminator，这样就可以让图片足够清晰啦（这个结构和 VAE-GAN 一样）
 
@@ -135,25 +135,25 @@ emmmm，还有他们 train 出来的 embedding 完全没有关系啊，语义不
 
 方式一（共享接近于表示那几层的参数）：
 
-![Unsupervised-CGAN-07](../img/GAN_started/Unsupervised-CGAN-07.png)
+![Unsupervised-CGAN-07](../img/gan-started/Unsupervised-CGAN-07.png)
 
 比较容易理解啦，这个 trick 在 Couple GAN（CoGAN） 中有使用，不过原论文图中 G（Decoder）在左面，D（Encoder）在右面，看起来就像是两侧的参数进行共享，但其实都一样啦，都是在接近特征空间进行 share
 
 方式二（加一个对 embedding 的 Discirminator）：
 
-![Unsupervised-CGAN-08](../img/GAN_started/Unsupervised-CGAN-08.png)
+![Unsupervised-CGAN-08](../img/gan-started/Unsupervised-CGAN-08.png)
 
 在 embedding 加一个 Domain Discriminator，用于判断该 embedding 来自 Domain X 还是 Domain Y，而 $Encoder_X$ 和 $Encoder_Y$ 则致力于骗过 Domain Discriminator，让其分不清原图到底来自哪个 Domain
 
 方式三（能够转一圈再回来的就是好 GAN）：
 
-![Unsupervised-CGAN-09](../img/GAN_started/Unsupervised-CGAN-09.png)
+![Unsupervised-CGAN-09](../img/gan-started/Unsupervised-CGAN-09.png)
 
 一个小 $x$ 的旅途：$x \to Encoder_X(x) \to Decoder_Y(Encoder_X(x)) \to Encoder_Y(Decoder_Y(Encoder_X(x))) \to Decoder_X(Encoder_Y(Decoder_Y(Encoder_X(x))))$ 然后我还要尽可能和我原来的样子一样……该方法被用于 ComboGAN
 
 方式三（这次少跑一点就好）：
 
-![Unsupervised-CGAN-10](../img/GAN_started/Unsupervised-CGAN-10.png)
+![Unsupervised-CGAN-10](../img/gan-started/Unsupervised-CGAN-10.png)
 
 转 3/4 圈，然后要求在特征空间尽可能不变，有被用在 DTN 和 XGAN
 
@@ -165,7 +165,7 @@ emmmm，还有他们 train 出来的 embedding 完全没有关系啊，语义不
 
 如果我们将已有数据看作一个 distribution 的，并将其记为 $P_{data}(x)$，那么我们所 train 的 G 生成的数据应当尽可能都在 $P_{data}$ 中，或者说 G 映射的目标 distribution $P_G$ 应当尽可能地贴近 $P_{data}$
 
-![GAN-Theory-01](../img/GAN_started/GAN-Theory-01.png)
+![GAN-Theory-01](../img/gan-started/GAN-Theory-01.png)
 
 如何让它们尽可能贴近？最大化 Likelihood，也即从 $P_{data}$ 里 sample 出来一些数据 $\{x^1, x^2, \cdots, x^m\}$，既然它们 Likelihood 相似，那么 $L = \prod \limits_{i=1}^m P_G(x_i; \theta)$ 也应当取得最大值，那么我们就要找到使得这个 Likelihood 最大的参数 $\theta^*$，也即
 
@@ -217,7 +217,7 @@ $$
 
 也就是说，在每个 G 中，我们先找到 V(G, D) 的最大值 $V(G_i, D^*)$，然后从这些 G 中挑选出使得各自 $V(G_i, D^*)$最小的 $G^*$
 
-![GAN-Theory-02](../img/GAN_started/GAN-Theory-02.png)
+![GAN-Theory-02](../img/gan-started/GAN-Theory-02.png)
 
 从上图而言，就是各个 G 先找出最大值，然后再取这些值之中的最小值对应的 G
 
@@ -250,7 +250,7 @@ Ian Goodfellow 在 G 的更新中使用 $\tilde{V} = \frac{1}{m} (- \log (D(x)))
 
 换言之，它并不能评估两个无重叠分布之间的“距离”，然而 G 生成分布和真实分布在训练之初基本上不可能重叠，这就导致了当 D 训练地太好时，G 将会没有梯度，训练无法进行下去
 
-![Improving-GAN-01](../img/GAN_started/Improving-GAN-01.png)
+![Improving-GAN-01](../img/gan-started/Improving-GAN-01.png)
 
 为了使 GAN 能够正常训练，就需要一些算法上的一些技巧以及理论改进
 
@@ -258,7 +258,7 @@ Ian Goodfellow 在 G 的更新中使用 $\tilde{V} = \frac{1}{m} (- \log (D(x)))
 
 LSGAN 从 D 的分类器角度来进行改进，它认为 D 最终使用的是 Sigmoid 进行激活，会导致两侧梯度较小，进而发生梯度消失的现象，因此……就直接改成线性的了
 
-![Improving-GAN-02](../img/GAN_started/Improving-GAN-02.png)
+![Improving-GAN-02](../img/gan-started/Improving-GAN-02.png)
 
 ### fgan: General Framework of GAN
 
@@ -286,7 +286,7 @@ $V(G, D) = \max\limits_{D \in 1-Lipschitz} \{ E_{x \sim P_{data}} [D(x)] - E_{x 
 
 $V(G, D) = \max\limits_{D \in 1-Lipschitz} \{ E_{x \sim P_{data}} [D(x)] - E_{x \sim P_G} [D(x)] - \lambda E_{x \sim P_{penalty}} \max(0, || \nabla_x D(x) || - 1) \}$
 
-![Improving-GAN-02](../img/GAN_started/Improving-GAN-03.png)
+![Improving-GAN-02](../img/gan-started/Improving-GAN-03.png)
 
 WGAN-GP 在实际应用中使用的是
 
@@ -337,7 +337,7 @@ D 有时不太容易直接判别图片是否为真实，但我们可以让 D 每
 
 使 GAN 的输入 code 各个维度更加正交，将输入 code 分为两部分，一部分带有分类信息 $c$，这个分类信息要求后续 Classifier 能够还原出来，另外一部分就是噪声 $z'$
 
-![InfoGAN](../img/GAN_started/InfoGAN.png)
+![InfoGAN](../img/gan-started/InfoGAN.png)
 
 ### VAE-GAN
 
@@ -349,7 +349,7 @@ VAE 与 GAN 的结合，D 需要能够分辨
 
 三者
 
-![VAE-GAN](../img/GAN_started/VAE-GAN.png)
+![VAE-GAN](../img/gan-started/VAE-GAN.png)
 
 ### BiGAN
 
@@ -359,7 +359,7 @@ VAE 与 GAN 的结合，D 需要能够分辨
 
 有一个 D，输入一对图片与 code，然后判断它们是经由 Encoder 生成还是经由 Decoder 生成
 
-![BiGAN](../img/GAN_started/BiGAN.png)
+![BiGAN](../img/gan-started/BiGAN.png)
 
 至于为什么有效，D 使得 Encoder 对应的 distribution $P(x, z)$ 与 Decoder 的 distribution $Q(x, z)$ 尽可能地接近
 

@@ -31,7 +31,7 @@ tags:
 
 -  OS 作为用户与计算机硬件系统之间的接口
 
-   ![OS01](../img/Operating_System/OS01.png)
+   ![OS01](../img/operating-system/OS01.png)
 
 -  OS 作为计算机系统资源的管理者
 
@@ -257,7 +257,7 @@ tags:
 
 -  基于 C/S 模式
 
-   ![OS02](../img/Operating_System/OS02.png)
+   ![OS02](../img/operating-system/OS02.png)
 
 -  应用”机制与策略分离“原理
 -  采用面向对象技术
@@ -286,7 +286,7 @@ tags:
 
 #### 2.1.3 进程的特征与状态
 
-![OS04](../img/Operating_System/OS04.png)
+![OS04](../img/operating-system/OS04.png)
 
 -  定义
 
@@ -313,7 +313,7 @@ tags:
       -  终止
    -  挂起状态（将进程内存 $\to$ 外存）
 
-   ![OS03](../img/Operating_System/OS03.png)
+   ![OS03](../img/operating-system/OS03.png)
 
    > N 核 CPU ，共有 M 个进程
    >
@@ -353,11 +353,11 @@ tags:
 
    -  链接方式 组织成链表
 
-      ![OS05](../img/Operating_System/OS05.png)
+      ![OS05](../img/operating-system/OS05.png)
 
    -  索引方式 额外建立一个索引表，更快，但是额外消耗一部分内存
 
-      ![OS06](../img/Operating_System/OS06.png)
+      ![OS06](../img/operating-system/OS06.png)
 
 ### 2.2 进程控制
 
@@ -675,7 +675,7 @@ tags:
 
    用户级线程与内核支持线程的组合（多对一、一对一、多对多）
 
-![OS07](../img/Operating_System/OS07.png)
+![OS07](../img/operating-system/OS07.png)
 
 ## 3 处理机调度与死锁
 
@@ -728,7 +728,7 @@ tags:
 -  具有高级和低级调度的调度队列模型
 -  同时具有三级调度的调度队列模型
 
-   ![OS08](../img/Operating_System/OS08.png)
+   ![OS08](../img/operating-system/OS08.png)
 
 #### 3.2.2 选择调度方式和调度算法的若干原则
 
@@ -783,7 +783,7 @@ SJF 算法极大地提高了系统吞吐量，但是会出现长作业长期不�
 
 分成不同的队列，为不同就绪队列设置不同的调度算法
 
-![OS09](../img/Operating_System/OS09.png)
+![OS09](../img/operating-system/OS09.png)
 
 #### 3.3.6 多级反馈队列调度算法
 
@@ -815,7 +815,7 @@ SJF 算法极大地提高了系统吞吐量，但是会出现长作业长期不�
 
 -  竞争资源（竞争非剥夺性资源） 资源数量不足需求 形成**环路**
 
-   ![OS10](../img/Operating_System/OS10.png)
+   ![OS10](../img/operating-system/OS10.png)
 
 -  进程间推进顺序非法
 
@@ -914,7 +914,7 @@ SJF 算法极大地提高了系统吞吐量，但是会出现长作业长期不�
 
 与前面的环路图是一样的，只不过这里资源结点可以代表多个资源，进程指向资源仍旧代表进程请求资源，资源指向进程仍旧代表资源以分配给该进程，只不过每条线代表一个资源
 
-![OS11](../img/Operating_System/OS11.png)
+![OS11](../img/operating-system/OS11.png)
 
 我们可以尝试通过对资源分配图进行简化来判断是否发生死锁，非死锁情况下资源分配图可简化为各个独立的结点
 
@@ -931,7 +931,7 @@ SJF 算法极大地提高了系统吞吐量，但是会出现长作业长期不�
 
 #### 4.1.1 多级存储器结构
 
-![OS12](../img/Operating_System/OS12.png)
+![OS12](../img/operating-system/OS12.png)
 
 #### 4.1.1 主存储器与寄存器
 
@@ -983,7 +983,7 @@ SJF 算法极大地提高了系统吞吐量，但是会出现长作业长期不�
 
 #### 4.2.2 程序的链接
 
-![OS13](../img/Operating_System/OS13.png)
+![OS13](../img/operating-system/OS13.png)
 
 -  静态链接 程序运行前链接
 -  装入时动态链接 运行前将所有可能需要运行的模块装入链接
@@ -1052,7 +1052,7 @@ SJF 算法极大地提高了系统吞吐量，但是会出现长作业长期不�
 
    那么我们如何将逻辑地址转换成物理地址呢？
 
-   ![OS14](../img/Operating_System/OS14.png)
+   ![OS14](../img/operating-system/OS14.png)
 
    首先，获取页号和位移量，然后根据页表寄存器中的页面始址与页号获得该页的实际物理地址（开始位置），然后再加上页内的偏移量就得到了要找的物理地址
 
@@ -1060,13 +1060,13 @@ SJF 算法极大地提高了系统吞吐量，但是会出现长作业长期不�
 
 -  具有快表的地址变换机构
 
-   ![OS15](../img/Operating_System/OS15.png)
+   ![OS15](../img/operating-system/OS15.png)
 
    根据局部性原理，我们增加一个快表（联想寄存器），存储最近访问过的页表项，据统计，快表命中率可达 90% 以上，大大降低了页表方式带来的效率降低影响
 
 #### 4.4.3 两级和多级页表
 
-![OS16](../img/Operating_System/OS16.png)
+![OS16](../img/operating-system/OS16.png)
 
 我们的页表方式实现了非连续存储，但是我们的页表本身却也是放在内存里的，而且其大小也超过了一页的大小（$1K$），这样问题就来了，页表到底是要如何存储呢？
 
@@ -1076,7 +1076,7 @@ SJF 算法极大地提高了系统吞吐量，但是会出现长作业长期不�
 
 #### 4.4.4 页式管理的分配与回收
 
-![OS17](../img/Operating_System/OS17.png)
+![OS17](../img/operating-system/OS17.png)
 
 根据位示图进行分配与回收即可
 
@@ -1119,13 +1119,13 @@ SJF 算法极大地提高了系统吞吐量，但是会出现长作业长期不�
 
 比如一个多用户操作系统运行一个文本编辑进程，但多个用户每人一个数据区，如果是分页式是如何的呢？
 
-![OS18](../img/Operating_System/OS18.png)
+![OS18](../img/operating-system/OS18.png)
 
 emmm 虽说共用一个进程吧，但是每个页表都要记录该进程的各个页
 
 相对来说，下面的分段式就很好看啦~
 
-![OS19](../img/Operating_System/OS19.png)
+![OS19](../img/operating-system/OS19.png)
 
 #### 4.5.4 段式管理的特点
 
@@ -1137,7 +1137,7 @@ emmm 虽说共用一个进程吧，但是每个页表都要记录该进程的各
 
 使用分段的逻辑存储方式，加之以底层分页式存储方式，每个进程建立一个段表，每个段建立一个页表，当然，我们现在需要三次访存咯，不建立快表没法用的说
 
-![OS20](../img/Operating_System/OS20.png)
+![OS20](../img/operating-system/OS20.png)
 
 -  共享的实现
 
@@ -1360,17 +1360,17 @@ I/O 很容易成为系统性能的瓶颈，而且多而杂，甚至一个操作�
 #### 5.3.2 单缓冲和双缓冲
 
 -  单缓冲
-   ![OS21](../img/Operating_System/OS21.png)
+   ![OS21](../img/operating-system/OS21.png)
 -  双缓冲
-   ![OS22](../img/Operating_System/OS22.png)
+   ![OS22](../img/operating-system/OS22.png)
 
 #### 5.3.3 循环缓冲
 
-![OS23](../img/Operating_System/OS23.png)
+![OS23](../img/operating-system/OS23.png)
 
 #### 5.3.4 缓冲池
 
-![OS24](../img/Operating_System/OS24.png)
+![OS24](../img/operating-system/OS24.png)
 
 ### 5.4 I/O 软件
 
@@ -1383,7 +1383,7 @@ I/O 很容易成为系统性能的瓶颈，而且多而杂，甚至一个操作�
 -  设备的分配和释放 进程管理问题，防止死锁的发生
 -  I/O 控制方式 I/O 软件应向高层软件提供统一的操作接口
 
-![OS25](../img/Operating_System/OS25.png)
+![OS25](../img/operating-system/OS25.png)
 
 #### 5.4.2 用户层的 I/O 软件
 
@@ -1448,7 +1448,7 @@ I/O 进程与设备控制器之间的通信程序
 -  控制器控制块（COCT， 每控制器一张）：控制器状态、等待队列、通道控制块、指针
 -  通道控制块（CHCT， 每通道一张）：通道状态、等待序列
 
-![OS26](../img/Operating_System/OS26.png)
+![OS26](../img/operating-system/OS26.png)
 
 #### 5.5.2 设备分配时应考虑的因素
 
@@ -1479,7 +1479,7 @@ I/O 进程与设备控制器之间的通信程序
 SPOOLing 技术由脱机输入输出技术发展而来，使用输入进程和输出进程替代其中的输入处理器和输出处理器
 
 -  组成
-   ![OS27](../img/Operating_System/OS27.png)
+   ![OS27](../img/operating-system/OS27.png)
    -  输入井和输出井
    -  输入缓冲区和输出缓冲区
    -  输入进程 $SP_I$ 和输出进程 $SP_O$
@@ -1492,7 +1492,7 @@ SPOOLing 技术由脱机输入输出技术发展而来，使用输入进程和�
 
 #### 5.6.1 磁盘性能简述
 
-![OS28](../img/Operating_System/OS28.png)
+![OS28](../img/operating-system/OS28.png)
 
 -  数据的组织和格式
 
@@ -1639,7 +1639,7 @@ OS 中负责处理文件相关事宜的程序和数据结构，包括文件的�
 
    > 注意，索引表也是存在物理块中的，我们使用 `open` （比如 `C` 啦， `Python` 啦）操作实际是将该文件的索引表加载到内存中
 
-   ![OS29](../img/Operating_System/OS29.png)
+   ![OS29](../img/operating-system/OS29.png)
 
    -  优点
       -  保持了链接结构的优点又解决了其缺点，能顺序存取，又能随机存取
@@ -1651,10 +1651,10 @@ OS 中负责处理文件相关事宜的程序和数据结构，包括文件的�
 
          > 当索引表本身很大时，可考虑建立多级索引
 
-         ![OS30](../img/Operating_System/OS30.png)
+         ![OS30](../img/operating-system/OS30.png)
 
 -  混合索引结构（多重索引，UNIX 采用）
-   ![OS31](../img/Operating_System/OS31.png)
+   ![OS31](../img/operating-system/OS31.png)
 
    首先假设一个磁盘块 `512 Bytes` ，可存储 `128` 个 `4 Bytes` 的索引号，我们将主索引表分为以下区域
 
@@ -1671,11 +1671,11 @@ OS 中负责处理文件相关事宜的程序和数据结构，包括文件的�
 #### 6.3.1 文件控制块与文件目录
 
 -  目录项（文件控制块，FCB） 用于记录文件相关信息
-   ![OS32](../img/Operating_System/OS32.png)
+   ![OS32](../img/operating-system/OS32.png)
 
    将真正的文件属性存储在 iNode 中，更容易实现文件共享的操作
 
-   ![OS33](../img/Operating_System/OS33.png)
+   ![OS33](../img/operating-system/OS33.png)
 
    如果只有根目录 inode 在内存，那么还需要读取根目录的目录文件，s1 i_node ，s1 目录的目录文件，...，经过 6 次磁盘读取得到 file1 i_node ，之后需要读取 5 次磁盘，即最多共 11 次，如果 file1 i_node 已经在内存，只需要读取 5 次磁盘即可
 
@@ -1691,7 +1691,7 @@ OS 中负责处理文件相关事宜的程序和数据结构，包括文件的�
 
 每个文件分配一块**连续**的存储空间，外存的所有空闲区建立一张空闲表
 
-![OS34](../img/Operating_System/OS34.png)
+![OS34](../img/operating-system/OS34.png)
 
 #### 6.4.2 空闲链表法
 
@@ -1699,7 +1699,7 @@ OS 中负责处理文件相关事宜的程序和数据结构，包括文件的�
 
 -  空闲盘块链
 
-   ![OS35](../img/Operating_System/OS35.png)
+   ![OS35](../img/operating-system/OS35.png)
 
 -  空闲盘区链
 
@@ -1707,7 +1707,7 @@ OS 中负责处理文件相关事宜的程序和数据结构，包括文件的�
 
 以位示图来表征空闲区，可分配连续的区域，但是占用额外的空间
 
-![OS36](../img/Operating_System/OS36.png)
+![OS36](../img/operating-system/OS36.png)
 
 #### 6.4.4 成组链接法
 
