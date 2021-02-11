@@ -3,8 +3,8 @@ title: Deep Learning
 date: 2018-10-14
 category: 墨
 tags:
-  - CS
-  - DL
+   - CS
+   - DL
 ---
 
 ::: tip
@@ -30,11 +30,11 @@ Unstructured Data : Image Audio Text
 
 #### 1.1.4 Why is Deep Learning taking off?
 
-![DeepLearning01](../img/Deep_Learning/DL01.png)
+![DeepLearning01](../img/deep-learning/DL01.png)
 
 > 数据量的增加，使得深度学习的优势越来越明显
 
-![DeepLearning02](../img/Deep_Learning/DL02.png)
+![DeepLearning02](../img/deep-learning/DL02.png)
 
 > 迭代过程需要的时间越长，所能实现的想法就越少，因此训练的算法改良对深度学习来说是一个很关键的问题。
 > 比如使用 sigmoid 函数作为激活函数时，过大的输入会使神经网络饱和，梯度下降算法越来越慢；改良为 ReLU 函数（修正线性单元）后，梯度下降的算法运行的更快，迭代时间相应就减少了很多
@@ -47,12 +47,12 @@ Unstructured Data : Image Audio Text
 
 #### 1.2.1 Binary Classification
 
-- 如果想要识别图片中是否有猫，可以将输入和输出组织成这样：输入为 64 \* 64 \* 3 维（像素点 64 \* 64，三个颜色通道），输出为一个数字（0 或者 1）
-- 我们对输入和输出符号做以下约定：
-  - nx 为输入的维度，比如这里就是 64 \* 64 \* 3
-  - 用 X 将 x 按列组织起来
-  - 用 Y 将 y 按行组织起来
-  - 我们可以用 Python 里的`X.shape()`查看规模
+-  如果想要识别图片中是否有猫，可以将输入和输出组织成这样：输入为 64 \* 64 \* 3 维（像素点 64 \* 64，三个颜色通道），输出为一个数字（0 或者 1）
+-  我们对输入和输出符号做以下约定：
+   -  nx 为输入的维度，比如这里就是 64 \* 64 \* 3
+   -  用 X 将 x 按列组织起来
+   -  用 Y 将 y 按行组织起来
+   -  我们可以用 Python 里的`X.shape()`查看规模
 
 #### 1.2.2 Logistic Regression
 
@@ -62,7 +62,7 @@ Unstructured Data : Image Audio Text
 
 #### 1.2.3 Logistic Regression Cost Function
 
-![DeepLearning03](../img/Deep_Learning/DL03.png)
+![DeepLearning03](../img/deep-learning/DL03.png)
 
 1. 计算误差时，如果使用误差的平方作为损失函数很有可能得到多个“低谷”（很多局部最优），使用梯度下降法将得不到真正最优的解
 2. 我们使用$-(ylog\hat{y}+(1-y)log(1-\hat{y}))$作为损失函数，至于为什么可以使 y 分别等于 0 和 1 推算一下（y 也只有这么两个可取的值）
@@ -196,8 +196,8 @@ A = σ(Z) # 对每个z求sigmoid
 #### 1.2.18 Explanation of logistic regression cost function
 
 1. 我们使用$\hat{y}$来输入 x 时表示 y=1 的概率，那么，我们可以得出这样的一组式子：
-   - $p(y|x) = \hat{y}$ if y = 1
-   - $p(y|x) = 1-\hat{y}$ if y = 0
+   -  $p(y|x) = \hat{y}$ if y = 1
+   -  $p(y|x) = 1-\hat{y}$ if y = 0
 
 哦，p(y|x)是什么鬼，让我们回忆下概率的知识，很容易猜出来这是在 x 的前提下 y 的概率，也就是刚刚说的输入 x 时 y 的概率，那就很明了了
 
@@ -211,7 +211,7 @@ A = σ(Z) # 对每个z求sigmoid
 
 1. 我们已经学习了逻辑回归，现在我们要学习一下神经网络。至于神经网络，简单地说就是让我们上周学习的神经元排列成一个网络……天啊，一个神经元就要写那么多的代码，还要结个网？？？算了不学了不学了！等等，当然这张网是有规律组织起来的我们先看一下这张网长什么样子：
 
-   ![DeepLearning04](../img/Deep_Learning/DL04.png)
+   ![DeepLearning04](../img/deep-learning/DL04.png)
 
 2. emmmmm，原来我们还只有一个圈圈，现在一下子变这么多了，不学了，别拦我(╯\>д\<)╯
 3. （偷眼瞧）貌似理解错了，我们原来做的貌似不止这么一个圈圈，我们原来的貌似是去掉了中间这四个圈圈的东西，现在的话，貌似只加上了这么一”层“而已，诶呀，这么说我就放心啦
@@ -225,13 +225,13 @@ A = σ(Z) # 对每个z求sigmoid
 2. 哦，我只想说没了，有的话，就是记得上标（带中括号的小数字）代表层数，输入层一般不算作一层，或者叫第 0 层$^{[0]}$
 3. 现在我们梳理一下各层的维度吧，以便更加直观地理解各层之间的关系：
 
-- $x$($a^{[0]}$) | $(n^{[0]}, 1)$ eg. (3, 1)
-  - $W^{[1]}$ | $(n^{[1]}, n^{[0]})$ eg. (4, 3)
-  - $b^{[1]}$ | $(n^{[1]}, 1)$ eg. (4, 1)
-- $a^{[1]}$ | $(n^{[1]}, 1)$ eg. (4, 1)
-  - $W^{[2]}$ | $(1, n^{[1]})$ eg. (1, 4)
-  - $b^{[2]}$ | $(1, 1)$ eg. (1, 1)
-- $\hat{y}$($a^{[2]}$) | $(1, 1)$ eg. (1, 1)
+-  $x$($a^{[0]}$) | $(n^{[0]}, 1)$ eg. (3, 1)
+   -  $W^{[1]}$ | $(n^{[1]}, n^{[0]})$ eg. (4, 3)
+   -  $b^{[1]}$ | $(n^{[1]}, 1)$ eg. (4, 1)
+-  $a^{[1]}$ | $(n^{[1]}, 1)$ eg. (4, 1)
+   -  $W^{[2]}$ | $(1, n^{[1]})$ eg. (1, 4)
+   -  $b^{[2]}$ | $(1, 1)$ eg. (1, 1)
+-  $\hat{y}$($a^{[2]}$) | $(1, 1)$ eg. (1, 1)
 
 <!--
 
@@ -257,8 +257,8 @@ A = σ(Z) # 对每个z求sigmoid
 1. 和之前一样的，我们用列组织训练集的数据，每一列是一次训练数据，我们在上标上加一个带括号的数字来表示这是第几次训练，比如$^{(3)}$代表第三次训练
 2. 需要我们组织的有哪些数据呢，首先就是输入的 x，它会被组织成 X，相应地，输出项 y 会被组织成 Y，哦，我们还有考虑中间项，比如 z、a，事实上我们只有 z 和 a，x 和 y 均可以用 a 来表示
 3. 我们再看看刚刚我们组织的 A 和 Z，他们各个位置上分别代表什么呢？
-   - 从左到右是按列组织的训练集各项，他们用右上角$^{(i)}$来区分
-   - 从上到下是各个特征的输入或输出，相关于特征个数 n，他们用右上角$^{[i]}$来区分
+   -  从左到右是按列组织的训练集各项，他们用右上角$^{(i)}$来区分
+   -  从上到下是各个特征的输入或输出，相关于特征个数 n，他们用右上角$^{[i]}$来区分
 
 #### 1.3.5 Justification for vectorized implementation
 
@@ -345,7 +345,7 @@ back propagation：
 3. $db^{[l]}=\frac{1}{m}np.sum(dZ^{[l]},axis=1,keepdims=True)$
 4. $dA^{[l-1]}=W^{[l]T}dZ^{[l]}$
 
-- 前向传播的时候可以将 Z 和 A 缓存起来以便后向传播使用
+-  前向传播的时候可以将 Z 和 A 缓存起来以便后向传播使用
 
 上周作业已经将这个实现……（因为参考链接根本不告诉我作业题里哪些是要自己写的，哪些是直接给出的，我又最讨厌 copy 源代码，只好边看边加功能）
 
@@ -391,9 +391,9 @@ emmmm 貌似没啥，到时候用 for 循环组织各层就好
 1. 超参数的优化是一个反复迭代的过程，即便一个领域的人才，对这个领域有着丰富的经验，到了另外一个领域仍然需要这个过程
 2. 事实上，这个优化过程更取决于数据集、计算机配置等因素
 3. 我们大多数情况下将数据分为三部分
-   - 训练集（training set） 用于训练
-   - 验证集（dev set） 根据训练集得到的模型在验证集上的表现调优超参数，直至在该验证集验证下误差达到最小
-   - 测试集（test set） 用于评估最终确定的模型的精确度（泛化能力）
+   -  训练集（training set） 用于训练
+   -  验证集（dev set） 根据训练集得到的模型在验证集上的表现调优超参数，直至在该验证集验证下误差达到最小
+   -  测试集（test set） 用于评估最终确定的模型的精确度（泛化能力）
 
 ::: tip
 
@@ -418,7 +418,7 @@ emmmm 貌似没啥，到时候用 for 循环组织各层就好
 1. 偏差？方差？有区别吗？如果就数学概念而言的话，感觉这两个提不到一块去，不过也确实，他们一个评估的是预测模型，一个评估的是样本数据，但是在 ML 这里我们会经常见到他们的
 2. 让我们看下偏差方差与我们训练模型有着什么样的关系：
 
-   ![DeepLearning05](../img/Deep_Learning/DL05.png)
+   ![DeepLearning05](../img/deep-learning/DL05.png)
 
 3. 我们再用举一个简单的例子，这次就和实际操作有点联系了：
 
@@ -462,7 +462,7 @@ emmmm 貌似没啥，到时候用 for 循环组织各层就好
 1. 我们使用 L2 正则化的时候会有参数$\lambda$，很明显这个参数越大的话，参数 W 会越来越接近于 0，不过这有什么影响呢？我们直观的感受下
 2. 这里以激活函数为 tanh 的情况进行举例：
 
-   ![DeepLearning06](../img/Deep_Learning/DL06.png)
+   ![DeepLearning06](../img/deep-learning/DL06.png)
 
    我们知道$z^{[l]}=W^{[l]}a^{[l-1]}+b^{[l]}$，那么也就是说$W^{[l]}$很小的时候，$z^{[l]}$也会很小，那么再计算$a^{[l]}$时，我们要通过这么一个激活函数对吧，我们可以看到，在激活函数输入很小的时候，它是线性的，而线性的意味着什么呢？再多的隐藏层都可以看做一层，也就是，简化了模型，这就使得模型很可能处于高偏差的状态，然后我们通过减小$\lambda$，就可以调整到那么一个，合适的、Just right 状态
 
@@ -514,14 +514,14 @@ a3 /= keep_prob
    $\sigma^2=\frac{1}{m}\sum_{i=1}^mx^{(i)}**2$
    $x/=\sigma^2$
 
-   ![DeepLearning07](../img/Deep_Learning/DL07.png)
+   ![DeepLearning07](../img/deep-learning/DL07.png)
 
-- 这样我们就得到了一个，均值为 0，方差为 1 的输入特征，当然，我们要对每个输入特征都进行归一化，这样才能让每一个输入都很……嗯……规范……那么有什么好处呢？？？
+-  这样我们就得到了一个，均值为 0，方差为 1 的输入特征，当然，我们要对每个输入特征都进行归一化，这样才能让每一个输入都很……嗯……规范……那么有什么好处呢？？？
 
-- 我们首先看上面第一个“碗”，很明显，这是一个长相很奇怪的代价函数，而且它不是归一化的，如果我们使用梯度下降，那么他将不断地沿着梯度最大（这里体现为“等高线”的法线方向）崎岖的、蜿蜒的路走下去，而且这样我们没办法使用过大的步长（学习率），否则很难到达“终点”
-- 我们再看第二个圆整的“碗”，我们直观上会很喜欢这样的一个碗，因为它很标准，每个方向上都是这样，任何一个初始值都会直接奔向“终点”，这使得 J 的优化会加快很多
+-  我们首先看上面第一个“碗”，很明显，这是一个长相很奇怪的代价函数，而且它不是归一化的，如果我们使用梯度下降，那么他将不断地沿着梯度最大（这里体现为“等高线”的法线方向）崎岖的、蜿蜒的路走下去，而且这样我们没办法使用过大的步长（学习率），否则很难到达“终点”
+-  我们再看第二个圆整的“碗”，我们直观上会很喜欢这样的一个碗，因为它很标准，每个方向上都是这样，任何一个初始值都会直接奔向“终点”，这使得 J 的优化会加快很多
 
-- 另外，我们是在各特征的范围差距比较大时使用这个是非常必要的，如果各输入特征范围相似度比较高，那么我们使用归一化就不是那么重要了
+-  另外，我们是在各特征的范围差距比较大时使用这个是非常必要的，如果各输入特征范围相似度比较高，那么我们使用归一化就不是那么重要了
 
 #### 2.1.10 Vanishing / Exploding gradients
 
@@ -566,12 +566,12 @@ a3 /= keep_prob
       $=\frac{1}{2}E(w_i^2x_i^2)+\frac{1}{2}E(0)-[\frac{1}{2}E(w_ix_i)+\frac{1}{2}E(0)]^2$
       $=\frac{1}{2}E(w_i^2)E(x_i^2)-\frac{1}{4}E^2(w_ix_i)$
       $=\frac{1}{2}D(w_i)$
-   10. $D(a)=\frac{n}{2}D(w_i)$
-       $D(w_i)=\frac{2}{n}$
-   11. 就是这样，我们就算出来了 ReLU 的随机初始化方差应该取$\frac{2}{n}$，也就是$W^{[l]}=np.random.randn(shape)*np.sqrt(\frac{2}{n^{[l-1]}})$
-   12. 当然，这是 ReLU 的情况，它是使用$\sqrt{\frac{2}{n^{[l-1]}}}$，还有其他的激活函数呢，对于 tanh，有人说使用$\sqrt{\frac{1}{n^{[l-1]}}}$，也有人提到使用$\sqrt{\frac{2}{n^{[l-1]}+n^{[l]}}}$
-   13. 不过，权重的初始化只是一个起点，这些公式只能给一个好的起点，他们会给出初始化权重矩阵的方差的默认值，如果想增加方差，那么方差会成为另一个超参数，这可以通过在刚才式子上增加一个调优参数实现，但这并不是我们的首要调优参数，所以，我们往往将它的优先级放的比较低。
-   14. 边复习边算的，很多东西都忘了，可信度不高(～￣ ▽ ￣)～
+   10.   $D(a)=\frac{n}{2}D(w_i)$
+         $D(w_i)=\frac{2}{n}$
+   11.   就是这样，我们就算出来了 ReLU 的随机初始化方差应该取$\frac{2}{n}$，也就是$W^{[l]}=np.random.randn(shape)*np.sqrt(\frac{2}{n^{[l-1]}})$
+   12.   当然，这是 ReLU 的情况，它是使用$\sqrt{\frac{2}{n^{[l-1]}}}$，还有其他的激活函数呢，对于 tanh，有人说使用$\sqrt{\frac{1}{n^{[l-1]}}}$，也有人提到使用$\sqrt{\frac{2}{n^{[l-1]}+n^{[l]}}}$
+   13.   不过，权重的初始化只是一个起点，这些公式只能给一个好的起点，他们会给出初始化权重矩阵的方差的默认值，如果想增加方差，那么方差会成为另一个超参数，这可以通过在刚才式子上增加一个调优参数实现，但这并不是我们的首要调优参数，所以，我们往往将它的优先级放的比较低。
+   14.   边复习边算的，很多东西都忘了，可信度不高(～￣ ▽ ￣)～
 
 #### 2.1.12 Numerical approximation of gradients
 
@@ -608,7 +608,7 @@ $$
 
 1. 就是利用刚刚所说的双边误差对 backprop 的梯度进行检验
 
-   ![DeepLearning09](../img/Deep_Learning/DL09.png)
+   ![DeepLearning09](../img/deep-learning/DL09.png)
 
 2. 按某种规则用$\theta$将所有参数（$w_1\ b_1\ w_2\ b_2\ ...\ w_n\ b_n$）组织起来，嗯，是一个很大的向量，按同样规则用$d\theta$将所有反向传播参数（$dw_1\ db_1\ dw_2\ db_2\ ...\ dw_n\ db_n$）
 3. $d\theta_{approx}[i]=\frac{J(\theta_1,\theta_2,...\theta_i+\varepsilon...)-J(\theta_1,\theta_2,...\theta_i-\varepsilon...)}{2\varepsilon}$，这里的$\varepsilon$只在$\theta_i$上加，也就是只对$\theta_i$求的偏导（$\frac{\partial J}{\partial \theta_i}$，用双边的导数定义近似求解），相应地，因为$d\theta$也是这样维度的向量，$d\theta[i]$就表示的是我们自己根据反向传播计算的对$\theta_i$的求导（$dw_1\ db_1\ dw_2\ db_2\ ...\ dw_n\ db_n$都是一步步按反向传播计算出来的，虽然现在按照某种变换改变了，但他们都是对 J 的导数是没有问题的）
@@ -663,8 +663,8 @@ v_t & = 0.9v_{(t-1)}+0.1\theta_t \\
 \end{aligned}
 $$
 
-- 这里$\theta_t$表示第 t 天的数据，$v_t$就是指数加权平均数
-- 如果我们令这里的 0.9 为$\beta$，那么我们会得到
+-  这里$\theta_t$表示第 t 天的数据，$v_t$就是指数加权平均数
+-  如果我们令这里的 0.9 为$\beta$，那么我们会得到
 
 $$
 \begin{aligned}
@@ -673,7 +673,7 @@ v_t & = \beta v_{(t-1)} + (1-\beta)\theta_t
 \end{aligned}
 $$
 
-- 可以看做最近$\frac{1}{1-\beta}$天的平均值
+-  可以看做最近$\frac{1}{1-\beta}$天的平均值
 
 3. $\beta$越大每个数值平均的天数越多，曲线越光滑，$\beta$越小每个数值平均的天数越少，故曲线噪声很大
 
@@ -683,12 +683,12 @@ $$
 
    $v_{100} = 0.1\theta_{100} + 0.1\times0.9\theta_{99} + 0.1\times0.9^2\theta_{98} + 0.1\times0.9^3\theta_{97} + 0.1\times0.9^4\theta_{96} + \cdots$
 
-- 将$v_{100}$展开后很容易看出来这是$\theta_t$与一个指数函数相乘（$\beta (1-\beta)^t$，这里以 100 天为原点，向负方向增长）
-- 那么为什么是表示最近$\frac{1}{1-\beta}$的平均值呢，我们推一下
-  1.  首先，我们知道$\beta$是一个 0-1 的数，它更趋近于 1（越趋近于 0 噪声越大，指数加权平均的意义越小）
-  2.  $\lim_{n\rightarrow\infty} (1+\frac{1}{x})^x=e$，emmm，很基本的极限公式
-  3.  $\lim_{\beta\rightarrow1^-}\beta^{\frac{1}{1-\beta}}=\lim_{(\beta-1)\rightarrow0^-}[1+(\beta-1)]^{-\frac{1}{(\beta-1)}} = \frac{1}{e}$
-  4.  也就是说$\frac{1}{1-\beta}$天后的权重降低到了$(1-\beta)\cdot\frac{1}{e}$之下，可以说是一个足够小的值了
+-  将$v_{100}$展开后很容易看出来这是$\theta_t$与一个指数函数相乘（$\beta (1-\beta)^t$，这里以 100 天为原点，向负方向增长）
+-  那么为什么是表示最近$\frac{1}{1-\beta}$的平均值呢，我们推一下
+   1. 首先，我们知道$\beta$是一个 0-1 的数，它更趋近于 1（越趋近于 0 噪声越大，指数加权平均的意义越小）
+   2. $\lim_{n\rightarrow\infty} (1+\frac{1}{x})^x=e$，emmm，很基本的极限公式
+   3. $\lim_{\beta\rightarrow1^-}\beta^{\frac{1}{1-\beta}}=\lim_{(\beta-1)\rightarrow0^-}[1+(\beta-1)]^{-\frac{1}{(\beta-1)}} = \frac{1}{e}$
+   4. 也就是说$\frac{1}{1-\beta}$天后的权重降低到了$(1-\beta)\cdot\frac{1}{e}$之下，可以说是一个足够小的值了
 
 2. 不过，我们如何计算它呢？
 
@@ -723,7 +723,7 @@ v /= 1-beta**t // 注意，不是放在forloop内的哦
 
 1. 我们使用梯度递降法的时候经常会遇到这种情况：
 
-   ![DeepLearning10](../img/Deep_Learning/DL10.png)
+   ![DeepLearning10](../img/deep-learning/DL10.png)
 
    每次梯度递降都会不断地波动，指向的方向并不是最终的位置，当然，增大学习率会使得这个现象更加严重
 
@@ -747,15 +747,15 @@ b & = b - \alpha v_{db}
 \end{aligned}
 $$
 
-- 不过这有什么好处呢？很明显，在梯度递降的过程中，由于移动平均值的相互抵消，我们在纵轴方向上的移动变缓了，又由于$\alpha$是不变的，我们水平方向上必然会变快，所以最终得到的曲线会像红线这样：
+-  不过这有什么好处呢？很明显，在梯度递降的过程中，由于移动平均值的相互抵消，我们在纵轴方向上的移动变缓了，又由于$\alpha$是不变的，我们水平方向上必然会变快，所以最终得到的曲线会像红线这样：
 
-  ![DeepLearning11](../img/Deep_Learning/DL11.png)
+   ![DeepLearning11](../img/deep-learning/DL11.png)
 
 3. 不过为啥叫动量梯度递降呢？我们可以这样理解：
-   - 一个小球从山上向下滚
-   - 以$v_{dW} = \beta v_{dW} + (1-\beta)dW$为例
-   - $v_{dW}$看作是速度，$dW$看作是加速度，$\beta$看作一个阻力的系数吧，也可以理解成摩擦力什么的，不过这不太严谨
-   - 很明显，移动平均后的值使得每次梯度递降的部分受到前几次的影响，类似于速度这样的“连续”的物理量，不像单纯的梯度递降法每次都是独立的
+   -  一个小球从山上向下滚
+   -  以$v_{dW} = \beta v_{dW} + (1-\beta)dW$为例
+   -  $v_{dW}$看作是速度，$dW$看作是加速度，$\beta$看作一个阻力的系数吧，也可以理解成摩擦力什么的，不过这不太严谨
+   -  很明显，移动平均后的值使得每次梯度递降的部分受到前几次的影响，类似于速度这样的“连续”的物理量，不像单纯的梯度递降法每次都是独立的
 4. 怎么计算呢？我们现在在梯度递降的过程中有了$\alpha$和$\beta$这两个超参数，嗯，计算方法前面已经写出来了，这里再整理下：
 
 $$
@@ -766,9 +766,9 @@ W & = W - \alpha v_{dW}, b = b - \alpha v_{db}
 \end{aligned}
 $$
 
-- 我们经常取$\beta=0.9$
-- 至于偏差修正，我们很少使用它，因为那只影响前几次，如果取$\beta=0.9$的话，那只影响前十次的$v_{dW}$，所以并没有太大必要去使用它
-- 有时我们会看到去掉$(1-\beta)$的公式，emmm，就是：
+-  我们经常取$\beta=0.9$
+-  至于偏差修正，我们很少使用它，因为那只影响前几次，如果取$\beta=0.9$的话，那只影响前十次的$v_{dW}$，所以并没有太大必要去使用它
+-  有时我们会看到去掉$(1-\beta)$的公式，emmm，就是：
 
 $$
 \begin{aligned}
@@ -821,30 +821,30 @@ W & = W - \alpha \frac{dW}{\sqrt{S_{dW}}}, b = b - \alpha \frac{db}{\sqrt{S_{db}
 $$
 
 2. 我们直观上这么理解这个方法：
-   - 如果纵轴$b$上移动过快，那么$S_{db}$会是一个比较大的值，$b$梯度下降的梯度下降就会降低，$W$也是一样的，这样做就使得某一项移动不会过快，以消除摆动
-   - 当然，这里只是为了简单只考虑了$W$和$b$，事实上$W$也是一个高维度的量，要考虑$W_1, W_2, W_3, \cdots$
-   - 为了防止分母为 0，我们经常使用在分母上加一个比较小的值$\varepsilon$（通常取$10^{-8}$）
+   -  如果纵轴$b$上移动过快，那么$S_{db}$会是一个比较大的值，$b$梯度下降的梯度下降就会降低，$W$也是一样的，这样做就使得某一项移动不会过快，以消除摆动
+   -  当然，这里只是为了简单只考虑了$W$和$b$，事实上$W$也是一个高维度的量，要考虑$W_1, W_2, W_3, \cdots$
+   -  为了防止分母为 0，我们经常使用在分母上加一个比较小的值$\varepsilon$（通常取$10^{-8}$）
 
 #### 2.2.8 Adam optimization algorithm
 
 Adam 优化算法，简单的说，这是一个结合了 Momentum 算法和 RMSprop 算法的算法，直接上算法，相信大家也明白
 
-- $Initialize :$
-- $v_{dW} = 0, S_{dW} = 0, v_{db} = 0, S_{db} = 0$
-- $v_{dW} = \beta_1v_{dW} + (1-\beta_1)dW, v_{db} = \beta_1v_{db} + (1-\beta_1)db$
-- $S_{dW} = \beta_2v_{dW} + (1-\beta_2)dW^2, S_{db} = \beta_2v_{db} + (1-\beta_2)db^2$
-- $v_{dW}^{corrected} = \frac{v_{dW}}{(1-\beta_1^t)}, v_{db}^{corrected} = \frac{v_{db}}{(1-\beta_1^t)}$
-- $S_{dW}^{corrected} = \frac{S_{dW}}{(1-\beta_2^t)}, S_{db}^{corrected} = \frac{S_{db}}{(1-\beta_2^t)}$
-- $W = W - \alpha\frac{v_{dW}^{corrected}}{\sqrt{S_{dW}^{corrected}}+\varepsilon}, b = b - \alpha\frac{v_{db}^{corrected}}{\sqrt{S_{db}^{corrected}}+\varepsilon}$
+-  $Initialize :$
+-  $v_{dW} = 0, S_{dW} = 0, v_{db} = 0, S_{db} = 0$
+-  $v_{dW} = \beta_1v_{dW} + (1-\beta_1)dW, v_{db} = \beta_1v_{db} + (1-\beta_1)db$
+-  $S_{dW} = \beta_2v_{dW} + (1-\beta_2)dW^2, S_{db} = \beta_2v_{db} + (1-\beta_2)db^2$
+-  $v_{dW}^{corrected} = \frac{v_{dW}}{(1-\beta_1^t)}, v_{db}^{corrected} = \frac{v_{db}}{(1-\beta_1^t)}$
+-  $S_{dW}^{corrected} = \frac{S_{dW}}{(1-\beta_2^t)}, S_{db}^{corrected} = \frac{S_{db}}{(1-\beta_2^t)}$
+-  $W = W - \alpha\frac{v_{dW}^{corrected}}{\sqrt{S_{dW}^{corrected}}+\varepsilon}, b = b - \alpha\frac{v_{db}^{corrected}}{\sqrt{S_{db}^{corrected}}+\varepsilon}$
 
-- Adam 通常是使用偏差修正的
-- Momentum 和 RMSprop 的参数$\beta$是不一样的，故使用$\beta_1$和$\beta_2$以区分
-- 这是一种能够适用于不同神经网络的算法
-- 这里这么多超参数，我们如何设置超参数呢？
-  1.  $\alpha$，这是要经常调整的
-  2.  $\beta_1$，Adam 论文作者推荐 0.9
-  3.  $\beta_2$，Adam 论文作者推荐 0.999
-  4.  $\varepsilon$，Adam 论文作者推荐$10^{-8}$
+-  Adam 通常是使用偏差修正的
+-  Momentum 和 RMSprop 的参数$\beta$是不一样的，故使用$\beta_1$和$\beta_2$以区分
+-  这是一种能够适用于不同神经网络的算法
+-  这里这么多超参数，我们如何设置超参数呢？
+   1. $\alpha$，这是要经常调整的
+   2. $\beta_1$，Adam 论文作者推荐 0.9
+   3. $\beta_2$，Adam 论文作者推荐 0.999
+   4. $\varepsilon$，Adam 论文作者推荐$10^{-8}$
 
 #### 2.2.9 Learning rate decay
 
@@ -862,17 +862,17 @@ Adam 优化算法，简单的说，这是一个结合了 Momentum 算法和 RMSp
 
 1. 在我们的想象中，成本函数 J 和参数 W 之间的关系也许会更像这种形式：
 
-   ![DeepLearning12](../img/Deep_Learning/DL12.png)
+   ![DeepLearning12](../img/deep-learning/DL12.png)
 
    也就是，有着很多个局部最优的解，这些局部最优点是满足什么条件的呢？很明显，在各个方向的偏导都是 0，而且，在该点的凹凸形式也是一样的才行，不过在三维空间上这种情况还算是比较常见的，如果是在高维情况下，这种要求可以说是很苛刻的，如果在某一个点满足了各个方向偏微分是 0，那么我们更多遇到的是这种情况：
 
-   ![DeepLearning13](../img/Deep_Learning/DL13.png)
+   ![DeepLearning13](../img/deep-learning/DL13.png)
 
    也就是一个鞍点，很难碰到一个局部最优，因为在高维情况下这太难得了（$2^n$）
 
 2. 虽然不会长时间困在局部最优的位置，但是，我们很可能长时间处在平缓段，就像下面这样：
 
-   ![DeepLearning14](../img/Deep_Learning/DL14.png)
+   ![DeepLearning14](../img/deep-learning/DL14.png)
 
 因为梯度真的很小，所以梯度递降法会使它小心翼翼地沿着“脊”处缓缓移动，直到鞍点处出现微小扰动后才向正确方向走去，这种情况下，Adam 算法可以让它更快地度过平缓段
 
@@ -884,13 +884,13 @@ Adam 优化算法，简单的说，这是一个结合了 Momentum 算法和 RMSp
 
 首先，我们先把我们要调整的各个超参数都列出来：
 
-- $\alpha$
-- $\beta$
-- $\beta1$, $\beta2$, $\varepsilon$
-- #$layers$
-- #$hidden\ units$
-- $learning\ rate\ decay$
-- $mini-batch\ size$
+-  $\alpha$
+-  $\beta$
+-  $\beta1$, $\beta2$, $\varepsilon$
+-  #$layers$
+-  #$hidden\ units$
+-  $learning\ rate\ decay$
+-  $mini-batch\ size$
 
 我们最优先考虑的一定是$\alpha$，其次呢，就是 Momentum 参数$\beta$了，还有$mini-batch\ size$和#$hidden\ units$，最后考虑#$layers$和$learning\ rate\ decay$
 
@@ -900,13 +900,13 @@ Adam 优化算法，简单的说，这是一个结合了 Momentum 算法和 RMSp
 
 虽然说随机取值是个不错的方法，但是这也是要看情况的，我们要根据具体情况选择合适的标尺
 
-- 如果说我们要在 50 到 100 内选#$hidden\ units$，或者在 2 到 4 内选#$layers$，那么很明显，这种随机取值的很合适的
-- 我们再看这个：如果我们要在 0.0001 到 1 内选一个$\alpha$，如果我们真的像这样随机选取，那么很明显，有 90%的数据是落在 0.1~1 之间，而 0.0001 到 0.1 只有 10%，这明显不是我们要的，看到这个我们很容易想到 lg()函数，事实上我们确实也是这么做的，这里只需要这么做：
-  ```Python
-  r = -4 * np.random.rand()
-  alpha = 10 ** r
-  ```
-- 相反地，我们要怎么取$\beta$呢？这个数很明显是一个接近于 1 的值，嗯，很容易想到了，其实就是$1-\alpha$的方式
+-  如果说我们要在 50 到 100 内选#$hidden\ units$，或者在 2 到 4 内选#$layers$，那么很明显，这种随机取值的很合适的
+-  我们再看这个：如果我们要在 0.0001 到 1 内选一个$\alpha$，如果我们真的像这样随机选取，那么很明显，有 90%的数据是落在 0.1~1 之间，而 0.0001 到 0.1 只有 10%，这明显不是我们要的，看到这个我们很容易想到 lg()函数，事实上我们确实也是这么做的，这里只需要这么做：
+   ```Python
+   r = -4 * np.random.rand()
+   alpha = 10 ** r
+   ```
+-  相反地，我们要怎么取$\beta$呢？这个数很明显是一个接近于 1 的值，嗯，很容易想到了，其实就是$1-\alpha$的方式
 
 #### 2.3.3 Pandas VS Caviar（Hyperparameters tuning in practice: Pandas vs. Caviar）
 
@@ -1017,16 +1017,16 @@ $$
 
 一些推荐：
 
-- Caffe / Caffe2
-- CNTK
-- DL4J
-- Keras
-- Lasagne
-- mxnet
-- PaddlePaddle
-- TensorFlow
-- Theano
-- Torch
+-  Caffe / Caffe2
+-  CNTK
+-  DL4J
+-  Keras
+-  Lasagne
+-  mxnet
+-  PaddlePaddle
+-  TensorFlow
+-  Theano
+-  Torch
 
 #### 2.3.11 TensorFlow
 
@@ -1128,18 +1128,18 @@ with tf.Session() as session:
 
 哦，说了这么多，我们看看我们的这几根轴吧
 
-- 无法很好地拟合 training set
-  - 更大的 NN
-  - 更好的优化算法，比如 Adam 优化算法
-- 无法很好地拟合 dev set
-  - 各种正则化
-  - 增大 training set
-- 无法很好地拟合 test set
-  - （对 dev set 过拟合）回退一步，使用更大的 dev set
-- 无法很好地在生产环境实践
-  - 改变 dev set
-  - 改变 cost function
-    > 我们很少使用 early stopping ，因为这并不是正交化的一项，它可能会同时影响前两项
+-  无法很好地拟合 training set
+   -  更大的 NN
+   -  更好的优化算法，比如 Adam 优化算法
+-  无法很好地拟合 dev set
+   -  各种正则化
+   -  增大 training set
+-  无法很好地拟合 test set
+   -  （对 dev set 过拟合）回退一步，使用更大的 dev set
+-  无法很好地在生产环境实践
+   -  改变 dev set
+   -  改变 cost function
+      > 我们很少使用 early stopping ，因为这并不是正交化的一项，它可能会同时影响前两项
 
 #### 3.1.3 Single number evaluation metric
 
@@ -1152,7 +1152,7 @@ with tf.Session() as session:
 
 #### 3.1.4 Satisficing and optimizing metrics
 
-- 我们看这样的一个例子：
+-  我们看这样的一个例子：
 
 | Classifier | Accuracy | Running time |
 | ---------- | -------- | -----------: |
@@ -1166,7 +1166,7 @@ with tf.Session() as session:
 
 更一般地，我们可以考虑下，如果有 $N$ 个指标的话，我们也许最后只需要留一个指标来做最后的评判，而**其余 $N-1$ 个指标则只作为阈值就好啦**
 
-- 再看另一个例子
+-  再看另一个例子
 
 比如说，一个类似于 $Siri$ 的语音助手，我们会将语音识别的准确率作为一个最终评判的指标，但是也会出现些其他的情况，比如说，在没有说激活语句（比如 $Siri$ 是 $Hey\ Siri$ ）的时候它激活了，我们可以称之为假阳性（false positive），所以我们还会有这样一个指标，24 小时内出现假阳性的次数，这个指标的话，我们完全可以将它设定为 24 小时内最多出现一次假阳性
 
@@ -1192,11 +1192,11 @@ with tf.Session() as session:
 
 #### 3.1.7 When to change dev/test sets and metrics
 
-- 举个例子，我们有两个猫分类器，第一个只有 3% 的误差，但是却有很多色情图被当做猫图推送给用户了，而第二个猫分类器则有 5% 的分类器，任何色情图都没有推送给用户，我们还有用户很明显会觉得第二个分类器比较好，但是如果按原来的指标来看，分类器一更佳，这……这说明我们**需要改变指标**了
+-  举个例子，我们有两个猫分类器，第一个只有 3% 的误差，但是却有很多色情图被当做猫图推送给用户了，而第二个猫分类器则有 5% 的分类器，任何色情图都没有推送给用户，我们还有用户很明显会觉得第二个分类器比较好，但是如果按原来的指标来看，分类器一更佳，这……这说明我们**需要改变指标**了
 
-  > 如何改变指标？我们可以将 error 的评估表达式中的色情图前面加上一个比较大的权重，这样的话，即便是很少的色情图都会造成很大的误差值，也就避免了上述情况，我们仍能使用单一误差值来评估分类器
+   > 如何改变指标？我们可以将 error 的评估表达式中的色情图前面加上一个比较大的权重，这样的话，即便是很少的色情图都会造成很大的误差值，也就避免了上述情况，我们仍能使用单一误差值来评估分类器
 
-- 另一个例子，比如说我们使用的开发集是在网上收集的质量很好的图片，而实际用户所上传的却是模糊的、摄影角度不专业的图片，这使得原来在开发集上表现优良的分类器一（error=3%）在实际应用中不如分类器二（error=5%），这时候我们需要**改变开发集**了
+-  另一个例子，比如说我们使用的开发集是在网上收集的质量很好的图片，而实际用户所上传的却是模糊的、摄影角度不专业的图片，这使得原来在开发集上表现优良的分类器一（error=3%）在实际应用中不如分类器二（error=5%），这时候我们需要**改变开发集**了
 
 机器学习完全独立的两步：
 
@@ -1205,7 +1205,7 @@ with tf.Session() as session:
 
 #### 3.1.8 Why human-level performance?
 
-![DeepLearning15](../img/Deep_Learning/DL15.png)
+![DeepLearning15](../img/deep-learning/DL15.png)
 
 大多数情况下，机器学习随着算法的优化迅速赶超人类的表现，但在超过人类表现之后，进展会越来越缓慢，但是总体上趋近于一个理论上限值——贝叶斯误差，这个上限值是无法超越的，因为总有无法识别的信息（比如说失真十分严重的信息）
 
@@ -1243,15 +1243,15 @@ with tf.Session() as session:
 
 1. 减小可避免偏差，我们经常用的策略有
 
-   - 训练更大规模的 NN / 训练更久
-   - 选择更好的优化算法（RMSprop、momentum、Adam）
-   - 选择其它的神经网络框架（CNN、RNN） / 优化超参数（层数、隐藏单元数等等等等）
+   -  训练更大规模的 NN / 训练更久
+   -  选择更好的优化算法（RMSprop、momentum、Adam）
+   -  选择其它的神经网络框架（CNN、RNN） / 优化超参数（层数、隐藏单元数等等等等）
 
 2. 减小方差，我们经常用的策略有
 
-   - 收集更多的数据
-   - 正则化（$L2$ 正则化、$dropout$ 正则化、数据增强）
-   - 选择其它的神经网络框架 / 优化超参数 （同上）
+   -  收集更多的数据
+   -  正则化（$L2$ 正则化、$dropout$ 正则化、数据增强）
+   -  选择其它的神经网络框架 / 优化超参数 （同上）
 
 ### 3.2 ML Strategy (2)
 
@@ -1285,9 +1285,9 @@ with tf.Session() as session:
 
 比如我们要做一个猫分类器，我们从网络上爬取到取景专业、分辨率高的图片（收集到了 20w 组），而我们实际应用的数据（从 APP 上收集的数据）很模糊、取景不专业（也收集到了 1w 组），那要如何划分数据集呢？下面有两种方案，让我们看下
 
-- 将两种数据随机打乱后，$Train\ Set\ 21w$ ，$Dev\ Set\ 5k$ ， $Test\ Set\ 5k$ ，嗯，都来自同分布了，但是缺点很致命，因为它们与我们的最终目标相差甚远，因为 APP 数据只占很小一部分，所以说我们一直瞄着的方向和我们最终应用的方向会差很多很多，还是看下一种方法吧
+-  将两种数据随机打乱后，$Train\ Set\ 21w$ ，$Dev\ Set\ 5k$ ， $Test\ Set\ 5k$ ，嗯，都来自同分布了，但是缺点很致命，因为它们与我们的最终目标相差甚远，因为 APP 数据只占很小一部分，所以说我们一直瞄着的方向和我们最终应用的方向会差很多很多，还是看下一种方法吧
 
-- 训练集中包含全部 20w 爬取数据，此外包含 1w APP 上的数据，而开发集、测试集各 5k 的 APP 上的数据，这就保证了我们后来的目标与最终目标是一致的，只不过训练集和开发集间的分布会相差较大些，但这种方法确实会带来更好的系统性能，至于训练集与开发集分布的差异，后续会讲到优化方案
+-  训练集中包含全部 20w 爬取数据，此外包含 1w APP 上的数据，而开发集、测试集各 5k 的 APP 上的数据，这就保证了我们后来的目标与最终目标是一致的，只不过训练集和开发集间的分布会相差较大些，但这种方法确实会带来更好的系统性能，至于训练集与开发集分布的差异，后续会讲到优化方案
 
 再举个例子，比如我们要做一个车载语音系统，但真正车载语音数据仅有 2w ，而其他语音系统的数据可以买到 50w 这么多，所以我们可以训练集中包含这 50w 其他数据，而开发集测试集各 1w 车载语音数据，或者使用 50w 其他数据与 1w 车载数据作为训练集， 开发集测试集各 5k 这样
 
@@ -1301,16 +1301,16 @@ with tf.Session() as session:
 
 所以，我们现在需要考虑的就是：
 
-- 贝叶斯误差（人类误差） ---- 可避免偏差 ---- 训练集误差
-- 训练集误差 ---- 方差 ---- 训练-开发集误差
-- 训练-开发误差 ---- 数据不匹配问题 ---- 开发集误差
-- 开发集误差 ---- 开发集过拟合问题 ---- 测试集误差
+-  贝叶斯误差（人类误差） ---- 可避免偏差 ---- 训练集误差
+-  训练集误差 ---- 方差 ---- 训练-开发集误差
+-  训练-开发误差 ---- 数据不匹配问题 ---- 开发集误差
+-  开发集误差 ---- 开发集过拟合问题 ---- 测试集误差
 
 有时候会出现一些有趣的事情，比如说开发集与测试集误差比训练集误差小，其实这是可能的事情，比如说上节的语音识别问题，开发集与测试集比训练集更容易识别是完全可能的，我们看下这种情况下要如何进行分析：
 
 我们制作一张二维表格，水平轴上写下各种数据集，比如说是买来的普通语音数据还是收集的车载数据，竖直轴上写下处理数据的不同方法和算法，首先是人类的水平误差，其次是神经网络训练过的数据集上的误差，最后是神经网络未训练过的数据集上的误差
 
-![DeepLearning16](../img/Deep_Learning/DL16.png)
+![DeepLearning16](../img/deep-learning/DL16.png)
 
 (1, 1) 位置自然就是人类水平， (2, 1) 位置自然就是训练集误差， (3, 1) 位置自然就是训练-开发集误差， (3, 2) 位置自然就是开发集误差，他们之间的差值的意义和前面所述一致
 
@@ -1360,13 +1360,13 @@ with tf.Session() as session:
 
 优点：
 
-- 更多由数据来说话，没有过多的人为因素干预
-- 人工设计部分更少了
+-  更多由数据来说话，没有过多的人为因素干预
+-  人工设计部分更少了
 
 缺点：
 
-- 不可避免地，我们需要很多很多的数据来训练它
-- 无法采用一些人工设计，因为有些人为干预会有很大的帮助
+-  不可避免地，我们需要很多很多的数据来训练它
+-  无法采用一些人工设计，因为有些人为干预会有很大的帮助
 
 至于到底要不要用端对端学习，首先我们可能是要看是否有足够的数据来构建端对端学习网络，因为这真的需要很多很多的数据来完成
 
@@ -1384,17 +1384,17 @@ with tf.Session() as session:
 
 我们之前了解到，神经网络的前几层是对低层次结构进行检测，比如人脸识别神经网络的前几层会检测边缘、区域等等，下面我们看下边缘检测是如何进行的
 
-![DeepLearning17](../img/Deep_Learning/DL17.png)
+![DeepLearning17](../img/deep-learning/DL17.png)
 
 过滤器（卷积核）在原图上滑动，计算出新图，`*`表示卷积
 
 其实这个卷积处理计算了竖直边缘，为啥呢？看下面这个例子
 
-![DeepLearning18](../img/Deep_Learning/DL18.png)
+![DeepLearning18](../img/deep-learning/DL18.png)
 
 #### 4.1.3 More edge detection
 
-- 竖直边缘检测（左亮右暗为正值）
+-  竖直边缘检测（左亮右暗为正值）
 
 $$
 \begin{bmatrix}
@@ -1404,7 +1404,7 @@ $$
 \end{bmatrix}
 $$
 
-- 水平边缘检测（上亮下暗为正值）
+-  水平边缘检测（上亮下暗为正值）
 
 $$
 \begin{bmatrix}
@@ -1414,7 +1414,7 @@ $$
 \end{bmatrix}
 $$
 
-- Sobel 过滤器
+-  Sobel 过滤器
 
 $$
 \begin{bmatrix}
@@ -1424,7 +1424,7 @@ $$
 \end{bmatrix}
 $$
 
-- Scharr 过滤器
+-  Scharr 过滤器
 
 $$
 \begin{bmatrix}
@@ -1434,7 +1434,7 @@ $$
 \end{bmatrix}
 $$
 
-- 你自己的过滤器（作为一个参数，在反向迭代中自动优化）
+-  你自己的过滤器（作为一个参数，在反向迭代中自动优化）
 
 $$
 \begin{bmatrix}
@@ -1452,8 +1452,8 @@ $$
 
 常用的 Padding 方法有
 
-- Valid 卷积，不填充 `p = 0`
-- Same 卷积，卷积前后的图片大小不变，很容易得知 $p = \frac{f - 1}{2}$ ，通常情况下 $f$ 是奇数
+-  Valid 卷积，不填充 `p = 0`
+-  Same 卷积，卷积前后的图片大小不变，很容易得知 $p = \frac{f - 1}{2}$ ，通常情况下 $f$ 是奇数
 
 #### 4.1.5 Strided convolutions
 
@@ -1465,7 +1465,7 @@ $$
 
 #### 4.1.6 Convolutions over volumes
 
-![DeepLearning19](../img/Deep_Learning/DL19.png)
+![DeepLearning19](../img/deep-learning/DL19.png)
 
 前面的图片都是灰度图片，只有一个颜色通道，但我们的图片往往是 $RGB$ 三个颜色通道的，这个时候我们的输入增加了一个维度（通道数， $channels$，$n_c$），相应地，过滤器也是要变成三维的，而且他们的通道数相同，这里都是 3 ，至于运算方法，和原来一样，滑动乘积就好，当然输出会是一个二维的
 
@@ -1506,13 +1506,13 @@ B :
 
 那么，我们想要同时获取多个特征怎么办，比如说既想要垂直边缘也想要水平边缘
 
-![DeepLearning20](../img/Deep_Learning/DL20.png)
+![DeepLearning20](../img/deep-learning/DL20.png)
 
 我们可以使用多个过滤器，各个输出叠在一起，形成一个三维的输出方块，这里使用 2 个过滤器，输出的第三维自然也是 2
 
 #### 4.1.7 One layer of a convolutional network
 
-![DeepLearning21](../img/Deep_Learning/DL21.png)
+![DeepLearning21](../img/deep-learning/DL21.png)
 
 和之前一样，前向传播是要 $z^{[1]} = W^{[1]} a^{[0]} + b^{[1]}$ ，之后增加非线性函数使得 $a^{[1]} = g(z^{[1]})$ 这里 $a^{[0]}$ 就是输入的 $(6, 6, 3)$ 图片，经由两个 $(3, 3, 3)$ 的过滤器，或者说 $(3, 3, 3, 2)$ 的过滤器，生成 $(4, 4, 2)$ 的图片，这就得到了 $W^{[1]} a^{[0]}$ ，之后利用 Python 的广播特性对每个元素进行处理就得到了 $a^{[1]}$
 
@@ -1527,8 +1527,8 @@ B :
 
 由于输出图片是输入图片经过卷积得到的，所以他们之间的关系有
 
-- $n_H^{[l]} = \left\lfloor \frac{n_H^{[l-1]} + 2p^{[l]} -f^{[l]}}{s^{[l]}} + 1 \right\rfloor$
-- $n_W^{[l]} = \left\lfloor \frac{n_W^{[l-1]} + 2p^{[l]} -f^{[l]}}{s^{[l]}} + 1 \right\rfloor$
+-  $n_H^{[l]} = \left\lfloor \frac{n_H^{[l-1]} + 2p^{[l]} -f^{[l]}}{s^{[l]}} + 1 \right\rfloor$
+-  $n_W^{[l]} = \left\lfloor \frac{n_W^{[l-1]} + 2p^{[l]} -f^{[l]}}{s^{[l]}} + 1 \right\rfloor$
 
 由于过滤器的通道数取决于输入图片通道数，所以过滤器 $(f^{[l]}, f^{[l]}, n_c^{[l-1]}, n_c^{[l]})$
 
@@ -1538,7 +1538,7 @@ $b^{[l]} \rightarrow (1, 1, 1, n_c^{[l]})$
 
 #### 4.1.8 A simple convolution network example
 
-![DeepLearning22](../img/Deep_Learning/DL22.png)
+![DeepLearning22](../img/deep-learning/DL22.png)
 
 卷积、卷积、卷积、展开
 
@@ -1548,25 +1548,25 @@ $b^{[l]} \rightarrow (1, 1, 1, n_c^{[l]})$
 
 不过一般情况下卷积神经网络都由以下三层组成的：
 
-- 卷积层 $CONV$
-- 池化层 $POOL$
-- 全连接层 $FC$
+-  卷积层 $CONV$
+-  池化层 $POOL$
+-  全连接层 $FC$
 
 #### 4.1.9 Pooling layers
 
 池化层可以缩减模型的大小，提高计算速度并且可以提高所提取特征的鲁棒性
 
-- 最大池化
+-  最大池化
 
-  ![DeepLearning23](../img/Deep_Learning/DL23.png)
+   ![DeepLearning23](../img/deep-learning/DL23.png)
 
-  有点类似卷积时过滤器的移动，两个超参数 $f$ 和 $s$ ，这里 $f = 2, s = 2$ ，也就是$(2, 2)$ 的过滤器以 2 为步长进行移动，每次计算出 $(2, 2)$ 方块内的最大值
+   有点类似卷积时过滤器的移动，两个超参数 $f$ 和 $s$ ，这里 $f = 2, s = 2$ ，也就是$(2, 2)$ 的过滤器以 2 为步长进行移动，每次计算出 $(2, 2)$ 方块内的最大值
 
-  直观理解大概是，如果这一通道提取的是竖直边缘的话（上图中左上角有，右上角没有），经过提取之后的结果不会过多地损失原来的特征（还是左上角有，右上角没有）
+   直观理解大概是，如果这一通道提取的是竖直边缘的话（上图中左上角有，右上角没有），经过提取之后的结果不会过多地损失原来的特征（还是左上角有，右上角没有）
 
-- 平均池化
+-  平均池化
 
-  很少用到，不用说也猜到了，就是每次计算平均值而不是最大值，但在比较深层的神经网络终会遇到
+   很少用到，不用说也猜到了，就是每次计算平均值而不是最大值，但在比较深层的神经网络终会遇到
 
 当输入为多个通道时，每个通道也是单独计算的，这和卷积那里一样的
 
@@ -1574,9 +1574,9 @@ $b^{[l]} \rightarrow (1, 1, 1, n_c^{[l]})$
 
 #### 4.1.10 Convolutional neural network example
 
-![DeepLearning24](../img/Deep_Learning/DL24.png)
+![DeepLearning24](../img/deep-learning/DL24.png)
 
-![DeepLearning25](../img/Deep_Learning/DL25.png)
+![DeepLearning25](../img/deep-learning/DL25.png)
 
 图片的长度与宽度越来越小，但信道数越来越高，而且参数大多在全连接层，卷积层只有很少的参数
 
@@ -1584,9 +1584,9 @@ $b^{[l]} \rightarrow (1, 1, 1, n_c^{[l]})$
 
 #### 4.1.11 Why convolutions?
 
-- 参数共享 很明显，在过滤器滑动过程中有很多输入值共享同一过滤器的参数
+-  参数共享 很明显，在过滤器滑动过程中有很多输入值共享同一过滤器的参数
 
-- 稀疏连接 在过滤器停在某一位置时，其输出值与输入值之间的连接就是他们 $(f, f, n_c)$
+-  稀疏连接 在过滤器停在某一位置时，其输出值与输入值之间的连接就是他们 $(f, f, n_c)$
 
 另外，卷积操作有着很好的平移不变属性，通过反向迭代可以获得更好的平移不变属性
 
@@ -1598,62 +1598,62 @@ $b^{[l]} \rightarrow (1, 1, 1, n_c^{[l]})$
 
 下面的几节课就围绕几个经典的神经网络进行展开
 
-- Classic networks
-  - LeNet-5
-  - AlexNet
-  - VGG
-- ResNet
-- Inception
+-  Classic networks
+   -  LeNet-5
+   -  AlexNet
+   -  VGG
+-  ResNet
+-  Inception
 
 #### 4.2.2 Classic networks
 
-- LeNet-5
+-  LeNet-5
 
-  ![DeepLearning26](../img/Deep_Learning/DL26.png)
+   ![DeepLearning26](../img/deep-learning/DL26.png)
 
-  1998 年，有很多和现在所使用的不太一样，比如：
+   1998 年，有很多和现在所使用的不太一样，比如：
 
-  - 当时并不使用 Padding ，所以每次卷积都会变小
-  - 那时候更多使用 avg pool 而不是 max pool
-  - 激活函数主要使用 sigmoid 和 tanh 而不是 ReLU
-  - 那时候最后的分类函数并不是 Softmax 而是别的什么，现在已经不常用了
+   -  当时并不使用 Padding ，所以每次卷积都会变小
+   -  那时候更多使用 avg pool 而不是 max pool
+   -  激活函数主要使用 sigmoid 和 tanh 而不是 ReLU
+   -  那时候最后的分类函数并不是 Softmax 而是别的什么，现在已经不常用了
 
-* AlexNet
+*  AlexNet
 
-  ![DeepLearning27](../img/Deep_Learning/DL27.png)
+   ![DeepLearning27](../img/deep-learning/DL27.png)
 
-  - 使用了 Padding
-  - 使用了 ReLU
-  - 最后使用了 Softmax
+   -  使用了 Padding
+   -  使用了 ReLU
+   -  最后使用了 Softmax
 
-* VGG-16
+*  VGG-16
 
-  ![DeepLearning28](../img/Deep_Learning/DL28.png)
+   ![DeepLearning28](../img/deep-learning/DL28.png)
 
-  - 每次都使用 $2 \times 2$ 池化，长宽各减半
-  - 过滤器通道数 64、128、256、512、512，通道数翻倍
+   -  每次都使用 $2 \times 2$ 池化，长宽各减半
+   -  过滤器通道数 64、128、256、512、512，通道数翻倍
 
 #### 4.2.3 Residual Networks (ResNets)
 
 残差网络对深层神经网络有着很好的优化作用，它可以很好地改善梯度爆炸、梯度消失等问题
 
-- 首先看残差块
+-  首先看残差块
 
-  ![DeepLearning29](../img/Deep_Learning/DL29.png)
+   ![DeepLearning29](../img/deep-learning/DL29.png)
 
-  很容易看到，我们原来 $a^{[l+2]} = g(z^{[l+1]})$ 变成了 $a^{[l+2]} = g(z^{[l+1]} + a^{[l]})$ ，也就是 $a^{[l]}$ 通过“捷径”（又称跳远连接）迅速到达更深层的位置
+   很容易看到，我们原来 $a^{[l+2]} = g(z^{[l+1]})$ 变成了 $a^{[l+2]} = g(z^{[l+1]} + a^{[l]})$ ，也就是 $a^{[l]}$ 通过“捷径”（又称跳远连接）迅速到达更深层的位置
 
-- 然后我们再看残差网络，很明显，就是一系列残差块所构成
+-  然后我们再看残差网络，很明显，就是一系列残差块所构成
 
-  ![DeepLearning30](../img/Deep_Learning/DL30.png)
+   ![DeepLearning30](../img/deep-learning/DL30.png)
 
-  理论上，我们深度越深的神经网络误差会越小，但是深度越深的神经网络越难以训练，会出现一些错误，这使得出现上图左侧蓝线中的情况，而残差网络恰恰优化了这一问题，使得深层神经网络也可以保证良好的性能
+   理论上，我们深度越深的神经网络误差会越小，但是深度越深的神经网络越难以训练，会出现一些错误，这使得出现上图左侧蓝线中的情况，而残差网络恰恰优化了这一问题，使得深层神经网络也可以保证良好的性能
 
 #### 4.2.4 Why ResNets work?
 
 首先，从一个大型神经网络开始
 
-![DeepLearning31](../img/Deep_Learning/DL31.png)
+![DeepLearning31](../img/deep-learning/DL31.png)
 
 在此基础上我们加两层，并使用一个跳远连接，将其作为一个残差块处理，很明显 $a[l+2] = g(z^{[l+2]} + a^{[l]}) = g(W^{[l+2]} a^{[l+1]} + b^{[l+2]} + a^{[l]})$ ，我们假设 $W^{[l+2]} = 0, b^{[l+2]} = 0$ ，也就是说 $a^{[l+2]} = g(a^{[l]})$， 如果我们使用 ReLU 激活函数，那么 $a^{[l+2]} = a^{[l]}$ ，也就是说加上的这两层没有起作用
 
@@ -1665,7 +1665,7 @@ $b^{[l]} \rightarrow (1, 1, 1, n_c^{[l]})$
 
 $1 \times 1$ 卷积有什么用呢？如果只有一个通道的话，那么输出也就是整体放大一定的倍数而已，但如果是多个通道呢？
 
-![DeepLearning32](../img/Deep_Learning/DL32.png)
+![DeepLearning32](../img/deep-learning/DL32.png)
 
 我们可以发现，各个输入信道与各个输出信道的同一位置建立起了全连接，之后还有一个 $ReLU$ 激活
 
@@ -1677,17 +1677,17 @@ $1 \times 1$ 卷积有什么用呢？如果只有一个通道的话，那么输�
 
 构建卷积网络难免要遇到对过滤器大小的选择问题（$1 \times 1$ 还是 $3 \times 3$ 还是 $5 \times 5$），还有要不要加池化层的问题， Inception 网络可以很好地为我们解决该问题
 
-![DeepLearning33](../img/Deep_Learning/DL33.png)
+![DeepLearning33](../img/deep-learning/DL33.png)
 
 首先，我们使用一个 $1 \times 1$ 的过滤器得到一个输出，然后我们再使用一个 $3 \times 3$ 的过滤器得到一个输出，叠在 $1 \times 1$ 输出上，当然，这需要对 $3 \times 3$ 进行 same Padding ，$5 \times 5$ 也使用相同的处理方法，最后再叠上一个 MAX-POOL 层，这就是一个 Inception 层
 
 Inception 有一个问题就是计算成本的问题，我们可以通过计算其中的乘法次数来计算
 
-![DeepLearning34](../img/Deep_Learning/DL34.png)
+![DeepLearning34](../img/deep-learning/DL34.png)
 
 这里考虑 $5 \times 5$ 卷积这步，共 $32$ 个过滤器，每个过滤器在每个位置计算 $5 \times 5$ 次乘法，每个通道 $28 \times 28$ 个位置，共有 $192$ 个通道，乘在一起约为 1.2 亿
 
-![DeepLearning35](../img/Deep_Learning/DL35.png)
+![DeepLearning35](../img/deep-learning/DL35.png)
 
 这里还有另一种方法，就是先对其进行 $1 \times 1$ 卷积减小其通道数，再进行 $5 \times 5$ 卷积，按照刚才的方法，将两次的乘法数加在一起，结果仅仅是 1204 万，大大减小了计算的成本
 
@@ -1695,13 +1695,13 @@ Inception 有一个问题就是计算成本的问题，我们可以通过计算�
 
 #### 4.2.7 Inception network
 
-![DeepLearning36](../img/Deep_Learning/DL36.png)
+![DeepLearning36](../img/deep-learning/DL36.png)
 
 按照上面的思路，$3 \times 3$ 和 $5 \times 5$ 都增加一个 $1 \times 1$ 层以减少计算成本，最大池化后也加一个 $1 \times 1$ 以降低通道数，这就形成了一个 Inception module
 
 那整个 Inception Network 是如何建立的呢？
 
-![DeepLearning37](../img/Deep_Learning/DL37.png)
+![DeepLearning37](../img/deep-learning/DL37.png)
 
 很明显，这是由一个一个的 Inception Network 组成的，只不过某些地方有些最大池化层，而且在中间的隐藏层有两处直接引出、经过全连接层、Softmax 得出结果，它确保了即便是隐藏单元和中间层也参与了特征计算，起到一种调整的效果，并且能防止网络发生过拟合
 
@@ -1717,7 +1717,7 @@ Inception 有一个问题就是计算成本的问题，我们可以通过计算�
 
 比如我们建立一个猫咪检测器，用来区分 猫 Tigger、猫 Misty，很明显这是一个三分类问题，不考虑 Tigger 和 Misty 同镜的情况的话，有着 Tigger 、 Misty 、 other 三种情况，可以最后使用 Softmax 进行输出，我们可以从 ImageNet 上进行迁移
 
-![DeepLearning38](../img/Deep_Learning/DL38.png)
+![DeepLearning38](../img/deep-learning/DL38.png)
 
 当我们数据量比较少的时候，我们可以将其网络和权重都拿来，拿掉最后一层换成我们自己的 Softmax 层，利用该权重初始化其它层并且冻结起来，也就是并不更新其参数（只需要根据框架传入参数就可以啦，比如 `trainableParameter=0`、`freeze=1`这样），只更新最后一层的参数
 
@@ -1733,9 +1733,9 @@ Inception 有一个问题就是计算成本的问题，我们可以通过计算�
 
 这里依然以猫分类器为例
 
-- 水平镜像 猫翻转后还是猫
-- 随机裁剪 从原图中随机剪裁出一部分图片
-- 色彩转换 对颜色略微做下变换，比如 $RGB$ 分别 $(-20, +20, +20)$ ， $G$ 和 $B$ 的增加使得颜色略偏黄，可以模拟阳光的效果，当然这里 $RGB$ 的变换程度满足一定分布而不是固定的值，另外可以试下 $PCA$ 变换以更好地实现色彩转换
+-  水平镜像 猫翻转后还是猫
+-  随机裁剪 从原图中随机剪裁出一部分图片
+-  色彩转换 对颜色略微做下变换，比如 $RGB$ 分别 $(-20, +20, +20)$ ， $G$ 和 $B$ 的增加使得颜色略偏黄，可以模拟阳光的效果，当然这里 $RGB$ 的变换程度满足一定分布而不是固定的值，另外可以试下 $PCA$ 变换以更好地实现色彩转换
 
 原图是保存在硬盘上的，我们通常用一个或多个 CPU 线程对图片进行增强处理，形成一个 $batch$ 或者 $mini-batch$ ，然后将其交给 CPU 或 GPU 的线程来训练，这使得增强和训练可以并行
 
@@ -1749,8 +1749,8 @@ Inception 有一个问题就是计算成本的问题，我们可以通过计算�
 
 一些能在基准测试中表现更好的技巧：
 
-- 集成 独立训练多个网络，并平均化他们的输出
-- $Multi-crop$ 将数据扩充，比如 $10-crop$ ，是取原图中间、左上、右上、左下、右下五张图以及他们的镜像图组成的 10 张图来测试
+-  集成 独立训练多个网络，并平均化他们的输出
+-  $Multi-crop$ 将数据扩充，比如 $10-crop$ ，是取原图中间、左上、右上、左下、右下五张图以及他们的镜像图组成的 10 张图来测试
 
 但这些技巧并不适合用在生产系统上，尽管其在基准测试和竞赛上做的很好
 
@@ -1768,10 +1768,10 @@ Inception 有一个问题就是计算成本的问题，我们可以通过计算�
 
 很明显，现在我们不仅要输出图片内有什么东西，还要输出这个东西在哪，比如说一个自动驾驶系统，我们需要检测的对象有：
 
-- 行人
-- 其他车辆
-- 摩托车
-- 仅有背景
+-  行人
+-  其他车辆
+-  摩托车
+-  仅有背景
 
 很明显，如果说是分类问题的话，这就是简单的四分类问题，但如何额外输出对象的位置呢？简单的想法就是……额外加输出，这里我们需要的那个框需要位置和大小，也就是中心坐标 $(b_x, b_y)$ ，高 $b_h$ ，宽 $b_w$ （图片左上角 $(0, 0)$ ，右下角 $(1, 1)$）
 
@@ -1825,19 +1825,19 @@ $$
 
 所以我们需要改进下算法啦，不过在那之前，我们先学下如何使用卷积网络实现全连接层
 
-![DeepLearning39](../img/Deep_Learning/DL39.png)
+![DeepLearning39](../img/deep-learning/DL39.png)
 
 首先，图的上半部分很明显是我们原来使用的卷积+全连接神经网络，现在我们在全连接这里稍稍变换下，比如卷积层最后输出 $5 \times 16 \times 16$ 的图片，如果直接全连接就是线性化输出 400 个结点，现在我们使用 $5 \times 5 \times$ 的 filter 对其卷积，也就是和图片一样大的 filter ，很明显，这样会将所有像素点变换成一个像素点，当然，我们可是要使用 400 个 filter 的，这样就可以输出 $1 \times 1 \times 400$ 的结点啦
 
 下一步，使用 $1 \times 1$ 卷积，我们已经知道这就相当于在信道之间建立全连接层，而这个时候像素点可是 $1 \times 1$ 的啊，这就和真正的全连接层完全一样啦，如此重复几次完成原来 FC 的任务，最后的输出也是一样哒
 
-![DeepLearning40](../img/Deep_Learning/DL40.png)
+![DeepLearning40](../img/deep-learning/DL40.png)
 
 我们现在考虑从 $16 \times 16$ 的图片中以 $2$ 为步长计算 $14 \times 14$ 小图块的情况，上图上半部分是我们对每个小图块的处理情况，我们用相同的方法处理整张图片的话，会得到一系列输出，我们很容易看到，最后左上角的小输出就是对应了原图左上角图块的输出，另外三个自然就是其他三个小图块的输出啦
 
-![DeepLearning42](../img/Deep_Learning/DL42.png)
+![DeepLearning42](../img/deep-learning/DL42.png)
 
-![DeepLearning41](../img/Deep_Learning/DL41.png)
+![DeepLearning41](../img/deep-learning/DL41.png)
 
 最后我们再看一下这个实现过程，$28 \times 28$ 的图片经过上面的卷积后生成了 $8 \times 8 \times 4$ 的输出，也就分别对应下面图片上各个小图块的计算结果，只不过这样我们避免了对重复部分的计算，提高了计算效率，不过它还有一个问题就是边界框的位置可能不太准确（只考虑哪个框里有而没考虑到底在哪个具体的位置）
 
@@ -1845,7 +1845,7 @@ $$
 
 我们现在试下新的算法——YOLO(You only look once) 算法
 
-![DeepLearning43](../img/Deep_Learning/DL43.png)
+![DeepLearning43](../img/deep-learning/DL43.png)
 
 首先，将图分成几个部分，比如这里是 $3 \times 3$ 份（实际应用中一般更精细，比如 $19 \times 19$）
 
@@ -1857,7 +1857,7 @@ $$
 
 #### 4.3.6 Intersection over union
 
-![DeepLearning44](../img/Deep_Learning/DL44.png)
+![DeepLearning44](../img/deep-learning/DL44.png)
 
 我们需要一个度量识别准确率的参数，这样可以更好地评估算法的准确度，比如我们用对象图块与输出图块区域的交集比上它们的并集，就可以得到一个可以评估准确度的参数，很明显，当两者完全重合时是最大值 1 ，否则都会比 1 小，我们称之为交并比（$loU$）
 
@@ -1867,13 +1867,13 @@ $$
 
 非最大值抑制，听名字貌似能了解到它大概是在干嘛
 
-![DeepLearning46](../img/Deep_Learning/DL46.png)
+![DeepLearning46](../img/deep-learning/DL46.png)
 
 因为每个方块都有自己的输出，每个方块都可能认为自己这里有目标（或者说目标的中点），这就导致了同一个目标重复标记的情况
 
 （下面以只检测车为例）
 
-![DeepLearning45](../img/Deep_Learning/DL45.png)
+![DeepLearning45](../img/deep-learning/DL45.png)
 
 我们可以这样去掉重复标记的目标，首先我们将交并比 $p_c$ （很明显我们将 $p_c$ 由 0 和 1 换成交并比会更灵活些）小于某个阈值的标记都去掉，因为那些都是没有识别出来的
 
@@ -1885,19 +1885,19 @@ $$
 
 #### 4.3.8 Anchor Boxes
 
-![DeepLearning47](../img/Deep_Learning/DL47.png)
+![DeepLearning47](../img/deep-learning/DL47.png)
 
 （这里仍然以 $3 \times 3$ 为例）
 
 到现在我们还只能解决某个格子内出现一个对象的问题，如果一个格子内出现多个对象要怎么做呢？
 
-![DeepLearning48](../img/Deep_Learning/DL48.png)
+![DeepLearning48](../img/deep-learning/DL48.png)
 
 我们可以构造一些 $Anchor box$ ，这里为了方便就先使用 2 个，我们现在将各个对象匹配到最适合（根据交并比）它的 $Anchor box$ 下，比如前面那个重叠的格子内， $Anchor box 1$ 检测出来的是行人，而 $Anchor box 2$ 检测出来的是车辆，但要如何分配他们的输出呢？
 
 我们知道我们原来每个格子输出 8 维的数据，现在我们每个格子的各个 $Anchor box$ 都输出一组数据，将它们数据列在一起，比如这里就是 16 维的数据
 
-![DeepLearning49](../img/Deep_Learning/DL49.png)
+![DeepLearning49](../img/deep-learning/DL49.png)
 
 这里上半部分（$Anchor box 1$）的输出就会是 $p_c = 1$，$b_x,b_y,b_h,b_w$ ， $c_1=1,c_2=0,c_3=0$ ，而下半部分（$Anchor box 2$）的输出就会是 $p_c = 1$，$b_x,b_y,b_h,b_w$ ， $c_1=0,c_2=1,c_3=0$
 
@@ -1915,15 +1915,15 @@ $$
 
 （以 $3 \times 3$ 划分、2 个$Anchor box$ 为例）
 
-![DeepLearning50](../img/Deep_Learning/DL50.png)
+![DeepLearning50](../img/deep-learning/DL50.png)
 
 如何构造训练集？貌似不用多说
 
-![DeepLearning51](../img/Deep_Learning/DL51.png)
+![DeepLearning51](../img/deep-learning/DL51.png)
 
 数据的输出也是这样的
 
-![DeepLearning52](../img/Deep_Learning/DL52.png)
+![DeepLearning52](../img/deep-learning/DL52.png)
 
 当然我们也可以使用非最大值抑制，当然每个格子都会输出自己的两个预测，但是某些“不自信”（小于某个交并比）的输出就自动“退出”了，之后循环运行非最大值抑制，最后就剩下我们需要的对象啦
 
@@ -1931,7 +1931,7 @@ $$
 
 我们知道滑动窗口的方法会很慢（尚未使用一次卷积的方法的时候），需要对整张图片各个区域都进行遍历，那么我们能否找到一些区域，尽可能地略去那些空的背景区域以减少运算量呢
 
-![DeepLearning53](../img/Deep_Learning/DL53.png)
+![DeepLearning53](../img/deep-learning/DL53.png)
 
 我们可以使用某些算法从图片中获得色块，然后从色块中获取一些候选区域，之后卷积算法只在这些区域上跑就好了，这种算法称为 $R-CNN$
 
@@ -1951,11 +1951,11 @@ $$
 
 当然，我们这里的重点是人脸识别而不是活物检测，下面区分两个概念
 
-- 人脸验证（face verification）
+-  人脸验证（face verification）
 
 人脸验证要做的是，输入一张图片与其对应的姓名（或者 ID），那么该系统会输出对还是错，所以我们又称其为一对一的问题
 
-- 人脸识别（face recognition）
+-  人脸识别（face recognition）
 
 人脸识别所要做的是，识别一张图片与一堆姓名的对应关系，所以又称一对多（$1:K$）问题
 
@@ -1999,7 +1999,7 @@ $Siamese Network$ 所完成的就是我们刚刚所说的那种验证方法
 
 由于我们最后要计算的两张图片的差异值，我们这里的一种想法是每组数据 ��� 使用三张图片，也就是三元组
 
-![DeepLearning54](../img/Deep_Learning/DL54.png)
+![DeepLearning54](../img/deep-learning/DL54.png)
 
 我们称上面左侧第一张图片是 Anchor ，第二张是 Positive ，Positive 和 Anchor 会是同一个人，而右侧第二张图片称为 Negative 它与 Anchor 是不同的两个人，我们简称这三张图片为 $A\ P\ N$
 
@@ -2023,7 +2023,7 @@ $Siamese Network$ 所完成的就是我们刚刚所说的那种验证方法
 
 这里使用的是将人脸识别变成一个二分类方法，也就是，如果输入的两张图片是同一张图片的话，我们输出 1，而不同则输出 0
 
-![DeepLearning55](../img/Deep_Learning/DL55.png)
+![DeepLearning55](../img/deep-learning/DL55.png)
 
 我们将两张图片分别输入同一个神经网络，最后输出两组特征向量值，然后再将这两组向量输入一个神经网络，最后使用 logistics 获得 最终的输出
 
@@ -2033,7 +2033,7 @@ $Siamese Network$ 所完成的就是我们刚刚所说的那种验证方法
 
 #### 4.4.6 What is neural style transfer?
 
-![DeepLearning56](../img/Deep_Learning/DL56.png)
+![DeepLearning56](../img/deep-learning/DL56.png)
 
 看图就知道啦
 
@@ -2047,23 +2047,23 @@ $Siamese Network$ 所完成的就是我们刚刚所说的那种验证方法
 
 首先我们从第一层取出 9 个 filter ，看其激活值较高的图块或者图片是什么
 
-![DeepLearning57](../img/Deep_Learning/DL57.png)
+![DeepLearning57](../img/deep-learning/DL57.png)
 
 首先我们看第一层，我们能看到，左上角的 filter 检测出来的特征大概类似于右面的这种斜线特征，第 2 、3 个也检测出来类似地特征，第 4 个大概检测出来了橙色，其他的大概都是形状、边缘、颜色等等的特征
 
-![DeepLearning58](../img/Deep_Learning/DL58.png)
+![DeepLearning58](../img/deep-learning/DL58.png)
 
 我们再看第二层，很容易发现，第二层检测的特征已经复杂的多了，比如第二个就是检测一条一条这种，第六个就是检测左面有点圆形这种
 
-![DeepLearning59](../img/Deep_Learning/DL59.png)
+![DeepLearning59](../img/deep-learning/DL59.png)
 
 第三层，可检测的特征更加复杂了，第一个可以检测格子状的东西，第五个已经可以检测轮胎这样的了
 
-![DeepLearning60](../img/Deep_Learning/DL60.png)
+![DeepLearning60](../img/deep-learning/DL60.png)
 
 第四层，第一个已经可以检测出来狗了，很吃惊吧，只不过这里的狗貌似都差不多，第三个大概是水，第六个大概是细长的鸟腿
 
-![DeepLearning61](../img/Deep_Learning/DL61.png)
+![DeepLearning61](../img/deep-learning/DL61.png)
 
 第五层，已经可以检测出来更多种的图片了……
 
@@ -2079,7 +2079,7 @@ $J(G) = \alpha J_{content}(C, G) + \beta J_{style}(S, G)$
 
 我们要做的就是首先随机生成一张图片（比如 $100 \times 100 \times 3$），然后使用梯度递降，$G = G - \frac{\partial}{\partial G} J(G)$
 
-![DeepLearning62](../img/Deep_Learning/DL62.png)
+![DeepLearning62](../img/deep-learning/DL62.png)
 
 上面就是对图片的优化过程了，前两张是 $C$ 和 $S$ ，第三张是初始化的白噪声图，后面是不断优化生成的图片
 
@@ -2101,7 +2101,7 @@ $J(G) = \alpha J_{content}(C, G) + \beta J_{style}(S, G)$
 
 那么什么是图片的风格呢？
 
-![DeepLearning63](../img/Deep_Learning/DL63.png)
+![DeepLearning63](../img/deep-learning/DL63.png)
 
 我们这里取神经网络某个隐藏层进行分析，我们知道，每个通道是一个过滤器的输出，而每种过滤器代表了某种检测对象，所以每个通道就对应了原图中各个区域内是否有该特征
 
@@ -2119,8 +2119,8 @@ $J(G) = \alpha J_{content}(C, G) + \beta J_{style}(S, G)$
 
 这样我们就能分别得到 $S$ 和 $G$ 的风格了，分别是
 
-- $G_{kk'}^{[l](S)} = \sum \limits_{i=1}^{n_H^{[l]}} \sum \limits_{j=1}^{n_W^{[l]}} a_{i, j, k}^{[l](S)} a_{i, j, k'}^{[l](S)}$
-- $G_{kk'}^{[l](G)} = \sum \limits_{i=1}^{n_H^{[l]}} \sum \limits_{j=1}^{n_W^{[l]}} a_{i, j, k}^{[l](G)} a_{i, j, k'}^{[l](G)}$
+-  $G_{kk'}^{[l](S)} = \sum \limits_{i=1}^{n_H^{[l]}} \sum \limits_{j=1}^{n_W^{[l]}} a_{i, j, k}^{[l](S)} a_{i, j, k'}^{[l](S)}$
+-  $G_{kk'}^{[l](G)} = \sum \limits_{i=1}^{n_H^{[l]}} \sum \limits_{j=1}^{n_W^{[l]}} a_{i, j, k}^{[l](G)} a_{i, j, k'}^{[l](G)}$
 
 然后我们比较这两个风格矩阵就好啦
 
@@ -2178,7 +2178,7 @@ Harry Potter and Hermione Granger invented a new spell.
 
 然后怎么来表示呢？
 
-![DeepLearning64](../img/Deep_Learning/DL64.png)
+![DeepLearning64](../img/deep-learning/DL64.png)
 
 我们建立一个词汇表，将所有单词罗列出来，比如如图上所示 $a$ 是第 1 个，$and$ 是第 367 个等等
 
@@ -2190,7 +2190,7 @@ Harry Potter and Hermione Granger invented a new spell.
 
 就上面的例子而言，如果我们使用传统的神经网络的话，输入向量维度不同、参数过多，而且学习到的东西并不共享
 
-![DeepLearning65](../img/Deep_Learning/DL65.png)
+![DeepLearning65](../img/deep-learning/DL65.png)
 
 循环神经网络是逐步对每个词汇扫描，第一个时间步，第一个单词经过神经网络输出 $\hat{y}^{<1>}$ ，并且其激活值 $a^{<1>}$ 也会参与下一层的运算，这就使得每个时间步都会向后传递
 
@@ -2234,15 +2234,15 @@ $\hat{y}^{<t>} = g_2(W_{y}a^{<t>} + b_y)$
 
 和传统神经网络一样，反向传播就是逆着前向传播逐渐进行的
 
-![DeepLearning66](../img/Deep_Learning/DL66.png)
+![DeepLearning66](../img/deep-learning/DL66.png)
 
-![DeepLearning67](../img/Deep_Learning/DL67.png)
+![DeepLearning67](../img/deep-learning/DL67.png)
 
 #### 5.1.5 Different types of RNNs
 
 我们在 5.1.1 中提到了很多的应用，但是很明显，大多数并不适用前面的模型，因为他们的 $T_x \not= T_y$，这需要我们适当修改下
 
-![DeepLearning68](../img/Deep_Learning/DL68.png)
+![DeepLearning68](../img/deep-learning/DL68.png)
 
 - 一对一的问题我们以前就可以解决了
 - 一对多，比如音乐的生成，我们输入一个整数代表音乐的类型或者什么都不输入，它会为我们生成一系列音符序列，很明显，后面的时间布并没有输入，不过我们通常会将前一层的输出喂给下一层
@@ -2268,7 +2268,7 @@ $\hat{y}^{<t>} = g_2(W_{y}a^{<t>} + b_y)$
 
 这里以 "Cats average 15 hours of sleep a day." 这句话为例
 
-![DeepLearning69](../img/Deep_Learning/DL69.png)
+![DeepLearning69](../img/deep-learning/DL69.png)
 
 首先，我们从一个零向量开始，预测第一个词，所以第 0 个时间步输入 $x^{<1>} = 0$ ，其输出期待为 $y^{<1>}$ 也就是 "cats"（用 Softmax 就好），相应地，它会输出各个词的概率，可能这里 "cat" 的概率会很高
 
@@ -2343,7 +2343,7 @@ $$
 
 #### 5.1.10 LSTM (long short term memory) unit
 
-![DeepLearning70](../img/Deep_Learning/DL70.png)
+![DeepLearning70](../img/deep-learning/DL70.png)
 
 现在我们使用了三个门，更新门、遗忘门、输出门，另外， $c^{<t>}$ 也不等于 $a^{<t>}$ 了，他们各占据一条线进行传递
 
@@ -2355,7 +2355,7 @@ LSTM 是比 GRU 更早的模型，它比 GRU 更复杂也更灵活，GRU 是对�
 
 我们知道，传统 RNN 只构建了单向的传播路径，并不会考虑后面的几个单词，所以我们就需要构建双向的 BRNN
 
-![DeepLearning71](../img/Deep_Learning/DL71.png)
+![DeepLearning71](../img/deep-learning/DL71.png)
 
 和 RNN 相比，只不过多了一个反向的连接，我们现在 $\hat{y}^{<t>} = g(W_y [\overrightarrow{a}^{<t>}, \overleftarrow{a}^{<t>}] + b_y)$
 
@@ -2363,7 +2363,7 @@ LSTM 是比 GRU 更早的模型，它比 GRU 更复杂也更灵活，GRU 是对�
 
 #### 5.1.12 Deep RNNs
 
-![DeepLearning72](../img/Deep_Learning/DL72.png)
+![DeepLearning72](../img/deep-learning/DL72.png)
 
 将每个单元都变成深层，且每一层都与下一个时间步相连接，但是往往这样的连接层只有 3 层，因为有着时间的维度，RNN 会变得相当的大，不过我们可以在输出前建立几层，只不过不在时间步上建立连接
 
@@ -2373,7 +2373,7 @@ LSTM 是比 GRU 更早的模型，它比 GRU 更复杂也更灵活，GRU 是对�
 
 我们一直使用 one-hot 向量来表示一个词汇，但是这样显然是不太好用的，因为任何两个词之间的距离都是一样的，比如说，orange 和 apple 与 orange 和 king 之间的距离是一样的，但是我们知道，apple 和 orange 之间的距离应该更小些，因为它们有着很多的相似之处，如何做到这一点呢？
 
-![DeepLearning73](../img/Deep_Learning/DL73.png)
+![DeepLearning73](../img/deep-learning/DL73.png)
 
 我们可以使用一个向量来表示一个词，比如，第一个维度表示他的性别，第二个维度表示他有多高贵等等……（比如说我们弄了 300 个维度）
 
@@ -2381,7 +2381,7 @@ LSTM 是比 GRU 更早的模型，它比 GRU 更复杂也更灵活，GRU 是对�
 
 我们将这样 300 维度的数据使用 t-SNE 算法在二维空间表示出来，就会有下面这样的结果
 
-![DeepLearning74](../img/Deep_Learning/DL74.png)
+![DeepLearning74](../img/deep-learning/DL74.png)
 
 这样，各个词语之间的关系一目了然，每个词像嵌入在 300 维空间的某个位置，故称其为词嵌入
 
@@ -2427,7 +2427,7 @@ $||u-v||^2$
 
 我们有一个句子 "I want a glass of orange \_\_\_\_"
 
-![DeepLearning75](../img/Deep_Learning/DL75.png)
+![DeepLearning75](../img/deep-learning/DL75.png)
 
 我们通过嵌入矩阵 E 将他们转化为特征向量，然后我们将他们喂入一个 Softmax 层，用来预测最后一个词的 one-hot 向量
 
@@ -2501,7 +2501,7 @@ $||u-v||^2$
 
 #### 5.3.2 Picking the most likely sentence
 
-![DeepLearning76](../img/Deep_Learning/DL76.png)
+![DeepLearning76](../img/deep-learning/DL76.png)
 
 seq2seq 和前面的语言模型相比，其实就多了个 encoder 的初始值嘛，但是细节上也是有些区别的
 
@@ -2581,7 +2581,7 @@ $arg max \frac{1}{T_y^\alpha}\sum\limits_{t=1}^{T_y} \log P(y^{<t>} |x, y^{<1>},
 
 下面我们简单了解下注意力模型
 
-![DeepLearning77](../img/Deep_Learning/DL77.png)
+![DeepLearning77](../img/deep-learning/DL77.png)
 
 我们是将源语句经过双向 RNN 输出一些结果，然后将他们的结果通过权重链接到输出的 RNN 上，比如 $\alpha^{<1,1>}$ 代表源语句第一个词对输出结果第一个词的影响会有多大
 
@@ -2593,11 +2593,11 @@ $arg max \frac{1}{T_y^\alpha}\sum\limits_{t=1}^{T_y} \log P(y^{<t>} |x, y^{<1>},
 
 我们如何通过一个 seq2seq 模型构建一个语音识别模型呢？
 
-![DeepLearning78](../img/Deep_Learning/DL78.png)
+![DeepLearning78](../img/deep-learning/DL78.png)
 
 其中一种方法就是使用前面提到的注意力模型
 
-![DeepLearning79](../img/Deep_Learning/DL79.png)
+![DeepLearning79](../img/deep-learning/DL79.png)
 
 还有一种称为 CTC 损失函数的方法，它是通过允许输出一个被扩增的文本段实现的，原来 19 个字符被扩增到和输入序列等长的 1000 字符
 
@@ -2605,7 +2605,7 @@ $arg max \frac{1}{T_y^\alpha}\sum\limits_{t=1}^{T_y} \log P(y^{<t>} |x, y^{<1>},
 
 如何训练一个语音助手对触发字作出响应？
 
-![DeepLearning80](../img/Deep_Learning/DL80.png)
+![DeepLearning80](../img/deep-learning/DL80.png)
 
 我们可以在这样一个语音序列上有触发字的位置标记为 1 ，其余位置标记为 0 ，然后训练就好啦
 
