@@ -287,7 +287,7 @@ tags:
 
 ### 2.3 交换技术
 
-![](../img/Computer_Network/CN20.png)
+![](../img/computer-network/CN20.png)
 
 #### 2.3.1 电路交换
 
@@ -392,7 +392,7 @@ tags:
 
 #### 2.4.1 数字数据调制为模拟信号
 
-![](../img/Computer_Network/CN17.png)
+![](../img/computer-network/CN17.png)
 
 -  幅移键控 (ASK) 容易实现，但抗干扰能力差
 -  频移键控 (FSK) 容易实现，且抗干扰能力强，采用广泛
@@ -405,7 +405,7 @@ tags:
 
 #### 2.4.3 数字数据编码为数字信号
 
-![](../img/Computer_Network/CN18.png)
+![](../img/computer-network/CN18.png)
 
 -  非归零码（NRZ）
    -  无检错功能
@@ -466,7 +466,7 @@ tags:
 
 ### 2.6 多路复用技术
 
-![](../img/Computer_Network/CN19.png)
+![](../img/computer-network/CN19.png)
 
 #### 2.6.1 时分复用
 
@@ -830,7 +830,7 @@ PPP 帧信息段长度范围为 $[0, 1500]$ ，因为它并不需要 CSMA/CD 协
 
 -  IPv4 分组的格式
 
-   ![](../img/Computer_Network/CN24.png)
+   ![](../img/computer-network/CN24.png)
 
    -  版本 IP 的版本 占 4bits，当前广泛使用 IPv4
    -  首部长度 占 4bits，==以 4Bytes 为单位==，值范围 5~15，也即 20Bytes 固定首部，40Bytes 可选部分
@@ -859,7 +859,7 @@ PPP 帧信息段长度范围为 $[0, 1500]$ ，因为它并不需要 CSMA/CD 协
 
 -  IP 数据报分片
 
-   ![copyright:Wangdao](../img/Computer_Network/CN21.png)
+   ![copyright:Wangdao](../img/computer-network/CN21.png)
 
 需要注意各个长度的最小单位，比如这里片偏移以 8B 为单位，所以，除最后一个片外，其它所有片中的有效数据载荷都是 8 的倍数
 
@@ -877,29 +877,9 @@ PPP 帧信息段长度范围为 $[0, 1500]$ ，因为它并不需要 CSMA/CD 协
 
    > 如果多项匹配，应按照**最长前缀匹配**转发，这样转发是最优的路径
 
-@flowstart
-op1=>operation: N = D & Netmask
-cond2=>condition: N in Adjacent?
-end3=>end: Direct delivery
-cond5=>condition: D in Specific route?
-end6=>end: send to NAR
-cond7=>condition: N in route?
-end8=>end: send to NAR
-cond9=>condition: has default route?
-end10=>end: send to default route
-end11=>end: throw error!
-e=>end: End
-
-op1->cond2
-cond2(yes)->end3
-cond2(no)->cond5
-cond5(yes)->end6
-cond5(no)->cond7
-cond7(yes)->end8
-cond7(no)->cond9
-cond9(yes)->end10
-cond9(no)->end11
-@flowend
+   <p align="center">
+      <img src="../img/computer-network/CN25.png" />
+   </p>
 
 ::: tip
 
@@ -971,7 +951,7 @@ cond9(no)->end11
 
       利用隧道技术（通过公用网的时候，将专用网内 IP 数据报封装入数据部分，首部写入公网 IP 等信息）
 
-      ![](../img/Computer_Network/CN02.png)
+      ![](../img/computer-network/CN02.png)
 
 *  路由器上有一个 IP 的转换表，在传输层有对**端口号**的管理，从而确定路由器发送到哪个内部节点
 
@@ -1076,7 +1056,7 @@ cond9(no)->end11
    -  链路状态更新
    -  链路状态确认
 -  OSPF 的基本操作
-   ![](../img/Computer_Network/CN01.png)
+   ![](../img/computer-network/CN01.png)
    另外， OSPF 使用的是**可靠的洪泛法**发送更新分组
 -  优缺点
    -  当互联网规模很大时，OSPF 协议要比 RIP 协议好得多
@@ -1328,7 +1308,7 @@ IP 多播，也称 IP 组播，可以更好地支持一对多通信（向 90 个
 
 #### 5.1.1 进程之间的通信
 
-![](../img/Computer_Network/CN03.png)
+![](../img/computer-network/CN03.png)
 
 运输层向它上面的应用层提供通信服务，它属于**面向通信部分的最高层，同时也是用户功能的最底层**
 
@@ -1338,7 +1318,7 @@ IP 多播，也称 IP 组播，可以更好地支持一对多通信（向 90 个
 
 #### 5.1.2 基于端口的复用与分用
 
-![](../img/Computer_Network/CN04.png)
+![](../img/computer-network/CN04.png)
 
 -  发送方不同的应用进程的数据都可以封装在运输层协议中，使用端口号进行标识，此称为**复用**
 -  接收方的运输层能够根据端口号将这些数据正确交付给目的应用进程，此称为**分用**
@@ -1357,7 +1337,7 @@ IP 多播，也称 IP 组播，可以更好地支持一对多通信（向 90 个
    -  传输单位： UDP 用户数据报
 
 > 一些网络层协议与运输层协议的对应关系
-> ![](../img/Computer_Network/CN05.png)
+> ![](../img/computer-network/CN05.png)
 
 #### 5.1.4 运输层的端口
 
@@ -1409,7 +1389,7 @@ TCP：
 
 事实上 UDP 也只是在 IP 数据报服务的基础上增加了很少的内容。
 
-![](../img/Computer_Network/CN06.png)
+![](../img/computer-network/CN06.png)
 
 如图所示，它只增加了源端口号和目的端口号来完成复用和分用功能，此外还增加了长度和检验和，以提供简单的差错检测功能。
 
@@ -1452,7 +1432,7 @@ Socket = `IP : port`
 
 #### 5.3.3 TCP 报文段的首部格式
 
-![](../img/Computer_Network/CN08.png)
+![](../img/computer-network/CN08.png)
 
 20Bytes 固定首部，最多 60Bytes。
 
@@ -1525,7 +1505,7 @@ Socket = `IP : port`
 
 #### 5.4.2 连续 ARQ 协议
 
-![](../img/Computer_Network/CN07.png)
+![](../img/computer-network/CN07.png)
 
 窗口内的可以发送，每收到确认，窗口向前滑动
 
@@ -1553,7 +1533,7 @@ Socket = `IP : port`
 
 #### 5.5.1 以字节为单位的滑动窗口
 
-![](../img/Computer_Network/CN09.png)
+![](../img/computer-network/CN09.png)
 
 发送端可以像连续 ARQ 协议一样连续发送，只需要接收到累计确认就好。
 
@@ -1583,7 +1563,7 @@ $RTT_S = (1 - \alpha) \times RTT_S + \alpha \times RTT$
 
 #### 5.6.1 利用滑动窗口实现流量控制
 
-![](../img/Computer_Network/CN10.png)
+![](../img/computer-network/CN10.png)
 
 利用滑动窗口可以很容易的实现流量控制
 
@@ -1618,7 +1598,7 @@ $RTT_S = (1 - \alpha) \times RTT_S + \alpha \times RTT$
 cwnd 初始值为 1（单位不是 Byte，是 SMSS）
 
 -  慢开始和拥塞避免
-   ![copyright:Wangdao](../img/Computer_Network/CN22.png)
+   ![copyright:Wangdao](../img/computer-network/CN22.png)
 
    -  慢开始
 
@@ -1629,7 +1609,7 @@ cwnd 初始值为 1（单位不是 Byte，是 SMSS）
       cwnd 成线性增长，如果出现超时，则 ssthresh 变为**当前 cwnd** 的一半，cwnd 重新置为 1
 
 -  快重传和快恢复
-   ![copyright:Wangdao](../img/Computer_Network/CN23.png)
+   ![copyright:Wangdao](../img/computer-network/CN23.png)
 
    -  快重传
 
@@ -1657,7 +1637,7 @@ cwnd 初始值为 1（单位不是 Byte，是 SMSS）
 
 三报文握手
 
-![](../img/Computer_Network/CN12.png)
+![](../img/computer-network/CN12.png)
 
 -  客户端向服务器请求连接
 -  服务器发送同意连接
@@ -1667,7 +1647,7 @@ cwnd 初始值为 1（单位不是 Byte，是 SMSS）
 
 四报文握手
 
-![](../img/Computer_Network/CN13.png)
+![](../img/computer-network/CN13.png)
 
 -  客户端向服务器发送请求释放，进入**半关闭**状态
 -  服务器发送确认，并继续发送剩余数据
@@ -1737,7 +1717,7 @@ cwnd 初始值为 1（单位不是 Byte，是 SMSS）
 
 具体查询过程可参加下图
 
-![](../img/Computer_Network/CN15.png)
+![](../img/computer-network/CN15.png)
 
 ### 6.2 文件传送协议
 
@@ -1855,7 +1835,7 @@ HTTP/3 是基于 google 的 QUIC 协议的，而 QUIC 则是基于 UDP 的。
 系统调用 （system call）
 应用编程接口 API （Application Programming Interface）
 
-![](../img/Computer_Network/CN16.png)
+![](../img/computer-network/CN16.png)
 
 当然，UDP 服务器由于只提供无连接服务，因此不适用 listen 和 accept 系统调用
 

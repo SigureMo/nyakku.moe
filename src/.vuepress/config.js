@@ -39,7 +39,7 @@ module.exports = {
     // markdown-it-toc 的选项
     toc: { includeLevel: [1, 2, 3] },
     // markdown 插件
-    extendMarkdown: (md) => {
+    extendMarkdown: md => {
       md.set({ html: true })
       md.use(require('markdown-it-mark'))
       md.use(require('markdown-it-task-lists'))
@@ -87,8 +87,6 @@ module.exports = {
     ],
     // 悬挂小猫返回顶部
     ['go-top'],
-    // 流程图
-    ['flowchart'],
     // RSS 插件
     [
       'feed',

@@ -333,7 +333,7 @@ console.log(proxy.friend === proxy.friend) // false
 
 当然，Vue3 怎么会没想到这一点？解决方法也很简单，建立一个全局对象来存储已经创建过的 proxy 即可：
 
-```ts
+```ts{5-8}
 const proxyMap = new WeakMap<any>()
 
 function reactive<T extends object>(target: T): T
@@ -373,7 +373,7 @@ export default defineComponent({
          value: 0,
       })
 
-      const onClick = function () {
+      const onClick = function() {
          count.value++
       }
 
@@ -401,7 +401,7 @@ export default defineComponent({
    setup() {
       const count = ref(0)
 
-      const onClick = function () {
+      const onClick = function() {
          count.value++
       }
 
@@ -565,7 +565,7 @@ View.render = () => {
 
 那么 effect 中执行了什么呢？
 
-```js
+```ts
 let activeEffect: Function | undefined
 function effect(fn: Function) {
    const _effect = () => {
