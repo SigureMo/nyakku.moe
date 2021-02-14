@@ -20,12 +20,12 @@
     "markdown-it-task-lists": "^2.1.1",
     "markdown-it-vuepress-code-snippet-enhanced": "^1.0.1",
     "vuepress": "^1.8.1",
-    "vuepress-plugin-cursor-effects": "^1.0.0",
+    "vuepress-plugin-cursor-effects": "^1.0.1",
     "vuepress-plugin-dynamic-title": "^1.0.0",
     "vuepress-plugin-feed": "^0.1.9",
     "vuepress-plugin-go-top": "^1.0.4",
     "vuepress-plugin-meting": "^0.2.1",
-    "vuepress-plugin-ribbon": "^1.0.2",
+    "vuepress-plugin-ribbon": "^1.0.4",
     "vuepress-theme-meteorlxy": "^1.9.0"
   },
   "devDependencies": {
