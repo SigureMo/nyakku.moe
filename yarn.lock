@@ -7979,10 +7979,10 @@ vuepress-plugin-container@^2.0.2, vuepress-plugin-container@^2.1.2:
     "@vuepress/shared-utils" "^1.2.0"
     markdown-it-container "^2.0.0"
 
-vuepress-plugin-cursor-effects@^1.0.0:
-  version "1.0.0"
-  resolved "https://registry.yarnpkg.com/vuepress-plugin-cursor-effects/-/vuepress-plugin-cursor-effects-1.0.0.tgz#47bf74b4fe9fae923b2250ac18d15f5b3fddb6b7"
-  integrity sha512-4W61844jFi0L86wuBmLUnd9FEk32mD/ihcEo0nRTtCq0kkbqBEs02GJ3RkcpgIJmlxz20CrLxhljg3d3DfzC8Q==
+vuepress-plugin-cursor-effects@^1.0.1:
+  version "1.0.1"
+  resolved "https://registry.yarnpkg.com/vuepress-plugin-cursor-effects/-/vuepress-plugin-cursor-effects-1.0.1.tgz#7656f520a6ea1bf13ef91a7d890cdcf02475e9bc"
+  integrity sha512-dZZnqna0+svzaNkCPc6HpJZNDdgInf98XXVlSKdMZAH5c49SyxoO6Rk0eSAYLYmjKwGSY3eI71fCENLVEfS+bQ==
 
 vuepress-plugin-dehydrate@1.1.5:
   version "1.1.5"
@@ -8036,10 +8036,10 @@ vuepress-plugin-redirect@^1.2.3:
     "@shigma/stringify-object" "^3.3.0"
     vuepress-plugin-dehydrate "1.1.5"
 
-vuepress-plugin-ribbon@^1.0.2:
-  version "1.0.2"
-  resolved "https://registry.yarnpkg.com/vuepress-plugin-ribbon/-/vuepress-plugin-ribbon-1.0.2.tgz#2845674049939e1b2a4d285abc685abb8b5490ed"
-  integrity sha512-r9X3994eNsQtf/t7ArfuJsl8SUtuJtEMuIKfRWoUV2XLg7N43ypUnKwCSXkLXSVeBBnM4v9X7QwJJLqbFlMQ9A==
+vuepress-plugin-ribbon@^1.0.4:
+  version "1.0.4"
+  resolved "https://registry.yarnpkg.com/vuepress-plugin-ribbon/-/vuepress-plugin-ribbon-1.0.4.tgz#5a35311f76ebde1c01f0113ed24ccd5f46432bae"
+  integrity sha512-U5kqQo66/zpTwosiN/QaMYOmQ25Dk5xbGH2cjXrM62DbyXyEtM/VhZ1n+zkP+huRpcABaMghiPhlw3YjHR9CfA==
 
 vuepress-plugin-serve@^2.0.0:
   version "2.0.4"
