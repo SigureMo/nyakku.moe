@@ -7979,10 +7979,10 @@ vuepress-plugin-container@^2.0.2, vuepress-plugin-container@^2.1.2:
     "@vuepress/shared-utils" "^1.2.0"
     markdown-it-container "^2.0.0"
 
-vuepress-plugin-cursor-effects@^1.0.1:
-  version "1.0.1"
-  resolved "https://registry.yarnpkg.com/vuepress-plugin-cursor-effects/-/vuepress-plugin-cursor-effects-1.0.1.tgz#7656f520a6ea1bf13ef91a7d890cdcf02475e9bc"
-  integrity sha512-dZZnqna0+svzaNkCPc6HpJZNDdgInf98XXVlSKdMZAH5c49SyxoO6Rk0eSAYLYmjKwGSY3eI71fCENLVEfS+bQ==
+vuepress-plugin-cursor-effects@^1.0.2:
+  version "1.0.2"
+  resolved "https://registry.yarnpkg.com/vuepress-plugin-cursor-effects/-/vuepress-plugin-cursor-effects-1.0.2.tgz#88154c5f049139dec7c26fa75e45cea115d90300"
+  integrity sha512-rFV47jvF7vL5tCFt9Whri85Z+Kr95ayV6JtPefWyP4dsSoUiMaxR5HSw8EY+Nb07EdjygQce3u0olTsoOciEFw==
 
 vuepress-plugin-dehydrate@1.1.5:
   version "1.1.5"
