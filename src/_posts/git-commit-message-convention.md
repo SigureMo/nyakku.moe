@@ -225,7 +225,7 @@ if (!releaseRE.test(msg) && !commitRE.test(msg)) {
 ## References
 
 1. [conventional-commit-types @d1fb9cc](https://github.com/commitizen/conventional-commit-types)
-2. [gitmoji @d0e30b2](http://gitmoji.dev/)
+2. [gitmoji @0026270](http://gitmoji.dev/)
 3. [程序员提交代码的 emoji 指南——原来表情文字不能乱用](https://www.h5jun.com/post/gitmoji.html)
 4. [用 gitmoji 来提交你的 git commit 吧](https://github.com/mytac/blogs/issues/2)
 5. [git commit 规范指南](https://segmentfault.com/a/1190000009048911?utm_source=tag-newest)
