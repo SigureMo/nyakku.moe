@@ -94,13 +94,6 @@ module.exports = {
         canonical_base: 'https://nyakku.moe',
       },
     ],
-    // GA 插件
-    [
-      '@vuepress/google-analytics',
-      {
-        ga: 'UA-164960376-1',
-      },
-    ],
     // Meting 插件
     [
       'meting',
@@ -198,17 +191,11 @@ module.exports = {
     ],
 
     // 评论配置，参考下方 [页面评论] 章节
-    comments: {
-      owner: 'SigureMo',
-      repo: 'notev',
-      clientId: '02c64bbb4f2a3b0ec621',
-      clientSecret: 'fb5ea1b5e6117ae25abb0459489f6a0359048d7f',
-      prefix: '💬 ',
-    },
+    comments: false,
 
     // 分页配置 (可选)
     pagination: {
-      perPage: 5,
+      perPage: 7,
     },
 
     // 默认页面（可选，默认全为 true）
