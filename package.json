@@ -5,7 +5,7 @@
     "serve": "vuepress build src && npx serve src/.vuepress/dist",
     "img:upload": "bash scripts/upload-img.sh"
   },
-  "author": "SigureMo",
+  "author": "Nyakku Shigure",
   "license": "CC-BY-NC-SA-4.0",
   "gitHooks": {
     "commit-msg": "node scripts/verifyCommit.js"
