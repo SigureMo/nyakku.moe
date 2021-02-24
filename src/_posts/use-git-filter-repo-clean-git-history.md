@@ -32,7 +32,7 @@ rm -rf .git/refs/original/
 git reflog expire --expire=now --all
 git gc --prune=now
 git gc --aggressive --prune=now
-git push origin master --force
+git push origin main --force
 ```
 
 emmm，就很麻烦

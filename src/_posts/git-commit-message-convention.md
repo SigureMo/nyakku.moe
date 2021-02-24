@@ -176,7 +176,7 @@ This reverts commit 667ecc1654a317a13331b17617d973392f415f02.
 
 在不是 `scope` 不太明显的场合，我一般都把 `scope` 省略掉，以免长度过长
 
-为了能够在每次提交时自动检测我的 commit 是否满足规范，我参考 [vite](https://github.com/vitejs/vite/blob/master/scripts/verifyCommit.js) 中的检测方式，在项目中利用 GitHook 来检测其规范性
+为了能够在每次提交时自动检测我的 commit 是否满足规范，我参考 [vite](https://github.com/vitejs/vite/blob/main/scripts/verifyCommit.js) 中的检测方式，在项目中利用 GitHook 来检测其规范性
 
 首先使用 npm 或者 yarn 安装 [yorkie](https://github.com/yyx990803/yorkie)，这是 [@Evan](https://github.com/yyx990803) 的一个 [husky](https://github.com/typicode/husky) fork
 
@@ -226,8 +226,9 @@ if (!releaseRE.test(msg) && !commitRE.test(msg)) {
 ## References
 
 1. [conventional-commit-types @d1fb9cc](https://github.com/commitizen/conventional-commit-types)
-2. [gitmoji @8bd9853](http://gitmoji.dev/)
-3. [程序员提交代码的 emoji 指南——原来表情文字不能乱用](https://www.h5jun.com/post/gitmoji.html)
-4. [用 gitmoji 来提交你的 git commit 吧](https://github.com/mytac/blogs/issues/2)
-5. [git commit 规范指南](https://segmentfault.com/a/1190000009048911?utm_source=tag-newest)
-6. [优雅地提交你的 Git Commit Message](https://juejin.im/post/5afc5242f265da0b7f44bee4)
+2. [gitmoji](http://gitmoji.dev/)
+3. [gitmoji 改动追踪](https://github.com/carloscuesta/gitmoji/commits/master/src/data/gitmojis.json)
+4. [程序员提交代码的 emoji 指南——原来表情文字不能乱用](https://www.h5jun.com/post/gitmoji.html)
+5. [用 gitmoji 来提交你的 git commit 吧](https://github.com/mytac/blogs/issues/2)
+6. [git commit 规范指南](https://segmentfault.com/a/1190000009048911?utm_source=tag-newest)
+7. [优雅地提交你的 Git Commit Message](https://juejin.im/post/5afc5242f265da0b7f44bee4)
