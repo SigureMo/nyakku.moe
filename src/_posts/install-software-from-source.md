@@ -51,13 +51,7 @@ make install
 
 ## 5 配置环境变量
 
-编辑 `.bashrc`
-
-```bash
-vim ~/.bashrc
-```
-
-添加以下内容
+这里需要考虑你平时所使用的 shell，如果是 bash 的话，编辑 `~/.bashrc` 就好，zsh 就要编辑 `~/.zshrc` 咯～在最后添加以下内容就好
 
 ```
 export PATH="/home/username/software/node/bin:$PATH"
@@ -66,7 +60,7 @@ export PATH="/home/username/software/node/bin:$PATH"
 并重新 `source` 一下
 
 ```bash
-source ~/.bashrc
+source ~/.bashrc # or source ~/.zshrc
 ```
 
 ## References

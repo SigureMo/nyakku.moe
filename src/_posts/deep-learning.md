@@ -19,17 +19,6 @@ DeepLearning, Andrew Ng 慕课笔记
 
 ### 1.1 Introduction to DeepLearning
 
-#### 1.1.1 Welcome
-
-#### 1.1.2 What is a Neural Network
-
-#### 1.1.3 Supervised Learning with Neural Networks
-
-Structured Data ： Database
-Unstructured Data : Image Audio Text
-
-#### 1.1.4 Why is Deep Learning taking off?
-
 ![DeepLearning01](../img/deep-learning/DL01.png)
 
 > 数据量的增加，使得深度学习的优势越来越明显
@@ -38,10 +27,6 @@ Unstructured Data : Image Audio Text
 
 > 迭代过程需要的时间越长，所能实现的想法就越少，因此训练的算法改良对深度学习来说是一个很关键的问题。
 > 比如使用 sigmoid 函数作为激活函数时，过大的输入会使神经网络饱和，梯度下降算法越来越慢；改良为 ReLU 函数（修正线性单元）后，梯度下降的算法运行的更快，迭代时间相应就减少了很多
-
-#### 1.1.5 About this Course
-
-#### 1.1.6 Course Resources
 
 ### 1.2 Basics of Neural Network programming
 
@@ -74,14 +59,6 @@ Unstructured Data : Image Audio Text
 2. 所谓梯度下降，就是在每一个状态下沿着下降最快的方向降低
 3. 现在先不考虑 b，只考虑 w，我们很容易根据 J 对 w 的导数得到使得 J 下降的 w 的方向，所以我们根据这个“方向”对 w 进行调整，就像：$w -= \alpha \frac{dJ(w)}{dw}$，这里的$\alpha$称作学习率（learning rate），就是每次更新的步长
 4. 扩展到 w 和 b 的情况，我们每次迭代就需要执行$w -=  \alpha \frac{\partial J(w,b)}{\partial w}$和$b -=  \alpha \frac{\partial J(w,b)}{\partial b}$
-
-#### 1.2.5 Derivatives
-
-#### 1.2.6 More Derivative Examples
-
-#### 1.2.7 Computation Graph
-
-前向传播
 
 #### 1.2.8 Derivatives with a Computation Graph
 
@@ -188,10 +165,6 @@ A = σ(Z) # 对每个z求sigmoid
 1. 广播特性更多的是给我们带来了很大的灵活性，使我们写代码更加方便，但如果对广播特性并不了解的话，很容易出现我们不可预料的 bug
 2. 我们看`np.random.randn(5)`，你可能会以为他是一个一维的向量，但是通过 print 它和它的转置可以发现，他不过是一个数组而已我们也可以通过观察它的括号层数来判断它的维度
 3. 使用上面说的数组很容易出现不可预料的错误，可能你会在使用的时候以为他是一个向量，所以就……那么如何避免呢？我们尽量总是使用`np.random.randn(5, 1)`或者`np.random.randn(1, 5)`这样的代码，另外使用几个 assert(a.sharp == (5, 1))以保证没有写错，还有我们要敢于使用 a.resharp(1, 5)以保证生成的是你想要形状的矩阵
-
-#### 1.2.17 Quick tour of Jupyter/iPython Notebooks
-
-~~emmmmm，我选择暂时不安装，我还是更喜欢原生的 pyshell（idle）~~
 
 #### 1.2.18 Explanation of logistic regression cost function
 
@@ -1006,108 +979,6 @@ $$
 1. 损失函数，通常使用$L(\hat{y}, y) = -\sum_{j=1}^4 y_j log\hat{y}_j$
 2. 反向传播，只需要记住$dz^{[l]} = \hat{y} - y$，剩下的慢慢求偏导就好啦
 3. 当然，我们马上就要学习框架了，这使得只需要我们更加注重前向传播的逻辑与设计，而反向传播的求导什么的交给框架来做就好了
-
-#### 2.3.10 Deep Learning frameworks
-
-选择框架的标准：
-
-1. 简单易用，能够将线性代数库做较好的抽象
-2. 运行速度，这是我们一直都有提到的问题
-3. 开源
-
-一些推荐：
-
--  Caffe / Caffe2
--  CNTK
--  DL4J
--  Keras
--  Lasagne
--  mxnet
--  PaddlePaddle
--  TensorFlow
--  Theano
--  Torch
-
-#### 2.3.11 TensorFlow
-
-1. 首先是一个简单的例子，我们让 TensorFlow 找到使 Cost $(w-5)^2$最小的的参数$w$
-
-```Python
-import numpy as np
-import tensorflow as tf
-
-# 定义参数 w
-w = tf.Variable(0, dtype=tf.float32)
-# 定义 Cost function
-cost = tf.add(tf.add(w**2, tf.multiply(-10, w)), 25)
-# 定义所用训练方法和学习率，这里是使用梯度递降法与0.01的学习率
-train = tf.train.GradientDescentOptimizer(0.01).minimize(cost)
-# 下面几行是惯用的写法
-# 首先是创建全局变量
-init = tf.global_variables_initializer()
-# 之后创建一个TensorFlow session
-session = tf.Session()
-# 初始化全局变量
-session.run(init)
-# 下面将会将 w 初始化为0，但是并没有运行，所以 print 出来还是0
-print(session.run(w))
-
-
-# 我们运行一步训练过程（这里是梯度递降法）
-session.run(train)
-print(session.run(w))
-
-# 我们运行1000次再看看
-for i in range(1000):
-    session.run(train)
-print(session.run(w))
-# 应该已经很接近最终答案5了
-```
-
-2. 但我们如何像我们之前做的那样将数据喂给它呢？
-
-```Python
-import numpy as np
-import tensorflow as tf
-
-
-coefficients = np.array([[1.], [-20.], [25.]])
-
-w = tf.Variable(0, dtype=tf.float32)
-# 告诉 tf 数据格式，具体数据之后“喂”
-x = tf.placeholder(tf.float32, [3, 1])
-# 因为 tf 已经重载了很多的运算符，所以我们完全可以将这个式子写得好看些
-# cost = w**2 - 10*w + 25
-# 为了方便“喂”，把原来固定参数改成 x
-cost = x[0][0]*w**2 + x[1][0]*w +x[2][0]
-# 如果不想用梯度递降法而是使用 Adam 优化器等等，改掉这行就可以啦
-train = tf.train.GradientDescentOptimizer(0.01).minimize(cost)
-init = tf.global_variables_initializer()
-session = tf.Session()
-session.run(init)
-print(session.run(w))
-
-# 在这里慢慢“喂”数据，如果要用 mini-batch ，就用 feed_dict 喂入不同的子集
-session.run(train, feed_dict={x:coefficients})
-print(session.run(w))
-
-for i in range(1000):
-    session.run(train, feed_dict={x:coefficients})
-print(session.run(w))
-```
-
-3. 也许我们经常遇到 `with` 的形式，这都是一样的，只不过这样的代码更安全
-
-```Python
-with tf.Session() as session:
-    session.run(init)
-    print(session.run(w))
-    # And more...
-```
-
-4. 就像前面所说的，所有的反向传播求导法则已经在建立前向传播那行（cost=blabla）建立好了，乘啦加啦什么的，都在框架内做好了对应的求导法则，所以我们要做的就是搭搭前向传播，选选方案，改改超参数啦
-
-5. 更多请参见[TensorFlow 官网](https://tensorflow.google.cn/)
 
 ## 3 Structuring Machine Learning Projects
 
@@ -2136,10 +2007,6 @@ $J_{style}(S, G) = \sum \limits_l \lambda^{[l]} J_{style}^{[l]}(S, G)$
 
 $J(G) = \alpha J_{content}(C, G) + \beta J_{style}(S, G)$
 
-#### 4.4.11 1D and 3D generalizations of models
-
-一维、三维卷积操作和二维的一毛一样……
-
 ## 5 Sequence Models
 
 ::: tip 第五章哪里去了？
@@ -2620,4 +2487,3 @@ $Thank\ you,  Andrew\ Ng$
 1. [深度学习工程师 - deeplearning.ai - 网易云课堂](https://mooc.study.163.com/smartSpec/detail/1001319001.htm)
 2. [机器学习初学者](http://www.ai-start.com/)
 3. 《Python 神经网络编程》 Tariq Rashid
-4. [2017CS231n 斯坦福李飞飞视觉识别 - 网易云课堂](https://study.163.com/course/courseMain.htm?courseId=1004697005)
