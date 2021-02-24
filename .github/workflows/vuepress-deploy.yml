@@ -10,18 +10,18 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout 🛎️
+      - name: Checkout
         uses: actions/checkout@v2
         with:
           fetch-depth: 0
           submodules: true
 
-      - name: Setup Node.js 🔧
+      - name: Setup Node.js
         uses: actions/setup-node@v1
         with:
-          node-version: '14'
+          node-version: '15'
 
-      - name: Cache dependencies 🥡
+      - name: Cache dependencies
         uses: actions/cache@v2
         id: yarn-cache
         with:
@@ -31,14 +31,14 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-yarn-
 
-      - name: Install dependencies 🪛
+      - name: Install dependencies
         if: steps.yarn-cache.outputs.cache-hit != 'true'
         run: yarn --frozen-lockfile
 
-      - name: Build VuePress site 🔨
+      - name: Build VuePress site
         run: yarn build
 
-      - name: Deploy 🚀
+      - name: Deploy
         uses: peaceiris/actions-gh-pages@v3
         with:
           personal_token: ${{ secrets.PERSONAL_TOKEN }}
