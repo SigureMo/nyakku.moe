@@ -97,7 +97,7 @@ This reverts commit 667ecc1654a317a13331b17617d973392f415f02.
 | :zap:                       | `:zap:`                       | Improve performance.                          | 优化性能                                       |
 | :fire:                      | `:fire:`                      | Remove code or files.                         | 移除代码或文件                                 |
 | :bug:                       | `:bug:`                       | Fix a bug.                                    | 修复 bug                                       |
-| :ambulance:                 | `:ambulance:`                 | Critical hotfix.                              | 修复关键程序                                   |
+| :ambulance:                 | `:ambulance:`                 | Critical hotfix.                              | 紧急的热修复                                   |
 | :sparkles:                  | `:sparkles:`                  | Introduce new features.                       | 引入新功能                                     |
 | :memo:                      | `:memo:`                      | Add or update documentation.                  | 添加或更新文档                                  |
 | :rocket:                    | `:rocket:`                    | Deploy stuff.                                 | 部署任务                                       |
@@ -106,7 +106,7 @@ This reverts commit 667ecc1654a317a13331b17617d973392f415f02.
 | :white_check_mark:          | `:white_check_mark:`          | Add or update tests.                          | 添加或更新测试用例                             |
 | :lock:                      | `:lock:`                      | Fix security issues.                          | 修复安全问题                                   |
 | :bookmark:                  | `:bookmark:`                  | Release / Version tags.                       | 发版/版本标签                                  |
-| :rotating_light:            | `:rotating_light:`            | Fix compiler / linter warnings.               | 修复编译器或者 linter 的警告                             |
+| :rotating_light:            | `:rotating_light:`            | Fix compiler / linter warnings.               | 修复编译器或者 linter 的警告                        |
 | :construction:              | `:construction:`              | Work in progress.                             | 工作在进行中                                   |
 | :green_heart:               | `:green_heart:`               | Fix CI Build.                                 | 修复 CI 构建问题                               |
 | :arrow_down:                | `:arrow_down:`                | Downgrade dependencies.                       | 降级依赖库                                     |
@@ -121,19 +121,19 @@ This reverts commit 667ecc1654a317a13331b17617d973392f415f02.
 | :hammer:                    | `:hammer:`                    | Add or update development scripts.            | 添加或更新构开发脚本                             |
 | :globe_with_meridians:      | `:globe_with_meridians:`      | Internationalization and localization.        | 国际化和本地化（i18n）                         |
 | :pencil2:                   | `:pencil2:`                   | Fix typos.                                    | 修复拼写错误                                   |
-| :poop:                      | `:poop:`                      | Write bad code that needs to be improved.     | 需要改进的代码                                 |
-| :rewind:                    | `:rewind:`                    | Revert changes.                               | 恢复更改                                       |
+| :poop:                      | `:poop:`                      | Write bad code that needs to be improved.     | 当前代码尚需优化                                 |
+| :rewind:                    | `:rewind:`                    | Revert changes.                               | 撤销之前的修改                                  |
 | :twisted_rightwards_arrows: | `:twisted_rightwards_arrows:` | Merge branches.                               | 合并分支                                       |
 | :package:                   | `:package:`                   | Add or update compiled files or packages.     | 添加或更新编译的文件或包                       |
 | :alien:                     | `:alien:`                     | Update code due to external API changes.      | 由于外部 API 更改而更新代码                    |
 | :truck:                     | `:truck:`                     | Move or rename resources (e.g.: files, paths, routes).  | 移动或重命名资源（诸如：文件、路径、路由）|
-| :page_facing_up:            | `:page_facing_up:`            | Add or update license.                        | 添加或更新许可证                               |
+| :page_facing_up:            | `:page_facing_up:`            | Add or update license.                        | 添加或更新 LICENSE                            |
 | :boom:                      | `:boom:`                      | Introduce breaking changes.                   | 引入不兼容的变动                               |
 | :bento:                     | `:bento:`                     | Add or update assets.                         | 添加或更新静态资源                             |
 | :wheelchair:                | `:wheelchair:`                | Improve accessibility.                        | 提高可访问性                                   |
 | :bulb:                      | `:bulb:`                      | Add or update comments in source code.        | 在源代码中添加或更新注释                       |
 | :beers:                     | `:beers:`                     | Write code drunkenly.                         | 醉醺醺地编写代码                               |
-| :speech_balloon:            | `:speech_balloon:`            | Add or update text and literals.              | 添加或更新用于文本、对话框等文本内容相关的更改 |
+| :speech_balloon:            | `:speech_balloon:`            | Add or update text and literals.              | 添加或更新用于文本、对话框等文本字面量相关的更改    |
 | :card_file_box:             | `:card_file_box:`             | Perform database related changes.             | 执行与数据库相关的更改                         |
 | :loud_sound:                | `:loud_sound:`                | Add or update logs.                           | 添加或更新日志                                 |
 | :mute:                      | `:mute:`                      | Remove logs.                                  | 删除日志                                       |
@@ -143,23 +143,24 @@ This reverts commit 667ecc1654a317a13331b17617d973392f415f02.
 | :iphone:                    | `:iphone:`                    | Work on responsive design.                    | 进行响应式设计                                 |
 | :clown_face:                | `:clown_face:`                | Mock things.                                  | 可笑的事情                                     |
 | :egg:                       | `:egg:`                       | Add or update an easter egg.                  | 添加或更新彩蛋内容                             |
-| :see_no_evil:               | `:see_no_evil:`               | Add or update a .gitignore file.              | 添加或更新.gitignore 文件                      |
+| :see_no_evil:               | `:see_no_evil:`               | Add or update a .gitignore file.              | 添加或更新 .gitignore 文件                     |
 | :camera_flash:              | `:camera_flash:`              | Add or updatesnapshots.                       | 添加或更新快照                                 |
 | :alembic:                   | `:alembic:`                   | Perform experiments.                          | 实验性内容                                     |
 | :mag:                       | `:mag:`                       | Improve SEO.                                  | SEO 优化                                       |
 | :label:                     | `:label:`                     | Add or update types.                          | 添加或更新类型声明                               |
 | :seedling:                  | `:seedling:`                  | Add or update seed files.                     | 添加或更新种子文件                             |
 | :triangular_flag_on_post:   | `:triangular_flag_on_post:`   | Add, update, or remove feature flags.         | 添加、更新或删除功能标志                       |
-| :goal_net:                  | `:goal_net:`                  | Catch errors.                                 | 发现错误                                       |
+| :goal_net:                  | `:goal_net:`                  | Catch errors.                                 | 捕获错误                                     |
 | :dizzy:                     | `:dizzy:`                     | Add or update animations and transitions.     | 添加或更新动画和过渡                           |
 | :wastebasket:               | `:wastebasket:`               | Deprecate code that needs to be cleaned up.   | 清理冗余代码                                   |
-| :passport_control:          | `:passport_control:`          | Work on code related to authorization, roles and permissions. | 处理与授权、账户和权限相关的代码 ｜
-| :adhesive_bandage:          | `:adhesive_bandage:`          | Simple fix for a non-critical issue.          | 简单修复一个非关键问题                         |
-| ::monocle_face:             | `:monocle_face:`              | Data exploration/inspection.                  | 数据探索/检查                         |
+| :passport_control:          | `:passport_control:`          | Work on code related to authorization, roles and permissions. | 处理与授权、账户和权限相关的代码   ｜
+| 🩹 <!-- :adhesive_bandage: (need markdown-it-emoji 2.0)--> | `:adhesive_bandage:`          | Simple fix for a non-critical issue.          | 简单修复一个非关键问题                         |
+| 🧐 <!-- :monocle_face: (need markdown-it-emoji 2.0)-->   | `:monocle_face:`              | Data exploration/inspection.                  | 数据探索/检查                         |
+| :coffin:                    | `:coffin:`                    | Remove dead code.                             | 清除无效代码                                 |
 
-在提交时你可以按照喜好使用其 code 或者直接使用 emoji，因为 GitHub 是能够正确将这些 code 渲染为对应的 emoji 的
+在提交时你可以按照喜好使用其 code 或者直接使用 emoji，因为 GitHub 是能够正确将这些 code 渲染为对应的 emoji 的。
 
-由于 `gitmoji` 有着丰富的类型，你能在其余描述中省去一些内容，但……由于类型实在太多，所以基本每次提交我都得来查一下表格，如果你使用的是 VSCode，建议使用 [gitmoji-vscode](https://github.com/vtrois/gitmoji-vscode) 插件简化操作
+由于 `gitmoji` 有着丰富的类型，因此其可以表达的信息会更多一些，这使得你能在 `<subject>` 中省去一些内容。但相对的，由于类型实在太多，记忆起来也是相当地麻烦，起初我基本每次提交都来查一下表格，所以如果你使用的是 VSCode，建议使用 [gitmoji-vscode](https://github.com/vtrois/gitmoji-vscode) 插件以简化这一过程。
 
 ## 我自己常用的规范
 
@@ -212,8 +213,8 @@ if (!releaseRE.test(msg) && !commitRE.test(msg)) {
          chalk.red(
             `  Proper commit message format is required for automated changelog generation. Examples:\n\n`
          ) +
-         `    ${chalk.green(`feat: add 'comments' option`)}\n` +
-         `    ${chalk.green(`fix: handle events on blur (close #28)`)}\n\n` +
+         `    ${chalk.green(`:sparkles: feat: add 'comments' option`)}\n` +
+         `    ${chalk.green(`:bug: fix: handle events on blur (close #28)`)}\n\n` +
          chalk.red(`  See .github/commit-convention.md for more details.\n`)
    )
    process.exit(1)
@@ -225,7 +226,7 @@ if (!releaseRE.test(msg) && !commitRE.test(msg)) {
 ## References
 
 1. [conventional-commit-types @d1fb9cc](https://github.com/commitizen/conventional-commit-types)
-2. [gitmoji @0026270](http://gitmoji.dev/)
+2. [gitmoji @8bd9853](http://gitmoji.dev/)
 3. [程序员提交代码的 emoji 指南——原来表情文字不能乱用](https://www.h5jun.com/post/gitmoji.html)
 4. [用 gitmoji 来提交你的 git commit 吧](https://github.com/mytac/blogs/issues/2)
 5. [git commit 规范指南](https://segmentfault.com/a/1190000009048911?utm_source=tag-newest)
