@@ -1,9 +1,9 @@
 ---
 title: ココロ
 date: 2020-07-19
-category: 聆
-tags:
-   - Music
+# category: 聆
+# tags:
+#    - Music
 ---
 
 ::: tip
