@@ -7,8 +7,10 @@
   },
   "author": "Nyakku Shigure",
   "license": "CC-BY-NC-SA-4.0",
-  "gitHooks": {
-    "commit-msg": "node scripts/verifyCommit.js"
+  "husky": {
+    "hooks": {
+      "commit-msg": "commitlint -e $HUSKY_GIT_PARAMS"
+    }
   },
   "dependencies": {
     "@maginapp/vuepress-plugin-katex": "^1.0.10",
@@ -28,6 +30,8 @@
     "vuepress-theme-meteorlxy": "^1.9.0"
   },
   "devDependencies": {
-    "yorkie": "^2.0.0"
+    "commitlint": "^12.0.1",
+    "commitlint-config-gitmoji": "^2.2.2",
+    "husky": "^5.1.1"
   }
 }
