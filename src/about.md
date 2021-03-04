@@ -4,7 +4,7 @@ sidebar: false
 layout: AboutLayout
 ---
 
-这里是喵库，一个透明的小可爱～目前主要方向是深度学习以及计算机视觉，偶尔也会鼓捣些前端的东西完善博客，最近在学习前端基础知识
+这里是 Nyakku，只是时雨家一只可爱的小猫猫啦～
 
 ## 我都喜欢些什么？
 
@@ -13,13 +13,15 @@ layout: AboutLayout
 -  音乐（大爱虚拟歌手，重度耳机依赖患者）
 -  ~~绘画~~（曾经）
 
-## 我的愿望？
+## 我平时所用的编码环境？
 
-短期之内呢…… ~~就想拥有一台自己的 MBP 爽爽地写代码……~~ 此外希望能拥有更好的显卡以便在家训练 AI
-
-再之后呢……希望能够作为开源开发者参与更多更大的项目
-
-也企盼着有生之年可以打造真正可以创作艺术（音乐、绘画等）的 AI
+-  Device: MacBook Pro (13-inch, 2020, Apple Silicon M1)
+-  Editor: VSCode
+   -  Theme: [Andromeda Italic Bordered](https://github.com/EliverLara/Andromeda)
+-  Shell: zsh
+   -  Framework: [zimfw](https://github.com/zimfw/zimfw)
+   -  Theme: [pure](https://github.com/sindresorhus/pure)
+   -  Terminal: [iTerm2](https://github.com/gnachman/iTerm2) / VSCode Terminal
 
 ## 哪里能够找到我？
 
