@@ -1,10 +1,16 @@
 ---
+
 title: やがて君になる
 date: 2021-02-27
+
 # category: 影
+
 # tags:
-#    - moments
-#    - bangumi
+
+# - moments
+
+# - bangumi
+
 draft: true
 ---::: tip
 
