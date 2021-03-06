@@ -11,13 +11,13 @@ layout: AboutLayout
 -  写写代码
 -  吸猫猫（云，最爱狸花）
 -  音乐（大爱虚拟歌手，重度耳机依赖患者）
--  ~~绘画~~（曾经）
 
 ## 我平时所用的编码环境？
 
--  Device: MacBook Pro (13-inch, 2020, Apple Silicon M1)
+-  Device: MacBook Pro (13-inch, M1, 2020)
 -  Editor: VSCode
    -  Theme: [Andromeda Italic Bordered](https://github.com/EliverLara/Andromeda)
+   -  Font: [Fira Code](https://github.com/tonsky/FiraCode)
 -  Shell: zsh
    -  Framework: [zimfw](https://github.com/zimfw/zimfw)
    -  Theme: [pure](https://github.com/sindresorhus/pure)
