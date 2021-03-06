@@ -176,59 +176,37 @@ This reverts commit 667ecc1654a317a13331b17617d973392f415f02.
 
 在不是 `scope` 不太明显的场合，我一般都把 `scope` 省略掉，以免长度过长
 
-为了能够在每次提交时自动检测我的 commit 是否满足规范，我参考 [vite](https://github.com/vitejs/vite/blob/main/scripts/verifyCommit.js) 中的检测方式，在项目中利用 GitHook 来检测其规范性
+为了能够在每次提交时自动检测我的 commit 是否满足规范，我使用了 [commitlint](https://github.com/conventional-changelog/commitlint) 与 [commitlint-config-gitmoji](https://github.com/arvinxx/gitmoji-commit-workflow) 来规范 git commit message，并利用 [husky](https://github.com/typicode/husky) 集成在 gitHook 中。
 
-首先使用 npm 或者 yarn 安装 [yorkie](https://github.com/yyx990803/yorkie)，这是 [@Evan](https://github.com/yyx990803) 的一个 [husky](https://github.com/typicode/husky) fork
+我们先安装它们：
 
 ```bash
-yarn add yorkie -D
-# or use npm
-npm i yorkie -D
+yarn add -D commitlint-config-gitmoji commitlint husky
 ```
 
-之后在 `package.json` 中添加以下内容
+在项目根目录创建 `.commitlintrc.js`，并在其中填写以下内容：
 
-```json
-{
-   "gitHooks": {
-      "commit-msg": "node scripts/verifyCommit.js"
-   }
+```js
+module.exports = {
+   extends: ['gitmoji'],
 }
 ```
 
-当然，我们还需要写 `scripts/verifyCommit.js`
+这样，commitlint 就会使用 commitlint-config-gitmoji 来检测 git commit message 了
 
-```javascript
-const chalk = require('chalk')
-const msgPath = process.env.GIT_PARAMS
-const msg = require('fs').readFileSync(msgPath, 'utf-8').trim()
+之后还需要配置下 husky，以将检测过程集成在 gitHook 中
 
-const releaseRE = /^v\d/
-const commitRE = /^((:\S+:)|(\S{1,3})) (revert: )?(feat|fix|docs|dx|refactor|perf|test|workflow|build|ci|chore|types|wip|release|deps)(\(.+\))?: .{1,50}/
-
-if (!releaseRE.test(msg) && !commitRE.test(msg)) {
-   console.log()
-   console.error(
-      `  ${chalk.bgRed.white(' ERROR ')} ${chalk.red(`invalid commit message format.`)}\n\n` +
-         chalk.red(
-            `  Proper commit message format is required for automated changelog generation. Examples:\n\n`
-         ) +
-         `    ${chalk.green(`:sparkles: feat: add 'comments' option`)}\n` +
-         `    ${chalk.green(`:bug: fix: handle events on blur (close #28)`)}\n\n` +
-         chalk.red(`  See .github/commit-convention.md for more details.\n`)
-   )
-   process.exit(1)
-}
+```bash
+yarn husky init
+yarn husky add .husky/commit-msg 'yarn commitlint --edit "$1"'
 ```
 
-其实关键就是那个正则，我只不过加上了在头部添加 emoji 或者 emoji code 的支持，但还不支持判断该 emoji 是否是 gitmoji
+这样就会在你的根目录生成 .husky 目录，其中会有一个 commit-msg 的 gitHook，后面的内容就是刚刚使用 husky add 的 `yarn husky add .husky/commit-msg`，也就是在 commit 新的 message 时的 hook。
 
 ## References
 
-1. [conventional-commit-types @d1fb9cc](https://github.com/commitizen/conventional-commit-types)
-2. [gitmoji](http://gitmoji.dev/)
-3. [gitmoji 改动追踪](https://github.com/carloscuesta/gitmoji/commits/master/src/data/gitmojis.json)
-4. [程序员提交代码的 emoji 指南——原来表情文字不能乱用](https://www.h5jun.com/post/gitmoji.html)
-5. [用 gitmoji 来提交你的 git commit 吧](https://github.com/mytac/blogs/issues/2)
-6. [git commit 规范指南](https://segmentfault.com/a/1190000009048911?utm_source=tag-newest)
-7. [优雅地提交你的 Git Commit Message](https://juejin.im/post/5afc5242f265da0b7f44bee4)
+1. [gitmoji](http://gitmoji.dev/)
+2. [gitmoji 改动追踪](https://github.com/carloscuesta/gitmoji/commits/master/src/data/gitmojis.json)
+3. [git commit 规范指南](https://segmentfault.com/a/1190000009048911?utm_source=tag-newest)
+4. [Husky](https://typicode.github.io/husky/#/)
+5. [commitlint-config-gitmoji 使用方法](https://www.yuque.com/arvinxx-fe/workflow/commitlint-config-gitmoji-guide)
