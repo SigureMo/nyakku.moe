@@ -5,9 +5,8 @@ date: 2021-02-27
 # tags:
 #    - moments
 #    - bangumi
----
-
-::: tip
+draft: true
+---::: tip
 
 ですけど、そんなやさしくて可愛い侑、誰も好きじゃない？
 
