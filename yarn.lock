@@ -8703,10 +8703,10 @@ vuepress-plugin-go-top@^1.0.4:
   resolved "https://registry.yarnpkg.com/vuepress-plugin-go-top/-/vuepress-plugin-go-top-1.0.4.tgz#b2c359d85280e8737c65a43fde6e6d42953878af"
   integrity sha512-VxYrZmvC9agXVOEzy1G7mJj23p17O7CVmcXhlaFtQ+J827OcIqNC1X646/gOI8Hfn8or17+J+8/Bg0ZSRyizEA==
 
-vuepress-plugin-meting@^0.2.1:
-  version "0.2.1"
-  resolved "https://registry.yarnpkg.com/vuepress-plugin-meting/-/vuepress-plugin-meting-0.2.1.tgz#52be7a6081f846a5f1a7aba7328d43c6d2b1ce95"
-  integrity sha512-6sQyjlskP1TJKUfKbwIwlxoBEytql+ZQvYxRa8m/GiXpqGSjrgDwYCAkadex9+yHbNFcCkEWM52/GDadgz+NNw==
+vuepress-plugin-meting@^0.2.3:
+  version "0.2.3"
+  resolved "https://registry.yarnpkg.com/vuepress-plugin-meting/-/vuepress-plugin-meting-0.2.3.tgz#4623124e7e712c936a59d084a143fb0dcb1b7db2"
+  integrity sha512-3WtCRlKqcB/cYcuFWT2odhnMlkyKK8ZVCeuBHGEWl6ncAEJwwtlgVN2BcwS3UBctDlhNsEefBMz5Ix2hrZpCUQ==
   dependencies:
     "@moefe/vue-aplayer" "^2.0.0-beta.5"
 
