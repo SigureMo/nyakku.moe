@@ -4,6 +4,7 @@ date: 2018-09-16
 category: 迹
 tags:
    - Git
+outdated: true
 ---
 
 ::: tip
