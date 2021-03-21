@@ -482,7 +482,7 @@ function ref<T>(value: T): Ref<T> {
 
 哼，这三个东西我起初是不打算了解的，直接看源码也确实没看懂要做些什么，随手搜了一下，就全都在说 track 在收集依赖，trigger 则是触发所有依赖于此的 effect，可是 effect 是个啥啊，什么时候用啊，基本没有一篇文章说清楚的……
 
-因此，起初我其实写完 reactive 就停手了的，但是之后实在是没忍住就又去查了一下，算是大概了解了他们的作用了吧？
+因此，起初我其实写完 reactive 就停手了的，但是之后实在是没忍住就又去查了一下，算是大概了解了他们的作用了……吧？
 
 为了更好地理解 track、trigger 以及 effect，我基于一定的猜想对整个模型进行绘制，所以不保证模型的准确性啦～
 
@@ -551,7 +551,7 @@ function track(target: object, type: string, key: unknown) {
 
 但是 `activeEffect` 是什么？
 
-其实不难理解，在渲染数据时，piece4 对应的渲染语句 `View.piece4.render(data[key])` 其实就是下次数据发生变化时需要重新执行的语句，也就是说该语句依赖于 `data[key]`，那么我们就把该语句存到 `targetMap[data][key]` 中即可。也就是说，`activeEffect` 中存的就是刚刚执行的那条渲染语句。
+其实不难理解，在渲染数据时，piece4 对应的渲染语句 `View.piece4.render(data[key])` 其实就是下次数据发生变化时需要重新执行的语句，也就是说该语句依赖于 `data[key]`，那么我们就把该语句存到 `targetMap[data][key]` 中即可。当然，为了实现这一点，只需要把刚刚执行的那条渲染语句存到 `activeEffect` 即可。
 
 由于依赖关系是在首次渲染时建立的，因此我们应当把首次渲染伪代码稍微修改下：
 
@@ -581,7 +581,7 @@ function effect(fn: Function) {
 
 在初次渲染时，如果该渲染项依赖于某个 `data[key]`，那么在 get 时就会触发 track 函数，将 `activeEffect` 存入 `data[key]` 的依赖中，而 `activeEffect` 这个全局变量刚刚被替换成了这条渲染语句，这样这条渲染语句就被存起来了。
 
-呼，总算存进去了，不过现在有一个问题就是，即便不是 effect 包裹的语句中只要使用 get 都会触发 track 中的依赖收集，为了避免这一问题，我们再稍微改造一下 track 与 effect 函数。
+呼，总算存进去了，不过仔细一想就可以发现还是有一点问题的，那就是即便不是 effect 包裹的语句中，只要使用 get 都会触发 track 中的依赖收集，这是我们所不期望的。为了避免这一问题，我们再稍稍改造一下 track 与 effect 函数。
 
 ```ts{7,27,30}
 type Dep = Set<Function>
