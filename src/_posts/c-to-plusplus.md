@@ -242,7 +242,7 @@ int main(){
 }
 ```
 
-为了解决这一问题，我们可以通过传指针解决
+为了解决这一问题，我们可以传指针
 
 ```cpp
 void inc(int *ptri) {
@@ -260,7 +260,7 @@ int main(){
 
 但如果你觉得这样很麻烦的话，C++ 中只需要加一个符号就能满足你的需求
 
-```cpp
+```cpp {1}
 void inc(int &i) {
    i++;
 }
@@ -427,7 +427,7 @@ name = string(namestream.str());
 
    ```cpp
    double a ;
-   string res= "123.32";
+   string res = "123.32";
    stringstream ss;
    ss << res;
    ss >> a;
