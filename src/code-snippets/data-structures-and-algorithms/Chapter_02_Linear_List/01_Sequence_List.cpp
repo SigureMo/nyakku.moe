@@ -48,7 +48,7 @@ void Print(SqList PtrL) {
     return;
   }
   cout << "Data:";
-  for (int i=0; i < PtrL->length; i++) {
+  for (int i = 0; i < PtrL->length; i++) {
     cout << PtrL->data[i] << " ";
   }
   cout << endl;
@@ -58,7 +58,7 @@ bool Insert(SqList PtrL, int i, ElemType e) {
   /**
    * 将新的元素插入列表中
    */
-  if (i > PtrL->length+1 || i < 1) {
+  if (i > PtrL->length + 1 || i < 1) {
     cout << "位置非法" << endl;
     return false;
   }
@@ -66,10 +66,10 @@ bool Insert(SqList PtrL, int i, ElemType e) {
     cout << "存储已满" << endl;
     return false;
   }
-  for (int j=PtrL->length-1; j>=i; j--) {
-    PtrL->data[j] = PtrL->data[j-1];
+  for (int j = PtrL->length - 1; j >= i; j--) {
+    PtrL->data[j] = PtrL->data[j - 1];
   }
-  PtrL->data[i-1] = e;
+  PtrL->data[i - 1] = e;
   PtrL->length++;
   return true;
 }
@@ -83,9 +83,9 @@ bool Delete(SqList PtrL, int i, ElemType &e) {
     cout << "位置不合法";
     return false;
   }
-  e = PtrL->data[i-1];
-  for (int j=i; j<PtrL->length; j++) {
-    PtrL->data[j-1] = PtrL->data[j];
+  e = PtrL->data[i - 1];
+  for (int j = i; j < PtrL->length; j++) {
+    PtrL->data[j - 1] = PtrL->data[j];
   }
   PtrL->length--;
   return true;
@@ -97,7 +97,7 @@ int Locate(SqList PtrL, ElemType e) {
    */
   for (int i = 0; i < PtrL->length; i++) {
     if (PtrL->data[i] == e) {
-      return i+1;
+      return i + 1;
     }
   }
   return 0;

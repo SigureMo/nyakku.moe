@@ -18,7 +18,6 @@ bool Insert(LinkList PtrL, int i, ElemType e);
 bool Delete(LinkList PtrL, int i, ElemType &e);
 int Length(LinkList PtrL);
 
-
 int main() {
   LinkList PtrL = Init();
   HeadInsert(PtrL, 1);
@@ -124,7 +123,7 @@ bool Insert(LinkList PtrL, int i, ElemType e) {
   /**
    * 将新的元素到第 i 个位置
    */
-  LinkList PtrFront = Get(PtrL, i-1);
+  LinkList PtrFront = Get(PtrL, i - 1);
   if (PtrFront == NULL) return false;
   LinkList PtrNewNode = (LinkList)malloc(sizeof(LinkNode));
   PtrNewNode->data = e;
@@ -138,8 +137,8 @@ bool Delete(LinkList PtrL, int i, ElemType &e) {
    * 如果成功，则返回 true ，并使用引用变量 e 返回被删除元素的值
    * 否则返回 false
    */
-  LinkList PtrFront = Get(PtrL, i-1);
-  if (PtrFront == NULL || PtrFront->next==NULL) return false;
+  LinkList PtrFront = Get(PtrL, i - 1);
+  if (PtrFront == NULL || PtrFront->next == NULL) return false;
   LinkList tmp = PtrFront->next;
   PtrFront->next = tmp->next;
   e = tmp->data;
