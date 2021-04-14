@@ -30,9 +30,11 @@ void Initial(Set S[]) {
 int Find(Set S[], ElemType x) {
   /** 查找并返回包含元素 x 的树的根 */
   int idx = 0;
-  for (; idx < MaxSize && S[idx].data != x; idx++);
+  for (; idx < MaxSize && S[idx].data != x; idx++)
+    ;
   if (idx == MaxSize) return -1;
-  for (; S[idx].parent != -1; idx = S[idx].parent);
+  for (; S[idx].parent != -1; idx = S[idx].parent)
+    ;
   return idx;
 }
 
@@ -40,6 +42,5 @@ void Union(Set S[], ElemType x1, ElemType x2) {
   /** 求两个不相交子集合的并集 */
   int root1 = Find(S, x1);
   int root2 = Find(S, x2);
-  if (root1 != root2)
-    S[root1].parent = root2;
+  if (root1 != root2) S[root1].parent = root2;
 }

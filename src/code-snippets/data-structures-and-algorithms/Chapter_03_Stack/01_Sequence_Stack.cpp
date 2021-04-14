@@ -46,7 +46,7 @@ bool Push(SqStack PtrS, ElemType x) {
   /** 进栈
    * 若栈未满，则将 x 加入使之成为新栈顶
    */
-  if (PtrS->top == MaxSize-1) return false;
+  if (PtrS->top == MaxSize - 1) return false;
   PtrS->data[++(PtrS->top)] = x;
   return true;
 }

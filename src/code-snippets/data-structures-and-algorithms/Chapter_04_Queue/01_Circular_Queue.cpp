@@ -39,9 +39,9 @@ bool isEmpty(SqQueue PtrQ) {
 
 bool EnQueue(SqQueue PtrQ, ElemType x) {
   /** 入队 */
-  if ((PtrQ->rear+1)%MaxSize == PtrQ->front) return false;
-  PtrQ->data[PtrQ->rear++] = x;   // 先入队，后移动指针
-  PtrQ->rear %= MaxSize;          // 保证没“飞出去”
+  if ((PtrQ->rear + 1) % MaxSize == PtrQ->front) return false;
+  PtrQ->data[PtrQ->rear++] = x;  // 先入队，后移动指针
+  PtrQ->rear %= MaxSize;         // 保证没“飞出去”
   return true;
 }
 
