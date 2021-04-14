@@ -54,13 +54,13 @@ BinTree Create() {
    * 示例输入 1 2 4 -1 -1 5 -1 -1 3 6 -1 -1 7 -1 -1
    */
   int a;
-	scanf("%d", &a);
-	if (a == -1) return NULL;
-	BinTree BT = (BinTree)malloc(sizeof(BTNode));
-	BT->data = a;
-	BT->left = Create();
-	BT->right = Create();
-	return BT;
+  scanf("%d", &a);
+  if (a == -1) return NULL;
+  BinTree BT = (BinTree)malloc(sizeof(BTNode));
+  BT->data = a;
+  BT->left = Create();
+  BT->right = Create();
+  return BT;
 }
 
 int GetDepth(BinTree BT) {
@@ -68,7 +68,7 @@ int GetDepth(BinTree BT) {
   if (!BT) return 0;
   int LD = GetDepth(BT->left);
   int RD = GetDepth(BT->right);
-  return (LD > RD? LD: RD) + 1;
+  return (LD > RD ? LD : RD) + 1;
 }
 
 void Visit(BinTree BT) {
@@ -110,19 +110,20 @@ void PostOrderTraversal(BinTree BT) {
 // LEVEL_ORDER_BLOCK
 void LevelOrderTraversal(BinTree BT) {
   /** 层序遍历 */
-  queue<BinTree> Q;   // 为了方便测试，这里直接使用 C++ STL 中的 queue
+  queue<BinTree> Q;  // 为了方便测试，这里直接使用 C++ STL 中的 queue
   BinTree p = BT;
   if (!p) return;
   Q.push(p);
   while (!Q.empty()) {
     // 简单地说，就是每次拿出来一个，放进去俩（如果有的话）
-    p = Q.front();   // 该方法只返回不删除
-    Q.pop();          // 该方法只删除不返回
+    p = Q.front();  // 该方法只返回不删除
+    Q.pop();        // 该方法只删除不返回
     Visit(p);
     if (p->left) Q.push(p->left);
     if (p->right) Q.push(p->right);
   }
 }
+// clang-format off
 // LEVEL_ORDER_BLOCK
 // PRE_ORDER_NOREC_BLOCK
 void PreOrderTraversalNonRecursion(BinTree BT) {
@@ -133,12 +134,12 @@ void PreOrderTraversalNonRecursion(BinTree BT) {
     while (p) {               // 这里可以落脚，看看下一步往哪走！
       S.push(p);              // 嗯，在地图上标记一下这里(っ•̀ω•́)っ✎⁾⁾
       Visit(p);               // 逛一逛咯
-      p = p->left;          // 逛完往左走走
+      p = p->left;            // 逛完往左走走
     }                         // 噫，这里不能落脚啊！肿么办
     if (!S.empty()) {         // 拿起地图，看看有没有地方可以去
       p = S.top();            // 往回走，回到刚刚过来的地方
       S.pop();                // 地图上划掉刚刚那里~(っ•̀ω•́)っ✎⁾⁾
-      p = p->right;          // 往右走试试看！
+      p = p->right;           // 往右走试试看！
     }                         // 到啦！这是个什么样的地方呢？
   }                           // 既没有落脚点，也没退路了，不过这一路好开心的说！
 }
@@ -151,13 +152,13 @@ void InOrderTraversalNonRecursion(BinTree BT) {
   while (p || !S.empty()) {   // 准备好了就出发！
     while (p) {               // 这里可以落脚，看看下一步往哪走！
       S.push(p);              // 嗯，在地图上标记一下这里(っ•̀ω•́)っ✎⁾⁾
-      p = p->left;          // 今天没空，直接往左走，下次再逛
+      p = p->left;            // 今天没空，直接往左走，下次再逛
     }                         // 噫，这里不能落脚啊！肿么办
     if (!S.empty()) {         // 拿起地图，看看有没有地方可以去
       p = S.top();            // 往回走，回到刚刚过来的地方
       S.pop();                // 地图上划掉刚刚那里~(っ•̀ω•́)っ✎⁾⁾
       Visit(p);               // 我又来啦！这回好好逛一下！
-      p = p->right;          // 逛完往右走试试看！
+      p = p->right;           // 逛完往右走试试看！
     }                         // 到啦！这是个什么样的地方呢？
   }                           // 既没有落脚点，也没退路了，不过这一路好开心的说！
 }
@@ -176,26 +177,27 @@ void PostOrderTraversalNonRecursion(BinTree BT) {
    */
   stack<BinTree> S;
   BinTree p = BT;
-  while (p || !S.empty()) {             // 准备好了就出发！
-    if (!p) {                           // [右侧空指针]怎么这里不能落脚啊？
-      while (p == S.top()->right) {    // 看看地图，之前走过哪里？
-        p = S.top();                    // 那个方向，往回走~
-        Visit(p);                       // [第三次遇到]唔，都第三次来了，逛一下吧~
-        S.pop();                        // 地图上划掉刚刚那里~(っ•̀ω•́)っ✎⁾⁾
-        if (S.empty()) return;          // 呀，没路啦，不过这一路收获好多，今天步数可以破 3w 啦~
-      }                                 // 总算退回来了
-      p = S.top()->right;              // 往右走走看
-    }                                   // 到啦！这是个什么样的地方呢？
-    while (p) {                         // 这里可以落脚，看看下一步往哪走！
-      S.push(p);                        // 嗯，在地图上标记一下这里(っ•̀ω•́)っ✎⁾⁾
-      // Visit(p);                      // [第一次遇到]今天没空，以后再逛
+  while (p || !S.empty()) {           // 准备好了就出发！
+    if (!p) {                         // [右侧空指针]怎么这里不能落脚啊？
+      while (p == S.top()->right) {   // 看看地图，之前走过哪里？
+        p = S.top();                  // 那个方向，往回走~
+        Visit(p);                     // [第三次遇到]唔，都第三次来了，逛一下吧~
+        S.pop();                      // 地图上划掉刚刚那里~(っ•̀ω•́)っ✎⁾⁾
+        if (S.empty())
+          return;                     // 呀，没路啦，不过这一路收获好多，今天步数可以破 3w 啦~
+      }                               // 总算退回来了
+      p = S.top()->right;             // 往右走走看
+    }                                 // 到啦！这是个什么样的地方呢？
+    while (p) {                       // 这里可以落脚，看看下一步往哪走！
+      S.push(p);                      // 嗯，在地图上标记一下这里(っ•̀ω•́)っ✎⁾⁾
+      // Visit(p);                    // [第一次遇到]今天没空，以后再逛
       p = p->left;                    // 直接往左走
-    }                                   // [左侧空指针]噫，这里不能落脚啊！肿么办
-    if (!S.empty()) {                   // 拿起地图，看看有没有地方可以去
-      p = S.top();                      // 往回走，回到刚刚过来的地方
-      // Visit(p);                      // [第二次遇到]我很忙哒！不逛！
-      p = p->right;                    // 往右走试试看！
-    }                                   // 到啦！这是个什么样的地方呢？
-  }                                     // 既没有落脚点，也没退路了，不过这一路好开心的说！
+    }                                 // [左侧空指针]噫，这里不能落脚啊！肿么办
+    if (!S.empty()) {                 // 拿起地图，看看有没有地方可以去
+      p = S.top();                    // 往回走，回到刚刚过来的地方
+      // Visit(p);                    // [第二次遇到]我很忙哒！不逛！
+      p = p->right;                   // 往右走试试看！
+    }                                 // 到啦！这是个什么样的地方呢？
+  }                                   // 既没有落脚点，也没退路了，不过这一路好开心的说！
 }
 // POST_ORDER_NOREC_BLOCK

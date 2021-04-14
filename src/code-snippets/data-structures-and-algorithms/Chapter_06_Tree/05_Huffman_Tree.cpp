@@ -1,54 +1,57 @@
+#include <algorithm>
 #include <iostream>
 #include <vector>
-#include <algorithm>
 
 using namespace std;
 
 class Node {
-  public:
-    int weight;
-    Node *left;
-    Node *right;
-    Node(int weight) {
-      this->weight = weight;
-      this->left = NULL;
-      this->right = NULL;
-    }
-    friend ostream &operator<<(ostream &os, const Node &node);
+ public:
+  int weight;
+  Node *left;
+  Node *right;
+  Node(int weight) {
+    this->weight = weight;
+    this->left = NULL;
+    this->right = NULL;
+  }
+  friend ostream &operator<<(ostream &os, const Node &node);
 };
 
-template<typename T>
+template <typename T>
 class Heap {
   /** 堆 STL 的简单封装 */
-  private:
-    vector<T> data;
-    bool (*comp)(T, T);
-  public:
-    Heap(T a[], int len, bool (*comp)(T, T)) {
-      this->comp = comp;
-      for (int i = 0; i < len; i++) {
-        data.push_back(a[i]);
-      }
-      make_heap(data.begin(), data.end(), comp);
+ private:
+  vector<T> data;
+  bool (*comp)(T, T);
+
+ public:
+  Heap(T a[], int len, bool (*comp)(T, T)) {
+    this->comp = comp;
+    for (int i = 0; i < len; i++) {
+      data.push_back(a[i]);
     }
-    void insert(T x) {
-      data.push_back(x);
-      push_heap(data.begin(), data.end(), comp);
+    make_heap(data.begin(), data.end(), comp);
+  }
+  void insert(T x) {
+    data.push_back(x);
+    push_heap(data.begin(), data.end(), comp);
+  }
+  T pop() {
+    pop_heap(data.begin(), data.end(), comp);
+    T el = data.back();
+    data.pop_back();
+    return el;
+  }
+  void print(bool isPtr = false) {
+    for (auto i : data) {
+      if (isPtr)
+        cout << *i;
+      else
+        cout << i;
+      cout << " ";
     }
-    T pop() {
-      pop_heap(data.begin(), data.end(), comp);
-      T el = data.back();
-      data.pop_back();
-      return el;
-    }
-    void print(bool isPtr=false) {
-      for (auto i : data) {
-        if (isPtr) cout << *i;
-        else cout << i;
-        cout << " ";
-      }
-      cout << endl;
-    }
+    cout << endl;
+  }
 };
 
 typedef Node *HuffmanTree;
@@ -70,7 +73,7 @@ HuffmanTree Huffman(int a[], int len) {
     return T1->weight > T2->weight;
   };
   Heap<HuffmanTree> H(n, len, cmp);
-  for (int i = 0; i < len-1; i++) {
+  for (int i = 0; i < len - 1; i++) {
     Node *left = H.pop();
     Node *right = H.pop();
     HuffmanTree T = new Node(left->weight + right->weight);
@@ -87,11 +90,15 @@ ostream &operator<<(ostream &os, const Node &node) {
   os << node.weight;
   if (node.left || node.right) {
     os << "<";
-    if (node.left) os << *node.left;
-    else os << " ";
+    if (node.left)
+      os << *node.left;
+    else
+      os << " ";
     os << "|";
-    if (node.right) os << *node.right;
-    else os << " ";
+    if (node.right)
+      os << *node.right;
+    else
+      os << " ";
     os << ">";
   }
   return os;
