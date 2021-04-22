@@ -4,7 +4,6 @@ date: 2018-09-16
 category: 迹
 tags:
    - Git
-outdated: true
 ---
 
 ::: tip
@@ -142,7 +141,7 @@ This reverts commit 667ecc1654a317a13331b17617d973392f415f02.
 | :children_crossing:         | `:children_crossing:`         | Improve user experience / usability.          | 改善用户体验/可用性                            |
 | :building_construction:     | `:building_construction:`     | Make architectural changes.                   | 改变架构                                       |
 | :iphone:                    | `:iphone:`                    | Work on responsive design.                    | 进行响应式设计                                 |
-| :clown_face:                | `:clown_face:`                | Mock things.                                  | 可笑的事情                                     |
+| :clown_face:                | `:clown_face:`                | Mock things.                                  | 添加或更改 mock                                |
 | :egg:                       | `:egg:`                       | Add or update an easter egg.                  | 添加或更新彩蛋内容                             |
 | :see_no_evil:               | `:see_no_evil:`               | Add or update a .gitignore file.              | 添加或更新 .gitignore 文件                     |
 | :camera_flash:              | `:camera_flash:`              | Add or updatesnapshots.                       | 添加或更新快照                                 |
