@@ -1635,7 +1635,7 @@ CPU 从主存中每取出并执行一条指令所需的全部时间称为指令�
 
    | 步骤          | 作用                              |
    | ------------- | --------------------------------- |
-   | $PC -> Bus$   | $PC_{out}$ 有效，$PC$ 内容送总线  |
+   | $PC \to Bus$  | $PC_{out}$ 有效，$PC$ 内容送总线  |
    | $Bus \to MAR$ | $MAR_{in}$ 有效，总线内容送 $MAR$ |
 
 -  主存与 CPU 之间的数据传送
@@ -2340,7 +2340,5 @@ CPU 在程序中安排好于某个时刻启动某台外设，然后 CPU **继续
 
 1. 2020 年计算机组成原理考研复习指导 - 王道
 2. 《计算机组成原理》 唐朔飞
-3. 《Computer Organization and Design (The Hardware/Software Interface)》 David A. Patterson, John L. Hennessy
-4. 《计算机科学导论》 佛罗赞、莫沙拉夫
-5. 计算机组成原理（[上](https://www.icourse163.org/course/HIT-309001) & [下](https://www.icourse163.org/course/HIT-1001527001)） - 哈尔滨工业大学 - 中国大学 MOOC
-6. 丁男老师课程
+3. 《计算机科学导论》 佛罗赞、莫沙拉夫
+4. 计算机组成原理（[上](https://www.icourse163.org/course/HIT-309001) & [下](https://www.icourse163.org/course/HIT-1001527001)） - 哈尔滨工业大学 - 中国大学 MOOC
