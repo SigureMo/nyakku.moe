@@ -198,7 +198,6 @@ features:
      details: VuePress 为每个页面预渲染生成静态的 HTML，同时在页面被加载的时候，将作为 SPA 运行。
 footer: MIT Licensed | Copyright © 2018-present Evan You
 ---
-
 ```
 
 其中 `heroImage` 是相对于 `docs/.vuepress/public/` 的子路径
@@ -265,7 +264,6 @@ tags:
    - front_end
    - blog
 ---
-
 ```
 
 这样在对应的标签以及分类内就能找到相应的文章了
@@ -291,7 +289,6 @@ bgImage: '/bg.png'
 bgImageStyle: { height: '350px' }
 faceImage: '/head.png'
 ---
-
 ```
 
 这里两个图片都以 `docs/.vuepress/public/` 为根目录
