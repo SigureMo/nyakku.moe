@@ -1141,7 +1141,7 @@ T2   T3                           T3  T4
 
 <!-- <<< @/src/code-snippets/data-structures-and-algorithms/Chapter_06_Tree/04_Max_Heap.cpp{56,79,80,114,123} -->
 
-@[code highlight={56,79,80,114,123}](@/src/code-snippets/data-structures-and-algorithms/Chapter_06_Tree/04_Max_Heap.cpp)
+@[code highlight={56,79-81,115,124}](@/src/code-snippets/data-structures-and-algorithms/Chapter_06_Tree/04_Max_Heap.cpp)
 
 #### 6.6.4 哈夫曼树和哈夫曼编码
 
