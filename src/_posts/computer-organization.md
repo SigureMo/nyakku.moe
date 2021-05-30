@@ -742,11 +742,15 @@ ALU 核心是一个并行加法器，同时能执行“与或非”等逻辑运�
 
    :::
 
-### 3.1.2 存储器的层次化结构
+#### 3.1.2 存储器的层次化结构
 
-![PCC05.png{copyright:Wangdao}](../img/computer-organization/PCC05.png)
+<p align="center">
+   <img src='../img/computer-organization/CO13.drawio.png' alt="CO13.drawio.png" width=500 />
+</p>
 
-![PCC06.png{copyright:Wangdao}](../img/computer-organization/PCC06.png)
+<p align="center">
+   <img src='../img/computer-organization/CO14.drawio.png' alt="CO14.drawio.png" width=500 />
+</p>
 
 -  Cache - 主存 层次用于解决 CPU 与主存速度不匹配的问题，由硬件自动完成
 -  主存 - 辅存 层次用于解决存储系统的容量问题，由硬件和操作系统共同完成
@@ -766,7 +770,9 @@ ALU 核心是一个并行加法器，同时能执行“与或非”等逻辑运�
 
 -  半导体存储芯片的基本结构
 
-   ![PCC07.png{copyright:Wangdao}](../img/computer-organization/PCC07.png)
+   <p align="center">
+      <img src='../img/computer-organization/CO15.png' alt="CO15.png{copyright:Wangdao}" width=500 />
+   </p>
 
    -  片选线 确定哪个存储芯片被选中
    -  地址线 单向
@@ -798,7 +804,7 @@ ALU 核心是一个并行加法器，同时能执行“与或非”等逻辑运�
 
    -  存储元 栅极**电容**上的电荷
    -  与 SRAM 比需要的晶体管更少，容易集成、价位低、容量大、功耗低，但速度慢一些，一般用于主存
-   -  电容上的电荷一般只能维持 1~2ms，故每隔一段时间就需要刷新（通常取 2ms），刷新只与**行地址**有关，每次刷新刷新一行数据，而不是某一存储单元数据
+   -  电容上的电荷一般只能维持 1~2ms，故每隔一段时间就需要刷新（通常取 2ms），刷新只与**行地址**有关，每次刷新时刷新一整行数据，而不是某一存储单元数据
 
       -  **集中刷新（存取周期为 0.5μs）**
 
@@ -806,15 +812,21 @@ ALU 核心是一个并行加法器，同时能执行“与或非”等逻辑运�
 
          存在死区，那段时间 CPU 是无法读写数据的
 
+         主要用在实时性要求不高的场合
+
       -  **分散刷新（存取周期为 1μs）**
 
          一个存储器的系统工作周期分为两部分：前半部分正常读、写或保持，后半部分用于刷新某一行
 
          不存在死区，但由于过度刷新，效率降低
 
+         主要用在低速系统中
+
       -  **分散刷新与集中刷新相结合（异步刷新）**
 
          每 15.6μs 刷新一行，2ms 刚好刷新 128 行，如果将刷新安排在指令译码阶段，不会出现死区
+
+         用在大多数计算机中
 
 -  存储器的读、写周期
 
@@ -828,6 +840,7 @@ ALU 核心是一个并行加法器，同时能执行“与或非”等逻辑运�
    |            | DRAM     | SRAM   |
    | ---------- | -------- | ------ |
    | 存储原理   | 电容     | 触发器 |
+   | 破坏性读出 | 是       | 非     |
    | 刷新       | 有       | 无     |
    | 送行列地址 | 分两次送 | 同时送 |
    | 速度       | 低       | 高     |
@@ -872,7 +885,7 @@ ALU 核心是一个并行加法器，同时能执行“与或非”等逻辑运�
 
 -  固态硬盘（Solid State Drives, SSD）
 
-   基于闪存，由控制单元和存储单元组成
+   基于闪存的存储阵列，由控制单元和存储单元组成
 
 #### 3.2.4 主存储器与 CPU 的连接
 
@@ -890,19 +903,25 @@ ALU 核心是一个并行加法器，同时能执行“与或非”等逻辑运�
 
       比如用 2 片`1K X 4位`存储芯片组成`1K X 8位`的存储器，需求是 10 根地址线、8 根数据线，材料是 10 根地址线、4 根数据线，所以就需要将两个芯片地址线直接接入，而数据线则是各占一半，以达到对某一地址数据同时进行读写
 
-      ![PCC08.png{copyright:MOOC}](../img/computer-organization/PCC08.png)
+      <p align="center">
+         <img src='../img/computer-organization/CO16.png' alt="CO16.png{copyright:MOOC}" width=500 />
+      </p>
 
    -  字扩展法
 
       比如用 2 片`1K X 8位`存储芯片组成`2K X 8位`的存储器，需求是 11 根地址线、8 根数据线，材料是 10 根地址线、8 根数据线，数据线直接接入就好，而多出来的那根地址线可作为片选择线（CS），便可对两个存储芯片地址进行衔接
 
-      ![PCC09.png{copyright:MOOC}](../img/computer-organization/PCC09.png)
+      <p align="center">
+         <img src='../img/computer-organization/CO17.png' alt="CO17.png{copyright:MOOC}" width=500 />
+      </p>
 
    -  字、位同时扩展法
 
       比如用 8 片`1K X 4位`存储芯片组成`4K X 8位`的存储器，先考虑位扩展，每组用 2 个存储芯片组成`1K X 8位`的存储器，然后再考虑字扩展，利用片选译码将额外两根地址线分配到四组存储器中
 
-      ![PCC10.png{copyright:MOOC}](../img/computer-organization/PCC10.png)
+      <p align="center">
+         <img src='../img/computer-organization/CO18.png' alt="CO18.png{copyright:MOOC}" width=500 />
+      </p>
 
 -  存储器与 CPU 的连接
    -  合理选择存储芯片
