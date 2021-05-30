@@ -46,5 +46,6 @@ jobs:
           external_repository: SigureMo/SigureMo.github.io
           publish_branch: main
           cname: nyakku.moe
+          commit_message: ':rocket: deploy: '
           user_name: 'github-actions[bot]'
           user_email: 'github-actions[bot]@users.noreply.github.com'
