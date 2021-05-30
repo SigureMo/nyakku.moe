@@ -26,11 +26,15 @@ Maxout 可以说是一个激活函数，但与其他激活函数所不同的是�
 
 我们网络前层进行 $WX + b$ 的线性变换后，是需要增加激活函数进行非线性变换的，但是具体怎么选择激活函数呢？我们可不可以让网络自己学习这个呢？
 
-![](../img/maxout/maxout-01.png)
+<p align="center">
+   <img src='../img/maxout/maxout-01.png' alt="maxout-01.png" width=400 />
+</p>
 
 上图便是最基本的 $Maxout$ 连接示意图，前面与普通的全连接并无区别，之后每两个单元“连接”到一个单元上，当然，这里不是真的连接，因为该条线上并不涉及参数，那么如何从两个单元得到一个单元的值呢？其实只需要比较两个单元的值即可，大的值便可以通过~也便是 $Max\ Out$
 
-![](../img/maxout/maxout-02.png)
+<p align="center">
+   <img src='../img/maxout/maxout-02.png' alt="maxout-02.png" width=400 />
+</p>
 
 结果便如上图所示，每两个单元中较大的值会被激活
 
