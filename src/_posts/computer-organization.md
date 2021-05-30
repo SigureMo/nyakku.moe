@@ -43,6 +43,15 @@ tags:
    -  C++ 面向对象
    -  Java 适应网络环境
 
+#### 1.1.3 计算机的分类与发展方向
+
+> [SISD、MIMD、SIMD、MISD 计算机的体系结构的 Flynn 分类法](https://zhuanlan.zhihu.com/p/27696267)
+
+-  SISD（单指令流单数据流系统） 传统的冯·诺依曼结构，串行计算机，它的硬件不支持任何形式的并行计算，所有的指令都是串行执行。并且在某个时钟周期内，CPU 只能处理一个数据流。早期的计算机大多是 SISD。
+-  SIMD（单指令流多数据流系统） 阵列处理器和向量处理器系统，在数字信号处理、图像处理、以及多媒体信息处理等领域非常有效。如 Intel 的 SSE（Streaming SIMD Extensions）、SSE2 及 SSE3 扩展指令集，都能在单个时钟周期内处理多个数据单元。也就是说我们现在用的单核计算机基本上都属于 SIMD 机器。
+-  MISD （多指令流单数据流系统） 由于实际情况中，采用多指令流处理多数据流才是更有效的方法，因此 MISD 只是作为理论模型出现，没有投入到实际应用之中。
+-  MIMD （多指令流多数据流系统） 可以同时执行多个指令流，这些指令流分别对不同数据流进行操作。最新的多核计算平台就属于 MIMD 的范畴，例如 Intel 和 AMD 的双核处理器等都属于 MIMD。
+
 ### 1.2 计算机系统层次结构
 
 #### 1.2.1 计算机系统的组成
@@ -55,22 +64,26 @@ tags:
 
 -  早期的冯·诺依曼计算机
 
-   ![PCC01.png{copyright:Wangdao}](../img/computer-organization/PCC01.png)
+   <p align="center">
+      <img src='../img/computer-organization/CO01.png' alt="CO01.png" width=500 />
+   </p>
 
-   -  特点
+-  特点
 
-      -  计算机由**五大部件**组成
-      -  指令和数据以**同等地位**存于存储器，可按地址寻访
-      -  指令和数据用二进制表示
-      -  指令由**操作码**和**地址码**组成
-      -  指令在存储器内**按顺序存放**
-      -  以运算器为中心
+   -  计算机由**五大部件**组成
+   -  指令和数据以**同等地位**存于存储器，可按地址寻访
+   -  指令和数据用二进制表示
+   -  指令由**操作码**和**地址码**组成
+   -  指令在存储器内**按顺序存放**
+   -  以**运算器**为中心
 
 -  现代计算机的组织结构
 
-   以存储器为中心，使 I/O 操作尽可能地绕过 CPU ，直接在 I/O 设备和存储器之间完成，以提高系统的整体运行效率
+   <p align="center">
+      <img src='../img/computer-organization/CO02.png' alt="CO02.png{copyright:Wangdao}" width=500 />
+   </p>
 
-   ![PCC02.png{copyright:Wangdao}](../img/computer-organization/PCC02.png)
+   以**存储器**为中心，使 I/O 操作尽可能地绕过 CPU ，直接在 I/O 设备和存储器之间完成，以提高系统的整体运行效率
 
 -  计算机的功能部件
 
@@ -107,7 +120,9 @@ tags:
       -  程序计数器 PC 用来存放当前欲执行指令的地址，可以自动加一以形成下一条指令的地址，它与主存的 MAR 之间有一条直接通路
       -  指令寄存器 IR 用来存放当前的指令，其内容来自主存的 MDR
 
-   ![PCC03.png{copyright:Wangdao}](../img/computer-organization/PCC03.png)
+   <p align="center">
+      <img src='../img/computer-organization/CO03.png' alt="CO03.png{copyright:Wangdao}" width=500 />
+   </p>
 
    主机包含 CPU 和主存，其他的硬件装置统称外设，主要为外存和 I/O 设备
 
@@ -140,18 +155,9 @@ tags:
 
 #### 1.2.5 计算机系统的多级层次结构
 
--  软件
-
-   1. 高级语言 虚拟机器 M4 用编译程序翻译成汇编语言程序
-   2. 汇编语言 虚拟机器 M3 用汇编程序翻译成机器语言程序
-   3. 操作系统 虚拟机器 M2 用机器语言解释操作系统
-
-   ***
-
--  硬件
-
-   4. 机器语言 实际机器 M1 用微指令解释机器指令
-   5. 微指令系统 微程序机器 M0 由硬件直接执行微指令
+<p align="center">
+   <img src='../img/computer-organization/CO04.drawio.png' alt="CO04.drawio.png" width=500 />
+</p>
 
 ### 1.3 计算机的性能指标
 
@@ -182,9 +188,9 @@ tags:
       -  吞吐量 指系统在单位时间内处理请求的数量
       -  响应时间 指从用户向计算机发送一个请求，到系统对该请求做出响应并获得所需结果的等待时间
    -  主频和 CPU 时钟周期
-      -  CPU 时钟周期 主频的倒数
-      -  主频（CPU 时钟频率）
-   -  CPI 执行一条指令所需时钟周期数
+      -  主频（CPU 时钟频率，每秒多少时钟周期）
+      -  CPU 时钟周期 也即主频的倒数
+   -  CPI(Cycles per instruction) 执行一条指令所需时钟周期数
    -  MIPS、MFLOPS、GFLOPS、TFLOPS
       -  MIPS 每秒可以执行多少百万条指令
       -  MFLOPS 每秒执行多少百万次浮点运算
@@ -196,46 +202,6 @@ tags:
 -  透明性 指站在某类用户的角度，感觉不到某个事物或属性的存在，即“看”不到
 -  兼容 指计算机软件或硬件的通用性
 -  固件 指将程序固定在 ROM 中组成的部件
-
-### 1.4 计算机的发展与应用 <Badge text="~" type="tip"/>
-
-#### 1.4.1 计算机的应用
-
--  科学计算和数据处理
--  工业控制和实时控制
--  网络技术
-   -  电子商务
-   -  网络教育
-   -  敏捷制造
--  虚拟现实
--  办公自动化和管理信息系统
--  CAD / CAM / CIMS
--  多媒体技术
--  人工智能
-
-#### 1.4.2 计算机的展望
-
--  计算机具有类似人脑的一些超级智能功能
-
-   要求计算机的速度要足够快
-
--  芯片集成度的提高受一下三方面的限制
-   -  芯片集成度受物理极限的制约
-   -  按几何级数递增的制作成本
-   -  芯片的功耗、散热、线延迟
--  替代传统的硅芯片
-
-   -  光计算机
-
-      利用光子取代电子进行运算和存储
-
-   -  DNA 生物计算机
-
-      通过控制 DNA 分子间的生化反应
-
-   -  量子计算机
-
-      利用原子所具有的量子特性
 
 ## 2 数据的表示和运算
 
@@ -308,7 +274,7 @@ tags:
 
 -  奇偶校验码
 
-   加上一个二进制位后，使得**整个校验码**中 1 的个数为奇（偶）数个，只能检奇数个错误，不能纠错
+   加上一个二进制位后，使得**整个编码**中 1 的个数为奇（偶）数个，只能检奇数个错误，不能纠错
 
 -  海明（汉明）校验码
 
@@ -330,18 +296,20 @@ tags:
    **设生成多项式为 $G(x) = x^3 + x^2 + 1$ ，信息码为 101001，求对应的 CRC 码**
 
    -  首先将原信息码左移 R 位，低位补 0，得到 101001000
-   -  然后对移位后的信息码，用生成多项式进行模 2 出发，产生余数
+   -  然后对移位后的信息码，用生成多项式进行模 2 除法，产生余数
 
       ::: tip 什么是模 2 除法与模 2 减法
 
-      既不进位也不借位的运算，故模 2 减法与模 2 加法的结果相同，都是逐位异或运算，模 2 除法类似于算数除法，减法时使用的是模 2 减法
+      **既不进位也不借位**的运算，故模 2 减法与模 2 加法的结果相同，都是逐位异或运算，模 2 除法类似于算数除法，减法时使用的是模 2 减法
 
       :::
 
-      ![PCC04.png{copyright:Wangdao}](../img/computer-organization/PCC04.png)
+      <p align="center">
+         <img src='../img/computer-organization/CO05.png' alt="CO05.png" width=400 />
+      </p>
 
    -  将余数拼接在左移后的编码后，这里将 001 拼接在 101001 后，即 101001001
-   -  检错和纠错，接收端对接收到的 CRC 码用生成多项式做模 2 除法，若余数为 0 ，则无错，否则余数即指示错误的位
+   -  检错和纠错，接收端对接收到的 CRC 码用生成多项式做模 2 除法，若余数为 0 ，则无错，否则余数即指示错误的位（如余数为 010 则表示右数第 2 位有错）
 
 ### 2.2 定点数的表示与运算
 
@@ -350,7 +318,7 @@ tags:
 -  无符号数和有符号数的表示
 
    -  无符号数
-   -  有符号数 使用 0 代表正号， 1 代表负号
+   -  有符号数 使用 0 代表正号，1 代表负号
 
 -  机器数的定点表示
 
@@ -465,7 +433,9 @@ tags:
 
       $x = -0.1101, y = 0.1011$
 
-      ![PCC11.png{copyright:Wangdao}](../img/computer-organization/PCC11.png)
+      <p align="center">
+         <img src='../img/computer-organization/CO06.png' alt="CO06.png{copyright:Wangdao}" width=500 />
+      </p>
 
       -  符号位由异或求得为 `1`
       -  数值部分为 `0.10001111`
@@ -491,7 +461,9 @@ tags:
 
       $x = -0.1101, y = 0.1011$
 
-      ![PCC12.png{copyright:Wangdao}](../img/computer-organization/PCC12.png)
+      <p align="center">
+         <img src='../img/computer-organization/CO07.png' alt="CO07.png{copyright:Wangdao}" width=500 />
+      </p>
 
       即结果的补码为 `1.01110001`，真值为 `-0.10001111`
 
@@ -516,7 +488,9 @@ tags:
 
          $x = 0.1011, y = 1.0011$
 
-         ![PCC13.png{copyright:Wangdao}](../img/computer-organization/PCC13.png)
+         <p align="center">
+            <img src='../img/computer-organization/CO08.png' alt="CO08.png{copyright:Wangdao}" width=500 />
+         </p>
 
          -  符号位为 `0`
          -  数值部分为 `0.1101` 余 `0.0111`
@@ -540,7 +514,9 @@ tags:
 
          $x = 0.1000, y = -0.1011$
 
-         ![PCC14.png{copyright:Wangdao}](../img/computer-organization/PCC14.png)
+         <p align="center">
+            <img src='../img/computer-organization/CO09.png' alt="CO09.png{copyright:Wangdao}" width=500 />
+         </p>
 
          -  符号位为 `0`
          -  数值部分补码为 `1.0101` 余 `0.0111`
@@ -611,24 +587,28 @@ tags:
 
 -  浮点数表示范围
 
-   ![PCC15.png{copyright:Wangdao}](../img/computer-organization/PCC15.png)
+   <p align="center">
+      <img src='../img/computer-organization/CO10.drawio.png' alt="CO10.drawio.png" width=500 />
+   </p>
 
    -  上溢 需进行溢出处理
    -  下溢 当做机器零处理
 
 -  IEEE 754 标准
 
-   ![PCC16.png{copyright:Wangdao}](../img/computer-organization/PCC16.png)
+   <p align="center">
+      <img src='../img/computer-organization/CO11.drawio.png' alt="CO11.drawio.png" width=600 />
+   </p>
 
    -  数符 1 位
    -  阶码 移码表示
    -  尾数 原码表示，由于最高位必为 `1`，为了能够表示更多有效位，这个 `1` 将隐含
 
-   | 类型       | 数符 | 阶码 | 尾数数值 | 总位数 |
-   | ---------- | ---- | ---- | -------- | ------ |
-   | 短浮点数   | 1    | 8    | 23       | 32     |
-   | 长浮点数   | 1    | 11   | 52       | 64     |
-   | 临时浮点数 | 1    | 15   | 64       | 80     |
+   | 类型     | 数符 | 阶码 | 尾数数值 | 总位数 |
+   | -------- | ---- | ---- | -------- | ------ |
+   | 单精度   | 1    | 8    | 23       | 32     |
+   | 双精度   | 1    | 11   | 52       | 64     |
+   | 扩展精度 | 1    | 15   | 64       | 80     |
 
 -  定点、浮点表示的区别
 
@@ -639,7 +619,7 @@ tags:
 
 #### 2.3.2 浮点数的加减运算
 
-1. 对阶 使用不嘛求阶差，小阶向大阶看齐
+1. 对阶 使用补码求阶差，小阶向大阶看齐
 2. 尾数求和 将对阶后的尾数按定点数加（减）规则运算
 3. 规格化 左规或右规
 4. 舍入
@@ -709,7 +689,9 @@ printf("%d %f\n", x3, y3);  // 2147483647 2147483648.000000
 
 ALU 核心是一个并行加法器，同时能执行“与或非”等逻辑运算
 
-![PCC17.png{copyright:Wangdao}](../img/computer-organization/PCC17.png)
+<p align="center">
+   <img src='../img/computer-organization/CO12.drawio.png' alt="CO12.drawio.png" width=300 />
+</p>
 
 -  输入
    -  $A_i$ $B_i$，输入变量
@@ -2342,3 +2324,5 @@ CPU 在程序中安排好于某个时刻启动某台外设，然后 CPU **继续
 2. 《计算机组成原理》 唐朔飞
 3. 《计算机科学导论》 佛罗赞、莫沙拉夫
 4. 计算机组成原理（[上](https://www.icourse163.org/course/HIT-309001) & [下](https://www.icourse163.org/course/HIT-1001527001)） - 哈尔滨工业大学 - 中国大学 MOOC
+5. 《计算机组成与设计——硬件/软件接口（ARM 版）》 David A. Patterson, John L. Hennessy
+6. 徐博、徐方程老师课程
