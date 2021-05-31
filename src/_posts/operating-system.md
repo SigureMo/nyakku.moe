@@ -431,7 +431,7 @@ tags:
 
 ### 2.3 进程同步
 
-[本章节 Python 实现](https://github.com/SigureMo/os-work/tree/master/process_sync)
+[本章节 Python 实现](https://github.com/SigureMo/os-work/tree/master/process-synchronization)
 
 #### 2.3.1 进程同步的基本概念
 
@@ -558,7 +558,7 @@ tags:
 
 #### 2.4.1 生产者-消费者问题
 
-[PC.py](https://github.com/SigureMo/os-work/tree/master/process_sync/PC.py)
+[PC.py](https://github.com/SigureMo/os-work/tree/master/process-synchronization/PC.py)
 
 -  使用记录型信号量解决该问题
 
@@ -585,7 +585,7 @@ tags:
 
 #### 2.4.2 哲学家进餐问题
 
-[The_Dining_Philosophers.py](https://github.com/SigureMo/os-work/tree/master/process_sync/The_Dining_Philosophers.py)
+[The_Dining_Philosophers.py](https://github.com/SigureMo/os-work/tree/master/process-synchronization/The_Dining_Philosophers.py)
 
 -  利用记录型信号量解决该问题
 
@@ -597,7 +597,7 @@ tags:
 
 #### 2.4.3 读者-写者问题
 
-[Writer_and_Reader.py](https://github.com/SigureMo/os-work/tree/master/process_sync/Writer_and_Reader.py)
+[Writer_and_Reader.py](https://github.com/SigureMo/os-work/tree/master/process-synchronization/Writer_and_Reader.py)
 
 需要注意的是，当一个 Writer 进程在写的时候，不允许任何 Reader 进程和 Writer 进程访问该对象
 
@@ -612,13 +612,13 @@ tags:
 
 另外，可以利用信号量集以更巧妙的方法实现（注意 `Swait(S, 1, 0)`，只检查资源，不消耗）
 
-[Writer_and_Reader.py](https://github.com/SigureMo/os-work/tree/master/process_sync/Writer_and_Reader_SemSet.py)
+[Writer_and_Reader.py](https://github.com/SigureMo/os-work/tree/master/process-synchronization/Writer_and_Reader_SemSet.py)
 
 #### 2.4.4 其他问题（习题）
 
--  [购物问题 Shopping.py](https://github.com/SigureMo/os-work/tree/master/process_sync/Shopping.py)
--  [进程同步 Processes.py](https://github.com/SigureMo/os-work/tree/master/process_sync/Processes.py)
--  [独木桥问题 Single-plank_Bridge.py](https://github.com/SigureMo/os-work/tree/master/process_sync/Single-plank_Bridge.py)
+-  [购物问题 Shopping.py](https://github.com/SigureMo/os-work/tree/master/process-synchronization/Shopping.py)
+-  [进程同步 Processes.py](https://github.com/SigureMo/os-work/tree/master/process-synchronization/Processes.py)
+-  [独木桥问题 Single-plank_Bridge.py](https://github.com/SigureMo/os-work/tree/master/process-synchronization/Single-plank_Bridge.py)
 
 ### 2.5 进程通信
 
@@ -755,7 +755,7 @@ tags:
 
 #### 3.3.2 短作业（进程）优先调度算法
 
-SJF 算法极大地提高了系统吞吐量，但是会出现长作业长期不被调度的情况
+SJF 算法极大地提高了系统吞吐量，但是会出现长作业长期不被调度（饿死）的情况
 
 #### 3.3.3 高优先权优先调度算法
 
@@ -769,9 +769,11 @@ SJF 算法极大地提高了系统吞吐量，但是会出现长作业长期不�
    -  静态优先权 不可改变的
    -  动态优先权 可随着进程的等待时间而改变，我们可以规定，在就绪队列的进程，随其等待时间的增长，其优先权以速率 a 提高
 
--  高响应比优先调度算法
+-  高响应比优先调度算法（HRP）
 
    优先权 = (等待时间 + 要求服务时间) / 要求服务时间
+
+TODO: SRT
 
 #### 3.3.4 基于时间片的轮转调度算法
 
@@ -923,7 +925,7 @@ SJF 算法极大地提高了系统吞吐量，但是会出现长作业长期不�
 -  剥夺资源 从其他进程剥夺足够数量的资源给死锁进程
 -  撤销进程 kill 掉死锁进程
 
-> [作业](https://github.com/SigureMo/os-work/tree/master/process_scheduling_and_deadlocks)
+> [作业](https://github.com/SigureMo/os-work/tree/master/process-scheduling-and-deadlocks)
 
 ## 4 存储器管理
 
@@ -1315,7 +1317,7 @@ emmm 虽说共用一个进程吧，但是每个页表都要记录该进程的各
    -  越界检查
    -  存储控制检查 在段表表项中设存取控制字段
 
-> [作业](https://github.com/SigureMo/os-work/tree/master/memory_management/)
+> [作业](https://github.com/SigureMo/os-work/tree/master/memory-management/)
 
 ## 5 设备管理
 
@@ -1732,7 +1734,7 @@ UNIX 内采用的方法，使用空闲盘块号栈进行分配回收
 
 # Experiment
 
-[本课程配套实验](https://github.com/SigureMo/os-work/tree/master/experiments)
+[本课程配套实验](https://github.com/SigureMo/os-work/tree/master/labs)
 
 ## References
 
