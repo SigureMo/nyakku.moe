@@ -1016,22 +1016,22 @@ ALU 核心是一个并行加法器，同时能执行“与或非”等逻辑运�
 
             只写入主存，不进行调块
 
-*  Cache 的命中率：与 Cache 的容量与块长有关
-*  Cache-主存系统的效率（时间比）
+-  Cache 的命中率：与 Cache 的容量与块长有关
+-  Cache-主存系统的效率（时间比）
 
 #### 3.3.3 Cache 和主存的映射方式
 
-| 方法       | 特点                                                     | 优缺点             |
-| ---------- | -------------------------------------------------------- | ------------------ |
-| 直接映射   | 某一主存块**只能固定**映射到**某一**缓存块               | 不灵活、速度快     |
-| 全相联映射 | 某一主存块**能**映射到**任一**缓存块                     | 利用率高、速度慢   |
-| 组相联映射 | 某一主存块**只能**映射到**某一**缓存**组**中的**任一块** | 两者折中，使用较多 |
+| 方法       | 特点                                                                   | 优缺点             |
+| ---------- | ---------------------------------------------------------------------- | ------------------ |
+| 直接映射   | 某一主存块**只能固定**映射到**某一**缓存块                             | 不灵活、速度快     |
+| 全相联映射 | 某一主存块**能**映射到**任一**缓存块（当然，这需要我们维护一个映射表） | 利用率高、速度慢   |
+| 组相联映射 | 某一主存块**只能**映射到**某一**缓存**组**中的**任一块**               | 两者折中，使用较多 |
 
 #### 3.3.4 Cache 中主存块的替换算法
 
--  随机算法 随机地确定替换的 Cache 块
--  先进先出（FIFO）算法 并没有提现程序的局部性原理
--  近期最少使用（LRU）算法
+-  随机替换算法（RAND） 随机地确定替换的 Cache 块
+-  先进先出算法（FIFO） 并没有提现程序的局部性原理
+-  近期最少使用算法（LRU）
 -  最不经常使用算法
 
 #### 3.3.5 Cache 的改进
@@ -1291,7 +1291,7 @@ ALU 核心是一个并行加法器，同时能执行“与或非”等逻辑运�
    -  A 的位数决定操作数的寻址范围
    -  便于程序浮动
    -  广泛用于转移指令
-   -  执行指令之前 PC 就已经自增了
+   -  **执行指令之前 PC 就已经自增了**
 
 -  基址寻址
 
@@ -1481,7 +1481,7 @@ ALU 核心是一个并行加法器，同时能执行“与或非”等逻辑运�
 -  中断处理过程
 
 <p align="center">
-   <img src='../img/computer-organization/PCC38.svg' alt="PCC38" />
+   <img src='../img/computer-organization/CO19.drawio.png' alt="CO19.drawio.png" width=600 />
 </p>
 
 ::: tip 为什么在执行中断服务程序前需要开中断？
@@ -1500,16 +1500,20 @@ ALU 核心是一个并行加法器，同时能执行“与或非”等逻辑运�
 
    又称中断嵌套，CPU 在执行中断过程中如果出现了新的更高优先级的中断请求，转而执行更高优先级的中断请求
 
-   ![PCC22.png{copyright:Wangdao}](../img/computer-organization/PCC22.png)
+   <p align="center">
+      <img src='../img/computer-organization/CO20.drawio.png' alt="CO20.drawio.png" width=500 />
+   </p>
 
    -  实现多重中断的要求
       -  中断服务程序前进行“开中断”（即上节所述）
       -  优先级高的中断源有权中断优先级低的中断源
    -  屏蔽字
 
-      使用实例说明：优先级：$D>A>C>B$，则屏蔽字应为
+      使用例子说明：优先级：$D>A>C>B$，则屏蔽字应为
 
-      ![PCC23.png{copyright:Wangdao}](../img/computer-organization/PCC23.png)
+      <p align="center">
+         <img src='../img/computer-organization/CO21.png' alt="CO21.png{copyright:Wangdao}" width=700 />
+      </p>
 
 ### 5.3 指令执行过程
 
@@ -1522,7 +1526,9 @@ CPU 从主存中每取出并执行一条指令所需的全部时间称为指令�
    -  一个**指令周期**包含若干个**机器周期**
    -  一个**机器周期**包含若干个**时钟周期**
 
-   ![PCC18.png{copyright:Wangdao}](../img/computer-organization/PCC18.png)
+   <p align="center">
+      <img src='../img/computer-organization/CO22.png' alt="CO22.png{copyright:Wangdao}" width=500 />
+   </p>
 
 -  完整的指令周期
 
@@ -1539,7 +1545,9 @@ CPU 从主存中每取出并执行一条指令所需的全部时间称为指令�
 
    任务：根据 PC 中的内容从主存中取出指令代码并存入 IR
 
-   ![PCC19.png{copyright:Wangdao}](../img/computer-organization/PCC19.png)
+   <p align="center">
+      <img src='../img/computer-organization/CO23.png' alt="CO23.png{copyright:Wangdao}" width=500 />
+   </p>
 
    -  $PC \to MAR \to$ 地址总线
    -  $CU$ 发出控制信号 $\to$ 控制总线 $\to$ 主存
@@ -1550,29 +1558,33 @@ CPU 从主存中每取出并执行一条指令所需的全部时间称为指令�
 
    任务：取操作数的有效地址（这里以一次间址为例）
 
-   ![PCC20.png{copyright:Wangdao}](../img/computer-organization/PCC20.png)
+   <p align="center">
+      <img src='../img/computer-organization/CO24.png' alt="CO24.png{copyright:Wangdao}" width=500 />
+   </p>
 
-*  $Ad(IR)$ $\to$ $MAR$ $\to$ 地址总线 $\to$ 主存
+   -  $Ad(IR)$ $\to$ $MAR$ $\to$ 地址总线 $\to$ 主存
 
-   ::: tip
+      ::: tip
 
-   -  由于此时（刚刚取指后嘛） $IR$ 与 $MDR$ 中的数据相同，所以第一步使用 $Ad(MDR)$ 也是可以的
-   -  $Ad$ 是取指令中的地址字段
+      -  由于此时（刚刚取指后嘛） $IR$ 与 $MDR$ 中的数据相同，所以第一步使用 $Ad(MDR)$ 也是可以的
+      -  $Ad$ 是取指令中的地址字段
 
-   :::
+      :::
 
-*  $CU$ 发出读命令 $\to$ 控制总线 $\to$ 主存
-*  主存 $\to$ 数据总线 $\to MDR$ （存放有效地址）
+   -  $CU$ 发出读命令 $\to$ 控制总线 $\to$ 主存
+   -  主存 $\to$ 数据总线 $\to MDR$ （存放有效地址）
 
-*  执行周期
+-  执行周期
 
    根据指令不同而不同，没有统一的数据流向
 
-*  中断周期
+-  中断周期
 
    任务：处理中断请求，假设程序断点存入堆栈，并用 $SP$ 指示栈顶地址
 
-   ![PCC21.png{copyright:Wangdao}](../img/computer-organization/PCC21.png)
+   <p align="center">
+      <img src='../img/computer-organization/CO25.png' alt="CO25.png{copyright:Wangdao}" width=500 />
+   </p>
 
    -  $CU$ 控制 $SP$ 减一，$SP \to MAR \to$ 地址总线 $\to$ 主存
 
@@ -1610,8 +1622,6 @@ CPU 从主存中每取出并执行一条指令所需的全部时间称为指令�
 
 #### 5.4.2 数据通路的基本结构
 
-![PCC24.png{copyright:Wangdao}](../img/computer-organization/PCC24.png)
-
 -  CPU 内部单总线方式
 
    所有寄存器的输入输出端都连接到一条公共通路上
@@ -1646,7 +1656,7 @@ CPU 从主存中每取出并执行一条指令所需的全部时间称为指令�
    | 步骤                 | 作用                                                 |
    | -------------------- | ---------------------------------------------------- |
    | $PC \to Bus \to MAR$ | $PC_{out}$ 和$MAR_{in}$ 有效，现行指令地址 $\to MAR$ |
-   | $1 \to R$            | CU 发读命令                                          |
+   | $1 \to R$            | $CU$ 发读命令                                        |
    | $MEM(MAR) \to MDR$   | $MDR_{in}$ 有效                                      |
    | $MDR \to Bus \to IR$ | $MDR_{out}$ 和 $IR_{in}$ 有效，现行指令 $\to IR$     |
 
@@ -1654,20 +1664,22 @@ CPU 从主存中每取出并执行一条指令所需的全部时间称为指令�
 
    以加法运算为例
 
-   | 步骤                       | 作用                                                               |
-   | -------------------------- | ------------------------------------------------------------------ |
-   | $Ad(IR) \to Bus \to MAR$   | $MDR\_{out} 和 $MAR\_{in}\$ 有效                                   |
-   | $1 \to R$                  | CU 发读命令                                                        |
-   | $MEM \to$ 数据线 $\to MDR$ | 操作数从存储器 $\to$ 数据线 $\to MDR$                              |
-   | $MDR \to Bus \to Y$        | $MDR_{out}$ 和 $Y_{in}$ 有效，操作数 $\to Y$                       |
-   | $(ACC) + (Y) \to Z$        | $ACC_{out}$ 和 $ALU_{in}$ 有效，CU 向 $ALU$ 发加命令，结果 $\to Z$ |
-   | $Z \to ACC$                | $Z_{out}$ 和 $ACC_{in}$ 有效，结果 $\to ACC$                       |
+   | 步骤                       | 作用                                                                 |
+   | -------------------------- | -------------------------------------------------------------------- |
+   | $Ad(IR) \to Bus \to MAR$   | $MDR\_{out}$ 和 $MAR\_{in}\$ 有效                                    |
+   | $1 \to R$                  | $CU$ 发读命令                                                        |
+   | $MEM \to$ 数据线 $\to MDR$ | 操作数从存储器 $\to$ 数据线 $\to MDR$                                |
+   | $MDR \to Bus \to Y$        | $MDR_{out}$ 和 $Y_{in}$ 有效，操作数 $\to Y$                         |
+   | $(ACC) + (Y) \to Z$        | $ACC_{out}$ 和 $ALU_{in}$ 有效，$CU$ 向 $ALU$ 发加命令，结果 $\to Z$ |
+   | $Z \to ACC$                | $Z_{out}$ 和 $ACC_{in}$ 有效，结果 $\to ACC$                         |
 
 ### 5.5 控制器的功能和工作原理
 
 #### 5.5.1 控制器的结构和功能
 
-![PCC25.png{copyright:Wangdao}](../img/computer-organization/PCC25.png)
+<p align="center">
+   <img src='../img/computer-organization/CO26.png' alt="CO26.png{copyright:Wangdao}" width=500 />
+</p>
 
 #### 5.5.2 硬布线控制器
 
@@ -1675,7 +1687,9 @@ CPU 从主存中每取出并执行一条指令所需的全部时间称为指令�
 
 -  硬布线控制单元图
 
-   ![PCC26.png{copyright:Wangdao}](../img/computer-organization/PCC26.png)
+   <p align="center">
+      <img src='../img/computer-organization/CO27.png' alt="CO27.png{copyright:Wangdao}" width=500 />
+   </p>
 
    CU 的输入信号来源
 
@@ -1725,7 +1739,9 @@ CPU 从主存中每取出并执行一条指令所需的全部时间称为指令�
 
 -  微程序控制的基本概念
 
-   ![PCC27.png{copyright:MOOC}](../img/computer-organization/PCC27.png)
+   <p align="center">
+      <img src='../img/computer-organization/CO28.png' alt="CO28.png{copyright:MOOC}" width=500 />
+   </p>
 
    将每条机器指令编写成一个微程序，每个微程序包含若干微指令，每条微指令对应一个或几个微操作命令
 
@@ -1752,7 +1768,10 @@ CPU 从主存中每取出并执行一条指令所需的全部时间称为指令�
 -  微程序控制器的组成和工作过程
 
    -  基本组成
-      ![PCC28.png{copyright:Wangdao}](../img/computer-organization/PCC28.png)
+
+      <p align="center">
+         <img src='../img/computer-organization/CO29.png' alt="CO29.png{copyright:Wangdao}" width=500 />
+      </p>
 
       -  控制存储器 CM
       -  微指令寄存器 CMDR
@@ -1869,7 +1888,9 @@ CPU 从主存中每取出并执行一条指令所需的全部时间称为指令�
 -  一次重叠执行方式 $T = (1 + 2n)t$
 -  二次重叠执行方式 $T = (2 + n)t$，只是理想的，因为同时执行的三条指令不可能总是没有冲突
 
-![PCC29.png{copyright:Wangdao}](../img/computer-organization/PCC29.png)
+<p align="center">
+   <img src='../img/computer-organization/CO30.png' alt="CO30.png{copyright:Wangdao}" width=500 />
+</p>
 
 #### 5.6.2 流水线方式的特点
 
@@ -2014,7 +2035,9 @@ CPU 从主存中每取出并执行一条指令所需的全部时间称为指令�
 
    将 CPU、主存、I/O 设备都挂在一组总线上
 
-   ![PCC30.png{copyright:Wangdao}](../img/computer-organization/PCC30.png)
+   <p align="center">
+      <img src='../img/computer-organization/CO31.png' alt="CO31.png{copyright:Wangdao}" width=500 />
+   </p>
 
    ::: tip
 
@@ -2027,7 +2050,9 @@ CPU 从主存中每取出并执行一条指令所需的全部时间称为指令�
    -  主存总线
    -  I/O 总线
 
-   ![PCC31.png{copyright:Wangdao}](../img/computer-organization/PCC31.png)
+   <p align="center">
+      <img src='../img/computer-organization/CO32.png' alt="CO32.png{copyright:Wangdao}" width=500 />
+   </p>
 
    -  优点
       -  将低速 I/O 设备从单总线上分离出来，实现了存储器总线和 I/O 总线分离
@@ -2040,7 +2065,9 @@ CPU 从主存中每取出并执行一条指令所需的全部时间称为指令�
    -  I/O 总线
    -  DMA 总线
 
-   ![PCC32.png{copyright:Wangdao}](../img/computer-organization/PCC32.png)
+   <p align="center">
+      <img src='../img/computer-organization/CO33.png' alt="CO33.png{copyright:Wangdao}" width=500 />
+   </p>
 
    -  优点
       -  提高了 I/O 设备的性能，使其更快地响应命令，提高系统吞吐量
@@ -2069,7 +2096,10 @@ CPU 从主存中每取出并执行一条指令所需的全部时间称为指令�
 -  链式查询方式
 
    所有的部件共用一根总线请求线，I/O 接口通过 BR 请求总线使用，BG 逐个向下查询，总线使用权交给遇到的第一个请求的接口，然后这个接口通过 BS 设置总线忙
-   ![PCC33.png{copyright:Wangdao}](../img/computer-organization/PCC33.png)
+
+   <p align="center">
+      <img src='../img/computer-organization/CO34.png' alt="CO34.png{copyright:Wangdao}" width=500 />
+   </p>
 
    -  优点
       -  优先级由连接方式事先确定（离总线控制器越近，其优先级越高）
@@ -2081,7 +2111,10 @@ CPU 从主存中每取出并执行一条指令所需的全部时间称为指令�
 -  计数器定时查询方式
 
    I/O 接口通过 BR 请求总线使用，计数器循环累加从**设备地址线**向下查询，直到遇到第一个请求的接口，将总线使用权交由它，然后这个接口通过 BS 设置总线忙
-   ![PCC34.png{copyright:Wangdao}](../img/computer-organization/PCC34.png)
+
+   <p align="center">
+      <img src='../img/computer-organization/CO35.png' alt="CO35.png{copyright:Wangdao}" width=500 />
+   </p>
 
    -  优点
       -  优先级设置很灵活，甚至可以采用循环方法（每次计数的开始是上一次的终点）
@@ -2091,14 +2124,17 @@ CPU 从主存中每取出并执行一条指令所需的全部时间称为指令�
 -  独立请求方式
 
    每个接口都与控制机构有连接，控制机构有排队器
-   ![PCC35.png{copyright:Wangdao}](../img/computer-organization/PCC35.png)
 
-   -  优点
-      -  响应速度快
-      -  优先级设置相当灵活
-   -  缺点
-      -  控制线数量多
-      -  总线控制逻辑更加复杂
+      <p align="center">
+         <img src='../img/computer-organization/CO36.png' alt="CO36.png{copyright:Wangdao}" width=500 />
+      </p>
+   ]
+      -  优点
+         -  响应速度快
+         -  优先级设置相当灵活
+      -  缺点
+         -  控制线数量多
+         -  总线控制逻辑更加复杂
 
 |          | 链式查询                             | 计数器定时查询           | 独立请求                  |
 | -------- | ------------------------------------ | ------------------------ | ------------------------- |
@@ -2142,7 +2178,9 @@ CPU 从主存中每取出并执行一条指令所需的全部时间称为指令�
    -  比同步控制方式稍复杂
    -  速度比同步定时方式慢
 
-![PCC36.png{copyright:Wangdao}](../img/computer-organization/PCC36.png)
+<p align="center">
+   <img src='../img/computer-organization/CO37.png' alt="CO37.png{copyright:Wangdao}" width=500 />
+</p>
 
 -  不互锁方式
 -  半互锁方式
@@ -2311,7 +2349,10 @@ CPU 在程序中安排好于某个时刻启动某台外设，然后 CPU **继续
       -  确定数据传送的首地址和长度，修正传送过程中的数据地址和长度
       -  DMA 传送结束时，给出操作完成信号
    -  DMA 接口组成
-      ![PCC37.png{copyright:Wangdao}](../img/computer-organization/PCC37.png)
+
+      <p align="center">
+         <img src='../img/computer-organization/CO38.png' alt="CO38.png{copyright:Wangdao}" width=500 />
+      </p>
 
 -  DMA 的传送方式
 
@@ -2340,8 +2381,8 @@ CPU 在程序中安排好于某个时刻启动某台外设，然后 CPU **继续
 ## References
 
 1. 2020 年计算机组成原理考研复习指导 - 王道
-2. 《计算机组成原理》 唐朔飞
-3. 《计算机科学导论》 佛罗赞、莫沙拉夫
+2. 徐博、徐方程老师课程
+3. 《计算机组成原理》 唐朔飞
 4. 计算机组成原理（[上](https://www.icourse163.org/course/HIT-309001) & [下](https://www.icourse163.org/course/HIT-1001527001)） - 哈尔滨工业大学 - 中国大学 MOOC
 5. 《计算机组成与设计——硬件/软件接口（ARM 版）》 David A. Patterson, John L. Hennessy
-6. 徐博、徐方程老师课程
+6. 《计算机科学导论》 佛罗赞、莫沙拉夫
