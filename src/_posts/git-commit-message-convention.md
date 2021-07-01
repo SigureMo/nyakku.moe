@@ -100,13 +100,13 @@ This reverts commit 667ecc1654a317a13331b17617d973392f415f02.
 | :ambulance:                 | `:ambulance:`                 | Critical hotfix.                              | 紧急的热修复                                   |
 | :sparkles:                  | `:sparkles:`                  | Introduce new features.                       | 引入新功能                                     |
 | :memo:                      | `:memo:`                      | Add or update documentation.                  | 添加或更新文档                                  |
-| :rocket:                    | `:rocket:`                    | Deploy stuff.                                 | 部署任务                                       |
+| :rocket:                    | `:rocket:`                    | Deploy stuff.                                 | 部署                                       |
 | :lipstick:                  | `:lipstick:`                  | Add or update the UI and style files.         | 添加或更新 UI 和样式文件                       |
-| :tada:                      | `:tada:`                      | Begin a project.                              | 开始一个项目                                   |
+| :tada:                      | `:tada:`                      | Begin a project.                              | 开始一个全新的项目～                                   |
 | :white_check_mark:          | `:white_check_mark:`          | Add or update tests.                          | 添加或更新测试用例                             |
 | :lock:                      | `:lock:`                      | Fix security issues.                          | 修复安全问题                                   |
-| :bookmark:                  | `:bookmark:`                  | Release / Version tags.                       | 发版/版本标签                                  |
-| :rotating_light:            | `:rotating_light:`            | Fix compiler / linter warnings.               | 修复编译器或者 linter 的警告                        |
+| :bookmark:                  | `:bookmark:`                  | Release / Version tags.                       | 发版 / 版本标签                                  |
+| :rotating_light:            | `:rotating_light:`            | Fix compiler / linter warnings.               | 修复编译器或者 linter 的 warning                        |
 | :construction:              | `:construction:`              | Work in progress.                             | 工作在进行中                                   |
 | :green_heart:               | `:green_heart:`               | Fix CI Build.                                 | 修复 CI 构建问题                               |
 | :arrow_down:                | `:arrow_down:`                | Downgrade dependencies.                       | 降级依赖库                                     |
@@ -146,7 +146,7 @@ This reverts commit 667ecc1654a317a13331b17617d973392f415f02.
 | :see_no_evil:               | `:see_no_evil:`               | Add or update a .gitignore file.              | 添加或更新 .gitignore 文件                     |
 | :camera_flash:              | `:camera_flash:`              | Add or updatesnapshots.                       | 添加或更新快照                                 |
 | :alembic:                   | `:alembic:`                   | Perform experiments.                          | 实验性内容                                     |
-| :mag:                       | `:mag:`                       | Improve SEO.                                  | SEO 优化                                       |
+| :mag:                       | `:mag:`                       | Improve SEO.                                  | 提高 SEO                                       |
 | :label:                     | `:label:`                     | Add or update types.                          | 添加或更新类型声明                               |
 | :seedling:                  | `:seedling:`                  | Add or update seed files.                     | 添加或更新种子文件                             |
 | :triangular_flag_on_post:   | `:triangular_flag_on_post:`   | Add, update, or remove feature flags.         | 添加、更新或删除功能标志                       |
@@ -157,6 +157,7 @@ This reverts commit 667ecc1654a317a13331b17617d973392f415f02.
 | 🩹 <!-- :adhesive_bandage: (need markdown-it-emoji 2.0)--> | `:adhesive_bandage:`          | Simple fix for a non-critical issue.          | 简单修复一个非关键问题                         |
 | 🧐 <!-- :monocle_face: (need markdown-it-emoji 2.0)-->   | `:monocle_face:`              | Data exploration/inspection.                  | 数据探索/检查                         |
 | :coffin:                    | `:coffin:`                    | Remove dead code.                             | 清除无效代码                                 |
+| :test_tube:                    | `:test_tube:`                    | Add a failing test.                             | 添加一个运行失败的测试用例（TDD 第一步）                                 |
 
 在提交时你可以按照喜好使用其 code 或者直接使用 emoji，因为 GitHub 是能够正确将这些 code 渲染为对应的 emoji 的。
 
