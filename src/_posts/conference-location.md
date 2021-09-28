@@ -100,7 +100,7 @@ IEEE
 
 |      | Conference | Year | Location                    |
 | ---- | ---------- | ---- | --------------------------- |
-| 21st | ICPR       | 2012 | Tsukuba Science City, Japan |
+| 21th | ICPR       | 2012 | Tsukuba Science City, Japan |
 | 20th | ICPR       | 2010 | Istanbul, Turkey            |
 | 19th | ICPR       | 2008 | Tampa, USA                  |
 | 18th | ICPR       | 2006 | Hong Kong, China            |
