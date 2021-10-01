@@ -35,7 +35,6 @@ jobs:
             ${{ runner.os }}-pnpm-
 
       - name: Install dependencies
-        if: steps.pnpm-cache.outputs.cache-hit != 'true'
         run: pnpm i --frozen-lockfile
 
       - name: Build VuePress site
