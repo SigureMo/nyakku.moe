@@ -2128,7 +2128,7 @@ CPU 从主存中每取出并执行一条指令所需的全部时间称为指令�
       <p align="center">
          <img src='../img/computer-organization/CO36.png' alt="CO36.png{copyright:Wangdao}" width=500 />
       </p>
-   ]
+
       -  优点
          -  响应速度快
          -  优先级设置相当灵活
