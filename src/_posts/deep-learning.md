@@ -17,27 +17,7 @@ DeepLearning, Andrew Ng 慕课笔记
 
 ## 1 Neural Networks and DeepLearning
 
-### 1.1 Introduction to DeepLearning
-
-![DeepLearning01](../img/deep-learning/DL01.png)
-
-> 数据量的增加，使得深度学习的优势越来越明显
-
-![DeepLearning02](../img/deep-learning/DL02.png)
-
-> 迭代过程需要的时间越长，所能实现的想法就越少，因此训练的算法改良对深度学习来说是一个很关键的问题。
-> 比如使用 sigmoid 函数作为激活函数时，过大的输入会使神经网络饱和，梯度下降算法越来越慢；改良为 ReLU 函数（修正线性单元）后，梯度下降的算法运行的更快，迭代时间相应就减少了很多
-
 ### 1.2 Basics of Neural Network programming
-
-#### 1.2.1 Binary Classification
-
--  如果想要识别图片中是否有猫，可以将输入和输出组织成这样：输入为 64 \* 64 \* 3 维（像素点 64 \* 64，三个颜色通道），输出为一个数字（0 或者 1）
--  我们对输入和输出符号做以下约定：
-   -  nx 为输入的维度，比如这里就是 64 \* 64 \* 3
-   -  用 X 将 x 按列组织起来
-   -  用 Y 将 y 按行组织起来
-   -  我们可以用 Python 里的`X.shape()`查看规模
 
 #### 1.2.2 Logistic Regression
 
@@ -141,12 +121,6 @@ dw /= m
    3. 然后我们利用矩阵的乘法使两个矩阵相乘，如果我们还对矩阵乘法有点印象的话，就可以知道结果的 i 行 j 列元素对应的就是第一个矩阵的 i 行与第二个矩阵的 j 列相乘并求和，看到这里想必大家都明白了，前面的每一行（虽然现在只有这么一行）不正对应于一个训练集的所对应的权重$w$嘛，后面的每一列不正对应于一个训练集的输入数据嘛，最后的结果不过是将原来的数据列在了一起，形成最后这样的(1, n)的矩阵，比如说(0, 3)是由特征权重 w 和第四组训练集相乘得来，也就是原来 for 循环的第四组
    4. 然后让我们加上 b 吧，既然每个数据都要加 b，那就做一个(1, n)的全 b 矩阵咯
    5. 然后 sigmoid 又不用说了，还是那么简单
-4. 下面我们用 Python 试一下
-
-```Python
-Z = np.dot(w.t, X) + b # 咦？居然直接这样就可以了？原来numpy会自动将它扩展为(1, n)的全b矩阵
-A = σ(Z) # 对每个z求sigmoid
-```
 
 #### 1.2.14 Vectorizing Logistic Regression's Gradient
 
@@ -367,21 +341,6 @@ emmmm 貌似没啥，到时候用 for 循环组织各层就好
    -  训练集（training set） 用于训练
    -  验证集（dev set） 根据训练集得到的模型在验证集上的表现调优超参数，直至在该验证集验证下误差达到最小
    -  测试集（test set） 用于评估最终确定的模型的精确度（泛化能力）
-
-::: tip
-
-为什么要分成这么三份？我们来考虑下以下几种情况：
-
-1. 一整个 training set ，很明显不可取，因为这样的话可能最终模型只拟合了 training set 这些数据
-2. training set + test set 由于超参数是用 test set 拟合的，所以很可能会出现对 test set 过拟合的现象
-3. 而再用一组在训练过程中从未“触碰”过的数据来验证就可以更好地证明模型的正确性
-
-另外，可以对 training set 进行分组，每次取一部分作为 dev set ，这叫做交叉验证，尽管这是一个很好的方法，但是由于训练往往是很耗时的，所以这种方法并不常用
-
-还有一点一定要注意的是，收集数据后尽量将它打乱，如果说将最开始收集到的数据作为 training set ，后收集到的数据作为 test set 的话，很明显这并不满足同分布
-
-:::
-
 4. 小数据量的情况下需要分配很大比例的数据用于测试，但是在当今的大数据时代，这样的做法属实是没太大的必要了，我们完全可以拿出更小的部分用以验证
 5. 训练集和验证集要确保来自同一分布
 6. 测试集并不是必要的，因为它只是对最终所选定的神经网络做出无偏评估
@@ -452,7 +411,7 @@ emmmm 貌似没啥，到时候用 for 循环组织各层就好
 3. 下面，我们只需要对 a3 进行一点小小的改变
 
 ```Python
-a3 = np.multiply(a3, d3) # a3 *= d3`
+a3 = np.multiply(a3, d3) # a3 *= d3
 a3 /= keep_prob
 ```
 
@@ -1489,7 +1448,7 @@ $b^{[l]} \rightarrow (1, 1, 1, n_c^{[l]})$
    -  激活函数主要使用 sigmoid 和 tanh 而不是 ReLU
    -  那时候最后的分类函数并不是 Softmax 而是别的什么，现在已经不常用了
 
-*  AlexNet
+-  AlexNet
 
    ![DeepLearning27](../img/deep-learning/DL27.png)
 
@@ -1497,7 +1456,7 @@ $b^{[l]} \rightarrow (1, 1, 1, n_c^{[l]})$
    -  使用了 ReLU
    -  最后使用了 Softmax
 
-*  VGG-16
+-  VGG-16
 
    ![DeepLearning28](../img/deep-learning/DL28.png)
 
@@ -2475,10 +2434,6 @@ $arg max \frac{1}{T_y^\alpha}\sum\limits_{t=1}^{T_y} \log P(y^{<t>} |x, y^{<1>},
 ![DeepLearning80](../img/deep-learning/DL80.png)
 
 我们可以在这样一个语音序列上有触发字的位置标记为 1 ，其余位置标记为 0 ，然后训练就好啦
-
-#### 5.3.11 A New Beginning
-
-$Thank\ you,  Andrew\ Ng$
 
  -->
 
