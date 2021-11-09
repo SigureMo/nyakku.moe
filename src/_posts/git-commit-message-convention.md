@@ -157,8 +157,9 @@ This reverts commit 667ecc1654a317a13331b17617d973392f415f02.
 | 🩹 <!-- :adhesive_bandage: (need markdown-it-emoji 2.0)--> | `:adhesive_bandage:`          | Simple fix for a non-critical issue.          | 简单修复一个非关键问题                         |
 | 🧐 <!-- :monocle_face: (need markdown-it-emoji 2.0)-->   | `:monocle_face:`              | Data exploration/inspection.                  | 数据探索/检查                         |
 | :coffin:                    | `:coffin:`                    | Remove dead code.                             | 清除无效代码                                 |
-| 🧪 <!-- :test_tube: -->                   | `:test_tube:`                    | Add a failing test.                             | 添加一个运行失败的测试用例（TDD 第一步）                                 |
-| :necktie:                        | `:necktie:`                        | Add or update business logic.                             | 添加或更新业务逻辑                                 |
+| 🧪 <!-- :test_tube: -->     | `:test_tube:`                  | Add a failing test.                          | 添加一个运行失败的测试用例（TDD 第一步）                                 |
+| :necktie:                   | `:necktie:`                   | Add or update business logic.                 | 添加或更新业务逻辑                               |
+| :stethoscope:               | `:stethoscope:`               | Add or update healthcheck.                    | 添加或更新健康检查                               |
 
 在提交时你可以按照喜好使用其 code 或者直接使用 emoji，因为 GitHub 是能够正确将这些 code 渲染为对应的 emoji 的。
 
