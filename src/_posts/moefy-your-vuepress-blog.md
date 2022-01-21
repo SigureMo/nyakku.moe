@@ -1,18 +1,18 @@
 ---
-title: 用可爱的插件装饰你的 Vuepress~
+title: 用可爱的插件装饰你的 VuePress~
 date: 2019-10-21
 category: 游
 tags:
    - front end
    - blog
-   - Vuepress
+   - VuePress
 ---
 
 ::: tip
 
 早在一年多以前我就喜欢上了 `hexo-theme-sagiri` 这个主题（效果可以参见 [diygod.me](https://diygod.me/)），不过当时还什么都不懂啦，不会用 GitHub ，更不知道这居然是静态博客做出来的效果（如果当时知道那么简单的话，我也许现在用的就是 hexo 了 :joy:）
 
-前些日子因为机缘巧合发现了 `sagiri` 中的彩带背景的开源实现，原来其出自若干年前 Evan 的个人主页背景，之后我试着简单阅读 `vuepress-plugin-nest` 插件源码，照喵画虎地摹了个 `vuepress-plugin-ribbon` 插件，居然真的成功了！这使我萌生了把 `sagiri` 中一些小组件作为 Vuepress 插件实现的想法，之后的几天……
+前些日子因为机缘巧合发现了 `sagiri` 中的彩带背景的开源实现，原来其出自若干年前 Evan 的个人主页背景，之后我试着简单阅读 `vuepress-plugin-nest` 插件源码，照喵画虎地摹了个 `vuepress-plugin-ribbon` 插件，居然真的成功了！这使我萌生了把 `sagiri` 中一些小组件作为 VuePress 插件实现的想法，之后的几天……
 
 废话说太多了，还是说说怎么用吧 :joy:
 
@@ -21,7 +21,7 @@ tags:
 <!-- more -->
 
 -  预备知识
-   -  会简单配置 Vuepress ，不会的话请先行阅读 [使用 Vuepress 搭建个人静态 Blog](build_blog_by_vuepress.md)
+   -  会简单配置 VuePress ，不会的话请先行阅读 [使用 VuePress 搭建个人静态 Blog](build_blog_by_vuepress.md)
 -  开发环境
    -  `nodejs 8+` 及 `npm` or `yarn`
 -  文档 [moefy vuepress](https://moefyit.github.io/moefy-vuepress/)
@@ -30,7 +30,7 @@ tags:
 
 [vuepress-plugin-ribbon](https://github.com/moefyit/vuepress-plugin-ribbon)
 
-只需要简单的配置就可以在你的 Vuepress 中添加一条背景彩带~
+只需要简单的配置就可以在你的 VuePress 中添加一条背景彩带~
 
 首先使用 yarn 安装~
 
@@ -71,7 +71,7 @@ module.exports = {
 
 唔，欢迎回来，你应该已经看到效果了~这就是 `dynamic-title` 的效果~
 
-想要把它装到你的 Vuepress 的话，就 yarn 一下吧~
+想要把它装到你的 VuePress 的话，就 yarn 一下吧~
 
 ```bash
 yarn add vuepress-plugin-dynamic-title -D
@@ -100,7 +100,7 @@ module.exports = {
 
 [vuepress-plugin-cursor-effects](https://github.com/moefyit/vuepress-plugin-cursor-effects)
 
-只需要简单的安装就可以在你的 Vuepress 添加鼠标点击后散落彩色粒子的效果~
+只需要简单的安装就可以在你的 VuePress 添加鼠标点击后散落彩色粒子的效果~
 
 插件名是 `vuepress-plugin-cursor-effects`，安装方法应该不用说了吧，配置也很简单，按照下面配置就好
 
