@@ -1,4 +1,9 @@
-module.exports = {
+import { defineConfig } from 'vuepress/config'
+import markdowniItMark from 'markdown-it-mark'
+import markdownItTaskLists from 'markdown-it-task-lists'
+import markdownItVuepressCodeSnippetEnhanced from 'markdown-it-vuepress-code-snippet-enhanced'
+
+export default defineConfig({
   title: 'Notev',
   description: '一个小透明的透明世界',
   port: 1127,
@@ -6,6 +11,8 @@ module.exports = {
   locales: {
     '/': {
       lang: 'zh-CN',
+      title: 'Notev',
+      description: '一个小透明的透明世界',
     },
   },
   head: [
@@ -41,13 +48,14 @@ module.exports = {
     // markdown 插件
     extendMarkdown: (md) => {
       md.set({ html: true })
-      md.use(require('markdown-it-mark'))
-      md.use(require('markdown-it-task-lists'))
-      md.use(require('markdown-it-vuepress-code-snippet-enhanced'))
+      md.use(markdowniItMark)
+      md.use(markdownItTaskLists)
+      md.use(markdownItVuepressCodeSnippetEnhanced)
     },
   },
 
   // 插件
+  // @ts-ignore
   plugins: [
     // 开启 PWA
     [
@@ -122,9 +130,35 @@ module.exports = {
   // 主题配置
   theme: 'meteorlxy',
   themeConfig: {
-    lang: Object.assign(require('vuepress-theme-meteorlxy/lib/langs/en-US'), {
+    // @ts-ignore
+    lang: {
       home: '一个小透明的透明世界',
-    }),
+      posts: 'Posts',
+      category: 'Category',
+      categories: 'Categories',
+      tag: 'Tag',
+      tags: 'Tags',
+
+      // post filter
+      allCategories: '全部',
+      search: '搜索',
+      searchHint: '查找标题和摘要',
+      noRelatedPosts: '木有找到相关的文章呀～',
+
+      // post meta
+      top: '置顶',
+      createdAt: '发布时间',
+      updatedAt: '最后修改',
+      prevPost: '上一篇',
+      nextPost: '下一篇',
+
+      // post nav
+      toc: '文章目录',
+      comments: '评论',
+
+      // hints
+      notFound: '哎呀！这里什么都没有哇～',
+    },
     personalInfo: {
       // 昵称
       nickname: '喵ック',
@@ -183,10 +217,10 @@ module.exports = {
 
     // 顶部导航栏内容
     nav: [
-      { text: 'Home', link: '/', exact: true },
-      { text: 'Posts', link: '/posts/', exact: false },
-      { text: 'Friends', link: '/friends.html', exact: false },
-      { text: 'About', link: '/about.html', exact: false },
+      { text: 'Home', link: '/' },
+      { text: 'Posts', link: '/posts/' },
+      { text: 'Friends', link: '/friends.html' },
+      { text: 'About', link: '/about.html' },
       { text: 'GitHub', link: 'https://github.com/SigureMo/notev' },
     ],
 
@@ -223,4 +257,4 @@ module.exports = {
       },
     ],
   },
-}
+})
