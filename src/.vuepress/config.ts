@@ -217,10 +217,10 @@ export default defineConfig({
 
     // 顶部导航栏内容
     nav: [
-      { text: 'Home', link: '/' },
-      { text: 'Posts', link: '/posts/' },
-      { text: 'Friends', link: '/friends.html' },
-      { text: 'About', link: '/about.html' },
+      { text: 'Home', link: '/', exact: true },
+      { text: 'Posts', link: '/posts/', exact: false },
+      { text: 'Friends', link: '/friends.html', exact: false },
+      { text: 'About', link: '/about.html', exact: false },
       { text: 'GitHub', link: 'https://github.com/SigureMo/notev' },
     ],
 
