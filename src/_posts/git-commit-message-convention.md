@@ -159,9 +159,9 @@ This reverts commit 667ecc1654a317a13331b17617d973392f415f02.
 | :coffin:                    | `:coffin:`                    | Remove dead code.                             | 清除无效代码                                 |
 | 🧪 <!-- :test_tube: -->     | `:test_tube:`                  | Add a failing test.                          | 添加一个运行失败的测试用例（TDD 第一步）                                 |
 | :necktie:                   | `:necktie:`                   | Add or update business logic.                 | 添加或更新业务逻辑                               |
-| :stethoscope:               | `:stethoscope:`               | Add or update healthcheck.                    | 添加或更新健康检查                               |
-| :bricks:                    | `:bricks:`                    | Infrastructure related changes.               | 基础设施相关改动                                 |
-| :technologist:              | `:technologist:`              | Improve developer experience.                 | 提升开发体验                                    |
+| 🩺                          | `:stethoscope:`               | Add or update healthcheck.                    | 添加或更新健康检查                               |
+| 🧱                          | `:bricks:`                    | Infrastructure related changes.               | 基础设施相关改动                                 |
+| 🧑‍💻                          | `:technologist:`              | Improve developer experience.                 | 提升开发体验                                   |
 
 在提交时你可以按照喜好使用其 code 或者直接使用 emoji，因为 GitHub 是能够正确将这些 code 渲染为对应的 emoji 的。
 
