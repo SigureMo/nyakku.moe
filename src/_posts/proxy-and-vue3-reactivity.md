@@ -681,12 +681,12 @@ render: 2
 
 最后四行和 3、4、5、6 行完全一样，就不再赘述了……
 
-嘻嘻，完成啦～源码就先整理到[这里](https://github.com/SigureMo/vue-reactivity)好了。
+嘻嘻，完成啦～源码就先整理到[这里](https://github.com/ShigureLab/vue-reactivity)好了。
 
 呼，总算完事了，本来这次探索只是初学 Proxy 的一个延伸罢了，原来就想看看 reactive 的源码就算了，但实在是觉得探索了一半有点可惜，才把 track 等的作用也给分析了下。唔，不过分析的很浅啦，可能还有不少错误的地方，而且很多细节暂且都没有考虑……嗯，以后有机会再深度研读下 Vue3 源码吧，这次就到这里好了～
 
 ## References
 
 1. 《JavaScript 高级程序设计（第四版）》 Matt Frisbie
-2. [Vue3 源码 reactivity 部分](https://github.com/vuejs/vue-next/tree/master/packages/reactivity)
+2. [Vue3 源码 reactivity 部分](https://github.com/vuejs/core/tree/main/packages/reactivity)
 3. [Vue3 文档](https://v3.cn.vuejs.org/api/basic-reactivity.html#reactive)
