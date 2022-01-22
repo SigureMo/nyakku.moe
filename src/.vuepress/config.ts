@@ -125,6 +125,8 @@ export default defineConfig({
         selector: '.content :not(a) > img',
       },
     ],
+    // 图片懒加载
+    ['img-lazy'],
   ],
 
   // 主题配置
