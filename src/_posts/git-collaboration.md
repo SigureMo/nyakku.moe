@@ -115,6 +115,33 @@ git branch -d feature-xxx              # 如果该分支已经没有作用了，
 git push origin --delete feature-xxx   # 同时删除远程分支
 ```
 
+### 解决冲突
+
+如果你的 PR 与原作者的默认分支修改发生了冲突，那么最佳实践是我们基于原作者最新修改 rebase 一下。
+
+```bash
+git fetch upstream
+git rebase upstream/main
+```
+
+此时应当会提示有冲突，我们手动将所有冲突解决后，add 它们，比如这里发生冲突的是 `conflicted.md`
+
+```bash
+git add conflicted.md
+```
+
+然后我们让 rebase 继续下去
+
+```bash
+git rebase --continue
+```
+
+现在，我们的修改就会变成基于原作者最新进度的修改了。我们 push 一下，当然，由于我们本次改动对历史有影响，因此需要 force 一下
+
+```bash
+git push --force-with-lease
+```
+
 ### 同步原作者更改
 
 如果原作者更新了原来的分支，总不能每次都重新 fork 一下仓库吧，如果之前没有在原有分支上进行修改的话，现在就可以在避免手动合并的情况下同步原作者后续修改了
