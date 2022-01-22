@@ -113,6 +113,7 @@ export default defineConfig({
         },
         aplayer: {
           lrcType: 3,
+          preload: 'metadata',
         },
       },
     ],
