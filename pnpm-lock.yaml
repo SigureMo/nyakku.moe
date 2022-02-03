@@ -13,13 +13,13 @@ specifiers:
   markdown-it-task-lists: ^2.1.1
   markdown-it-vuepress-code-snippet-enhanced: ^1.0.1
   vuepress: ^1.9.7
-  vuepress-plugin-cursor-effects: ^1.1.0
+  vuepress-plugin-cursor-effects: ^1.1.1
   vuepress-plugin-dynamic-title: ^1.0.0
   vuepress-plugin-feed: ^0.1.9
   vuepress-plugin-go-top: ^1.0.4
   vuepress-plugin-img-lazy: ^1.0.4
   vuepress-plugin-meting: ^0.3.1
-  vuepress-plugin-ribbon: ^1.1.0
+  vuepress-plugin-ribbon: ^1.1.1
   vuepress-theme-meteorlxy: ^1.9.0
 
 dependencies:
@@ -31,13 +31,13 @@ dependencies:
   markdown-it-task-lists: 2.1.1
   markdown-it-vuepress-code-snippet-enhanced: 1.0.1
   vuepress: 1.9.7
-  vuepress-plugin-cursor-effects: 1.1.0
+  vuepress-plugin-cursor-effects: 1.1.1
   vuepress-plugin-dynamic-title: 1.0.0
   vuepress-plugin-feed: 0.1.9_vuepress@1.9.7
   vuepress-plugin-go-top: 1.0.4
   vuepress-plugin-img-lazy: 1.0.4
   vuepress-plugin-meting: 0.3.1
-  vuepress-plugin-ribbon: 1.1.0
+  vuepress-plugin-ribbon: 1.1.1
   vuepress-theme-meteorlxy: 1.9.0_vuepress@1.9.7
 
 devDependencies:
@@ -1448,30 +1448,30 @@ packages:
       vue: 2.6.14
     dev: false
 
-  /@moefy-canvas/core/0.1.2:
-    resolution: {integrity: sha512-jDlGVpy4H67RHUx1qKBTa2xDUKvOOI6J1YQvlc59sfjlUCWlnavyGqVzA+iWhBmyFfrKjByMnYDgs/Wqbth99g==}
+  /@moefy-canvas/core/0.2.0:
+    resolution: {integrity: sha512-b1VP1VTXba6fiYqQpQhSjNEYLLbeSRnZqSMk1h8i8cm1cB/zg8qcdlsgJvR40wPJEDo8MED/tJcdg8XjlRYsdg==}
     dev: false
 
-  /@moefy-canvas/theme-popper/0.1.2:
-    resolution: {integrity: sha512-ODaggR/XmgJiEhabGf57HiK+I9mn1O0eoDjN0FhULPMwya7FSes39VJL1o1s2xHfxZhE9++Ntf16JZB70qiYaw==}
+  /@moefy-canvas/theme-popper/0.2.0:
+    resolution: {integrity: sha512-UXTeQyVhPFmjO2wYtaq3tu3a3SozFmQWGS5ueCTeT+naDbsMSQ0nqr0t3PbpPMxolGveYkdVY1hthRD1VNFKgg==}
     dependencies:
-      '@moefy-canvas/core': 0.1.2
-      '@moefy-canvas/utils': 0.1.2
+      '@moefy-canvas/core': 0.2.0
+      '@moefy-canvas/utils': 0.2.0
       ts-debounce: 2.3.0
     dev: false
 
-  /@moefy-canvas/theme-ribbon/0.1.2:
-    resolution: {integrity: sha512-qmeUX9fqij4NgTuex0riLdu8RWxSoaCDQJjkpxhNDLD12wfYEW4yghHsMyz2A70aLAiuUvP+uyjEsjmu+LomXw==}
+  /@moefy-canvas/theme-ribbon/0.2.0:
+    resolution: {integrity: sha512-c/vNgsBPp8evddJt+MVmWrjYHiefWvhlJ+g0txOem/+FDyBSHcD5cv6Tb4moUiEpd66rWM8N4EYCSOQ2thfL6A==}
     dependencies:
-      '@moefy-canvas/core': 0.1.2
-      '@moefy-canvas/utils': 0.1.2
+      '@moefy-canvas/core': 0.2.0
+      '@moefy-canvas/utils': 0.2.0
       ts-debounce: 2.3.0
     dev: false
 
-  /@moefy-canvas/utils/0.1.2:
-    resolution: {integrity: sha512-nosqjX3mHW0NUVl3aHejuhwIO3/UWLcygiMIoVV+SOUMIKP6EKUUp5tZeafSNBgNZz1jdneau1EYAV2QIAw5EA==}
+  /@moefy-canvas/utils/0.2.0:
+    resolution: {integrity: sha512-Gk2KZWNXK0GxhV4PFbi7p9zLmkwl8pKiovNu3QvMl0zKLGUOi6OhSz9dzjGV+ezst9KMBcb/uPYLpK54EkY8MQ==}
     dependencies:
-      '@moefy-canvas/core': 0.1.2
+      '@moefy-canvas/core': 0.2.0
     dev: false
 
   /@mrmlnc/readdir-enhanced/2.2.1:
@@ -9475,10 +9475,10 @@ packages:
       markdown-it-container: 2.0.0
     dev: false
 
-  /vuepress-plugin-cursor-effects/1.1.0:
-    resolution: {integrity: sha512-QCwGvt+jdNKlDn74GwHccAaSP9KSEseNTkIZlqE5MOUaWO1eHxoXy7QBt7IjshD6AlX4sJ2QtbJlORbaQG0Y1w==}
+  /vuepress-plugin-cursor-effects/1.1.1:
+    resolution: {integrity: sha512-FdCznJI0cADNnAPKizUJp0voWbATA+dnXM8eS61lderqHJWvpOHj/AZ40C2j10cqOyx5s48K6mkNkdFATXqpog==}
     dependencies:
-      '@moefy-canvas/theme-popper': 0.1.2
+      '@moefy-canvas/theme-popper': 0.2.0
     dev: false
 
   /vuepress-plugin-dehydrate/1.1.5:
@@ -9537,10 +9537,10 @@ packages:
       vuepress-plugin-dehydrate: 1.1.5
     dev: false
 
-  /vuepress-plugin-ribbon/1.1.0:
-    resolution: {integrity: sha512-aWVC6Ygb4OVhjuXJyaDX43ZMwwpg2H2GBC7kKANEyxliUTVAph6X8f5JZNLdWlrz5D4k46Q800Fdziz78h3dkw==}
+  /vuepress-plugin-ribbon/1.1.1:
+    resolution: {integrity: sha512-q/qqxa1FTpsZB2FWebSdjg21dU6Ccd+dwXvajYCidLxpt8LPanWizGQ8cnD0xg76zY1UlJ83tSopcFFELx+cHg==}
     dependencies:
-      '@moefy-canvas/theme-ribbon': 0.1.2
+      '@moefy-canvas/theme-ribbon': 0.2.0
     dev: false
 
   /vuepress-plugin-serve/2.0.4:

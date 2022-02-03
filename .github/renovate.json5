@@ -4,4 +4,5 @@
   labels: ['dependencies'],
   pin: false,
   commitMessagePrefix: '⬆️ deps: ',
+  dependencyDashboardTitle: "☑️ Dependency Dashboard",
 }
