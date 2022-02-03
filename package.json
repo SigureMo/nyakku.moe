@@ -2,7 +2,7 @@
   "scripts": {
     "dev": "vuepress dev src",
     "build": "vuepress build src",
-    "serve": "vuepress build src && pnpx -y serve src/.vuepress/dist",
+    "serve": "vuepress build src && pnpm dlx serve src/.vuepress/dist",
     "img:upload": "bash scripts/upload-img.sh",
     "prepare": "is-ci || husky install"
   },
