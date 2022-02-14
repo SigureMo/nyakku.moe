@@ -3,8 +3,7 @@
     "dev": "vuepress dev src",
     "build": "vuepress build src",
     "serve": "vuepress build src && pnpm dlx serve src/.vuepress/dist",
-    "img:upload": "bash scripts/upload-img.sh",
-    "prepare": "is-ci || husky install"
+    "img:upload": "bash scripts/upload-img.sh"
   },
   "author": "Nyakku Shigure",
   "license": "CC-BY-NC-SA-4.0",
@@ -25,11 +24,5 @@
     "vuepress-plugin-meting": "^0.3.1",
     "vuepress-plugin-ribbon": "^1.1.2",
     "vuepress-theme-meteorlxy": "^1.9.0"
-  },
-  "devDependencies": {
-    "commitlint": "^16.1.0",
-    "commitlint-config-gitmoji": "^2.2.5",
-    "husky": "^7.0.4",
-    "is-ci": "^3.0.1"
   }
 }
