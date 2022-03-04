@@ -1,0 +1,9 @@
+# vuepress
+src/.vuepress/dist/
+node_modules/
+
+# temp files
+/tests/
+
+# macOS
+.DS_Store
