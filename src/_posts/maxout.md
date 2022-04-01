@@ -88,6 +88,6 @@ x = Maxout(num_units=m)(x)
 
 ## References
 
-1. [Tensorflow 文档 Maxout](https://tensorflow.google.cn/api_docs/python/tf/contrib/layers/maxout?hl=en)
+1. [TensorFlow 文档 Maxout](https://tensorflow.google.cn/api_docs/python/tf/contrib/layers/maxout?hl=en)
 2. [Paper: Maxout Networks](https://arxiv.org/abs/1302.4389)
 3. [Maxout 激活函数原理及实现](https://www.jianshu.com/p/710fd5d6d640)

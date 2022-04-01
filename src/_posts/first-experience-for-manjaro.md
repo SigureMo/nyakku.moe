@@ -202,7 +202,7 @@ sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.
 
 ::: tip
 
-有些主题在 VSCode 里不能正确显示，需要修改下 Terminal 的字体，我改成了 `Menlo for Powerline`，如果没有该字体，下载并安装下即可
+有些主题在 VS Code 里不能正确显示，需要修改下 Terminal 的字体，我改成了 `Menlo for Powerline`，如果没有该字体，下载并安装下即可
 
 ```bash
 git clone https://github.com/abertsch/Menlo-for-Powerline.git  # 下载字体
@@ -211,7 +211,7 @@ sudo cp *.ttf* /usr/share/fonts/TTF/                           # 手动安装到
 sudo fc-cache -f -v                                            # 刷新字体
 ```
 
-之后修改 VSCode Settings 中 Terminal 的 Font Family 即可
+之后修改 VS Code Settings 中 Terminal 的 Font Family 即可
 
 :::
 
@@ -258,7 +258,7 @@ emmmm，刚折腾一天把所有基本该折腾的折腾完了，我突然想把
 ## References
 
 1. [Manjaro 美化与调优](https://juejin.im/post/5c6d0a1051882561ad329255)
-2. [Manjaro-Kde 美化](https://www.bilibili.com/video/BV1pJ411N75i)
+2. [Manjaro-KDE 美化](https://www.bilibili.com/video/BV1pJ411N75i)
 3. [manjaro 安装 deb 包](https://zhuanlan.zhihu.com/p/83335242)
 4. [如何解决 Windows 和 Manjaro 双系统时间差 8 小时的问题](https://www.itdaan.com/blog/2017/12/02/2be8e9eaf332561e7ed94c35ba57e757.html)
 5. [安装 Manjaro Linux 的详细步骤](https://ywnz.com/linuxaz/3504.html)

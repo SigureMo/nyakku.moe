@@ -15,13 +15,13 @@ layout: AboutLayout
 ## 我平时所用的编码环境？
 
 -  Device: MacBook Pro (13-inch, M1, 2020)
--  Editor: VSCode
+-  Editor: VS Code
    -  Theme: [Andromeda Italic Bordered](https://github.com/EliverLara/Andromeda)
    -  Font: [Fira Code](https://github.com/tonsky/FiraCode)
 -  Shell: zsh
    -  Framework: [zimfw](https://github.com/zimfw/zimfw)
    -  Theme: [pure](https://github.com/sindresorhus/pure)
-   -  Terminal: [iTerm2](https://github.com/gnachman/iTerm2) / VSCode Terminal
+   -  Terminal: [iTerm2](https://github.com/gnachman/iTerm2) / VS Code Terminal
    -  Color Scheme: [Snazzy](https://github.com/mbadolato/iTerm2-Color-Schemes#snazzy)
 
 ## 哪里能够找到我？

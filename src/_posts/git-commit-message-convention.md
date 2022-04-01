@@ -166,7 +166,7 @@ This reverts commit 667ecc1654a317a13331b17617d973392f415f02.
 
 在提交时你可以按照喜好使用其 code 或者直接使用 emoji，因为 GitHub 是能够正确将这些 code 渲染为对应的 emoji 的。
 
-由于 `gitmoji` 有着丰富的类型，因此其可以表达的信息会更多一些，这使得你能在 `<subject>` 中省去一些内容。但相对的，由于类型实在太多，记忆起来也是相当地麻烦，起初我基本每次提交都来查一下表格，所以如果你使用的是 VSCode，建议使用 [gitmoji-vscode](https://github.com/vtrois/gitmoji-vscode) 插件以简化这一过程。
+由于 `gitmoji` 有着丰富的类型，因此其可以表达的信息会更多一些，这使得你能在 `<subject>` 中省去一些内容。但相对的，由于类型实在太多，记忆起来也是相当地麻烦，起初我基本每次提交都来查一下表格，所以如果你使用的是 VS Code，建议使用 [gitmoji-vscode](https://github.com/vtrois/gitmoji-vscode) 插件以简化这一过程。
 
 ## 我自己常用的规范
 
