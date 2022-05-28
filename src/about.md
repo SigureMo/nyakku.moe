@@ -43,5 +43,5 @@ layout: AboutLayout
 ## 我都做过什么？
 
 -  [yutto](https://github.com/yutto-dev/yutto) 一个可爱且任性的 B 站视频下载器
--  [PaddlePaddle 贡献者](https://github.com/cattidea/Paddle) 参与 PaddlePaddle 贡献，PFCC 成员、PPDE
--  [Moefy Canvas](https://moefy-canvas.nyakku.moe/) 一些简单的 canvas 背景、特效，取自于[曾经做过的 VuePress V1 插件](https://moefyit.github.io/moefy-vuepress/)
+-  [PaddlePaddle 贡献者](https://github.com/cattidea/Paddle) 参与 PaddlePaddle 贡献，[PFCC](https://github.com/PaddlePaddle/community/blob/master/pfcc/README.md) 成员、[PPDE](https://www.paddlepaddle.org.cn/ppde)
+-  [Moefy Canvas](https://moefy-canvas.nyakku.moe/) 一些简单的 canvas 背景、点击特效，部分取自[曾经做过的 VuePress V1 插件](https://moefyit.github.io/moefy-vuepress/)
