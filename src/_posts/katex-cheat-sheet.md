@@ -1,5 +1,5 @@
 ---
-title: KaTeX 索引表
+title: KaTeX 速查表
 date: 2019-05-19
 category: 找点好玩的
 tags:

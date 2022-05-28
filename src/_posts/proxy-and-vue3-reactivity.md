@@ -62,7 +62,7 @@ console.log(target.name) // 'foo'
 
 此时代理的功能就显而易见了，它相当于为我们增加了一个操作目标对象的方式，通过该方式操作对象会被 ProxyHandler 所接管，提高了对象的扩展性。另外由于 handler 是定义在 proxy 上的，所以对目标对象是没有任何「污染」的。
 
-![proxy_01](../img/proxy-and-vue3-reactivity/proxy_01.png)
+![proxy_01](../img/proxy-and-vue3-reactivity/proxy_01.drawio.png)
 
 嘛，这么看其实和网络代理也很像嘛，当我们开启代理时就是经由代理获取网络数据，而关闭代理则是直连目的主机～
 

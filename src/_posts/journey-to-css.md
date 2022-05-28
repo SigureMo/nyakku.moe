@@ -1,7 +1,7 @@
 ---
 title: Re：从零开始的 CSS 的学习之旅
 date: 2020-07-08
-category: 找点好玩的
+category: 学点有用的
 tags:
    - front end
 ---

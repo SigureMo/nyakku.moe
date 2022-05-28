@@ -20,6 +20,8 @@ Git LFS 是 github 推出的大文件存储服务，它是让 git 只保存二�
 
 ## 定期清理 Git 历史
 
+### 使用 git-filter-branch
+
 定期清理的话，虽然麻烦，但也最实用，在使用 LFS 之前我也定期清理过，是使用的 git-filter-branch，但由于嫌麻烦，就改用 LFS 了，至于为什么不用 BFG，因为懒得装 JDK
 
 弃用 LFS 后，我仍然使用 git-filter-branch，不过实在是麻烦，每次清理我需要运行好多命令，比如清理全部 `*.jpg` 图片，我需要
@@ -37,12 +39,20 @@ git push origin main --force
 
 emmm，就很麻烦
 
+### 使用 git-filter-repo
+
 最近，使用 `git filter-branch` 会提示 `warning`，推荐使用 `git filter-repo`，于是就试着搜了下，这居然是 python 实现的清理器，拥有远比 `git filter-branch` 更加方便的使用方法，所以我在尝试了一下下就果断转 `git filter-repo` 了
 
-在使用之前需要先使用 pip 安装一下
+在使用之前需要先安装一下，参考文档中的[安装指南](https://github.com/newren/git-filter-repo/blob/main/INSTALL.md)可以发现大多数包管理器已经可以直接安装 git-filter-repo 了，比如 Homebrew
 
 ```bash
-pip3 install git-filter-repo
+brew install git-filter-repo
+```
+
+当然，即便没有合适的包管理器我们也可以通过 pip 安装
+
+```bash
+pip install git-filter-repo
 ```
 
 使用 `git filter-repo` 清理全部 `*.jpg` 只需要

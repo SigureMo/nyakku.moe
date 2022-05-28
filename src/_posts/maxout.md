@@ -14,7 +14,7 @@ Maxout 是 Goodfellow 在 2013 年提出的一个新的激活函数，相比于�
 
 -  预备知识
    -  基本全连接与卷积网络连接方式
-   -  `tensorflow` 的基本使用
+   -  `TensorFlow V2` 的基本使用
 -  开发环境
    -  `python 3.6`
 
@@ -48,7 +48,7 @@ Maxout 可以说是一个激活函数，但与其他激活函数所不同的是�
 
 一种很直觉的方法就是，我们先将原本的 $m$ 个参数改为 $m \times k$ 个参数，之后每组挑取最大的，但是这样的话，就需要预先用一个矩阵对原先的参数进行线性变换，增加了实现的复杂性
 
-我们反过来想，如果前一层的输出已经是 $m \times k$ 个参数了呢？很简单。我们 $Maxout$ 只需要分组并每个组选一个最大值就好了嘛~这里参考 TensorFlow1.13 版本的 `tf.contrib.layers.maxout` ，使用 TensorFlow2.0 的 `tf.keras.layers.Layer` API 重写了下
+我们反过来想，如果前一层的输出已经是 $m \times k$ 个参数了呢？很简单。我们 $Maxout$ 只需要分组并每个组选一个最大值就好了嘛~这里参考 TensorFlow1.13 版本的 `tf.contrib.layers.maxout` ，使用 TensorFlow V2 的 `tf.keras.layers.Layer` API 重写了下
 
 ```python
 import tensorflow as tf

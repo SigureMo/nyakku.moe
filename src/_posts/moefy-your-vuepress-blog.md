@@ -16,6 +16,8 @@ tags:
 
 废话说太多了，还是说说怎么用吧 :joy:
 
+:warning: 本文章仅针对 VuePress V1，对于 VuePress V2 及 VitePress 没有太多参考意义
+
 :::
 
 <!-- more -->

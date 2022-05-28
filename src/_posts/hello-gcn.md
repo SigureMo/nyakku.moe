@@ -63,7 +63,7 @@ $$
 
 下面考虑一个非常简单的示例，图结构如下($N = 4$)，
 
-![GCN_01](../img/hello-gcn/GCN_01.png)
+![GCN_01](../img/hello-gcn/gcn-01.drawio.png)
 
 首先写出邻接矩阵 $A$ ($shape=(4, 4)$)
 

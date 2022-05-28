@@ -10,7 +10,9 @@ tags:
 
 ::: tip
 
-静态博客并不难搭建，但是对前端什么都不懂的我还是走了很多的弯路，而且 `VuePress` 是一个比较新的框架，网上的资源还是较少的，能用的资源基本只有文档，本文跟随源文档，以最简的方式搭建一个简单的文档 demo ，进而搭建一个属于你自己的 blog
+静态博客并不难搭建，但是对前端什么都不懂的我还是走了很多的弯路，而且 `VuePress` 是一个比较新的工具，网上的资源还是较少的，能用的资源基本只有文档，本文跟随源文档，以最简的方式搭建一个简单的文档 demo ，进而搭建一个属于你自己的 blog
+
+:warning: 本文章仅针对 VuePress V1，对于 VuePress V2 及 VitePress 没有太多参考意义
 
 :::
 
@@ -419,5 +421,5 @@ $codeBgColor = #282c34
 
 ## References
 
-1. [VuePress 1.x 文档](https://v1.vuepress.vuejs.org/zh/)
+1. [VuePress V1 文档](https://v1.vuepress.vuejs.org/zh/)
 2. [vuepress-theme-reco 文档](https://github.com/vuepress-reco/vuepress-theme-reco)

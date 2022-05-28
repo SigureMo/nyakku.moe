@@ -91,7 +91,7 @@ jobs:
 
 这里第一步是使用你的源代码 repo，其中 uses 是指使用了某个现成的 Action，比如这个 `actions/checkout` 就是 [`github.com/actions/checkout`](https://github.com/actions/checkout) 的 `v2` 版本，如果需要 submodule 或者 lfs 可以通过 `with` 选项来修改参数
 
-第二步是将博客源码构建成静态文件，不同的框架的构建方法自然不同，我这里是以 VuePress 作为示例
+第二步是将博客源码构建成静态文件，不同工具的构建方法自然不同，我这里是以 VuePress 作为示例
 
 第三步就是将构建好的静态文件 Push 到目标的 GitHub Pages 对应的 Repo 了，这里使用的是 [`peaceiris/actions-gh-pages`](https://github.com/peaceiris/actions-gh-pages)，如果你只需要部署到当前 Repo 的 `gh-pages` 分支上的话，你只需要配置以下内容即可
 
