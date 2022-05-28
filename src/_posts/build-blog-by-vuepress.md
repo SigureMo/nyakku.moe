@@ -38,7 +38,7 @@ tags:
 
 ### VuePress 是什么
 
-VuePress 是一个 Vue 驱动的静态网站生成器，我们使用 Markdown 写好文档后，使用 VuePress 进行编译便可以生成静态网站了，进而将其 push 到 github repo 便可以在互联网中访问到它了
+VuePress 是一个 Vue 驱动的静态网站生成器，我们使用 Markdown 写好文档后，使用 VuePress 进行编译便可以生成静态网站了，进而将其 push 到 GitHub repo 便可以在互联网中访问到它了
 
 相比于 Docsify ，VuePress 是在部署前就将文档编译好了，而 Docsify 是在前端对文章进行编译，当然，如果是简单的文档的话 Docsify 相比于 VuePress 可能会更加简洁，但是博客之类就不太适合了
 
