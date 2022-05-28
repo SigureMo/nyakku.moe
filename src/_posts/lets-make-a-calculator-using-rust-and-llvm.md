@@ -1,7 +1,7 @@
 ---
 title: 用 Rust 和 LLVM 写一个计算器吧～
 date: 2022-01-21
-category: 游
+category: 做点有趣的
 tags:
    - Rust
    - LLVM

@@ -1,9 +1,9 @@
-import { defineConfig } from 'vuepress/config'
+import { defineConfig4CustomTheme } from 'vuepress/config'
 import markdowniItMark from 'markdown-it-mark'
 import markdownItTaskLists from 'markdown-it-task-lists'
 import markdownItVuepressCodeSnippetEnhanced from 'markdown-it-vuepress-code-snippet-enhanced'
 
-export default defineConfig({
+export default defineConfig4CustomTheme<any>({
   title: 'Notev',
   description: '一个小透明的透明世界',
   port: 1127,

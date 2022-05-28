@@ -1,7 +1,7 @@
 ---
 title: Manjaro 初体验
 date: 2020-04-06
-category: 迹
+category: 找点好玩的
 tags:
    - Linux
    - Manjaro

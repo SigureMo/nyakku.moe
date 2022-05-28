@@ -1,7 +1,7 @@
 ---
 title: 初尝 GAN
 date: 2020-05-25
-category: 迹
+category: 找点好玩的
 tags:
    - DL
    - GAN

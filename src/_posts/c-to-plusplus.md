@@ -1,7 +1,7 @@
 ---
 title: C to ++
 date: 2019-10-04
-category: 迹
+category: 找点好玩的
 tags:
    - C
    - C++

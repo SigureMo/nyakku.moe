@@ -1,7 +1,7 @@
 ---
 title: TensorFlow 踩坑记：训练状态的设置
 date: 2020-04-08
-category: 迹
+category: 找点好玩的
 tags:
    - TensorFlow
    - Python

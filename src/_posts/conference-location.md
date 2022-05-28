@@ -1,7 +1,7 @@
 ---
 title: 各大深度学习顶会举办地点
 date: 2020-04-20
-category: 迹
+category: 找点好玩的
 tags:
    - DL
 ---

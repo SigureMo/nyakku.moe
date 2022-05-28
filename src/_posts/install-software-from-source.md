@@ -1,7 +1,7 @@
 ---
 title: Linux 上使用源码编译程序
 date: 2020-03-06
-category: 迹
+category: 找点好玩的
 tags:
    - Linux
 ---

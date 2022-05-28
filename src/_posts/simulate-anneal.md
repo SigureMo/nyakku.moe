@@ -1,7 +1,7 @@
 ---
 title: 模拟退火算法
 date: 2020-03-22
-category: 思
+category: 想点没谱的
 tags:
    - ML
    - Optimizer

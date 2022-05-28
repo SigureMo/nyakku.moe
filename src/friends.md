@@ -6,7 +6,7 @@ layout: FriendsLayout
 
 ## 友链互换
 
-直接向我提交 PR ～（[修改 `src/.vuepress/config.js`](https://github.com/SigureMo/notev/edit/main/src/.vuepress/config.js) 即可）
+直接向我提交 PR ～（[修改 `src/.vuepress/config.js`](https://github.com/SigureMo/nyakku.moe/edit/main/src/.vuepress/config.ts) 即可）
 
 ```json
 {

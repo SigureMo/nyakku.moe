@@ -1,7 +1,7 @@
 ---
 title: 采用 GitHub Action 自动化部署博客
 date: 2020-06-22
-category: 迹
+category: 找点好玩的
 tags:
    - CI
    - GitHub

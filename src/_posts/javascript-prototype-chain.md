@@ -1,7 +1,7 @@
 ---
 title: JavaScript 中的“类”与原型链
 date: 2021-01-31
-category: 墨
+category: 学点有用的
 tags:
    - JavaScript
    - OOC

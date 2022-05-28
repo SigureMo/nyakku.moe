@@ -1,7 +1,7 @@
 ---
 title: 在个人 Blog 主页中添加各种联络链接
 date: 2019-08-17
-category: 游
+category: 做点有趣的
 tags:
    - front end
 ---

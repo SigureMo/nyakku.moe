@@ -1,7 +1,7 @@
 ---
 title: KaTeX 索引表
 date: 2019-05-19
-category: 迹
+category: 找点好玩的
 tags:
    - KaTeX
 ---

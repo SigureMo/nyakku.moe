@@ -1,7 +1,7 @@
 ---
 title: Git 协作模式
 date: 2019-10-26
-category: 思
+category: 想点没谱的
 tags:
    - Git
 ---

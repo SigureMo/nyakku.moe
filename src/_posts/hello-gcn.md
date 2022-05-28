@@ -1,7 +1,7 @@
 ---
 title: 初识图卷积神经网络（GCN）
 date: 2019-08-16
-category: 思
+category: 想点没谱的
 tags:
    - DL
    - GCN
