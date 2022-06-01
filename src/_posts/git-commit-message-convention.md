@@ -182,37 +182,8 @@ This reverts commit 667ecc1654a317a13331b17617d973392f415f02.
 
 在不是 `scope` 不太明显的场合，我一般都把 `scope` 省略掉，以免长度过长
 
-为了能够在每次提交时自动检测我的 commit 是否满足规范，我使用了 [commitlint](https://github.com/conventional-changelog/commitlint) 与 [commitlint-config-gitmoji](https://github.com/arvinxx/gitmoji-commit-workflow) 来规范 git commit message，并利用 [husky](https://github.com/typicode/husky) 集成在 gitHook 中。
-
-我们先安装它们：
-
-```bash
-yarn add -D commitlint-config-gitmoji commitlint husky
-```
-
-在项目根目录创建 `.commitlintrc.js`，并在其中填写以下内容：
-
-```js
-module.exports = {
-   extends: ['gitmoji'],
-}
-```
-
-这样，commitlint 就会使用 commitlint-config-gitmoji 来检测 git commit message 了
-
-之后还需要配置下 husky，以将检测过程集成在 gitHook 中
-
-```bash
-yarn husky init
-yarn husky add .husky/commit-msg 'yarn commitlint --edit "$1"'
-```
-
-这样就会在你的根目录生成 .husky 目录，其中会有一个 commit-msg 的 gitHook，后面的内容就是刚刚使用 husky add 的 `yarn husky add .husky/commit-msg`，也就是在 commit 新的 message 时的 hook。
-
 ## References
 
 1. [gitmoji](http://gitmoji.dev/)
 2. [gitmoji 改动追踪](https://github.com/carloscuesta/gitmoji/commits/master/src/data/gitmojis.json)
 3. [git commit 规范指南](https://segmentfault.com/a/1190000009048911?utm_source=tag-newest)
-4. [Husky](https://typicode.github.io/husky/#/)
-5. [commitlint-config-gitmoji 使用方法](https://www.yuque.com/arvinxx-fe/workflow/commitlint-config-gitmoji-guide)
