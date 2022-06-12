@@ -60,7 +60,10 @@ export default defineConfig4CustomTheme<any>({
       '@vuepress/pwa',
       {
         serviceWorker: true,
-        updatePopup: true,
+        updatePopup: {
+          message: '好像有更新诶！',
+          buttonText: '刷新',
+        },
       },
     ],
     // 彩带背景
@@ -113,6 +116,7 @@ export default defineConfig4CustomTheme<any>({
           lrcType: 3,
           preload: 'metadata',
         },
+        defaultCover: 'https://nyakku.moe/avatar.jpg',
       },
     ],
     // KaTeX 插件
