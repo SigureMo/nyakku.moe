@@ -10,7 +10,9 @@ tags:
 ---
 
 ::: tip
+
 嘻嘻，因为可能之后要做一些编译相关的东西，所以准备先熟悉一下 LLVM 和 Rust。在 Rust 里有一个比较好用的 Rust 的 safely binding inkwell，在查找 inkwell 的示例时候找到了一个很多功能未完成的 [Rusty Calc](https://michael-f-bryan.github.io/calc/book/html/intro.html)，因此这次就参考它写一个简简单单的计算器吧～
+
 :::
 
 <!-- more -->

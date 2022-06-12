@@ -1,7 +1,6 @@
 import { defineConfig4CustomTheme } from 'vuepress/config'
 import markdowniItMark from 'markdown-it-mark'
 import markdownItTaskLists from 'markdown-it-task-lists'
-import markdownItVuepressCodeSnippetEnhanced from 'markdown-it-vuepress-code-snippet-enhanced'
 
 export default defineConfig4CustomTheme<any>({
   title: 'Notev',
@@ -50,7 +49,6 @@ export default defineConfig4CustomTheme<any>({
       md.set({ html: true })
       md.use(markdowniItMark)
       md.use(markdownItTaskLists)
-      md.use(markdownItVuepressCodeSnippetEnhanced)
     },
   },
 
