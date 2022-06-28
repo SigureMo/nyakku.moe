@@ -1,4 +1,10 @@
-# Nyakku Moe
+<h1>
+   <ruby>
+      nyakku<rp>(</rp><rt>ニャック</rt><rp>)</rp>
+      .<rp>(</rp><rt>超</rt><rp>)</rp>
+      moe<rp>(</rp><rt>可愛い</rt><rp>)</rp>
+   </ruby>
+</h1>
 
 <p align="center">
    <a href="https://github.com/vuejs/vuepress" target="_blank"><img alt="vuepress" src="https://img.shields.io/badge/VuePress-build-1aad19?style=for-the-badge&logo=vue.js"></a>
