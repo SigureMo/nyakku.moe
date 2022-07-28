@@ -18,36 +18,37 @@ tags:
 <!-- more -->
 
 ```
- ██████████████████  ████████     sigure@sigure-li
- ██████████████████  ████████     OS: Manjaro 19.0.2 Kyria
- ██████████████████  ████████     Kernel: x86_64 Linux 5.4.28-1-MANJARO
- ██████████████████  ████████     Uptime: 41m
- ████████            ████████     Packages: 1270
- ████████  ████████  ████████     Shell: zsh 5.8
- ████████  ████████  ████████     Resolution: 1920x1080
- ████████  ████████  ████████     DE: KDE 5.68.0 / Plasma 5.18.3
- ████████  ████████  ████████     WM: KWin
- ████████  ████████  ████████     GTK Theme: Breath [GTK2/3]
- ████████  ████████  ████████     Icon Theme: McMojave-circle-dark
- ████████  ████████  ████████     Disk: 700G / 1.1T (68%)
- ████████  ████████  ████████     CPU: Intel Core i5-4200H @ 4x 3.4GHz [57.0°C]
- ████████  ████████  ████████     GPU: GeForce GTX 950M
-                                  RAM: 3126MiB / 7853MiB
+
+ ██████████████████  ████████     nyakku@shigure-yuu
+ ██████████████████  ████████     OS: Manjaro 21.3.5 Ruah
+ ██████████████████  ████████     Kernel: x86_64 Linux 5.15.55-1-MANJARO
+ ██████████████████  ████████     Uptime: 4m
+ ████████            ████████     Packages: 1175
+ ████████  ████████  ████████     Shell: zsh 5.9
+ ████████  ████████  ████████     Disk: 13G / 94G (14%)
+ ████████  ████████  ████████     CPU: Intel Core i5-7500 @ 4x 3.8GHz [35.0°C]
+ ████████  ████████  ████████     GPU: NVIDIA GeForce GTX 1050
+ ████████  ████████  ████████     RAM: 964MiB / 7913MiB
+ ████████  ████████  ████████
+ ████████  ████████  ████████
+ ████████  ████████  ████████
+ ████████  ████████  ████████
+
 ```
 
 ## Manjaro 的安装
 
-首先在[官网下载](https://manjaro.org/get-manjaro/)镜像，我选择的桌面环境是 KDE。使用 Rufus 以 DD 模式写入，然后就可以用 U 盘启动啦。
+首先在[官网下载](https://manjaro.org/download/)镜像，我选择的桌面环境是 KDE Plasma。使用 [Ventoy](https://github.com/ventoy/Ventoy) 制作一个启动盘，然后用 U 盘启动即可。
 
-U 盘启动后会有时区、键盘、驱动的配置，之后的 Boot 不是配置项，在选择它之前先修改下前几项
+U 盘启动后会有时区、键盘、语言的配置，之后的 Boot 不是配置项，在选择它之前先修改下前几项
 
 ```
 tz = Asia/Shanghai
 keytable = us
-driver = non-free
+lang = zh_CN
 ```
 
-由于深度学习的显卡加速需要闭源驱动，这里直接选 non-free 就好
+由于深度学习的显卡加速需要闭源驱动，因此选择 `Boot with proprietary drivers` 来启动
 
 之后会进入桌面环境，会有些配置选项，这些简单配置下就好，其中分区需要注意一下，最好手动分区一下
 
@@ -72,7 +73,7 @@ sudo pacman -Syy                          # 更新数据源
 
 ```
 [archlinuxcn]
-Server = https://mirrors.tuna.tsinghua.edu.cn/archlinuxcn/$arch
+Server = https://mirrors.ustc.edu.cn/archlinuxcn/$arch
 ```
 
 > 更多镜像见 [mirrorlist-repo](https://github.com/archlinuxcn/mirrorlist-repo)
@@ -91,7 +92,7 @@ sudo pacman -S <package_names>
 
 `yay` 是 AUR 仓库的包管理器，那么什么是 AUR 呢？AUR 是 Arch 的社区维护软件仓库，而不是官方的，所以如果 `pacman` 有下不到的软件可以使用 `yay` 试一下
 
-用 `yay` 之前先开启 AUR，软件包管理器 -> 首选项 -> 高级 -> AUR -> 启用 AUR 支持
+用 `yay` 之前先开启 AUR，软件包管理器 -> 首选项 -> 第三方 -> 启用 AUR 支持
 
 之后需要安装 `yay`
 
@@ -152,7 +153,7 @@ sudo pacman -U <package_name>.tar.xz
 -  chrome
 
    ```
-   sudo pacman -S google-chrome
+   yay -S google-chrome
    ```
 
 -  spotify
@@ -164,7 +165,7 @@ sudo pacman -U <package_name>.tar.xz
 -  vscode
 
    ```bash
-   sudo pacman -S visual-studio-code-bin
+   yay -S visual-studio-code-bin
    ```
 
 -  WPS

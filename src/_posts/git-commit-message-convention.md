@@ -181,7 +181,7 @@ This reverts commit 667ecc1654a317a13331b17617d973392f415f02.
 <footer>
 ```
 
-在不是 `scope` 不太明显的场合，我一般都把 `scope` 省略掉，以免长度过长
+在 `scope` 不太重要的情况，我一般都把 `scope` 省略掉，以免长度过长
 
 ## References
 
