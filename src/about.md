@@ -21,7 +21,7 @@ layout: AboutLayout
 -  Shell: zsh
    -  Framework: [zimfw](https://github.com/zimfw/zimfw)
    -  Theme: [pure](https://github.com/sindresorhus/pure)
-   -  Terminal: [iTerm2](https://github.com/gnachman/iTerm2) / VS Code Terminal
+   -  Terminal: [iTerm2](https://github.com/gnachman/iTerm2) / VS Code Integrated Terminal
    -  Color Scheme: [Snazzy](https://github.com/mbadolato/iTerm2-Color-Schemes#snazzy)
 
 ## 哪里能够找到我？
