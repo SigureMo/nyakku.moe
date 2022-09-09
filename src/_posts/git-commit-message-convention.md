@@ -164,6 +164,7 @@ This reverts commit 667ecc1654a317a13331b17617d973392f415f02.
 | 🧑‍💻                          | `:technologist:`              | Improve developer experience.                 | 提升开发体验                                   |
 | 🔐                          | `:closed_lock_with_key:`      | Add or update secrets.                        | 添加或更新加密内容                              |
 | 💸                          | `:money_with_wings:`          | Add sponsorships or money related infrastructure. | 添加赞助商或者资金支持相关内容                       |
+| 🧵                          | `:thread:`                    | Add or update code related to multithreading or concurrency. | 添加或更新多线程或与并发相关的代码                            |
 
 在提交时你可以按照喜好使用其 code 或者直接使用 emoji，因为 GitHub 是能够正确将这些 code 渲染为对应的 emoji 的。
 

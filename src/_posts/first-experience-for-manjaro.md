@@ -250,7 +250,7 @@ sudo timedatectl set-local-rtc true
 
 emmmm，刚折腾一天把所有基本该折腾的折腾完了，我突然想把 Krunner 给卸了，然后居然把整个 KDE 给卸了，结果再开机我就卡在登陆界面了
 
-为了能够重新安装 KDE，首先需要进入终端，在卡住的界面按 `Alt+Ctrl+F4` 进入 tty4，然后输入用户名和密码登陆
+为了能够重新安装 KDE，首先需要进入终端，在卡住的界面按 <kbd>Ctrl</kbd> + <kbd>Alt</kbd> + <kbd>F4</kbd> 进入 tty4，然后输入用户名和密码登陆
 
 为了能够联网下载，需要使用 `ifconfig` 开启无线网卡，但如果 `ifconfig` 也没有安装怎么办……一种解决方法是通过数据线将 Android 手机与电脑相连接，在手机上开启 USB 共享网络即可
 
