@@ -22,12 +22,6 @@ tags:
 
 <!-- more -->
 
--  预备知识
-   -  会简单配置 VuePress ，不会的话请先行阅读 [使用 VuePress 搭建个人静态 Blog](build_blog_by_vuepress.md)
--  开发环境
-   -  `nodejs 8+` 及 `npm` or `yarn`
--  文档 [moefy vuepress](https://moefyit.github.io/moefy-vuepress/)
-
 ## 在背景添加一条彩带
 
 [vuepress-plugin-ribbon](https://github.com/moefyit/vuepress-plugin-ribbon)
