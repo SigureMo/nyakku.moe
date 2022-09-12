@@ -5,13 +5,13 @@ specifiers:
   '@vuepress/plugin-active-header-links': ^1.9.7
   '@vuepress/plugin-pwa': ^1.9.7
   vuepress: ^1.9.7
-  vuepress-plugin-cursor-effects: ^1.1.4
+  vuepress-plugin-cursor-effects: ^1.1.6
   vuepress-plugin-dynamic-title: ^1.0.0
   vuepress-plugin-feed: ^0.1.9
   vuepress-plugin-go-top: ^1.0.4
   vuepress-plugin-img-lazy: ^1.0.4
   vuepress-plugin-meting: ^0.3.2
-  vuepress-plugin-ribbon: ^1.1.4
+  vuepress-plugin-ribbon: ^1.1.6
   vuepress-theme-meteorlxy: ^1.9.0
 
 dependencies:
@@ -19,13 +19,13 @@ dependencies:
   '@vuepress/plugin-active-header-links': 1.9.7
   '@vuepress/plugin-pwa': 1.9.7
   vuepress: 1.9.7
-  vuepress-plugin-cursor-effects: 1.1.4
+  vuepress-plugin-cursor-effects: 1.1.6
   vuepress-plugin-dynamic-title: 1.0.0
   vuepress-plugin-feed: 0.1.9_vuepress@1.9.7
   vuepress-plugin-go-top: 1.0.4
   vuepress-plugin-img-lazy: 1.0.4
   vuepress-plugin-meting: 0.3.2
-  vuepress-plugin-ribbon: 1.1.4
+  vuepress-plugin-ribbon: 1.1.6
   vuepress-theme-meteorlxy: 1.9.0_vuepress@1.9.7
 
 packages:
@@ -1539,30 +1539,30 @@ packages:
       vue: 2.6.14
     dev: false
 
-  /@moefy-canvas/core/0.3.3:
-    resolution: {integrity: sha512-kGLT382MeHtTDRRuo8BadQ/vzdwAsqJE12qGiL9whTackvXlkZhrO5We99B0QDERk4FEU6pAKzhH8AngzgoKYQ==}
+  /@moefy-canvas/core/0.5.2:
+    resolution: {integrity: sha512-XkaVE91Tiwb35zFmI1DbrJpMh0xe54QbzQrc7ATwMos4C08dxBnwExwXEVS7oEct7owVDY1UWxtRRVE7smtzHw==}
     dev: false
 
-  /@moefy-canvas/theme-popper/0.3.3:
-    resolution: {integrity: sha512-dP/aRxJ2GxtFrMqOUk0SB24pQQQADY2ofy2xT0/NBitD6Yma1htALOlCxFE9L8fRVEKWrW57SzZjiX8XQuqSDA==}
+  /@moefy-canvas/theme-popper/0.5.2:
+    resolution: {integrity: sha512-s6Gy27DKTLm2un5Od3fsAonnd7lN4pgyLXJ/omXisAZpVLbPg/Q5/QKpJLZvQ/08qNrn6X/GZjnWwvsHbJTBNw==}
     dependencies:
-      '@moefy-canvas/core': 0.3.3
-      '@moefy-canvas/utils': 0.3.3
+      '@moefy-canvas/core': 0.5.2
+      '@moefy-canvas/utils': 0.5.2
       ts-debounce: 4.0.0
     dev: false
 
-  /@moefy-canvas/theme-ribbon/0.3.3:
-    resolution: {integrity: sha512-jsU12mpWzo+/lq/kWU9atDnioUo1agnFDC1KRcx5zPHz6k2YcJODEmSp4nenz72NnzJiBgIC7dF9YYxsXTUfGQ==}
+  /@moefy-canvas/theme-ribbon/0.5.2:
+    resolution: {integrity: sha512-kgHNpni3P4WdfOgwxP1BEjHwpvOW4qqWNaH02hxqnNve9ZnAopoBbvS/tLxnykS2gZ4OWQJmvjS2YGpDIMHoqQ==}
     dependencies:
-      '@moefy-canvas/core': 0.3.3
-      '@moefy-canvas/utils': 0.3.3
+      '@moefy-canvas/core': 0.5.2
+      '@moefy-canvas/utils': 0.5.2
       ts-debounce: 4.0.0
     dev: false
 
-  /@moefy-canvas/utils/0.3.3:
-    resolution: {integrity: sha512-k0yqhmkMWv3jtRM1qxuKcGSYivm5j1BmgyCWzd2vtzUykZAceLTp9hLsVJcvQzO8CYL9Wi9oK9LJHauTnLjYqA==}
+  /@moefy-canvas/utils/0.5.2:
+    resolution: {integrity: sha512-DnI8I/cTBFfn3xoXwyyLEtye4pMI6zJFMxU1qps731xgYTWmzBqJPkZZd/2gfNnH5NnLUOGG7Ui3sMkmJ0vg0w==}
     dependencies:
-      '@moefy-canvas/core': 0.3.3
+      '@moefy-canvas/core': 0.5.2
     dev: false
 
   /@mrmlnc/readdir-enhanced/2.2.1:
@@ -9758,10 +9758,10 @@ packages:
       - supports-color
     dev: false
 
-  /vuepress-plugin-cursor-effects/1.1.4:
-    resolution: {integrity: sha512-xDY3kqulOoKBQah0x8VNBPoajSE0XzhbmHu4AH7YqArn+qyZlKTYwS+8ZUMUymC4u2MHPq6hzS6NMJcUAhfpJQ==}
+  /vuepress-plugin-cursor-effects/1.1.6:
+    resolution: {integrity: sha512-4qXL2flMQcd6ecp+LhdChspobhdb9fkAfmRjRs2K3a/DiwtQtOE24jaVFCClwhfDpYuRe48a0KVeROYkdiWuXg==}
     dependencies:
-      '@moefy-canvas/theme-popper': 0.3.3
+      '@moefy-canvas/theme-popper': 0.5.2
     dev: false
 
   /vuepress-plugin-dehydrate/1.1.5:
@@ -9824,10 +9824,10 @@ packages:
       - supports-color
     dev: false
 
-  /vuepress-plugin-ribbon/1.1.4:
-    resolution: {integrity: sha512-aCo6EpG+uiJNnNv514cTmjLKhJq38tudDoGuO+QNhNmKBxTXhcPFGvzAm9fDTxlG0KSSeAVPwlG2pQWvEZx0rg==}
+  /vuepress-plugin-ribbon/1.1.6:
+    resolution: {integrity: sha512-p/9eZeHLEN/NAQ/S7tVawr4dNZCdBz24jhC8clQ2GUtadPSSAwjohE97dnDn9UXgY11OyOvaImT26iBnQdjf7Q==}
     dependencies:
-      '@moefy-canvas/theme-ribbon': 0.3.3
+      '@moefy-canvas/theme-ribbon': 0.5.2
     dev: false
 
   /vuepress-plugin-serve/2.0.4:
