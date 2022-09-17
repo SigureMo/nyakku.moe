@@ -19,4 +19,3 @@ indent_size = 3
 
 [*.json]
 insert_final_newline = ignore
-
