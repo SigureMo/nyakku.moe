@@ -7,6 +7,7 @@ tags:
    - Relay
    - Compiler
    - JIT
+   - AST
 ---
 
 ::: tip
@@ -244,7 +245,6 @@ Relay 提供了一系列比较常见的算子 API，比如 relay.add、relay.sub
 我们进一步编译并传入些数据，让它 run 起来～
 
 ```python
-
 with tvm.transform.PassContext(opt_level=3):
     lib = relay.build(mod, target)
 
@@ -271,7 +271,6 @@ print(tvm_output)
 唔，我们和 numpy 的对比下～
 
 ```python
-
 def foo_np(a, b, c):
     return a @ b + c
 

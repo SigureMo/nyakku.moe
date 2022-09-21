@@ -58,7 +58,7 @@ export default defineConfig4CustomTheme<any>({
         serviceWorker: true,
         updatePopup: {
           message: '好像有更新诶！',
-          buttonText: '刷新',
+          buttonText: '走！瞅瞅去！',
         },
       },
     ],
