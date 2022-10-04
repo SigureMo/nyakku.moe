@@ -187,7 +187,7 @@ cargo run -- --pattern 'self.assertTrue(np.allclose($A, $B, $$$REMAIN_ARGS), msg
 
 ## 那，我们都可以做些什么呢？
 
-能做的可太多了……比如目前我正在进行 [Flake8 引入](https://github.com/PaddlePaddle/Paddle/issues/46039)的计划，在这个过程中我也有计划同时引入 isort 等工具。black 的话，由于目前 Paddle 已经使用 yapf 进行格式化了，而且几个月前刚刚重新进行了一次[全量格式化](https://github.com/PaddlePaddle/Paddle/pull/42944)，频繁更换格式化工具并不是一个明智的选择，在简单权衡了下利弊后我个人决定暂时不引入 black，之后有时间再重新评估下收益。
+能做的可太多了……比如目前我正在进行 [Flake8 引入](https://github.com/PaddlePaddle/Paddle/issues/46039)的计划，在这个过程中我也有计划同时引入 isort 等工具。由于目前 Paddle 使用的格式化工具 yapf 存在许多问题，而且可能会存在大量 Flake8 错误码需要手动修复，因此目前也有计划将 Paddle 的格式化工具从 yapf 切换到 black。
 
 此外，Paddle 中文文档目前使用的是 reStructureText 编写的，目前存在各种各样的格式问题，其实对于这种文档来说 rst 并不是一种好的存储格式，我和[笠雨聆月](https://github.com/Liyulingyue)也有一个重写文档生成流程的初步计划，当然，至于什么时候开始做什么时候能做完，那我只能说：「咕咕咕」(๑&gt;؂&lt;๑）
 
