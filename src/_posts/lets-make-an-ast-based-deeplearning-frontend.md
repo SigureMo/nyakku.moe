@@ -2,7 +2,6 @@
 title: 试试做一个基于 AST 的深度学习前端～
 date: 2022-06-11
 category: 做点有趣的
-draft: true
 tags:
    - TVM
    - Relay

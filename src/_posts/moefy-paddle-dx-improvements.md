@@ -6,7 +6,7 @@ tags:
    - PaddlePaddle
    - AST
    - DX
-   - refactor
+   - refactoring
 ---
 
 ::: tip
@@ -201,6 +201,6 @@ cargo run -- --pattern 'self.assertTrue(np.allclose($A, $B, $$$REMAIN_ARGS), msg
 
 ## References
 
-1. [PFCC 2022-09-08 分享内容《开发者体验提升计划——Python 工具链》](https://github.com/PaddlePaddle/community/blob/master/pfcc/2022-09-08-meeting-minutes.md#%E5%BC%80%E5%8F%91%E8%80%85%E4%BD%93%E9%AA%8C%E6%8F%90%E5%8D%87%E8%AE%A1%E5%88%92python-%E5%B7%A5%E5%85%B7%E9%93%BE)
+1. [PFCC 2022-09-08 分享内容《开发者体验提升计划——Python 工具链》](https://github.com/PaddlePaddle/community/blob/master/pfcc/meetings/2022/2022-09-08-meeting-minutes.md#开发者体验提升计划python-工具链)
 2. [PEP 8](https://peps.python.org/pep-0008/)
 3. [ast-grep](https://github.com/ast-grep/ast-grep)
