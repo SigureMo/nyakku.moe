@@ -256,6 +256,12 @@ export default defineConfig4CustomTheme<any>({
         avatar:
           'https://cdn.jsdelivr.net/gh/heavenly-zy/heavenly-zy.github.io@latest/images/avatar.jpg',
       },
+      {
+        name: "Wang's Blog",
+        url: 'https://vlight.me/',
+        desc: 'Hello World.',
+        avatar: 'https://vlight.me/images/avatar.png',
+      },
     ],
   },
 })
