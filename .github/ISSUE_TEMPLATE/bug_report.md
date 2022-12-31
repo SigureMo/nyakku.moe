@@ -9,8 +9,6 @@ about: Create a report to help us improve
 
 -  [ ] I confirm that this is an issue rather than a question.
 
-<!-- If you want to ask a question, it is better to contact me via WeChat or QQ. -->
-
 ## Bug report
 
 #### What is actually happening?
@@ -20,4 +18,4 @@ about: Create a report to help us improve
 -  Your OS:
 -  Node.js version:
 -  VuePress version:
--  Which package manager did you use for the install(npm/cnpm/yarn)?
+-  Which package manager did you use for the install(npm/pnpm/yarn)?

@@ -10,7 +10,7 @@ specifiers:
   vuepress-plugin-feed: ^0.1.9
   vuepress-plugin-go-top: ^1.0.4
   vuepress-plugin-img-lazy: ^1.0.4
-  vuepress-plugin-meting: ^0.3.2
+  vuepress-plugin-meting: ^0.3.3
   vuepress-plugin-ribbon: ^1.1.6
   vuepress-theme-meteorlxy: ^1.9.0
 
@@ -24,7 +24,7 @@ dependencies:
   vuepress-plugin-feed: 0.1.9_vuepress@1.9.7
   vuepress-plugin-go-top: 1.0.4
   vuepress-plugin-img-lazy: 1.0.4
-  vuepress-plugin-meting: 0.3.2
+  vuepress-plugin-meting: 0.3.3
   vuepress-plugin-ribbon: 1.1.6
   vuepress-theme-meteorlxy: 1.9.0_vuepress@1.9.7
 
@@ -2079,7 +2079,7 @@ packages:
       source-map: 0.6.1
       vue-template-es2015-compiler: 1.9.1
     optionalDependencies:
-      prettier: 2.7.1
+      prettier: 2.8.1
     transitivePeerDependencies:
       - arc-templates
       - atpl
@@ -7929,8 +7929,8 @@ packages:
     engines: {node: '>=4'}
     dev: false
 
-  /prettier/2.7.1:
-    resolution: {integrity: sha512-ujppO+MkdPqoVINuDFDRLClm7D78qbDt0/NR+wp5FqEZOoTNAjPHWj17QRhu7geIHJfcNhRk1XVQmF8Bp3ye+g==}
+  /prettier/2.8.1:
+    resolution: {integrity: sha512-lqGoSJBQNJidqCHE80vqZJHWHRFoNYsSpP9AjFhlhi9ODCJA541svILes/+/1GM3VaL/abZi7cpFzOpdR9UPKg==}
     engines: {node: '>=10.13.0'}
     hasBin: true
     requiresBuild: true
@@ -9803,8 +9803,8 @@ packages:
       markdown-it-imsize: 2.0.1
     dev: false
 
-  /vuepress-plugin-meting/0.3.2:
-    resolution: {integrity: sha512-4GJNSBJx6suQ3o2jCj+VdkQIxN7L4opz6iH4syYJiqzpndR45iq8QFRRIJ3fLk4BUF6S3dQS7QS/1HywYJsVSg==}
+  /vuepress-plugin-meting/0.3.3:
+    resolution: {integrity: sha512-HTF5h4k8CuSgDSAFNBtfDE33bn5hap96C8h3owrQqKP639d5Bht6PvM34p8MMIzuVseHL2NDlHlKLLYPNzp31Q==}
     dependencies:
       '@moefe/vue-aplayer': 2.0.0-beta.5
     dev: false
