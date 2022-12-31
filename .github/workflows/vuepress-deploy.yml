@@ -16,23 +16,14 @@ jobs:
           fetch-depth: 0
           submodules: true
 
+      - name: Install pnpm
+        uses: pnpm/action-setup@v2
+
       - name: Setup Node.js
         uses: actions/setup-node@v3
         with:
           node-version: '16'
-
-      - name: Install pnpm
-        run: npm install -g pnpm
-
-      - name: Cache dependencies
-        uses: actions/cache@v3
-        id: pnpm-cache
-        with:
-          path: |
-            ~/.pnpm-store
-          key: ${{ runner.os }}-pnpm-${{ hashFiles('**/pnpm-lock.yaml') }}
-          restore-keys: |
-            ${{ runner.os }}-pnpm-
+          cache: 'pnpm'
 
       - name: Install dependencies
         run: pnpm i --frozen-lockfile

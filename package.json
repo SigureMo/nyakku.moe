@@ -3,7 +3,9 @@
     "dev": "vuepress dev src",
     "build": "vuepress build src",
     "serve": "vuepress build src && pnpm dlx serve src/.vuepress/dist",
-    "img:upload": "bash scripts/upload-img.sh"
+    "img:upload": "bash scripts/upload-img.sh",
+    "fmt": "case-police . --fix && prettier --write .",
+    "fmt:check": "case-police . && prettier --check ."
   },
   "author": "Nyakku Shigure",
   "license": "CC-BY-NC-SA-4.0",
@@ -21,6 +23,10 @@
     "vuepress-plugin-meting": "^0.3.3",
     "vuepress-plugin-ribbon": "^1.1.6",
     "vuepress-theme-meteorlxy": "^1.9.0"
+  },
+  "devDependencies": {
+    "case-police": "^0.5.10",
+    "prettier": "^2.8.1"
   },
   "pnpm": {
     "peerDependencyRules": {

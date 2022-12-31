@@ -4,6 +4,8 @@ specifiers:
   '@maginapp/vuepress-plugin-katex': ^1.0.11
   '@vuepress/plugin-active-header-links': ^1.9.7
   '@vuepress/plugin-pwa': ^1.9.7
+  case-police: ^0.5.10
+  prettier: ^2.8.1
   vuepress: ^1.9.7
   vuepress-plugin-cursor-effects: ^1.1.6
   vuepress-plugin-dynamic-title: ^1.0.0
@@ -27,6 +29,10 @@ dependencies:
   vuepress-plugin-meting: 0.3.3
   vuepress-plugin-ribbon: 1.1.6
   vuepress-theme-meteorlxy: 1.9.0_vuepress@1.9.7
+
+devDependencies:
+  case-police: 0.5.10
+  prettier: 2.8.1
 
 packages:
 
@@ -3369,6 +3375,11 @@ packages:
   /caniuse-lite/1.0.30001359:
     resolution: {integrity: sha512-Xln/BAsPzEuiVLgJ2/45IaqD9jShtk3Y33anKb4+yLwQzws3+v6odKfpgES/cDEaZMLzSChpIGdbOYtH9MyuHw==}
     dev: false
+
+  /case-police/0.5.10:
+    resolution: {integrity: sha512-TCfzHZhQ4n6mfDIfN7si8US5KWilP7onSs8Y7Y0ki5h82ery9q9TJhfXYk6rIynr5kLuyCXCC13TWM0Qu0RtUw==}
+    hasBin: true
+    dev: true
 
   /caseless/0.12.0:
     resolution: {integrity: sha512-4tYFyifaFfGacoiObjJegolkwSU4xQNGbVgUiNYVUxbQ2x2lUsFvY4hVgVzGiIe6WLOPqycWXA40l+PWsxthUw==}
@@ -7934,8 +7945,6 @@ packages:
     engines: {node: '>=10.13.0'}
     hasBin: true
     requiresBuild: true
-    dev: false
-    optional: true
 
   /pretty-bytes/5.6.0:
     resolution: {integrity: sha512-FFw039TmrBqFK8ma/7OL3sDz/VytdtJr044/QUJtH0wK9lb9jLq9tJyIxUwtQJHwar2BqtiA4iCWSwo9JLkzFg==}
