@@ -28,15 +28,14 @@ layout: AboutLayout
 
 <p align="center">
   <a href="https://open.spotify.com/user/pj3ib1pljoqewn4ti8se8yl1q" target="_blank"><img src="https://img.shields.io/badge/Spotify-1ed760.svg?&style=flat-square&logo=spotify&logoColor=white" alt="Spotify"></a>
-  <a href="https://twitter.com/SigureMo" target="_blank"><img src="https://img.shields.io/badge/Twitter-1ca0f1.svg?&style=flat-square&logo=twitter&logoColor=white" alt="Twitter"></a>
   <a href="https://nyakku.moe/feed.atom" target="_blank"><img src="https://img.shields.io/badge/RSS-e8a505.svg?&style=flat-square&logo=rss&logoColor=white" alt="RSS"></a>
   <a href="https://github.com/SigureMo" target="_blank"><img src="https://img.shields.io/badge/GitHub-000000.svg?&style=flat-square&logo=github&logoColor=white" alt="GitHub"></a>
   <a href="https://space.bilibili.com/100969474" target="_blank"><img src="https://img.shields.io/badge/bilibili-1eabc9.svg?&style=flat-square&logo=bilibili&logoColor=white" alt="Bilibili"></a>
   <a href="https://www.npmjs.com/~sigure_mo" target="_blank"><img src="https://img.shields.io/badge/NPM-ea3b18.svg?&style=flat-square&logo=npm&logoColor=white" alt="NPM"></a>
   <a href="https://pypi.org/user/SigureMo/" target="_blank"><img src="https://img.shields.io/badge/PyPI-3775a9.svg?&style=flat-square&logo=pypi&logoColor=white" alt="PyPI"></a>
   <br/>
+  <a href="https://twitter.com/SigureMo" target="_blank"><img src="https://img.shields.io/badge/Twitter-1ca0f1.svg?&style=flat-square&logo=twitter&logoColor=white" alt="Twitter"></a>
   <a href="mailto:sigure.qaq@gmail.com" target="_blank"><img src="https://img.shields.io/badge/Gmail-c14438.svg?&style=flat-square&logo=gmail&logoColor=white" alt="Gmail"></a>
-  <a href="https://qr.api.cli.im/newqr/create?data=https%253A%252F%252Fqm.qq.com%252Fcgi-bin%252Fqm%252Fqr%253Fk%253Dk082nGbk__p9g4mFeHzSDkzvTSDU5623%2526noverify%253D0&level=H&transparent=false&bgcolor=%23FFFFFF&forecolor=%23000000&blockpixel=12&marginblock=1&logourl=&size=500&logoshape=no&embed_text_fontfamily=simhei.ttc&eye_use_fore=1&qrcode_eyes=normal&outcolor=%23000000&incolor=%23000000&body_type=0&qr_rotate=0&text=&fontfamily=simhei.ttc&logo_pos=0&kid=bizcliim&time=1653754362&key=a455416b0e3c1fa93687044d067895d5" target="_blank"><img src="https://img.shields.io/badge/QQ-444444.svg?&style=flat-square&logo=tencent%20qq&logoColor=white" alt="qq-240377379"></a>
   <a href="https://t.me/SigureMo" target="_blank"><img src="https://img.shields.io/badge/Telegram-262968.svg?&style=flat-square&logo=telegram&logoColor=white" alt="telegram"></a>
 </p>
 
