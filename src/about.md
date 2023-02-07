@@ -16,7 +16,7 @@ layout: AboutLayout
 
 -  Device: MacBook Pro (13-inch, M1, 2020)
 -  Editor: VS Code
-   -  Theme: [Andromeda Italic Bordered](https://github.com/EliverLara/Andromeda)
+   -  Theme: [Elaina](https://github.com/moefyit/vscode-theme-elaina)
    -  Font: [Fira Code](https://github.com/tonsky/FiraCode)
 -  Shell: zsh
    -  Framework: [zimfw](https://github.com/zimfw/zimfw)
