@@ -9,12 +9,12 @@
   },
   "author": "Nyakku Shigure",
   "license": "CC-BY-NC-SA-4.0",
-  "packageManager": "pnpm@8.2.0",
+  "packageManager": "pnpm@8.3.1",
   "dependencies": {
     "@maginapp/vuepress-plugin-katex": "^1.0.11",
-    "@vuepress/plugin-active-header-links": "^1.9.8",
-    "@vuepress/plugin-pwa": "^1.9.8",
-    "vuepress": "^1.9.8",
+    "@vuepress/plugin-active-header-links": "^1.9.9",
+    "@vuepress/plugin-pwa": "^1.9.9",
+    "vuepress": "^1.9.9",
     "vuepress-plugin-cursor-effects": "^1.1.6",
     "vuepress-plugin-dynamic-title": "^1.0.0",
     "vuepress-plugin-feed": "^0.1.9",
@@ -25,8 +25,8 @@
     "vuepress-theme-meteorlxy": "^1.9.0"
   },
   "devDependencies": {
-    "case-police": "^0.5.10",
-    "prettier": "^2.8.3"
+    "case-police": "^0.5.14",
+    "prettier": "^2.8.7"
   },
   "pnpm": {
     "overrides": {

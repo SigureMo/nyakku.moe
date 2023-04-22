@@ -168,9 +168,9 @@ export default defineConfig4CustomTheme<any>({
       // 电子邮箱
       email: 'sigure.qaq@gmail.com',
       // 所在地
-      location: 'Dalian, China',
+      location: 'Beijing, China',
       // 组织
-      // organization: 'Xxx',
+      organization: 'PaddlePaddle',
       // 头像
       avatar: '/avatar.jpg',
       // 社交平台帐号信息
