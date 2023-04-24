@@ -1302,7 +1302,4 @@ memset(a, 0, sizeof(a));
 
 ## References
 
-> 初学阶段，需要查阅的太多，不对参考链接进行一一列出
-
-1. [从 C 语言转 C++简明教程 v5.0+ の 目录](https://www.liuchuo.net/333-3)
-2. 网易云课堂 C++程序设计入门（[上](https://mooc.study.163.com/course/1000003015) & [下](https://mooc.study.163.com/course/1000005002)）
+1. 网易云课堂 C++程序设计入门（[上](https://mooc.study.163.com/course/1000003015) & [下](https://mooc.study.163.com/course/1000005002)）
