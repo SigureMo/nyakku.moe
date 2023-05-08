@@ -129,17 +129,14 @@ Dynamo 在 compile 时（也就是 callback）会将逐字节码地模拟执行�
 self.symbolic_locals = collections.OrderedDict(
    (
       k,
-      VariableBuilder(
-         self,
-         LocalSource(k) if k in code_options["co_varnames"] else LocalSource((k)),
-      )(f_locals[k]),
+      VariableBuilder(self, LocalSource(k))(f_locals[k]),
    )
    for k in vars
    if k in f_locals
 )
 ```
 
-因此模拟执行的操作基本都是对 `VariableTracker` 实例及其子类实例的操作，不会影响原始数据。
+因此模拟执行的操作基本都是对 `VariableTracker` 子类实例的操作，不会影响原始数据。
 
 在调用 `InstructionTranslator.run` 时，Dynamo 会逐步根据字节码 opname 分发到对应的函数，比如 `LOAD_CONST` 的实现如下：
 
@@ -177,6 +174,31 @@ def stack_op(fn: typing.Callable[..., object]):
 -  当两个参数都是常量（`ConstantVariable`），并且可以常量折叠，则直接返回折叠后的 `ConstantVariable`
 -  如果有参数是 Tensor（`TensorVariable`），那么创建 FX Proxy，开始 FX Graph 组网
 
+比如对于如下的代码：
+
+```python
+import torch
+
+
+@torch.compile
+def foo(x: torch.Tensor, y: int):
+   x = x + 1
+   y = y - 1
+   x = x + y
+   return x
+
+
+x = torch.as_tensor(1)
+y = 2
+print(foo(x, y))
+```
+
+实际模拟执行可能会类似于下图：
+
+![Dynamo Simulate Execution](../img/decomposing-torch-dynamo/dynamo-simulate-execution.drawio.png)
+
+在执行 `BINARY_ADD` 前后，`stack` 弹出两个 Variable，并放入一个新的 Variable，同时 FX Graph 也进行了组网。
+
 由于 `BuiltinVariable` 表示一个 builtin 操作，是有很多操作是会构建此 Variable 的，比如各种魔法函数，当然 `print` 也是，但是 `call_function` 时并没有 `print` 的处理方式，因此会抛出 `Unsupported` 异常打断子图。
 
 ### 子图打断
@@ -200,6 +222,8 @@ def stack_op(fn: typing.Callable[..., object]):
 def foo(x, y):
    if x > 0:
       y += 1
+   else:
+      y -= 1
    return y
 
 print(foo(torch.as_tensor([5]), torch.as_tensor([0])))
