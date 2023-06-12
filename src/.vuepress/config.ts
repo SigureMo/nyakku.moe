@@ -103,6 +103,7 @@ export default defineConfig4CustomTheme<any>({
     [
       'meting',
       {
+        metingApi: 'https://api.injahow.cn/meting/',
         meting: {
           server: 'netease',
           type: 'playlist',
