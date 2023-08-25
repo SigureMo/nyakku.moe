@@ -1,6 +1,11 @@
 name: Lint and Format
 
-on: [push, pull_request, workflow_dispatch]
+on:
+  push:
+    branches: [main]
+  pull_request:
+  merge_group:
+  workflow_dispatch:
 
 jobs:
   lint-and-fmt:
