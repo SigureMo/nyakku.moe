@@ -1,8 +1,8 @@
 {
   "scripts": {
-    "dev": "vuepress dev src",
-    "build": "vuepress build src",
-    "serve": "vuepress build src && pnpm dlx serve src/.vuepress/dist",
+    "dev": "cross-env NODE_OPTIONS=--openssl-legacy-provider vuepress dev src",
+    "build": "cross-env NODE_OPTIONS=--openssl-legacy-provider vuepress build src",
+    "serve": "cross-env NODE_OPTIONS=--openssl-legacy-provider vuepress build src && pnpm dlx serve src/.vuepress/dist",
     "img:upload": "bash scripts/upload-img.sh",
     "fmt": "case-police . --fix && prettier --write .",
     "fmt:check": "case-police . && prettier --check ."
@@ -26,6 +26,7 @@
   },
   "devDependencies": {
     "case-police": "^0.6.0",
+    "cross-env": "^7.0.3",
     "prettier": "^3.0.0"
   },
   "pnpm": {
