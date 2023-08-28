@@ -104,7 +104,7 @@ const uint8_t _PyOpcode_Caches[256] = {
 
 当然其实这里展示的是 CPython 各个指令的 Inline Cache 长度，Inline Cache 以 `_Py_CODEUNIT` 为基本单元，`_Py_CODEUNIT` 的大小则是 2 bytes，因此 `BINARY_OP` 对应的 1 即代表其 Inline Cache 大小为 2 bytes。再以 `LOAD_ATTR` 为例的话，其 Inline Cache 大小为 4\*2=8 bytes，加上其本身共 10 bytes。
 
-关于 Inline Cache 的数据结构我们也可以在 [cpython - pycore_code.h](https://github.com/python/cpython/blob/3.11/Include/internal/pycore_code.h) 中找到，这里同样以 `LOAD_ATTR` 为例：
+关于 Inline Cache 的数据结构我们也可以在 [cpython 3.11 pycore_code.h](https://github.com/python/cpython/blob/3.11/Include/internal/pycore_code.h) 中找到，这里同样以 `LOAD_ATTR` 为例：
 
 ```c
 // https://github.com/python/cpython/blob/3.11/Include/internal/pycore_code.h#L55-L61
@@ -310,7 +310,7 @@ _PyCode_Quicken(PyCodeObject *code)
 -  如果自适应计数器减到 0，则尝试调用 `_Py_Specialize_LoadAttr` 进行特化
 -  否则自适应计数器减 1（计数器字段 - 1，而不是整个数值 - 1），然后跳转到原始指令 `LOAD_ATTR`
 
-自适应计数器字段与原始状态和特化状态并不相同，它的 16 bit 被分割成了两部分，其中高 12 bit 才是计数器（counter），低 4 bit 为回退指数（backoff exponent）。计数器总是会被初始化为 $2^{backoff} - 1$，比如回退指数为 0 时，计数器初始值为 0，回退指数为 3 时，计数器初始值为 7，以此类推。（详见 [cpython - pycore_code.h](https://github.com/python/cpython/blob/3.11/Include/internal/pycore_code.h#L488-L529)）
+自适应计数器字段与原始状态和特化状态并不相同，它的 16 bit 被分割成了两部分，其中高 12 bit 才是计数器（counter），低 4 bit 为回退指数（backoff exponent）。计数器总是会被初始化为 $2^{backoff} - 1$，比如回退指数为 0 时，计数器初始值为 0，回退指数为 3 时，计数器初始值为 7，以此类推。（详见 [cpython 3.11 pycore_code.h](https://github.com/python/cpython/blob/3.11/Include/internal/pycore_code.h#L488-L529)）
 
 下面我们看看 `_Py_Specialize_LoadAttr` 中实际发生了什么：
 
@@ -426,9 +426,9 @@ success:
 这里有几处 `_Py_SET_OPCODE` 即是特化成功时将当前指令替换为特化指令的逻辑。我们注意一下 `fail` 和 `success`，即特化失败和特化成功的返回逻辑：
 
 -  如果发生特化失败，则会将 `backoff` + 1，并根据其设置计数器的初始值，显然失败次数越多，计数器初始值越大，就越不容易触发特化，从而有效避免了频繁触发特化失败。
--  如果特化成功，此时指令已经被替换成相应的特化指令，此时会将计数器设置为特化计数器初始值 `53`，该值来源见 [cpython - specialize.c](https://github.com/python/cpython/blob/3.11/Python/specialize.c#L321-L332)（简单说就是 cpython 团队发现 50 左右是一个合适的值，就在 50 左右找了一个合适的质数）
+-  如果特化成功，此时指令已经被替换成相应的特化指令，此时会将计数器设置为特化计数器初始值 `53`，该值来源见 [cpython 3.11 specialize.c - miss_counter_start](https://github.com/python/cpython/blob/3.11/Python/specialize.c#L321-L332)（简单说就是 cpython 团队发现 50 左右是一个合适的值，就在 50 左右找了一个合适的质数）
 
-注意从 `RESUME` warmup 得来的计数器本就是 0，因此自适应指令最开始就会尝试特化，而没有额外的 warmup 过程。而从特化指令发生去优化（de-optimization）退化为自适应指令时，则会设置一个适中的初始值 31（$2^5 - 1$，见 [cpython - pycore_code.h - adaptive_counter_start](https://github.com/python/cpython/blob/3.11/Include/internal/pycore_code.h#L514-L518)），以免频繁发生去优化。
+注意从 `RESUME` warmup 得来的计数器本就是 0，因此自适应指令最开始就会尝试特化，而没有额外的 warmup 过程。而从特化指令发生去优化（de-optimization）退化为自适应指令时，则会设置一个适中的初始值 31（$2^5 - 1$，见 [cpython 3.11 pycore_code.h - adaptive_counter_start](https://github.com/python/cpython/blob/3.11/Include/internal/pycore_code.h#L514-L518)），以免频繁发生去优化。
 
 ### 特化指令的执行逻辑
 
@@ -509,7 +509,8 @@ PEP 659 为 Faster CPython 做了一个良好的开端，它让我们看到了 C
 ## References
 
 1. [PEP 659 – Specializing Adaptive Interpreter](https://peps.python.org/pep-0659/)
-2. [Faster CPython Ideas](https://github.com/faster-cpython/ideas)
-3. [The Bytecode Interpreter (3.11)](https://devguide.python.org/internals/interpreter/#)
-4. [Adding or extending a family of adaptive instructions](https://github.com/python/cpython/blob/3.11/Python/adaptive.md)
-5. [How we are making Python 3.11 faster (CPython project)](https://www.youtube.com/watch?v=MipEJ3XzZjU)
+2. [CPython 3.11 Source](https://github.com/python/cpython/tree/3.11)
+3. [Faster CPython Ideas](https://github.com/faster-cpython/ideas)
+4. [The Bytecode Interpreter (3.11)](https://devguide.python.org/internals/interpreter/#)
+5. [Adding or extending a family of adaptive instructions](https://github.com/python/cpython/blob/3.11/Python/adaptive.md)
+6. [How we are making Python 3.11 faster (CPython project)](https://www.youtube.com/watch?v=MipEJ3XzZjU)

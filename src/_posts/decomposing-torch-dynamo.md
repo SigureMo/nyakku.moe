@@ -11,9 +11,11 @@ tags:
    - Virtual Machine
 ---
 
-::: warning 内容尚为初稿，需要后续调研补充
+::: tip
 
 最近这一周负责调研 TorchDynamo，唔，也是很久没写博客了嘛，所以就浅记录下，顺便梳理下 Dynamo 中的各个流程和部分细节～
+
+注意本文最初的动机是调研，因此内容排布上可能对新手不是很友好。因为一直没时间整理优化，暂时先这样了。
 
 :::
 
@@ -458,5 +460,6 @@ def compiled_fn(x_0):
 ## References
 
 1. [PEP 523 – Adding a frame evaluation API to CPython](https://peps.python.org/pep-0523/)
-2. [TorchDynamo Overview - Guards Overview](https://pytorch.org/docs/stable/dynamo/guards-overview.html)
-3. [深入理解 Python 虚拟机](https://nanguage.gitbook.io/inside-python-vm-cn/)
+2. TorchDynamo Source: [C side](https://github.com/pytorch/pytorch/tree/main/torch/csrc/dynamo)、[Python side](https://github.com/pytorch/pytorch/tree/main/torch/_dynamo)
+3. [TorchDynamo Overview - Guards Overview](https://pytorch.org/docs/stable/dynamo/guards-overview.html)
+4. [深入理解 Python 虚拟机](https://nanguage.gitbook.io/inside-python-vm-cn/)
