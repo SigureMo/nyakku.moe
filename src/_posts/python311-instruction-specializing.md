@@ -40,15 +40,15 @@ print(os)
 
 关于「运行时加速」，主要包含如下几点：
 
--  **更加轻量和 Lazy 的 frame**。简单来说就是 Python 3.11 的 frame 是更加精简的数据结构，其中去掉了调试信息和异常堆栈，因为在大多数情况下这些信息是没有必要的，如果需要原来的 FrameObject 则可以 lazy 地创建，而[异常信息](https://devguide.python.org/internals/interpreter/#exception-table-format)则是在编译时通过分析生成了，运行时则是近乎零成本（只需要在发生异常时查表，而不需要维护异常堆栈）。
+-  **更加轻量和 Lazy 的 frame**。简单来说就是 Python 3.11 的 frame 是更加精简的数据结构，其中去掉了调试信息和异常堆栈，因为在大多数情况下这些信息是没有必要的，如果需要原来的 FrameObject 则可以 lazy 地创建，而[异常信息](https://devguide.python.org/internals/interpreter/#exception-table-format)则是在编译时通过分析生成了（CodeObject 的 `co_exceptiontable`），运行时则是近乎零成本（只需要在发生异常时查表，而不需要维护异常堆栈）。
 -  **Inline 函数调用**。在 Python 3.11 之前，每发生一次 Python 函数调用的同时也会创建一个 C 函数调用，这导致了 Python 函数调用会消耗 C 的调用栈。而在 Python 3.11 中，在发生 Python 函数调用时，在创建一个新的 Frame 后，会「跳转」到解释器的开始，而不是创建一个新的 C 函数调用。这里的「跳转」在代码实现中就是一个 [goto](https://github.com/python/cpython/blob/3.11/Python/ceval.c#L4764)。
--  **特化的自适应解释器**（PEP 659: Specializing Adaptive Interpreter），从标题就可以看出，这是本文要描述的重点，那么我们接下来逐渐展开吧～
+-  **特化的自适应解释器**（[PEP 659: Specializing Adaptive Interpreter](https://peps.python.org/pep-0659/)），从标题就可以看出，这是本文要描述的重点，那么我们接下来逐渐展开吧～
 
 ## 指令特化
 
 特化是一种常见的 JIT 加速手段，对于动态语言而言，每一条看似简单的指令都可能对应着多种不同的实现，比如一个简简单单的 `+`（`BINARY_ADD`，在 Python 3.11 则是 `BINARY_OP +`），对于不同的类型，其实现是完全不同的，可能是 `int` 加，可能是 `float` 加，甚至可能执行用户自定义的 `__add__`，而判断具体执行什么的过程则带来了不小的运行时开销。
 
-虽然动态语言的查找是不可避免的，但是对于大多数字节码来说，其往往只对应了一种具体实现，比如 `a.b + c`，假如 `a.b` 和 `c` 都为 `int`，那么其实大概率其类型是不会变的，这称为「类型稳定性」。虽然我们不能保证之后 `a.b` 和 `c` 类型不会变，但我们可以根据这个信息来决策之后优先选择 `int` 加这一实现，这便是特化的思想。
+虽然动态语言的查找是不可避免的，但是对于大多数字节码来说，其往往只对应了一种具体实现，比如 `a.b + c`，假如 `a.b` 和 `c` 都为 `int`，那么其实大概率其类型是不会变的，这被称为「类型稳定性」。虽然我们不能保证之后 `a.b` 和 `c` 类型不会变，但我们可以根据这个信息来决策之后优先选择 `int` 加这一实现，这便是特化的思想。
 
 Python 3.11 在解释器中引入了特化的思想，不过值得注意的是其是在字节码层面进行的，而没有编译成机器码，因此并不是 JIT（见 [Is there a JIT compiler?](https://docs.python.org/3/whatsnew/3.11.html#is-there-a-jit-compiler)），但毫无疑问这借鉴了 JIT 的思想。
 
@@ -104,7 +104,7 @@ const uint8_t _PyOpcode_Caches[256] = {
 
 当然其实这里展示的是 CPython 各个指令的 Inline Cache 长度，Inline Cache 以 `_Py_CODEUNIT` 为基本单元，`_Py_CODEUNIT` 的大小则是 2 bytes，因此 `BINARY_OP` 对应的 1 即代表其 Inline Cache 大小为 2 bytes。再以 `LOAD_ATTR` 为例的话，其 Inline Cache 大小为 4\*2=8 bytes，加上其本身共 10 bytes。
 
-关于 Inline Cache 的数据结构我们也可以在 [cpython - pycore_code.h](https://github.com/python/cpython/blob/3.11/Include/internal/pycore_code.h) 中找到，这里以 `CALL` 为例：
+关于 Inline Cache 的数据结构我们也可以在 [cpython - pycore_code.h](https://github.com/python/cpython/blob/3.11/Include/internal/pycore_code.h) 中找到，这里同样以 `LOAD_ATTR` 为例：
 
 ```c
 // https://github.com/python/cpython/blob/3.11/Include/internal/pycore_code.h#L55-L61
@@ -203,7 +203,7 @@ _PyCode_Warmup(PyCodeObject *code)
 }
 ```
 
-这里 `co_warmup` 初始值为 `QUICKENING_INITIAL_WARMUP_VALUE` 即 `-8`，也就是说在经过 8 次 `RESUME` 之后，`co_warmup` 会变为 0，这时候就会调用 `_PyCode_Quicken` 来进行加速。（这里只是简化说明，实际上调用 `_PyCode_Warmup` 不止 `RESUME`）
+这里 `co_warmup` 初始值为 `QUICKENING_INITIAL_WARMUP_VALUE` 即 `-8`，也就是说在经过 8 次 `RESUME` 之后，`co_warmup` 会变为 0，这时候就会调用 `_PyCode_Quicken` 来进行加速。（这里只是简化说明，实际上不止 `RESUME` 会调用 `_PyCode_Warmup`）
 
 ```c
 // https://github.com/python/cpython/blob/3.11/Python/specialize.c#L258-L319
@@ -271,7 +271,7 @@ _PyCode_Quicken(PyCodeObject *code)
 }
 ```
 
-这里算是一个小的 pass，遍历全部字节码进行了替换：
+这里算是一个小的「pass」，遍历全部字节码进行了替换：
 
 -  如果该指令是可特化的，则将该指令替换为自适应版本，比如 `LOAD_ATTR` 将会被原位替换为 `LOAD_ATTR_ADAPTIVE`
 -  如果该指令是 `EXTENDED_ARG`、`JUMP_BACKWARD`、`RESUME` 之一，则将其转为相应的 quick 版本，比如 `RESUME` 将会被原位替换为 `RESUME_QUICK`
@@ -503,6 +503,8 @@ PEP 659 为 Faster CPython 做了一个良好的开端，它让我们看到了 C
 -  更多的指令特化，Python 3.12 已经[实现了一个 DSL](https://github.com/faster-cpython/ideas/blob/main/3.12/interpreter_definition.md)，用来方便实现解释器逻辑（`ceval.c`），新的解释器逻辑使用 DSL 写在了 [bytecodes.c](https://github.com/python/cpython/blob/3.12/Python/bytecodes.c)，之后会根据其编译成 [generated_cases.c.h](https://github.com/python/cpython/blob/3.12/Python/generated_cases.c.h)（就是原来 `ceval.c` 里的非常大的 switch-case），可以更加方便地编写指令特化、去优化、超指令等逻辑
 -  第二层优化器（[Tier 2 Optimizer for CPython -- Early design](https://github.com/faster-cpython/ideas/blob/main/3.12/tier2.md)），该提案基于第一层优化器，即本文所述的 PEP 659，本文所述的优化器仅仅会针对单条指令，而 Tier 2 Optimizer 则会考虑更大的优化范围，将会为未来构建 JIT 提供坚实的基础
 -  等等……（其他的我暂时还不清楚）
+
+那么暂时先这样啦，以后有什么新的有趣的优化再整理～一些关于 Python 3.11 其他改动的适配文档已经在之前整理在了 [PaddleSOT/docs/compat/python311](https://github.com/PaddlePaddle/PaddleSOT/tree/develop/docs/compat/python311)，有兴趣也可以参考下～
 
 ## References
 
