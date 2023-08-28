@@ -455,10 +455,6 @@ def compiled_fn(x_0):
 
 其中 `x[:] = [x[0], 1]` 即恢复副作用影响的代码，Dynamo 会将原来的 `x` inplace 地全部替换成新的结果 `[x[0], 1]`
 
-<!-- ## 总结
-
-从整体上来看，Dynamo 对于字节码的操作都是非常小心的，因为字节码本身是一种难以理解的 -->
-
 ## References
 
 1. [PEP 523 – Adding a frame evaluation API to CPython](https://peps.python.org/pep-0523/)
