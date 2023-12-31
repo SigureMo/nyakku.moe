@@ -11,6 +11,7 @@ layout: AboutLayout
 -  写写代码
 -  吸猫猫（云，最爱狸花）
 -  音乐（大爱虚拟歌手，重度耳机依赖患者）
+-  喵喵（喵喵最可爱了）
 
 ## 我平时所用的编码环境？
 
@@ -42,5 +43,5 @@ layout: AboutLayout
 ## 我都做过什么？
 
 -  [yutto](https://github.com/yutto-dev/yutto) 一个可爱且任性的 B 站视频下载器
--  [PaddlePaddle 贡献者](https://github.com/cattidea/Paddle) 参与 PaddlePaddle 贡献
 -  [Moefy Canvas](https://moefy-canvas.nyakku.moe/) 一些简单的 canvas 背景、点击特效，部分取自[曾经做过的 VuePress V1 插件](https://moefyit.github.io/moefy-vuepress/)
+-  [PaddlePaddle](https://github.com/PaddlePaddle/Paddle) 社区 Committer & 动转静小组成员
