@@ -9,7 +9,7 @@
   },
   "author": "Nyakku Shigure",
   "license": "CC-BY-NC-SA-4.0",
-  "packageManager": "pnpm@8.15.4",
+  "packageManager": "pnpm@8.15.5",
   "dependencies": {
     "@maginapp/vuepress-plugin-katex": "^1.0.11",
     "@vuepress/plugin-active-header-links": "^1.9.10",
