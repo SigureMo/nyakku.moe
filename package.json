@@ -9,7 +9,7 @@
   },
   "author": "Nyakku Shigure",
   "license": "CC-BY-NC-SA-4.0",
-  "packageManager": "pnpm@9.0.6",
+  "packageManager": "pnpm@9.0.5",
   "dependencies": {
     "@maginapp/vuepress-plugin-katex": "^1.0.11",
     "@vuepress/plugin-active-header-links": "^1.9.10",
@@ -31,9 +31,9 @@
   },
   "pnpm": {
     "overrides": {
-      "vue": "2.7.16",
-      "vue-server-renderer": "2.7.16",
-      "vue-template-compiler": "2.7.16"
+      "vue": "2.6.14",
+      "vue-server-renderer": "2.6.14",
+      "vue-template-compiler": "2.6.14"
     },
     "peerDependencyRules": {
       "ignoreMissing": [
