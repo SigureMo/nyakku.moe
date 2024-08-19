@@ -51,8 +51,8 @@ importers:
         version: 1.9.0(@babel/core@7.23.7)(vue@2.6.14)(vuepress@1.9.10(hogan.js@3.0.2)(lodash@4.17.21)(prettier@3.3.3))
     devDependencies:
       case-police:
-        specifier: ^0.6.1
-        version: 0.6.1
+        specifier: ^0.7.0
+        version: 0.7.0
       cross-env:
         specifier: ^7.0.3
         version: 7.0.3
@@ -1431,8 +1431,8 @@ packages:
   caniuse-lite@1.0.30001572:
     resolution: {integrity: sha512-1Pbh5FLmn5y4+QhNyJE9j3/7dK44dGB83/ZMjv/qJk86TvDbjk0LosiZo0i0WB0Vx607qMX9jYrn1VLHCkN4rw==}
 
-  case-police@0.6.1:
-    resolution: {integrity: sha512-tOgkG3HhtzNVHU+HVHqbpVJ3CICPDihtlgoM2C4dx0RLeo6qcNVeBgiYJN5Bln+stxKrnKrw89CFgqYQDqwZQg==}
+  case-police@0.7.0:
+    resolution: {integrity: sha512-ULkv4kNeSBFCFwXE1NA/x6/FqY8lRRXT10HsGX7K0LcMcA/B45SgnNY98hnQ9c05AaVhgbR5jlCO0BXMlIEuPg==}
     hasBin: true
 
   caseless@0.12.0:
@@ -7096,7 +7096,7 @@ snapshots:
 
   caniuse-lite@1.0.30001572: {}
 
-  case-police@0.6.1: {}
+  case-police@0.7.0: {}
 
   caseless@0.12.0: {}
 
