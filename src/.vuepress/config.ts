@@ -97,6 +97,9 @@ export default defineConfig4CustomTheme<any>({
       'feed',
       {
         canonical_base: 'https://nyakku.moe',
+        feed_options: {
+          description: '一个小透明的透明世界 feedId:63588819950986240+userId:63587120483389440',
+        },
       },
     ],
     // Meting 插件
