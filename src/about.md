@@ -35,7 +35,7 @@ layout: AboutLayout
   <a href="https://www.npmjs.com/~sigure_mo" target="_blank"><img src="https://img.shields.io/badge/NPM-ea3b18.svg?&style=flat-square&logo=npm&logoColor=white" alt="NPM"></a>
   <a href="https://pypi.org/user/SigureMo/" target="_blank"><img src="https://img.shields.io/badge/PyPI-3775a9.svg?&style=flat-square&logo=pypi&logoColor=white" alt="PyPI"></a>
   <br/>
-  <a href="https://twitter.com/SigureMo" target="_blank"><img src="https://img.shields.io/badge/Twitter-1ca0f1.svg?&style=flat-square&logo=twitter&logoColor=white" alt="Twitter"></a>
+  <a href="https://x.com/SigureMo" target="_blank"><img src="https://img.shields.io/badge/X-000000.svg?&style=flat-square&logo=x&logoColor=white" alt="X"></a>
   <a href="mailto:sigure.qaq@gmail.com" target="_blank"><img src="https://img.shields.io/badge/Gmail-c14438.svg?&style=flat-square&logo=gmail&logoColor=white" alt="Gmail"></a>
   <a href="https://t.me/SigureMo" target="_blank"><img src="https://img.shields.io/badge/Telegram-262968.svg?&style=flat-square&logo=telegram&logoColor=white" alt="telegram"></a>
 </p>
