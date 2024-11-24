@@ -1811,8 +1811,8 @@ packages:
     engines: {node: '>=10.14', npm: '>=6', yarn: '>=1'}
     hasBin: true
 
-  cross-spawn@6.0.5:
-    resolution: {integrity: sha512-eTVLrBSt7fjbDygz805pMnstIs2VTBNkRm0qxZd+M7A5XDdxVRWO5MxGBXZhjY4cqLYLdtrGqRf8mBPmzwSpWQ==}
+  cross-spawn@6.0.6:
+    resolution: {integrity: sha512-VqCUuhcd1iB+dsv8gxPttb5iZh/D0iubSP21g36KXdEuf6I5JiioesUVjpCdHV9MZRUfVFlvwtIUyPfxo5trtw==}
     engines: {node: '>=4.8'}
 
   cross-spawn@7.0.3:
@@ -6315,7 +6315,7 @@ snapshots:
       connect-history-api-fallback: 1.6.0
       copy-webpack-plugin: 5.1.2(webpack@4.47.0)
       core-js: 3.35.0
-      cross-spawn: 6.0.5
+      cross-spawn: 6.0.6
       css-loader: 2.1.1(webpack@4.47.0)
       esbuild: 0.14.7
       file-loader: 3.0.1(webpack@4.47.0)
@@ -6446,7 +6446,7 @@ snapshots:
   '@vuepress/plugin-last-updated@1.9.10':
     dependencies:
       '@vuepress/types': 1.9.10
-      cross-spawn: 6.0.5
+      cross-spawn: 6.0.6
     transitivePeerDependencies:
       - debug
 
@@ -7411,7 +7411,7 @@ snapshots:
     dependencies:
       cross-spawn: 7.0.3
 
-  cross-spawn@6.0.5:
+  cross-spawn@6.0.6:
     dependencies:
       nice-try: 1.0.5
       path-key: 2.0.1
@@ -8000,7 +8000,7 @@ snapshots:
 
   execa@1.0.0:
     dependencies:
-      cross-spawn: 6.0.5
+      cross-spawn: 6.0.6
       get-stream: 4.1.0
       is-stream: 1.1.0
       npm-run-path: 2.0.2
