@@ -36,16 +36,16 @@ Git Commit Message 虽然可以随意描述，但使用没有意义的描述对�
 
 根据 [conventional-commit-types](https://github.com/commitizen/conventional-commit-types), `type` 的可选值一般来说是有下面几种，
 
--  feat: 添加新功能
--  fix: 修复 bug
--  docs: 仅对文档进行修改
--  style: 对代码语义无影响的格式修改（如去除无用空格、格式化等等修改）
--  refactor: 代码重构（既不是新增功能，也不是修改 bug 的代码变动）
--  perf: 提高性能的代码修改
--  test: 测试用例添加及修改
--  build: 影响构建系统或外部依赖关系的更改
--  ci: 更改 CI 配置文件和脚本
--  chore: 其它不涉及源码以及测试的修改
+- feat: 添加新功能
+- fix: 修复 bug
+- docs: 仅对文档进行修改
+- style: 对代码语义无影响的格式修改（如去除无用空格、格式化等等修改）
+- refactor: 代码重构（既不是新增功能，也不是修改 bug 的代码变动）
+- perf: 提高性能的代码修改
+- test: 测试用例添加及修改
+- build: 影响构建系统或外部依赖关系的更改
+- ci: 更改 CI 配置文件和脚本
+- chore: 其它不涉及源码以及测试的修改
 
 #### scope
 
@@ -55,9 +55,9 @@ Git Commit Message 虽然可以随意描述，但使用没有意义的描述对�
 
 `subject` 是 commit 目的的简短描述，不超过 50 个字符
 
--  以动词开头，使用第一人称现在时，比如 change，而不是 changed 或 changes
--  第一个字母小写
--  结尾不加句号（.）
+- 以动词开头，使用第一人称现在时，比如 change，而不是 changed 或 changes
+- 第一个字母小写
+- 结尾不加句号（.）
 
 ### Body
 
@@ -67,8 +67,8 @@ Git Commit Message 虽然可以随意描述，但使用没有意义的描述对�
 
 `Footer` 一般只包含以下两种情况
 
--  不兼容变动（BREAKING CHANGE）
--  关闭 Issue 如 `Closes #234`
+- 不兼容变动（BREAKING CHANGE）
+- 关闭 Issue 如 `Closes #234`
 
 ### Revert
 

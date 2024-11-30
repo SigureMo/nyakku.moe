@@ -89,15 +89,15 @@ def _fn(*args, **kwargs):
 
 首先，对于 Eval Frame 来说，当然是可以获取到 FrameObject 的，同样也可以从中获取 CodeObject。根据 PEP 523，我们可以在 `co_extra` 字段里存储一些 Cache，这里便会存储 Dynamo 编译后的 CodeObject，值得注意的是，这里 `CacheEntry` 是同时包含 `check_fn` 和 `code` 字段的，`check_fn` 即是用于检查一个编译后的 CodeObject 是否可用的，`check_fn` 会作用于 `f_locals`（即 `check_fn(f_locals)`）来检查该 Cache 是否可用。这主要分为以下三种情况：
 
--  其中 CacheEntry 是一个链表，默认最大长度为 64，如果查找全部 Cache 都不可用时，就会认为是 cache miss；
--  而当 `check_fn(f_locals)` 检查成功时，就会认为 cache hit；
--  此外还有一种情况，是 cache 里存储的是 `SKIP_CODE`。
+- 其中 CacheEntry 是一个链表，默认最大长度为 64，如果查找全部 Cache 都不可用时，就会认为是 cache miss；
+- 而当 `check_fn(f_locals)` 检查成功时，就会认为 cache hit；
+- 此外还有一种情况，是 cache 里存储的是 `SKIP_CODE`。
 
 另外，Dynamo 会根据 callback 的情况分别执行如下操作：
 
--  当 callback 为 `Py_None` 时，会直接跑原生字节码，即直接由 `eval_frame_default` 来执行；
--  当 callback 为 `Py_False` 时，表示只运行但不 compile，即如果 cache hit 就跑 `eval_custom_code`，cache miss 就跑 `eval_frame_default`
--  当 callback 为一个 callable 函数时，表示运行且 compile，同样在 cache hit 时直接跑 `eval_custom_code`，而当 cache miss 时，会先调用 `callback` 编译出新的 CodeObject，然后将其存入 cache，最后再跑 `eval_custom_code`。
+- 当 callback 为 `Py_None` 时，会直接跑原生字节码，即直接由 `eval_frame_default` 来执行；
+- 当 callback 为 `Py_False` 时，表示只运行但不 compile，即如果 cache hit 就跑 `eval_custom_code`，cache miss 就跑 `eval_frame_default`
+- 当 callback 为一个 callable 函数时，表示运行且 compile，同样在 cache hit 时直接跑 `eval_custom_code`，而当 cache miss 时，会先调用 `callback` 编译出新的 CodeObject，然后将其存入 cache，最后再跑 `eval_custom_code`。
 
 值得注意的是，如果调用 `callback` 返回的是 `None` 时，那么就表示编译失败，此时会将 cache 设置为 `SKIP_CODE`，并且直接跑 `eval_frame_default`，而且之后所有的调用都会直接跑 `eval_frame_default`。即只要有一次编译失败，该函数的之后所有的调用都会直接跑原生字节码。不过这明显是合理的，因为对于一个函数而言，编译失败大概率意味着这个函数是不适合编译加速的，那么之后即便是不同的输入也不会再编译了。
 
@@ -173,8 +173,8 @@ def stack_op(fn: typing.Callable[..., object]):
 
 那么这里 `call_function` 做了什么呢？由于这里的实现细节比较多，这里只考虑几种简单的情况：
 
--  当两个参数都是常量（`ConstantVariable`），并且可以常量折叠，则直接返回折叠后的 `ConstantVariable`
--  如果有参数是 Tensor（`TensorVariable`），那么创建 FX Proxy，开始 FX Graph 组网
+- 当两个参数都是常量（`ConstantVariable`），并且可以常量折叠，则直接返回折叠后的 `ConstantVariable`
+- 如果有参数是 Tensor（`TensorVariable`），那么创建 FX Proxy，开始 FX Graph 组网
 
 比如对于如下的代码：
 
@@ -207,9 +207,9 @@ print(foo(x, y))
 
 在整个代码运行过程中，主要有以下三种情况会打断子图，触发子图编译：
 
--  当遇到 `RETURN_VALUE` 时
--  当遇到跳转指令时，且跳转条件是 Tensor（`TensorVariable`）时
--  当内部任意时刻抛出 `Unsupported` Error 时
+- 当遇到 `RETURN_VALUE` 时
+- 当遇到跳转指令时，且跳转条件是 Tensor（`TensorVariable`）时
+- 当内部任意时刻抛出 `Unsupported` Error 时
 
 对于遇到 `Unsupported` Error 时，Dynamo 会将当前的子图打断，并将之后的代码抽到一个新的函数中，即交由下一个 Frame 来处理。
 
@@ -339,11 +339,11 @@ Dynamo 的代码生成部分大多都是非常简单易懂的，resume 部分生
 
 子图编译时的代码生成主要包含以下几步：
 
--  将 FX Graph 编译成函数，这个过程会调用用户提供的 compiler backend，并将该函数挂到 globals 里
--  在生成字节码里加上从 globals 里 LOAD 刚刚编译好的函数的字节码
--  在生成字节码里加上 LOAD 需要传入的参数，注意所有参数都是知道来源（Source）的，因此可以 Codegen 出需要的 LOAD 指令
--  在生成字节码里加上 CALL_FUNCTION 指令，调用编译好的函数
--  在生成字节码里加上 SideEffects 的处理
+- 将 FX Graph 编译成函数，这个过程会调用用户提供的 compiler backend，并将该函数挂到 globals 里
+- 在生成字节码里加上从 globals 里 LOAD 刚刚编译好的函数的字节码
+- 在生成字节码里加上 LOAD 需要传入的参数，注意所有参数都是知道来源（Source）的，因此可以 Codegen 出需要的 LOAD 指令
+- 在生成字节码里加上 CALL_FUNCTION 指令，调用编译好的函数
+- 在生成字节码里加上 SideEffects 的处理
 
 我们从一个示例来看这个过程：
 
@@ -417,10 +417,10 @@ lambda L: ___guarded_code.valid and ___check_type_id(L['x'], 4882921328) and ___
 
 这里主要检查了如下几项：
 
--  `x` 类型是 `A`
--  `x.value` 类型是 `int`，这里 `x.value` 的代码同样可以从 Source 生成
--  `x.value` 值为 5
--  关于 `y` 的一系列 Tensor 检查，这包含了 `dtype`、`device`、`requires_grad`、`ndim` 等属性
+- `x` 类型是 `A`
+- `x.value` 类型是 `int`，这里 `x.value` 的代码同样可以从 Source 生成
+- `x.value` 值为 5
+- 关于 `y` 的一系列 Tensor 检查，这包含了 `dtype`、`device`、`requires_grad`、`ndim` 等属性
 
 Guard 是有传播机制的，比如 `z = x + y`，新生成的 `z` 的 Guard 是 `x` 和 `y` 是 Guard 的总和，这可以通过 `VariableTracker.propagate` 在不同 VariableTracker 之间进行传播，这就确保了值的依赖关系是可以保持的。
 

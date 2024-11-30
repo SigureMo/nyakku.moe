@@ -52,11 +52,11 @@ lang = zh_CN
 
 之后会进入桌面环境，会有些配置选项，这些简单配置下就好，其中分区需要注意一下，最好手动分区一下
 
--  `/` 15-20GB 根目录，由于包含 `/usr` 所以会有安装的各种软件，不能太小
--  `/boot` 512MB
--  `/var` 8-12GB，主要是缓存，读写频繁
--  `swap` 4GB，交换分区
--  `/home` 剩余全部
+- `/` 15-20GB 根目录，由于包含 `/usr` 所以会有安装的各种软件，不能太小
+- `/boot` 512MB
+- `/var` 8-12GB，主要是缓存，读写频繁
+- `swap` 4GB，交换分区
+- `/home` 剩余全部
 
 再之后直接安装就好啦～静待片刻，Manjaro 之旅就正式开始啦～
 
@@ -123,13 +123,13 @@ sudo pacman -U <package_name>.tar.xz
 
 ### 一些常用软件及安装方式
 
--  vim
+- vim
 
    ```
    sudo pacman -S vim
    ```
 
--  Sunpinyin
+- Sunpinyin
 
    听说 Linux 版搜狗输入法有点问题，之前在 Deepin 下确实遇到些 Bug，所以就不选了，这里用 `Sunpinyin` 配合 `Cloudpinyin`，在那之前需要先安装输入法管理器 `fcitx`
 
@@ -150,38 +150,38 @@ sudo pacman -U <package_name>.tar.xz
 
    之后在 fcitx 将 `Sunpinyin` 调整为第二输入法并移除多余输入法即可
 
--  chrome
+- chrome
 
    ```
    yay -S google-chrome
    ```
 
--  spotify
+- spotify
 
    ```bash
    yay -S spotify
    ```
 
--  vscode
+- vscode
 
    ```bash
    yay -S visual-studio-code-bin
    ```
 
--  WPS
+- WPS
 
    ```bash
    yay -S wps-office
    yay -S ttf-wps-fonts
    ```
 
--  flameshot
+- flameshot
 
    ```bash
    yay -S flameshot
    ```
 
--  simplescreenrecorder
+- simplescreenrecorder
 
    ```bash
    yay -S simplescreenrecorder

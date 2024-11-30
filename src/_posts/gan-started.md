@@ -27,21 +27,21 @@ GAN 是 Generative Adversarial Network 的缩写，也即生成对抗网络，�
 
 但是，两者同时训练还是不可取的，我们要交替地训练，具体迭代如下
 
--  在每个迭代过程中：
-   -  下面训练 D，锁定 G 的 Weights
-   -  从真实数据集随便选 m 个数据 $\{x^1, x^2, \cdots, x^m\}$
-   -  再从某一个分布中选取 m 个噪声数据 $\{z^1, z^2, \cdots, z^m\}$ 并喂给 G 生成 $\{\tilde{x}^1, \tilde{x}^2, \cdots, \tilde{x}^m\}$（也即 $\tilde{x}^i = G(z^i)$）
-   -  更新 D 咯，也就是让 D 判断更准确
-      -  $\tilde{V} = \frac{1}{m} \sum \limits_{i=1}^m \log D(x^i) + \frac{1}{m} \sum \limits_{i=1}^m \log (1 - D(\tilde{x}^i))$
-      -  $\theta_d \leftarrow \theta + \eta \nabla \tilde{V}(\theta_d)$
-   -  修炼完毕，可以更精准地分辨真实图片与 G 生成的图片
+- 在每个迭代过程中：
+   - 下面训练 D，锁定 G 的 Weights
+   - 从真实数据集随便选 m 个数据 $\{x^1, x^2, \cdots, x^m\}$
+   - 再从某一个分布中选取 m 个噪声数据 $\{z^1, z^2, \cdots, z^m\}$ 并喂给 G 生成 $\{\tilde{x}^1, \tilde{x}^2, \cdots, \tilde{x}^m\}$（也即 $\tilde{x}^i = G(z^i)$）
+   - 更新 D 咯，也就是让 D 判断更准确
+      - $\tilde{V} = \frac{1}{m} \sum \limits_{i=1}^m \log D(x^i) + \frac{1}{m} \sum \limits_{i=1}^m \log (1 - D(\tilde{x}^i))$
+      - $\theta_d \leftarrow \theta + \eta \nabla \tilde{V}(\theta_d)$
+   - 修炼完毕，可以更精准地分辨真实图片与 G 生成的图片
    ***
-   -  下面训练 G，锁定 D 的 Weights
-   -  从某一个分布中选取 m 个噪声数据 $\{z^1, z^2, \cdots, z^m\}$，然后喂给 G，再将 G 的结果喂给 D，G 是想让 D 觉得它们都是 1 咯
-   -  那么我们更新 G 吧
-      -  $\tilde{V} = \frac{1}{m} \sum \limits_{i=1}^m \log D(G(z^i))$
-      -  $\theta_g \leftarrow \theta_g - \eta \nabla \tilde{V}(\theta_g)$
-   -  修炼完毕，可以更容易骗过 D
+   - 下面训练 G，锁定 D 的 Weights
+   - 从某一个分布中选取 m 个噪声数据 $\{z^1, z^2, \cdots, z^m\}$，然后喂给 G，再将 G 的结果喂给 D，G 是想让 D 觉得它们都是 1 咯
+   - 那么我们更新 G 吧
+      - $\tilde{V} = \frac{1}{m} \sum \limits_{i=1}^m \log D(G(z^i))$
+      - $\theta_g \leftarrow \theta_g - \eta \nabla \tilde{V}(\theta_g)$
+   - 修炼完毕，可以更容易骗过 D
 
 两者在不停地“对抗”过程中完成了进化，两者的模型最后都有着较好的效果
 
@@ -61,9 +61,9 @@ CGAN 的 G 是同时需要词语 c 和噪声 z 的，词语 c 自然就是我们
 
 至于训练过程嘛，D 的训练过程数据由
 
--  正样本真实图片正确标签
--  负样本 G 生成图片对应标签
--  负样本真实图片错误标签
+- 正样本真实图片正确标签
+- 负样本 G 生成图片对应标签
+- 负样本真实图片错误标签
 
 三部分组成，G 的不必说了，还是想骗过 D
 
@@ -223,20 +223,20 @@ $$
 
 那么为什么我们的 GAN 是用最开始那种算法的呢？我们的算法过程是在解 $G^* = arg\min\limits_G\max\limits_D V(G, D)$，也就是首先训练一个能够表征 JS Divergence 的 D，D 需要越精确越好，因此这个过程需要重复多次，尽可能收敛
 
--  在每个迭代中，更新 D，重复以下过程 k 次
-   -  从 $P_{data}$ 中选取 $\{x^1, x^2, \cdots, x^m\}$
-   -  从 $P_{prior}(z)$ 中选取 $\{z^1, z^2, \cdots, z^m\}$，喂给 $G$ 获得 $\{\tilde{x}^1, \tilde{x}^2, \cdots, \tilde{x}^m\}$，其中 $\tilde{x}^i = G(z^i)$
-   -  更新 D 的参数 $\theta_d$
-      -  $\tilde{V} = \frac{1}{m} \sum\limits_{i=1}^m \log D(x^i) + \frac{1}{m} \log (1 - D(\tilde{x}^i))$
-      -  $\theta_d \leftarrow \theta_d + \eta \nabla \tilde{V}(\theta_d)$
+- 在每个迭代中，更新 D，重复以下过程 k 次
+   - 从 $P_{data}$ 中选取 $\{x^1, x^2, \cdots, x^m\}$
+   - 从 $P_{prior}(z)$ 中选取 $\{z^1, z^2, \cdots, z^m\}$，喂给 $G$ 获得 $\{\tilde{x}^1, \tilde{x}^2, \cdots, \tilde{x}^m\}$，其中 $\tilde{x}^i = G(z^i)$
+   - 更新 D 的参数 $\theta_d$
+      - $\tilde{V} = \frac{1}{m} \sum\limits_{i=1}^m \log D(x^i) + \frac{1}{m} \log (1 - D(\tilde{x}^i))$
+      - $\theta_d \leftarrow \theta_d + \eta \nabla \tilde{V}(\theta_d)$
 
 那么，我们就认为这个 D 能够代表 JS Divergence，更新一下 G，但不能更新太多，当 G 过度更新时，$V(G, D)$ 也被更新，而 JS Divergence 是 $\max V(G, D)$，可能此时的 D 已经不能代表 JS Divergence 了，因此 G 的更新比较少，可能只有一次
 
--  在每个迭代中，更新 G，重复以下过程 1 次
-   -  从 $P_{prior}(z)$ 中选取 $\{z^1, z^2, \cdots, z^m\}$
-   -  更新 G 的参数 $\theta_g$
-      -  $\tilde{V} = \sout{\frac{1}{m} \sum\limits_{i=1}^m \log D(x^i) +} \frac{1}{m} \log (1 - D(G(z^i)))$
-      -  $\theta_g \leftarrow \theta_g - \eta \nabla \tilde{V}(\theta_g)$
+- 在每个迭代中，更新 G，重复以下过程 1 次
+   - 从 $P_{prior}(z)$ 中选取 $\{z^1, z^2, \cdots, z^m\}$
+   - 更新 G 的参数 $\theta_g$
+      - $\tilde{V} = \sout{\frac{1}{m} \sum\limits_{i=1}^m \log D(x^i) +} \frac{1}{m} \log (1 - D(G(z^i)))$
+      - $\theta_g \leftarrow \theta_g - \eta \nabla \tilde{V}(\theta_g)$
 
 Ian Goodfellow 在 G 的更新中使用 $\tilde{V} = \frac{1}{m} (- \log (D(x)))$ 替换了原式的 $\tilde{V} = \frac{1}{m} \log (1 - D(x))$，这样……在实际操作时就变得更加简单了，训练 G 时只需要将 G 生成的标签翻转改为 1 即可，G 和 D 可以直接使用同一个 Loss 函数
 
@@ -294,23 +294,23 @@ $V(G, D) = \max\limits_{D \in 1-Lipschitz} \{ E_{x \sim P_{data}} [D(x)] - E_{x 
 
 算法：
 
--  在每个迭代
+- 在每个迭代
 
-   -  更新 D，重复以下过程 k 次
-      -  从 $P_{data}$ 中选取 $\{x^1, x^2, \cdots, x^m\}$
-      -  从 $P_{prior}(z)$ 中选取 $\{z^1, z^2, \cdots, z^m\}$，喂给 $G$ 获得 $\{\tilde{x}^1, \tilde{x}^2, \cdots, \tilde{x}^m\}$，其中 $\tilde{x}^i = G(z^i)$
-      -  更新 D 的参数 $\theta_d$
-         -  $\tilde{V} = \frac{1}{m} \sum\limits_{i=1}^m D(x^i) - \frac{1}{m} D(\tilde{x}^i)$
-         -  $\theta_d \leftarrow \theta_d + \eta \nabla \tilde{V}(\theta_d)$
+   - 更新 D，重复以下过程 k 次
+      - 从 $P_{data}$ 中选取 $\{x^1, x^2, \cdots, x^m\}$
+      - 从 $P_{prior}(z)$ 中选取 $\{z^1, z^2, \cdots, z^m\}$，喂给 $G$ 获得 $\{\tilde{x}^1, \tilde{x}^2, \cdots, \tilde{x}^m\}$，其中 $\tilde{x}^i = G(z^i)$
+      - 更新 D 的参数 $\theta_d$
+         - $\tilde{V} = \frac{1}{m} \sum\limits_{i=1}^m D(x^i) - \frac{1}{m} D(\tilde{x}^i)$
+         - $\theta_d \leftarrow \theta_d + \eta \nabla \tilde{V}(\theta_d)$
 
    ***
 
-   -  更新 G，重复以下过程 1 次
+   - 更新 G，重复以下过程 1 次
 
-      -  从 $P_{prior}(z)$ 中选取 $\{z^1, z^2, \cdots, z^m\}$
-      -  更新 G 的参数 $\theta_g$
-         -  $\tilde{V} = -\frac{1}{m} D(G(z^i))$
-         -  $\theta_g \leftarrow \theta_g - \eta \nabla \tilde{V}(\theta_g)$
+      - 从 $P_{prior}(z)$ 中选取 $\{z^1, z^2, \cdots, z^m\}$
+      - 更新 G 的参数 $\theta_g$
+         - $\tilde{V} = -\frac{1}{m} D(G(z^i))$
+         - $\theta_g \leftarrow \theta_g - \eta \nabla \tilde{V}(\theta_g)$
 
    > D 最后不要用 Sigmoid，直接输出即可
    > 另外，记得使用 Weight clipping 或者 Gradient Penalty
@@ -341,9 +341,9 @@ D 有时不太容易直接判别图片是否为真实，但我们可以让 D 每
 
 VAE 与 GAN 的结合，D 需要能够分辨
 
--  从真实图片经过 VAE 重构后的图片
--  从噪声经过 G 生成的图片
--  真实图片
+- 从真实图片经过 VAE 重构后的图片
+- 从噪声经过 G 生成的图片
+- 真实图片
 
 三者
 

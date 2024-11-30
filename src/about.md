@@ -8,22 +8,22 @@ layout: AboutLayout
 
 ## 我都喜欢些什么？
 
--  写写代码
--  吸猫猫（云，最爱狸花）
--  音乐（大爱虚拟歌手，重度耳机依赖患者）
--  喵喵（喵喵最可爱了）
+- 写写代码
+- 吸猫猫（云，最爱狸花）
+- 音乐（大爱虚拟歌手，重度耳机依赖患者）
+- 喵喵（喵喵最可爱了）
 
 ## 我平时所用的编码环境？
 
--  Device: MacBook Pro (14-inch, M4 Pro, 2024)
--  Editor: VS Code
-   -  Theme: [Elaina](https://github.com/moefyit/vscode-theme-elaina)
-   -  Font: [Fira Code](https://github.com/tonsky/FiraCode)
--  Shell: zsh
-   -  Framework: [zimfw](https://github.com/zimfw/zimfw)
-   -  Theme: [pure](https://github.com/sindresorhus/pure)
-   -  Terminal: [iTerm2](https://github.com/gnachman/iTerm2) / VS Code Integrated Terminal
-   -  Color Scheme: [Snazzy](https://github.com/mbadolato/iTerm2-Color-Schemes#snazzy)
+- Device: MacBook Pro (14-inch, M4 Pro, 2024)
+- Editor: VS Code
+   - Theme: [Elaina](https://github.com/moefyit/vscode-theme-elaina)
+   - Font: [Fira Code](https://github.com/tonsky/FiraCode)
+- Shell: zsh
+   - Framework: [zimfw](https://github.com/zimfw/zimfw)
+   - Theme: [pure](https://github.com/sindresorhus/pure)
+   - Terminal: [iTerm2](https://github.com/gnachman/iTerm2) / VS Code Integrated Terminal
+   - Color Scheme: [Snazzy](https://github.com/mbadolato/iTerm2-Color-Schemes#snazzy)
 
 ## 哪里能够找到我？
 
@@ -42,6 +42,6 @@ layout: AboutLayout
 
 ## 我都做过什么？
 
--  [yutto](https://github.com/yutto-dev/yutto) 一个可爱且任性的 B 站视频下载器
--  [Moefy Canvas](https://moefy-canvas.nyakku.moe/) 一些简单的 canvas 背景、点击特效，部分取自[曾经做过的 VuePress V1 插件](https://moefyit.github.io/moefy-vuepress/)
--  [PaddlePaddle](https://github.com/PaddlePaddle/Paddle) 单机训练框架动转静 RD & 社区 Committer
+- [yutto](https://github.com/yutto-dev/yutto) 一个可爱且任性的 B 站视频下载器
+- [Moefy Canvas](https://moefy-canvas.nyakku.moe/) 一些简单的 canvas 背景、点击特效，部分取自[曾经做过的 VuePress V1 插件](https://moefyit.github.io/moefy-vuepress/)
+- [PaddlePaddle](https://github.com/PaddlePaddle/Paddle) 单机训练框架动转静 RD & 社区 Committer
