@@ -252,7 +252,7 @@ export default defineConfig4CustomTheme<any>({
     friends: [
       {
         name: 'ClariS',
-        url: 'https://silkyheart.moe/',
+        url: 'https://blog.silkyheart.me/',
         desc: 'Querying for a variable and seizing the time',
         avatar:
           'https://cdn.jsdelivr.net/gh/heavenly-zy/heavenly-zy.github.io@latest/images/avatar.jpg',
