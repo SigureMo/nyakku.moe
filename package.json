@@ -25,9 +25,9 @@
     "vuepress-theme-meteorlxy": "^1.9.0"
   },
   "devDependencies": {
-    "case-police": "^0.7.0",
+    "case-police": "^0.7.2",
     "cross-env": "^7.0.3",
-    "prettier": "^3.4.1"
+    "prettier": "^3.4.2"
   },
   "pnpm": {
     "overrides": {
