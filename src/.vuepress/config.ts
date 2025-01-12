@@ -223,7 +223,7 @@ export default defineConfig4CustomTheme<any>({
       { text: 'Posts', link: '/posts/', exact: false },
       { text: 'Friends', link: '/friends.html', exact: false },
       { text: 'About', link: '/about.html', exact: false },
-      { text: 'GitHub', link: 'https://github.com/SigureMo/notev' },
+      { text: 'GitHub', link: 'https://github.com/SigureMo/nyakku.moe' },
     ],
 
     // 评论配置，参考下方 [页面评论] 章节
