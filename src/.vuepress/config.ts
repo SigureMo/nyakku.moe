@@ -27,7 +27,7 @@ export default defineConfig4CustomTheme<any>({
     ['meta', { property: 'og:title', content: 'Notev' }],
     ['link', { rel: 'manifest', href: '/manifest.json' }],
     ['meta', { name: 'theme-color', content: '#222222' }],
-    ['meta', { name: 'apple-mobile-web-app-capable', content: 'yes' }],
+    ['meta', { name: 'mobile-web-app-capable', content: 'yes' }],
     ['meta', { name: 'apple-mobile-web-app-status-bar-style', content: 'black' }],
     ['link', { rel: 'apple-touch-icon', href: '/icons/favicon152.png' }],
     ['link', { rel: 'mask-icon', href: '/icons/favicon152.png', color: '#3eaf7c' }],
