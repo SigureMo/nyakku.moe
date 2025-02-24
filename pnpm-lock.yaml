@@ -24,7 +24,7 @@ importers:
         version: 1.9.10
       vuepress:
         specifier: ^1.9.10
-        version: 1.9.10(@vue/compiler-sfc@3.5.13)(hogan.js@3.0.2)(lodash@4.17.21)(prettier@3.5.1)
+        version: 1.9.10(@vue/compiler-sfc@3.5.13)(hogan.js@3.0.2)(lodash@4.17.21)(prettier@3.5.2)
       vuepress-plugin-cursor-effects:
         specifier: ^1.1.6
         version: 1.1.6
@@ -33,7 +33,7 @@ importers:
         version: 1.0.0
       vuepress-plugin-feed:
         specifier: ^0.1.9
-        version: 0.1.9(vuepress@1.9.10(@vue/compiler-sfc@3.5.13)(hogan.js@3.0.2)(lodash@4.17.21)(prettier@3.5.1))
+        version: 0.1.9(vuepress@1.9.10(@vue/compiler-sfc@3.5.13)(hogan.js@3.0.2)(lodash@4.17.21)(prettier@3.5.2))
       vuepress-plugin-go-top:
         specifier: ^1.0.4
         version: 1.0.4
@@ -48,7 +48,7 @@ importers:
         version: 1.1.6
       vuepress-theme-meteorlxy:
         specifier: ^1.9.0
-        version: 1.9.0(@babel/core@7.26.0)(vue@2.6.14)(vuepress@1.9.10(@vue/compiler-sfc@3.5.13)(hogan.js@3.0.2)(lodash@4.17.21)(prettier@3.5.1))
+        version: 1.9.0(@babel/core@7.26.0)(vue@2.6.14)(vuepress@1.9.10(@vue/compiler-sfc@3.5.13)(hogan.js@3.0.2)(lodash@4.17.21)(prettier@3.5.2))
     devDependencies:
       case-police:
         specifier: ^1.0.0
@@ -58,7 +58,7 @@ importers:
         version: 7.0.3
       prettier:
         specifier: ^3.4.2
-        version: 3.5.1
+        version: 3.5.2
 
 packages:
 
@@ -3960,8 +3960,8 @@ packages:
     engines: {node: '>=10.13.0'}
     hasBin: true
 
-  prettier@3.5.1:
-    resolution: {integrity: sha512-hPpFQvHwL3Qv5AdRvBFMhnKo4tYxp0ReXiPn2bxkiohEX6mBeBwEpBSQTkD458RaaDKQMYSp4hX4UtfUTA5wDw==}
+  prettier@3.5.2:
+    resolution: {integrity: sha512-lc6npv5PH7hVqozBR7lkBNOGXV9vMwROAPlumdBkX0wTbbzPu/U1hk5yL8p2pt4Xoc+2mkT8t/sow2YrV/M5qg==}
     engines: {node: '>=14'}
     hasBin: true
 
@@ -6124,10 +6124,10 @@ snapshots:
       date-fns: 1.30.1
       qs: 6.13.1
 
-  '@vssue/vuepress-plugin-vssue@1.4.8(vuepress@1.9.10(@vue/compiler-sfc@3.5.13)(hogan.js@3.0.2)(lodash@4.17.21)(prettier@3.5.1))':
+  '@vssue/vuepress-plugin-vssue@1.4.8(vuepress@1.9.10(@vue/compiler-sfc@3.5.13)(hogan.js@3.0.2)(lodash@4.17.21)(prettier@3.5.2))':
     dependencies:
       vssue: 1.4.8
-      vuepress: 1.9.10(@vue/compiler-sfc@3.5.13)(hogan.js@3.0.2)(lodash@4.17.21)(prettier@3.5.1)
+      vuepress: 1.9.10(@vue/compiler-sfc@3.5.13)(hogan.js@3.0.2)(lodash@4.17.21)(prettier@3.5.2)
 
   '@vue/babel-helper-vue-jsx-merge-props@1.4.0': {}
 
@@ -6352,7 +6352,7 @@ snapshots:
 
   '@vue/shared@3.5.13': {}
 
-  '@vuepress/core@1.9.10(@vue/compiler-sfc@3.5.13)(hogan.js@3.0.2)(lodash@4.17.21)(prettier@3.5.1)':
+  '@vuepress/core@1.9.10(@vue/compiler-sfc@3.5.13)(hogan.js@3.0.2)(lodash@4.17.21)(prettier@3.5.2)':
     dependencies:
       '@babel/core': 7.26.0
       '@vue/babel-preset-app': 4.5.19(@babel/core@7.26.0)(core-js@3.39.0)(vue@2.6.14)
@@ -6384,7 +6384,7 @@ snapshots:
       toml: 3.0.0
       url-loader: 1.1.2(webpack@4.47.0)
       vue: 2.6.14
-      vue-loader: 15.11.1(@vue/compiler-sfc@3.5.13)(cache-loader@3.0.1(webpack@4.47.0))(css-loader@2.1.1(webpack@4.47.0))(hogan.js@3.0.2)(lodash@4.17.21)(prettier@3.5.1)(vue-template-compiler@2.6.14)(webpack@4.47.0)
+      vue-loader: 15.11.1(@vue/compiler-sfc@3.5.13)(cache-loader@3.0.1(webpack@4.47.0))(css-loader@2.1.1(webpack@4.47.0))(hogan.js@3.0.2)(lodash@4.17.21)(prettier@3.5.2)(vue-template-compiler@2.6.14)(webpack@4.47.0)
       vue-router: 3.6.5(vue@2.6.14)
       vue-server-renderer: 2.6.14
       vue-template-compiler: 2.6.14
@@ -9881,7 +9881,7 @@ snapshots:
   prettier@2.8.8:
     optional: true
 
-  prettier@3.5.1: {}
+  prettier@3.5.2: {}
 
   pretty-bytes@5.6.0: {}
 
@@ -10973,7 +10973,7 @@ snapshots:
     dependencies:
       vue: 2.6.14
 
-  vue-loader@15.11.1(@vue/compiler-sfc@3.5.13)(cache-loader@3.0.1(webpack@4.47.0))(css-loader@2.1.1(webpack@4.47.0))(hogan.js@3.0.2)(lodash@4.17.21)(prettier@3.5.1)(vue-template-compiler@2.6.14)(webpack@4.47.0):
+  vue-loader@15.11.1(@vue/compiler-sfc@3.5.13)(cache-loader@3.0.1(webpack@4.47.0))(css-loader@2.1.1(webpack@4.47.0))(hogan.js@3.0.2)(lodash@4.17.21)(prettier@3.5.2)(vue-template-compiler@2.6.14)(webpack@4.47.0):
     dependencies:
       '@vue/component-compiler-utils': 3.3.0(hogan.js@3.0.2)(lodash@4.17.21)
       css-loader: 2.1.1(webpack@4.47.0)
@@ -10985,7 +10985,7 @@ snapshots:
     optionalDependencies:
       '@vue/compiler-sfc': 3.5.13
       cache-loader: 3.0.1(webpack@4.47.0)
-      prettier: 3.5.1
+      prettier: 3.5.2
       vue-template-compiler: 2.6.14
     transitivePeerDependencies:
       - arc-templates
@@ -11106,7 +11106,7 @@ snapshots:
 
   vuepress-plugin-dynamic-title@1.0.0: {}
 
-  vuepress-plugin-feed@0.1.9(vuepress@1.9.10(@vue/compiler-sfc@3.5.13)(hogan.js@3.0.2)(lodash@4.17.21)(prettier@3.5.1)):
+  vuepress-plugin-feed@0.1.9(vuepress@1.9.10(@vue/compiler-sfc@3.5.13)(hogan.js@3.0.2)(lodash@4.17.21)(prettier@3.5.2)):
     dependencies:
       feed: 2.0.4
       lodash.defaultsdeep: 4.6.1
@@ -11115,7 +11115,7 @@ snapshots:
       lodash.trimstart: 4.5.1
       remove-markdown: 0.3.0
       striptags: 3.1.1
-      vuepress: 1.9.10(@vue/compiler-sfc@3.5.13)(hogan.js@3.0.2)(lodash@4.17.21)(prettier@3.5.1)
+      vuepress: 1.9.10(@vue/compiler-sfc@3.5.13)(hogan.js@3.0.2)(lodash@4.17.21)(prettier@3.5.2)
 
   vuepress-plugin-go-top@1.0.4: {}
 
@@ -11167,10 +11167,10 @@ snapshots:
     dependencies:
       zooming: 2.1.1
 
-  vuepress-theme-meteorlxy@1.9.0(@babel/core@7.26.0)(vue@2.6.14)(vuepress@1.9.10(@vue/compiler-sfc@3.5.13)(hogan.js@3.0.2)(lodash@4.17.21)(prettier@3.5.1)):
+  vuepress-theme-meteorlxy@1.9.0(@babel/core@7.26.0)(vue@2.6.14)(vuepress@1.9.10(@vue/compiler-sfc@3.5.13)(hogan.js@3.0.2)(lodash@4.17.21)(prettier@3.5.2)):
     dependencies:
       '@vssue/api-github-v3': 1.4.7
-      '@vssue/vuepress-plugin-vssue': 1.4.8(vuepress@1.9.10(@vue/compiler-sfc@3.5.13)(hogan.js@3.0.2)(lodash@4.17.21)(prettier@3.5.1))
+      '@vssue/vuepress-plugin-vssue': 1.4.8(vuepress@1.9.10(@vue/compiler-sfc@3.5.13)(hogan.js@3.0.2)(lodash@4.17.21)(prettier@3.5.2))
       '@vue/babel-helper-vue-jsx-merge-props': 1.4.0
       '@vue/babel-preset-jsx': 1.4.0(@babel/core@7.26.0)(vue@2.6.14)
       '@vuepress/plugin-back-to-top': 1.9.10
@@ -11181,7 +11181,7 @@ snapshots:
       lodash.debounce: 4.0.8
       lodash.throttle: 4.1.1
       markdown-it-center-text: 1.0.4
-      vuepress: 1.9.10(@vue/compiler-sfc@3.5.13)(hogan.js@3.0.2)(lodash@4.17.21)(prettier@3.5.1)
+      vuepress: 1.9.10(@vue/compiler-sfc@3.5.13)(hogan.js@3.0.2)(lodash@4.17.21)(prettier@3.5.2)
       vuepress-plugin-container: 2.1.5
       vuepress-plugin-nprogress: 1.1.8
       vuepress-plugin-redirect: 1.2.5
@@ -11195,9 +11195,9 @@ snapshots:
       - supports-color
       - vue
 
-  vuepress@1.9.10(@vue/compiler-sfc@3.5.13)(hogan.js@3.0.2)(lodash@4.17.21)(prettier@3.5.1):
+  vuepress@1.9.10(@vue/compiler-sfc@3.5.13)(hogan.js@3.0.2)(lodash@4.17.21)(prettier@3.5.2):
     dependencies:
-      '@vuepress/core': 1.9.10(@vue/compiler-sfc@3.5.13)(hogan.js@3.0.2)(lodash@4.17.21)(prettier@3.5.1)
+      '@vuepress/core': 1.9.10(@vue/compiler-sfc@3.5.13)(hogan.js@3.0.2)(lodash@4.17.21)(prettier@3.5.2)
       '@vuepress/theme-default': 1.9.10
       '@vuepress/types': 1.9.10
       cac: 6.7.14
