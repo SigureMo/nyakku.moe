@@ -295,7 +295,6 @@ $V(G, D) = \max\limits_{D \in 1-Lipschitz} \{ E_{x \sim P_{data}} [D(x)] - E_{x 
 算法：
 
 - 在每个迭代
-
    - 更新 D，重复以下过程 k 次
       - 从 $P_{data}$ 中选取 $\{x^1, x^2, \cdots, x^m\}$
       - 从 $P_{prior}(z)$ 中选取 $\{z^1, z^2, \cdots, z^m\}$，喂给 $G$ 获得 $\{\tilde{x}^1, \tilde{x}^2, \cdots, \tilde{x}^m\}$，其中 $\tilde{x}^i = G(z^i)$
@@ -304,9 +303,7 @@ $V(G, D) = \max\limits_{D \in 1-Lipschitz} \{ E_{x \sim P_{data}} [D(x)] - E_{x 
          - $\theta_d \leftarrow \theta_d + \eta \nabla \tilde{V}(\theta_d)$
 
    ***
-
    - 更新 G，重复以下过程 1 次
-
       - 从 $P_{prior}(z)$ 中选取 $\{z^1, z^2, \cdots, z^m\}$
       - 更新 G 的参数 $\theta_g$
          - $\tilde{V} = -\frac{1}{m} D(G(z^i))$
