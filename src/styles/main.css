@@ -1,4 +1,23 @@
+@tailwind base;
 @tailwind components;
+
+@layer base {
+    body {
+        cursor: url("/cursor/default.cur"), auto;
+    }
+
+    a[href],
+    button,
+    [role="button"],
+    input[type="button"],
+    input[type="submit"],
+    input[type="reset"],
+    label,
+    summary,
+    .cursor-pointer {
+        cursor: url("/cursor/link.cur"), pointer;
+    }
+}
 
 @layer components {
     .card-base {

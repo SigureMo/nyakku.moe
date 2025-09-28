@@ -1,6 +1,4 @@
-﻿# Friends
-
-## 友链互换
+﻿## 友链互换
 
 直接向我提交 PR ～（[修改 `src/.vuepress/config.ts`](https://github.com/SigureMo/nyakku.moe/edit/main/src/.vuepress/config.ts) 即可）
 
