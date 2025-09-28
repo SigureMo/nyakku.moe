@@ -25,7 +25,7 @@ TorchDynamo 是一个 Python JIT 编译器，可以提高 PyTorch 代码的运�
 
 ### TorchDynamo 总览
 
-![TorchDynamo Overview](../../assets/images/decomposing-torch-dynamo/dynamo-overview.png)
+![TorchDynamo Overview](../../assets/img/decomposing-torch-dynamo/dynamo-overview.png)
 
 这里本想自己画一个流程图的，不过最后发现 Torch 文档里的这张图本身已经足够说明 TorchDynamo 的工作流程了，所以这里就直接用啦～
 
@@ -81,7 +81,7 @@ def _fn(*args, **kwargs):
 
 在调用 `set_eval_frame` 时，Dynamo 会将通过 `tstate->interp->eval_frame = &custom_eval_frame_shim;` 来将 Eval Frame 行为替换成自己的 `custom_eval_frame_shim`。这样之后调用的 `fn` 便是由 Dynamo 自己的 `custom_eval_frame_shim` 来执行的。
 
-![Dynamo Eval Frame](../../assets/images/decomposing-torch-dynamo/dynamo-eval-frame.drawio.png)
+![Dynamo Eval Frame](../../assets/img/decomposing-torch-dynamo/dynamo-eval-frame.drawio.png)
 
 `custom_eval_frame_shim` 的源码分析图如上，我们看一下它具体是如何工作的。
 
@@ -109,7 +109,7 @@ def _fn(*args, **kwargs):
 
 ### compile 流程
 
-![Dynamo Compile](../../assets/images/decomposing-torch-dynamo/dynamo-compile.drawio.png)
+![Dynamo Compile](../../assets/img/decomposing-torch-dynamo/dynamo-compile.drawio.png)
 
 Dynamo 在 compile 时（也就是 callback）会将逐字节码地模拟执行，在执行过程中如果遇到无法编译的情况，就会抛出 `SkipFrame`，并在 callback 处返回 `None`，以标记该 CodeObject 不适合编译。
 
@@ -195,7 +195,7 @@ print(foo(x, y))
 
 实际模拟执行可能会类似于下图：
 
-![Dynamo Simulate Execution](../../assets/images/decomposing-torch-dynamo/dynamo-simulate-execution.drawio.png)
+![Dynamo Simulate Execution](../../assets/img/decomposing-torch-dynamo/dynamo-simulate-execution.drawio.png)
 
 在执行 `BINARY_ADD` 前后，`stack` 弹出两个 Variable，并放入一个新的 Variable，同时 FX Graph 也进行了组网。
 
@@ -321,7 +321,7 @@ __resume_at_20_2:
 
 字节码上可能并不是很清晰，这里用一张图来说明下：
 
-![Dynamo Resume](../../assets/images/decomposing-torch-dynamo/dynamo-resume.drawio.png)
+![Dynamo Resume](../../assets/img/decomposing-torch-dynamo/dynamo-resume.drawio.png)
 
 可以看到，生成的字节码中，一方面包含了子图编译的函数，另一方面，将是否跳转对应的两个分支抽取到了新的 resume 函数中，这样在这个函数，根据 Tensor 值来跳转的问题就解决了，下个分支的问题，交由下个 Frame 处理即可，这样问题就分解了。
 
