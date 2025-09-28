@@ -11,6 +11,7 @@
     "type-check": "tsc --noEmit --isolatedDeclarations",
     "preinstall": "npx only-allow pnpm",
     "img:upload": "bash scripts/upload-img.sh",
+    "format": "biome format --write ./src",
     "fmt": "case-police . --fix && prettier --write .",
     "fmt:check": "case-police . && prettier --check ."
   },
