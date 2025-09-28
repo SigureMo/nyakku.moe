@@ -30,6 +30,10 @@ jobs:
       - name: Install dependencies
         run: pnpm i --frozen-lockfile
 
+      - name: Lint check
+        run: |
+          pnpm lint
+
       - name: Format check
         run: |
           pnpm fmt:check
