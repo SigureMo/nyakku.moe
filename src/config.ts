@@ -66,7 +66,7 @@ export const profileConfig: ProfileConfig = {
 		{
 			name: "RSS",
 			icon: "fa6-solid:rss",
-			url: "https://nyakku.moe/feed.atom",
+			url: "https://nyakku.moe/rss.xml",
 		},
 		{
 			name: "Telegram",

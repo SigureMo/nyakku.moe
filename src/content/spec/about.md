@@ -23,7 +23,7 @@
 
 <p align="center">
   <a href="https://open.spotify.com/user/pj3ib1pljoqewn4ti8se8yl1q" target="_blank"><img src="https://img.shields.io/badge/Spotify-1ed760.svg?&style=flat-square&logo=spotify&logoColor=white" alt="Spotify"></a>
-  <a href="https://nyakku.moe/feed.atom" target="_blank"><img src="https://img.shields.io/badge/RSS-e8a505.svg?&style=flat-square&logo=rss&logoColor=white" alt="RSS"></a>
+  <a href="https://nyakku.moe/rss.xml" target="_blank"><img src="https://img.shields.io/badge/RSS-e8a505.svg?&style=flat-square&logo=rss&logoColor=white" alt="RSS"></a>
   <a href="https://github.com/SigureMo" target="_blank"><img src="https://img.shields.io/badge/GitHub-000000.svg?&style=flat-square&logo=github&logoColor=white" alt="GitHub"></a>
   <a href="https://space.bilibili.com/100969474" target="_blank"><img src="https://img.shields.io/badge/bilibili-1eabc9.svg?&style=flat-square&logo=bilibili&logoColor=white" alt="Bilibili"></a>
   <a href="https://www.npmjs.com/~sigure_mo" target="_blank"><img src="https://img.shields.io/badge/NPM-ea3b18.svg?&style=flat-square&logo=npm&logoColor=white" alt="NPM"></a>
