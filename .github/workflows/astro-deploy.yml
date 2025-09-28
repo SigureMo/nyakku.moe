@@ -1,4 +1,4 @@
-name: VuePress Deploy
+name: Astro Deploy
 
 on:
   push:
@@ -24,13 +24,12 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v5
         with:
-          node-version: '22'
           cache: 'pnpm'
 
       - name: Install dependencies
         run: pnpm i --frozen-lockfile
 
-      - name: Build VuePress site
+      - name: Build Astro site
         run: pnpm build
 
       - name: Deploy
@@ -38,7 +37,7 @@ jobs:
         if: github.ref == 'refs/heads/main'
         with:
           personal_token: ${{ secrets.PERSONAL_TOKEN }}
-          publish_dir: src/.vuepress/dist
+          publish_dir: dist
           external_repository: SigureMo/SigureMo.github.io
           publish_branch: main
           cname: nyakku.moe
