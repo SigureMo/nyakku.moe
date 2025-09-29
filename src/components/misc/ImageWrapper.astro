@@ -45,7 +45,7 @@ const imageStyle = `object-position: ${position}`
 ---
 
 <div id={id} class:list={[className, 'relative overflow-hidden']}>
-  <div class="pointer-events-none absolute inset-0 bg-opacity-50 transition dark:bg-black/10"></div>
+  <div class="bg-opacity-50 pointer-events-none absolute inset-0 transition dark:bg-black/10"></div>
   {isLocal && img && <Image src={img} alt={alt || ''} class={imageClass} style={imageStyle} />}
   {
     !isLocal && (

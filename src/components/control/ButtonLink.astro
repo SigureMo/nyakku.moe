@@ -12,7 +12,7 @@ const { badge, url, label } = Astro.props
     class:list={`h-10 w-full rounded-lg bg-none pl-2 text-neutral-700 transition-all hover:bg-[var(--btn-plain-bg-hover)] hover:pl-3 hover:text-[var(--primary)] active:bg-[var(--btn-plain-bg-active)] dark:text-neutral-300 dark:hover:text-[var(--primary)]`}
   >
     <div class="relative mr-2 flex items-center justify-between">
-      <div class="overflow-hidden overflow-ellipsis whitespace-nowrap text-left">
+      <div class="overflow-hidden text-left overflow-ellipsis whitespace-nowrap">
         <slot />
       </div>
       {
