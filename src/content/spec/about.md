@@ -13,7 +13,7 @@
 - Editor: VS Code
    - Theme: [Elaina](https://github.com/moefyit/vscode-theme-elaina)
    - Font: [Fira Code](https://github.com/tonsky/FiraCode)
-- Shell: zsh
+- Shell: Zsh
    - Framework: [zimfw](https://github.com/zimfw/zimfw)
    - Theme: [pure](https://github.com/sindresorhus/pure)
    - Terminal: [iTerm2](https://github.com/gnachman/iTerm2) / VS Code Integrated Terminal
@@ -36,6 +36,6 @@
 
 ## 我都做过什么？
 
+- [PaddlePaddle](https://github.com/PaddlePaddle/Paddle) 训练框架 RD & 社区 Committer
 - [yutto](https://github.com/yutto-dev/yutto) 一个可爱且任性的 B 站视频下载器
 - [Moefy Canvas](https://moefy-canvas.nyakku.moe/) 一些简单的 canvas 背景、点击特效，部分取自[曾经做过的 VuePress V1 插件](https://moefyit.github.io/moefy-vuepress/)
-- [PaddlePaddle](https://github.com/PaddlePaddle/Paddle) 单机训练框架动转静 RD & 社区 Committer
