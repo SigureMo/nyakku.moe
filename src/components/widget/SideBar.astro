@@ -1,0 +1,26 @@
+---
+import type { MarkdownHeading } from 'astro'
+import Categories from './Categories.astro'
+import Profile from './Profile.astro'
+import Tag from './Tags.astro'
+
+interface Props {
+  class?: string
+  headings?: MarkdownHeading[]
+}
+
+const className = Astro.props.class
+---
+
+<div id="sidebar" class:list={[className, 'w-full']}>
+  <div class="mb-4 flex w-full flex-col gap-4">
+    <Profile />
+  </div>
+  <div
+    id="sidebar-sticky"
+    class="sticky top-4 flex w-full flex-col gap-4 transition-all duration-700"
+  >
+    <Categories class="onload-animation" style="animation-delay: 150ms" />
+    <Tag class="onload-animation" style="animation-delay: 200ms" />
+  </div>
+</div>

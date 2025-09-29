@@ -1,0 +1,42 @@
+---
+import { Icon } from 'astro-icon/components'
+import { type NavBarLink } from '../../types/config'
+import { url } from '../../utils/url-utils'
+
+interface Props {
+  links: NavBarLink[]
+}
+
+const links = Astro.props.links
+---
+
+<div
+  id="nav-menu-panel"
+  class:list={['float-panel float-panel-closed fixed absolute right-4 px-2 py-2 transition-all']}
+>
+  {
+    links.map((link) => (
+      <a
+        href={link.external ? link.url : url(link.url)}
+        class="group flex items-center justify-between gap-8 rounded-lg py-2 pl-3 pr-1 transition hover:bg-[var(--btn-plain-bg-hover)] active:bg-[var(--btn-plain-bg-active)]"
+        target={link.external ? '_blank' : null}
+      >
+        <div class="font-bold text-black/75 transition group-hover:text-[var(--primary)] group-active:text-[var(--primary)] dark:text-white/75">
+          {link.name}
+        </div>
+        {!link.external && (
+          <Icon
+            name="material-symbols:chevron-right-rounded"
+            class="text-[1.25rem] text-[var(--primary)] transition"
+          />
+        )}
+        {link.external && (
+          <Icon
+            name="fa6-solid:arrow-up-right-from-square"
+            class="-translate-x-1 text-[0.75rem] text-black/25 transition dark:text-white/25"
+          />
+        )}
+      </a>
+    ))
+  }
+</div>

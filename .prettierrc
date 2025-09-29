@@ -5,6 +5,7 @@
   "trailingComma": "es5",
   "semi": false,
   "arrowParens": "always",
+  "plugins": ["prettier-plugin-astro", "prettier-plugin-tailwindcss"],
   "overrides": [
     {
       "files": "*.md",
@@ -16,6 +17,12 @@
       "files": "*.json5",
       "options": {
         "singleQuote": false
+      }
+    },
+    {
+      "files": "*.astro",
+      "options": {
+        "parser": "astro"
       }
     }
   ]

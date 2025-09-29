@@ -17,5 +17,5 @@ about: Create a report to help us improve
 
 - Your OS:
 - Node.js version:
-- VuePress version:
+- Astro version:
 - Which package manager did you use for the install(npm/pnpm/yarn)?

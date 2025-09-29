@@ -1,0 +1,120 @@
+<!-- Canvas Elements -->
+<canvas id="moefy-popper-canvas" class="pointer-events-none fixed inset-0 z-[9999]"></canvas>
+
+<canvas id="moefy-ribbon-canvas" class="pointer-events-none fixed inset-0 z-[9998]"></canvas>
+
+<script>
+  // Dynamic import and initialize popper
+  // @ts-ignore
+  import('@moefy-canvas/theme-popper')
+    .then(({ Popper, PopperShape, MAX_Z_INDEX }) => {
+      const popperCanvas = document.getElementById('moefy-popper-canvas') as HTMLCanvasElement
+      if (popperCanvas) {
+        const popper = new Popper(
+          {
+            shape: PopperShape.Star,
+            size: 1.75,
+            numParticles: 10,
+          },
+          {
+            opacity: 1.0,
+            zIndex: MAX_Z_INDEX,
+          }
+        )
+        popper.mount(popperCanvas)
+
+        // Cleanup function
+        window.addEventListener('beforeunload', () => {
+          popper.unmount()
+        })
+      }
+    })
+    .catch((error) => {
+      console.error('Failed to load popper theme:', error)
+    })
+
+  // Dynamic import and initialize ribbon
+  // @ts-ignore
+  import('@moefy-canvas/theme-ribbon')
+    .then(({ Ribbon, MAX_Z_INDEX }) => {
+      const ribbonCanvas = document.getElementById('moefy-ribbon-canvas') as HTMLCanvasElement
+      if (ribbonCanvas) {
+        const ribbon = new Ribbon(
+          {
+            opacity: 0.8,
+            zIndex: MAX_Z_INDEX,
+          },
+          {
+            opacity: 0.8,
+            zIndex: 0,
+          }
+        )
+        ribbon.mount(ribbonCanvas)
+
+        // Cleanup function
+        window.addEventListener('beforeunload', () => {
+          ribbon.unmount()
+        })
+      }
+    })
+    .catch((error) => {
+      console.error('Failed to load ribbon theme:', error)
+    })
+
+  // Handle re-initialization on Swup page transitions
+  const setupMoefyCanvas = () => {
+    // Popper initialization
+    // @ts-ignore
+    import('@moefy-canvas/theme-popper').then(({ Popper, PopperShape, MAX_Z_INDEX }) => {
+      const popperCanvas = document.getElementById('moefy-popper-canvas') as HTMLCanvasElement
+      if (popperCanvas) {
+        const popper = new Popper(
+          {
+            shape: PopperShape.Star,
+            size: 1.75,
+            numParticles: 10,
+          },
+          {
+            opacity: 1.0,
+            zIndex: MAX_Z_INDEX,
+          }
+        )
+        popper.mount(popperCanvas)
+      }
+    })
+
+    // Ribbon initialization
+    // @ts-ignore
+    import('@moefy-canvas/theme-ribbon').then(({ Ribbon, MAX_Z_INDEX }) => {
+      const ribbonCanvas = document.getElementById('moefy-ribbon-canvas') as HTMLCanvasElement
+      if (ribbonCanvas) {
+        const ribbon = new Ribbon(
+          {
+            opacity: 0.8,
+            zIndex: MAX_Z_INDEX,
+          },
+          {
+            opacity: 0.8,
+            zIndex: 0,
+          }
+        )
+        ribbon.mount(ribbonCanvas)
+      }
+    })
+  }
+
+  // Swup integration
+  if (typeof window !== 'undefined') {
+    const handleSwupSetup = () => {
+      if (window.swup && window.swup.hooks) {
+        window.swup.hooks.on('page:view', setupMoefyCanvas)
+      }
+    }
+
+    if (window.swup) {
+      handleSwupSetup()
+    } else {
+      document.addEventListener('swup:enable', handleSwupSetup)
+    }
+  }
+</script>

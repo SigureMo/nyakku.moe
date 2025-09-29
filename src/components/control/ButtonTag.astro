@@ -1,0 +1,18 @@
+---
+interface Props {
+  size?: string
+  dot?: boolean
+  href?: string
+  label?: string
+}
+const { dot, href, label }: Props = Astro.props
+---
+
+<a href={href} aria-label={label} class="btn-regular h-8 rounded-lg px-3 text-sm">
+  {
+    dot && (
+      <div class="mr-2 h-1 w-1 rounded-md bg-[var(--btn-content)] transition dark:bg-[var(--card-bg)]" />
+    )
+  }
+  <slot />
+</a>
