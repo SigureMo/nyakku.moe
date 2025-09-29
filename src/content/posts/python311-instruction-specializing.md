@@ -121,9 +121,11 @@ typedef struct {
 
 从字节码布局来看是这样的：
 
-<p align="center">
-   <img src="../../assets/img/python311-instruction-specializing/inline-cache.drawio.png" alt="Inline Cache" width="500px"/>
-</p>
+<div class="img-center">
+
+![Inline Cache](../../assets/img/python311-instruction-specializing/inline-cache.drawio.png)
+
+</div>
 
 在编译结束阶段，CPython 会在 Inline Cache 的位置填充 0：
 
@@ -490,9 +492,7 @@ miss:
 
 至此，整个「原始指令」→「自适应指令」↔「特化指令」的转换关系基本清晰了～现在我们总结回顾下～
 
-<p align="center">
-   <img src="../../assets/img/python311-instruction-specializing/specializing-overview.drawio.png" alt="Inline Cache" width="800px"/>
-</p>
+![Inline Cache](../../assets/img/python311-instruction-specializing/specializing-overview.drawio.png)
 
 值得注意的是，其中的虚线表示字节码层面不变，只是逻辑上 fallback 到原始指令 / 自适应指令，而实线则是代表字节码发生了原位替换，即图中的「warmup」、「specializing」、「de-optimization」
 

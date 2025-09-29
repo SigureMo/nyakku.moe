@@ -26,19 +26,27 @@ Maxout 可以说是一个激活函数，但与其他激活函数所不同的是�
 
 我们网络前层进行 $WX + b$ 的线性变换后，是需要增加激活函数进行非线性变换的，但是具体怎么选择激活函数呢？我们可不可以让网络自己学习这个呢？
 
-<p align="center">
-   <img src='../../assets/img/maxout/maxout-01.png' alt="maxout-01.png" width=400 />
-</p>
+<div class="img-center">
+
+![maxout-01.png](../../assets/img/maxout/maxout-01.png)
+
+</div>
 
 上图便是最基本的 $Maxout$ 连接示意图，前面与普通的全连接并无区别，之后每两个单元“连接”到一个单元上，当然，这里不是真的连接，因为该条线上并不涉及参数，那么如何从两个单元得到一个单元的值呢？其实只需要比较两个单元的值即可，大的值便可以通过~也便是 $Max\ Out$
 
-<p align="center">
-   <img src='../../assets/img/maxout/maxout-02.png' alt="maxout-02.png" width=400 />
-</p>
+<div class="img-center">
+
+![maxout-02.png](../../assets/img/maxout/maxout-02.png)
+
+</div>
 
 结果便如上图所示，每两个单元中较大的值会被激活
 
-![](../../assets/img/maxout/maxout-03.png)
+<div class="img-center">
+
+![maxout-03.png](../../assets/img/maxout/maxout-03.png)
+
+</div>
 
 我们知道每个单元都是前层特征的线性组合，那么比如上图中第一个单元学习到了 $y = 0$ ，而第二个单元学习到了 $y = x$ ，那么这两个单元学习到的激活函数便是 $ReLU$ 激活函数
 
