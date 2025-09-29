@@ -77,7 +77,7 @@ const mainPanelTop = siteConfig.banner.enable
     <div class="pointer-events-auto relative mx-auto max-w-[var(--page-width)]">
       <div
         id="main-grid"
-        class="left-0 right-0 mx-auto grid w-full grid-cols-[17.5rem_auto] grid-rows-[auto_1fr_auto] gap-4 px-0 transition duration-700 md:px-4 lg:grid-rows-[auto]"
+        class="right-0 left-0 mx-auto grid w-full grid-cols-[17.5rem_auto] grid-rows-[auto_1fr_auto] gap-4 px-0 transition duration-700 md:px-4 lg:grid-rows-[auto]"
       >
         <!-- Banner image credit -->
         {
@@ -147,7 +147,7 @@ const mainPanelTop = siteConfig.banner.enable
           <div
             id="toc-wrapper"
             class:list={[
-              'absolute -right-[var(--toc-width)] top-0 hidden w-[var(--toc-width)] items-center transition lg:block',
+              'absolute top-0 -right-[var(--toc-width)] hidden w-[var(--toc-width)] items-center transition lg:block',
               { 'toc-hide': siteConfig.banner.enable },
             ]}
           >

@@ -60,7 +60,7 @@ const className = Astro.props.class
       <a
         href={getCategoryUrl(category)}
         aria-label={`View all posts in the ${category} category`}
-        class="link-lg text-50 whitespace-nowrap text-sm font-medium transition hover:text-[var(--primary)] dark:hover:text-[var(--primary)]"
+        class="link-lg text-50 text-sm font-medium whitespace-nowrap transition hover:text-[var(--primary)] dark:hover:text-[var(--primary)]"
       >
         {category || i18n(I18nKey.uncategorized)}
       </a>
@@ -86,7 +86,7 @@ const className = Astro.props.class
               <a
                 href={getTagUrl(tag)}
                 aria-label={`View all posts with the ${tag.trim()} tag`}
-                class="link-lg text-50 whitespace-nowrap text-sm font-medium transition hover:text-[var(--primary)] dark:hover:text-[var(--primary)]"
+                class="link-lg text-50 text-sm font-medium whitespace-nowrap transition hover:text-[var(--primary)] dark:hover:text-[var(--primary)]"
               >
                 {tag.trim()}
               </a>

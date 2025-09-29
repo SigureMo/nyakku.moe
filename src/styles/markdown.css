@@ -12,7 +12,7 @@
   h5,
   h6 {
     .anchor {
-      @apply !-m-0.5 !ml-[0.2ch] !select-none !p-0.5 !no-underline !opacity-0 !transition;
+      @apply !-m-0.5 !ml-[0.2ch] !p-0.5 !no-underline !opacity-0 !transition !select-none;
 
       .anchor-icon {
         @apply !mx-[0.45ch];
@@ -78,14 +78,14 @@
 
   .copy-btn {
     all: initial;
-    @apply absolute right-3 top-3 z-20 h-8 w-8 cursor-pointer rounded-lg text-sm opacity-0 shadow-lg shadow-black/50 transition-all ease-in-out active:scale-90;
+    @apply absolute top-3 right-3 z-20 h-8 w-8 cursor-pointer rounded-lg text-sm opacity-0 shadow-lg shadow-black/50 transition-all ease-in-out active:scale-90;
   }
   .frame:hover .copy-btn {
     opacity: 1;
   }
 
   .copy-btn-icon {
-    @apply pointer-events-none absolute left-1/2 top-1/2 h-4 w-4 -translate-x-1/2 -translate-y-1/2 fill-white transition;
+    @apply pointer-events-none absolute top-1/2 left-1/2 h-4 w-4 -translate-x-1/2 -translate-y-1/2 fill-white transition;
   }
   .copy-btn .copy-icon {
     @apply fill-white opacity-100 dark:fill-white/75;

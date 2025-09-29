@@ -20,7 +20,7 @@ let links: NavBarLink[] = navBarConfig.links.map((item: NavBarLink | LinkPreset)
 ---
 
 <div id="navbar" class="onload-animation z-50">
-  <div class="absolute -top-8 left-0 right-0 h-8 bg-[var(--card-bg)] transition"></div>
+  <div class="absolute -top-8 right-0 left-0 h-8 bg-[var(--card-bg)] transition"></div>
   <!-- used for onload animation -->
   <div
     class:list={[
@@ -33,7 +33,7 @@ let links: NavBarLink[] = navBarConfig.links.map((item: NavBarLink | LinkPreset)
       class="btn-plain scale-animation h-[3.25rem] rounded-lg px-5 font-bold active:scale-95"
     >
       <div class="text-md flex flex-row items-center text-[var(--primary)]">
-        <Icon name="material-symbols:home-outline-rounded" class="mb-1 mr-2 text-[1.75rem]" />
+        <Icon name="material-symbols:home-outline-rounded" class="mr-2 mb-1 text-[1.75rem]" />
         {siteConfig.title}
       </div>
     </a>

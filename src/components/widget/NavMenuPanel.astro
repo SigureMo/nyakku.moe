@@ -12,13 +12,13 @@ const links = Astro.props.links
 
 <div
   id="nav-menu-panel"
-  class:list={['float-panel float-panel-closed fixed absolute right-4 px-2 py-2 transition-all']}
+  class:list={['float-panel float-panel-closed absolute fixed right-4 px-2 py-2 transition-all']}
 >
   {
     links.map((link) => (
       <a
         href={link.external ? link.url : url(link.url)}
-        class="group flex items-center justify-between gap-8 rounded-lg py-2 pl-3 pr-1 transition hover:bg-[var(--btn-plain-bg-hover)] active:bg-[var(--btn-plain-bg-active)]"
+        class="group flex items-center justify-between gap-8 rounded-lg py-2 pr-1 pl-3 transition hover:bg-[var(--btn-plain-bg-hover)] active:bg-[var(--btn-plain-bg-active)]"
         target={link.external ? '_blank' : null}
       >
         <div class="font-bold text-black/75 transition group-hover:text-[var(--primary)] group-active:text-[var(--primary)] dark:text-white/75">

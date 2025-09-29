@@ -1,8 +1,10 @@
-@import "tailwindcss";
+@import 'tailwindcss';
 @plugin "@tailwindcss/typography";
 
 @theme {
-  --font-sans: Roboto, sans-serif, ui-sans-serif, system-ui, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol, Noto Color Emoji;
+  --font-sans:
+    Roboto, sans-serif, ui-sans-serif, system-ui, sans-serif, Apple Color Emoji, Segoe UI Emoji,
+    Segoe UI Symbol, Noto Color Emoji;
 }
 
 @layer base {
@@ -52,10 +54,10 @@
     @apply drop-shadow-[0_2px_4px_rgba(0,0,0,0.005)];
   }
   .link {
-    @apply -m-1 rounded-md p-1 transition relative z-0 before:absolute before:inset-0 before:-z-10 before:scale-[0.85] before:rounded-[inherit] before:transition before:ease-out hover:before:scale-100 hover:before:bg-[var(--btn-plain-bg-hover)] active:bg-none active:before:bg-[var(--btn-plain-bg-active)];
+    @apply relative z-0 -m-1 rounded-md p-1 transition before:absolute before:inset-0 before:-z-10 before:scale-[0.85] before:rounded-[inherit] before:transition before:ease-out hover:before:scale-100 hover:before:bg-[var(--btn-plain-bg-hover)] active:bg-none active:before:bg-[var(--btn-plain-bg-active)];
   }
   .link-lg {
-    @apply -m-1.5 rounded-md p-1.5 transition relative z-0 before:absolute before:inset-0 before:-z-10 before:scale-[0.85] before:rounded-[inherit] before:transition before:ease-out hover:before:scale-100 hover:before:bg-[var(--btn-plain-bg-hover)] active:bg-none active:before:bg-[var(--btn-plain-bg-active)];
+    @apply relative z-0 -m-1.5 rounded-md p-1.5 transition before:absolute before:inset-0 before:-z-10 before:scale-[0.85] before:rounded-[inherit] before:transition before:ease-out hover:before:scale-100 hover:before:bg-[var(--btn-plain-bg-hover)] active:bg-none active:before:bg-[var(--btn-plain-bg-active)];
   }
   .float-panel {
     @apply top-[5.25rem] overflow-hidden rounded-[var(--radius-large)] bg-[var(--float-panel-bg)] shadow-xl transition dark:shadow-none;
@@ -136,7 +138,7 @@
     @apply mr-2 flex h-8 w-8 items-center justify-center rounded-md bg-[var(--btn-regular-bg)] text-[var(--btn-content)] transition;
   }
   .with-divider {
-    @apply before:ml-1.5 before:mr-1.5 before:text-sm before:font-medium before:text-[var(--meta-divider)] before:transition before:content-['/'] before:first-of-type:hidden;
+    @apply before:mr-1.5 before:ml-1.5 before:text-sm before:font-medium before:text-[var(--meta-divider)] before:transition before:content-['/'] before:first-of-type:hidden;
   }
 
   .btn-regular-dark {
