@@ -1,5 +1,9 @@
-@tailwind base;
-@tailwind components;
+@import "tailwindcss";
+@plugin "@tailwindcss/typography";
+
+@theme {
+  --font-sans: Roboto, sans-serif, ui-sans-serif, system-ui, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol, Noto Color Emoji;
+}
 
 @layer base {
   body {
@@ -47,14 +51,11 @@
   .card-shadow {
     @apply drop-shadow-[0_2px_4px_rgba(0,0,0,0.005)];
   }
-  .expand-animation {
-    @apply relative z-0 before:absolute before:inset-0 before:-z-10 before:scale-[0.85] before:rounded-[inherit] before:transition before:ease-out hover:before:scale-100 hover:before:bg-[var(--btn-plain-bg-hover)] active:bg-none active:before:bg-[var(--btn-plain-bg-active)];
-  }
   .link {
-    @apply expand-animation -m-1 rounded-md p-1 transition;
+    @apply -m-1 rounded-md p-1 transition relative z-0 before:absolute before:inset-0 before:-z-10 before:scale-[0.85] before:rounded-[inherit] before:transition before:ease-out hover:before:scale-100 hover:before:bg-[var(--btn-plain-bg-hover)] active:bg-none active:before:bg-[var(--btn-plain-bg-active)];
   }
   .link-lg {
-    @apply expand-animation -m-1.5 rounded-md p-1.5 transition;
+    @apply -m-1.5 rounded-md p-1.5 transition relative z-0 before:absolute before:inset-0 before:-z-10 before:scale-[0.85] before:rounded-[inherit] before:transition before:ease-out hover:before:scale-100 hover:before:bg-[var(--btn-plain-bg-hover)] active:bg-none active:before:bg-[var(--btn-plain-bg-active)];
   }
   .float-panel {
     @apply top-[5.25rem] overflow-hidden rounded-[var(--radius-large)] bg-[var(--float-panel-bg)] shadow-xl transition dark:shadow-none;
@@ -78,7 +79,7 @@
       @apply hover:bg-[var(--btn-plain-bg-hover)] active:bg-[var(--btn-plain-bg-active)];
     }
     &.scale-animation {
-      @apply expand-animation;
+      @apply relative z-0 before:absolute before:inset-0 before:-z-10 before:scale-[0.85] before:rounded-[inherit] before:transition before:ease-out hover:before:scale-100 hover:before:bg-[var(--btn-plain-bg-hover)] active:bg-none active:before:bg-[var(--btn-plain-bg-active)];
       &.current-theme-btn {
         @apply text-[var(--primary)] before:scale-100 before:bg-[var(--btn-plain-bg-hover)] before:opacity-100;
       }

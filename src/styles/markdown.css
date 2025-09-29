@@ -1,3 +1,5 @@
+@reference "./main.css";
+
 .custom-md {
   h1 {
     @apply text-3xl;
@@ -10,16 +12,16 @@
   h5,
   h6 {
     .anchor {
-      @apply -m-0.5 ml-[0.2ch] select-none p-0.5 no-underline opacity-0 transition !important;
+      @apply !-m-0.5 !ml-[0.2ch] !select-none !p-0.5 !no-underline !opacity-0 !transition;
 
       .anchor-icon {
-        @apply mx-[0.45ch] !important;
+        @apply !mx-[0.45ch];
       }
     }
 
     &:hover {
       .anchor {
-        @apply opacity-100 !important;
+        @apply !opacity-100;
       }
     }
   }

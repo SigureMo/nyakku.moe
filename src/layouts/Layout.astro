@@ -199,7 +199,7 @@ const bannerOffset = bannerOffsetByPosition[siteConfig.banner.position || 'cente
     'banner-height': `${BANNER_HEIGHT}vh`,
   }}
 >
-  @tailwind components;
+  @reference "../styles/main.css";
   @layer components {
     .enable-banner.is-home #banner-wrapper {
       @apply h-[var(--banner-height-home)] translate-y-[var(--banner-height-extend)];
