@@ -13,6 +13,7 @@
 - Editor: VS Code
    - Theme: [Elaina](https://github.com/moefyit/vscode-theme-elaina)
    - Font: [Fira Code](https://github.com/tonsky/FiraCode)
+- AI Assistant: [GitHub Copilot](https://github.com/features/copilot)
 - Shell: Zsh
    - Framework: [zimfw](https://github.com/zimfw/zimfw)
    - Theme: [pure](https://github.com/sindresorhus/pure)
