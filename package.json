@@ -32,7 +32,7 @@
     "@iconify-json/fa6-regular": "^1.2.4",
     "@iconify-json/fa6-solid": "^1.2.4",
     "@iconify-json/material-symbols": "^1.2.37",
-    "@iconify/svelte": "^4.2.0",
+    "@iconify/svelte": "^5.0.0",
     "@moefy-canvas/theme-popper": "^0.6.0",
     "@moefy-canvas/theme-ribbon": "^0.6.0",
     "@swup/astro": "^1.7.0",
