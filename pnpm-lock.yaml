@@ -51,8 +51,8 @@ importers:
         specifier: ^1.2.37
         version: 1.2.39
       '@iconify/svelte':
-        specifier: ^4.2.0
-        version: 4.2.0(svelte@5.39.6)
+        specifier: ^5.0.0
+        version: 5.0.2(svelte@5.39.6)
       '@moefy-canvas/theme-popper':
         specifier: ^0.6.0
         version: 0.6.0
@@ -1055,8 +1055,8 @@ packages:
   '@iconify-json/material-symbols@1.2.39':
     resolution: {integrity: sha512-spjiB1I5jPi6hV5b/QyC4zO8GRYGCbb6/DaHm754NJFqNli6bsYDpN4HYVl67XhU49rYljvJyNc/6lYEf+jokA==}
 
-  '@iconify/svelte@4.2.0':
-    resolution: {integrity: sha512-fEl0T7SAPonK7xk6xUlRPDmFDZVDe2Z7ZstlqeDS/sS8ve2uyU+Qa8rTWbIqzZJlRvONkK5kVXiUf9nIc+6OOQ==}
+  '@iconify/svelte@5.0.2':
+    resolution: {integrity: sha512-1iWUT+1veS/QOAzKDG0NPgBtJYGoJqEPwF97voTm8jw6PQ6yU0hL73lEwFoTGMrZmatLvh9cjRBmeSHHaltmrg==}
     peerDependencies:
       svelte: '>4.0.0'
 
@@ -6065,7 +6065,7 @@ snapshots:
     dependencies:
       '@iconify/types': 2.0.0
 
-  '@iconify/svelte@4.2.0(svelte@5.39.6)':
+  '@iconify/svelte@5.0.2(svelte@5.39.6)':
     dependencies:
       '@iconify/types': 2.0.0
       svelte: 5.39.6
