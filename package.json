@@ -37,7 +37,7 @@
     "@moefy-canvas/theme-ribbon": "^0.6.0",
     "@swup/astro": "^1.7.0",
     "@tailwindcss/typography": "^0.5.18",
-    "astro": "5.13.10",
+    "astro": "5.14.1",
     "astro-expressive-code": "^0.41.3",
     "astro-icon": "^1.1.5",
     "hastscript": "^9.0.1",
