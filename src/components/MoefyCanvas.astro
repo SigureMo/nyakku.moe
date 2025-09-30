@@ -1,113 +1,119 @@
 <!-- Canvas Elements -->
-<canvas id="moefy-popper-canvas" class="pointer-events-none fixed inset-0 z-[9999]"></canvas>
+<canvas id="moefy-popper-canvas"></canvas>
 
-<canvas id="moefy-ribbon-canvas" class="pointer-events-none fixed inset-0 z-[9998]"></canvas>
+<canvas id="moefy-ribbon-canvas"></canvas>
 
 <script>
-  // Dynamic import and initialize popper
-  // @ts-ignore
-  import('@moefy-canvas/theme-popper')
-    .then(({ Popper, PopperShape, MAX_Z_INDEX }) => {
-      const popperCanvas = document.getElementById('moefy-popper-canvas') as HTMLCanvasElement
-      if (popperCanvas) {
-        const popper = new Popper(
-          {
-            shape: PopperShape.Star,
-            size: 1.75,
-            numParticles: 10,
-          },
-          {
-            opacity: 1.0,
-            zIndex: MAX_Z_INDEX,
-          }
-        )
-        popper.mount(popperCanvas)
+  // Global instances to avoid duplicates
+  let popperInstance: any = null
+  let ribbonInstance: any = null
 
-        // Cleanup function
-        window.addEventListener('beforeunload', () => {
-          popper.unmount()
-        })
-      }
-    })
-    .catch((error) => {
-      console.error('Failed to load popper theme:', error)
-    })
-
-  // Dynamic import and initialize ribbon
-  // @ts-ignore
-  import('@moefy-canvas/theme-ribbon')
-    .then(({ Ribbon, MAX_Z_INDEX }) => {
-      const ribbonCanvas = document.getElementById('moefy-ribbon-canvas') as HTMLCanvasElement
-      if (ribbonCanvas) {
-        const ribbon = new Ribbon(
-          {
-            opacity: 0.8,
-            zIndex: MAX_Z_INDEX,
-          },
-          {
-            opacity: 0.8,
-            zIndex: 0,
-          }
-        )
-        ribbon.mount(ribbonCanvas)
-
-        // Cleanup function
-        window.addEventListener('beforeunload', () => {
-          ribbon.unmount()
-        })
-      }
-    })
-    .catch((error) => {
-      console.error('Failed to load ribbon theme:', error)
-    })
-
-  // Handle re-initialization on Swup page transitions
-  const setupMoefyCanvas = () => {
-    // Popper initialization
-    // @ts-ignore
-    import('@moefy-canvas/theme-popper').then(({ Popper, PopperShape, MAX_Z_INDEX }) => {
-      const popperCanvas = document.getElementById('moefy-popper-canvas') as HTMLCanvasElement
-      if (popperCanvas) {
-        const popper = new Popper(
-          {
-            shape: PopperShape.Star,
-            size: 1.75,
-            numParticles: 10,
-          },
-          {
-            opacity: 1.0,
-            zIndex: MAX_Z_INDEX,
-          }
-        )
-        popper.mount(popperCanvas)
-      }
-    })
-
-    // Ribbon initialization
-    // @ts-ignore
-    import('@moefy-canvas/theme-ribbon').then(({ Ribbon, MAX_Z_INDEX }) => {
-      const ribbonCanvas = document.getElementById('moefy-ribbon-canvas') as HTMLCanvasElement
-      if (ribbonCanvas) {
-        const ribbon = new Ribbon(
-          {
-            opacity: 0.8,
-            zIndex: MAX_Z_INDEX,
-          },
-          {
-            opacity: 0.8,
-            zIndex: 0,
-          }
-        )
-        ribbon.mount(ribbonCanvas)
-      }
-    })
+  // Popper configuration
+  const popperConfig = {
+    canvasId: 'moefy-popper-canvas',
+    themeConfig: {
+      shape: 'star' as const,
+      size: 1.75,
+      numParticles: 10,
+    },
+    canvasOptions: {
+      opacity: 1.0,
+      zIndexMultiplier: 1, // Use MAX_Z_INDEX
+    },
   }
+
+  // Ribbon configuration
+  const ribbonConfig = {
+    canvasId: 'moefy-ribbon-canvas',
+    themeConfig: {
+      size: 90,
+    },
+    canvasOptions: {
+      opacity: 0.8,
+      zIndexMultiplier: -1, // Use -MAX_Z_INDEX
+    },
+  }
+
+  // Initialize Popper theme
+  const initPopper = async () => {
+    if (popperInstance) return
+
+    const canvas = document.getElementById(popperConfig.canvasId) as HTMLCanvasElement
+    if (!canvas) return
+
+    try {
+      // @ts-ignore
+      const { Popper, PopperShape, MAX_Z_INDEX } = await import('@moefy-canvas/theme-popper')
+
+      popperInstance = new Popper(
+        {
+          shape: PopperShape.Star,
+          size: popperConfig.themeConfig.size,
+          numParticles: popperConfig.themeConfig.numParticles,
+        },
+        {
+          opacity: popperConfig.canvasOptions.opacity,
+          zIndex: MAX_Z_INDEX * popperConfig.canvasOptions.zIndexMultiplier,
+        }
+      )
+      popperInstance.mount(canvas)
+    } catch (error) {
+      console.error('Failed to load popper theme:', error)
+    }
+  }
+
+  // Initialize Ribbon theme
+  const initRibbon = async () => {
+    if (ribbonInstance) return
+
+    const canvas = document.getElementById(ribbonConfig.canvasId) as HTMLCanvasElement
+    if (!canvas) return
+
+    try {
+      // @ts-ignore
+      const { Ribbon, MAX_Z_INDEX } = await import('@moefy-canvas/theme-ribbon')
+
+      ribbonInstance = new Ribbon(
+        {
+          size: ribbonConfig.themeConfig.size,
+        },
+        {
+          opacity: ribbonConfig.canvasOptions.opacity,
+          zIndex: MAX_Z_INDEX * ribbonConfig.canvasOptions.zIndexMultiplier,
+        }
+      )
+      ribbonInstance.mount(canvas)
+    } catch (error) {
+      console.error('Failed to load ribbon theme:', error)
+    }
+  }
+
+  // Initialize all themes
+  const initAllThemes = () => {
+    initPopper()
+    initRibbon()
+  }
+
+  // Initial setup
+  initAllThemes()
+
+  // Cleanup on page unload
+  window.addEventListener('beforeunload', () => {
+    if (popperInstance) {
+      popperInstance.unmount()
+      popperInstance = null
+    }
+    if (ribbonInstance) {
+      ribbonInstance.unmount()
+      ribbonInstance = null
+    }
+  })
 
   // Swup integration
   if (typeof window !== 'undefined') {
     const handleSwupSetup = () => {
       if (window.swup && window.swup.hooks) {
-        window.swup.hooks.on('page:view', setupMoefyCanvas)
+        window.swup.hooks.on('page:view', initAllThemes)
       }
     }
 
