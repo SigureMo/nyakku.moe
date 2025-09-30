@@ -7,6 +7,8 @@
     Segoe UI Symbol, Noto Color Emoji;
 }
 
+@variant dark (.dark &);
+
 @layer base {
   body {
     cursor: url('/cursor/default.cur'), auto;
