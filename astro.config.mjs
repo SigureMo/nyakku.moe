@@ -9,6 +9,7 @@ import expressiveCode from 'astro-expressive-code'
 import icon from 'astro-icon'
 import rehypeAutolinkHeadings from 'rehype-autolink-headings'
 import rehypeComponents from 'rehype-components' /* Render the custom directive content */
+import rehypeExternalLinks from 'rehype-external-links'
 import rehypeKatex from 'rehype-katex'
 import rehypeSlug from 'rehype-slug'
 import remarkDirective from 'remark-directive' /* Handle directives */
@@ -113,6 +114,13 @@ export default defineConfig({
     rehypePlugins: [
       rehypeKatex,
       rehypeSlug,
+      [
+        rehypeExternalLinks,
+        {
+          target: '_blank',
+          rel: ['noopener', 'noreferrer'],
+        },
+      ],
       [
         rehypeComponents,
         {
