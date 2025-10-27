@@ -16,7 +16,7 @@
   },
   "author": "Nyakku Shigure",
   "license": "CC-BY-NC-SA-4.0",
-  "packageManager": "pnpm@10.18.3",
+  "packageManager": "pnpm@10.19.0",
   "dependencies": {
     "@astrojs/check": "^0.9.4",
     "@astrojs/rss": "^4.0.12",
@@ -37,7 +37,7 @@
     "@swup/astro": "^1.7.0",
     "@tailwindcss/postcss": "^4.1.13",
     "@tailwindcss/typography": "^0.5.18",
-    "astro": "5.14.6",
+    "astro": "5.15.1",
     "astro-expressive-code": "^0.41.3",
     "astro-icon": "^1.1.5",
     "hastscript": "^9.0.1",
