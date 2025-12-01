@@ -10,7 +10,7 @@ importers:
     dependencies:
       '@astrojs/check':
         specifier: ^0.9.4
-        version: 0.9.5(prettier-plugin-astro@0.14.1)(prettier@3.6.2)(typescript@5.9.3)
+        version: 0.9.6(prettier-plugin-astro@0.14.1)(prettier@3.7.3)(typescript@5.9.3)
       '@astrojs/rss':
         specifier: ^4.0.12
         version: 4.0.14
@@ -19,7 +19,7 @@ importers:
         version: 3.6.0
       '@astrojs/svelte':
         specifier: 7.2.2
-        version: 7.2.2(@types/node@24.5.2)(astro@5.16.0(@types/node@24.5.2)(jiti@2.6.1)(lightningcss@1.30.2)(rollup@2.79.2)(stylus@0.64.0)(terser@5.44.0)(typescript@5.9.3)(yaml@2.8.1))(jiti@2.6.1)(lightningcss@1.30.2)(stylus@0.64.0)(svelte@5.43.14)(terser@5.44.0)(typescript@5.9.3)(yaml@2.8.1)
+        version: 7.2.2(@types/node@24.5.2)(astro@5.16.3(@types/node@24.5.2)(jiti@2.6.1)(lightningcss@1.30.2)(rollup@2.79.2)(stylus@0.64.0)(terser@5.44.0)(typescript@5.9.3)(yaml@2.8.2))(jiti@2.6.1)(lightningcss@1.30.2)(stylus@0.64.0)(svelte@5.45.2)(terser@5.44.0)(typescript@5.9.3)(yaml@2.8.2)
       '@expressive-code/core':
         specifier: ^0.41.3
         version: 0.41.3
@@ -46,10 +46,10 @@ importers:
         version: 1.2.4
       '@iconify-json/material-symbols':
         specifier: ^1.2.37
-        version: 1.2.47
+        version: 1.2.48
       '@iconify/svelte':
         specifier: ^5.0.0
-        version: 5.1.0(svelte@5.43.14)
+        version: 5.1.0(svelte@5.45.2)
       '@moefy-canvas/theme-popper':
         specifier: ^0.6.0
         version: 0.6.0
@@ -66,11 +66,11 @@ importers:
         specifier: ^0.5.18
         version: 0.5.19(tailwindcss@4.1.17)
       astro:
-        specifier: 5.16.0
-        version: 5.16.0(@types/node@24.5.2)(jiti@2.6.1)(lightningcss@1.30.2)(rollup@2.79.2)(stylus@0.64.0)(terser@5.44.0)(typescript@5.9.3)(yaml@2.8.1)
+        specifier: 5.16.3
+        version: 5.16.3(@types/node@24.5.2)(jiti@2.6.1)(lightningcss@1.30.2)(rollup@2.79.2)(stylus@0.64.0)(terser@5.44.0)(typescript@5.9.3)(yaml@2.8.2)
       astro-expressive-code:
         specifier: ^0.41.3
-        version: 0.41.3(astro@5.16.0(@types/node@24.5.2)(jiti@2.6.1)(lightningcss@1.30.2)(rollup@2.79.2)(stylus@0.64.0)(terser@5.44.0)(typescript@5.9.3)(yaml@2.8.1))
+        version: 0.41.3(astro@5.16.3(@types/node@24.5.2)(jiti@2.6.1)(lightningcss@1.30.2)(rollup@2.79.2)(stylus@0.64.0)(terser@5.44.0)(typescript@5.9.3)(yaml@2.8.2))
       astro-icon:
         specifier: ^1.1.5
         version: 1.1.5
@@ -88,7 +88,7 @@ importers:
         version: 4.0.0
       overlayscrollbars:
         specifier: ^2.12.0
-        version: 2.12.0
+        version: 2.13.0
       pagefind:
         specifier: ^1.4.0
         version: 1.4.0
@@ -139,7 +139,7 @@ importers:
         version: 0.64.0
       svelte:
         specifier: ^5.39.5
-        version: 5.43.14
+        version: 5.45.2
       tailwindcss:
         specifier: ^4.1.13
         version: 4.1.17
@@ -152,13 +152,13 @@ importers:
     devDependencies:
       '@astrojs/ts-plugin':
         specifier: ^1.10.4
-        version: 1.10.5
+        version: 1.10.6
       '@rollup/plugin-yaml':
         specifier: ^4.1.2
         version: 4.1.2(rollup@2.79.2)
       '@tailwindcss/vite':
         specifier: ^4.1.13
-        version: 4.1.17(vite@6.4.1(@types/node@24.5.2)(jiti@2.6.1)(lightningcss@1.30.2)(stylus@0.64.0)(terser@5.44.0)(yaml@2.8.1))
+        version: 4.1.17(vite@6.4.1(@types/node@24.5.2)(jiti@2.6.1)(lightningcss@1.30.2)(stylus@0.64.0)(terser@5.44.0)(yaml@2.8.2))
       '@types/hast':
         specifier: ^3.0.4
         version: 3.0.4
@@ -182,13 +182,13 @@ importers:
         version: 13.0.2(postcss@8.5.6)
       prettier:
         specifier: ^3.4.2
-        version: 3.6.2
+        version: 3.7.3
       prettier-plugin-astro:
         specifier: ^0.14.1
         version: 0.14.1
       prettier-plugin-tailwindcss:
         specifier: ^0.7.0
-        version: 0.7.1(prettier-plugin-astro@0.14.1)(prettier@3.6.2)
+        version: 0.7.1(prettier-plugin-astro@0.14.1)(prettier@3.7.3)
 
 packages:
 
@@ -205,8 +205,8 @@ packages:
   '@antfu/utils@8.1.1':
     resolution: {integrity: sha512-Mex9nXf9vR6AhcXmMrlz/HVgYYZpVGJ6YlPgwl7UnaFpnshXs6EK/oa5Gpf3CzENMjkvEx2tQtntGnb7UtSTOQ==}
 
-  '@astrojs/check@0.9.5':
-    resolution: {integrity: sha512-88vc8n2eJ1Oua74yXSGo/8ABMeypfQPGEzuoAx2awL9Ju8cE6tZ2Rz9jVx5hIExHK5gKVhpxfZj4WXm7e32g1w==}
+  '@astrojs/check@0.9.6':
+    resolution: {integrity: sha512-jlaEu5SxvSgmfGIFfNgcn5/f+29H61NJzEMfAZ82Xopr4XBchXB1GVlcJsE+elUlsYSbXlptZLX+JMG3b/wZEA==}
     hasBin: true
     peerDependencies:
       typescript: ^5.0.0
@@ -217,8 +217,8 @@ packages:
   '@astrojs/internal-helpers@0.7.5':
     resolution: {integrity: sha512-vreGnYSSKhAjFJCWAwe/CNhONvoc5lokxtRoZims+0wa3KbHBdPHSSthJsKxPd8d/aic6lWKpRTYGY/hsgK6EA==}
 
-  '@astrojs/language-server@2.15.5':
-    resolution: {integrity: sha512-GizawjrIytYEOv8c/VUDrzGYo5t584w6S0fUAmVK2u11BtAZcbtXWNjGtwFWYLyR27J9pZe4Ipe/qP8mXUfCWQ==}
+  '@astrojs/language-server@2.16.1':
+    resolution: {integrity: sha512-OzTpyEPeCPLpp0oyeI/fSCBYemlVos0GewCTYglAW+TAJAMR3nRl5nYlf9ESMFy97SlptZCsRdKlQXDvFHJRNQ==}
     hasBin: true
     peerDependencies:
       prettier: ^3.0.0
@@ -254,8 +254,8 @@ packages:
     resolution: {integrity: sha512-UFBgfeldP06qu6khs/yY+q1cDAaArM2/7AEIqQ9Cuvf7B1hNLq0xDrZkct+QoIGyjq56y8IaE2I3CTvG99mlhQ==}
     engines: {node: 18.20.8 || ^20.3.0 || >=22.0.0}
 
-  '@astrojs/ts-plugin@1.10.5':
-    resolution: {integrity: sha512-JK6SA8yaurIiJcJq5jqoXr2LgxV49mEiTPqJ5Fw2d3MsvegFdVinZPaqRXQqdxuv5cELgBMC5tq4h+nhgwRunQ==}
+  '@astrojs/ts-plugin@1.10.6':
+    resolution: {integrity: sha512-Ke5CNwxn/ozsh6THJKuayUlBToa3uiPDi2oSwcXmTdeiJ0PGr+UkdQJf9hdMgBjbIka9fhnSn3UhYamfNfJ73A==}
 
   '@astrojs/yaml2ts@0.2.2':
     resolution: {integrity: sha512-GOfvSr5Nqy2z5XiwqTouBBpy5FyI6DEe+/g/Mk5am9SjILN1S5fOEvYK0GuWHg98yS/dobP4m8qyqw/URW35fQ==}
@@ -1054,8 +1054,8 @@ packages:
   '@iconify-json/fa6-solid@1.2.4':
     resolution: {integrity: sha512-LmDNNdJVyvF5mPm1yxWvL8KjCc/E8LzoqnF1LNTVpyY2ZJRUlGOWuPIThdbuFBF2IovgttkIyumhyqfmlHdwKg==}
 
-  '@iconify-json/material-symbols@1.2.47':
-    resolution: {integrity: sha512-0+pmeFKkkEW2f8eLP4eFRwnHpKFqoYcHrME6fDSSisT4Cv0ie6i10t7HQqHXra0GS5RtvNhZbZR5a16a3cXw2w==}
+  '@iconify-json/material-symbols@1.2.48':
+    resolution: {integrity: sha512-qDjqYEeNCm31tae3YbsprEklWHIoVPvqlbTuqtisNjlhHRSiXy5x+AtUq9VwjlITRU+TtqsP6jW2h+pnEUURRQ==}
 
   '@iconify/svelte@5.1.0':
     resolution: {integrity: sha512-I14nSqo0pNXO5OKsT61ZO3XIPF4yRHA2ErgPsaZ1sPJdKXn80o7o8jOe1xpWphbb9FihdX6by9zlKKBss61mFw==}
@@ -1488,8 +1488,8 @@ packages:
   '@surma/rollup-plugin-off-main-thread@2.2.3':
     resolution: {integrity: sha512-lR8q/9W7hZpMWweNiAKU7NQerBnzQQLvi8qnTDU/fxItPhtZVMbPV3lbCwjhIlNBe9Bbr5V+KHshvWmVSG9cxQ==}
 
-  '@sveltejs/acorn-typescript@1.0.7':
-    resolution: {integrity: sha512-znp1A/Y1Jj4l/Zy7PX5DZKBE0ZNY+5QBngiE21NJkfSTyzzC5iKNWOtwFXKtIrn7MXEFBck4jD95iBNkGjK92Q==}
+  '@sveltejs/acorn-typescript@1.0.8':
+    resolution: {integrity: sha512-esgN+54+q0NjB0Y/4BomT9samII7jGwNy/2a3wNZbT2A2RpmXsXwUt24LvLhx6jUq2gVk4cWEvcRO6MFQbOfNA==}
     peerDependencies:
       acorn: ^8.9.0
 
@@ -1781,25 +1781,25 @@ packages:
   '@ungap/structured-clone@1.3.0':
     resolution: {integrity: sha512-WmoN8qaIAo7WTYWbAZuG8PYEhn5fkz7dZrqTBZ7dtt//lL2Gwms1IcnQ5yHqjDfX8Ft5j4YzDM23f87zBfDe9g==}
 
-  '@volar/kit@2.4.23':
-    resolution: {integrity: sha512-YuUIzo9zwC2IkN7FStIcVl1YS9w5vkSFEZfPvnu0IbIMaR9WHhc9ZxvlT+91vrcSoRY469H2jwbrGqpG7m1KaQ==}
+  '@volar/kit@2.4.26':
+    resolution: {integrity: sha512-shgNg7PbV8SIxxQLOQh5zMr8KV0JvdG9If0MwJb5L1HMrBU91jBxR0ANi2OJPMMme6/l1vIYm4hCaO6W2JaEcQ==}
     peerDependencies:
       typescript: '*'
 
-  '@volar/language-core@2.4.23':
-    resolution: {integrity: sha512-hEEd5ET/oSmBC6pi1j6NaNYRWoAiDhINbT8rmwtINugR39loROSlufGdYMF9TaKGfz+ViGs1Idi3mAhnuPcoGQ==}
+  '@volar/language-core@2.4.26':
+    resolution: {integrity: sha512-hH0SMitMxnB43OZpyF1IFPS9bgb2I3bpCh76m2WEK7BE0A0EzpYsRp0CCH2xNKshr7kacU5TQBLYn4zj7CG60A==}
 
-  '@volar/language-server@2.4.23':
-    resolution: {integrity: sha512-k0iO+tybMGMMyrNdWOxgFkP0XJTdbH0w+WZlM54RzJU3WZSjHEupwL30klpM7ep4FO6qyQa03h+VcGHD4Q8gEg==}
+  '@volar/language-server@2.4.26':
+    resolution: {integrity: sha512-Xsyu+VDgM8TyVkQfBz2aIViSEOgH2un0gIJlp0M8rssDDLCqr4ssQzwHOyPf7sT7UIjrlAMnJvRkC/u0mmgtYw==}
 
-  '@volar/language-service@2.4.23':
-    resolution: {integrity: sha512-h5mU9DZ/6u3LCB9xomJtorNG6awBNnk9VuCioGsp6UtFiM8amvS5FcsaC3dabdL9zO0z+Gq9vIEMb/5u9K6jGQ==}
+  '@volar/language-service@2.4.26':
+    resolution: {integrity: sha512-ZBPRR1ytXttSV5X4VPvEQR/glxs+7/4IOJIBCOW3/EJk4z77R4mF2y4wM3fNgOXXZT5h16j3sC5w+LGNkz2VlA==}
 
-  '@volar/source-map@2.4.23':
-    resolution: {integrity: sha512-Z1Uc8IB57Lm6k7q6KIDu/p+JWtf3xsXJqAX/5r18hYOTpJyBn0KXUR8oTJ4WFYOcDzWC9n3IflGgHowx6U6z9Q==}
+  '@volar/source-map@2.4.26':
+    resolution: {integrity: sha512-JJw0Tt/kSFsIRmgTQF4JSt81AUSI1aEye5Zl65EeZ8H35JHnTvFGmpDOBn5iOxd48fyGE+ZvZBp5FcgAy/1Qhw==}
 
-  '@volar/typescript@2.4.23':
-    resolution: {integrity: sha512-lAB5zJghWxVPqfcStmAP1ZqQacMpe90UrP5RJ3arDyrhy4aCUQqmxPPLB2PWDKugvylmO41ljK7vZ+t6INMTag==}
+  '@volar/typescript@2.4.26':
+    resolution: {integrity: sha512-N87ecLD48Sp6zV9zID/5yuS1+5foj0DfuYGdQ6KHj/IbKvyKv1zNX6VCmnKYwtmHadEO6mFc2EKISiu3RDPAvA==}
 
   '@vscode/emmet-helper@2.11.0':
     resolution: {integrity: sha512-QLxjQR3imPZPQltfbWRnHU6JecWTF1QSWhx3GAKQpslx7y3Dp6sIIXhKjiUJ/BR9FX8PVthjr9PD6pNwOJfAzw==}
@@ -1811,6 +1811,14 @@ packages:
     resolution: {integrity: sha512-NZyJarBfL7nWwIq+FDL6Zp/yHEhePMNnnJ0y3qfieCrmNvYct8uvtiV41UvlSe6apAfk0fY1FbWx+NwfmpvtTg==}
     engines: {node: '>=0.4.0'}
     hasBin: true
+
+  ajv-draft-04@1.0.0:
+    resolution: {integrity: sha512-mv00Te6nmYbRp5DCwclxtt7yV/joXJPGS7nM+97GdxvuttCOfgI3K4U25zboyeX0O+myI8ERluxQe5wljMmVIw==}
+    peerDependencies:
+      ajv: ^8.5.0
+    peerDependenciesMeta:
+      ajv:
+        optional: true
 
   ajv@8.17.1:
     resolution: {integrity: sha512-B/gBuNg5SiMTrPkC+A2+cW0RszwxYmn6VYxB/inlBStS5nx6xHIt/ehKRhIMhqusl7a8LjQoZnjCs5vhwxOQ1g==}
@@ -1875,8 +1883,8 @@ packages:
   astro-icon@1.1.5:
     resolution: {integrity: sha512-CJYS5nWOw9jz4RpGWmzNQY7D0y2ZZacH7atL2K9DeJXJVaz7/5WrxeyIxO8KASk1jCM96Q4LjRx/F3R+InjJrw==}
 
-  astro@5.16.0:
-    resolution: {integrity: sha512-GaDRs2Mngpw3dr2vc085GnORh98NiXxwIjg/EoQQQl/icZt3Z7s0BRsYHDZ8swkZbOA6wZsqWJdrNirl+iKcDg==}
+  astro@5.16.3:
+    resolution: {integrity: sha512-KzDk41F9Dspf5fM/Ls4XZhV4/csjJcWBrlenbnp5V3NGwU1zEaJz/HIyrdKdf5yw+FgwCeD2+Yos1Xkx9gnI0A==}
     engines: {node: 18.20.8 || ^20.3.0 || >=22.0.0, npm: '>=9.6.5', pnpm: '>=7.1.0'}
     hasBin: true
 
@@ -2455,8 +2463,8 @@ packages:
   esm-env@1.2.2:
     resolution: {integrity: sha512-Epxrv+Nr/CaL4ZcFGPJIYLWFom+YeV1DqMLHJoEd9SYRxNbaFruBwfEX/kkHUJf55j2+TUbmDcmuilbP1TmXHA==}
 
-  esrap@2.1.3:
-    resolution: {integrity: sha512-T/Dhhv/QH+yYmiaLz9SA3PW+YyenlnRKDNdtlYJrSOBmNsH4nvPux+mTwx7p+wAedlJrGoZtXNI0a0MjQ2QkVg==}
+  esrap@2.2.0:
+    resolution: {integrity: sha512-WBmtxe7R9C5mvL4n2le8nMUe4mD5V9oiK2vJpQ9I3y20ENPUomPcphBXE8D1x/Bm84oN1V+lOfgXxtqmxTp3Xg==}
 
   estree-walker@0.6.1:
     resolution: {integrity: sha512-SqmZANLWS0mnatqbSfRP5g8OXZC12Fgg1IwNtLsyHDzJizORW4khDfjPqJZsemPWBB2uqykUah5YpQ6epsqC/w==}
@@ -3531,8 +3539,8 @@ packages:
     resolution: {integrity: sha512-8AV/sCtuzUeTo8gQK5qDZzARrulB3egtLzFgteqB2tcT4Mw7B8Kt7JcDHmltjz6FOAHsvTevk70gZEbhM4ZS9Q==}
     hasBin: true
 
-  overlayscrollbars@2.12.0:
-    resolution: {integrity: sha512-mWJ5MOkcZ/ljHwfLw8+bN0V9ziGCoNoqULcp994j5DTGNQvnkWKWkA7rnO29Kyew5AoHxUnJ4Ndqfcl0HSQjXg==}
+  overlayscrollbars@2.13.0:
+    resolution: {integrity: sha512-uQGpLESrbFDLTWucWAKX9ceIANj7detMwH/2yJ315Llt72ZcWN3P6ckMotoqVv2Mk29R/pnhDtgYjy4K+kwAyQ==}
 
   own-keys@1.0.1:
     resolution: {integrity: sha512-qFOyK5PjiWZd+QQIh+1jhdb9LpxTF0qs7Pm8o5QHYZ0M3vKqSqzsZaEB6oWlxZ+q2sJBMI/Ktgd2N5ZwQoRHfg==}
@@ -3989,18 +3997,13 @@ packages:
       prettier-plugin-svelte:
         optional: true
 
-  prettier@2.8.7:
-    resolution: {integrity: sha512-yPngTo3aXUUmyuTjeTUT75txrf+aMh9FiD7q9ZE/i6r0bPb22g4FsE6Y338PQX1bmfy08i9QQCB7/rcUAVntfw==}
-    engines: {node: '>=10.13.0'}
-    hasBin: true
-
   prettier@2.8.8:
     resolution: {integrity: sha512-tdN8qQGvNjw4CHbY+XXk0JgCXn9QiF21a55rBe5LJAU+kDyC4WQn4+awm2Xfk2lQMk5fKup9XgzTZtGkjBdP9Q==}
     engines: {node: '>=10.13.0'}
     hasBin: true
 
-  prettier@3.6.2:
-    resolution: {integrity: sha512-I7AIg5boAr5R0FFtJ6rCfD+LFsWHp81dolrFD8S79U9tb8Az2nGrJncnMSnys+bpQJfRUzqs9hnA81OAA3hCuQ==}
+  prettier@3.7.3:
+    resolution: {integrity: sha512-QgODejq9K3OzoBbuyobZlUhznP5SKwPqp+6Q6xw6o8gnhr4O85L2U915iM2IDcfF2NPXVaM9zlo9tdwipnYwzg==}
     engines: {node: '>=14'}
     hasBin: true
 
@@ -4506,8 +4509,8 @@ packages:
       svelte: ^3.55 || ^4.0.0-next.0 || ^4.0 || ^5.0.0-next.0
       typescript: ^4.9.4 || ^5.0.0
 
-  svelte@5.43.14:
-    resolution: {integrity: sha512-pHeUrp1A5S6RGaXhJB7PtYjL1VVjbVrJ2EfuAoPu9/1LeoMaJa/pcdCsCSb0gS4eUHAHnhCbUDxORZyvGK6kOQ==}
+  svelte@5.45.2:
+    resolution: {integrity: sha512-yyXdW2u3H0H/zxxWoGwJoQlRgaSJLp+Vhktv12iRw2WRDlKqUPT54Fi0K/PkXqrdkcQ98aBazpy0AH4BCBVfoA==}
     engines: {node: '>=18'}
 
   svgo@2.8.0:
@@ -4732,8 +4735,8 @@ packages:
     resolution: {integrity: sha512-gptHNQghINnc/vTGIk0SOFGFNXw7JVrlRUtConJRlvaw6DuX0wO5Jeko9sWrMBhh+PsYAZ7oXAiOnf/UKogyiw==}
     engines: {node: '>= 10.0.0'}
 
-  unstorage@1.17.2:
-    resolution: {integrity: sha512-cKEsD6iBWJgOMJ6vW1ID/SYuqNf8oN4yqRk8OYqaVQ3nnkJXOT1PSpaMh2QfzLs78UN5kSNRD2c/mgjT8tX7+w==}
+  unstorage@1.17.3:
+    resolution: {integrity: sha512-i+JYyy0DoKmQ3FximTHbGadmIYb8JEpq7lxUjnjeB702bCPum0vzo6oy5Mfu0lpqISw7hCyMW2yj4nWC8bqJ3Q==}
     peerDependencies:
       '@azure/app-configuration': ^1.8.0
       '@azure/cosmos': ^4.2.0
@@ -4860,32 +4863,32 @@ packages:
       vite:
         optional: true
 
-  volar-service-css@0.0.65:
-    resolution: {integrity: sha512-oaImNguZF/8NfQh5jJZ2lJYBtF3aFS5H2w+6GmH7ykESAgBJ1UC7DrhmH5smBGGF7OOzzc9AzrrnriafoFJBdA==}
+  volar-service-css@0.0.66:
+    resolution: {integrity: sha512-XrL1V9LEAHnunglYdDf/7shJbQXqKsHB+P69zPmJTqHx6hqvM9GWNbn2h7M0P/oElW8p/MTVHdfjl6C8cxdsBQ==}
     peerDependencies:
       '@volar/language-service': ~2.4.0
     peerDependenciesMeta:
       '@volar/language-service':
         optional: true
 
-  volar-service-emmet@0.0.65:
-    resolution: {integrity: sha512-YkAPlkJnjyAAUZGtG7STgy3ENFy7C0n3dl6MffUYkcovosfUUNgpUOmsj4t1qw1c7t5KMvLfAZHsEC3Ig5Qs3w==}
+  volar-service-emmet@0.0.66:
+    resolution: {integrity: sha512-BMPSpm6mk0DAEVdI2haxYIOt1Z2oaIZvCGtXuRu95x50a5pOSRPjdeHv2uGp1rQsq1Izigx+VR/bZUf2HcSnVQ==}
     peerDependencies:
       '@volar/language-service': ~2.4.0
     peerDependenciesMeta:
       '@volar/language-service':
         optional: true
 
-  volar-service-html@0.0.65:
-    resolution: {integrity: sha512-AxXckCTbCr5j5z81d3bNiRRL32xCaBSa8lmYhq0QfzBPVPaRv06YYaxp22XizM061f96iizM7ZkSHCu1RuSwRA==}
+  volar-service-html@0.0.66:
+    resolution: {integrity: sha512-MKKD2qM8qVZvBKBIugt00+Bm8j1ehgeX7Cm5XwgeEgdW/3PhUEEe/aeTxQGon1WJIGf2MM/cHPjZxPJOQN4WfQ==}
     peerDependencies:
       '@volar/language-service': ~2.4.0
     peerDependenciesMeta:
       '@volar/language-service':
         optional: true
 
-  volar-service-prettier@0.0.65:
-    resolution: {integrity: sha512-cJH+5MtYp5q+zL8d6rd9RwQpwXFJuBaRHMuUyG+kasEkeWMbJKVVFYzUzNtbM8HMGMq5yYy+UGn/Zuh3CvSjaA==}
+  volar-service-prettier@0.0.66:
+    resolution: {integrity: sha512-CVaQEyfmFWoq3NhNVExoyDKonPqdacmb/07w7OfTZljxLgZpDRygiHAvzBKIcenb7rKtJNHqfQJv99ULOinJBA==}
     peerDependencies:
       '@volar/language-service': ~2.4.0
       prettier: ^2.2 || ^3.0
@@ -4895,24 +4898,24 @@ packages:
       prettier:
         optional: true
 
-  volar-service-typescript-twoslash-queries@0.0.65:
-    resolution: {integrity: sha512-aghyUm2Rc4QNjKG1nvEjT2Kdzuvccs5H1TD0fIaM5i7X5d/vnm3QLP6wzIGGffa3sjD5b6YmLZR2XaFfNEusog==}
+  volar-service-typescript-twoslash-queries@0.0.66:
+    resolution: {integrity: sha512-PA3CyvEaBrkxJcBq+HFdks1TF1oJ8H+jTOTQUurLDRkVjmUFg8bfdya6U/dWfTsPaDSRM4m/2chwgew5zoQXfg==}
     peerDependencies:
       '@volar/language-service': ~2.4.0
     peerDependenciesMeta:
       '@volar/language-service':
         optional: true
 
-  volar-service-typescript@0.0.65:
-    resolution: {integrity: sha512-zPJuLIMs7lkQCvL+Rza8+3/EIoXEIkX8+DL7bNNfPgnbalbvRDhqWLVMJ6Zk3pINjLJafDqyhSbw8srfkUv97w==}
+  volar-service-typescript@0.0.66:
+    resolution: {integrity: sha512-8irsfCEf86R1RqPijrU6p5NCqKDNzyJNWKM6ZXmCcJqhebtl7Hr/a0bnlr59AzqkS3Ym4PbbJZs1K/92CXTDsw==}
     peerDependencies:
       '@volar/language-service': ~2.4.0
     peerDependenciesMeta:
       '@volar/language-service':
         optional: true
 
-  volar-service-yaml@0.0.65:
-    resolution: {integrity: sha512-1C67p6M+Y11IVDOHfmbnF4AJiqmH5xaWsJhvM9eO4kazvHzVhk3+kzCtKcNoXIa77uPNmEbbox5CRysage8MNA==}
+  volar-service-yaml@0.0.66:
+    resolution: {integrity: sha512-q6oTKD6EMEu1ws1FDjRw+cfCF69Gu51IEGM9jVbtmSZS1qQHKxMqlt2+wBInKl2D+xILtjzkWbfkjQyBYQMw7g==}
     peerDependencies:
       '@volar/language-service': ~2.4.0
     peerDependenciesMeta:
@@ -4929,16 +4932,9 @@ packages:
     resolution: {integrity: sha512-0vSpg6Xd9hfV+eZAaYN63xVVMOTmJ4GgHxXnkLCh+9RsQBkWKIghzLhW2B9ebfG+LQQg8uLtsQ2aUKjTgE+QOg==}
     engines: {npm: '>=7.0.0'}
 
-  vscode-jsonrpc@6.0.0:
-    resolution: {integrity: sha512-wnJA4BnEjOSyFMvjZdpiOwhSq9uDoK8e/kpRJDTaMYzwlkrhG1fwDIZI94CLsLzlCK5cIbMMtFlJlfR57Lavmg==}
-    engines: {node: '>=8.0.0 || >=10.0.0'}
-
   vscode-jsonrpc@8.2.0:
     resolution: {integrity: sha512-C+r0eKJUIfiDIfwJhria30+TYWPtuHJXHtI7J0YlOmKAo7ogxP20T0zxB7HZQIFhIyvoBPwWskjxrvAtfjyZfA==}
     engines: {node: '>=14.0.0'}
-
-  vscode-languageserver-protocol@3.16.0:
-    resolution: {integrity: sha512-sdeUoAawceQdgIfTI+sdcwkiK2KU+2cbEYA0agzM2uqaUy2UpnnGHtWTHVEtS0ES4zHU0eMFRGN+oQgDxlD66A==}
 
   vscode-languageserver-protocol@3.17.5:
     resolution: {integrity: sha512-mb1bvRJN8SVznADSGWM9u/b07H7Ecg0I3OgXDuLdn307rl/J3A9YD6/eYOssqhecL27hK1IPZAsaqh00i/Jljg==}
@@ -4946,15 +4942,8 @@ packages:
   vscode-languageserver-textdocument@1.0.12:
     resolution: {integrity: sha512-cxWNPesCnQCcMPeenjKKsOCKQZ/L6Tv19DTRIGuLWe32lyzWhihGVJ/rcckZXJxfdKCFvRLS3fpBIsV/ZGX4zA==}
 
-  vscode-languageserver-types@3.16.0:
-    resolution: {integrity: sha512-k8luDIWJWyenLc5ToFQQMaSrqCHiLwyKPHKPQZ5zz21vM+vIVUSvsRpcbiECH4WR88K2XZqc4ScRcZ7nk/jbeA==}
-
   vscode-languageserver-types@3.17.5:
     resolution: {integrity: sha512-Ld1VelNuX9pdF39h2Hgaeb5hEZM2Z3jUrrMgWQAu82jMtZp7p3vJT3BzToKtZI7NgQssZje5o0zryOrhQvzQAg==}
-
-  vscode-languageserver@7.0.0:
-    resolution: {integrity: sha512-60HTx5ID+fLRcgdHfmz0LDZAXYEV68fzwG0JWwEPBode9NuMYTIxuYXPg4ngO8i8+Ou0lM7y6GzaYWbiDL0drw==}
-    hasBin: true
 
   vscode-languageserver@9.0.1:
     resolution: {integrity: sha512-woByF3PDpkHFUreUa7Hos7+pUWdeWMXRd26+ZX2A8cFx6v/JPTtd4/uN0/jB6XQHYaOlHbio03NTHCqrgG5n7g==}
@@ -5034,20 +5023,21 @@ packages:
   yallist@4.0.0:
     resolution: {integrity: sha512-3wdGidZyq5PB084XLES5TpOSRA3wjXAlIWMhum2kRcv/41Sn2emQ0dycQW4uZXLejwKvg6EsvbdlVL+FYEct7A==}
 
-  yaml-language-server@1.15.0:
-    resolution: {integrity: sha512-N47AqBDCMQmh6mBLmI6oqxryHRzi33aPFPsJhYy3VTUGCdLHYjGh4FZzpUjRlphaADBBkDmnkM/++KNIOHi5Rw==}
+  yaml-language-server@1.19.2:
+    resolution: {integrity: sha512-9F3myNmJzUN/679jycdMxqtydPSDRAarSj3wPiF7pchEPnO9Dg07Oc+gIYLqXR4L+g+FSEVXXv2+mr54StLFOg==}
     hasBin: true
 
   yaml@1.10.2:
     resolution: {integrity: sha512-r3vXyErRCYJ7wg28yvBY5VSoAF8ZvlcW9/BwUzEtUsjvX/DKs24dIkuwjtuprwJJHsbyUbLApepYTR1BN4uHrg==}
     engines: {node: '>= 6'}
 
-  yaml@2.2.2:
-    resolution: {integrity: sha512-CBKFWExMn46Foo4cldiChEzn7S7SRV+wqiluAb6xmueD/fGyRHIhX8m14vVGgeFWjN540nKCNVj6P21eQjgTuA==}
+  yaml@2.7.1:
+    resolution: {integrity: sha512-10ULxpnOCQXxJvBgxsn9ptjq6uviG/htZKk9veJGhlqn3w/DxQ631zFF+nlQXLwmImeS5amR2dl2U8sg6U9jsQ==}
     engines: {node: '>= 14'}
+    hasBin: true
 
-  yaml@2.8.1:
-    resolution: {integrity: sha512-lcYcMxX2PO9XMGvAJkJ3OsNMw+/7FKes7/hgerGUYWIoWu5j/+YQqcZr5JnPZWzOsEBgMbSbiSTn/dv/69Mkpw==}
+  yaml@2.8.2:
+    resolution: {integrity: sha512-mplynKqc1C2hTVYxd0PU2xQAc22TI1vShAYGksCCfxbn/dFwnHTNi1bvYsBTkhdUNtGIf5xNOg938rrSSYvS9A==}
     engines: {node: '>= 14.6'}
     hasBin: true
 
@@ -5077,10 +5067,10 @@ packages:
   zimmerframe@1.1.4:
     resolution: {integrity: sha512-B58NGBEoc8Y9MWWCQGl/gq9xBCe4IiKM0a2x7GZdQKOW5Exr8S1W24J6OgM1njK8xCRGvAJIL/MxXHf6SkmQKQ==}
 
-  zod-to-json-schema@3.24.6:
-    resolution: {integrity: sha512-h/z3PKvcTcTetyjl1fkj79MHNEjm+HpD6NXheWjzOekY7kV+lwDYnHw+ivHkijnCSMz1yJaWBD9vu/Fcmk+vEg==}
+  zod-to-json-schema@3.25.0:
+    resolution: {integrity: sha512-HvWtU2UG41LALjajJrML6uQejQhNJx+JBO9IflpSja4R03iNWfKXrj6W2h7ljuLyc1nKS+9yDyL/9tD1U/yBnQ==}
     peerDependencies:
-      zod: ^3.24.1
+      zod: ^3.25 || ^4
 
   zod-to-ts@1.2.0:
     resolution: {integrity: sha512-x30XE43V+InwGpvTySRNz9kB7qFU8DlyEy7BsSTCHPH1R0QasMmHWZDCzYm6bVXtj/9NNJAZF3jW8rzFvH5OFA==}
@@ -5107,9 +5097,9 @@ snapshots:
 
   '@antfu/utils@8.1.1': {}
 
-  '@astrojs/check@0.9.5(prettier-plugin-astro@0.14.1)(prettier@3.6.2)(typescript@5.9.3)':
+  '@astrojs/check@0.9.6(prettier-plugin-astro@0.14.1)(prettier@3.7.3)(typescript@5.9.3)':
     dependencies:
-      '@astrojs/language-server': 2.15.5(prettier-plugin-astro@0.14.1)(prettier@3.6.2)(typescript@5.9.3)
+      '@astrojs/language-server': 2.16.1(prettier-plugin-astro@0.14.1)(prettier@3.7.3)(typescript@5.9.3)
       chokidar: 4.0.3
       kleur: 4.1.5
       typescript: 5.9.3
@@ -5122,28 +5112,28 @@ snapshots:
 
   '@astrojs/internal-helpers@0.7.5': {}
 
-  '@astrojs/language-server@2.15.5(prettier-plugin-astro@0.14.1)(prettier@3.6.2)(typescript@5.9.3)':
+  '@astrojs/language-server@2.16.1(prettier-plugin-astro@0.14.1)(prettier@3.7.3)(typescript@5.9.3)':
     dependencies:
       '@astrojs/compiler': 2.13.0
       '@astrojs/yaml2ts': 0.2.2
       '@jridgewell/sourcemap-codec': 1.5.5
-      '@volar/kit': 2.4.23(typescript@5.9.3)
-      '@volar/language-core': 2.4.23
-      '@volar/language-server': 2.4.23
-      '@volar/language-service': 2.4.23
+      '@volar/kit': 2.4.26(typescript@5.9.3)
+      '@volar/language-core': 2.4.26
+      '@volar/language-server': 2.4.26
+      '@volar/language-service': 2.4.26
       fast-glob: 3.3.3
       muggle-string: 0.4.1
-      volar-service-css: 0.0.65(@volar/language-service@2.4.23)
-      volar-service-emmet: 0.0.65(@volar/language-service@2.4.23)
-      volar-service-html: 0.0.65(@volar/language-service@2.4.23)
-      volar-service-prettier: 0.0.65(@volar/language-service@2.4.23)(prettier@3.6.2)
-      volar-service-typescript: 0.0.65(@volar/language-service@2.4.23)
-      volar-service-typescript-twoslash-queries: 0.0.65(@volar/language-service@2.4.23)
-      volar-service-yaml: 0.0.65(@volar/language-service@2.4.23)
+      volar-service-css: 0.0.66(@volar/language-service@2.4.26)
+      volar-service-emmet: 0.0.66(@volar/language-service@2.4.26)
+      volar-service-html: 0.0.66(@volar/language-service@2.4.26)
+      volar-service-prettier: 0.0.66(@volar/language-service@2.4.26)(prettier@3.7.3)
+      volar-service-typescript: 0.0.66(@volar/language-service@2.4.26)
+      volar-service-typescript-twoslash-queries: 0.0.66(@volar/language-service@2.4.26)
+      volar-service-yaml: 0.0.66(@volar/language-service@2.4.26)
       vscode-html-languageservice: 5.6.0
       vscode-uri: 3.1.0
     optionalDependencies:
-      prettier: 3.6.2
+      prettier: 3.7.3
       prettier-plugin-astro: 0.14.1
     transitivePeerDependencies:
       - typescript
@@ -5189,14 +5179,14 @@ snapshots:
       stream-replace-string: 2.0.0
       zod: 3.25.76
 
-  '@astrojs/svelte@7.2.2(@types/node@24.5.2)(astro@5.16.0(@types/node@24.5.2)(jiti@2.6.1)(lightningcss@1.30.2)(rollup@2.79.2)(stylus@0.64.0)(terser@5.44.0)(typescript@5.9.3)(yaml@2.8.1))(jiti@2.6.1)(lightningcss@1.30.2)(stylus@0.64.0)(svelte@5.43.14)(terser@5.44.0)(typescript@5.9.3)(yaml@2.8.1)':
+  '@astrojs/svelte@7.2.2(@types/node@24.5.2)(astro@5.16.3(@types/node@24.5.2)(jiti@2.6.1)(lightningcss@1.30.2)(rollup@2.79.2)(stylus@0.64.0)(terser@5.44.0)(typescript@5.9.3)(yaml@2.8.2))(jiti@2.6.1)(lightningcss@1.30.2)(stylus@0.64.0)(svelte@5.45.2)(terser@5.44.0)(typescript@5.9.3)(yaml@2.8.2)':
     dependencies:
-      '@sveltejs/vite-plugin-svelte': 5.1.1(svelte@5.43.14)(vite@6.4.1(@types/node@24.5.2)(jiti@2.6.1)(lightningcss@1.30.2)(stylus@0.64.0)(terser@5.44.0)(yaml@2.8.1))
-      astro: 5.16.0(@types/node@24.5.2)(jiti@2.6.1)(lightningcss@1.30.2)(rollup@2.79.2)(stylus@0.64.0)(terser@5.44.0)(typescript@5.9.3)(yaml@2.8.1)
-      svelte: 5.43.14
-      svelte2tsx: 0.7.44(svelte@5.43.14)(typescript@5.9.3)
+      '@sveltejs/vite-plugin-svelte': 5.1.1(svelte@5.45.2)(vite@6.4.1(@types/node@24.5.2)(jiti@2.6.1)(lightningcss@1.30.2)(stylus@0.64.0)(terser@5.44.0)(yaml@2.8.2))
+      astro: 5.16.3(@types/node@24.5.2)(jiti@2.6.1)(lightningcss@1.30.2)(rollup@2.79.2)(stylus@0.64.0)(terser@5.44.0)(typescript@5.9.3)(yaml@2.8.2)
+      svelte: 5.45.2
+      svelte2tsx: 0.7.44(svelte@5.45.2)(typescript@5.9.3)
       typescript: 5.9.3
-      vite: 6.4.1(@types/node@24.5.2)(jiti@2.6.1)(lightningcss@1.30.2)(stylus@0.64.0)(terser@5.44.0)(yaml@2.8.1)
+      vite: 6.4.1(@types/node@24.5.2)(jiti@2.6.1)(lightningcss@1.30.2)(stylus@0.64.0)(terser@5.44.0)(yaml@2.8.2)
     transitivePeerDependencies:
       - '@types/node'
       - jiti
@@ -5223,19 +5213,19 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
-  '@astrojs/ts-plugin@1.10.5':
+  '@astrojs/ts-plugin@1.10.6':
     dependencies:
       '@astrojs/compiler': 2.13.0
       '@astrojs/yaml2ts': 0.2.2
       '@jridgewell/sourcemap-codec': 1.5.5
-      '@volar/language-core': 2.4.23
-      '@volar/typescript': 2.4.23
+      '@volar/language-core': 2.4.26
+      '@volar/typescript': 2.4.26
       semver: 7.7.3
       vscode-languageserver-textdocument: 1.0.12
 
   '@astrojs/yaml2ts@0.2.2':
     dependencies:
-      yaml: 2.8.1
+      yaml: 2.8.2
 
   '@babel/code-frame@7.27.1':
     dependencies:
@@ -6137,14 +6127,14 @@ snapshots:
     dependencies:
       '@iconify/types': 2.0.0
 
-  '@iconify-json/material-symbols@1.2.47':
+  '@iconify-json/material-symbols@1.2.48':
     dependencies:
       '@iconify/types': 2.0.0
 
-  '@iconify/svelte@5.1.0(svelte@5.43.14)':
+  '@iconify/svelte@5.1.0(svelte@5.45.2)':
     dependencies:
       '@iconify/types': 2.0.0
-      svelte: 5.43.14
+      svelte: 5.45.2
 
   '@iconify/tools@4.1.3':
     dependencies:
@@ -6534,29 +6524,29 @@ snapshots:
       magic-string: 0.25.9
       string.prototype.matchall: 4.0.12
 
-  '@sveltejs/acorn-typescript@1.0.7(acorn@8.15.0)':
+  '@sveltejs/acorn-typescript@1.0.8(acorn@8.15.0)':
     dependencies:
       acorn: 8.15.0
 
-  '@sveltejs/vite-plugin-svelte-inspector@4.0.1(@sveltejs/vite-plugin-svelte@5.1.1(svelte@5.43.14)(vite@6.4.1(@types/node@24.5.2)(jiti@2.6.1)(lightningcss@1.30.2)(stylus@0.64.0)(terser@5.44.0)(yaml@2.8.1)))(svelte@5.43.14)(vite@6.4.1(@types/node@24.5.2)(jiti@2.6.1)(lightningcss@1.30.2)(stylus@0.64.0)(terser@5.44.0)(yaml@2.8.1))':
+  '@sveltejs/vite-plugin-svelte-inspector@4.0.1(@sveltejs/vite-plugin-svelte@5.1.1(svelte@5.45.2)(vite@6.4.1(@types/node@24.5.2)(jiti@2.6.1)(lightningcss@1.30.2)(stylus@0.64.0)(terser@5.44.0)(yaml@2.8.2)))(svelte@5.45.2)(vite@6.4.1(@types/node@24.5.2)(jiti@2.6.1)(lightningcss@1.30.2)(stylus@0.64.0)(terser@5.44.0)(yaml@2.8.2))':
     dependencies:
-      '@sveltejs/vite-plugin-svelte': 5.1.1(svelte@5.43.14)(vite@6.4.1(@types/node@24.5.2)(jiti@2.6.1)(lightningcss@1.30.2)(stylus@0.64.0)(terser@5.44.0)(yaml@2.8.1))
+      '@sveltejs/vite-plugin-svelte': 5.1.1(svelte@5.45.2)(vite@6.4.1(@types/node@24.5.2)(jiti@2.6.1)(lightningcss@1.30.2)(stylus@0.64.0)(terser@5.44.0)(yaml@2.8.2))
       debug: 4.4.3
-      svelte: 5.43.14
-      vite: 6.4.1(@types/node@24.5.2)(jiti@2.6.1)(lightningcss@1.30.2)(stylus@0.64.0)(terser@5.44.0)(yaml@2.8.1)
+      svelte: 5.45.2
+      vite: 6.4.1(@types/node@24.5.2)(jiti@2.6.1)(lightningcss@1.30.2)(stylus@0.64.0)(terser@5.44.0)(yaml@2.8.2)
     transitivePeerDependencies:
       - supports-color
 
-  '@sveltejs/vite-plugin-svelte@5.1.1(svelte@5.43.14)(vite@6.4.1(@types/node@24.5.2)(jiti@2.6.1)(lightningcss@1.30.2)(stylus@0.64.0)(terser@5.44.0)(yaml@2.8.1))':
+  '@sveltejs/vite-plugin-svelte@5.1.1(svelte@5.45.2)(vite@6.4.1(@types/node@24.5.2)(jiti@2.6.1)(lightningcss@1.30.2)(stylus@0.64.0)(terser@5.44.0)(yaml@2.8.2))':
     dependencies:
-      '@sveltejs/vite-plugin-svelte-inspector': 4.0.1(@sveltejs/vite-plugin-svelte@5.1.1(svelte@5.43.14)(vite@6.4.1(@types/node@24.5.2)(jiti@2.6.1)(lightningcss@1.30.2)(stylus@0.64.0)(terser@5.44.0)(yaml@2.8.1)))(svelte@5.43.14)(vite@6.4.1(@types/node@24.5.2)(jiti@2.6.1)(lightningcss@1.30.2)(stylus@0.64.0)(terser@5.44.0)(yaml@2.8.1))
+      '@sveltejs/vite-plugin-svelte-inspector': 4.0.1(@sveltejs/vite-plugin-svelte@5.1.1(svelte@5.45.2)(vite@6.4.1(@types/node@24.5.2)(jiti@2.6.1)(lightningcss@1.30.2)(stylus@0.64.0)(terser@5.44.0)(yaml@2.8.2)))(svelte@5.45.2)(vite@6.4.1(@types/node@24.5.2)(jiti@2.6.1)(lightningcss@1.30.2)(stylus@0.64.0)(terser@5.44.0)(yaml@2.8.2))
       debug: 4.4.3
       deepmerge: 4.3.1
       kleur: 4.1.5
       magic-string: 0.30.21
-      svelte: 5.43.14
-      vite: 6.4.1(@types/node@24.5.2)(jiti@2.6.1)(lightningcss@1.30.2)(stylus@0.64.0)(terser@5.44.0)(yaml@2.8.1)
-      vitefu: 1.1.1(vite@6.4.1(@types/node@24.5.2)(jiti@2.6.1)(lightningcss@1.30.2)(stylus@0.64.0)(terser@5.44.0)(yaml@2.8.1))
+      svelte: 5.45.2
+      vite: 6.4.1(@types/node@24.5.2)(jiti@2.6.1)(lightningcss@1.30.2)(stylus@0.64.0)(terser@5.44.0)(yaml@2.8.2)
+      vitefu: 1.1.1(vite@6.4.1(@types/node@24.5.2)(jiti@2.6.1)(lightningcss@1.30.2)(stylus@0.64.0)(terser@5.44.0)(yaml@2.8.2))
     transitivePeerDependencies:
       - supports-color
 
@@ -6779,12 +6769,12 @@ snapshots:
       postcss-selector-parser: 6.0.10
       tailwindcss: 4.1.17
 
-  '@tailwindcss/vite@4.1.17(vite@6.4.1(@types/node@24.5.2)(jiti@2.6.1)(lightningcss@1.30.2)(stylus@0.64.0)(terser@5.44.0)(yaml@2.8.1))':
+  '@tailwindcss/vite@4.1.17(vite@6.4.1(@types/node@24.5.2)(jiti@2.6.1)(lightningcss@1.30.2)(stylus@0.64.0)(terser@5.44.0)(yaml@2.8.2))':
     dependencies:
       '@tailwindcss/node': 4.1.17
       '@tailwindcss/oxide': 4.1.17
       tailwindcss: 4.1.17
-      vite: 6.4.1(@types/node@24.5.2)(jiti@2.6.1)(lightningcss@1.30.2)(stylus@0.64.0)(terser@5.44.0)(yaml@2.8.1)
+      vite: 6.4.1(@types/node@24.5.2)(jiti@2.6.1)(lightningcss@1.30.2)(stylus@0.64.0)(terser@5.44.0)(yaml@2.8.2)
 
   '@trysound/sax@0.2.0': {}
 
@@ -6865,24 +6855,24 @@ snapshots:
 
   '@ungap/structured-clone@1.3.0': {}
 
-  '@volar/kit@2.4.23(typescript@5.9.3)':
+  '@volar/kit@2.4.26(typescript@5.9.3)':
     dependencies:
-      '@volar/language-service': 2.4.23
-      '@volar/typescript': 2.4.23
+      '@volar/language-service': 2.4.26
+      '@volar/typescript': 2.4.26
       typesafe-path: 0.2.2
       typescript: 5.9.3
       vscode-languageserver-textdocument: 1.0.12
       vscode-uri: 3.1.0
 
-  '@volar/language-core@2.4.23':
+  '@volar/language-core@2.4.26':
     dependencies:
-      '@volar/source-map': 2.4.23
+      '@volar/source-map': 2.4.26
 
-  '@volar/language-server@2.4.23':
+  '@volar/language-server@2.4.26':
     dependencies:
-      '@volar/language-core': 2.4.23
-      '@volar/language-service': 2.4.23
-      '@volar/typescript': 2.4.23
+      '@volar/language-core': 2.4.26
+      '@volar/language-service': 2.4.26
+      '@volar/typescript': 2.4.26
       path-browserify: 1.0.1
       request-light: 0.7.0
       vscode-languageserver: 9.0.1
@@ -6890,18 +6880,18 @@ snapshots:
       vscode-languageserver-textdocument: 1.0.12
       vscode-uri: 3.1.0
 
-  '@volar/language-service@2.4.23':
+  '@volar/language-service@2.4.26':
     dependencies:
-      '@volar/language-core': 2.4.23
+      '@volar/language-core': 2.4.26
       vscode-languageserver-protocol: 3.17.5
       vscode-languageserver-textdocument: 1.0.12
       vscode-uri: 3.1.0
 
-  '@volar/source-map@2.4.23': {}
+  '@volar/source-map@2.4.26': {}
 
-  '@volar/typescript@2.4.23':
+  '@volar/typescript@2.4.26':
     dependencies:
-      '@volar/language-core': 2.4.23
+      '@volar/language-core': 2.4.26
       path-browserify: 1.0.1
       vscode-uri: 3.1.0
 
@@ -6916,6 +6906,10 @@ snapshots:
   '@vscode/l10n@0.0.18': {}
 
   acorn@8.15.0: {}
+
+  ajv-draft-04@1.0.0(ajv@8.17.1):
+    optionalDependencies:
+      ajv: 8.17.1
 
   ajv@8.17.1:
     dependencies:
@@ -6970,9 +6964,9 @@ snapshots:
       get-intrinsic: 1.3.0
       is-array-buffer: 3.0.5
 
-  astro-expressive-code@0.41.3(astro@5.16.0(@types/node@24.5.2)(jiti@2.6.1)(lightningcss@1.30.2)(rollup@2.79.2)(stylus@0.64.0)(terser@5.44.0)(typescript@5.9.3)(yaml@2.8.1)):
+  astro-expressive-code@0.41.3(astro@5.16.3(@types/node@24.5.2)(jiti@2.6.1)(lightningcss@1.30.2)(rollup@2.79.2)(stylus@0.64.0)(terser@5.44.0)(typescript@5.9.3)(yaml@2.8.2)):
     dependencies:
-      astro: 5.16.0(@types/node@24.5.2)(jiti@2.6.1)(lightningcss@1.30.2)(rollup@2.79.2)(stylus@0.64.0)(terser@5.44.0)(typescript@5.9.3)(yaml@2.8.1)
+      astro: 5.16.3(@types/node@24.5.2)(jiti@2.6.1)(lightningcss@1.30.2)(rollup@2.79.2)(stylus@0.64.0)(terser@5.44.0)(typescript@5.9.3)(yaml@2.8.2)
       rehype-expressive-code: 0.41.3
 
   astro-icon@1.1.5:
@@ -6984,7 +6978,7 @@ snapshots:
       - debug
       - supports-color
 
-  astro@5.16.0(@types/node@24.5.2)(jiti@2.6.1)(lightningcss@1.30.2)(rollup@2.79.2)(stylus@0.64.0)(terser@5.44.0)(typescript@5.9.3)(yaml@2.8.1):
+  astro@5.16.3(@types/node@24.5.2)(jiti@2.6.1)(lightningcss@1.30.2)(rollup@2.79.2)(stylus@0.64.0)(terser@5.44.0)(typescript@5.9.3)(yaml@2.8.2):
     dependencies:
       '@astrojs/compiler': 2.13.0
       '@astrojs/internal-helpers': 0.7.5
@@ -7039,15 +7033,15 @@ snapshots:
       ultrahtml: 1.6.0
       unifont: 0.6.0
       unist-util-visit: 5.0.0
-      unstorage: 1.17.2
+      unstorage: 1.17.3
       vfile: 6.0.3
-      vite: 6.4.1(@types/node@24.5.2)(jiti@2.6.1)(lightningcss@1.30.2)(stylus@0.64.0)(terser@5.44.0)(yaml@2.8.1)
-      vitefu: 1.1.1(vite@6.4.1(@types/node@24.5.2)(jiti@2.6.1)(lightningcss@1.30.2)(stylus@0.64.0)(terser@5.44.0)(yaml@2.8.1))
+      vite: 6.4.1(@types/node@24.5.2)(jiti@2.6.1)(lightningcss@1.30.2)(stylus@0.64.0)(terser@5.44.0)(yaml@2.8.2)
+      vitefu: 1.1.1(vite@6.4.1(@types/node@24.5.2)(jiti@2.6.1)(lightningcss@1.30.2)(stylus@0.64.0)(terser@5.44.0)(yaml@2.8.2))
       xxhash-wasm: 1.1.0
       yargs-parser: 21.1.1
       yocto-spinner: 0.2.3
       zod: 3.25.76
-      zod-to-json-schema: 3.24.6(zod@3.25.76)
+      zod-to-json-schema: 3.25.0(zod@3.25.76)
       zod-to-ts: 1.2.0(typescript@5.9.3)(zod@3.25.76)
     optionalDependencies:
       sharp: 0.34.5
@@ -7763,7 +7757,7 @@ snapshots:
 
   esm-env@1.2.2: {}
 
-  esrap@2.1.3:
+  esrap@2.2.0:
     dependencies:
       '@jridgewell/sourcemap-codec': 1.5.5
 
@@ -9152,7 +9146,7 @@ snapshots:
 
   opencollective-postinstall@2.0.3: {}
 
-  overlayscrollbars@2.12.0: {}
+  overlayscrollbars@2.13.0: {}
 
   own-keys@1.0.1:
     dependencies:
@@ -9542,21 +9536,18 @@ snapshots:
   prettier-plugin-astro@0.14.1:
     dependencies:
       '@astrojs/compiler': 2.13.0
-      prettier: 3.6.2
+      prettier: 3.7.3
       sass-formatter: 0.7.9
 
-  prettier-plugin-tailwindcss@0.7.1(prettier-plugin-astro@0.14.1)(prettier@3.6.2):
+  prettier-plugin-tailwindcss@0.7.1(prettier-plugin-astro@0.14.1)(prettier@3.7.3):
     dependencies:
-      prettier: 3.6.2
+      prettier: 3.7.3
     optionalDependencies:
       prettier-plugin-astro: 0.14.1
 
-  prettier@2.8.7:
-    optional: true
-
   prettier@2.8.8: {}
 
-  prettier@3.6.2: {}
+  prettier@3.7.3: {}
 
   pretty-bytes@3.0.1:
     dependencies:
@@ -10259,25 +10250,26 @@ snapshots:
 
   supports-preserve-symlinks-flag@1.0.0: {}
 
-  svelte2tsx@0.7.44(svelte@5.43.14)(typescript@5.9.3):
+  svelte2tsx@0.7.44(svelte@5.45.2)(typescript@5.9.3):
     dependencies:
       dedent-js: 1.0.1
       scule: 1.3.0
-      svelte: 5.43.14
+      svelte: 5.45.2
       typescript: 5.9.3
 
-  svelte@5.43.14:
+  svelte@5.45.2:
     dependencies:
       '@jridgewell/remapping': 2.3.5
       '@jridgewell/sourcemap-codec': 1.5.5
-      '@sveltejs/acorn-typescript': 1.0.7(acorn@8.15.0)
+      '@sveltejs/acorn-typescript': 1.0.8(acorn@8.15.0)
       '@types/estree': 1.0.8
       acorn: 8.15.0
       aria-query: 5.3.2
       axobject-query: 4.1.0
       clsx: 2.1.1
+      devalue: 5.5.0
       esm-env: 1.2.2
-      esrap: 2.1.3
+      esrap: 2.2.0
       is-reference: 3.0.3
       locate-character: 3.0.0
       magic-string: 0.30.21
@@ -10553,7 +10545,7 @@ snapshots:
 
   universalify@2.0.1: {}
 
-  unstorage@1.17.2:
+  unstorage@1.17.3:
     dependencies:
       anymatch: 3.1.3
       chokidar: 4.0.3
@@ -10587,7 +10579,7 @@ snapshots:
       '@types/unist': 3.0.3
       vfile-message: 4.0.3
 
-  vite@6.4.1(@types/node@24.5.2)(jiti@2.6.1)(lightningcss@1.30.2)(stylus@0.64.0)(terser@5.44.0)(yaml@2.8.1):
+  vite@6.4.1(@types/node@24.5.2)(jiti@2.6.1)(lightningcss@1.30.2)(stylus@0.64.0)(terser@5.44.0)(yaml@2.8.2):
     dependencies:
       esbuild: 0.25.10
       fdir: 6.5.0(picomatch@4.0.3)
@@ -10602,51 +10594,51 @@ snapshots:
       lightningcss: 1.30.2
       stylus: 0.64.0
       terser: 5.44.0
-      yaml: 2.8.1
+      yaml: 2.8.2
 
-  vitefu@1.1.1(vite@6.4.1(@types/node@24.5.2)(jiti@2.6.1)(lightningcss@1.30.2)(stylus@0.64.0)(terser@5.44.0)(yaml@2.8.1)):
+  vitefu@1.1.1(vite@6.4.1(@types/node@24.5.2)(jiti@2.6.1)(lightningcss@1.30.2)(stylus@0.64.0)(terser@5.44.0)(yaml@2.8.2)):
     optionalDependencies:
-      vite: 6.4.1(@types/node@24.5.2)(jiti@2.6.1)(lightningcss@1.30.2)(stylus@0.64.0)(terser@5.44.0)(yaml@2.8.1)
+      vite: 6.4.1(@types/node@24.5.2)(jiti@2.6.1)(lightningcss@1.30.2)(stylus@0.64.0)(terser@5.44.0)(yaml@2.8.2)
 
-  volar-service-css@0.0.65(@volar/language-service@2.4.23):
+  volar-service-css@0.0.66(@volar/language-service@2.4.26):
     dependencies:
       vscode-css-languageservice: 6.3.8
       vscode-languageserver-textdocument: 1.0.12
       vscode-uri: 3.1.0
     optionalDependencies:
-      '@volar/language-service': 2.4.23
+      '@volar/language-service': 2.4.26
 
-  volar-service-emmet@0.0.65(@volar/language-service@2.4.23):
+  volar-service-emmet@0.0.66(@volar/language-service@2.4.26):
     dependencies:
       '@emmetio/css-parser': https://codeload.github.com/ramya-rao-a/css-parser/tar.gz/370c480ac103bd17c7bcfb34bf5d577dc40d3660
       '@emmetio/html-matcher': 1.3.0
       '@vscode/emmet-helper': 2.11.0
       vscode-uri: 3.1.0
     optionalDependencies:
-      '@volar/language-service': 2.4.23
+      '@volar/language-service': 2.4.26
 
-  volar-service-html@0.0.65(@volar/language-service@2.4.23):
+  volar-service-html@0.0.66(@volar/language-service@2.4.26):
     dependencies:
       vscode-html-languageservice: 5.6.0
       vscode-languageserver-textdocument: 1.0.12
       vscode-uri: 3.1.0
     optionalDependencies:
-      '@volar/language-service': 2.4.23
+      '@volar/language-service': 2.4.26
 
-  volar-service-prettier@0.0.65(@volar/language-service@2.4.23)(prettier@3.6.2):
+  volar-service-prettier@0.0.66(@volar/language-service@2.4.26)(prettier@3.7.3):
     dependencies:
       vscode-uri: 3.1.0
     optionalDependencies:
-      '@volar/language-service': 2.4.23
-      prettier: 3.6.2
+      '@volar/language-service': 2.4.26
+      prettier: 3.7.3
 
-  volar-service-typescript-twoslash-queries@0.0.65(@volar/language-service@2.4.23):
+  volar-service-typescript-twoslash-queries@0.0.66(@volar/language-service@2.4.26):
     dependencies:
       vscode-uri: 3.1.0
     optionalDependencies:
-      '@volar/language-service': 2.4.23
+      '@volar/language-service': 2.4.26
 
-  volar-service-typescript@0.0.65(@volar/language-service@2.4.23):
+  volar-service-typescript@0.0.66(@volar/language-service@2.4.26):
     dependencies:
       path-browserify: 1.0.1
       semver: 7.7.3
@@ -10655,14 +10647,14 @@ snapshots:
       vscode-nls: 5.2.0
       vscode-uri: 3.1.0
     optionalDependencies:
-      '@volar/language-service': 2.4.23
+      '@volar/language-service': 2.4.26
 
-  volar-service-yaml@0.0.65(@volar/language-service@2.4.23):
+  volar-service-yaml@0.0.66(@volar/language-service@2.4.26):
     dependencies:
       vscode-uri: 3.1.0
-      yaml-language-server: 1.15.0
+      yaml-language-server: 1.19.2
     optionalDependencies:
-      '@volar/language-service': 2.4.23
+      '@volar/language-service': 2.4.26
 
   vscode-css-languageservice@6.3.8:
     dependencies:
@@ -10686,14 +10678,7 @@ snapshots:
       vscode-nls: 5.2.0
       vscode-uri: 3.1.0
 
-  vscode-jsonrpc@6.0.0: {}
-
   vscode-jsonrpc@8.2.0: {}
-
-  vscode-languageserver-protocol@3.16.0:
-    dependencies:
-      vscode-jsonrpc: 6.0.0
-      vscode-languageserver-types: 3.16.0
 
   vscode-languageserver-protocol@3.17.5:
     dependencies:
@@ -10702,13 +10687,7 @@ snapshots:
 
   vscode-languageserver-textdocument@1.0.12: {}
 
-  vscode-languageserver-types@3.16.0: {}
-
   vscode-languageserver-types@3.17.5: {}
-
-  vscode-languageserver@7.0.0:
-    dependencies:
-      vscode-languageserver-protocol: 3.16.0
 
   vscode-languageserver@9.0.1:
     dependencies:
@@ -10805,26 +10784,26 @@ snapshots:
 
   yallist@4.0.0: {}
 
-  yaml-language-server@1.15.0:
+  yaml-language-server@1.19.2:
     dependencies:
+      '@vscode/l10n': 0.0.18
       ajv: 8.17.1
+      ajv-draft-04: 1.0.0(ajv@8.17.1)
       lodash: 4.17.21
+      prettier: 3.7.3
       request-light: 0.5.8
       vscode-json-languageservice: 4.1.8
-      vscode-languageserver: 7.0.0
+      vscode-languageserver: 9.0.1
       vscode-languageserver-textdocument: 1.0.12
       vscode-languageserver-types: 3.17.5
-      vscode-nls: 5.2.0
       vscode-uri: 3.1.0
-      yaml: 2.2.2
-    optionalDependencies:
-      prettier: 2.8.7
+      yaml: 2.7.1
 
   yaml@1.10.2: {}
 
-  yaml@2.2.2: {}
+  yaml@2.7.1: {}
 
-  yaml@2.8.1: {}
+  yaml@2.8.2: {}
 
   yargs-parser@21.1.1: {}
 
@@ -10853,7 +10832,7 @@ snapshots:
 
   zimmerframe@1.1.4: {}
 
-  zod-to-json-schema@3.24.6(zod@3.25.76):
+  zod-to-json-schema@3.25.0(zod@3.25.76):
     dependencies:
       zod: 3.25.76
 
