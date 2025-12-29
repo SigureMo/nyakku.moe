@@ -16,7 +16,7 @@
   },
   "author": "Nyakku Shigure",
   "license": "CC-BY-NC-SA-4.0",
-  "packageManager": "pnpm@10.26.1",
+  "packageManager": "pnpm@10.26.2",
   "dependencies": {
     "@astrojs/check": "^0.9.4",
     "@astrojs/rss": "^4.0.12",
