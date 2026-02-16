@@ -5,7 +5,7 @@
 - 写写代码
 - 吸猫猫（云，最爱狸花）
 - 音乐（大爱虚拟歌手，重度耳机依赖患者）
-- 喵喵（喵喵最可爱了）
+- 赛博养猫（[@ShigureNyako](https://github.com/ShigureNyako)）
 
 ## 我平时所用的编码环境？
 
@@ -13,7 +13,9 @@
 - Editor: VS Code
    - Theme: [Elaina](https://github.com/moefyit/vscode-theme-elaina)
    - Font: [Fira Code](https://github.com/tonsky/FiraCode)
-- AI Assistant: [GitHub Copilot](https://github.com/features/copilot)
+- AI Assistants
+   - [GitHub Copilot](https://github.com/features/copilot)
+   - [Codex](https://chatgpt.com/codex)
 - Shell: Zsh
    - Framework: [zimfw](https://github.com/zimfw/zimfw)
    - Theme: [pure](https://github.com/sindresorhus/pure)
@@ -37,6 +39,6 @@
 
 ## 我都做过什么？
 
-- [PaddlePaddle](https://github.com/PaddlePaddle/Paddle) 训练框架 RD & 社区 Committer
+- [PaddlePaddle](https://github.com/PaddlePaddle/Paddle) 核心训练框架 RD & 社区 Committer
 - [yutto](https://github.com/yutto-dev/yutto) 一个可爱且任性的 B 站视频下载器
 - [Moefy Canvas](https://moefy-canvas.nyakku.moe/) 一些简单的 canvas 背景、点击特效，部分取自[曾经做过的 VuePress V1 插件](https://moefyit.github.io/moefy-vuepress/)
