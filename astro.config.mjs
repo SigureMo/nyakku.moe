@@ -41,7 +41,7 @@ export default defineConfig({
       cache: true,
       preload: true,
       accessibility: true,
-      updateHead: true,
+      updateHead: import.meta.env.PROD,
       updateBodyClass: false,
       globalInstance: true,
     }),

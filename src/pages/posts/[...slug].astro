@@ -13,19 +13,18 @@ import ImageWrapper from '../../components/misc/ImageWrapper.astro'
 import PostMetadata from '../../components/PostMeta.astro'
 import { profileConfig, siteConfig } from '../../config'
 import { formatDateToYYYYMMDD } from '../../utils/date-utils'
+import { render } from 'astro:content'
 
 export async function getStaticPaths() {
   const blogEntries = await getSortedPosts()
   return blogEntries.map((entry) => ({
-    params: { slug: entry.slug },
+    params: { slug: entry.id },
     props: { entry },
   }))
 }
 
 const { entry } = Astro.props
-const { Content, headings } = await entry.render()
-
-const { remarkPluginFrontmatter } = await entry.render()
+const { Content, headings, remarkPluginFrontmatter } = await render(entry)
 
 const jsonLd = {
   '@context': 'https://schema.org',
@@ -142,7 +141,7 @@ const jsonLd = {
         licenseConfig.enable && (
           <License
             title={entry.data.title}
-            slug={entry.slug}
+            slug={entry.id}
             pubDate={entry.data.published}
             class="license-container onload-animation mb-6 rounded-xl"
           />
