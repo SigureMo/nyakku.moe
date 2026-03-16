@@ -1,5 +1,5 @@
 ---
-import type { CollectionEntry } from 'astro:content'
+import { render, type CollectionEntry } from 'astro:content'
 import path from 'node:path'
 import { Icon } from 'astro-icon/components'
 import I18nKey from '../i18n/i18nKey'
@@ -30,7 +30,7 @@ const hasCover = image !== undefined && image !== null && image !== ''
 
 const coverWidth = '28%'
 
-const { remarkPluginFrontmatter } = await entry.render()
+const { remarkPluginFrontmatter } = await render(entry)
 ---
 
 <div
