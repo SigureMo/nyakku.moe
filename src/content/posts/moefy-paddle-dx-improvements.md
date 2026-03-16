@@ -3,10 +3,10 @@ title: 让 Paddle 更可爱——开发者体验提升计划
 published: 2022-09-21
 category: 做点有趣的
 tags:
-   - PaddlePaddle
-   - AST
-   - DX
-   - refactoring
+  - PaddlePaddle
+  - AST
+  - DX
+  - refactoring
 ---
 
 :::tip

@@ -3,7 +3,7 @@ title: Git 提交信息规范
 published: 2018-09-16
 category: 找点好玩的
 tags:
-   - Git
+  - Git
 ---
 
 :::tip

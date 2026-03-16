@@ -11,8 +11,9 @@
     "type-check": "tsc --noEmit --isolatedDeclarations",
     "preinstall": "npx only-allow pnpm",
     "img:upload": "bash scripts/upload-img.sh",
-    "fmt": "case-police . --fix && prettier --write .",
-    "fmt:check": "case-police . && prettier --check ."
+    "fmt": "case-police . --fix && vp fmt .",
+    "fmt:check": "case-police . && vp fmt --check .",
+    "prepare": "vp config"
   },
   "author": "Nyakku Shigure",
   "license": "CC-BY-NC-SA-4.0",
@@ -80,8 +81,6 @@
     "case-police": "^2.0.0",
     "postcss-import": "^16.1.1",
     "postcss-nesting": "^14.0.0",
-    "prettier": "^3.7.4",
-    "prettier-plugin-astro": "^0.14.1",
-    "prettier-plugin-tailwindcss": "^0.7.2"
+    "vite-plus": "latest"
   }
 }

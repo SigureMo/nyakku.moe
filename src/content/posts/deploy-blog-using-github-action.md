@@ -3,8 +3,8 @@ title: 采用 GitHub Action 自动化部署博客
 published: 2020-06-22
 category: 找点好玩的
 tags:
-   - CI
-   - GitHub
+  - CI
+  - GitHub
 ---
 
 :::tip
@@ -32,19 +32,19 @@ GitHub Action 的使用方法也非常简单～只需要在项目根目录新建
 name: Hello GitHub Action
 
 on:
-   # 触发条件，比如 push pull_request 等
-   push:
-      branches:
-         - main
+  # 触发条件，比如 push pull_request 等
+  push:
+    branches:
+      - main
 
 jobs:
-   build-and-deploy:
-      # 运行环境
-      runs-on: ubuntu-latest
-      steps:
-         # 各步的任务
-         - name: Hello GitHub Action
-           run: echo 'Hello GitHub Action'
+  build-and-deploy:
+    # 运行环境
+    runs-on: ubuntu-latest
+    steps:
+      # 各步的任务
+      - name: Hello GitHub Action
+        run: echo 'Hello GitHub Action'
 ```
 
 这样我们就完成了一个简单的 GitHub Action，它会在我们每次 push 到 main 分支时触发，之后就会打印 `Hello GitHub Action`，虽然看不见……
@@ -57,36 +57,36 @@ jobs:
 name: VuePress Deploy
 
 on:
-   push:
-      branches:
-         - main
+  push:
+    branches:
+      - main
 
 jobs:
-   build-and-deploy:
-      runs-on: ubuntu-latest
-      steps:
-         # 使用某个 Repo
-         - name: Checkout 🛎️
-           uses: actions/checkout@v2
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    steps:
+      # 使用某个 Repo
+      - name: Checkout 🛎️
+        uses: actions/checkout@v2
 
-         # 构建静态文件
-         - name: Install and Build 🔧
-           run: |
-              npm install yarn
-              yarn
-              yarn docs:build
+      # 构建静态文件
+      - name: Install and Build 🔧
+        run: |
+          npm install yarn
+          yarn
+          yarn docs:build
 
-         # 部署到 GitHub Pages
-         - name: Deploy 🚀
-           uses: peaceiris/actions-gh-pages@v3
-           with:
-              personal_token: ${{ secrets.PERSONAL_TOKEN }}
-              publish_dir: docs/.vuepress/dist
-              external_repository: SigureMo/SigureMo.github.io
-              publish_branch: main
-              cname: nyakku.moe
-              user_name: 'github-actions[bot]'
-              user_email: 'github-actions[bot]@users.noreply.github.com'
+      # 部署到 GitHub Pages
+      - name: Deploy 🚀
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          personal_token: ${{ secrets.PERSONAL_TOKEN }}
+          publish_dir: docs/.vuepress/dist
+          external_repository: SigureMo/SigureMo.github.io
+          publish_branch: main
+          cname: nyakku.moe
+          user_name: 'github-actions[bot]'
+          user_email: 'github-actions[bot]@users.noreply.github.com'
 ```
 
 这里第一步是使用你的源代码 repo，其中 uses 是指使用了某个现成的 Action，比如这个 `actions/checkout` 就是 [`github.com/actions/checkout`](https://github.com/actions/checkout) 的 `v2` 版本，如果需要 submodule 或者 lfs 可以通过 `with` 选项来修改参数
@@ -99,8 +99,8 @@ jobs:
 - name: Deploy 🚀
   uses: peaceiris/actions-gh-pages@v3
   with:
-     github_token: ${{ secrets.GITHUB_TOKEN }}
-     publish_dir: docs/.vuepress/dist
+    github_token: ${{ secrets.GITHUB_TOKEN }}
+    publish_dir: docs/.vuepress/dist
 ```
 
 这里的 `secrets.GITHUB_TOKEN` 不需要配置，GitHub 会自动提供

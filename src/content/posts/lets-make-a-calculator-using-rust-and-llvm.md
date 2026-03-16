@@ -3,11 +3,11 @@ title: 用 Rust 和 LLVM 写一个计算器吧～
 published: 2022-01-21
 category: 做点有趣的
 tags:
-   - Rust
-   - LLVM
-   - Compiler
-   - JIT
-   - AST
+  - Rust
+  - LLVM
+  - Compiler
+  - JIT
+  - AST
 ---
 
 :::tip

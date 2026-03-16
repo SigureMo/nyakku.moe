@@ -11,16 +11,16 @@
 
 - Device: MacBook Pro (14-inch, M4 Pro, 2024)
 - Editor: VS Code
-   - Theme: [Elaina](https://github.com/moefyit/vscode-theme-elaina)
-   - Font: [Fira Code](https://github.com/tonsky/FiraCode)
+  - Theme: [Elaina](https://github.com/moefyit/vscode-theme-elaina)
+  - Font: [Fira Code](https://github.com/tonsky/FiraCode)
 - AI Assistants
-   - [GitHub Copilot](https://github.com/features/copilot)
-   - [Codex](https://chatgpt.com/codex)
+  - [GitHub Copilot](https://github.com/features/copilot)
+  - [Codex](https://chatgpt.com/codex)
 - Shell: Zsh
-   - Framework: [zimfw](https://github.com/zimfw/zimfw)
-   - Theme: [pure](https://github.com/sindresorhus/pure)
-   - Terminal: [iTerm2](https://github.com/gnachman/iTerm2) / VS Code Integrated Terminal
-   - Color Scheme: [Snazzy](https://github.com/mbadolato/iTerm2-Color-Schemes#snazzy)
+  - Framework: [zimfw](https://github.com/zimfw/zimfw)
+  - Theme: [pure](https://github.com/sindresorhus/pure)
+  - Terminal: [iTerm2](https://github.com/gnachman/iTerm2) / VS Code Integrated Terminal
+  - Color Scheme: [Snazzy](https://github.com/mbadolato/iTerm2-Color-Schemes#snazzy)
 
 ## 哪里能够找到我？
 
