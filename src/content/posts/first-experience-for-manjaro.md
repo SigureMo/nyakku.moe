@@ -3,8 +3,8 @@ title: Manjaro 初体验
 published: 2020-04-06
 category: 找点好玩的
 tags:
-   - Linux
-   - Manjaro
+  - Linux
+  - Manjaro
 ---
 
 :::tip
@@ -125,67 +125,67 @@ sudo pacman -U <package_name>.tar.xz
 
 - vim
 
-   ```
-   sudo pacman -S vim
-   ```
+  ```
+  sudo pacman -S vim
+  ```
 
 - Sunpinyin
 
-   听说 Linux 版搜狗输入法有点问题，之前在 Deepin 下确实遇到些 Bug，所以就不选了，这里用 `Sunpinyin` 配合 `Cloudpinyin`，在那之前需要先安装输入法管理器 `fcitx`
+  听说 Linux 版搜狗输入法有点问题，之前在 Deepin 下确实遇到些 Bug，所以就不选了，这里用 `Sunpinyin` 配合 `Cloudpinyin`，在那之前需要先安装输入法管理器 `fcitx`
 
-   ```
-   sudo pacman -S fcitx-im
-   sudo pacman -S fcitx-configtool
-   sudo pacman -S fcitx-sunpinyin
-   sudo pacman -S fcitx-cloudpinyin
-   ```
+  ```
+  sudo pacman -S fcitx-im
+  sudo pacman -S fcitx-configtool
+  sudo pacman -S fcitx-sunpinyin
+  sudo pacman -S fcitx-cloudpinyin
+  ```
 
-   并将以下内容添加到 `/etc/profile`
+  并将以下内容添加到 `/etc/profile`
 
-   ```
-   export GTK_IM_MODULE=fcitx
-   export QT_IM_MODULE=fcitx
-   export XMODIFIERS="@im=fcitx"
-   ```
+  ```
+  export GTK_IM_MODULE=fcitx
+  export QT_IM_MODULE=fcitx
+  export XMODIFIERS="@im=fcitx"
+  ```
 
-   之后在 fcitx 将 `Sunpinyin` 调整为第二输入法并移除多余输入法即可
+  之后在 fcitx 将 `Sunpinyin` 调整为第二输入法并移除多余输入法即可
 
 - chrome
 
-   ```
-   yay -S google-chrome
-   ```
+  ```
+  yay -S google-chrome
+  ```
 
 - spotify
 
-   ```bash
-   yay -S spotify
-   ```
+  ```bash
+  yay -S spotify
+  ```
 
 - vscode
 
-   ```bash
-   yay -S visual-studio-code-bin
-   ```
+  ```bash
+  yay -S visual-studio-code-bin
+  ```
 
 - WPS
 
-   ```bash
-   yay -S wps-office
-   yay -S ttf-wps-fonts
-   ```
+  ```bash
+  yay -S wps-office
+  yay -S ttf-wps-fonts
+  ```
 
 - flameshot
 
-   ```bash
-   yay -S flameshot
-   ```
+  ```bash
+  yay -S flameshot
+  ```
 
 - simplescreenrecorder
 
-   ```bash
-   yay -S simplescreenrecorder
-   ```
+  ```bash
+  yay -S simplescreenrecorder
+  ```
 
 ## 美化
 

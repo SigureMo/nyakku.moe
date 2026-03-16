@@ -3,10 +3,10 @@ title: Python 3.11 核心加速原理——指令特化
 published: 2023-08-27
 category: 做点有趣的
 tags:
-   - Python
-   - Interpreter
-   - ByteCode
-   - Virtual Machine
+  - Python
+  - Interpreter
+  - ByteCode
+  - Virtual Machine
 ---
 
 :::tip
@@ -166,9 +166,9 @@ write_instr(_Py_CODEUNIT *codestr, struct instr *instruction, int ilen)
 - 原始指令：`LOAD_ATTR`
 - 自适应指令：`LOAD_ATTR_ADAPTIVE`
 - 特化指令：
-   - `LOAD_ATTR_INSTANCE_VALUE`：一种常见的情况，其中属性存储在对象的值数组中，并且不被覆盖描述符遮蔽
-   - `LOAD_ATTR_MODULE`：从模块 load 属性
-   - `LOAD_ATTR_SLOT`：从 `__slots__` 加载属性
+  - `LOAD_ATTR_INSTANCE_VALUE`：一种常见的情况，其中属性存储在对象的值数组中，并且不被覆盖描述符遮蔽
+  - `LOAD_ATTR_MODULE`：从模块 load 属性
+  - `LOAD_ATTR_SLOT`：从 `__slots__` 加载属性
 
 ### 原始指令到自适应指令的转换
 

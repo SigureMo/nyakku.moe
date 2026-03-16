@@ -3,12 +3,12 @@ title: 哇，好复杂的 TorchDynamo，我们拆开看看吧～
 published: 2023-04-22
 category: 做点有趣的
 tags:
-   - Python
-   - JIT
-   - Compiler
-   - PyTorch
-   - ByteCode
-   - Virtual Machine
+  - Python
+  - JIT
+  - Compiler
+  - PyTorch
+  - ByteCode
+  - Virtual Machine
 ---
 
 :::tip

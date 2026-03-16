@@ -3,9 +3,9 @@ title: TensorFlow 踩坑记：训练状态的设置
 published: 2020-04-08
 category: 找点好玩的
 tags:
-   - TensorFlow
-   - Python
-   - DL
+  - TensorFlow
+  - Python
+  - DL
 ---
 
 :::tip

@@ -3,8 +3,8 @@ title: 模拟退火算法
 published: 2020-03-22
 category: 想点没谱的
 tags:
-   - ML
-   - Optimizer
+  - ML
+  - Optimizer
 ---
 
 :::tip

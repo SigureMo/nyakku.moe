@@ -3,7 +3,7 @@ title: Git 协作模式
 published: 2019-10-26
 category: 想点没谱的
 tags:
-   - Git
+  - Git
 ---
 
 :::tip
@@ -15,9 +15,9 @@ tags:
 <!-- more -->
 
 - 预备知识
-   - Git 基本命令
+  - Git 基本命令
 - 开发环境
-   - `Git`
+  - `Git`
 
 ## 单人的工作模式
 

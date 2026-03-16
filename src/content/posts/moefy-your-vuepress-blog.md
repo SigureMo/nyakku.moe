@@ -3,9 +3,9 @@ title: 用可爱的插件装饰你的 VuePress~
 published: 2019-10-21
 category: 做点有趣的
 tags:
-   - front end
-   - blog
-   - VuePress
+  - front end
+  - blog
+  - VuePress
 ---
 
 :::tip
@@ -38,16 +38,16 @@ yarn add vuepress-plugin-ribbon -D
 
 ```js
 module.exports = {
-   plugins: [
-      [
-         'ribbon',
-         {
-            size: 90, // 彩带的宽度，默认为 90
-            opacity: 0.8, // 彩带的不透明度，默认为 0.3
-            zIndex: -1, // 彩带的 z-index 属性，默认值为 -1
-         },
-      ],
-   ],
+  plugins: [
+    [
+      'ribbon',
+      {
+        size: 90, // 彩带的宽度，默认为 90
+        opacity: 0.8, // 彩带的不透明度，默认为 0.3
+        zIndex: -1, // 彩带的 z-index 属性，默认值为 -1
+      },
+    ],
+  ],
 }
 ```
 
@@ -77,18 +77,18 @@ yarn add vuepress-plugin-dynamic-title -D
 
 ```js
 module.exports = {
-   plugins: [
-      [
-         'dynamic-title',
-         {
-            showIcon: '/favicon.ico',
-            showText: '(/≧▽≦/)咦！又好了！',
-            hideIcon: '/failure.ico',
-            hideText: '(●—●)喔哟，崩溃啦！',
-            recoverTime: 2000,
-         },
-      ],
-   ],
+  plugins: [
+    [
+      'dynamic-title',
+      {
+        showIcon: '/favicon.ico',
+        showText: '(/≧▽≦/)咦！又好了！',
+        hideIcon: '/failure.ico',
+        hideText: '(●—●)喔哟，崩溃啦！',
+        recoverTime: 2000,
+      },
+    ],
+  ],
 }
 ```
 
@@ -102,16 +102,16 @@ module.exports = {
 
 ```js
 module.exports = {
-   plugins: [
-      [
-         'cursor-effects',
-         {
-            size: 2, // 粒子大小
-            shape: 'star', // 粒子形状（可选 'star' 和 'circle'）
-            zIndex: 999999999,
-         },
-      ],
-   ],
+  plugins: [
+    [
+      'cursor-effects',
+      {
+        size: 2, // 粒子大小
+        shape: 'star', // 粒子形状（可选 'star' 和 'circle'）
+        zIndex: 999999999,
+      },
+    ],
+  ],
 }
 ```
 
@@ -137,7 +137,7 @@ body {
 
 ```js
 module.exports = {
-   plugins: ['go-top'],
+  plugins: ['go-top'],
 }
 ```
 
@@ -157,14 +157,14 @@ $MQMobile ?= 768px
 
 ```js
 plugins: [
-   [
-      'vuepress-plugin-live2d',
-      {
-         modelName: '', // 模型名称，可传入一个字符串或者数组
-         mobileShow: false, // 是否在移动设备上显示
-         position: 'right', // 显示在左下角还是右下角
-      },
-   ],
+  [
+    'vuepress-plugin-live2d',
+    {
+      modelName: '', // 模型名称，可传入一个字符串或者数组
+      mobileShow: false, // 是否在移动设备上显示
+      position: 'right', // 显示在左下角还是右下角
+    },
+  ],
 ]
 ```
 
@@ -182,19 +182,19 @@ plugins: [
 
 ```js
 module.exports = {
-   plugins: [
-      'meting',
-      {
-         meting: {
-            server: 'netease', // 音乐源
-            type: 'playlist', // 资源类型
-            mid: '2539599584', // 资源 id
-         },
-         aplayer: {
-            lrcType: 3,
-         },
+  plugins: [
+    'meting',
+    {
+      meting: {
+        server: 'netease', // 音乐源
+        type: 'playlist', // 资源类型
+        mid: '2539599584', // 资源 id
       },
-   ],
+      aplayer: {
+        lrcType: 3,
+      },
+    },
+  ],
 }
 ```
 

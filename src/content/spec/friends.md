@@ -4,10 +4,10 @@
 
 ```json
 {
-   "name": "Nyakku",
-   "url": "https://nyakku.moe",
-   "desc": "一个小透明的透明世界",
-   "avatar": "https://nyakku.moe/avatar.jpg"
+  "name": "Nyakku",
+  "url": "https://nyakku.moe",
+  "desc": "一个小透明的透明世界",
+  "avatar": "https://nyakku.moe/avatar.jpg"
 }
 ```
 

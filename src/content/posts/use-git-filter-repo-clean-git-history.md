@@ -3,7 +3,7 @@ title: 使用 git-filter-repo 清理 git 历史记录
 published: 2020-06-12
 category: 找点好玩的
 tags:
-   - Git
+  - Git
 ---
 
 :::tip
