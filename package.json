@@ -11,9 +11,8 @@
     "type-check": "tsc --noEmit --isolatedDeclarations",
     "preinstall": "npx only-allow pnpm",
     "img:upload": "bash scripts/upload-img.sh",
-    "fmt": "case-police . --fix && vp fmt .",
-    "fmt:check": "case-police . && vp fmt --check .",
-    "prepare": "vp config"
+    "case-police": "case-police . --fix",
+    "case-police:check": "case-police ."
   },
   "author": "Nyakku Shigure",
   "license": "CC-BY-NC-SA-4.0",

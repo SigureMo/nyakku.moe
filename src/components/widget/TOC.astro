@@ -93,8 +93,8 @@ const maxLevel = siteConfig.toc.depth
     observer: IntersectionObserver
     anchorNavTarget: HTMLElement | null = null
     headingIdxMap = new Map<string, number>()
-    headings: HTMLElement[] = []
-    sections: HTMLElement[] = []
+    headings: Array<HTMLElement | undefined> = []
+    sections: Array<HTMLElement | undefined> = []
     tocEntries: HTMLAnchorElement[] = []
     active: boolean[] = []
     activeIndicator: HTMLElement | null = null
@@ -257,8 +257,8 @@ const maxLevel = siteConfig.toc.depth
 
       if (this.tocEntries.length === 0) return
 
-      this.sections = new Array(this.tocEntries.length)
-      this.headings = new Array(this.tocEntries.length)
+      this.sections = Array.from({ length: this.tocEntries.length })
+      this.headings = Array.from({ length: this.tocEntries.length })
       for (let i = 0; i < this.tocEntries.length; i++) {
         const id = decodeURIComponent(this.tocEntries[i].hash?.substring(1))
         const heading = document.getElementById(id)
@@ -269,16 +269,20 @@ const maxLevel = siteConfig.toc.depth
           this.headingIdxMap.set(id, i)
         }
       }
-      this.active = new Array(this.tocEntries.length).fill(false)
+      this.active = Array.from({ length: this.tocEntries.length }, () => false)
 
-      this.sections.forEach((section) => this.observer.observe(section))
+      this.sections.forEach((section) => {
+        if (section) this.observer.observe(section)
+      })
 
       this.fallback()
       this.update()
     }
 
     disconnectedCallback() {
-      this.sections.forEach((section) => this.observer.unobserve(section))
+      this.sections.forEach((section) => {
+        if (section) this.observer.unobserve(section)
+      })
       this.observer.disconnect()
       this.tocEl?.removeEventListener('click', this.handleAnchorClick)
     }
