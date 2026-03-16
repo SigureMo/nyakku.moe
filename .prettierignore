@@ -1,5 +1,0 @@
-*.html
-dist/
-node_modules/
-*.min.js
-pnpm-lock.yaml
