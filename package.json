@@ -70,7 +70,7 @@
     "unist-util-visit": "^5.0.0"
   },
   "devDependencies": {
-    "@astrojs/ts-plugin": "^1.10.8",
+    "@astrojs/ts-plugin": "^1.10.9",
     "@rollup/plugin-yaml": "^4.1.2",
     "@tailwindcss/vite": "^4.3.0",
     "@types/hast": "^3.0.4",
