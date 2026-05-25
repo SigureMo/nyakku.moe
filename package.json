@@ -19,7 +19,7 @@
   "engines": {
     "node": ">=22.12.0"
   },
-  "packageManager": "pnpm@11.1.2",
+  "packageManager": "pnpm@11.3.0",
   "dependencies": {
     "@astrojs/check": "^0.9.6",
     "@astrojs/rss": "^4.0.14",
@@ -40,11 +40,11 @@
     "@swup/astro": "^1.7.0",
     "@tailwindcss/postcss": "^4.1.13",
     "@tailwindcss/typography": "^0.5.18",
-    "astro": "6.3.3",
+    "astro": "6.3.7",
     "astro-expressive-code": "^0.42.0",
     "astro-icon": "^1.1.5",
     "hastscript": "^9.0.1",
-    "katex": "^0.16.22",
+    "katex": "^0.17.0",
     "markdown-it": "^14.1.0",
     "mdast-util-to-string": "^4.0.0",
     "overlayscrollbars": "^2.12.0",
