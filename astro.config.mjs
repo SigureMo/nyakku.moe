@@ -1,3 +1,4 @@
+import { satteri, satteriHeadingIdsPlugin } from '@astrojs/markdown-satteri'
 import sitemap from '@astrojs/sitemap'
 import svelte from '@astrojs/svelte'
 import tailwindcss from '@tailwindcss/vite'
@@ -7,23 +8,20 @@ import swup from '@swup/astro'
 import { defineConfig } from 'astro/config'
 import expressiveCode from 'astro-expressive-code'
 import icon from 'astro-icon'
-import rehypeAutolinkHeadings from 'rehype-autolink-headings'
-import rehypeComponents from 'rehype-components' /* Render the custom directive content */
-import rehypeExternalLinks from 'rehype-external-links'
-import rehypeKatex from 'rehype-katex'
-import rehypeSlug from 'rehype-slug'
-import remarkDirective from 'remark-directive' /* Handle directives */
-import remarkGithubAdmonitionsToDirectives from 'remark-github-admonitions-to-directives'
-import remarkMath from 'remark-math'
-import remarkSectionize from 'remark-sectionize'
 import { expressiveCodeConfig } from './src/config.ts'
 import { pluginCustomCopyButton } from './src/plugins/expressive-code/custom-copy-button.ts'
 import { pluginLanguageBadge } from './src/plugins/expressive-code/language-badge.ts'
-import { AdmonitionComponent } from './src/plugins/rehype-component-admonition.mjs'
-import { GithubCardComponent } from './src/plugins/rehype-component-github-card.mjs'
-import { parseDirectiveNode } from './src/plugins/remark-directive-rehype.js'
-import { remarkExcerpt } from './src/plugins/remark-excerpt.js'
-import { remarkReadingTime } from './src/plugins/remark-reading-time.mjs'
+import {
+  satteriAutolinkHeadings,
+  satteriDirectiveComponents,
+  satteriDirectiveToHast,
+  satteriExcerpt,
+  satteriExternalLinks,
+  satteriKatexDisplay,
+  satteriKatexInline,
+  satteriReadingTime,
+  satteriSectionize,
+} from './src/plugins/satteri-markdown.mjs'
 
 // https://astro.build/config
 export default defineConfig({
@@ -102,62 +100,22 @@ export default defineConfig({
     sitemap(),
   ],
   markdown: {
-    remarkPlugins: [
-      remarkMath,
-      remarkReadingTime,
-      remarkExcerpt,
-      remarkGithubAdmonitionsToDirectives,
-      remarkDirective,
-      remarkSectionize,
-      parseDirectiveNode,
-    ],
-    rehypePlugins: [
-      rehypeKatex,
-      rehypeSlug,
-      [
-        rehypeExternalLinks,
-        {
-          target: '_blank',
-          rel: ['noopener', 'noreferrer'],
-        },
+    processor: satteri({
+      features: {
+        directive: true,
+        math: true,
+      },
+      mdastPlugins: [satteriDirectiveToHast, satteriReadingTime, satteriExcerpt],
+      hastPlugins: [
+        satteriKatexDisplay,
+        satteriKatexInline,
+        satteriDirectiveComponents,
+        satteriExternalLinks,
+        ...satteriSectionize(),
+        satteriHeadingIdsPlugin,
+        satteriAutolinkHeadings,
       ],
-      [
-        rehypeComponents,
-        {
-          components: {
-            github: GithubCardComponent,
-            note: (x, y) => AdmonitionComponent(x, y, 'note'),
-            tip: (x, y) => AdmonitionComponent(x, y, 'tip'),
-            important: (x, y) => AdmonitionComponent(x, y, 'important'),
-            caution: (x, y) => AdmonitionComponent(x, y, 'caution'),
-            warning: (x, y) => AdmonitionComponent(x, y, 'warning'),
-          },
-        },
-      ],
-      [
-        rehypeAutolinkHeadings,
-        {
-          behavior: 'append',
-          properties: {
-            className: ['anchor'],
-          },
-          content: {
-            type: 'element',
-            tagName: 'span',
-            properties: {
-              className: ['anchor-icon'],
-              'data-pagefind-ignore': true,
-            },
-            children: [
-              {
-                type: 'text',
-                value: '#',
-              },
-            ],
-          },
-        },
-      ],
-    ],
+    }),
   },
   vite: {
     plugins: [tailwindcss()],
