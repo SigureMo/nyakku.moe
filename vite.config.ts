@@ -1,6 +1,6 @@
 import { defineConfig } from 'vite-plus'
 
-const config: Parameters<typeof defineConfig>[0] = defineConfig({
+export default defineConfig({
   staged: {
     '*': 'vp check --fix',
   },
@@ -22,5 +22,3 @@ const config: Parameters<typeof defineConfig>[0] = defineConfig({
     ignorePatterns: ['*.html', 'dist/', 'node_modules/', '*.min.js', 'pnpm-lock.yaml'],
   },
 })
-
-export default config

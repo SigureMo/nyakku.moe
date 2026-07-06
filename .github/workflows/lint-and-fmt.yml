@@ -26,12 +26,9 @@ jobs:
       - name: Install dependencies
         run: vp install --frozen-lockfile
 
-      - name: Lint, format and type-aware check
+      - name: Lint, format and type check
         run: |
           vp check
-
-      - name: Type check
-        run: vp run type-check
 
       - name: Case Police Check
         run: vp run case-police:check

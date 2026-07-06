@@ -24,7 +24,7 @@ import {
 } from './src/plugins/satteri-markdown.ts'
 
 // https://astro.build/config
-const config: Parameters<typeof defineConfig>[0] = defineConfig({
+export default defineConfig({
   site: 'https://nyakku.moe/',
   base: '/',
   trailingSlash: 'always',
@@ -135,5 +135,3 @@ const config: Parameters<typeof defineConfig>[0] = defineConfig({
     },
   },
 })
-
-export default config
