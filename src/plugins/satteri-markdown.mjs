@@ -60,32 +60,37 @@ function renderKatex(value, displayMode) {
   }
 }
 
+function getMdastRoot(node, ctx) {
+  let current = node
+  let parent = ctx.parent(current)
+
+  while (parent) {
+    current = parent
+    parent = ctx.parent(current)
+  }
+
+  return current
+}
+
 export function satteriReadingTime() {
-  let textOnPage = ''
+  let computed = false
 
-  function append(value, ctx) {
-    if (!value) return
+  function compute(node, ctx) {
+    if (computed) return
 
-    textOnPage += `${value} `
+    const textOnPage = ctx.textContent(getMdastRoot(node, ctx), { includeImageAlt: true })
     const readingTime = getReadingTime(textOnPage)
     setFrontmatter(ctx, 'minutes', Math.max(1, Math.round(readingTime.minutes)))
     setFrontmatter(ctx, 'words', readingTime.words)
+    computed = true
   }
 
   return {
     name: 'nyakku-reading-time',
-    text(node, ctx) {
-      append(node.value, ctx)
-    },
-    inlineCode(node, ctx) {
-      append(node.value, ctx)
-    },
-    code(node, ctx) {
-      append(node.value, ctx)
-    },
-    image(node, ctx) {
-      append(node.alt, ctx)
-    },
+    text: compute,
+    inlineCode: compute,
+    code: compute,
+    image: compute,
   }
 }
 
@@ -169,6 +174,24 @@ export function satteriKatexInline() {
   }
 }
 
+function cloneHastChildren(node) {
+  return [...(node.children ?? [])].map(cloneHastNode)
+}
+
+function getGithubAdmonitionType(node) {
+  if (node.tagName !== 'blockquote') return undefined
+
+  const paragraph = node.children?.find(
+    (child) => child.type === 'element' && child.tagName === 'p'
+  )
+  const firstChild = paragraph?.children?.[0]
+  const match =
+    firstChild?.type === 'text' &&
+    firstChild.value.match(/^\[!(NOTE|TIP|IMPORTANT|CAUTION|WARNING)\]\n?/i)
+
+  return match ? { marker: match[0], type: match[1].toLowerCase() } : undefined
+}
+
 export function satteriDirectiveComponents() {
   const admonitionTypes = new Set(['note', 'tip', 'important', 'caution', 'warning'])
 
@@ -177,30 +200,27 @@ export function satteriDirectiveComponents() {
     element: {
       filter: ['github', 'blockquote', ...admonitionTypes],
       visit(node) {
-        const properties = { ...node.properties }
-        const children = [...(node.children ?? [])].map(cloneHastNode)
-
         if (node.tagName === 'github') {
-          return GithubCardComponent(properties, children)
+          return GithubCardComponent({ ...node.properties }, cloneHastChildren(node))
         }
 
-        if (node.tagName === 'blockquote') {
+        const githubAdmonition = getGithubAdmonitionType(node)
+        if (githubAdmonition) {
+          const children = cloneHastChildren(node)
           const paragraph = children.find(
             (child) => child.type === 'element' && child.tagName === 'p'
           )
           const firstChild = paragraph?.children?.[0]
-          const match =
-            firstChild?.type === 'text' &&
-            firstChild.value.match(/^\[!(NOTE|TIP|IMPORTANT|CAUTION|WARNING)\]\n?/i)
 
-          if (match) {
-            firstChild.value = firstChild.value.slice(match[0].length)
-            return AdmonitionComponent({}, children, match[1].toLowerCase())
+          if (firstChild?.type === 'text') {
+            firstChild.value = firstChild.value.slice(githubAdmonition.marker.length)
           }
+
+          return AdmonitionComponent({}, children, githubAdmonition.type)
         }
 
         if (admonitionTypes.has(node.tagName)) {
-          return AdmonitionComponent(properties, children, node.tagName)
+          return AdmonitionComponent({ ...node.properties }, cloneHastChildren(node), node.tagName)
         }
       },
     },
