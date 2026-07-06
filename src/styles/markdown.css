@@ -16,6 +16,10 @@
 
       .anchor-icon {
         @apply !mx-[0.45ch];
+
+        &::before {
+          content: '#';
+        }
       }
     }
 
