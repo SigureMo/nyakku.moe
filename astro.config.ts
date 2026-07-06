@@ -21,10 +21,10 @@ import {
   satteriKatexInline,
   satteriReadingTime,
   satteriSectionize,
-} from './src/plugins/satteri-markdown.mjs'
+} from './src/plugins/satteri-markdown.ts'
 
 // https://astro.build/config
-export default defineConfig({
+const config: Parameters<typeof defineConfig>[0] = defineConfig({
   site: 'https://nyakku.moe/',
   base: '/',
   trailingSlash: 'always',
@@ -87,9 +87,9 @@ export default defineConfig({
           terminalTitlebarBorderBottomColor: 'none',
         },
         textMarkers: {
-          delHue: 0,
-          insHue: 180,
-          markHue: 250,
+          delHue: '0',
+          insHue: '180',
+          markHue: '250',
         },
       },
       frames: {
@@ -135,3 +135,5 @@ export default defineConfig({
     },
   },
 })
+
+export default config

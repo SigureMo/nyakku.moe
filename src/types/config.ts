@@ -1,3 +1,4 @@
+import type { BundledShikiTheme } from 'astro-expressive-code'
 import type { AUTO_MODE, DARK_MODE, LIGHT_MODE } from '@constants/constants'
 
 export type SiteConfig = {
@@ -86,5 +87,5 @@ export type BlogPostData = {
 }
 
 export type ExpressiveCodeConfig = {
-  theme: string
+  theme: BundledShikiTheme
 }

@@ -1,41 +1,64 @@
+import type { SatteriAstroData, SatteriProcessorOptions } from '@astrojs/markdown-satteri'
+import type { Element, ElementContent, Nodes as HastNode } from 'hast'
 import katex from 'katex'
 import getReadingTime from 'reading-time'
-import { AdmonitionComponent } from './rehype-component-admonition.mjs'
-import { GithubCardComponent } from './rehype-component-github-card.mjs'
+import type { Nodes as MdastNode } from 'mdast'
+import { AdmonitionComponent, type AdmonitionType } from './rehype-component-admonition.ts'
+import { GithubCardComponent } from './rehype-component-github-card.ts'
 
-function setFrontmatter(ctx, key, value) {
-  const frontmatter = ctx.data.astro?.frontmatter
+type MdastPluginDefinition = NonNullable<SatteriProcessorOptions['mdastPlugins']>[number]
+type HastPluginDefinition = NonNullable<SatteriProcessorOptions['hastPlugins']>[number]
+type MdastVisitor = NonNullable<MdastPluginDefinition['text']>
+type MdastVisitorContext = Parameters<MdastVisitor>[1]
+type ContainerDirectiveNode = Parameters<
+  NonNullable<MdastPluginDefinition['containerDirective']>
+>[0]
+type LeafDirectiveNode = Parameters<NonNullable<MdastPluginDefinition['leafDirective']>>[0]
+type TextDirectiveNode = Parameters<NonNullable<MdastPluginDefinition['textDirective']>>[0]
+type DirectiveNode = ContainerDirectiveNode | LeafDirectiveNode | TextDirectiveNode
+
+const admonitionTypes = [
+  'note',
+  'tip',
+  'important',
+  'caution',
+  'warning',
+] as const satisfies readonly AdmonitionType[]
+const admonitionTypeSet = new Set<string>(admonitionTypes)
+
+function isAdmonitionType(value: string): value is AdmonitionType {
+  return admonitionTypeSet.has(value)
+}
+
+function setFrontmatter(ctx: MdastVisitorContext, key: string, value: unknown): void {
+  const frontmatter = (ctx.data.astro as SatteriAstroData | undefined)?.frontmatter
   if (frontmatter) frontmatter[key] = value
 }
 
-function getClassList(node) {
+function getClassList(node: Readonly<Element>): string[] {
   const className = node.properties?.className ?? node.properties?.class
-  if (Array.isArray(className)) return className
+  if (Array.isArray(className))
+    return className.filter((item): item is string => typeof item === 'string')
   if (typeof className === 'string') return className.split(/\s+/).filter(Boolean)
   return []
 }
 
-function cloneHastNode(node) {
-  if (!node || typeof node !== 'object') return node
-
-  const cloned = { type: node.type }
-  if ('tagName' in node) cloned.tagName = node.tagName
-  if ('properties' in node) cloned.properties = { ...node.properties }
-  if ('value' in node) cloned.value = node.value
-  if ('children' in node) cloned.children = [...(node.children ?? [])].map(cloneHastNode)
-  if ('data' in node && node.data) cloned.data = { ...node.data }
-
-  return cloned
+function isElementWithTag(node: ElementContent, tagName: string): node is Element {
+  return node.type === 'element' && node.tagName === tagName
 }
 
-function getHastText(node) {
-  if (!node || typeof node !== 'object') return ''
+function cloneHastNode(node: Readonly<HastNode>): HastNode {
+  return structuredClone(node) as HastNode
+}
+
+function getHastText(node: Readonly<HastNode> | undefined): string {
+  if (!node) return ''
   if ('value' in node && typeof node.value === 'string') return node.value
   if ('children' in node) return [...(node.children ?? [])].map(getHastText).join('')
   return ''
 }
 
-function escapeHtml(value) {
+function escapeHtml(value: unknown): string {
   return String(value)
     .replaceAll('&', '&amp;')
     .replaceAll('<', '&lt;')
@@ -43,7 +66,7 @@ function escapeHtml(value) {
     .replaceAll('"', '&quot;')
 }
 
-function renderKatex(value, displayMode) {
+function renderKatex(value: string, displayMode: boolean): string {
   try {
     return katex.renderToString(value, { displayMode, throwOnError: true })
   } catch (error) {
@@ -60,7 +83,7 @@ function renderKatex(value, displayMode) {
   }
 }
 
-function getMdastRoot(node, ctx) {
+function getMdastRoot(node: Readonly<MdastNode>, ctx: MdastVisitorContext): Readonly<MdastNode> {
   let current = node
   let parent = ctx.parent(current)
 
@@ -72,10 +95,10 @@ function getMdastRoot(node, ctx) {
   return current
 }
 
-export function satteriReadingTime() {
+export function satteriReadingTime(): MdastPluginDefinition {
   let computed = false
 
-  function compute(node, ctx) {
+  function compute(node: Readonly<MdastNode>, ctx: MdastVisitorContext): void {
     if (computed) return
 
     const textOnPage = ctx.textContent(getMdastRoot(node, ctx), { includeImageAlt: true })
@@ -94,7 +117,7 @@ export function satteriReadingTime() {
   }
 }
 
-export function satteriExcerpt() {
+export function satteriExcerpt(): MdastPluginDefinition {
   let captured = false
 
   return {
@@ -108,22 +131,23 @@ export function satteriExcerpt() {
   }
 }
 
-export function satteriDirectiveToHast() {
-  function visitDirective(node, ctx) {
-    const attributes = { ...node.attributes }
-    const firstChild = node.children?.[0]
+function visitDirective(node: DirectiveNode, ctx: MdastVisitorContext): void {
+  const attributes: Record<string, unknown> = { ...node.attributes }
+  const firstChild = node.children?.[0]
+  const firstChildData = firstChild?.data as { directiveLabel?: unknown } | undefined
 
-    if (firstChild?.data?.directiveLabel) {
-      attributes['has-directive-label'] = true
-    }
-
-    ctx.setProperty(node, 'data', {
-      ...node.data,
-      hName: node.name,
-      hProperties: attributes,
-    })
+  if (firstChildData?.directiveLabel) {
+    attributes['has-directive-label'] = true
   }
 
+  ctx.setProperty(node, 'data', {
+    ...node.data,
+    hName: node.name,
+    hProperties: attributes,
+  })
+}
+
+export function satteriDirectiveToHast(): MdastPluginDefinition {
   return {
     name: 'nyakku-directive-to-hast',
     containerDirective: visitDirective,
@@ -132,7 +156,7 @@ export function satteriDirectiveToHast() {
   }
 }
 
-export function satteriKatexDisplay() {
+export function satteriKatexDisplay(): HastPluginDefinition {
   return {
     name: 'nyakku-katex-display',
     element: {
@@ -153,7 +177,7 @@ export function satteriKatexDisplay() {
   }
 }
 
-export function satteriKatexInline() {
+export function satteriKatexInline(): HastPluginDefinition {
   return {
     name: 'nyakku-katex-inline',
     element: {
@@ -174,27 +198,30 @@ export function satteriKatexInline() {
   }
 }
 
-function cloneHastChildren(node) {
-  return [...(node.children ?? [])].map(cloneHastNode)
+function cloneHastChildren(node: Readonly<Element>): ElementContent[] {
+  return [...(node.children ?? [])].map(
+    (child) => cloneHastNode(child as HastNode) as ElementContent
+  )
 }
 
-function getGithubAdmonitionType(node) {
+function getGithubAdmonitionType(
+  node: Readonly<Element>
+): { marker: string; type: AdmonitionType } | undefined {
   if (node.tagName !== 'blockquote') return undefined
 
-  const paragraph = node.children?.find(
-    (child) => child.type === 'element' && child.tagName === 'p'
-  )
+  const paragraph = node.children?.find((child) => isElementWithTag(child, 'p'))
   const firstChild = paragraph?.children?.[0]
   const match =
     firstChild?.type === 'text' &&
     firstChild.value.match(/^\[!(NOTE|TIP|IMPORTANT|CAUTION|WARNING)\]\n?/i)
 
-  return match ? { marker: match[0], type: match[1].toLowerCase() } : undefined
+  if (!match) return undefined
+
+  const type = match[1].toLowerCase()
+  return isAdmonitionType(type) ? { marker: match[0], type } : undefined
 }
 
-export function satteriDirectiveComponents() {
-  const admonitionTypes = new Set(['note', 'tip', 'important', 'caution', 'warning'])
-
+export function satteriDirectiveComponents(): HastPluginDefinition {
   return {
     name: 'nyakku-directive-components',
     element: {
@@ -207,9 +234,7 @@ export function satteriDirectiveComponents() {
         const githubAdmonition = getGithubAdmonitionType(node)
         if (githubAdmonition) {
           const children = cloneHastChildren(node)
-          const paragraph = children.find(
-            (child) => child.type === 'element' && child.tagName === 'p'
-          )
+          const paragraph = children.find((child) => isElementWithTag(child, 'p'))
           const firstChild = paragraph?.children?.[0]
 
           if (firstChild?.type === 'text') {
@@ -219,7 +244,7 @@ export function satteriDirectiveComponents() {
           return AdmonitionComponent({}, children, githubAdmonition.type)
         }
 
-        if (admonitionTypes.has(node.tagName)) {
+        if (isAdmonitionType(node.tagName)) {
           return AdmonitionComponent({ ...node.properties }, cloneHastChildren(node), node.tagName)
         }
       },
@@ -227,7 +252,7 @@ export function satteriDirectiveComponents() {
   }
 }
 
-export function satteriExternalLinks() {
+export function satteriExternalLinks(): HastPluginDefinition {
   return {
     name: 'nyakku-external-links',
     element: {
@@ -243,12 +268,12 @@ export function satteriExternalLinks() {
   }
 }
 
-function headingDepth(node) {
+function headingDepth(node: Readonly<HastNode> | undefined): number | undefined {
   if (node?.type !== 'element' || !/^h[1-6]$/.test(node.tagName)) return undefined
   return Number(node.tagName.slice(1))
 }
 
-function satteriSectionizeDepth(depth) {
+function satteriSectionizeDepth(depth: number): HastPluginDefinition {
   return {
     name: `nyakku-sectionize-h${depth}`,
     element: {
@@ -258,13 +283,13 @@ function satteriSectionizeDepth(depth) {
         const startIndex = ctx.indexOf(node)
         if (!parent || startIndex === undefined || !Array.isArray(parent.children)) return
 
-        const sectionChildren = []
+        const sectionChildren: Readonly<HastNode>[] = []
         for (let index = startIndex; index < parent.children.length; index += 1) {
           const child = parent.children[index]
           const childDepth = headingDepth(child)
 
           if (index !== startIndex && childDepth !== undefined && childDepth <= depth) break
-          sectionChildren.push(child)
+          sectionChildren.push(child as HastNode)
         }
 
         if (sectionChildren.length === 0) return
@@ -273,7 +298,7 @@ function satteriSectionizeDepth(depth) {
           type: 'element',
           tagName: 'section',
           properties: {},
-          children: sectionChildren.map(cloneHastNode),
+          children: sectionChildren.map((child) => cloneHastNode(child) as ElementContent),
         })
 
         for (const child of sectionChildren.slice(1)) {
@@ -284,11 +309,11 @@ function satteriSectionizeDepth(depth) {
   }
 }
 
-export function satteriSectionize() {
+export function satteriSectionize(): HastPluginDefinition[] {
   return [6, 5, 4, 3, 2, 1].map(satteriSectionizeDepth)
 }
 
-export function satteriAutolinkHeadings() {
+export function satteriAutolinkHeadings(): HastPluginDefinition {
   return {
     name: 'nyakku-autolink-headings',
     element: {

@@ -1,28 +1,27 @@
-/// <reference types="mdast" />
+import type { Element, ElementContent, Properties } from 'hast'
 import { h } from 'hastscript'
 
 /**
  * Creates a GitHub Card component.
- *
- * @param {Object} properties - The properties of the component.
- * @param {string} properties.repo - The GitHub repository in the format "owner/repo".
- * @param {import('mdast').RootContent[]} children - The children elements of the component.
- * @returns {import('mdast').Parent} The created GitHub Card component.
  */
-export function GithubCardComponent(properties, children) {
+export function GithubCardComponent(
+  properties: Readonly<Properties>,
+  children: ElementContent[]
+): Element {
   if (Array.isArray(children) && children.length !== 0)
     return h('div', { class: 'hidden' }, [
       'Invalid directive. ("github" directive must be leaf type "::github{repo="owner/repo"}")',
     ])
 
-  if (!properties.repo || !properties.repo.includes('/'))
+  const repoProperty = properties.repo
+  if (typeof repoProperty !== 'string' || !repoProperty.includes('/'))
     return h(
       'div',
       { class: 'hidden' },
       'Invalid repository. ("repo" attributte must be in the format "owner/repo")'
     )
 
-  const repo = properties.repo
+  const repo = repoProperty
   const cardUuid = `GC${Math.random().toString(36).slice(-6)}` // Collisions are not important
 
   const nAvatar = h(`div#${cardUuid}-avatar`, { class: 'gc-avatar' })
@@ -65,7 +64,7 @@ export function GithubCardComponent(properties, children) {
         document.getElementById('${cardUuid}-license').innerText = data.license?.spdx_id || "no-license";
         document.getElementById('${cardUuid}-card').classList.remove("fetch-waiting");
         console.log("[GITHUB-CARD] Loaded card for ${repo} | ${cardUuid}.")
-      }).catch(err => {
+      }).catch(() => {
         const c = document.getElementById('${cardUuid}-card');
         c?.classList.add("fetch-error");
         console.warn("[GITHUB-CARD] (Error) Loading card for ${repo} | ${cardUuid}.")
