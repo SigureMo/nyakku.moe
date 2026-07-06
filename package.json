@@ -22,6 +22,7 @@
   "packageManager": "pnpm@11.10.0",
   "dependencies": {
     "@astrojs/check": "^0.9.6",
+    "@astrojs/markdown-remark": "^7.2.1",
     "@astrojs/rss": "^4.0.14",
     "@astrojs/sitemap": "^3.6.0",
     "@astrojs/svelte": "9.0.1",
