@@ -28,7 +28,10 @@ const specCollection = defineCollection({
   schema: z.object({}),
 })
 
-export const collections = {
+export const collections: {
+  posts: typeof postsCollection
+  spec: typeof specCollection
+} = {
   posts: postsCollection,
   spec: specCollection,
 }

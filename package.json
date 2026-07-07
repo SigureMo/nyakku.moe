@@ -8,7 +8,7 @@
     "build": "astro build && pagefind --site dist",
     "preview": "astro preview",
     "astro": "astro",
-    "type-check": "tsc --noEmit --isolatedDeclarations",
+    "type-check": "astro sync && tsc --noEmit",
     "preinstall": "npx only-allow pnpm",
     "img:upload": "bash scripts/upload-img.sh",
     "case-police": "case-police . --fix",

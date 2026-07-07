@@ -1,7 +1,6 @@
 {
   "extends": "astro/tsconfigs/strict",
   "compilerOptions": {
-    "baseUrl": ".",
     "strictNullChecks": true,
     "allowJs": false,
     "declaration": true,
@@ -11,14 +10,20 @@
       }
     ],
     "paths": {
-      "@components/*": ["src/components/*"],
-      "@assets/*": ["src/assets/*"],
-      "@constants/*": ["src/constants/*"],
-      "@utils/*": ["src/utils/*"],
-      "@i18n/*": ["src/i18n/*"],
-      "@layouts/*": ["src/layouts/*"],
-      "@/*": ["src/*"]
+      "@components/*": ["./src/components/*"],
+      "@assets/*": ["./src/assets/*"],
+      "@constants/*": ["./src/constants/*"],
+      "@utils/*": ["./src/utils/*"],
+      "@i18n/*": ["./src/i18n/*"],
+      "@layouts/*": ["./src/layouts/*"],
+      "@/*": ["./src/*"]
     }
   },
-  "include": ["src/**/*", ".astro/types.d.ts"]
+  "include": [
+    "astro.config.ts",
+    "svelte.config.ts",
+    "vite.config.ts",
+    "src/**/*",
+    ".astro/types.d.ts"
+  ]
 }

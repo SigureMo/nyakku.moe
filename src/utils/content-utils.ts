@@ -3,11 +3,15 @@ import I18nKey from '@i18n/i18nKey'
 import { i18n } from '@i18n/translation'
 import { getCategoryUrl } from '@utils/url-utils.ts'
 
+type PostEntry = CollectionEntry<'posts'>
+
+function isVisiblePost({ data }: PostEntry): boolean {
+  return import.meta.env.PROD ? data.draft !== true : true
+}
+
 // // Retrieve posts and sort them by publication date
-async function getRawSortedPosts() {
-  const allBlogPosts = await getCollection('posts', ({ data }) => {
-    return import.meta.env.PROD ? data.draft !== true : true
-  })
+async function getRawSortedPosts(): Promise<PostEntry[]> {
+  const allBlogPosts = (await getCollection('posts', isVisiblePost)) as PostEntry[]
 
   const sorted = allBlogPosts.sort((a, b) => {
     const dateA = new Date(a.data.published)
@@ -17,7 +21,7 @@ async function getRawSortedPosts() {
   return sorted
 }
 
-export async function getSortedPosts() {
+export async function getSortedPosts(): Promise<PostEntry[]> {
   const sorted = await getRawSortedPosts()
 
   for (let i = 1; i < sorted.length; i++) {
@@ -33,7 +37,7 @@ export async function getSortedPosts() {
 }
 export type PostForList = {
   slug: string
-  data: CollectionEntry<'posts'>['data']
+  data: PostEntry['data']
 }
 export async function getSortedPostsList(): Promise<PostForList[]> {
   const sortedFullPosts = await getRawSortedPosts()
@@ -52,12 +56,10 @@ export type Tag = {
 }
 
 export async function getTagList(): Promise<Tag[]> {
-  const allBlogPosts = await getCollection<'posts'>('posts', ({ data }) => {
-    return import.meta.env.PROD ? data.draft !== true : true
-  })
+  const allBlogPosts = (await getCollection('posts', isVisiblePost)) as PostEntry[]
 
-  const countMap: { [key: string]: number } = {}
-  allBlogPosts.forEach((post: { data: { tags: string[] } }) => {
+  const countMap: Record<string, number> = {}
+  allBlogPosts.forEach((post) => {
     post.data.tags.forEach((tag: string) => {
       if (!countMap[tag]) countMap[tag] = 0
       countMap[tag]++
@@ -65,7 +67,7 @@ export async function getTagList(): Promise<Tag[]> {
   })
 
   // sort tags
-  const keys: string[] = Object.keys(countMap).sort((a, b) => {
+  const keys = Object.keys(countMap).sort((a, b) => {
     return a.toLowerCase().localeCompare(b.toLowerCase())
   })
 
@@ -79,21 +81,16 @@ export type Category = {
 }
 
 export async function getCategoryList(): Promise<Category[]> {
-  const allBlogPosts = await getCollection<'posts'>('posts', ({ data }) => {
-    return import.meta.env.PROD ? data.draft !== true : true
-  })
-  const count: { [key: string]: number } = {}
-  allBlogPosts.forEach((post: { data: { category: string | null } }) => {
+  const allBlogPosts = (await getCollection('posts', isVisiblePost)) as PostEntry[]
+  const count: Record<string, number> = {}
+  allBlogPosts.forEach((post) => {
     if (!post.data.category) {
       const ucKey = i18n(I18nKey.uncategorized)
       count[ucKey] = count[ucKey] ? count[ucKey] + 1 : 1
       return
     }
 
-    const categoryName =
-      typeof post.data.category === 'string'
-        ? post.data.category.trim()
-        : String(post.data.category).trim()
+    const categoryName = post.data.category.trim()
 
     count[categoryName] = count[categoryName] ? count[categoryName] + 1 : 1
   })

@@ -1,7 +1,7 @@
 import rss from '@astrojs/rss'
 import { getSortedPosts } from '@utils/content-utils'
 import { url } from '@utils/url-utils'
-import type { APIContext } from 'astro'
+import type { APIRoute } from 'astro'
 import MarkdownIt from 'markdown-it'
 import sanitizeHtml from 'sanitize-html'
 import { siteConfig } from '@/config'
@@ -16,7 +16,7 @@ function stripInvalidXmlChars(str: string): string {
   return str.replace(invalidXmlCharsPattern, '')
 }
 
-export async function GET(context: APIContext) {
+export const GET: APIRoute = async (context) => {
   const blog = await getSortedPosts()
 
   return rss({
