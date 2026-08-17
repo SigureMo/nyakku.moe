@@ -67,7 +67,7 @@
     "@types/mdast": "^4.0.4",
     "@types/sanitize-html": "^2.16.1",
     "case-police": "^2.2.1",
-    "postcss-import": "^16.2.0",
+    "postcss-import": "^17.0.0",
     "postcss-nesting": "^14.0.1",
     "vite-plus": "latest"
   }
