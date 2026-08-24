@@ -59,11 +59,11 @@
     "typescript": "^7.0.0"
   },
   "devDependencies": {
-    "@astrojs/ts-plugin": "^1.10.10",
+    "@astrojs/ts-plugin": "^1.10.11",
     "@rollup/plugin-yaml": "^5.0.0",
     "@tailwindcss/vite": "^4.3.3",
     "@types/hast": "^3.0.5",
-    "@types/markdown-it": "^14.1.2",
+    "@types/markdown-it": "^14.2.0",
     "@types/mdast": "^4.0.4",
     "@types/sanitize-html": "^2.16.1",
     "case-police": "^2.2.1",
