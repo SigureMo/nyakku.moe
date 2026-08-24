@@ -48,7 +48,23 @@ function isElementWithTag(node: ElementContent, tagName: string): node is Elemen
 }
 
 function cloneHastNode(node: Readonly<HastNode>): HastNode {
-  return structuredClone(node) as HastNode
+  // Sätteri metadata may be non-cloneable; transforms only mutate properties and children.
+  if (node.type === 'element') {
+    return {
+      ...node,
+      properties: structuredClone(node.properties),
+      children: node.children.map((child) => cloneHastNode(child as HastNode)),
+    } as HastNode
+  }
+
+  if ('children' in node) {
+    return {
+      ...node,
+      children: node.children.map((child) => cloneHastNode(child as HastNode)),
+    } as HastNode
+  }
+
+  return { ...node } as HastNode
 }
 
 function getHastText(node: Readonly<HastNode> | undefined): string {
