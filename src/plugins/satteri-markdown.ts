@@ -6,7 +6,10 @@ import type { Nodes as MdastNode } from 'mdast'
 import { AdmonitionComponent, type AdmonitionType } from './rehype-component-admonition.ts'
 import { GithubCardComponent } from './rehype-component-github-card.ts'
 
-type MdastPluginDefinition = NonNullable<SatteriProcessorOptions['mdastPlugins']>[number]
+type MdastPluginDefinition = Extract<
+  NonNullable<SatteriProcessorOptions['mdastPlugins']>[number],
+  { name: string }
+>
 type HastPluginDefinition = NonNullable<SatteriProcessorOptions['hastPlugins']>[number]
 type MdastVisitor = NonNullable<MdastPluginDefinition['text']>
 type MdastVisitorContext = Parameters<MdastVisitor>[1]
