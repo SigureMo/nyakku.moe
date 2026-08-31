@@ -3,13 +3,11 @@ import type { Element, ElementContent, Nodes as HastNode } from 'hast'
 import katex from 'katex'
 import getReadingTime from 'reading-time'
 import type { Nodes as MdastNode } from 'mdast'
+import type { MdastPluginDefinition, MdastVisitorContext } from 'satteri'
 import { AdmonitionComponent, type AdmonitionType } from './rehype-component-admonition.ts'
 import { GithubCardComponent } from './rehype-component-github-card.ts'
 
-type MdastPluginDefinition = NonNullable<SatteriProcessorOptions['mdastPlugins']>[number]
 type HastPluginDefinition = NonNullable<SatteriProcessorOptions['hastPlugins']>[number]
-type MdastVisitor = NonNullable<MdastPluginDefinition['text']>
-type MdastVisitorContext = Parameters<MdastVisitor>[1]
 type ContainerDirectiveNode = Parameters<
   NonNullable<MdastPluginDefinition['containerDirective']>
 >[0]
