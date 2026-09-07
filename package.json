@@ -22,7 +22,7 @@
   "packageManager": "pnpm@12.3.4",
   "dependencies": {
     "@astrojs/check": "^0.9.6",
-    "@astrojs/markdown-satteri": "^0.3.3",
+    "@astrojs/markdown-satteri": "^0.4.0",
     "@astrojs/rss": "^4.0.14",
     "@astrojs/sitemap": "^3.6.0",
     "@astrojs/svelte": "9.0.1",
@@ -41,7 +41,7 @@
     "@swup/astro": "^1.7.0",
     "@tailwindcss/postcss": "^4.1.13",
     "@tailwindcss/typography": "^0.5.18",
-    "astro": "7.2.9",
+    "astro": "7.3.1",
     "astro-expressive-code": "^0.44.0",
     "astro-icon": "^1.1.5",
     "hastscript": "^9.0.1",
