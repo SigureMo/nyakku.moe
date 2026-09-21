@@ -60,7 +60,7 @@
     "typescript": "^7.0.0"
   },
   "devDependencies": {
-    "@astrojs/ts-plugin": "^1.10.11",
+    "@astrojs/ts-plugin": "^1.10.12",
     "@rollup/plugin-yaml": "^5.0.0",
     "@tailwindcss/vite": "^4.3.3",
     "@types/hast": "^3.0.5",
