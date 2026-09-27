@@ -39,5 +39,5 @@
 
 ## 我都做过什么？
 
-- [PaddlePaddle](https://github.com/PaddlePaddle/Paddle) 社区 Committer & 前训练框架 / 预训练 RD
+- [PaddlePaddle](https://github.com/PaddlePaddle/Paddle) 前开源社区 Committer & 前训练框架 / 预训练 RD
 - [yutto](https://github.com/yutto-dev/yutto) 一个可爱且任性的 B 站视频下载器
