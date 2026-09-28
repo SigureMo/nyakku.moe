@@ -306,8 +306,8 @@ importers:
         specifier: ^17.0.0
         version: 17.0.0(postcss@8.5.26)
       postcss-nesting:
-        specifier: ^14.0.1
-        version: 14.0.1(postcss@8.5.26)
+        specifier: ^14.0.2
+        version: 14.0.2(postcss@8.5.26)
       vite-plus:
         specifier: latest
         version: 1.0.0-rc.1(@types/node@25.9.2)(@vitest/ui@5.0.1)(esbuild@0.28.1)(jiti@2.7.0)(stylus@0.64.0(supports-color@7.2.0))(svelte@5.57.1)(terser@5.46.0)(typescript@7.0.2)(yaml@2.9.0)
@@ -1072,8 +1072,8 @@ packages:
   '@clack/prompts@1.1.0':
     resolution: {integrity: sha512-pkqbPGtohJAvm4Dphs2M8xE29ggupihHdy1x84HNojZuMtFsHiUlRvqD24tM2+XmI+61LlfNceM3Wr7U5QES5g==}
 
-  '@csstools/selector-resolve-nested@4.0.1':
-    resolution: {integrity: sha512-j3vdQu0XwLME5qOTWxm8cnmvsf423R2YL6DbKklCHZwkDm7UdKNu6RPlw4REIJhSlKBICY3B70/7QZdicLqZgg==}
+  '@csstools/selector-resolve-nested@4.0.2':
+    resolution: {integrity: sha512-JpjNBJFA+4OnAHKRK4AMp8xrYyLhI9XapOeBlP2PhRU/IylSw+1ep3BFNTksBJnrTS3KT6kqKNVfpzLLwZUW5Q==}
     engines: {node: '>=20.19.0'}
     peerDependencies:
       postcss-selector-parser: ^7.1.1
@@ -4689,8 +4689,8 @@ packages:
     peerDependencies:
       postcss: ^8.2.14
 
-  postcss-nesting@14.0.1:
-    resolution: {integrity: sha512-80MH7KcmMtb7ffSBX82uZwnogltubaXF0sagu+OGD8M9jViR3ngRgCdoTzKCvKEtllB0MW2U7Rgfcub5fR1Bug==}
+  postcss-nesting@14.0.2:
+    resolution: {integrity: sha512-nMaYODQw0AkF2bE1Zo3KWCOYF94MgvVB5ftnZnZ7Ve0z5W20QtMMjOf5nOBVsnisNxIC8Ky04Y7GPckp/I5KlQ==}
     engines: {node: '>=20.19.0'}
     peerDependencies:
       postcss: ^8.4
@@ -6825,7 +6825,7 @@ snapshots:
       '@clack/core': 1.1.0
       sisteransi: 1.0.5
 
-  '@csstools/selector-resolve-nested@4.0.1(postcss-selector-parser@7.1.4)':
+  '@csstools/selector-resolve-nested@4.0.2(postcss-selector-parser@7.1.4)':
     dependencies:
       postcss-selector-parser: 7.1.4
 
@@ -10236,9 +10236,9 @@ snapshots:
       postcss: 8.5.26
       postcss-selector-parser: 6.1.4
 
-  postcss-nesting@14.0.1(postcss@8.5.26):
+  postcss-nesting@14.0.2(postcss@8.5.26):
     dependencies:
-      '@csstools/selector-resolve-nested': 4.0.1(postcss-selector-parser@7.1.4)
+      '@csstools/selector-resolve-nested': 4.0.2(postcss-selector-parser@7.1.4)
       '@csstools/selector-specificity': 6.0.0(postcss-selector-parser@7.1.4)
       postcss: 8.5.26
       postcss-selector-parser: 7.1.4
