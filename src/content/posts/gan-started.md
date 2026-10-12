@@ -213,7 +213,7 @@ $$
 G^* = arg\min\limits_G\max\limits_D V(G, D)
 $$
 
-也就是说，在每个 G 中，我们先找到 V(G, D) 的最大值 $V(G_i, D^*)$，然后从这些 G 中挑选出使得各自 $V(G_i, D^*)$最小的 $G^*$
+也就是说，在每个 G 中，我们先找到 V(G, D) 的最大值 $V(G_i, D^{\ast})$，然后从这些 G 中挑选出使得各自 $V(G_i, D^{\ast})$最小的 $G^*$
 
 ![GAN-Theory-02](../../assets/img/gan-started/GAN-Theory-02.png)
 
