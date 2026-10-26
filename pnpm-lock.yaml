@@ -282,8 +282,8 @@ importers:
         specifier: ^1.10.12
         version: 1.10.12(typescript@7.0.2)
       '@rollup/plugin-yaml':
-        specifier: ^5.0.0
-        version: 5.0.0(rollup@2.79.2)
+        specifier: ^5.0.1
+        version: 5.0.1(rollup@2.79.2)
       '@tailwindcss/vite':
         specifier: ^4.3.3
         version: 4.3.3(vite@8.3.4(@types/node@25.9.2)(esbuild@0.28.1)(jiti@2.7.0)(stylus@0.64.0(supports-color@7.2.0))(terser@5.46.0)(yaml@2.9.0))
@@ -2042,8 +2042,8 @@ packages:
     peerDependencies:
       rollup: ^1.20.0||^2.0.0
 
-  '@rollup/plugin-yaml@5.0.0':
-    resolution: {integrity: sha512-9XOiRGYJjDwmEwR15kuxw+RytZFKtEWshoXuITrtS6+57BVMQMzDfhmSO/xfQOAY5psQv1IrxhQTUqPNppe4lQ==}
+  '@rollup/plugin-yaml@5.0.1':
+    resolution: {integrity: sha512-oslHUtWi3Zepyx0IiZ3BBwc4PI1B1PUbkpBom+0w91UHuY0EVUIrGkrHfwW1reHzVOsTtkGj5z/Dx7jhguzP2g==}
     engines: {node: '>=14.0.0'}
     peerDependencies:
       rollup: ^2.78.0||^3.0.0||^4.0.0
@@ -4489,10 +4489,6 @@ packages:
   picomatch@2.3.2:
     resolution: {integrity: sha512-V7+vQEJ06Z+c5tSye8S+nHUfI51xoXIXjHQ99cQtKUkQqqO1kO/KCJUfZXuB47h/YBlDhah2H3hdUGXn8ie0oA==}
     engines: {node: '>=8.6'}
-
-  picomatch@4.0.4:
-    resolution: {integrity: sha512-QP88BAKvMam/3NxH6vj2o21R6MjxZUAd6nlwAS/pnGvN9IVLocLHxGYIzFhg6fUQ+5th6P4dv4eW9jX3DSIj7A==}
-    engines: {node: '>=12'}
 
   picomatch@4.0.5:
     resolution: {integrity: sha512-RvwwcruNjI1ncT5xRakeyS9Lf8lcItv34KD+aif+VH9kduAyfYBipGh12274xtenIPZ119/R9BdTBa8gAwSh0A==}
@@ -7483,7 +7479,7 @@ snapshots:
       resolve: 1.22.11
       rollup: 2.79.2
 
-  '@rollup/plugin-yaml@5.0.0(rollup@2.79.2)':
+  '@rollup/plugin-yaml@5.0.1(rollup@2.79.2)':
     dependencies:
       '@rollup/pluginutils': 5.3.0(rollup@2.79.2)
       js-yaml: 4.1.1
@@ -7507,7 +7503,7 @@ snapshots:
     dependencies:
       '@types/estree': 1.0.9
       estree-walker: 2.0.2
-      picomatch: 4.0.4
+      picomatch: 4.0.7
     optionalDependencies:
       rollup: 2.79.2
 
@@ -10027,8 +10023,6 @@ snapshots:
   picocolors@1.1.1: {}
 
   picomatch@2.3.2: {}
-
-  picomatch@4.0.4: {}
 
   picomatch@4.0.5: {}
 

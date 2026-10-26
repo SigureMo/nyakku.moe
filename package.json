@@ -61,7 +61,7 @@
   },
   "devDependencies": {
     "@astrojs/ts-plugin": "^1.10.12",
-    "@rollup/plugin-yaml": "^5.0.0",
+    "@rollup/plugin-yaml": "^5.0.1",
     "@tailwindcss/vite": "^4.3.3",
     "@types/hast": "^3.0.5",
     "@types/markdown-it": "^14.2.0",
