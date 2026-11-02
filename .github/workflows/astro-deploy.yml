@@ -20,7 +20,7 @@ jobs:
 
       - uses: voidzero-dev/setup-vp@v1
         with:
-          node-version: '24'
+          node-version: '26'
           cache: true
 
       - name: Install dependencies
